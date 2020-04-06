@@ -1,8 +1,39 @@
+#Start of dwains-theme necessary code#
 homeassistant:
-  customize: !include customize.yaml
+  # If you want to customize entries with friendly_name or custom icon.
+  # Read more here: https://www.home-assistant.io/docs/configuration/customizing-devices/
+  # Uncomment line below and create file customize.yaml or edit it
+  # customize: !include customize.yaml
+
+  # Below entry links to the packages folder required for Dwains Theme
+  packages: !include_dir_named packages/ # Comment this whole line if you want to disable Dwains Theme
+
+  # If you had any important strings before in homeassistant: place them back here below
+  # 
+#End of dwains-theme necessary code#
 
 # Default config to bring in standard component set
-default_config:
+automation: !include automations.yaml
+cloud:
+config:
+history:
+logbook:
+map:
+mobile_app:
+person:
+script: !include scripts.yaml
+sensor: !include sensors.yaml
+ssdp:
+sun:
+system_health:
+updater:
+zeroconf:
+zone:
+input_boolean: !include input_boolean.yaml
+input_datetime:
+input_text:
+input_number:
+input_select: !include input_selects.yaml
 
 # Http config
 http:
@@ -39,9 +70,6 @@ google:
   client_id: !secret google_clientid
   client_secret: !secret google_client_secret
 
-# System health
-system_health:
-
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
 
@@ -74,18 +102,6 @@ notify:
     name: pushbullet
   - platform: alexa_media
     name: alexa_media
-
-# Input selects
-input_select: !include input_selects.yaml
-
-# Automation
-automation: !include automations.yaml
-
-# Scripts
-script: !include scripts.yaml
-
-# Sensor
-sensor: !include sensors.yaml
 
 # Timers
 timer: !include timers.yaml
