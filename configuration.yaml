@@ -1,0 +1,235 @@
+homeassistant:
+  customize: !include customize.yaml
+
+# Default config to bring in standard component set
+default_config:
+
+# Http config
+http:
+  base_url: https://home.andisoft.co.uk
+  
+# History
+recorder:
+  purge_keep_days: 45
+
+# Discover some devices automatically
+discovery:
+
+# Alexa media
+alexa_media:
+  accounts:
+    - email: !secret amazon_user
+      password: !secret amazon_password
+      url: amazon.co.uk
+
+# Spotify
+spotify:
+  client_id: !secret spotify_clientid
+  client_secret: !secret spotify_secret
+
+# Media players
+media_player:
+  - platform: squeezebox
+    host: 192.168.1.86
+  - platform: squeezebox
+    host: 192.168.1.120
+
+# Google Calendar
+google:
+  client_id: !secret google_clientid
+  client_secret: !secret google_client_secret
+
+# System health
+system_health:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Side bar configuration
+panel_iframe:
+  tasmota:
+    title: 'TasmoAdmin'
+    icon: mdi:lightbulb
+    url: 'https://tasmota.andisoft.co.uk'
+  squeezbox:
+    title: 'SqueezeBox'
+    icon: mdi:music
+    url: 'https://squeezebox.andisoft.co.uk'
+  brewblox:
+    title: 'BrewBlox'
+    icon: mdi:beer
+    url: 'https://brewery.northsouthbrewing.co.uk'
+
+#Weather
+weather:
+  - platform: darksky
+    api_key: 82c93da6430dbe755461f4e4a9c20e3e
+    name: stockport
+    mode: daily
+
+# Notifications
+notify:
+  - platform: pushbullet
+    api_key: !secret pushbullet_secret
+    name: pushbullet
+  - platform: alexa_media
+    name: alexa_media
+
+# Input selects
+input_select: !include input_selects.yaml
+
+# Automation
+automation: !include automations.yaml
+
+# Scripts
+script: !include scripts.yaml
+
+# Sensor
+sensor: !include sensors.yaml
+
+# Timers
+timer: !include timers.yaml
+
+# Camera
+stream:
+
+camera:
+  - platform: generic
+    name: patio
+    username: admin
+    password: 6570A5E020C2DD1BCDF12A9114903D63
+    still_image_url: http://194.168.1.89/cgi-bin/snapshot.cgi?loginuse=admin&loginpas=6570A5E020C2DD1BCDF12A9114903D63
+    stream_source: rtsp://192.168.1.89:554/stream0?username=admin&password=6570A5E020C2DD1BCDF12A9114903D63
+
+# MySensors 
+mysensors:
+  gateways:
+    - device: '/dev/ttyUSB0'
+      persistence_file: '/config/mysensors.json'
+      baud_rate: 115200
+  optimistic: false
+  persistence: true
+  retain: true
+  version: '2.3'
+
+# Alarm control panel
+alarm_control_panel:
+  - platform: manual
+    name: Alarm
+    code: 2705
+    trigger_time: 300
+    disarmed:
+      trigger_time: 0
+    armed_home:
+      pending_time: 0
+      delay_time: 0
+    armed_away:
+      pending_time: 60
+      delay_time: 30
+    triggered:
+      pending_time: 0
+
+# Lights
+light:
+  - platform: switch
+    name: Back Door Light
+    entity_id: switch.100032907e_1
+  - platform: switch
+    name: Patio Light
+    entity_id: switch.100032907e_2
+  - platform: switch
+    name: Porch Light
+    entity_id: switch.100032907e_3
+  - platform: switch
+    name: Cellar Door Light
+    entity_id: switch.100032907e_4
+  - platform: switch
+    name: Toilet Light
+    entity_id: switch.100032bd73_1
+  - platform: switch
+    name: Utility Light
+    entity_id: switch.100032bd73_2
+  - platform: switch
+    name: Basement Hall Light
+    entity_id: switch.100032bd73_3
+  - platform: switch
+    name: Brewery Light
+    entity_id: switch.100032bd73_4
+  - platform: switch
+    name: Dining Room Light
+    entity_id: switch.100032a00d_1
+  - platform: switch
+    name: Snug Light
+    entity_id: switch.100032a00d_2
+  - platform: switch
+    name: Spare BL5
+    entity_id: switch.100032a00d_3
+  - platform: switch
+    name: Spare BL6
+    entity_id: switch.100032a00d_4
+  - platform: group
+    name: Yeelights
+    entities:
+      - light.yeelight_color1_7c49eb12a895
+      - light.yeelight_color1_04cf8caff0a4
+      - light.yeelight_color1_7c49eb139475
+      - light.yeelight_color1_04cf8caff23d
+      - light.yeelight_color1_7c49eb138ddc
+  - platform: group
+    name: Inside
+    entities:
+      - light.100032bd73_1
+      - light.100032bd73_2
+      - light.100032bd73_3
+      - light.100032bd73_4
+      - light.100032a00d_1
+      - light.100032a00d_2
+      - light.yeelight_color1_7c49eb12a895
+      - light.yeelight_color1_04cf8caff0a4
+      - light.yeelight_color1_7c49eb139475
+      - light.yeelight_color1_04cf8caff23d
+      - light.yeelight_color1_7c49eb138ddc
+
+circadian_lighting:
+
+switch:
+  - platform: circadian_lighting
+    lights_ct:
+      - light.kitchen_lamp
+      - light.drawing_room_lamp
+      - light.lounge_lamp
+      - light.bedroom_lamp
+      - light.cellar_stairs
+      - light.snug_lamp
+
+binary_sensor:
+  - platform: mqtt
+    name: "Patio Motion"
+    state_topic: "cameras/patio/motion"
+    payload_on: "ON"
+    payload_off: "OFF"
+    device_class: "motion"
+
+sonoff:
+  username: !secret sonoff_username
+  password: !secret sonoff_password
+  scan_interval: 60
+  grace_period: 600
+  api_region: 'eu'
+  entity_prefix: False
+  debug: True
+
+speedtestdotnet:
+  scan_interval:
+    minutes: 5
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+
+withings:
+  client_id: !secret withings_clientid
+  client_secret: !secret withings_secret
+  profiles:
+    - Andy
+    - Claire

@@ -1,0 +1,40 @@
+gr1:
+  name: basement humidity
+  entities: 
+    - sensor.basement_thermostat_humidity
+  hours_to_show: 168
+  
+gr2:
+  name: downstairs humidity
+  entities: 
+    - sensor.downstairs_thermostat_humidity
+    - sensor.lounge_humidity
+  hours_to_show: 168
+  
+gr3:
+  name: upstairs humidity
+  entities: 
+    - sensor.upstairs_thermostat_humidity
+  hours_to_show: 168
+  
+gr4:
+  name: basement temperature
+  entities: 
+    - sensor.basement_thermostat_temperature
+    - sensor.basement_thermostat_target
+  hours_to_show: 168
+  
+gr5:
+  name: downstairs temperature
+  entities: 
+    - sensor.downstairs_thermostat_temperature
+    - sensor.downstairs_thermostat_target
+    - sensor.lounge_temperature
+  hours_to_show: 168
+  
+gr6:
+  name: upstairs temperature
+  entities: 
+    - sensor.upstairs_thermostat_temperature
+    - sensor.upstairs_thermostat_target
+  hours_to_show: 168

@@ -1,0 +1,100 @@
+set_currenttheme:
+  alias: Set Current Theme
+  sequence:
+  - service: frontend.set_theme
+    data_template:
+      name: '{{states.input_select.current_theme.state}}'
+
+feed_cats:
+  alias: Feed Cats
+  sequence:
+  - service: notify.pushbullet
+    data:
+      title: 'Feeding started'
+      message: "Feeding the cats."
+      target: ["device/AndyPhone","email/mcinnes01@gmail.com"]
+      data:
+        file_url: https://image.freepik.com/free-vector/black-cat-silhouette_23-2147493570.jpg
+  - service: homeassistant.turn_on
+    entity_id: light.dimmable_light_1_1
+  - delay: '00:01:26'
+  - service: homeassistant.turn_off
+    entity_id: light.dimmable_light_1_1
+  - service: notify.pushbullet
+    data: 
+      title: 'Feeding finished'
+      message: "Finished feeding the cats."
+      target: ["device/AndyPhone","email/mcinnes01@gmail.com"]
+      data:
+        file_url: https://image.freepik.com/free-vector/black-cat-silhouette_23-2147493570.jpg
+
+light_effect_continuous:
+  alias: Light Effect Continuous
+  sequence: 
+  - service: light.turn_on
+    data_template:
+      entity_id: "{{entity}}"
+  - delay: '00:00:02'
+  - service: light.turn_on
+    data_template:
+      entity_id: "{{entity}}"
+      effect: "{{effect}}"
+
+light_effect_timed:
+  alias: Light Effect Timed
+  sequence: 
+  - service: light.turn_on
+    data_template:
+      entity_id: "{{entity}}"
+  - delay: '00:00:02'
+  - service: light.turn_on
+    data_template:
+      entity_id: "{{entity}}"
+      effect: "{{effect}}"
+  - delay: '00:00:{{ delay_secs | int }}'
+  - service: light.turn_on
+    data_template:
+      entity_id: "{{entity}}"
+      effect: Stop
+  - delay: '00:00:02'
+  - service: light.turn_off
+    data_template:
+      entity_id: "{{entity}}"
+
+notify_alexa_everywhere:
+  alias: Notify Alexa Everywhere
+  sequence:
+  - service: notify.alexa_media
+    data:
+      title: "{{title}}"
+      message: "{{message}}"
+      target: 
+        - media_player.everywhere
+      data:
+        type: announce
+
+notify_pushbullet:
+  alias: Notify Pushbullet
+  sequence:
+  - service: notify.pushbullet
+    data:
+      title: "{{title}}"
+      message: "{{message}}"
+      data:
+        file_url: "{{picture_url}}"
+      target:
+      - email/mcinnes01@gmail.com
+      - device/AndyPhone
+
+notify_all:
+  alias: Notify All
+  sequence:
+  - service: script.notify_alexa_everywhere
+    data_template:
+      title: "{{title}}"
+      message: "{{message}}"
+  - service: script.pushbullet
+    data_template:
+      title: "{{title}}"
+      message: "{{message}}"
+      picture_url: "{{picture_url}}"

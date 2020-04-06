@@ -1,0 +1,444 @@
+- alias: Switch HA Template
+  id: switch_hass_template
+  trigger:
+  - platform: state
+    entity_id: input_select.hass_template
+  - platform: homeassistant
+    event: start
+  action:
+  - service: frontend.set_theme
+    data_template:
+      name: '{{ states.input_select.hass_template.state }}'
+- alias: Day to night theme
+  id: day_to_night_theme
+  trigger:
+  - entity_id: sun.sun
+    from: above_horizon
+    platform: state
+    to: below_horizon
+  action:
+  - data:
+      entity_id: input_select.hass_template
+      option: night_theme
+    service: script.set_currenttheme
+- alias: Night to day theme
+  id: night_to_day_theme
+  trigger:
+  - platform: state
+    entity_id: sun.sun
+    from: below_horizon
+    to: above_horizon
+  action:
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.hass_template
+      option: default
+- alias: Update notifications
+  id: notify_homeassistant_update
+  trigger:
+  - entity_id: updater.updater
+    platform: state
+  action:
+  - service: notify.pushbullet
+    data:
+      title: New Home Assistant Release
+      message: Home Assistant  {{ states.updater.updater.state }}  is now available.
+      target:
+      - email/mcinnes01@gmail.com
+      - device/AndyPhone
+- alias: Doorbell Notifications
+  id: doorbell_trigger
+  trigger:
+    platform: state
+    entity_id: binary_sensor.doorbell_button
+    to: 'on'
+  action:
+  - service: notify.pushbullet
+    data:
+      title: Doorbell
+      message: Ding dong! Someone is at the door!
+      data:
+        file_url: http://tiptag.com.ar/wp-content/uploads/2018/06/timbre1.jpg
+      target:
+      - email/mcinnes01@gmail.com
+      - device/AndyPhone
+  - service: notify.alexa_media
+    data:
+      title: Doorbell
+      message: Ding dong! Someone is at the door!
+      target:
+      - media_player.everywhere
+      data:
+        type: announce
+- id: alarm_trigger
+  alias: Trigger alarm while armed away
+  trigger:
+  - device_id: f918e214648f4e25848333fcea985dfe
+    domain: binary_sensor
+    entity_id: binary_sensor.snug_motion
+    platform: device
+    type: motion
+  - device_id: f918e214648f4e25848333fcea985dfe
+    domain: binary_sensor
+    entity_id: binary_sensor.dining_room_motion
+    platform: device
+    type: motion
+  - device_id: f918e214648f4e25848333fcea985dfe
+    domain: binary_sensor
+    entity_id: binary_sensor.utility_motion
+    platform: device
+    type: motion
+  - device_id: f918e214648f4e25848333fcea985dfe
+    domain: binary_sensor
+    entity_id: binary_sensor.cellar_door
+    platform: device
+    type: opened
+  condition:
+  - condition: state
+    entity_id: alarm_control_panel.alarm
+    state: armed_away
+  action:
+  - data: {}
+    entity_id: alarm_control_panel.alarm
+    service: alarm_control_panel.alarm_trigger
+- alias: Send notification when alarm triggered
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.alarm
+    to: triggered
+  action:
+  - data:
+      title: Alarm Triggered
+      message: ALARM! The alarm has been triggered
+      data:
+        file_url: https://media.istockphoto.com/vectors/vector-fire-alarm-vector-id610426096?k=6&m=610426096&s=612x612&w=0&h=IIjBibeAUNdoq7XS4-esMGyxxw_xFkb07zbwKcwNB-I=
+      target:
+      - email/mcinnes01@gmail.com
+      - device/AndyPhone
+    service: notify.pushbullet
+  - data:
+      title: Alarm Triggered
+      message: The alarm has been triggered. The alarm has been triggered.
+        The alarm has been triggered. The alarm has been triggered.
+        The alarm has been triggered.
+      target:
+      - media_player.everywhere
+      data:
+        type: announce
+    service: notify.alexa_media
+- alias: Turn On Ex Machina lights when alarm triggered
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.alarm
+    to: triggered
+  action:
+  - data: {}
+    entity_id: light.inside
+    service: light.turn_off
+  - data:
+      brightness_pct: 100
+      effect: Alarm
+    entity_id: light.yeelights
+    service: light.turn_on
+  id: 71bcd308a0bc484793b7d78e8ec8e69d
+- alias: Send notification when alarm is Disarmed
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.alarm
+    to: disarmed
+  action:
+  - data:
+      type: announce
+    service: notify.alexa_media
+    data_template:
+      title: Alarm disarmed
+      message: ALARM! The alarm is Disarmed at {{ states('sensor.date_time') }}
+      target:
+      - media_player.everywhere
+- alias: Turn Off Ex Machina lights when alarm disarmed
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.alarm
+    to: disarmed
+  action:
+  - data:
+      effect: Stop
+    entity_id: light.yeelights
+    service: light.turn_on
+  - data: {}
+    entity_id: light.yeelights
+    service: light.turn_off
+  id: 71bcd308a0bc484793b7d78e8ec8e69f
+- alias: Send notification when alarm is arming
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.alarm
+    from: disarmed
+    to: pending
+  action:
+  - service: notify.alexa_media
+    data_template:
+      title: Alarm arming
+      message: The alarm is arming you have 60 seconds to leave
+      target:
+      - media_player.everywhere
+      data:
+        type: announce
+  id: a71c90774150444f9237ba14769e935a
+- alias: Send notification when alarm is pending
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.alarm
+    from: armed
+    to: pending
+  action:
+  - service: notify.alexa_media
+    data_template:
+      title: Alarm pending
+      message: You have 30 seconds to disable the alarm
+      target:
+      - media_player.everywhere
+      data:
+        type: announce
+  id: df6ae52914e648ec8d170fc4e508c29e
+- alias: Send notification when alarm is Armed in Away mode
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.alarm
+    to: armed_away
+  action:
+  - service: notify.alexa_media
+    data_template:
+      title: Alarm armed in away mode
+      message: The alarm is armed in Away mode
+      target:
+      - media_player.everywhere
+      data:
+        type: announce
+  id: e430701364844f3da246e6f2db218214
+- alias: Send notification when alarm is Armed in Home mode
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.alarm
+    to: armed_home
+  action:
+  - service: notify.alexa_media
+    data_template:
+      title: Alarm armed in home mode
+      message: The alarm is armed in Home mode
+      target:
+      - media_player.everywhere
+      data:
+        type: announce
+  id: b762a0f5608845a2800b4b408924d844
+- alias: Patio Motion
+  id: '1560465284215'
+  trigger:
+  - platform: webhook
+    webhook_id: ''
+  condition: []
+  action: []
+- alias: Evening feed
+  id: '1566893522713'
+  trigger:
+  - at: '17:00'
+    platform: time
+  condition: []
+  action:
+  - service: script.feed_cats
+- alias: Morning Feed
+  id: '1566993898921'
+  trigger:
+  - at: 07:00
+    platform: time
+  condition: []
+  action:
+  - service: script.feed_cats
+- id: '1579518320766'
+  alias: Turn On Porch Light when Sun is set
+  description: ''
+  trigger:
+  - event: sunset
+    platform: sun
+  condition: []
+  action:
+  - entity_id: light.porch_light
+    service: light.turn_on
+- id: '1579518409890'
+  alias: Turn Off Porch Light at 11pm
+  description: ''
+  trigger:
+  - at: '23:00:00'
+    platform: time
+  condition: []
+  action:
+  - entity_id: light.porch_light
+    service: light.turn_off
+- id: '1579590597721'
+  alias: Turn Off Back Door Light when no motion
+  trigger:
+  - event_data:
+      entity_id: timer.patio
+    event_type: timer.finished
+    platform: event
+  action:
+  - data:
+      entity_id: light.back_door_light
+    service: light.turn_off
+- id: '1579590785318'
+  alias: Turn on back door light when there is movement and the sun is set
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.patio_motion
+    platform: state
+    to: 'on'
+  condition:
+  - condition: or
+    conditions:
+    - after: sunset
+      condition: sun
+    - before: sunrise
+      condition: sun
+  action:
+  - data:
+      entity_id: light.back_door_light
+    service: light.turn_on
+  - data:
+      entity_id: timer.patio
+    service: timer.cancel
+  - data:
+      duration: 00:02:00
+      entity_id: timer.patio
+    service: timer.start
+- id: '1585168264303'
+  alias: Welcome Claire Home
+  description: ''
+  trigger: []
+  condition:
+  - condition: device
+    device_id: 8a4eec7076b74868b1bd7f134f8b4fa2
+    domain: device_tracker
+    entity_id: device_tracker.claires_iphone
+    type: is_home
+  action:
+  - service: notify.alexa_media
+    data_template:
+      title: Welcome home Claire
+      message: Welcome home Claire
+      target:
+      - media_player.everywhere
+      data:
+        type: announce
+- id: '1585417563602'
+  alias: Turn On Snug Light when motion detected
+  description: ''
+  trigger:
+  - device_id: f918e214648f4e25848333fcea985dfe
+    domain: binary_sensor
+    entity_id: binary_sensor.snug_motion
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 0
+    platform: device
+    type: motion
+  condition: []
+  action:
+  - data: {}
+    entity_id: light.snug_light
+    service: light.turn_on
+  - data:
+      entity_id: timer.snug
+    service: timer.cancel
+  - data:
+      duration: 00:02:00
+      entity_id: timer.snug
+    service: timer.start
+- id: '1585418369242'
+  alias: Turn Off Snug Light when there is no motion
+  description: ''
+  trigger:
+  - event_data:
+      entity_id: timer.snug
+    event_type: timer.finished
+    platform: event
+  action:
+  - data: {}
+    entity_id: light.snug_light
+    service: light.turn_off
+- id: '1585495667956'
+  alias: Turn Off Dining Room Light when there is no motion
+  description: ''
+  trigger:
+  - event_data:
+      entity_id: timer.dining_room
+    event_type: timer.finished
+    platform: event
+  condition: []
+  action:
+  - data: {}
+    entity_id: light.dining_room_light
+    service: light.turn_off
+- id: '1585495887855'
+  alias: Turn Off Utility Light when there is no motion
+  description: ''
+  trigger:
+  - event_data:
+      entity_id: timer.utility
+    event_type: timer.finished
+    platform: event
+  condition: []
+  action:
+  - data: {}
+    entity_id: light.utility_light
+    service: light.turn_off
+- id: '1585498703721'
+  alias: Turn On Utility Light when motion detected
+  description: ''
+  trigger:
+  - device_id: f918e214648f4e25848333fcea985dfe
+    domain: binary_sensor
+    entity_id: binary_sensor.utility_motion
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 0
+    platform: device
+    type: motion
+  condition: []
+  action:
+  - data: {}
+    entity_id: light.utility_light
+    service: light.turn_on
+  - data:
+      entity_id: timer.utility
+    service: timer.cancel
+  - data:
+      duration: 00:02:00
+      entity_id: timer.utility
+    service: timer.start
+- id: '1585498745227'
+  alias: Turn On Dining Room Light when motion detected
+  description: ''
+  trigger:
+  - device_id: f918e214648f4e25848333fcea985dfe
+    domain: binary_sensor
+    entity_id: binary_sensor.dining_room_motion
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 0
+    platform: device
+    type: motion
+  condition: []
+  action:
+  - data: {}
+    entity_id: light.dining_room_light
+    service: light.turn_on
+  - data:
+      entity_id: timer.dining_room
+    service: timer.cancel
+  - data:
+      duration: 00:02:00
+      entity_id: timer.dining_room
+    service: timer.start

@@ -1,0 +1,29 @@
+esphome:
+  name: ble_node_1
+  platform: ESP32
+  board: esp32dev
+
+wifi:
+  ssid: "Home.Local.Wireless"
+  password: "J3llyt0ts"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Ble Node 1 Fallback Hotspot"
+    password: "qQg3TTMIWkfX"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  password: "J$llyt0ts"
+
+ota:
+  password: "J$llyt0ts"
+
+esp32_ble_beacon:
+  type: iBeacon
+  uuid: 'c29ce823-e67a-4e71-bff2-abaa32e77a98'

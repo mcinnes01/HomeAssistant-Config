@@ -1,0 +1,117 @@
+esphome:
+  name: cat_feeder
+  platform: ESP8266
+  board: esp12e
+
+wifi:
+  ssid: "Home.Local.Wireless"
+  password: "J3llyt0ts"
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  password: "J$llyt0ts"
+
+ota:
+  password: "J$llyt0ts"
+
+# Enable Web server.
+web_server:
+  port: 80
+
+# Sync time with Home Assistant.
+time:
+  - platform: homeassistant
+    id: homeassistant_time
+
+# Text sensors with general information.
+text_sensor:
+  # Expose ESPHome version as sensor.
+  - platform: version
+    name: Cat Feeder ESPHome Version
+  # Expose WiFi information as sensors.
+  - platform: wifi_info
+    ip_address:
+      name: Cat Feeder IP
+    ssid:
+      name: Cat Feeder SSID
+    bssid:
+      name: Cat Feeder BSSID
+
+# Sensors with general information.
+sensor:
+  # Uptime sensor.
+  - platform: uptime
+    name: Cat Feeder Uptime
+
+  # WiFi Signal sensor.
+  - platform: wifi_signal
+    name: Cat Feeder WiFi Signal
+    update_interval: 60s
+
+# Global to store the on/off state of the vibrate
+globals:
+  - id: vibrate
+    type: bool
+    restore_value: true
+    initial_value: 'true'
+
+# Exposed switches.
+switch:
+  # Switch to restart the cat feeder.
+  - platform: restart
+    name: Cat Feeder Restart
+
+  # Switch to turn on/off the vibrate.
+  - platform: gpio
+    id: relay
+    inverted: true
+    name: Cat Feeder Vibrate
+    pin: GPIO0
+
+  # Switch to turn on/off vibrate
+  #
+  # It creates a "virtual" switch based
+  # on a global variable.
+  - platform: template
+    name: Cat Feeder Vibrate Active
+    id: vibrate_active
+    restore_state: false
+    turn_on_action:
+      - globals.set:
+          id: vibrate
+          value: 'true'
+    turn_off_action:
+      - globals.set:
+          id: vibrate
+          value: 'false'
+    lambda: |-
+      return id(vibrate);
+# Binary sensor representing the
+# On button.
+binary_sensor:
+  - platform: gpio
+    id: button
+    name: Cat Feeder Button
+    pin:
+      # Connected to GPIO on the ESP-01S.
+      number: GPIO1
+      mode: INPUT_PULLUP
+      inverted: true
+    filters:
+      # Small filter, to debounce the button press.
+      - delayed_on: 25ms
+      - delayed_off: 25ms
+    on_press:
+      # Only turn on the vibrate when it is active.
+      then:
+        if:
+          condition:
+            - switch.is_on: vibrate_active
+          then:
+            - switch.turn_on: relay
+    on_release:
+      # On release, turn of the vibrate.
+      - switch.turn_off: relay
