@@ -1,46 +1,83 @@
 # https://dwainscheeren.github.io/lovelace-dwains-theme/configuration/rooms.html
 
-# rooms:
-#   - name: Hallway
-#     icon: fas:key
-#     light: light.hallway
-#     temperature: sensor.hallway_temperature
-#     climate: climate.hallway_climate
-#     humidity: sensor.halway_humidity
-#     motion: binary_sensor.hallway_sensor_motion
-#     door: binary_sensor.hallway_door_contact
-#     window: binary_sensor.hallway_window_contact
-#     vacuum: 
-#       entity: vacuum.rockrobo
-#       camera: camera.rockrobo_map
-#     plant: plant.hallway_plant
-#     media_player: media_player.awesome_hallway_tv
-#     more_entities:
-#       entities:
-#         - entity: sensor.hallway_motion_battery_level
-#         - entity: sensor.smokedetector_battery
-#   - name: Garage
-#     icon: fas:garage
-#     light: group.garage_lights
-#     door: group.garage_doors
-#     addons:
-#       - name: Hello room
-#         icon: fas:puzzle-piece
-#         path: 'dwains-theme/addons/rooms/hello-room/page.yaml'
-#         button_path: 'dwains-theme/addons/rooms/hello-room/button.yaml'
-#         data:
-#           some_data: 'This is some data parsed.'
-#           some_other_data: 'and some other data.'
-#           entity: vacuum.roborock
-#   - name: Bedroom
-#     icon: fal:bed
-#     more_entities:
-#       columns: 2 #optional
-#       entities:
-#         - entity: sensor.name1
-#         - entity: sensor.name2
-#     page_entities:
-#       columns: 1 #optional
-#       entities:
-#         - entity: sensor.name1
-#         - entity: sensor.name2
+rooms:
+  - name: Porch
+    icon: fas:concierge-bell
+    light: light.porch_light
+    addons:
+      - name: Doorbell
+        icon: fas:bell
+        path: 'dwains-theme/addons/rooms/hello-room/page.yaml'
+        button_path: 'dwains-theme/addons/rooms/hello-room/button.yaml'
+        data:
+          some_data: 'This is some data parsed.'
+          some_other_data: 'and some other data.'
+          entity: binary_sensor.doorbell_button
+  - name: Hallway
+    icon: fas:grip-lines-vertical
+    media_player: media_player.hall_tablet_s_alexa_apps
+  - name: Lounge
+    icon: fas:couch
+    light: light.yeelight_color1_7c49eb139475
+    media_player: media_player.lounge_echo_plus
+    climate: climate.downstairs
+  - name: Drawing Room
+    icon: fas:fireplace
+    media_player: media_player.drawing_room_echo_dot
+    # motion: binary_sensor.hallway_sensor_motion
+  - name: Kitchen
+    icon: fas:mug-hot
+    light: light.yeelight_color1_7c49eb12a895
+    media_player: media_player.kitchen_echo_show
+    # motion: binary_sensor.hallway_sensor_motion
+  - name: Patio
+    icon: fas:tree
+    light: light.patio_light
+    media_player: media_player.kitchen_echo_show
+    motion: binary_sensor.patio_motion
+  - name: Studio
+    icon: fas:headphones
+  - name: Bathroom
+    icon: fas:bath
+  - name: Middle Bedroom
+    icon: fas:bed
+    light: light.yeelight_color1_04cf8caff23d
+    media_player: media_player.bedroom_echo_spot
+    climate: climate.upstairs
+  - name: Front Bedroom
+    icon: fas:bed
+  - name: Dressing Room
+    icon: fas:tshirt
+    media_player: media_player.dressing_room_echo_dot
+  - name: Landing
+    icon: mdi:stairs-up
+    media_player: media_player.landing_tablet_s_alexa_apps
+  - name: Basement Hall
+    icon: mdi:stairs-down
+    light: light.basement_hall_light
+    motion: binary_sensor.patio_motion
+    media_player: media_player.lounge_echo_plus
+  - name: Electric Cabinet
+    icon: fas:bolt
+    light: light.basement_hall_light
+  - name: Snug
+    icon: fas:film
+    light: light.snug_light
+    motion: binary_sensor.snug_motion
+    media_player: media_player.snug_echo_input
+  - name: Dining Room
+    icon: fas:utensils
+    light: light.dining_room_light
+    motion: binary_sensor.dining_room_motion
+    media_player: media_player.dining_room_echo_input
+  - name: Toliet
+    icon: fas:toilet
+    light: light.toilet_light
+  - name: Utility Room
+    icon: mdi:washing-machine
+    light: light.utility_light
+    motion: binary_sensor.utility_motion
+    media_player: media_player.utility_room_echo_dot
+  - name: Brewery
+    icon: fas:beer
+    light: light.brewery_light
