@@ -1,14 +1,20 @@
 snug:
   duration: '00:02:00'
 basement_hall:
-  duration: '00:02:00'
+  duration: '00:01:00'
 dining_room:
   duration: '00:02:00'
 utility:
-  duration: '00:02:00'
+  duration: '00:01:00'
 toilet:
-  duration: '00:02:00'
+  duration: '00:01:00'
 brewery:
   duration: '00:02:00'
 patio:
+  duration: '00:02:00'
+lounge:
+  duration: '00:02:00'
+drawing_room:
+  duration: '00:02:00'
+kitchen:
   duration: '00:02:00'

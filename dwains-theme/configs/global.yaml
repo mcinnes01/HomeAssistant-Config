@@ -10,6 +10,8 @@
 
 global:
   language: en
-  weather: weather.stockport # Configure a weather entity!
-  alarm: alarm_control_panel.ha_alarm #Alarm panel entity
+  outside_temperature: sensor.garden_temperature
+  outside_humidity: sensor.garden_relative_humidity
   inside_temperature: climate.downstairs #Can be climate. or sensor. entity
+  weather: weather.stockport # Configure a weather entity!
+  alarm: alarm_control_panel.alarm #Alarm panel entity

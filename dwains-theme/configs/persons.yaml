@@ -14,3 +14,25 @@
 #       entities:
 #         - entity: sensor.steps
 #         - entity: sensor.steps
+
+persons:
+  - name: Andy
+    track: person.andy
+    picture_path: 'images/persons/andy.jpg'
+    addons:
+      - name: Hello Andy
+        icon: fas:puzzle-piece
+        path: 'dwains-theme/addons/persons/andy/page.yaml'
+        data:
+          some_data: 'This is some data parsed.'
+          some_other_data: 'and some other data.'
+  - name: Claire
+    track: person.claire
+    picture_path: 'images/persons/claire.jpg'
+    addons:
+      - name: Hello Claire
+        icon: fas:puzzle-piece
+        path: 'dwains-theme/addons/persons/claire/page.yaml'
+        data:
+          some_data: 'This is some data parsed.'
+          some_other_data: 'and some other data.'

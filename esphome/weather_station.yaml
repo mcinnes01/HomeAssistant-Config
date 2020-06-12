@@ -1,0 +1,95 @@
+esphome:
+  name: weather_station
+  platform: ESP32
+  board: esp32doit-devkit-v1
+
+wifi:
+  ssid: "Home.Local.Wireless"
+  password: "J3llyt0ts"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Weather Station Fallback Hotspot"
+    password: "Tu5mbvR4V59p"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  password: "J$llyt0ts"
+
+ota:
+  password: "J$llyt0ts"
+  
+# Enable Web server.
+web_server:
+  port: 80
+
+# Sync time with Home Assistant.
+time:
+  - platform: homeassistant
+    id: homeassistant_time
+
+# Text sensors with general information.
+text_sensor:
+  # Expose ESPHome version as sensor.
+  - platform: version
+    name: Weather Station ESPHome Version
+  # Expose WiFi information as sensors.
+  - platform: wifi_info
+    ip_address:
+      name: Weather Station IP
+    ssid:
+      name: Weather Station SSID
+    bssid:
+      name: Weather Station BSSID
+
+i2c:
+  sda: 21
+  scl: 22
+  scan: True
+  id: i2c_bus_a
+  
+# Sensors with general information.
+sensor:
+  # Uptime sensor.
+  - platform: uptime
+    name: Weather Station Uptime
+
+  # WiFi Signal sensor.
+  - platform: wifi_signal
+    name: Weather Station WiFi Signal
+    update_interval: 60s
+    
+  - platform: bme280
+    temperature:
+      name: "Garden Temperature"
+      id: bme280_temperature
+    pressure:
+      name: "Garden Pressure"
+      id: bme280_pressure
+    humidity:
+      name: "Garden Relative Humidity"
+      id: bme280_humidity
+    address: 0x76
+    update_interval: 60s
+  - platform: template
+    name: "Altitude"
+    lambda: |-
+      const float STANDARD_SEA_LEVEL_PRESSURE = 1013.25; //in hPa, see note
+      return ((id(bme280_temperature).state + 273.15) / 0.0065) *
+        (powf((STANDARD_SEA_LEVEL_PRESSURE / id(bme280_pressure).state), 0.190234) - 1); // in meter
+    update_interval: 60s
+  - platform: template
+    name: "Absolute Humidity"
+    lambda: |-
+      const float mw = 18.01534;    // molar mass of water g/mol
+      const float r = 8.31447215;   // Universal gas constant J/mol/K
+      return (6.112 * powf(2.718281828, (17.67 * id(bme280_temperature).state) /
+        (id(bme280_temperature).state + 243.5)) * id(bme280_humidity).state * mw) /
+        ((273.15 + id(bme280_temperature).state) * r); // in grams/m^3
+    accuracy_decimals: 2
+    update_interval: 60s

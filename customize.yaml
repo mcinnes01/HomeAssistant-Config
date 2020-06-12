@@ -57,15 +57,15 @@ switch.100032907e_2:
   friendly_name: Patio Light
 switch.100032907e_3:
   friendly_name: Porch Light
-light.yeelight_color1_04cf8caff23d:
-  friendly_name: Bedroom Lamp
-light.yeelight_color1_04cf8caff0a4:
-  friendly_name: Drawing Room Lamp
 light.yeelight_color1_7c49eb139475:
   friendly_name: Lounge Lamp
-light.yeelight_color1_7c49eb138ddc:
-  friendly_name: Snug Lamp
+light.yeelight_color1_04cf8caff0a4:
+  friendly_name: Drawing Room Lamp
 light.yeelight_color1_7c49eb12a895:
   friendly_name: Kitchen Lamp
+light.yeelight_color1_04cf8caff23d:
+  friendly_name: Bedroom Lamp
+light.yeelight_color1_7c49eb138ddc:
+  friendly_name: Snug Lamp
 light.yeelight_strip1_7811dc63c58f:
   friendly_name: Cellar Stairs Light

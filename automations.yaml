@@ -1,38 +1,3 @@
-- alias: Switch HA Template
-  id: switch_hass_template
-  trigger:
-  - platform: state
-    entity_id: input_select.hass_template
-  - platform: homeassistant
-    event: start
-  action:
-  - service: frontend.set_theme
-    data_template:
-      name: '{{ states.input_select.hass_template.state }}'
-- alias: Day to night theme
-  id: day_to_night_theme
-  trigger:
-  - entity_id: sun.sun
-    from: above_horizon
-    platform: state
-    to: below_horizon
-  action:
-  - data:
-      entity_id: input_select.hass_template
-      option: night_theme
-    service: script.set_currenttheme
-- alias: Night to day theme
-  id: night_to_day_theme
-  trigger:
-  - platform: state
-    entity_id: sun.sun
-    from: below_horizon
-    to: above_horizon
-  action:
-  - service: input_select.select_option
-    data:
-      entity_id: input_select.hass_template
-      option: default
 - alias: Update notifications
   id: notify_homeassistant_update
   trigger:
@@ -118,14 +83,14 @@
     service: notify.pushbullet
   - data:
       title: Alarm Triggered
-      message: The alarm has been triggered. The alarm has been triggered.
-        The alarm has been triggered. The alarm has been triggered.
-        The alarm has been triggered.
+      message: The alarm has been triggered. The alarm has been triggered. The alarm
+        has been triggered. The alarm has been triggered. The alarm has been triggered.
       target:
       - media_player.everywhere
       data:
         type: announce
     service: notify.alexa_media
+  id: 33a13ad590164e5a9542f8223820a928
 - alias: Turn On Ex Machina lights when alarm triggered
   trigger:
   - platform: state
@@ -155,6 +120,7 @@
       message: ALARM! The alarm is Disarmed at {{ states('sensor.date_time') }}
       target:
       - media_player.everywhere
+  id: 63385e6035f643aab8b67f619af4951b
 - alias: Turn Off Ex Machina lights when alarm disarmed
   trigger:
   - platform: state
@@ -268,7 +234,7 @@
   alias: Turn Off Porch Light at 11pm
   description: ''
   trigger:
-  - at: '23:00:00'
+  - at: '22:30:00'
     platform: time
   condition: []
   action:
@@ -354,6 +320,155 @@
       duration: 00:02:00
       entity_id: timer.snug
     service: timer.start
+- id: '1585417563603'
+  alias: Turn On Lounge Lamp when motion detected
+  description: ''
+  trigger:
+  - device_id: 0310800ab747484283cf6fb58715fb0d
+    domain: binary_sensor
+    entity_id: binary_sensor.lounge_motion
+    platform: device
+    type: motion
+  condition:
+  - condition: or
+    conditions:
+    - before: sunrise
+      condition: sun
+    - after: sunset
+      condition: sun
+  action:
+  - data: {}
+    entity_id: light.yeelight_color1_7c49eb139475
+    service: light.turn_on
+  - data:
+      entity_id: timer.lounge
+    service: timer.cancel
+  - data:
+      duration: 00:02:00
+      entity_id: timer.lounge
+    service: timer.start
+- id: '1585417563607'
+  alias: Turn On Basement Hall Light when motion detected
+  description: ''
+  trigger:
+  - device_id: 0310800ab747484283cf6fb58715fb0d
+    domain: binary_sensor
+    entity_id: binary_sensor.basement_stairs_motion
+    platform: device
+    type: motion
+  action:
+  - data: {}
+    entity_id: light.basement_hall_light
+    service: light.turn_on
+  - data:
+      entity_id: timer.basement_hall
+    service: timer.cancel
+  - data:
+      duration: 00:01:00
+      entity_id: timer.basement_hall
+    service: timer.start
+- id: '1585417563604'
+  alias: Turn On Drawing Room Lamp when motion detected
+  description: ''
+  trigger:
+  - device_id: 0310800ab747484283cf6fb58715fb0d
+    domain: binary_sensor
+    entity_id: binary_sensor.drawing_room_motion
+    platform: device
+    type: motion
+  condition:
+  - condition: or
+    conditions:
+    - before: sunrise
+      condition: sun
+    - after: sunset
+      condition: sun
+  action:
+  - data: {}
+    entity_id: light.yeelight_color1_04cf8caff0a4
+    service: light.turn_on
+  - data:
+      entity_id: timer.drawing_room
+    service: timer.cancel
+  - data:
+      duration: 00:02:00
+      entity_id: timer.drawing_room
+    service: timer.start
+- id: '1585417563605'
+  alias: Turn On Kitchen Lamp when motion detected
+  description: ''
+  trigger:
+  - device_id: 0310800ab747484283cf6fb58715fb0d
+    domain: binary_sensor
+    entity_id: binary_sensor.kitchen_motion
+    platform: device
+    type: motion
+  condition:
+  - condition: or
+    conditions:
+    - before: sunrise
+      condition: sun
+    - after: sunset
+      condition: sun
+  action:
+  - data: {}
+    entity_id: light.yeelight_color1_7c49eb12a895
+    service: light.turn_on
+  - data:
+      entity_id: timer.kitchen
+    service: timer.cancel
+  - data:
+      duration: 00:02:00
+      entity_id: timer.kitchen
+    service: timer.start
+- id: '1585418369243'
+  alias: Turn Off Lounge Lamp when there is no motion
+  description: ''
+  trigger:
+  - event_data:
+      entity_id: timer.lounge
+    event_type: timer.finished
+    platform: event
+  action:
+  - data: {}
+    entity_id: light.yeelight_color1_7c49eb139475
+    service: light.turn_off
+- id: '1585418369247'
+  alias: Turn Off Basement Hall Lights when there is no motion
+  description: ''
+  trigger:
+  - event_data:
+      entity_id: timer.basement_hall
+    event_type: timer.finished
+    platform: event
+  action:
+  - data: {}
+    entity_id: light.basement_hall_light
+    service: light.turn_off
+- id: '1585418369244'
+  alias: Turn Off Drawing Room Lamp when there is no motion
+  description: ''
+  trigger:
+  - event_data:
+      entity_id: timer.drawing_room
+    event_type: timer.finished
+    platform: event
+  action:
+  - data: {}
+    entity_id: light.yeelight_color1_04cf8caff0a4
+    service: light.turn_off
+- id: '1585418369245'
+  alias: Turn Off Kitchen Lamp when there is no motion
+  description: ''
+  trigger:
+  - event_data:
+      entity_id: timer.kitchen
+    event_type: timer.finished
+    platform: event
+  action:
+  - data: {}
+    entity_id: light.yeelight_color1_7c49eb12a895
+    service: light.turn_off
 - id: '1585418369242'
   alias: Turn Off Snug Light when there is no motion
   description: ''
@@ -391,6 +506,19 @@
   action:
   - data: {}
     entity_id: light.utility_light
+    service: light.turn_off
+- id: '1585495887856'
+  alias: Turn Off Toilet Light when there is no motion
+  description: ''
+  trigger:
+  - event_data:
+      entity_id: timer.toilet
+    event_type: timer.finished
+    platform: event
+  condition: []
+  action:
+  - data: {}
+    entity_id: light.toilet_light
     service: light.turn_off
 - id: '1585498703721'
   alias: Turn On Utility Light when motion detected
@@ -439,6 +567,57 @@
       entity_id: timer.dining_room
     service: timer.cancel
   - data:
-      duration: 00:02:00
+      duration: 00:05:00
       entity_id: timer.dining_room
     service: timer.start
+- id: '1585498745228'
+  alias: Turn On Toilet Light when motion detected
+  description: ''
+  trigger:
+  - device_id: f918e214648f4e25848333fcea985dfe
+    domain: binary_sensor
+    entity_id: binary_sensor.toilet_motion
+    platform: device
+    type: motion
+  condition: []
+  action:
+  - data: {}
+    entity_id: light.toilet_light
+    service: light.turn_on
+  - data:
+      entity_id: timer.toilet
+    service: timer.cancel
+  - data:
+      duration: 00:02:00
+      entity_id: timer.toilet
+    service: timer.start
+- id: '1587464597280'
+  alias: Sump Alarm Triggered
+  description: The sump is at risk of overflowing, the pump may be offline or broken
+  trigger:
+  - device_id: 67c16ded941843d59f95ea1394628b0a
+    domain: binary_sensor
+    entity_id: binary_sensor.sump_alarm_trigger
+    platform: device
+    type: turned_on
+  condition: []
+  action:
+  - data:
+      title: Sump Alarm Triggered
+      message: The sump alarm has been triggered, check the sump pump has power, this
+        could cause a flood if not attended.
+      data:
+        file_url: https://media.istockphoto.com/vectors/vector-fire-alarm-vector-id610426096?k=6&m=610426096&s=612x612&w=0&h=IIjBibeAUNdoq7XS4-esMGyxxw_xFkb07zbwKcwNB-I=
+      target:
+      - email/mcinnes01@gmail.com
+      - device/AndyPhone
+    service: notify.pushbullet
+  - data:
+      title: Sump Alarm Triggered
+      message: The sump alarm has been triggered, check the sump pump has power, this
+        could cause a flood if not attended.
+      target:
+      - media_player.everywhere
+      data:
+        type: announce
+    service: notify.alexa_media

@@ -1,0 +1,72 @@
+# dwains_theme
+
+- type: custom:dwains-flexbox-card
+  items_classes: 'col-xs-12 col-sm-6 col-sm-6'
+  #padding: true
+  cards:
+    - type: entities
+      style: |
+        ha-card {
+          border-radius: 5px;
+          background-color: var(--dwains-theme-primary);
+        }
+      entities:
+        - entity: sensor.brother_hl_3150cdw_series
+          name: Status
+        - entity: sensor.hl_3150cdw_color_counter
+          icon: mdi:printer
+          name: "Total pages color"
+        - entity: sensor.hl_3150cdw_b_w_counter
+          icon: mdi:printer
+          name: "Total pages black and white"
+
+    - type: 'custom:bar-card'
+      style: |
+        ha-card {
+          border-radius: 5px;
+          background-color: var(--dwains-theme-primary);
+        }
+        bar-card-value, bar-card-iconbar {
+          color: white;
+          font-weight: bold;
+        }
+        bar-card-name {
+          color: var(--name-color-on);
+          text-transform: capitalize;
+        }
+        .value-direction-up {
+          margin-top:  4px;
+        }
+        .contentbar-direction-up {
+          justify-content: center;
+        }
+        bar-card-backgroundbar, bar-card-currentbar {
+          border-radius: 5px;
+        }
+      direction: up
+      stack: horizontal
+      positions:
+        icon: inside
+        name: outside
+        value: inside
+      height: 200px
+      target: 10
+      unit_of_measurement: '%'
+      width: 100%
+      entities:
+        - entity: sensor.hl_3150cdw_black_toner_remaining
+          name: Black
+          color: Black
+          icon: mdi:water
+        - entity: sensor.hl_3150cdw_cyan_toner_remaining
+          name: Cyan
+          color: MediumTurquoise
+          icon: mdi:water
+        - entity: sensor.hl_3150cdw_magenta_toner_remaining
+          name: Magenta
+          color: MediumOrchid
+          icon: mdi:water
+        - entity: sensor.hl_3150cdw_yellow_toner_remaining
+          name: Yellow
+          color: Gold
+          icon: mdi:water
