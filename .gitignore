@@ -8,3 +8,12 @@ www/*/
 www/dwains-theme/images/
 packages/*/
 !packages/dwains_theme
+.Trash-0/*
+.cloud
+.storage
+tts/*
+home-assistant.log
+*.db
+.google.token
+.spotify-token-cache
+secrets.yaml
