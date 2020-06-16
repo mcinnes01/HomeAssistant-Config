@@ -95,7 +95,7 @@ rooms:
     motion: binary_sensor.toilet_motion
   - name: Utility Room
     icon: mdi:washing-machine
-    light: light.utility_light
+    light: light.sonoff_100032bd73_2
     motion: binary_sensor.utility_motion
     media_player: media_player.utility_room_echo_dot
   - name: Brewery
