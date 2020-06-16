@@ -89,7 +89,7 @@ views:
         title: Hall
         show_header_toggle: true
         entities:
-          - light.porch_light
+          - light.sonoff_100032907e_3
           - light.hall_light
       - id: 5da46ea1e2f0490b96ed5fb1081c4201  # Automatically created id
         type: entities
@@ -107,7 +107,7 @@ views:
           - entity: script.feed_cats
             name: Feed cats
             icon: mdi:cat
-          - entity: light.back_door_light
+          - entity: light.sonoff_100032907e_1
           - entity: light.flood_light
       - id: 9dcab691b15247e9b9c53e4acb140eda  # Automatically created id
         type: history-graph
@@ -132,12 +132,12 @@ views:
         show_header_toggle: true
         entities:
           - climate.basement
-          - light.cellar_door_light
+          - light.sonoff_100032907e_4
           - light.utility_room_light
-          - light.dining_room_light
-          - light.snug_light
+          - light.sonoff_100032a00d_1
+          - light.sonoff_100032a00d_2
           - liught.yeelight_rgb_7c49eb138ddc #rgb led (snug lamp)
-          - light.basement_hall_light
+          - light.sonoff_100032bd73_3
           - light.yeelight_strip_7811dc63c58f #led strip (cellar stairs)
           - binary_sensor.dining_room_motion
       - id: 1b4b683d5ba446c09b8920b788a6c029  # Automatically created id
@@ -191,7 +191,7 @@ views:
         title: Hall
         show_header_toggle: true
         entities:
-          - light.porch_light
+          - light.sonoff_100032907e_3
           - light.hall_light
       - id: b05fdfd97e5d4a71a54c3f3d1519ce7b  # Automatically created id
         type: entities
@@ -217,7 +217,7 @@ views:
           - entity: script.feed_cats
             name: Feed cats
             icon: mdi:cat
-          - entity: light.back_door_light
+          - entity: light.sonoff_100032907e_1
           - entity: light.flood_light
       - id: 2be1c13cdc344eb19a3e58c0846b783d  # Automatically created id
         type: history-graph
@@ -249,28 +249,28 @@ views:
         title: Utility room
         show_header_toggle: true
         entities:
-          - light.cellar_door_light
+          - light.sonoff_100032907e_4
           - light.utility_room_light
       - id: 8d28993b809147b292564c803ac12f87  # Automatically created id
         type: entities
         title: Dining room
         show_header_toggle: true
         entities:
-          - light.dining_room_light
+          - light.sonoff_100032a00d_1
           - binary_sensor.dining_room_motion
       - id: 875634ee6e82496d95af09e29c2613ce  # Automatically created id
         type: entities
         title: Snug
         show_header_toggle: true
         entities:
-          - light.snug_light
+          - light.sonoff_100032a00d_2
           - light.yeelight_rgb_7c49eb138ddc # led rgb (snug lamp)
       - id: 66b7e8b57f7146ab997a61f94414027f  # Automatically created id
         type: entities
         title: Hall
         show_header_toggle: true
         entities:
-          - light.basement_hall_light
+          - light.sonoff_100032bd73_3
           - light.yeelight_strip_7811dc63c58f #led strip (cellar stairs)
       - id: a57567239173469c93560fc0e0cb13e6  # Automatically created id
         type: history-graph
