@@ -153,44 +153,25 @@ alarm_control_panel:
       arming_time: 60
       delay_time: 30
 
+# Sonoff
+sonoff:
+  username: !secret sonoff_username
+  password: !secret sonoff_password
+  mode: local
+  reload: always  # update device list every time HA starts
+  devices:
+    100032bd73:
+      device_class: [light,light,light,light]
+      name: Basement Lights 1
+    100032a00d:
+      device_class: [light,light,light,light]
+      name: Basement Lights 2
+    100032907e:
+      device_class: [light,light,light,light]
+      name: Outside Lights
+
 # Lights
 light:
-  - platform: switch
-    name: Back Door Light
-    entity_id: switch.100032907e_1
-  - platform: switch
-    name: Patio Light
-    entity_id: switch.100032907e_2
-  - platform: switch
-    name: Porch Light
-    entity_id: switch.100032907e_3
-  - platform: switch
-    name: Cellar Door Light
-    entity_id: switch.100032907e_4
-  - platform: switch
-    name: Toilet Light
-    entity_id: switch.100032bd73_1
-  - platform: switch
-    name: Utility Light
-    entity_id: switch.100032bd73_2
-  - platform: switch
-    name: Basement Hall Light
-    entity_id: switch.100032bd73_3
-  - platform: switch
-    name: Brewery Light
-    entity_id: switch.100032bd73_4
-  - platform: switch
-    name: Dining Room Light
-    entity_id: switch.100032a00d_1
-  - platform: switch
-    name: Snug Light
-    entity_id: switch.100032a00d_2
-  - platform: switch
-    name: Spare BL5
-    entity_id: switch.100032a00d_3
-  - platform: switch
-    name: Spare BL6
-    entity_id: switch.100032a00d_4
   - platform: group
     name: Yeelights
     entities:
@@ -202,22 +183,11 @@ light:
   - platform: group
     name: Inside
     entities:
-      - light.100032bd73_1
-      - light.100032bd73_2
-      - light.100032bd73_3
-      - light.100032bd73_4
-      - light.100032a00d_1
-      - light.100032a00d_2
       - light.yeelight_color1_7c49eb12a895
       - light.yeelight_color1_04cf8caff0a4
       - light.yeelight_color1_7c49eb139475
       - light.yeelight_color1_04cf8caff23d
       - light.yeelight_color1_7c49eb138ddc
-  - platform: group
-    name: Snug Lights
-    entities:
-      - light.snug_light
-      - light.snug_lamp
 
 circadian_lighting:
 
@@ -238,15 +208,6 @@ binary_sensor:
     payload_on: "ON"
     payload_off: "OFF"
     device_class: "motion"
-
-sonoff:
-  username: !secret sonoff_username
-  password: !secret sonoff_password
-  scan_interval: 60
-  grace_period: 600
-  api_region: 'eu'
-  entity_prefix: False
-  debug: True
 
 speedtestdotnet:
   scan_interval:
