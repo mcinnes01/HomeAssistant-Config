@@ -119,7 +119,7 @@ utility_room:
  name: Utility Room
  entities:
    - light.sonoff_100032907e_4
-   - light.utility_room_light
+   - light.sonoff_100032bd73_2
    - light.store_light
    - group.media_utility_room_echo_dot
 toilet:

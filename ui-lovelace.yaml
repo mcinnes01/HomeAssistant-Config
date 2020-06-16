@@ -133,7 +133,7 @@ views:
         entities:
           - climate.basement
           - light.sonoff_100032907e_4
-          - light.utility_room_light
+          - light.sonoff_100032bd73_2
           - light.sonoff_100032a00d_1
           - light.sonoff_100032a00d_2
           - liught.yeelight_rgb_7c49eb138ddc #rgb led (snug lamp)
@@ -250,7 +250,7 @@ views:
         show_header_toggle: true
         entities:
           - light.sonoff_100032907e_4
-          - light.utility_room_light
+          - light.sonoff_100032bd73_2
       - id: 8d28993b809147b292564c803ac12f87  # Automatically created id
         type: entities
         title: Dining room

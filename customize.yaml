@@ -40,7 +40,7 @@ light.sonoff_100032a00d_2:
 light.sonoff_100032a00d_1:
   friendly_name: Dining Room Light
   icon: mdi:ceiling-light
-light.utility_room_light:
+light.sonoff_100032bd73_2:
   friendly_name: Utility Room Light
   icon: mdi:ceiling-light
 sensor.green_bio_waste:
