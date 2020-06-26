@@ -8,8 +8,6 @@ utility:
   duration: '00:01:00'
 toilet:
   duration: '00:01:00'
-brewery:
-  duration: '00:02:00'
 patio:
   duration: '00:02:00'
 lounge:
