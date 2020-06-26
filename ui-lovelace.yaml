@@ -43,15 +43,15 @@ views:
         entity: weather.stockport_heaton_chapel
       - id: 58c8c353ae9240ceb4539d6308c9e3d1  # Automatically created id
         type: thermostat
-        title: Bedroom
+        name: Bedroom
         entity: climate.upstairs
       - id: a57baeada61b44a8ad062e30885bdb41  # Automatically created id
         type: thermostat
-        title: Kitchen
+        name: Kitchen
         entity: climate.downstairs
       - id: ccdbf44382144ef5b72ba82dfac3d101  # Automatically created id
         type: thermostat
-        title: Utility
+        name: Utility
         entity: climate.basement
       - id: 261db48f4bab4a089072fd998047c047  # Automatically created id
         type: entities
@@ -242,7 +242,7 @@ views:
     cards:
       - id: a09db33c8a2b46b3900836c9b42f3d8b  # Automatically created id
         type: thermostat
-        title: Utility
+        name: Utility
         entity: climate.basement
       - id: 2743ad5273e24e01860ea05d95076a9f  # Automatically created id
         type: entities

@@ -96,7 +96,7 @@ rooms:
   - name: Utility Room
     icon: mdi:washing-machine
     light: light.sonoff_100032bd73_2
-    motion: binary_sensor.utility_motion
+    motion: binary_sensor.utility_room_motion
     media_player: media_player.utility_room_echo_dot
   - name: Brewery
     icon: mdi:beer-outline
