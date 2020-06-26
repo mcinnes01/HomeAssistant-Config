@@ -3,3 +3,6 @@
 #
 - url: /hacsfiles/bar-card/bar-card.js
   type: module
+  
+- url: /local/mini-graph-card-bundle.js?v=0.9.3
+  type: module

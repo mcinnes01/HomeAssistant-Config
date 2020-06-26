@@ -17,3 +17,5 @@ home-assistant.log
 .google.token
 .spotify-token-cache
 secrets.yaml
+.sonoff.json
+.HA_VERSION

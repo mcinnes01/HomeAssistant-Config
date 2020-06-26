@@ -19,10 +19,9 @@ config:
 history:
 logbook:
 logger:
-  default: critical
+  default: error
   logs:
-    homeassistant.components.onvif: debug
-    zeep: debug
+    custom_components.unifiprotect: debug
 map:
   entities:
    - device_tracker.claires_iphone

@@ -4,8 +4,8 @@ esphome:
   board: esp32doit-devkit-v1
 
 wifi:
-  ssid: "Home.Local.Wireless"
-  password: "J3llyt0ts"
+  ssid: "Home.Iot.Private_2g"
+  password: "jellytots2009"
 
 # Enable logging
 logger:

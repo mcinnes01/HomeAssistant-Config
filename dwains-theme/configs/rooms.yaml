@@ -2,11 +2,11 @@
 
 rooms:
   - name: Porch
-    icon: fas:concierge-bell
+    icon: mdi:key-outline
     light: light.sonoff_100032907e_3
     addons:
       - name: Doorbell
-        icon: fas:bell
+        icon: mdi:bell-outline
         path: 'dwains-theme/addons/rooms/hello-room/page.yaml'
         button_path: 'dwains-theme/addons/rooms/hello-room/button.yaml'
         data:
@@ -14,11 +14,11 @@ rooms:
           some_other_data: 'and some other data.'
           entity: binary_sensor.doorbell_button
   - name: Hallway
-    icon: fas:grip-lines-vertical
+    icon: mdi:view-agenda-outline
     media_player: media_player.hall_tablet_s_alexa_apps
     motion: binary_sensor.hall_motion
   - name: Lounge
-    icon: fas:couch
+    icon: mdi:sofa
     light: light.yeelight_color1_7c49eb139475
     motion: binary_sensor.lounge_motion
     media_player: media_player.lounge_echo_plus
@@ -26,38 +26,38 @@ rooms:
     humidity: climate.downstairs_thermostat_humidity
     temperature: sensor.downstairs_thermostat_temperature
   - name: Drawing Room
-    icon: fas:fireplace
+    icon: mdi:fireplace
     media_player: media_player.drawing_room_echo_dot
     light: light.yeelight_color1_04cf8caff0a4
     motion: binary_sensor.drawing_room_motion
   - name: Kitchen
-    icon: fas:mug-hot
+    icon: mdi:fridge-outline
     light: light.yeelight_color1_7c49eb12a895
     media_player: media_player.kitchen_echo_show
     motion: binary_sensor.kitchen_motion
     door: binary_sensor.patio_door
   - name: Patio
-    icon: fas:tree
+    icon: mdi:flower-outline
     light: light.sonoff_100032907e_1
     media_player: media_player.kitchen_echo_show
     motion: binary_sensor.patio_motion
     temperature: sensor.garden_temperature
     humidity: sensor.garden_relative_humidity
   - name: Studio
-    icon: fas:headphones
+    icon: mdi:headphones
   - name: Bathroom
-    icon: fas:bath
+    icon: mdi:shower
   - name: Middle Bedroom
-    icon: fas:bed
+    icon: mdi:bed-double-outline
     light: light.yeelight_color1_04cf8caff23d
     media_player: media_player.bedroom_echo_spot
     climate: climate.upstairs
     humidity: climate.upstairs_thermostat_humidity
     temperature: sensor.upstairs_thermostat_temperature
   - name: Front Bedroom
-    icon: fas:bed
+    icon: mdi:bed-double
   - name: Dressing Room
-    icon: fas:tshirt
+    icon: mdi:tshirt-crew-outline
     media_player: media_player.dressing_room_echo_dot
   - name: Landing
     icon: mdi:stairs-up
@@ -68,15 +68,15 @@ rooms:
     motion: binary_sensor.patio_motion
     media_player: media_player.lounge_echo_plus
   - name: Electric Cabinet
-    icon: fas:bolt
+    icon: mdi:flash-outline
     light: light.sonoff_100032bd73_3
   - name: Snug
-    icon: fas:film
+    icon: mdi:filmstrip
     light: light.sonoff_100032a00d_2
     motion: binary_sensor.snug_motion
     media_player: media_player.snug_echo_input
   - name: Dining Room
-    icon: fas:utensils
+    icon: mdi:silverware-fork-knife
     light: light.sonoff_100032a00d_1
     motion: binary_sensor.dining_room_motion
     media_player: media_player.dining_room_echo_input
@@ -85,12 +85,12 @@ rooms:
     temperature: sensor.basement_thermostat_temperature
     addons:
       - name: Printer
-        icon: fas:print
+        icon: mdi:printer
         path: 'dwains-theme/addons/rooms/dining-room/printer/page.yaml'
         data:
           entity: sensor.brother_hl_3150cdw_series
   - name: Toliet
-    icon: fas:toilet
+    icon: mdi:toilet
     light: light.sonoff_100032bd73_1
     motion: binary_sensor.toilet_motion
   - name: Utility Room
@@ -99,6 +99,5 @@ rooms:
     motion: binary_sensor.utility_motion
     media_player: media_player.utility_room_echo_dot
   - name: Brewery
-    icon: fas:beer
+    icon: mdi:beer-outline
     light: light.sonoff_100032bd73_4
-    motion: binary_sensor.brewery_motion

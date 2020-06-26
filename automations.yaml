@@ -50,7 +50,7 @@
     type: motion
   - device_id: f918e214648f4e25848333fcea985dfe
     domain: binary_sensor
-    entity_id: binary_sensor.utility_motion
+    entity_id: binary_sensor.utility_room_motion
     platform: device
     type: motion
   - device_id: f918e214648f4e25848333fcea985dfe
@@ -526,7 +526,7 @@
   trigger:
   - device_id: f918e214648f4e25848333fcea985dfe
     domain: binary_sensor
-    entity_id: binary_sensor.utility_motion
+    entity_id: binary_sensor.utility_room_motion
     for:
       hours: 0
       minutes: 0
