@@ -3,7 +3,7 @@
 rooms:
   - name: Porch
     icon: mdi:key-outline
-    light: light.sonoff_100032907e_3
+    light: light.porch
     addons:
       - name: Doorbell
         icon: mdi:bell-outline
@@ -19,7 +19,7 @@ rooms:
     motion: binary_sensor.hall_motion
   - name: Lounge
     icon: mdi:sofa
-    light: light.yeelight_color1_7c49eb139475
+    light: light.lounge_lamps
     motion: binary_sensor.lounge_motion
     media_player: media_player.lounge_echo_plus
     climate: climate.downstairs
@@ -28,17 +28,17 @@ rooms:
   - name: Drawing Room
     icon: mdi:fireplace
     media_player: media_player.drawing_room_echo_dot
-    light: light.yeelight_color1_04cf8caff0a4
+    light: light.drawing_room_lamp
     motion: binary_sensor.drawing_room_motion
   - name: Kitchen
     icon: mdi:fridge-outline
-    light: light.yeelight_color1_7c49eb12a895
+    light: light.kitchen_lamp
     media_player: media_player.kitchen_echo_show
     motion: binary_sensor.kitchen_motion
     door: binary_sensor.patio_door
   - name: Patio
     icon: mdi:flower-outline
-    light: light.sonoff_100032907e_1
+    light: light.back_door
     media_player: media_player.kitchen_echo_show
     motion: binary_sensor.patio_motion
     temperature: sensor.garden_temperature
@@ -49,7 +49,7 @@ rooms:
     icon: mdi:shower
   - name: Middle Bedroom
     icon: mdi:bed-double-outline
-    light: light.yeelight_color1_04cf8caff23d
+    light: light.bedroom_lamp
     media_player: media_player.bedroom_echo_spot
     climate: climate.upstairs
     humidity: climate.upstairs_thermostat_humidity
@@ -64,20 +64,20 @@ rooms:
     media_player: media_player.landing_tablet_s_alexa_apps
   - name: Basement Hall
     icon: mdi:stairs-down
-    light: light.sonoff_100032bd73_3
+    light: light.basement_hall
     motion: binary_sensor.basement_hall_motion
     media_player: media_player.lounge_echo_plus
   - name: Electric Cabinet
     icon: mdi:flash-outline
-    light: light.sonoff_100032bd73_3
+    light: light.basement_hall
   - name: Snug
     icon: mdi:filmstrip
-    light: light.sonoff_100032a00d_2
+    light: light.snug
     motion: binary_sensor.snug_motion
     media_player: media_player.snug_echo_input
   - name: Dining Room
     icon: mdi:silverware-fork-knife
-    light: light.sonoff_100032a00d_1
+    light: light.dining_room
     motion: binary_sensor.dining_room_motion
     media_player: media_player.dining_room_echo_input
     climate: climate.basement
@@ -91,13 +91,13 @@ rooms:
           entity: sensor.brother_hl_3150cdw_series
   - name: Toliet
     icon: mdi:toilet
-    light: light.sonoff_100032bd73_1
+    light: light.toilet
     motion: binary_sensor.toilet_motion
   - name: Utility Room
     icon: mdi:washing-machine
-    light: light.sonoff_100032bd73_2
+    light: light.utility_room
     motion: binary_sensor.utility_room_motion
     media_player: media_player.utility_room_echo_dot
   - name: Brewery
     icon: mdi:beer-outline
-    light: light.sonoff_100032bd73_4
+    light: light.brewery
