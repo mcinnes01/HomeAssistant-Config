@@ -228,7 +228,7 @@
     platform: sun
   condition: []
   action:
-  - entity_id: light.sonoff_100032907e_3
+  - entity_id: light.porch
     service: light.turn_on
 - id: '1579518409890'
   alias: Turn Off Porch Light at 11pm
@@ -238,7 +238,7 @@
     platform: time
   condition: []
   action:
-  - entity_id: light.sonoff_100032907e_3
+  - entity_id: light.porch
     service: light.turn_off
 - id: '1579590597721'
   alias: Turn Off Back Door Light when no motion
@@ -249,7 +249,7 @@
     platform: event
   action:
   - data:
-      entity_id: light.sonoff_100032907e_1
+      entity_id: light.back_door
     service: light.turn_off
 - id: '1579590785318'
   alias: Turn on back door light when there is movement and the sun is set
@@ -267,7 +267,7 @@
       condition: sun
   action:
   - data:
-      entity_id: light.sonoff_100032907e_1
+      entity_id: light.back_door
     service: light.turn_on
   - data:
       entity_id: timer.patio
@@ -311,7 +311,7 @@
   condition: []
   action:
   - data: {}
-    entity_id: light.sonoff_100032a00d_2
+    entity_id: light.snug
     service: light.turn_on
   - data:
       entity_id: timer.snug
@@ -338,7 +338,7 @@
       condition: sun
   action:
   - data: {}
-    entity_id: light.yeelight_color1_7c49eb139475
+    entity_id: light.lounge_lamps
     service: light.turn_on
   - data:
       entity_id: timer.lounge
@@ -358,7 +358,7 @@
     type: motion
   action:
   - data: {}
-    entity_id: light.sonoff_100032bd73_3
+    entity_id: light.basement_hall
     service: light.turn_on
   - data:
       entity_id: timer.basement_hall
@@ -385,7 +385,7 @@
       condition: sun
   action:
   - data: {}
-    entity_id: light.yeelight_color1_04cf8caff0a4
+    entity_id: light.drawing_room_lamp
     service: light.turn_on
   - data:
       entity_id: timer.drawing_room
@@ -412,7 +412,7 @@
       condition: sun
   action:
   - data: {}
-    entity_id: light.yeelight_color1_7c49eb12a895
+    entity_id: light.kitchen_lamp
     service: light.turn_on
   - data:
       entity_id: timer.kitchen
@@ -431,7 +431,7 @@
     platform: event
   action:
   - data: {}
-    entity_id: light.yeelight_color1_7c49eb139475
+    entity_id: light.lounge_lamps
     service: light.turn_off
 - id: '1585418369247'
   alias: Turn Off Basement Hall Lights when there is no motion
@@ -443,7 +443,7 @@
     platform: event
   action:
   - data: {}
-    entity_id: light.sonoff_100032bd73_3
+    entity_id: light.basement_hall
     service: light.turn_off
 - id: '1585418369244'
   alias: Turn Off Drawing Room Lamp when there is no motion
@@ -455,7 +455,7 @@
     platform: event
   action:
   - data: {}
-    entity_id: light.yeelight_color1_04cf8caff0a4
+    entity_id: light.drawing_room_lamp
     service: light.turn_off
 - id: '1585418369245'
   alias: Turn Off Kitchen Lamp when there is no motion
@@ -467,7 +467,7 @@
     platform: event
   action:
   - data: {}
-    entity_id: light.yeelight_color1_7c49eb12a895
+    entity_id: light.kitchen_lamp
     service: light.turn_off
 - id: '1585418369242'
   alias: Turn Off Snug Light when there is no motion
@@ -479,7 +479,7 @@
     platform: event
   action:
   - data: {}
-    entity_id: light.sonoff_100032a00d_2
+    entity_id: light.snug
     service: light.turn_off
 - id: '1585495667956'
   alias: Turn Off Dining Room Light when there is no motion
@@ -492,20 +492,20 @@
   condition: []
   action:
   - data: {}
-    entity_id: light.sonoff_100032a00d_1
+    entity_id: light.dining_room
     service: light.turn_off
 - id: '1585495887855'
   alias: Turn Off Utility Light when there is no motion
   description: ''
   trigger:
   - event_data:
-      entity_id: timer.utility
+      entity_id: timer.utility_room
     event_type: timer.finished
     platform: event
   condition: []
   action:
   - data: {}
-    entity_id: light.sonoff_100032bd73_2
+    entity_id: light.utility_room
     service: light.turn_off
 - id: '1585495887856'
   alias: Turn Off Toilet Light when there is no motion
@@ -518,7 +518,7 @@
   condition: []
   action:
   - data: {}
-    entity_id: light.sonoff_100032bd73_1
+    entity_id: light.toilet
     service: light.turn_off
 - id: '1585498703721'
   alias: Turn On Utility Light when motion detected
@@ -536,14 +536,14 @@
   condition: []
   action:
   - data: {}
-    entity_id: light.sonoff_100032bd73_2
+    entity_id: light.utility_room
     service: light.turn_on
   - data:
-      entity_id: timer.utility
+      entity_id: timer.utility_room
     service: timer.cancel
   - data:
       duration: 00:02:00
-      entity_id: timer.utility
+      entity_id: timer.utility_room
     service: timer.start
 - id: '1585498745227'
   alias: Turn On Dining Room Light when motion detected
@@ -561,7 +561,7 @@
   condition: []
   action:
   - data: {}
-    entity_id: light.sonoff_100032a00d_1
+    entity_id: light.dining_room
     service: light.turn_on
   - data:
       entity_id: timer.dining_room
@@ -582,7 +582,7 @@
   condition: []
   action:
   - data: {}
-    entity_id: light.sonoff_100032bd73_1
+    entity_id: light.toilet
     service: light.turn_on
   - data:
       entity_id: timer.toilet

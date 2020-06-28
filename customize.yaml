@@ -7,16 +7,16 @@ input_select.hass_template:
 light.dimmable_light_1_1:
   icon: mdi:cat
   friendly_name: Cat Auto Feeder
-light.sonoff_100032907e_3:
+light.porch:
   friendly_name: Porch Light
   icon: mdi:wall-sconce
-light.sonoff_100032907e_1:
+light.back_door:
   friendly_name: Back Door Light
   icon: mdi:wall-sconce
 light.flood_light:
   friendly_name: Flood Light
   icon: mdi:track-light
-light.sonoff_100032907e_4:
+light.cellar_door:
   friendly_name: Cellar Door Light
   icon: mdi:wall-sconce
 light.hall_light:
@@ -31,16 +31,16 @@ light.study_light:
 light.bookshelf_light:
   friendly_name: Bookshelf Light
   icon: mdi:wall-sconce
-light.sonoff_100032bd73_3:
+light.basement_hall:
   friendly_name: Basement Hall Light
   icon: mdi:ceiling-light
-light.sonoff_100032a00d_2:
+light.snug:
   friendly_name: Snug Light
   icon: mdi:ceiling-light
-light.sonoff_100032a00d_1:
+light.dining_room:
   friendly_name: Dining Room Light
   icon: mdi:ceiling-light
-light.sonoff_100032bd73_2:
+light.utility_room:
   friendly_name: Utility Room Light
   icon: mdi:ceiling-light
 sensor.green_bio_waste:
@@ -49,15 +49,15 @@ sensor.blue_paper:
   icon: mdi:recycle
 sensor.brown_recyclables:
   icon: mdi:recycle
-light.yeelight_color1_7c49eb139475:
+light.lounge_lamp:
   friendly_name: Lounge Lamp
-light.yeelight_color1_04cf8caff0a4:
+light.drawing_room_lamp:
   friendly_name: Drawing Room Lamp
-light.yeelight_color1_7c49eb12a895:
+light.kitchen_lamp:
   friendly_name: Kitchen Lamp
-light.yeelight_color1_04cf8caff23d:
+light.bedroom_lamp:
   friendly_name: Bedroom Lamp
-light.yeelight_color1_7c49eb138ddc:
+light.snug_lamp:
   friendly_name: Snug Lamp
-light.yeelight_strip1_7811dc63c58f:
+light.cellar_stairs:
   friendly_name: Cellar Stairs Light

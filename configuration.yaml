@@ -74,13 +74,6 @@ spotify:
   client_id: !secret spotify_clientid
   client_secret: !secret spotify_secret
 
-# Media players
-media_player:
-  - platform: squeezebox
-    host: 192.168.1.86
-  - platform: squeezebox
-    host: 192.168.1.120
-
 # Google Calendar
 google:
   client_id: !secret google_clientid
@@ -174,19 +167,47 @@ light:
   - platform: group
     name: Yeelights
     entities:
-      - light.yeelight_color1_7c49eb12a895
-      - light.yeelight_color1_04cf8caff0a4
-      - light.yeelight_color1_7c49eb139475
-      - light.yeelight_color1_04cf8caff23d
-      - light.yeelight_color1_7c49eb138ddc
+      - light.kitchen_lamp
+      - light.drawing_room_lamp
+      - light.lounge_lamp
+      - light.lounge_sofa_lamp
+      - light.bedroom_lamp
+      - light.cellar_stairs
+      - light.snug_lamp
   - platform: group
     name: Inside
     entities:
-      - light.yeelight_color1_7c49eb12a895
-      - light.yeelight_color1_04cf8caff0a4
-      - light.yeelight_color1_7c49eb139475
-      - light.yeelight_color1_04cf8caff23d
-      - light.yeelight_color1_7c49eb138ddc
+      - light.kitchen_lamp
+      - light.drawing_room_lamp
+      - light.lounge_lamp
+      - light.lounge_sofa_lamp
+      - light.bedroom_lamp
+      - light.cellar_stairs
+      - light.snug_lamp
+      - light.snug
+      - light.basement_hall
+      - light.dining_room
+      - light.toilet
+      - light.utility
+      - light.brewery
+  - platform: group
+    name: Outside
+    entities:
+      - light.porch
+      - light.cellar_door
+      - light.back_door
+      - light.patio
+  - platform: group
+    name: Garden
+    entities:
+      - light.cellar_door
+      - light.back_door
+      - light.patio
+  - platform: group
+    name: Lounge Lamps
+    entities:
+      - light.lounge_lamp
+      - light.lounge_sofa_lamp
 
 circadian_lighting:
 
@@ -196,6 +217,7 @@ switch:
       - light.kitchen_lamp
       - light.drawing_room_lamp
       - light.lounge_lamp
+      - light.lounge_sofa_lamp
       - light.bedroom_lamp
       - light.cellar_stairs
       - light.snug_lamp
@@ -207,18 +229,3 @@ binary_sensor:
     payload_on: "ON"
     payload_off: "OFF"
     device_class: "motion"
-
-speedtestdotnet:
-  scan_interval:
-    minutes: 5
-  monitored_conditions:
-    - ping
-    - download
-    - upload
-
-withings:
-  client_id: !secret withings_clientid
-  client_secret: !secret withings_secret
-  profiles:
-    - Andy
-    - Claire

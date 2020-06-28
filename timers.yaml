@@ -4,7 +4,7 @@ basement_hall:
   duration: '00:01:00'
 dining_room:
   duration: '00:02:00'
-utility:
+utility_room:
   duration: '00:01:00'
 toilet:
   duration: '00:01:00'

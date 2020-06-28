@@ -65,7 +65,7 @@ rooms:
   - name: Basement Hall
     icon: mdi:stairs-down
     light: light.sonoff_100032bd73_3
-    motion: binary_sensor.patio_motion
+    motion: binary_sensor.basement_hall_motion
     media_player: media_player.lounge_echo_plus
   - name: Electric Cabinet
     icon: mdi:flash-outline

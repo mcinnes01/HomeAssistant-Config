@@ -65,13 +65,13 @@ hall:
 porch:
  name: Porch
  entities:
-   - light.sonoff_100032907e_3
+   - light.porch
    - group.esp_doorbell
 lounge:
  name: Lounge
  entities:
    - light.lounge_light
-   - light.lounge_lamp
+   - light.lounge_lamps
    - group.climate_downstairs
    - group.media_lounge_echo_plus
 drawing_room:
@@ -89,21 +89,20 @@ kitchen:
 patio:
  name: Patio
  entities:
-   - light.sonoff_100032907e_1
-   - light.flood_light
+   - light.back_door
+   - light.patio
 basement_hall:
  name: Basement Hall
  entities:
-   - light.Cellar_Stair
-   - light.sonoff_100032bd73_3
-   - light.dimmable_light_31_1
+   - light.basement_hall
+   - light.cellar_stairs
    - script.feed_cats
 electric_cabinet:
  name: Electric cabinet
 snug:
  name: Snug
  entities:
-   - light.sonoff_100032a00d_2
+   - light.snug
    - light.snug_lamp
    - binary_sensor.snug_motion
    - media_player.snug_radio
@@ -111,21 +110,21 @@ snug:
 dining_room:
  name: Dining Room
  entities:
-   - light.sonoff_100032a00d_1
+   - light.dining_room
    - binary_sensor.dining_room_motion
    - media_player.utility_radio #needs renaming
    - group.media_dining_room_echo_input
 utility_room:
  name: Utility Room
  entities:
-   - light.sonoff_100032907e_4
-   - light.sonoff_100032bd73_2
-   - light.store_light
+   - light.utility_room
+   - light.cellar_door
+   - light.brewery
    - group.media_utility_room_echo_dot
 toilet:
  name: Toilet
  entities:
-   - light.sonoff_100032bd73_1
+   - light.toilet
 
 # Media Players
 media_bedroom_echo_spot:
