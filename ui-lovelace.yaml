@@ -98,7 +98,7 @@ views:
         entities:
           - light.study_light
           - light.bookshelf_light
-          - light.yeelight_rgb_7c49eb12a895 #rgb led (study lamp)
+          - light.drawing_room_lamp
       - id: 3476a3749a8d4025822d558128934ea3  # Automatically created id
         type: entities
         title: Kitchen
