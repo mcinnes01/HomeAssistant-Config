@@ -31,6 +31,7 @@ map:
   dark_mode: true
 mobile_app:
 person:
+scene: !include scenes.yaml
 script: !include scripts.yaml
 sensor: !include sensors.yaml
 ssdp:

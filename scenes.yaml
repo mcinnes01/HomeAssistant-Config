@@ -1,0 +1,102 @@
+- id: '1593602471772'
+  name: Watch TV
+  entities:
+    light.lounge_lamps:
+      brightness: 252
+      color_temp: 182
+      effect_list:
+      - Random Loop
+      - Police
+      - WhatsApp
+      - Slow Temp
+      - Disco
+      - Fast Random Loop
+      - Christmas
+      - Strobe epilepsy!
+      - Alarm
+      - Strobe color
+      - Stop
+      - Twitter
+      - LSD
+      - Slowdown
+      - Police2
+      - RGB
+      - Facebook
+      entity_id:
+      - light.lounge_lamp
+      - light.lounge_sofa_lamp
+      friendly_name: Lounge Lamps
+      hs_color:
+      - 27.913
+      - 12.917
+      max_mireds: 588
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 237
+      - 222
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.354
+      - 0.343
+- id: '1593602714878'
+  name: Watch Movie
+  entities:
+    light.basement_hall:
+      friendly_name: Basement Hall Light
+      icon: mdi:ceiling-light
+      local: online
+      manufacturer: Sonoff
+      model: 4CH Pro
+      rssi: -89
+      state: 'off'
+      supported_features: 0
+      sw_version: PSF-B04-GL v3.4.0
+    light.dining_room:
+      friendly_name: Dining Room Light
+      icon: mdi:ceiling-light
+      state: unavailable
+      supported_features: 0
+    light.snug:
+      friendly_name: Snug Light
+      icon: mdi:ceiling-light
+      state: unavailable
+      supported_features: 0
+    light.snug_lamp:
+      brightness: 184
+      color_temp: 182
+      effect_list:
+      - Strobe color
+      - Police
+      - Christmas
+      - RGB
+      - Random Loop
+      - Fast Random Loop
+      - LSD
+      - Slowdown
+      - Disco
+      - Strobe epilepsy!
+      - Alarm
+      - Police2
+      - WhatsApp
+      - Facebook
+      - Twitter
+      - Slow Temp
+      - Stop
+      flowing: false
+      friendly_name: Snug Lamp
+      hs_color:
+      - 240
+      - 71.765
+      max_mireds: 588
+      min_mireds: 153
+      rgb_color:
+      - 71
+      - 71
+      - 255
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.163
+      - 0.082
