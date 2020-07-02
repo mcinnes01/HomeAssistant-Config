@@ -14,3 +14,6 @@ more_page:
     - name: Statistics
       icon: fas:chart-area
       path: 'dwains-theme/addons/more_page/statistics/page.yaml'
+    - name: Covid-19
+      icon: fas:biohazard
+      path: 'dwains-theme/addons/more_page/covid-19/page.yaml'

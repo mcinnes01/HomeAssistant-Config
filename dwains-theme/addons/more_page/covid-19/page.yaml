@@ -1,0 +1,73 @@
+# dwains_theme
+
+- type: custom:mod-card
+  style: |
+    ha-card {
+      padding: 0px 8px 20px 8px;
+    }
+  card:
+    type: vertical-stack
+    cards:
+      - type: picture
+        image: 'https://www.dshs.state.tx.us/uploadedImages/Content/Consumer_and_External_Affairs/coronavirus/banner.png'
+        tap_action:
+          action: url
+          url_path: 'https://www.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6'
+
+      - type: entities
+        style: |
+          ha-card {
+            background-color: var(--dwains-theme-primary);
+            border-radius: 100px
+            font-weight: bold;
+            font-size: 14px;
+            overflow: hidden;
+            width: 100%;
+            height: 75%;
+            margin: 0 auto;
+            padding-top: 0px;
+          }
+        title: United Kingdom Cases
+        show_header_toggle: false
+        entities:
+          - entity: sensor.united_kingdom_coronavirus_confirmed
+            icon: 'mdi:emoticon-neutral-outline'
+            name: Confirmed
+          - entity: sensor.united_kingdom_coronavirus_current
+            icon: 'mdi:emoticon-frown-outline'
+            name: Current
+          - entity: sensor.united_kingdom_coronavirus_recovered
+            icon: 'mdi:emoticon-happy-outline'
+            name: Recovered
+          - entity: sensor.united_kingdom_coronavirus_deaths
+            icon: 'mdi:emoticon-dead-outline'
+            name: Deaths
+    
+      - type: entities
+        style: |
+          ha-card {
+            background-color: var(--dwains-theme-primary);
+            border-radius: 100px
+            font-weight: bold;
+            font-size: 14px;
+            overflow: hidden;
+            width: 100%;
+            height: 75%;
+            margin: 0 auto;
+            padding-top: 0px;
+          }
+        title: World Wide Cases
+        show_header_toggle: false
+        entities:
+          - entity: sensor.worldwide_coronavirus_confirmed
+            icon: 'mdi:emoticon-neutral-outline'
+            name: Confirmed
+          - entity: sensor.worldwide_coronavirus_current
+            icon: 'mdi:emoticon-frown-outline'
+            name: Current
+          - entity: sensor.worldwide_coronavirus_recovered
+            icon: 'mdi:emoticon-happy-outline'
+            name: Recovered
+          - entity: sensor.worldwide_coronavirus_deaths
+            icon: 'mdi:emoticon-dead-outline'
+            name: Deaths
