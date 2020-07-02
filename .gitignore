@@ -14,7 +14,7 @@ packages/*/
 tts/*
 home-assistant.log
 *.db-wal
-*.db.shm
+*.db-shm
 *.db
 .google.token
 .spotify-token-cache
