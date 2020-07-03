@@ -19,7 +19,7 @@ rooms:
     motion: binary_sensor.hall_motion
   - name: Lounge
     icon: mdi:sofa
-    light: light.lounge_lamps
+    light: group.lounge_lights
     motion: binary_sensor.lounge_motion
     media_player: media_player.lounge_echo_plus
     climate: climate.downstairs
@@ -38,7 +38,7 @@ rooms:
     door: binary_sensor.patio_door
   - name: Patio
     icon: mdi:flower-outline
-    light: light.back_door
+    light: group.patio_lights
     media_player: media_player.kitchen_echo_show
     motion: binary_sensor.patio_motion
     temperature: sensor.garden_temperature
@@ -64,7 +64,7 @@ rooms:
     media_player: media_player.landing_tablet_s_alexa_apps
   - name: Basement Hall
     icon: mdi:stairs-down
-    light: light.basement_hall
+    light: group.basement_hall_lights
     motion: binary_sensor.basement_hall_motion
     media_player: media_player.lounge_echo_plus
   - name: Electric Cabinet
@@ -72,7 +72,7 @@ rooms:
     light: light.basement_hall
   - name: Snug
     icon: mdi:filmstrip
-    light: light.snug
+    light: group.snug_lights
     motion: binary_sensor.snug_motion
     media_player: media_player.snug_echo_input
   - name: Dining Room

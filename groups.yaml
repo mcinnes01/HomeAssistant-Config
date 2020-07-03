@@ -35,7 +35,6 @@ outside:
    - group.porch
    - group.patio
 
-
 # Rooms
 landing:
  name: Landing
@@ -70,8 +69,7 @@ porch:
 lounge:
  name: Lounge
  entities:
-   - light.lounge_light
-   - light.lounge_lamps
+   - group.lounge_lights
    - group.climate_downstairs
    - group.media_lounge_echo_plus
 drawing_room:
@@ -89,21 +87,18 @@ kitchen:
 patio:
  name: Patio
  entities:
-   - light.back_door
-   - light.patio
+   - group.patio_lights
 basement_hall:
  name: Basement Hall
  entities:
-   - light.basement_hall
-   - light.cellar_stairs
+   - group.basement_hall_lights
    - script.feed_cats
 electric_cabinet:
  name: Electric cabinet
 snug:
  name: Snug
  entities:
-   - light.snug
-   - light.snug_lamp
+   - group.snug_lights
    - binary_sensor.snug_motion
    - media_player.snug_radio
    - group.media_snug_echo_input
@@ -271,3 +266,28 @@ esp_doorbell:
    - switch.doorbell_chime
    - switch.doorbell_chime_active
    - switch.doorbell_restart
+
+# Lights
+lounge_lights:
+ name: Lounge Lights
+ entities:
+  - light.lounge_lamp
+  - light.lounge_sofa_lamp
+
+snug_lights:
+ name: Snug Lights
+ entities:
+  - light.snug
+  - light.snug_lamp
+
+patio_lights:
+ name: Patio Lights
+ entities:
+  - light.patio
+  - light.back_door
+
+basement_hall_lights:
+ name: Basement Hall Lights
+ entities:
+  - light.basement_hall
+  - light.cellar_stairs

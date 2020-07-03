@@ -16,6 +16,7 @@ homeassistant:
 automation: !include automations.yaml
 cloud:
 config:
+group: !include groups.yaml
 history:
 logbook:
 logger:
