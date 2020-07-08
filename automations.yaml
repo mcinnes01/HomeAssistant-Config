@@ -356,6 +356,11 @@
     entity_id: binary_sensor.basement_stairs_motion
     platform: device
     type: motion
+  - device_id: a9cbeb7d959d463688b6ef3de183d544
+    domain: binary_sensor
+    entity_id: binary_sensor.basement_hall_motion
+    platform: device
+    type: motion
   action:
   - data: {}
     entity_id: light.basement_hall
