@@ -55,12 +55,7 @@
                     - type: custom:button-card
                       item_classes: 'col-xs-3 d-block d-sm-none'
                       template: header_alarm
-                      entity: {{ _d_t_config.global["alarm"] }}
-                      tap_action:
-                        haptic: light
-                        action: navigate
-                        navigation_path: more_page_alarm
-                        
+                      entity: {{ _d_t_config.global["alarm"] }}                        
                     {% endif %}
                     - type: horizontal-stack
                       item_classes: 'col-xs-12 d-none d-sm-block'
@@ -71,11 +66,6 @@
                         - type: custom:button-card
                           template: header_alarm_large
                           entity: {{ _d_t_config.global["alarm"] }}
-                          tap_action:
-                            haptic: light
-                            action: navigate
-                            navigation_path: more_page_alarm
-
                         {% endif %}
                     - type: custom:dwains-notification-card
                       item_classes: 'col-xs-12'
@@ -176,7 +166,7 @@
           #END HOMEPAGE HEADER
 
           #START HOMEPAGE CONTENT
-          {% if _d_t_config.global["favorites_homepage"] %}
+          {% if _d_t_config.global["favorites_homepage"] and _d_t_config.global["favorites_homepage"] == 'true' %}
           #Favorites start
           {% if _d_t_config.house_information and _d_t_config.house_information["favorites"] %}
           - type: custom:dwains-flexbox-card
@@ -197,7 +187,6 @@
                     template: more_page_house_information_favorites
                     {% if favorite["entity"].split('.')[0] == 'input_select' %}
                     tap_action:
-                      haptic: light
                       action: more-info
                     double_tap_action:
                       haptic: light
@@ -244,7 +233,7 @@
                       - !include
                         - ../partials/heading_switch.yaml
                         - button_template: partials_heading_switch
-                          active: Rooms
+                          active: {{ _d_t_trans.rooms.title }}
                           headings:
                             - name: {{ _d_t_trans.rooms.title }}
                               navigation_path: "#rooms"
@@ -445,7 +434,7 @@
                       - !include
                         - ../partials/heading_switch.yaml
                         - button_template: partials_heading_switch
-                          active: Devices
+                          active: {{ _d_t_trans.device.title_plural }}
                           headings:
                             - name: {{ _d_t_trans.rooms.title }}
                               navigation_path: "#rooms"
