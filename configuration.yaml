@@ -160,6 +160,18 @@ sonoff:
     100032a00d:
       device_class: [light,light,light,light]
       name: Basement Lights 2
+    1000ba9977:
+      device_class: [light,light,light,light]
+      name: Ground Floor Lights 1
+    1000bab17a:
+      device_class: [light,light,light,light]
+      name: Ground Floor Lights 2
+    1000bab381:
+      device_class: [light,light,light,light]
+      name: Upstairs Lights 1
+    1000bab6de:
+      device_class: [light,light,light,light]
+      name: Upstairs Lights 2
     100032907e:
       device_class: [light,light,light,light]
       name: Outside Lights
@@ -231,3 +243,8 @@ binary_sensor:
     payload_on: "ON"
     payload_off: "OFF"
     device_class: "motion"
+
+withings:
+  client_id: !secret withings_clientid
+  client_secret: !secret withings_secret
+  use_webhook: true
