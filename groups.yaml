@@ -113,8 +113,6 @@ utility_room:
  name: Utility Room
  entities:
    - light.utility_room
-   - light.cellar_door
-   - light.brewery
    - group.media_utility_room_echo_dot
 toilet:
  name: Toilet

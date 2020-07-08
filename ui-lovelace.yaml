@@ -255,9 +255,7 @@ views:
         show_header_toggle: true
         entities:
           - light.utility_room
-          - light.brewery
           - motion.utility_room_motion
-          - light.cellar_door
       - id: 8d28993b809147b292564c803ac12f87  # Automatically created id
         type: entities
         title: Dining room
