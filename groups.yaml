@@ -1,39 +1,39 @@
 # Floors
 upstairs:
- name: Upstairs
- entities:
-   - group.landing
-   - group.bathroom
-   - group.studio
-   - group.middle_bedroom
-   - group.front_bedroom
-   - group.dressing_room
+  name: Upstairs
+  entities:
+    - group.landing
+    - group.bathroom
+    - group.studio
+    - group.middle_bedroom
+    - group.front_bedroom
+    - group.dressing_room
 
 downstairs:
- name: Downstairs
- entities:
-   - group.porch
-   - group.hall
-   - group.lounge
-   - group.drawing_room
-   - group.kitchen
-   - group.patio
+  name: Downstairs
+  entities:
+    - group.porch
+    - group.hall
+    - group.lounge
+    - group.drawing_room
+    - group.kitchen
+    - group.patio
 
 basement:
- name: Basement
- entities:
-   - group.basement_hall
-   - group.electric_cabinet
-   - group.snug
-   - group.dining_room
-   - group.toilet
-   - group.utility_room
+  name: Basement
+  entities:
+    - group.basement_hall
+    - group.electric_cabinet
+    - group.snug
+    - group.dining_room
+    - group.toilet
+    - group.utility_room
 
 outside:
- name: Outside
- entities:
-   - group.porch
-   - group.patio
+  name: Outside
+  entities:
+    - group.porch
+    - group.patio
 
 # Rooms
 landing:
