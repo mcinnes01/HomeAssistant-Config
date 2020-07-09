@@ -34,7 +34,6 @@ rooms:
   - name: Kitchen
     icon: mdi:fridge-outline
     light: group.kitchen_lights
-    fan: light.extractor
     media_player: media_player.kitchen_echo_show
     motion: binary_sensor.kitchen_motion
     door: binary_sensor.patio_door
@@ -52,7 +51,6 @@ rooms:
   - name: Bathroom
     icon: mdi:shower
     light: group.bathroom_lights
-    fan: light.bathroom_fan
     motion: binary_sensor.bathroom_motion
   - name: Middle Bedroom
     icon: mdi:bed-double-outline
