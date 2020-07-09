@@ -331,8 +331,8 @@ kitchen_lights:
   name: Kitchen Lights
   entities:
     - light.kitchen
-    - light.cabinet # This is actually both the lamp and cabinet lights
-    - light.extractor
+    - light.cabinet
+    - light.kitchen_lamp
 
 patio_lights:
   name: Patio Lights
