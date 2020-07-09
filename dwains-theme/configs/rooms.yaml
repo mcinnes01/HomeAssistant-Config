@@ -17,6 +17,7 @@ rooms:
     icon: mdi:view-agenda-outline
     media_player: media_player.hall_tablet_s_alexa_apps
     motion: binary_sensor.hall_motion
+    light: group.hall_lights
   - name: Lounge
     icon: mdi:sofa
     light: group.lounge_lights
@@ -28,11 +29,12 @@ rooms:
   - name: Drawing Room
     icon: mdi:fireplace
     media_player: media_player.drawing_room_echo_dot
-    light: light.drawing_room_lamp
+    light: group.drawing_room_lights
     motion: binary_sensor.drawing_room_motion
   - name: Kitchen
     icon: mdi:fridge-outline
-    light: light.kitchen_lamp
+    light: group.kitchen_lights
+    fan: light.extractor
     media_player: media_player.kitchen_echo_show
     motion: binary_sensor.kitchen_motion
     door: binary_sensor.patio_door
@@ -45,22 +47,34 @@ rooms:
     humidity: sensor.garden_relative_humidity
   - name: Studio
     icon: mdi:headphones
+    light: light.studio
+    motion: binary_sensor.studio_motion
   - name: Bathroom
     icon: mdi:shower
+    light: group.bathroom_lights
+    fan: light.bathroom_fan
+    motion: binary_sensor.bathroom_motion
   - name: Middle Bedroom
     icon: mdi:bed-double-outline
-    light: light.bedroom_lamp
+    light: group.middle_bedroom_lights
+    motion: binary_sensor.middle_bedroom_motion
     media_player: media_player.bedroom_echo_spot
     climate: climate.upstairs
     humidity: climate.upstairs_thermostat_humidity
     temperature: sensor.upstairs_thermostat_temperature
   - name: Front Bedroom
     icon: mdi:bed-double
+    light: light.front_bedroom
+    motion: binary_sensor.front_bedroom_motion
   - name: Dressing Room
     icon: mdi:tshirt-crew-outline
+    light: light.dressing_room
+    motion: binary_sensor.dressing_room_motion
     media_player: media_player.dressing_room_echo_dot
   - name: Landing
     icon: mdi:stairs-up
+    light: light.landing
+    motion: binary_sensor.landing_motion
     media_player: media_player.landing_tablet_s_alexa_apps
   - name: Basement Hall
     icon: mdi:stairs-down

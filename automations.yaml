@@ -525,6 +525,84 @@
   - data: {}
     entity_id: light.toilet
     service: light.turn_off
+- id: '1585495887857'
+  alias: Turn Off Studio Light when there is no motion
+  description: ''
+  trigger:
+  - event_data:
+      entity_id: timer.studio
+    event_type: timer.finished
+    platform: event
+  condition: []
+  action:
+  - data: {}
+    entity_id: light.studio
+    service: light.turn_off
+- id: '1585495887858'
+  alias: Turn Off Bathroom Light when there is no motion
+  description: ''
+  trigger:
+  - event_data:
+      entity_id: timer.bathroom
+    event_type: timer.finished
+    platform: event
+  condition: []
+  action:
+  - data: {}
+    entity_id: light.bathroom
+    service: light.turn_off
+- id: '1585495887859'
+  alias: Turn Off Landing Light when there is no motion
+  description: ''
+  trigger:
+  - event_data:
+      entity_id: timer.landing
+    event_type: timer.finished
+    platform: event
+  condition: []
+  action:
+  - data: {}
+    entity_id: light.landing
+    service: light.turn_off
+- id: '1585495887860'
+  alias: Turn Off Middle Bedroom Light when there is no motion
+  description: ''
+  trigger:
+  - event_data:
+      entity_id: timer.middle_bedroom
+    event_type: timer.finished
+    platform: event
+  condition: []
+  action:
+  - data: {}
+    entity_id: light.middle_bedroom
+    service: light.turn_off
+- id: '1585495887861'
+  alias: Turn Off Front Bedroom Light when there is no motion
+  description: ''
+  trigger:
+  - event_data:
+      entity_id: timer.front_bedroom
+    event_type: timer.finished
+    platform: event
+  condition: []
+  action:
+  - data: {}
+    entity_id: light.front_bedroom
+    service: light.turn_off
+- id: '1585495887862'
+  alias: Turn Off Dressing Room Light when there is no motion
+  description: ''
+  trigger:
+  - event_data:
+      entity_id: timer.dressing_room
+    event_type: timer.finished
+    platform: event
+  condition: []
+  action:
+  - data: {}
+    entity_id: light.dressing_room
+    service: light.turn_off
 - id: '1585498703721'
   alias: Turn On Utility Light when motion detected
   description: ''
@@ -595,6 +673,132 @@
   - data:
       duration: 00:02:00
       entity_id: timer.toilet
+    service: timer.start
+- id: '1585498745229'
+  alias: Turn On Studio Light when motion detected
+  description: ''
+  trigger:
+  - device_id: f918e214648f4e25848333fcea985dfe
+    domain: binary_sensor
+    entity_id: binary_sensor.studio_motion
+    platform: device
+    type: motion
+  condition: []
+  action:
+  - data: {}
+    entity_id: light.studio
+    service: light.turn_on
+  - data:
+      entity_id: timer.studio
+    service: timer.cancel
+  - data:
+      duration: 00:02:00
+      entity_id: timer.studio
+    service: timer.start
+- id: '1585498745230'
+  alias: Turn On Bathroom Light when motion detected
+  description: ''
+  trigger:
+  - device_id: f918e214648f4e25848333fcea985dfe
+    domain: binary_sensor
+    entity_id: binary_sensor.bathroom_motion
+    platform: device
+    type: motion
+  condition: []
+  action:
+  - data: {}
+    entity_id: light.bathroom
+    service: light.turn_on
+  - data:
+      entity_id: timer.bathroom
+    service: timer.cancel
+  - data:
+      duration: 00:02:00
+      entity_id: timer.bathroom
+    service: timer.start
+- id: '1585498745231'
+  alias: Turn On Landing Light when motion detected
+  description: ''
+  trigger:
+  - device_id: f918e214648f4e25848333fcea985dfe
+    domain: binary_sensor
+    entity_id: binary_sensor.landing_motion
+    platform: device
+    type: motion
+  condition: []
+  action:
+  - data: {}
+    entity_id: light.landing
+    service: light.turn_on
+  - data:
+      entity_id: timer.landing
+    service: timer.cancel
+  - data:
+      duration: 00:02:00
+      entity_id: timer.landing
+    service: timer.start
+- id: '1585498745232'
+  alias: Turn On Middle Bedroom Light when motion detected
+  description: ''
+  trigger:
+  - device_id: f918e214648f4e25848333fcea985dfe
+    domain: binary_sensor
+    entity_id: binary_sensor.middle_bedroom_motion
+    platform: device
+    type: motion
+  condition: []
+  action:
+  - data: {}
+    entity_id: light.middle_bedroom
+    service: light.turn_on
+  - data:
+      entity_id: timer.middle_bedroom
+    service: timer.cancel
+  - data:
+      duration: 00:02:00
+      entity_id: timer.middle_bedroom
+    service: timer.start
+- id: '1585498745233'
+  alias: Turn On Front Bedroom Light when motion detected
+  description: ''
+  trigger:
+  - device_id: f918e214648f4e25848333fcea985dfe
+    domain: binary_sensor
+    entity_id: binary_sensor.front_bedroom_motion
+    platform: device
+    type: motion
+  condition: []
+  action:
+  - data: {}
+    entity_id: light.front_bedroom
+    service: light.turn_on
+  - data:
+      entity_id: timer.front_bedroom
+    service: timer.cancel
+  - data:
+      duration: 00:02:00
+      entity_id: timer.front_bedroom
+    service: timer.start
+- id: '1585498745234'
+  alias: Turn On Dressing Room Light when motion detected
+  description: ''
+  trigger:
+  - device_id: f918e214648f4e25848333fcea985dfe
+    domain: binary_sensor
+    entity_id: binary_sensor.dressing_room_motion
+    platform: device
+    type: motion
+  condition: []
+  action:
+  - data: {}
+    entity_id: light.dressing_room
+    service: light.turn_on
+  - data:
+      entity_id: timer.dressing_room
+    service: timer.cancel
+  - data:
+      duration: 00:02:00
+      entity_id: timer.dressing_room
     service: timer.start
 - id: '1587464597280'
   alias: Sump Alarm Triggered

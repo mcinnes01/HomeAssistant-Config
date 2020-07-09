@@ -37,255 +37,329 @@ outside:
 
 # Rooms
 landing:
- name: Landing
- entities:
-   - group.media_landing_tablet
+  name: Landing
+  entities:
+    - group.media_landing_tablet
+    - light.landing
+    - binary_sensor.landing_motion
+
 bathroom:
- name: Bathroom
+  name: Bathroom
+  entities:
+    - group.bathroom_lights
+    - light.bathroom_fan
+    - binary_sensor.bathroom_motion
+
 studio:
- name: Studio
+  name: Studio
+  entities:
+    - light.studio
+    - binary_sensor.studio_motion
+
 middle_bedroom:
- name: Middle bedroom
- entities:
-   - light.bedroom_lamp
-   - group.media_bedroom_echo_spot
-   - group.climate_upstairs
+  name: Middle bedroom
+  entities:
+    - group.middle_bedroom_lights
+    - group.media_bedroom_echo_spot
+    - group.climate_upstairs
+    - binary_sensor.middle_bedroom_motion
+
 front_bedroom:
- name: Front bedroom
+  name: Front bedroom
+  entities:
+    - light.front_bedroom
+    - binary_sensor.front_bedroom_motion
+
 dressing_room:
- name: Dressing room
- entities:
-   - group.media_dressing_room_echo_dot
+  name: Dressing room
+  entities:
+    - group.media_dressing_room_echo_dot
+    - light.dressing_room
+    - binary_sensor.dressing_room_motion
+
 hall:
- name: Hall
- entities:
-   - group.media_hall_tablet
-   - light.hall_light
+  name: Hall
+  entities:
+    - group.media_hall_tablet
+    - light.hall_light
+    - binary_sensor.hall_motion
+
 porch:
- name: Porch
- entities:
-   - light.porch
-   - group.esp_doorbell
+  name: Porch
+  entities:
+    - light.porch
+    - group.esp_doorbell
+
 lounge:
- name: Lounge
- entities:
-   - group.lounge_lights
-   - group.climate_downstairs
-   - group.media_lounge_echo_plus
+  name: Lounge
+  entities:
+    - group.lounge_lights
+    - group.climate_downstairs
+    - group.media_lounge_echo_plus
+    - binary_sensor.lounge_motion
+
 drawing_room:
- name: Drawing Room
- entities:
-   - light.drawing_room_lamp
-   - light.study_light
-   - light.bookshelf_light
-   - group.media_drawing_room_echo_dot
+  name: Drawing Room
+  entities:
+    - group.drawing_room_lights
+    - binary_sensor.drawing_room_motion
+    - group.media_drawing_room_echo_dot
+
 kitchen:
- name: Kitchen
- entities:
-   - light.kitchen_lamp
-   - group.media_kitchen_echo_show
+  name: Kitchen
+  entities:
+    - group.kitchen_lights
+    - binary_sensor.kitchen_motion
+    - light.extractor
+    - group.media_kitchen_echo_show
+
 patio:
- name: Patio
- entities:
-   - group.patio_lights
+  name: Patio
+  entities:
+    - group.patio_lights
+    - binary_sensor.patio_motion
+
 basement_hall:
- name: Basement Hall
- entities:
-   - group.basement_hall_lights
-   - script.feed_cats
+  name: Basement Hall
+  entities:
+    - group.basement_hall_lights
+    - binary_sensor.basement_hall_motion
+    - binary_sensor.basement_stairs_motion
+    - script.feed_cats
+
 electric_cabinet:
- name: Electric cabinet
+  name: Electric cabinet
+  entities:
+    - light.basement_hall
+
 snug:
- name: Snug
- entities:
-   - group.snug_lights
-   - binary_sensor.snug_motion
-   - media_player.snug_radio
-   - group.media_snug_echo_input
+  name: Snug
+  entities:
+    - group.snug_lights
+    - binary_sensor.snug_motion
+    - media_player.snug_radio
+    - group.media_snug_echo_input
+
 dining_room:
- name: Dining Room
- entities:
-   - light.dining_room
-   - binary_sensor.dining_room_motion
-   - media_player.utility_radio #needs renaming
-   - group.media_dining_room_echo_input
+  name: Dining Room
+  entities:
+    - light.dining_room
+    - binary_sensor.dining_room_motion
+    - media_player.utility_radio #needs renaming
+    - group.media_dining_room_echo_input
+
 utility_room:
- name: Utility Room
- entities:
-   - light.utility_room
-   - group.media_utility_room_echo_dot
+  name: Utility Room
+  entities:
+    - light.utility_room
+    - binary_sensor.utility_room_motion
+    - group.media_utility_room_echo_dot
+
 toilet:
- name: Toilet
- entities:
-   - light.toilet
+  name: Toilet
+  entities:
+    - light.toilet
+    - binary_sensor.toilet_motion
 
 # Media Players
 media_bedroom_echo_spot:
- name: Bedroom Echo Spot
- entities:
-   - media_player.bedroom_echo_spot
-   - sensor.bedroom_echo_spot_next_alarm
-   - sensor.bedroom_echo_spot_next_reminder
-   - sensor.bedroom_echo_spot_next_timer
-   
+  name: Bedroom Echo Spot
+  entities:
+    - media_player.bedroom_echo_spot
+    - sensor.bedroom_echo_spot_next_alarm
+    - sensor.bedroom_echo_spot_next_reminder
+    - sensor.bedroom_echo_spot_next_timer
+
 media_dressing_room_echo_dot:
- name: Dressing Room Echo Dot
- entities:
-   - media_player.dressing_room_echo_spot
-   - sensor.dressing_room_echo_spot_next_alarm
-   - sensor.dressing_room_echo_spot_next_reminder
-   - sensor.dressing_room_echo_spot_next_timer
+  name: Dressing Room Echo Dot
+  entities:
+    - media_player.dressing_room_echo_spot
+    - sensor.dressing_room_echo_spot_next_alarm
+    - sensor.dressing_room_echo_spot_next_reminder
+    - sensor.dressing_room_echo_spot_next_timer
 
 media_landing_tablet:
- name: Landing Tablet
- entities:
-   - media_player.landing_tablet
-   - sensor.landing_tablet_next_alarm
-   - sensor.landing_tablet_next_reminder
-   - sensor.landing_tablet_next_timer
+  name: Landing Tablet
+  entities:
+    - media_player.landing_tablet
+    - sensor.landing_tablet_next_alarm
+    - sensor.landing_tablet_next_reminder
+    - sensor.landing_tablet_next_timer
 
 media_hall_tablet:
- name: Hall Tablet
- entities:
-   - media_player.hall_tablet_s_alexa_apps
+  name: Hall Tablet
+  entities:
+    - media_player.hall_tablet_s_alexa_apps
 
 media_lounge_echo_plus:
- name: Lounge Echo Plus
- entities:
-   - media_player.lounge_echo_plus
-   - sensor.lounge_echo_plus_next_alarm
-   - sensor.lounge_echo_plus_next_reminder
-   - sensor.lounge_echo_plus_next_timer
-   - switch.lounge_echo_plus_do_not_disturb_switch
-   - switch.lounge_echo_plus_repeat_switch
-   - switch.lounge_echo_plus_shuffle_switch
+  name: Lounge Echo Plus
+  entities:
+    - media_player.lounge_echo_plus
+    - sensor.lounge_echo_plus_next_alarm
+    - sensor.lounge_echo_plus_next_reminder
+    - sensor.lounge_echo_plus_next_timer
+    - switch.lounge_echo_plus_do_not_disturb_switch
+    - switch.lounge_echo_plus_repeat_switch
+    - switch.lounge_echo_plus_shuffle_switch
 
 media_drawing_room_echo_dot:
- name: Drawing Room Echo Dot
- entities:
-   - media_player.drawing_room_echo_dot
-   - sensor.drawing_room_echo_dot_next_alarm
-   - sensor.drawing_room_echo_dot_next_reminder
-   - sensor.drawing_room_echo_dot_next_timer
-   - switch.drawing_room_echo_dot_do_not_disturb_switch
-   - switch.drawing_room_echo_dot_repeat_switch
-   - switch.drawing_room_echo_dot_shuffle_switch
-   
+  name: Drawing Room Echo Dot
+  entities:
+    - media_player.drawing_room_echo_dot
+    - sensor.drawing_room_echo_dot_next_alarm
+    - sensor.drawing_room_echo_dot_next_reminder
+    - sensor.drawing_room_echo_dot_next_timer
+    - switch.drawing_room_echo_dot_do_not_disturb_switch
+    - switch.drawing_room_echo_dot_repeat_switch
+    - switch.drawing_room_echo_dot_shuffle_switch
+
 media_kitchen_echo_show:
- name: Kitchen Echo Show
- entities:
-   - media_player.kitchen_echo_show
-   - sensor.kitchen_echo_show_next_alarm
-   - sensor.kitchen_echo_show_next_reminder
-   - sensor.kitchen_echo_show_next_timer
-   
+  name: Kitchen Echo Show
+  entities:
+    - media_player.kitchen_echo_show
+    - sensor.kitchen_echo_show_next_alarm
+    - sensor.kitchen_echo_show_next_reminder
+    - sensor.kitchen_echo_show_next_timer
+
 media_snug_echo_input:
- name: Snug Echo Input
- entities:
-   - media_player.snug_echo_input
-   - sensor.snug_echo_input_next_alarm
-   - sensor.snug_echo_input_next_reminder
-   - sensor.snug_echo_input_next_timer
-   
+  name: Snug Echo Input
+  entities:
+    - media_player.snug_echo_input
+    - sensor.snug_echo_input_next_alarm
+    - sensor.snug_echo_input_next_reminder
+    - sensor.snug_echo_input_next_timer
+
 media_dining_room_echo_input:
- name: Dining Room Echo Input
- entities:
-   - media_player.dining_room_echo_input
-   - sensor.dining_room_echo_input_next_alarm
-   - sensor.dining_room_echo_input_next_reminder
-   - sensor.dining_room_echo_input_next_timer
-   
+  name: Dining Room Echo Input
+  entities:
+    - media_player.dining_room_echo_input
+    - sensor.dining_room_echo_input_next_alarm
+    - sensor.dining_room_echo_input_next_reminder
+    - sensor.dining_room_echo_input_next_timer
+
 media_utility_room_echo_dot:
- name: Utility Room Echo Dot
- entities:
-   - media_player.utility_room_echo_spot
-   - sensor.utility_room_echo_spot_next_alarm
-   - sensor.utility_room_echo_spot_next_reminder
-   - sensor.utility_room_echo_spot_next_timer
+  name: Utility Room Echo Dot
+  entities:
+    - media_player.utility_room_echo_spot
+    - sensor.utility_room_echo_spot_next_alarm
+    - sensor.utility_room_echo_spot_next_reminder
+    - sensor.utility_room_echo_spot_next_timer
 
 
 # Climate
 climate_upstairs:
- name: Climate Upstairs
- entities:
-   - sensor.upstairs_thermostat_humidity
-   - sensor.upstairs_thermostat_hvac_state
-   - sensor.upstairs_thermostat_operation_mode
-   - sensor.upstairs_thermostat_target
-   - sensor.upstairs_thermostat_temperature
-   - binary_sensor.upstairs_thermostat_fan
-   - binary_sensor.upstairs_thermostat_has_leaf
-   - binary_sensor.upstairs_thermostat_is_locked
-   - binary_sensor.upstairs_thermostat_is_using_emergency_heat
-   - binary_sensor.upstairs_thermostat_online
-   - climate.upstairs
+  name: Climate Upstairs
+  entities:
+    - sensor.upstairs_thermostat_humidity
+    - sensor.upstairs_thermostat_hvac_state
+    - sensor.upstairs_thermostat_operation_mode
+    - sensor.upstairs_thermostat_target
+    - sensor.upstairs_thermostat_temperature
+    - binary_sensor.upstairs_thermostat_fan
+    - binary_sensor.upstairs_thermostat_has_leaf
+    - binary_sensor.upstairs_thermostat_is_locked
+    - binary_sensor.upstairs_thermostat_is_using_emergency_heat
+    - binary_sensor.upstairs_thermostat_online
+    - climate.upstairs
 
 climate_downstairs:
- name: Climate Downstairs
- entities:
-   - sensor.downstairs_thermostat_humidity
-   - sensor.downstairs_thermostat_hvac_state
-   - sensor.downstairs_thermostat_operation_mode
-   - sensor.downstairs_thermostat_target
-   - sensor.downstairs_thermostat_temperature
-   - binary_sensor.downstairs_thermostat_fan
-   - binary_sensor.downstairs_thermostat_has_leaf
-   - binary_sensor.downstairs_thermostat_is_locked
-   - binary_sensor.downstairs_thermostat_is_using_emergency_heat
-   - binary_sensor.downstairs_thermostat_online
-   - climate.downstairs
+  name: Climate Downstairs
+  entities:
+    - sensor.downstairs_thermostat_humidity
+    - sensor.downstairs_thermostat_hvac_state
+    - sensor.downstairs_thermostat_operation_mode
+    - sensor.downstairs_thermostat_target
+    - sensor.downstairs_thermostat_temperature
+    - binary_sensor.downstairs_thermostat_fan
+    - binary_sensor.downstairs_thermostat_has_leaf
+    - binary_sensor.downstairs_thermostat_is_locked
+    - binary_sensor.downstairs_thermostat_is_using_emergency_heat
+    - binary_sensor.downstairs_thermostat_online
+    - climate.downstairs
 
 climate_basement:
- name: Climate Basement
- entities:
-   - sensor.basement_thermostat_humidity
-   - sensor.basement_thermostat_hvac_state
-   - sensor.basement_thermostat_operation_mode
-   - sensor.basement_thermostat_target
-   - sensor.basement_thermostat_temperature
-   - binary_sensor.basement_thermostat_fan
-   - binary_sensor.basement_thermostat_has_leaf
-   - binary_sensor.basement_thermostat_is_locked
-   - binary_sensor.basement_thermostat_is_using_emergency_heat
-   - binary_sensor.basement_thermostat_online
-   - climate.basement
+  name: Climate Basement
+  entities:
+    - sensor.basement_thermostat_humidity
+    - sensor.basement_thermostat_hvac_state
+    - sensor.basement_thermostat_operation_mode
+    - sensor.basement_thermostat_target
+    - sensor.basement_thermostat_temperature
+    - binary_sensor.basement_thermostat_fan
+    - binary_sensor.basement_thermostat_has_leaf
+    - binary_sensor.basement_thermostat_is_locked
+    - binary_sensor.basement_thermostat_is_using_emergency_heat
+    - binary_sensor.basement_thermostat_online
+    - climate.basement
 
 # ESP Devices
 esp_doorbell:
- name: Doorbell
- entities:
-   - binary_sensor.doorbell_button
-   - sensor.doorbell_bssid
-   - sensor.doorbell_esphome_version
-   - sensor.doorbell_ip
-   - sensor.doorbell_ssid
-   - sensor.doorbell_uptime
-   - sensor.doorbell_wifi_signal
-   - switch.doorbell_chime
-   - switch.doorbell_chime_active
-   - switch.doorbell_restart
+  name: Doorbell
+  entities:
+    - binary_sensor.doorbell_button
+    - sensor.doorbell_bssid
+    - sensor.doorbell_esphome_version
+    - sensor.doorbell_ip
+    - sensor.doorbell_ssid
+    - sensor.doorbell_uptime
+    - sensor.doorbell_wifi_signal
+    - switch.doorbell_chime
+    - switch.doorbell_chime_active
+    - switch.doorbell_restart
 
 # Lights
 lounge_lights:
- name: Lounge Lights
- entities:
-  - light.lounge_lamp
-  - light.lounge_sofa_lamp
+  name: Lounge Lights
+  entities:
+    - light.lounge
+    - light.lounge_lamp
 
-snug_lights:
- name: Snug Lights
- entities:
-  - light.snug
-  - light.snug_lamp
+hall_lights:
+  name: Hall Lights
+  entities:
+    - light.hall
+    - light.hall_lamp
+
+drawing_room_lights:
+  name: Drawing Room Lights
+  entities:
+    - light.bookshelf
+    - light.drawing_room
+    - light.drawing_room_lamp
+
+kitchen_lights:
+  name: Kitchen Lights
+  entities:
+    - light.kitchen
+    - light.cabinet # This is actually both the lamp and cabinet lights
+    - light.extractor
 
 patio_lights:
- name: Patio Lights
- entities:
-  - light.patio
-  - light.back_door
+  name: Patio Lights
+  entities:
+    - light.patio
+    - light.back_door
 
 basement_hall_lights:
- name: Basement Hall Lights
- entities:
-  - light.basement_hall
-  - light.cellar_stairs
+  name: Basement Hall Lights
+  entities:
+    - light.basement_hall
+    - light.cellar_stairs
+
+snug_lights:
+  name: Snug Lights
+  entities:
+    - light.snug
+    - light.snug_lamp
+
+middle_bedroom_lights:
+  name: Middle Bedroom Lights
+  entities:
+    - light.middle_bedroom
+    - light.bedroom_lamp
+
+bathroom_lights:
+  name: Bathroom Lights
+  entities:
+    - light.bathroom
+    - light.mirror

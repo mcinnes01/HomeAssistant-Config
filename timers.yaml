@@ -16,3 +16,15 @@ drawing_room:
   duration: '00:02:00'
 kitchen:
   duration: '00:02:00'
+studio:
+  duration: '00:02:00'
+bathroom:
+  duration: '00:02:00'
+landing:
+  duration: '00:02:00'
+middle_bedroom:
+  duration: '00:02:00'
+front_bedroom:
+  duration: '00:02:00'
+dressing_room:
+  duration: '00:02:00'
