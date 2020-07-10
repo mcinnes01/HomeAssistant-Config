@@ -111,6 +111,7 @@ kitchen:
     - group.kitchen_lights
     - binary_sensor.kitchen_motion
     - light.extractor
+    - light.cabinet
     - group.media_kitchen_echo_show
 
 patio:
@@ -331,7 +332,6 @@ kitchen_lights:
   name: Kitchen Lights
   entities:
     - light.kitchen
-    - light.cabinet
     - light.kitchen_lamp
 
 patio_lights:
