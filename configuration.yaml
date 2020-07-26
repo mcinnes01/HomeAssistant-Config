@@ -151,8 +151,8 @@ alarm_control_panel:
 sonoff:
   username: !secret sonoff_username
   password: !secret sonoff_password
-  mode: local
-  reload: always  # update device list every time HA starts
+  #mode: local
+  #reload: always  # update device list every time HA starts
   devices:
     100032bd73:
       device_class: [light,light,light,light]
@@ -184,7 +184,7 @@ light:
       - light.kitchen_lamp
       - light.drawing_room_lamp
       - light.lounge_lamp
-      - light.lounge_sofa_lamp
+      - light.hall_lamp
       - light.bedroom_lamp
       - light.cellar_stairs
       - light.snug_lamp
@@ -217,11 +217,6 @@ light:
       - light.cellar_door
       - light.back_door
       - light.patio
-  - platform: group
-    name: Lounge Lamps
-    entities:
-      - light.lounge_lamp
-      - light.lounge_sofa_lamp
 
 circadian_lighting:
 
@@ -231,7 +226,7 @@ switch:
       - light.kitchen_lamp
       - light.drawing_room_lamp
       - light.lounge_lamp
-      - light.lounge_sofa_lamp
+      - light.hall_lamp
       - light.bedroom_lamp
       - light.cellar_stairs
       - light.snug_lamp

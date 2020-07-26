@@ -321,7 +321,7 @@
       entity_id: timer.snug
     service: timer.start
 - id: '1585417563603'
-  alias: Turn On Lounge Lamp when motion detected
+  alias: Turn On Lounge Light when motion detected
   description: ''
   trigger:
   - device_id: 0310800ab747484283cf6fb58715fb0d
@@ -336,9 +336,12 @@
       condition: sun
     - after: sunset
       condition: sun
+  - condition: state
+    entity_id: input_boolean.ambient_mode
+    state: 'Off'
   action:
   - data: {}
-    entity_id: light.lounge_lamps
+    entity_id: light.lounge
     service: light.turn_on
   - data:
       entity_id: timer.lounge
@@ -347,6 +350,7 @@
       duration: 00:02:00
       entity_id: timer.lounge
     service: timer.start
+  mode: single
 - id: '1585417563607'
   alias: Turn On Basement Hall Light when motion detected
   description: ''
@@ -373,7 +377,7 @@
       entity_id: timer.basement_hall
     service: timer.start
 - id: '1585417563604'
-  alias: Turn On Drawing Room Lamp when motion detected
+  alias: Turn On Drawing Room Light when motion detected
   description: ''
   trigger:
   - device_id: 0310800ab747484283cf6fb58715fb0d
@@ -390,7 +394,7 @@
       condition: sun
   action:
   - data: {}
-    entity_id: light.drawing_room_lamp
+    entity_id: light.drawing_room
     service: light.turn_on
   - data:
       entity_id: timer.drawing_room
@@ -400,7 +404,7 @@
       entity_id: timer.drawing_room
     service: timer.start
 - id: '1585417563605'
-  alias: Turn On Kitchen Lamp when motion detected
+  alias: Turn On Kitchen Light when motion detected
   description: ''
   trigger:
   - device_id: 0310800ab747484283cf6fb58715fb0d
@@ -417,7 +421,7 @@
       condition: sun
   action:
   - data: {}
-    entity_id: light.kitchen_lamp
+    entity_id: light.kitchen
     service: light.turn_on
   - data:
       entity_id: timer.kitchen
@@ -427,7 +431,7 @@
       entity_id: timer.kitchen
     service: timer.start
 - id: '1585418369243'
-  alias: Turn Off Lounge Lamp when there is no motion
+  alias: Turn Off Lounge Light when there is no motion
   description: ''
   trigger:
   - event_data:
@@ -436,7 +440,7 @@
     platform: event
   action:
   - data: {}
-    entity_id: light.lounge_lamps
+    entity_id: light.lounge
     service: light.turn_off
 - id: '1585418369247'
   alias: Turn Off Basement Hall Lights when there is no motion
@@ -451,7 +455,7 @@
     entity_id: light.basement_hall
     service: light.turn_off
 - id: '1585418369244'
-  alias: Turn Off Drawing Room Lamp when there is no motion
+  alias: Turn Off Drawing Room Light when there is no motion
   description: ''
   trigger:
   - event_data:
@@ -460,10 +464,10 @@
     platform: event
   action:
   - data: {}
-    entity_id: light.drawing_room_lamp
+    entity_id: light.drawing_room
     service: light.turn_off
 - id: '1585418369245'
-  alias: Turn Off Kitchen Lamp when there is no motion
+  alias: Turn Off Kitchen Light when there is no motion
   description: ''
   trigger:
   - event_data:
@@ -472,7 +476,7 @@
     platform: event
   action:
   - data: {}
-    entity_id: light.kitchen_lamp
+    entity_id: light.kitchen
     service: light.turn_off
 - id: '1585418369242'
   alias: Turn Off Snug Light when there is no motion
@@ -720,7 +724,7 @@
   alias: Turn On Landing Light when motion detected
   description: ''
   trigger:
-  - device_id: f918e214648f4e25848333fcea985dfe
+  - device_id: b86bf2220af642c1803e74f176da9267
     domain: binary_sensor
     entity_id: binary_sensor.landing_motion
     platform: device
@@ -783,7 +787,7 @@
   alias: Turn On Dressing Room Light when motion detected
   description: ''
   trigger:
-  - device_id: f918e214648f4e25848333fcea985dfe
+  - device_id: b86bf2220af642c1803e74f176da9267
     domain: binary_sensor
     entity_id: binary_sensor.dressing_room_motion
     platform: device
@@ -830,3 +834,43 @@
       data:
         type: announce
     service: notify.alexa_media
+- id: '1595284024303'
+  alias: Turn on Hall Light when motion is detected
+  description: ''
+  trigger:
+  - device_id: 0310800ab747484283cf6fb58715fb0d
+    domain: binary_sensor
+    entity_id: binary_sensor.hall_motion
+    platform: device
+    type: motion
+  condition:
+  - before: sunrise
+    condition: sun
+  - after: sunset
+    condition: sun
+  action:
+  - data: {}
+    entity_id: light.hall
+    service: light.turn_on
+  - data: {}
+    entity_id: timer.hallway
+    service: timer.cancel
+  - data:
+      duration: 00:01:00
+    entity_id: timer.hallway
+    service: timer.start
+  mode: single
+- id: '1595286087972'
+  alias: Turn Off Hallway light when there is no motion
+  description: ''
+  trigger:
+  - event_data:
+      entity_id: timer.hallway
+    event_type: timer.finished
+    platform: event
+  condition: []
+  action:
+  - data: {}
+    entity_id: light.hall
+    service: light.turn_off
+  mode: single

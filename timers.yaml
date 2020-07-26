@@ -12,6 +12,8 @@ patio:
   duration: '00:02:00'
 lounge:
   duration: '00:02:00'
+hallway:
+  duration: '00:01:00'
 drawing_room:
   duration: '00:02:00'
 kitchen:
@@ -21,7 +23,7 @@ studio:
 bathroom:
   duration: '00:02:00'
 landing:
-  duration: '00:02:00'
+  duration: '00:01:00'
 middle_bedroom:
   duration: '00:02:00'
 front_bedroom:
