@@ -1,876 +1,262 @@
-- alias: Update notifications
-  id: notify_homeassistant_update
-  trigger:
-  - entity_id: updater.updater
-    platform: state
-  action:
-  - service: notify.pushbullet
-    data:
-      title: New Home Assistant Release
-      message: Home Assistant  {{ states.updater.updater.state }}  is now available.
-      target:
-      - email/mcinnes01@gmail.com
-      - device/AndyPhone
-- alias: Doorbell Notifications
-  id: doorbell_trigger
-  trigger:
-    platform: state
-    entity_id: binary_sensor.doorbell_button
-    to: 'on'
-  action:
-  - service: notify.pushbullet
-    data:
-      title: Doorbell
-      message: Ding dong! Someone is at the door!
-      data:
-        file_url: http://tiptag.com.ar/wp-content/uploads/2018/06/timbre1.jpg
-      target:
-      - email/mcinnes01@gmail.com
-      - device/AndyPhone
-  - service: notify.alexa_media
-    data:
-      title: Doorbell
-      message: Ding dong! Someone is at the door!
-      target:
-      - media_player.everywhere
-      data:
-        type: announce
-- id: alarm_trigger
-  alias: Trigger alarm while armed away
-  trigger:
-  - device_id: f918e214648f4e25848333fcea985dfe
-    domain: binary_sensor
-    entity_id: binary_sensor.snug_motion
-    platform: device
-    type: motion
-  - device_id: f918e214648f4e25848333fcea985dfe
-    domain: binary_sensor
-    entity_id: binary_sensor.dining_room_motion
-    platform: device
-    type: motion
-  - device_id: f918e214648f4e25848333fcea985dfe
-    domain: binary_sensor
-    entity_id: binary_sensor.utility_room_motion
-    platform: device
-    type: motion
-  - device_id: f918e214648f4e25848333fcea985dfe
-    domain: binary_sensor
-    entity_id: binary_sensor.cellar_door
-    platform: device
-    type: opened
-  condition:
-  - condition: state
-    entity_id: alarm_control_panel.alarm
-    state: armed_away
-  action:
-  - data: {}
-    entity_id: alarm_control_panel.alarm
-    service: alarm_control_panel.alarm_trigger
-- alias: Send notification when alarm triggered
-  trigger:
-  - platform: state
-    entity_id: alarm_control_panel.alarm
-    to: triggered
-  action:
-  - data:
-      title: Alarm Triggered
-      message: ALARM! The alarm has been triggered
-      data:
-        file_url: https://media.istockphoto.com/vectors/vector-fire-alarm-vector-id610426096?k=6&m=610426096&s=612x612&w=0&h=IIjBibeAUNdoq7XS4-esMGyxxw_xFkb07zbwKcwNB-I=
-      target:
-      - email/mcinnes01@gmail.com
-      - device/AndyPhone
-    service: notify.pushbullet
-  - data:
-      title: Alarm Triggered
-      message: The alarm has been triggered. The alarm has been triggered. The alarm
-        has been triggered. The alarm has been triggered. The alarm has been triggered.
-      target:
-      - media_player.everywhere
-      data:
-        type: announce
-    service: notify.alexa_media
-  id: 33a13ad590164e5a9542f8223820a928
-- alias: Turn On Ex Machina lights when alarm triggered
-  trigger:
-  - platform: state
-    entity_id: alarm_control_panel.alarm
-    to: triggered
-  action:
-  - data: {}
-    entity_id: light.inside
-    service: light.turn_off
-  - data:
-      brightness_pct: 100
-      effect: Alarm
-    entity_id: light.yeelights
-    service: light.turn_on
-  id: 71bcd308a0bc484793b7d78e8ec8e69d
-- alias: Send notification when alarm is Disarmed
-  trigger:
-  - platform: state
-    entity_id: alarm_control_panel.alarm
-    to: disarmed
-  action:
-  - data:
-      type: announce
-    service: notify.alexa_media
-    data_template:
-      title: Alarm disarmed
-      message: ALARM! The alarm is Disarmed at {{ states('sensor.date_time') }}
-      target:
-      - media_player.everywhere
-  id: 63385e6035f643aab8b67f619af4951b
-- alias: Turn Off Ex Machina lights when alarm disarmed
-  trigger:
-  - platform: state
-    entity_id: alarm_control_panel.alarm
-    to: disarmed
-  action:
-  - data:
-      effect: Stop
-    entity_id: light.yeelights
-    service: light.turn_on
-  - data: {}
-    entity_id: light.yeelights
-    service: light.turn_off
-  id: 71bcd308a0bc484793b7d78e8ec8e69f
-- alias: Send notification when alarm is arming
-  trigger:
-  - platform: state
-    entity_id: alarm_control_panel.alarm
-    from: disarmed
-    to: pending
-  action:
-  - service: notify.alexa_media
-    data_template:
-      title: Alarm arming
-      message: The alarm is arming you have 60 seconds to leave
-      target:
-      - media_player.everywhere
-      data:
-        type: announce
-  id: a71c90774150444f9237ba14769e935a
-- alias: Send notification when alarm is pending
-  trigger:
-  - platform: state
-    entity_id: alarm_control_panel.alarm
-    from: armed
-    to: pending
-  action:
-  - service: notify.alexa_media
-    data_template:
-      title: Alarm pending
-      message: You have 30 seconds to disable the alarm
-      target:
-      - media_player.everywhere
-      data:
-        type: announce
-  id: df6ae52914e648ec8d170fc4e508c29e
-- alias: Send notification when alarm is Armed in Away mode
-  trigger:
-  - platform: state
-    entity_id: alarm_control_panel.alarm
-    to: armed_away
-  action:
-  - service: notify.alexa_media
-    data_template:
-      title: Alarm armed in away mode
-      message: The alarm is armed in Away mode
-      target:
-      - media_player.everywhere
-      data:
-        type: announce
-  id: e430701364844f3da246e6f2db218214
-- alias: Send notification when alarm is Armed in Home mode
-  trigger:
-  - platform: state
-    entity_id: alarm_control_panel.alarm
-    to: armed_home
-  action:
-  - service: notify.alexa_media
-    data_template:
-      title: Alarm armed in home mode
-      message: The alarm is armed in Home mode
-      target:
-      - media_player.everywhere
-      data:
-        type: announce
-  id: b762a0f5608845a2800b4b408924d844
-- alias: Patio Motion
-  id: '1560465284215'
-  trigger:
-  - platform: webhook
-    webhook_id: ''
-  condition: []
-  action: []
-- alias: Evening feed
-  id: '1566893522713'
-  trigger:
-  - at: '17:00'
-    platform: time
-  condition: []
-  action:
-  - service: script.feed_cats
-- alias: Morning Feed
-  id: '1566993898921'
-  trigger:
-  - at: 07:00
-    platform: time
-  condition: []
-  action:
-  - service: script.feed_cats
-- id: '1579518320766'
-  alias: Turn On Porch Light when Sun is set
-  description: ''
-  trigger:
-  - event: sunset
-    platform: sun
-  condition: []
-  action:
-  - entity_id: light.porch
-    service: light.turn_on
-- id: '1579518409890'
-  alias: Turn Off Porch Light at 11pm
-  description: ''
-  trigger:
-  - at: '22:30:00'
-    platform: time
-  condition: []
-  action:
-  - entity_id: light.porch
-    service: light.turn_off
-- id: '1579590597721'
-  alias: Turn Off Back Door Light when no motion
-  trigger:
-  - event_data:
-      entity_id: timer.patio
-    event_type: timer.finished
-    platform: event
-  action:
-  - data:
-      entity_id: light.back_door
-    service: light.turn_off
-- id: '1579590785318'
-  alias: Turn on back door light when there is movement and the sun is set
-  description: ''
-  trigger:
-  - entity_id: binary_sensor.patio_motion
-    platform: state
-    to: 'on'
-  condition:
-  - condition: or
-    conditions:
-    - after: sunset
-      condition: sun
-    - before: sunrise
-      condition: sun
-  action:
-  - data:
-      entity_id: light.back_door
-    service: light.turn_on
-  - data:
-      entity_id: timer.patio
-    service: timer.cancel
-  - data:
-      duration: 00:02:00
-      entity_id: timer.patio
-    service: timer.start
-- id: '1585168264303'
-  alias: Welcome Claire Home
-  description: ''
-  trigger: []
-  condition:
-  - condition: device
-    device_id: 8a4eec7076b74868b1bd7f134f8b4fa2
-    domain: device_tracker
-    entity_id: device_tracker.claires_iphone
-    type: is_home
-  action:
-  - service: notify.alexa_media
-    data_template:
-      title: Welcome home Claire
-      message: Welcome home Claire
-      target:
-      - media_player.everywhere
-      data:
-        type: announce
-- id: '1585417563602'
-  alias: Turn On Snug Light when motion detected
-  description: ''
-  trigger:
-  - device_id: f918e214648f4e25848333fcea985dfe
-    domain: binary_sensor
-    entity_id: binary_sensor.snug_motion
-    for:
-      hours: 0
-      minutes: 0
-      seconds: 0
-    platform: device
-    type: motion
-  condition: []
-  action:
-  - data: {}
-    entity_id: light.snug
-    service: light.turn_on
-  - data:
-      entity_id: timer.snug
-    service: timer.cancel
-  - data:
-      duration: 00:02:00
-      entity_id: timer.snug
-    service: timer.start
-- id: '1585417563603'
-  alias: Turn On Lounge Light when motion detected
-  description: ''
-  trigger:
-  - device_id: 0310800ab747484283cf6fb58715fb0d
-    domain: binary_sensor
-    entity_id: binary_sensor.lounge_motion
-    platform: device
-    type: motion
-  condition:
-  - condition: or
-    conditions:
-    - before: sunrise
-      condition: sun
-    - after: sunset
-      condition: sun
-  - condition: state
-    entity_id: input_boolean.ambient_mode
-    state: 'Off'
-  action:
-  - data: {}
-    entity_id: light.lounge
-    service: light.turn_on
-  - data:
-      entity_id: timer.lounge
-    service: timer.cancel
-  - data:
-      duration: 00:02:00
-      entity_id: timer.lounge
-    service: timer.start
-  mode: single
-- id: '1585417563607'
-  alias: Turn On Basement Hall Light when motion detected
-  description: ''
-  trigger:
-  - device_id: 0310800ab747484283cf6fb58715fb0d
-    domain: binary_sensor
-    entity_id: binary_sensor.basement_stairs_motion
-    platform: device
-    type: motion
-  - device_id: a9cbeb7d959d463688b6ef3de183d544
-    domain: binary_sensor
-    entity_id: binary_sensor.basement_hall_motion
-    platform: device
-    type: motion
-  action:
-  - data: {}
-    entity_id: light.basement_hall
-    service: light.turn_on
-  - data:
-      entity_id: timer.basement_hall
-    service: timer.cancel
-  - data:
-      duration: 00:01:00
-      entity_id: timer.basement_hall
-    service: timer.start
-- id: '1585417563604'
-  alias: Turn On Drawing Room Light when motion detected
-  description: ''
-  trigger:
-  - device_id: 0310800ab747484283cf6fb58715fb0d
-    domain: binary_sensor
-    entity_id: binary_sensor.drawing_room_motion
-    platform: device
-    type: motion
-  condition:
-  - condition: or
-    conditions:
-    - before: sunrise
-      condition: sun
-    - after: sunset
-      condition: sun
-  action:
-  - data: {}
-    entity_id: light.drawing_room
-    service: light.turn_on
-  - data:
-      entity_id: timer.drawing_room
-    service: timer.cancel
-  - data:
-      duration: 00:02:00
-      entity_id: timer.drawing_room
-    service: timer.start
-- id: '1585417563605'
-  alias: Turn On Kitchen Light when motion detected
-  description: ''
-  trigger:
-  - device_id: 0310800ab747484283cf6fb58715fb0d
-    domain: binary_sensor
-    entity_id: binary_sensor.kitchen_motion
-    platform: device
-    type: motion
-  condition:
-  - condition: or
-    conditions:
-    - before: sunrise
-      condition: sun
-    - after: sunset
-      condition: sun
-  action:
-  - data: {}
-    entity_id: light.kitchen
-    service: light.turn_on
-  - data:
-      entity_id: timer.kitchen
-    service: timer.cancel
-  - data:
-      duration: 00:02:00
-      entity_id: timer.kitchen
-    service: timer.start
-- id: '1585418369243'
-  alias: Turn Off Lounge Light when there is no motion
-  description: ''
-  trigger:
-  - event_data:
-      entity_id: timer.lounge
-    event_type: timer.finished
-    platform: event
-  action:
-  - data: {}
-    entity_id: light.lounge
-    service: light.turn_off
-- id: '1585418369247'
-  alias: Turn Off Basement Hall Lights when there is no motion
-  description: ''
-  trigger:
-  - event_data:
-      entity_id: timer.basement_hall
-    event_type: timer.finished
-    platform: event
-  action:
-  - data: {}
-    entity_id: light.basement_hall
-    service: light.turn_off
-- id: '1585418369244'
-  alias: Turn Off Drawing Room Light when there is no motion
-  description: ''
-  trigger:
-  - event_data:
-      entity_id: timer.drawing_room
-    event_type: timer.finished
-    platform: event
-  action:
-  - data: {}
-    entity_id: light.drawing_room
-    service: light.turn_off
-- id: '1585418369245'
-  alias: Turn Off Kitchen Light when there is no motion
-  description: ''
-  trigger:
-  - event_data:
-      entity_id: timer.kitchen
-    event_type: timer.finished
-    platform: event
-  action:
-  - data: {}
-    entity_id: light.kitchen
-    service: light.turn_off
-- id: '1585418369242'
-  alias: Turn Off Snug Light when there is no motion
-  description: ''
-  trigger:
-  - event_data:
-      entity_id: timer.snug
-    event_type: timer.finished
-    platform: event
-  action:
-  - data: {}
-    entity_id: light.snug
-    service: light.turn_off
-- id: '1585495667956'
-  alias: Turn Off Dining Room Light when there is no motion
-  description: ''
-  trigger:
-  - event_data:
-      entity_id: timer.dining_room
-    event_type: timer.finished
-    platform: event
-  condition: []
-  action:
-  - data: {}
-    entity_id: light.dining_room
-    service: light.turn_off
-- id: '1585495887855'
-  alias: Turn Off Utility Light when there is no motion
-  description: ''
-  trigger:
-  - event_data:
-      entity_id: timer.utility_room
-    event_type: timer.finished
-    platform: event
-  condition: []
-  action:
-  - data: {}
-    entity_id: light.utility_room
-    service: light.turn_off
-- id: '1585495887856'
-  alias: Turn Off Toilet Light when there is no motion
-  description: ''
-  trigger:
-  - event_data:
-      entity_id: timer.toilet
-    event_type: timer.finished
-    platform: event
-  condition: []
-  action:
-  - data: {}
-    entity_id: light.toilet
-    service: light.turn_off
-- id: '1585495887857'
-  alias: Turn Off Studio Light when there is no motion
-  description: ''
-  trigger:
-  - event_data:
-      entity_id: timer.studio
-    event_type: timer.finished
-    platform: event
-  condition: []
-  action:
-  - data: {}
-    entity_id: light.studio
-    service: light.turn_off
-- id: '1585495887858'
-  alias: Turn Off Bathroom Light when there is no motion
-  description: ''
-  trigger:
-  - event_data:
-      entity_id: timer.bathroom
-    event_type: timer.finished
-    platform: event
-  condition: []
-  action:
-  - data: {}
-    entity_id: light.bathroom
-    service: light.turn_off
-- id: '1585495887859'
-  alias: Turn Off Landing Light when there is no motion
-  description: ''
-  trigger:
-  - event_data:
-      entity_id: timer.landing
-    event_type: timer.finished
-    platform: event
-  condition: []
-  action:
-  - data: {}
-    entity_id: light.landing
-    service: light.turn_off
-- id: '1585495887860'
-  alias: Turn Off Middle Bedroom Light when there is no motion
-  description: ''
-  trigger:
-  - event_data:
-      entity_id: timer.middle_bedroom
-    event_type: timer.finished
-    platform: event
-  condition: []
-  action:
-  - data: {}
-    entity_id: light.middle_bedroom
-    service: light.turn_off
-- id: '1585495887861'
-  alias: Turn Off Front Bedroom Light when there is no motion
-  description: ''
-  trigger:
-  - event_data:
-      entity_id: timer.front_bedroom
-    event_type: timer.finished
-    platform: event
-  condition: []
-  action:
-  - data: {}
-    entity_id: light.front_bedroom
-    service: light.turn_off
-- id: '1585495887862'
-  alias: Turn Off Dressing Room Light when there is no motion
-  description: ''
-  trigger:
-  - event_data:
-      entity_id: timer.dressing_room
-    event_type: timer.finished
-    platform: event
-  condition: []
-  action:
-  - data: {}
-    entity_id: light.dressing_room
-    service: light.turn_off
-- id: '1585498703721'
-  alias: Turn On Utility Light when motion detected
-  description: ''
-  trigger:
-  - device_id: f918e214648f4e25848333fcea985dfe
-    domain: binary_sensor
-    entity_id: binary_sensor.utility_room_motion
-    for:
-      hours: 0
-      minutes: 0
-      seconds: 0
-    platform: device
-    type: motion
-  condition: []
-  action:
-  - data: {}
-    entity_id: light.utility_room
-    service: light.turn_on
-  - data:
-      entity_id: timer.utility_room
-    service: timer.cancel
-  - data:
-      duration: 00:02:00
-      entity_id: timer.utility_room
-    service: timer.start
-- id: '1585498745227'
-  alias: Turn On Dining Room Light when motion detected
-  description: ''
-  trigger:
-  - device_id: f918e214648f4e25848333fcea985dfe
-    domain: binary_sensor
-    entity_id: binary_sensor.dining_room_motion
-    for:
-      hours: 0
-      minutes: 0
-      seconds: 0
-    platform: device
-    type: motion
-  condition: []
-  action:
-  - data: {}
-    entity_id: light.dining_room
-    service: light.turn_on
-  - data:
-      entity_id: timer.dining_room
-    service: timer.cancel
-  - data:
-      duration: 00:05:00
-      entity_id: timer.dining_room
-    service: timer.start
-- id: '1585498745228'
-  alias: Turn On Toilet Light when motion detected
-  description: ''
-  trigger:
-  - device_id: f918e214648f4e25848333fcea985dfe
-    domain: binary_sensor
-    entity_id: binary_sensor.toilet_motion
-    platform: device
-    type: motion
-  condition: []
-  action:
-  - data: {}
-    entity_id: light.toilet
-    service: light.turn_on
-  - data:
-      entity_id: timer.toilet
-    service: timer.cancel
-  - data:
-      duration: 00:02:00
-      entity_id: timer.toilet
-    service: timer.start
-- id: '1585498745229'
-  alias: Turn On Studio Light when motion detected
-  description: ''
-  trigger:
-  - device_id: f918e214648f4e25848333fcea985dfe
-    domain: binary_sensor
-    entity_id: binary_sensor.studio_motion
-    platform: device
-    type: motion
-  condition: []
-  action:
-  - data: {}
-    entity_id: light.studio
-    service: light.turn_on
-  - data:
-      entity_id: timer.studio
-    service: timer.cancel
-  - data:
-      duration: 00:02:00
-      entity_id: timer.studio
-    service: timer.start
-- id: '1585498745230'
-  alias: Turn On Bathroom Light when motion detected
-  description: ''
-  trigger:
-  - device_id: f918e214648f4e25848333fcea985dfe
-    domain: binary_sensor
-    entity_id: binary_sensor.bathroom_motion
-    platform: device
-    type: motion
-  condition: []
-  action:
-  - data: {}
-    entity_id: light.bathroom
-    service: light.turn_on
-  - data:
-      entity_id: timer.bathroom
-    service: timer.cancel
-  - data:
-      duration: 00:02:00
-      entity_id: timer.bathroom
-    service: timer.start
-- id: '1585498745231'
-  alias: Turn On Landing Light when motion detected
-  description: ''
-  trigger:
-  - device_id: b86bf2220af642c1803e74f176da9267
-    domain: binary_sensor
-    entity_id: binary_sensor.landing_motion
-    platform: device
-    type: motion
-  condition: []
-  action:
-  - data: {}
-    entity_id: light.landing
-    service: light.turn_on
-  - data:
-      entity_id: timer.landing
-    service: timer.cancel
-  - data:
-      duration: 00:02:00
-      entity_id: timer.landing
-    service: timer.start
-- id: '1585498745232'
-  alias: Turn On Middle Bedroom Light when motion detected
-  description: ''
-  trigger:
-  - device_id: f918e214648f4e25848333fcea985dfe
-    domain: binary_sensor
-    entity_id: binary_sensor.middle_bedroom_motion
-    platform: device
-    type: motion
-  condition: []
-  action:
-  - data: {}
-    entity_id: light.middle_bedroom
-    service: light.turn_on
-  - data:
-      entity_id: timer.middle_bedroom
-    service: timer.cancel
-  - data:
-      duration: 00:02:00
-      entity_id: timer.middle_bedroom
-    service: timer.start
-- id: '1585498745233'
-  alias: Turn On Front Bedroom Light when motion detected
-  description: ''
-  trigger:
-  - device_id: f918e214648f4e25848333fcea985dfe
-    domain: binary_sensor
-    entity_id: binary_sensor.front_bedroom_motion
-    platform: device
-    type: motion
-  condition: []
-  action:
-  - data: {}
-    entity_id: light.front_bedroom
-    service: light.turn_on
-  - data:
-      entity_id: timer.front_bedroom
-    service: timer.cancel
-  - data:
-      duration: 00:02:00
-      entity_id: timer.front_bedroom
-    service: timer.start
-- id: '1585498745234'
-  alias: Turn On Dressing Room Light when motion detected
-  description: ''
-  trigger:
-  - device_id: b86bf2220af642c1803e74f176da9267
-    domain: binary_sensor
-    entity_id: binary_sensor.dressing_room_motion
-    platform: device
-    type: motion
-  condition: []
-  action:
-  - data: {}
-    entity_id: light.dressing_room
-    service: light.turn_on
-  - data:
-      entity_id: timer.dressing_room
-    service: timer.cancel
-  - data:
-      duration: 00:02:00
-      entity_id: timer.dressing_room
-    service: timer.start
-- id: '1587464597280'
-  alias: Sump Alarm Triggered
-  description: The sump is at risk of overflowing, the pump may be offline or broken
-  trigger:
-  - device_id: 67c16ded941843d59f95ea1394628b0a
-    domain: binary_sensor
-    entity_id: binary_sensor.sump_alarm_trigger
-    platform: device
-    type: turned_on
-  condition: []
-  action:
-  - data:
-      title: Sump Alarm Triggered
-      message: The sump alarm has been triggered, check the sump pump has power, this
-        could cause a flood if not attended.
-      data:
-        file_url: https://media.istockphoto.com/vectors/vector-fire-alarm-vector-id610426096?k=6&m=610426096&s=612x612&w=0&h=IIjBibeAUNdoq7XS4-esMGyxxw_xFkb07zbwKcwNB-I=
-      target:
-      - email/mcinnes01@gmail.com
-      - device/AndyPhone
-    service: notify.pushbullet
-  - data:
-      title: Sump Alarm Triggered
-      message: The sump alarm has been triggered, check the sump pump has power, this
-        could cause a flood if not attended.
-      target:
-      - media_player.everywhere
-      data:
-        type: announce
-    service: notify.alexa_media
-- id: '1595284024303'
-  alias: Turn on Hall Light when motion is detected
-  description: ''
-  trigger:
-  - device_id: 0310800ab747484283cf6fb58715fb0d
-    domain: binary_sensor
-    entity_id: binary_sensor.hallway_motion
-    platform: device
-    type: motion
-  condition:
-  - before: sunrise
-    condition: sun
-  - after: sunset
-    condition: sun
-  action:
-  - data: {}
-    entity_id: light.hallway
-    service: light.turn_on
-  - data: {}
-    entity_id: timer.hallway
-    service: timer.cancel
-  - data:
-      duration: 00:01:00
-    entity_id: timer.hallway
-    service: timer.start
-  mode: single
-- id: '1595286087972'
-  alias: Turn Off Hallway light when there is no motion
-  description: ''
-  trigger:
-  - event_data:
-      entity_id: timer.hallway
-    event_type: timer.finished
-    platform: event
-  condition: []
-  action:
-  - data: {}
-    entity_id: light.hallway
-    service: light.turn_off
-  mode: single
+#Start of dwains-theme necessary code#
+homeassistant:
+  # If you want to customize entries with friendly_name or custom icon.
+  # Read more here: https://www.home-assistant.io/docs/configuration/customizing-devices/
+  # Uncomment line below and create file customize.yaml or edit it
+  customize: !include customize.yaml
+
+  # Below entry links to the packages folder required for Dwains Theme
+  packages: !include_dir_named packages/ # Comment this whole line if you want to disable Dwains Theme
+
+  # If you had any important strings before in homeassistant: place them back here below
+  # 
+#End of dwains-theme necessary code#
+
+# Default config to bring in standard component set
+automation: !include automations.yaml
+cloud:
+config:
+group: !include groups.yaml
+history:
+logbook:
+logger:
+  default: error
+  logs:
+    custom_components.unifiprotect: debug
+map:
+  entities:
+   - device_tracker.claires_iphone
+   - device_tracker.moto_g_7
+   - sensor.moto_g_7_geocoded_location
+  hours_to_show: 72
+  dark_mode: true
+mobile_app:
+person:
+scene: !include scenes.yaml
+script: !include scripts.yaml
+sensor: !include sensors.yaml
+ssdp:
+sun:
+system_health:
+updater:
+zeroconf:
+zone:
+input_boolean: !include input_boolean.yaml
+input_datetime:
+input_text:
+input_number:
+input_select: !include input_selects.yaml
+  
+# History
+recorder:
+  purge_keep_days: 45
+
+# Discover some devices automatically
+discovery:
+  ignore:
+    - yeelight
+
+# Alexa media
+alexa_media:
+  accounts:
+    - email: !secret amazon_user
+      password: !secret amazon_password
+      url: amazon.co.uk
+
+# Bad Nest
+badnest:
+  user_id: !secret badnest_id
+  access_token: !secret badnest_access_token
+  region: eu
+
+climate:
+  - platform: badnest
+    scan_interval: 10
+
+# Spotify
+spotify:
+  client_id: !secret spotify_clientid
+  client_secret: !secret spotify_secret
+
+# Google Calendar
+google:
+  client_id: !secret google_clientid
+  client_secret: !secret google_client_secret
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Side bar configuration
+panel_iframe:
+  tasmota:
+    title: 'TasmoAdmin'
+    icon: mdi:lightbulb
+    url: 'https://tasmota.andisoft.co.uk'
+  squeezbox:
+    title: 'SqueezeBox'
+    icon: mdi:music
+    url: 'https://squeezebox.andisoft.co.uk'
+  brewblox:
+    title: 'BrewBlox'
+    icon: mdi:beer
+    url: 'https://brewery.northsouthbrewing.co.uk'
+
+#Weather
+weather:
+  - platform: darksky
+    api_key: 82c93da6430dbe755461f4e4a9c20e3e
+    name: stockport
+    mode: daily
+
+# Notifications
+notify:
+  - platform: pushbullet
+    api_key: !secret pushbullet_secret
+    name: pushbullet
+  - platform: alexa_media
+    name: alexa_media
+
+# Timers
+timer: !include timers.yaml
+
+# Camera
+stream:
+ffmpeg:
+
+# MySensors 
+mysensors:
+  gateways:
+    - device: '/dev/ttyUSB0'
+      persistence_file: '/config/mysensors.json'
+      baud_rate: 115200
+  optimistic: false
+  persistence: true
+  retain: true
+  version: '2.3'
+
+# Alarm control panel
+alarm_control_panel:
+  - platform: manual
+    name: Alarm
+    code: 2705
+    trigger_time: 300
+    arming_time: 0
+    disarmed:
+      trigger_time: 0
+    armed_home:
+      delay_time: 0
+    armed_away:
+      arming_time: 60
+      delay_time: 30
+
+# Sonoff
+sonoff:
+  username: !secret sonoff_username
+  password: !secret sonoff_password
+  #mode: local
+  #reload: always  # update device list every time HA starts
+  devices:
+    100032bd73:
+      device_class: [light,light,light,light]
+      name: Basement Lights 1
+    100032a00d:
+      device_class: [light,light,light,light]
+      name: Basement Lights 2
+    1000ba9977:
+      device_class: [light,light,light,light]
+      name: Ground Floor Lights 1
+    1000bab17a:
+      device_class: [light,light,light,light]
+      name: Ground Floor Lights 2
+    1000bab381:
+      device_class: [light,light,light,light]
+      name: Upstairs Lights 1
+    1000bab6de:
+      device_class: [light,light,light,light]
+      name: Upstairs Lights 2
+    100032907e:
+      device_class: [light,light,light,light]
+      name: Outside Lights
+
+# Lights
+yeelight:
+  devices:
+    192.168.30.17:
+      name: Snug Lamp
+    192.168.30.43:
+      name: Bedroom Lamp
+    192.168.30.48:
+      name: Kitchen Lamp
+    192.168.30.106:
+      name: Hallway Lamp
+    192.168.30.171:
+      name: Drawing Room Lamp
+    192.168.30.200:
+      name: Lounge Lamp
+
+light:
+  - platform: group
+    name: Yeelights
+    entities:
+      - light.kitchen_lamp
+      - light.drawing_room_lamp
+      - light.lounge_lamp
+      - light.hall_lamp
+      - light.bedroom_lamp
+      - light.cellar_stairs
+      - light.snug_lamp
+  - platform: group
+    name: Inside
+    entities:
+      - light.kitchen_lamp
+      - light.drawing_room_lamp
+      - light.lounge_lamp
+      - light.lounge_sofa_lamp
+      - light.bedroom_lamp
+      - light.cellar_stairs
+      - light.snug_lamp
+      - light.snug
+      - light.basement_hall
+      - light.dining_room
+      - light.toilet
+      - light.utility
+      - light.brewery
+  - platform: group
+    name: Outside
+    entities:
+      - light.porch
+      - light.cellar_door
+      - light.back_door
+      - light.patio
+  - platform: group
+    name: Garden
+    entities:
+      - light.cellar_door
+      - light.back_door
+      - light.patio
+
+circadian_lighting:
+
+switch:
+  - platform: circadian_lighting
+    lights_ct:
+      - light.kitchen_lamp
+      - light.drawing_room_lamp
+      - light.lounge_lamp
+      - light.hall_lamp
+      - light.bedroom_lamp
+      - light.cellar_stairs
+      - light.snug_lamp
+
+binary_sensor:
+  - platform: mqtt
+    name: "Patio Motion"
+    state_topic: "cameras/patio/motion"
+    payload_on: "ON"
+    payload_off: "OFF"
+    device_class: "motion"
+
+withings:
+  client_id: !secret withings_clientid
+  client_secret: !secret withings_secret
+  use_webhook: true
