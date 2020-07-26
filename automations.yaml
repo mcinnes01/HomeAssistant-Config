@@ -840,7 +840,7 @@
   trigger:
   - device_id: 0310800ab747484283cf6fb58715fb0d
     domain: binary_sensor
-    entity_id: binary_sensor.hall_motion
+    entity_id: binary_sensor.hallway_motion
     platform: device
     type: motion
   condition:
@@ -850,7 +850,7 @@
     condition: sun
   action:
   - data: {}
-    entity_id: light.hall
+    entity_id: light.hallway
     service: light.turn_on
   - data: {}
     entity_id: timer.hallway
@@ -871,6 +871,6 @@
   condition: []
   action:
   - data: {}
-    entity_id: light.hall
+    entity_id: light.hallway
     service: light.turn_off
   mode: single

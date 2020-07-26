@@ -90,7 +90,8 @@ views:
         show_header_toggle: true
         entities:
           - light.porch
-          - light.hall_light
+          - light.hallway
+          - light.hallway_lamp
       - id: 5da46ea1e2f0490b96ed5fb1081c4201  # Automatically created id
         type: entities
         title: Study

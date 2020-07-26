@@ -13,7 +13,7 @@ downstairs:
   name: Downstairs
   entities:
     - group.porch
-    - group.hall
+    - group.hallway
     - group.lounge
     - group.drawing_room
     - group.kitchen
@@ -77,12 +77,12 @@ dressing_room:
     - light.dressing_room
     - binary_sensor.dressing_room_motion
 
-hall:
-  name: Hall
+hallway:
+  name: Hallway
   entities:
-    - group.media_hall_tablet
-    - light.hall_light
-    - binary_sensor.hall_motion
+    - group.media_hallway_tablet
+    - light.hallway_light
+    - binary_sensor.hallway_motion
 
 porch:
   name: Porch
@@ -187,8 +187,8 @@ media_landing_tablet:
     - sensor.landing_tablet_next_reminder
     - sensor.landing_tablet_next_timer
 
-media_hall_tablet:
-  name: Hall Tablet
+media_hallway_tablet:
+  name: Hallway Tablet
   entities:
     - media_player.hall_tablet_s_alexa_apps
 
@@ -315,11 +315,11 @@ lounge_lights:
     - light.lounge
     - light.lounge_lamp
 
-hall_lights:
-  name: Hall Lights
+hallway_lights:
+  name: Hallway Lights
   entities:
-    - light.hall
-    - light.hall_lamp
+    - light.hallway
+    - light.hallway_lamp
 
 drawing_room_lights:
   name: Drawing Room Lights
