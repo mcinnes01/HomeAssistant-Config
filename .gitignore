@@ -3,7 +3,6 @@ dwains-theme/.vscode/*
 custom_components/*/
 !custom_components/dwains_theme
 !custom_components/ezo
-!custom_components/hacs
 custom_components/dwains_theme/__pycache__/
 www/*/
 !www/dwains-theme
