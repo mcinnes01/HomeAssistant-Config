@@ -19,10 +19,10 @@ config:
 group: !include groups.yaml
 history:
 logbook:
-logger:
-  default: info
-  logs:
-    homeassistant.core: debug
+# logger:
+#   default: info
+#   logs:
+#     homeassistant.core: debug
 map:
   entities:
     - device_tracker.claires_iphone
