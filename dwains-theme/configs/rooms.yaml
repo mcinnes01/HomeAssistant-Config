@@ -16,8 +16,8 @@ rooms:
   - name: Hallway
     icon: mdi:view-agenda-outline
     media_player: media_player.hall_tablet_s_alexa_apps
-    motion: binary_sensor.hall_motion
-    light: group.hall_lights
+    motion: binary_sensor.hallway_motion
+    light: group.hallway_lights
   - name: Lounge
     icon: mdi:sofa
     light: group.lounge_lights

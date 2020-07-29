@@ -20,14 +20,14 @@ group: !include groups.yaml
 history:
 logbook:
 logger:
-  default: error
+  default: info
   logs:
-    custom_components.unifiprotect: debug
+    homeassistant.core: debug
 map:
   entities:
-   - device_tracker.claires_iphone
-   - device_tracker.moto_g_7
-   - sensor.moto_g_7_geocoded_location
+    - device_tracker.claires_iphone
+    - device_tracker.moto_g_7
+    - sensor.moto_g_7_geocoded_location
   hours_to_show: 72
   dark_mode: true
 mobile_app:

@@ -18,13 +18,13 @@ light.cellar_door:
   friendly_name: Cellar Door Light
   icon: mdi:wall-sconce
 light.hallway:
-  friendly_name: Hall Light
+  friendly_name: Hallway Light
   icon: mdi:ceiling-light
 light.lounge:
   friendly_name: Lounge Light
   icon: mdi:ceiling-light
 light.drawing_room:
-  friendly_name: Study Light
+  friendly_name: Drawing Room Light
   icon: mdi:ceiling-light
 light.bookshelf:
   friendly_name: Bookshelf Light
