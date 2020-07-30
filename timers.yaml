@@ -24,9 +24,9 @@ bathroom:
   duration: '00:02:00'
 landing:
   duration: '00:01:00'
-middle_bedroom:
+bedroom:
   duration: '00:02:00'
-front_bedroom:
+guest_bedroom:
   duration: '00:02:00'
 dressing_room:
   duration: '00:02:00'

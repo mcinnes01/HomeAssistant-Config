@@ -52,18 +52,18 @@ rooms:
     icon: mdi:shower
     light: group.bathroom_lights
     motion: binary_sensor.bathroom_motion
-  - name: Middle Bedroom
+  - name: Bedroom
     icon: mdi:bed-double-outline
-    light: group.middle_bedroom_lights
-    motion: binary_sensor.middle_bedroom_motion
+    light: group.bedroom_lights
+    motion: binary_sensor.bedroom_motion
     media_player: media_player.bedroom_echo_spot
     climate: climate.upstairs
     humidity: climate.upstairs_thermostat_humidity
     temperature: sensor.upstairs_thermostat_temperature
-  - name: Front Bedroom
+  - name: Guest Bedroom
     icon: mdi:bed-double
-    light: light.front_bedroom
-    motion: binary_sensor.front_bedroom_motion
+    light: light.guest_bedroom
+    motion: binary_sensor.guest_bedroom_motion
   - name: Dressing Room
     icon: mdi:tshirt-crew-outline
     light: light.dressing_room

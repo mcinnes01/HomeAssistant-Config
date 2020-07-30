@@ -288,8 +288,8 @@
     - binary_sensor.landing_motion
     - binary_sensor.studio_motion
     - binary_sensor.bathroom_motion
-    - binary_sensor.middle_bedroom_motion
-    - binary_sensor.front_bedroom_motion
+    - binary_sensor.bedroom_motion
+    - binary_sensor.guest_bedroom_motion
     - binary_sensor.dressing_room_motion
     to: 'on'
   mode: parallel

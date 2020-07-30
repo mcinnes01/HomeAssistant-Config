@@ -5,8 +5,8 @@ upstairs:
     - group.landing
     - group.bathroom
     - group.studio
-    - group.middle_bedroom
-    - group.front_bedroom
+    - group.bedroom
+    - group.guest_bedroom
     - group.dressing_room
 
 downstairs:
@@ -56,19 +56,19 @@ studio:
     - light.studio
     - binary_sensor.studio_motion
 
-middle_bedroom:
-  name: Middle bedroom
+bedroom:
+  name: Bedroom
   entities:
-    - group.middle_bedroom_lights
+    - group.bedroom_lights
     - group.media_bedroom_echo_spot
     - group.climate_upstairs
-    - binary_sensor.middle_bedroom_motion
+    - binary_sensor.bedroom_motion
 
-front_bedroom:
-  name: Front bedroom
+guest_bedroom:
+  name: Guest Bedroom
   entities:
-    - light.front_bedroom
-    - binary_sensor.front_bedroom_motion
+    - light.guest_bedroom
+    - binary_sensor.guest_bedroom_motion
 
 dressing_room:
   name: Dressing room
@@ -352,10 +352,10 @@ snug_lights:
     - light.snug
     - light.snug_lamp
 
-middle_bedroom_lights:
-  name: Middle Bedroom Lights
+bedroom_lights:
+  name: Bedroom Lights
   entities:
-    - light.middle_bedroom
+    - light.bedroom
     - light.bedroom_lamp
 
 bathroom_lights:
