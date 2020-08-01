@@ -289,12 +289,22 @@
     - binary_sensor.studio_motion
     - binary_sensor.bathroom_motion
     - binary_sensor.bedroom_motion
-    - binary_sensor.guest_bedroom_motion
+    - binary_sensor.guest_room_motion
     - binary_sensor.dressing_room_motion
     to: 'on'
   mode: parallel
   action:
   - choose:
+    - conditions:
+        condition: template
+        value_template: >
+          {% set room = trigger.to_state.object_id[:-7] %}
+          {{ room == 'basement_stairs' }}
+      sequence:
+      - service: light.turn_on
+        data_template:
+          entity_id: >
+            light.basement_hall
     - conditions:
       - condition: template
         value_template: "{{ is_state('input_select.ambience', 'Ambient') }}"
@@ -304,11 +314,7 @@
           entity_id: >
             {% set room = trigger.to_state.object_id[:-7] %}
             {% set rooms = ['lounge', 'hallway', 'kitchen', 'bedroom', 'snug', 'drawing_room'] %}
-            {% if room in rooms %}
-            light.{{ room }}_lamp
-            {% else %}
-            light.{{ room }}
-            {% endif %}
+            light.{{ room }}{% if room in rooms %}_lamp{% endif %}
     - conditions:
         condition: template
         value_template: "{{ states('input_select.ambience') in ['Bright', 'Evening'] }}"
@@ -318,45 +324,34 @@
           entity_id: >
             light.{{ trigger.to_state.object_id[:-7] }}
     - conditions:
-        condition: and
-        conditions:
-        - condition: template
-          value_template: "{{ is_state('input_select.ambience', 'Day') }}"
-        - condition: template
-          value_template: >
-            {% set room = trigger.to_state.object_id[:-7] %}
-            {% set rooms = ['basement_hall', 'snug', 'dining_room', 'utility_room', 'toilet'] %}
-            {{ room in rooms }}
+        condition: template
+        value_template: >
+          {% set room = trigger.to_state.object_id[:-7] %}
+          {% set rooms = ['basement_hall', 'snug', 'dining_room', 'utility_room', 'toilet'] %}
+          {{ is_state('input_select.ambience', 'Day') and room in rooms }}
       sequence:
       - service: light.turn_on
         data_template:
           entity_id: >
             light.{{ trigger.to_state.object_id[:-7] }}
     - conditions:
-        condition: and
-        conditions:
-        - condition: template
-          value_template: "{{ is_state('input_select.ambience', 'Night') }}"
-        - condition: template
-          value_template: >
-            {% set room = trigger.to_state.object_id[:-7] %}
-            {% set rooms = ['landing', 'bathroom', 'toilet', 'patio'] %}
-            {{ room in rooms }}
+        condition: template
+        value_template: >
+          {% set room = trigger.to_state.object_id[:-7] %}
+          {% set rooms = ['landing', 'bathroom', 'toilet', 'patio'] %}
+          {{ is_state('input_select.ambience', 'Night') and room in rooms }}
       sequence:
       - service: light.turn_on
         data_template:
           entity_id: >
             {% set room = trigger.to_state.object_id[:-7] %}
-            {% if room == 'bathroom' %}
-            light.mirror
-            {% else %}
-            light.{{ room }}
-            {% endif %}
+            light.{% if room == 'bathroom' %}mirror{% else %}{{ room }}{% endif %}
   - service: timer.start
     data_template:
       duration: '00:02:00'
       entity_id: >
-        timer.{{ trigger.to_state.object_id[:-7] }}
+        {% set room = trigger.to_state.object_id[:-7] %}
+        timer.{% if room == 'basement_stairs' %}basement_hall{% else %}{{ room }}{% endif %}
 - alias: Turn off lights
   trigger:
   - platform: event
@@ -373,11 +368,7 @@
             entity_id: >
               {% set room = trigger.event.data.entity_id.split('.', 1)[1] %}
               {% set rooms = ['lounge', 'hallway', 'kitchen', 'bedroom', 'snug', 'drawing_room'] %}
-              {% if room in rooms %}
-              light.{{ room }}_lamp
-              {% else %}
-              light.{{ room }}
-              {% endif %}
+              light.{{ room }}{% if room in rooms %}_lamp{% endif %}
       - conditions:
           condition: template
           value_template: "{{ states('input_select.ambience') in ['Bright', 'Day', 'Evening'] }}"
@@ -388,25 +379,17 @@
               {% set room = trigger.event.data.entity_id.split('.', 1)[1] %}
               light.{{ room }}
       - conditions:
-          condition: and
-          conditions:
-          - condition: template
-            value_template: "{{ is_state('input_select.ambience', 'Night') }}"
-          - condition: template
-            value_template: >
-              {% set room = trigger.event.data.entity_id.split('.', 1)[1] %}
-              {% set rooms = ['landing', 'bathroom', 'toilet', 'patio'] %}
-              {{ room in rooms }}
+          condition: template
+          value_template: >
+            {% set room = trigger.event.data.entity_id.split('.', 1)[1] %}
+            {% set rooms = ['landing', 'bathroom', 'toilet', 'patio'] %}
+            {{ is_state('input_select.ambience', 'Night') and room in rooms }}
         sequence:
         - service: light.turn_off
           data_template:
             entity_id: >
               {% set room = trigger.event.data.entity_id.split('.', 1)[1] %}
-              {% if room == 'bathroom' %}
-              light.mirror
-              {% else %}
-              light.{{ room }}
-              {% endif %}
+              light.{% if room == 'bathroom' %}mirror{% else %}{{ room }}{% endif %}
 - alias: Set Ambience to Day
   trigger:
   - event: sunrise

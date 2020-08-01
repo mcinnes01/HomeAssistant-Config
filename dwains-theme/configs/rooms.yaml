@@ -60,10 +60,10 @@ rooms:
     climate: climate.upstairs
     humidity: climate.upstairs_thermostat_humidity
     temperature: sensor.upstairs_thermostat_temperature
-  - name: Guest Bedroom
+  - name: Guest Room
     icon: mdi:bed-double
-    light: light.guest_bedroom
-    motion: binary_sensor.guest_bedroom_motion
+    light: light.guest_room
+    motion: binary_sensor.guest_room_motion
   - name: Dressing Room
     icon: mdi:tshirt-crew-outline
     light: light.dressing_room

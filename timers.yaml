@@ -26,7 +26,7 @@ landing:
   duration: '00:01:00'
 bedroom:
   duration: '00:02:00'
-guest_bedroom:
+guest_room:
   duration: '00:02:00'
 dressing_room:
   duration: '00:02:00'

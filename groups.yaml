@@ -6,7 +6,7 @@ upstairs:
     - group.bathroom
     - group.studio
     - group.bedroom
-    - group.guest_bedroom
+    - group.guest_room
     - group.dressing_room
 
 downstairs:
@@ -65,10 +65,10 @@ bedroom:
     - binary_sensor.bedroom_motion
 
 guest_bedroom:
-  name: Guest Bedroom
+  name: Guest Room
   entities:
-    - light.guest_bedroom
-    - binary_sensor.guest_bedroom_motion
+    - light.guest_room
+    - binary_sensor.guest_room_motion
 
 dressing_room:
   name: Dressing room
