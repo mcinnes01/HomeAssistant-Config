@@ -206,34 +206,62 @@ light:
       - light.cellar_stairs
       - light.snug_lamp
   - platform: group
-    name: Inside
+    name: Basement Lights
     entities:
-      - light.kitchen_lamp
-      - light.drawing_room_lamp
-      - light.lounge_lamp
-      - light.lounge_sofa_lamp
-      - light.bedroom_lamp
-      - light.cellar_stairs
-      - light.snug_lamp
-      - light.snug
       - light.basement_hall
+      - light.snug
+      - light.snug_lamp
       - light.dining_room
       - light.toilet
-      - light.utility
+      - light.utility_room
       - light.brewery
   - platform: group
-    name: Outside
+    name: Ground Floor Lights
+    entities:
+      - light.hallway
+      - light.hallway_lamp
+      - light.lounge
+      - light.lounge_lamp
+      - light.drawing_room
+      - light.cabinet
+      - light.drawing_room_lamp
+      - light.kitchen
+      - light.kitchen_lamp
+  - platform: group
+    name: Upstairs Lights
+    entities:
+      - light.landing
+      - light.studio
+      - light.bathroom
+      - light.mirror
+      - light.bedroom
+      - light.bedroom_lamp
+      - light.guest_room
+      - light.dressing_room
+  - platform: group
+    name: Inside Lights
+    entities:
+      - light.basement_lights
+      - light.ground_floor_lights
+      - light.upstairs_lights
+  - platform: group
+    name: Outside Lights
     entities:
       - light.porch
       - light.cellar_door
       - light.back_door
       - light.patio
   - platform: group
-    name: Garden
+    name: Garden Lights
     entities:
       - light.cellar_door
       - light.back_door
       - light.patio
+  - platform: group
+    name: All Lights
+    entities:
+      - light.inside_lights
+      - light.outside_lights
 
 circadian_lighting:
 

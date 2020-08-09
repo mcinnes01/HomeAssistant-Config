@@ -60,7 +60,7 @@ bedroom:
   name: Bedroom
   entities:
     - group.bedroom_lights
-    - group.media_bedroom_echo_spot
+    - group.media_bedroom_echo_show
     - group.climate_upstairs
     - binary_sensor.bedroom_motion
 
@@ -163,21 +163,21 @@ toilet:
     - binary_sensor.toilet_motion
 
 # Media Players
-media_bedroom_echo_spot:
+media_bedroom_echo_show:
   name: Bedroom Echo Spot
   entities:
-    - media_player.bedroom_echo_spot
-    - sensor.bedroom_echo_spot_next_alarm
-    - sensor.bedroom_echo_spot_next_reminder
-    - sensor.bedroom_echo_spot_next_timer
+    - media_player.bedroom_echo_show
+    - sensor.bedroom_echo_show_next_alarm
+    - sensor.bedroom_echo_show_next_reminder
+    - sensor.bedroom_echo_show_next_timer
 
 media_dressing_room_echo_dot:
   name: Dressing Room Echo Dot
   entities:
-    - media_player.dressing_room_echo_spot
-    - sensor.dressing_room_echo_spot_next_alarm
-    - sensor.dressing_room_echo_spot_next_reminder
-    - sensor.dressing_room_echo_spot_next_timer
+    - media_player.dressing_room_echo_dot
+    - sensor.dressing_room_echo_dot_next_alarm
+    - sensor.dressing_room_echo_dot_next_reminder
+    - sensor.dressing_room_echo_dot_next_timer
 
 media_landing_tablet:
   name: Landing Tablet
@@ -241,10 +241,10 @@ media_dining_room_echo_input:
 media_utility_room_echo_dot:
   name: Utility Room Echo Dot
   entities:
-    - media_player.utility_room_echo_spot
-    - sensor.utility_room_echo_spot_next_alarm
-    - sensor.utility_room_echo_spot_next_reminder
-    - sensor.utility_room_echo_spot_next_timer
+    - media_player.utility_room_echo_dot
+    - sensor.utility_room_echo_dot_next_alarm
+    - sensor.utility_room_echo_dot_next_reminder
+    - sensor.utility_room_echo_dot_next_timer
 
 
 # Climate

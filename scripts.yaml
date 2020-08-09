@@ -96,63 +96,15 @@ notify_all:
       title: '{{title}}'
       message: '{{message}}'
       picture_url: '{{picture_url}}'
-lighting_ambient:
-  alias: Lighting Ambient
-  icon: mdi:weather-sunset
-  mode: single
-  sequence:
-  - data:
-      data: Ambient
-    entity_id: input_select.ambience
-    service: input_select.set_options
-lighting_bright:
-  alias: Lighting Bright
-  icon: mdi:weather-night-partly-cloudy
-  mode: single
-  sequence:
-  - data:
-      data: Bright
-    entity_id: input_select.ambience
-    service: input_select.select_option
-lighting_night:
-  alias: Lighting Night
+night_lighting:
+  alias: Night Lighting
   icon: mdi:weather-night
   mode: single
   sequence:
   - data:
-      data: Night
+      option: Night
     entity_id: input_select.ambience
     service: input_select.select_option
   - data: {}
-    entity_id: light.inside
-    service: light.turn_off
-  - data: {}
-    entity_id: light.outside
-    service: light.turn_off
-  - data: {}
-    entity_id: light.yeelights
-    service: light.turn_off
-lighting_day:
-  alias: Lighting Day
-  icon: mdi:weather-sunny
-  mode: single
-  sequence:
-  - data:
-      data: Day
-    entity_id: input_select.ambience
-    service: input_select.set_options
-  - data: {}
-    entity_id: light.yeelights
-    service: light.turn_off
-lighting_evening:
-  alias: Lighting Evening
-  icon: mdi:weather-sunset-down
-  mode: single
-  sequence:
-  - data:
-      data: Evening
-    entity_id: input_select.ambience
-    service: input_select.set_options
-  - data: {}
-    entity_id: light.yeelights
+    entity_id: light.ground_floor_lights
     service: light.turn_off

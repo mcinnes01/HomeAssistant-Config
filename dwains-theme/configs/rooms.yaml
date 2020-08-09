@@ -26,6 +26,10 @@ rooms:
     climate: climate.downstairs
     humidity: climate.downstairs_thermostat_humidity
     temperature: sensor.downstairs_thermostat_temperature
+    vacuum: 
+      advanced_view: 'true'
+      entity: vacuum.mark
+      camera: camera.mark_cleaning_map
   - name: Drawing Room
     icon: mdi:fireplace
     media_player: media_player.drawing_room_echo_dot

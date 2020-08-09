@@ -100,3 +100,186 @@
       xy_color:
       - 0.163
       - 0.082
+- id: '1593602471773'
+  name: Lighting Ambient
+  entities:
+    input_select.ambience:
+      editable: true
+      friendly_name: Ambience
+      icon: mdi:theme-light-dark
+      options:
+      - Ambient
+      - Bright
+      - Day
+      - Emergency
+      - Evening
+      - Night
+      state: Ambient
+    light.yeelights:
+      brightness: 230
+      color_temp: 400
+      effect_list:
+      - Slowdown
+      - Random Loop
+      - Facebook
+      - RGB
+      - Christmas
+      - Police
+      - Disco
+      - Police2
+      - Twitter
+      - Fast Random Loop
+      - WhatsApp
+      - Strobe color
+      - Alarm
+      - Strobe epilepsy!
+      - Slow Temp
+      - LSD
+      - Stop
+      entity_id:
+      - light.kitchen_lamp
+      - light.drawing_room_lamp
+      - light.lounge_lamp
+      - light.hall_lamp
+      - light.bedroom_lamp
+      - light.cellar_stairs
+      - light.snug_lamp
+      friendly_name: Yeelights
+      hs_color:
+      - 28.874
+      - 72.522
+      max_mireds: 588
+      min_mireds: 153
+      rgb_color:
+      - 255
+      - 159
+      - 70
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.546
+      - 0.389
+  icon: mdi:weather-sunset
+- id: '1593602471774'
+  name: Lighting Bright
+  entities:
+    input_select.ambience:
+      editable: true
+      friendly_name: Ambience
+      icon: mdi:theme-light-dark
+      options:
+      - Ambient
+      - Bright
+      - Day
+      - Emergency
+      - Evening
+      - Night
+      state: Bright
+    light.yeelights:
+      effect_list:
+      - Slowdown
+      - Random Loop
+      - Facebook
+      - RGB
+      - Christmas
+      - Police
+      - Disco
+      - Police2
+      - Twitter
+      - Fast Random Loop
+      - WhatsApp
+      - Strobe color
+      - Alarm
+      - Strobe epilepsy!
+      - Slow Temp
+      - LSD
+      - Stop
+      entity_id:
+      - light.kitchen_lamp
+      - light.drawing_room_lamp
+      - light.lounge_lamp
+      - light.hall_lamp
+      - light.bedroom_lamp
+      - light.cellar_stairs
+      - light.snug_lamp
+      friendly_name: Yeelights
+      max_mireds: 588
+      min_mireds: 153
+      state: 'off'
+      supported_features: 63
+  icon: mdi:weather-night-partly-cloudy
+- id: '15936024717745'
+  name: Lighting Day
+  icon: mdi:weather-sunny
+  entities:
+    input_select.ambience:
+      editable: true
+      friendly_name: Ambience
+      icon: mdi:theme-light-dark
+      options:
+      - Ambient
+      - Bright
+      - Day
+      - Emergency
+      - Evening
+      - Night
+      state: Day
+- id: '1593602471776'
+  name: Lighting Evening
+  icon: mdi:weather-sunset-down
+  entities:
+    input_select.ambience:
+      editable: true
+      friendly_name: Ambience
+      icon: mdi:theme-light-dark
+      options:
+      - Ambient
+      - Bright
+      - Day
+      - Emergency
+      - Evening
+      - Night
+      state: Evening
+- id: '1593602471777'
+  name: Lighting Night
+  entities:
+    input_select.ambience:
+      editable: true
+      friendly_name: Ambience
+      icon: mdi:theme-light-dark
+      options:
+      - Ambient
+      - Bright
+      - Day
+      - Emergency
+      - Evening
+      - Night
+      state: Night
+    light.all_lights:
+      effect_list:
+      - Slowdown
+      - Police2
+      - Stop
+      - Christmas
+      - Twitter
+      - Alarm
+      - Strobe epilepsy!
+      - Police
+      - Facebook
+      - Fast Random Loop
+      - WhatsApp
+      - LSD
+      - Slow Temp
+      - Strobe color
+      - Random Loop
+      - RGB
+      - Disco
+      entity_id:
+      - light.inside_lights
+      - light.outside_lights
+      friendly_name: All Lights
+      max_mireds: 588
+      min_mireds: 153
+      state: 'off'
+      supported_features: 63
+  icon: mdi:weather-night

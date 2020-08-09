@@ -3,6 +3,7 @@
 #
 - url: /hacsfiles/bar-card/bar-card.js
   type: module
-  
-- url: /local/mini-graph-card-bundle.js?v=0.9.3
-  type: module
+- type: module
+  url: /hacsfiles/atomic-calendar-revive/atomic-calendar-revive.js
+- type: module
+  url: /hacsfiles/vacuum-card/vacuum-card.js
