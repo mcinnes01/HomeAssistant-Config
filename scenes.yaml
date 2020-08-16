@@ -177,23 +177,23 @@
       state: Bright
     light.yeelights:
       effect_list:
+      - RGB
+      - Slow Temp
+      - Police
+      - Christmas
+      - Twitter
+      - LSD
+      - WhatsApp
+      - Disco
+      - Strobe epilepsy!
+      - Police2
       - Slowdown
+      - Fast Random Loop
+      - Stop
       - Random Loop
       - Facebook
-      - RGB
-      - Christmas
-      - Police
-      - Disco
-      - Police2
-      - Twitter
-      - Fast Random Loop
-      - WhatsApp
       - Strobe color
       - Alarm
-      - Strobe epilepsy!
-      - Slow Temp
-      - LSD
-      - Stop
       entity_id:
       - light.kitchen_lamp
       - light.drawing_room_lamp
@@ -207,7 +207,7 @@
       min_mireds: 153
       state: 'off'
       supported_features: 63
-  icon: mdi:weather-night-partly-cloudy
+  icon: mdi:brightness-7
 - id: '15936024717745'
   name: Lighting Day
   icon: mdi:weather-sunny

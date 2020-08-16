@@ -2,10 +2,30 @@
 
 scenes:
   - entity: scene.watch_tv
-    icon: fas:couch
-    icon_color: '#ffffff'
-    background: 'linear-gradient( 135deg, #FEB692 10%, #EA5455 100%)'
+    icon: mdi:sofa
+    icon_color: '#b3d9ff'
+    background: 'linear-gradient( 135deg, #ffffff 10%, #b3d9ff 100%)'
   - entity: scene.watch_movie
-    icon: fas:film
+    icon: mdi:projector
+    icon_color: '#0000cc'
+    background: 'linear-gradient( 135deg, #ffffff 10%, #0000cc 100%)'
+  - entity: scene.lighting_ambient
+    icon: mdi:weather-sunset
+    icon_color: '#ffc61a'
+    background: 'linear-gradient( 135deg, #ffffff 10%, #ffc61a 100%)'
+  - entity: scene.lighting_bright
+    icon: mdi:brightness-7
     icon_color: '#ffffff'
-    background: 'linear-gradient( 135deg, #FEB692 10%, #EA5455 100%)'
+    background: 'linear-gradient( 135deg, #ffffff 10%, #ffff99 100%)'
+  - entity: scene.lighting_day
+    icon: mdi:weather-sunny
+    icon_color: '#ffff99'
+    background: 'linear-gradient( 135deg, #ffffff 10%, #ffff99 100%)'
+  - entity: scene.lighting_evening
+    icon: mdi:weather-sunset-down
+    icon_color: '#cca300'
+    background: 'linear-gradient( 135deg, #ffffff 10%, #cca300 100%)'
+  - entity: scene.lighting_night
+    icon: mdi:weather-night
+    icon_color: '#000000'
+    background: 'linear-gradient( 135deg, #ffffff 10%, #000000 100%)'
