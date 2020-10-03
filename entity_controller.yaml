@@ -1,0 +1,227 @@
+porch_light_controller:
+  friendly_name: "Porch Light Controller"
+  entities:
+    - light.lounge_lamp
+  start_time: 'sunset + 01:00:00'
+  end_time: '23:00:00'
+  block_timeout: 3600
+
+lounge_lamp_controller:
+  friendly_name: "Lounge Lamp Controller"
+  sensors: 
+    - binary_sensor.lounge_motion
+  entities:
+    - light.lounge_lamp
+  delay: 120
+  backoff: true
+  backoff_factor: 1.1
+  backoff_max: 600
+  start_time: 'sunset'
+  end_time: '23:00:00'
+  block_timeout: 10800
+
+drawing_room_light_controller:
+  friendly_name: "Drawing Room Light Controller"
+  sensors: 
+    - binary_sensor.drawing_room_motion
+  entities:
+    - light.drawing_room
+  delay: 120
+  backoff: true
+  backoff_factor: 1.1
+  backoff_max: 600
+  start_time: 'sunset'
+  end_time: '23:00:00'
+  block_timeout: 7200
+
+hallway_light_controller:
+  friendly_name: "Hallway Light Controller"
+  sensors: 
+    - binary_sensor.hallway_motion
+  entities:
+    - light.hallway
+  delay: 60
+  start_time: 'sunset'
+  end_time: '23:00:00'
+  block_timeout: 1800
+
+kitchen_light_controller:
+  friendly_name: "Kitchen Light Controller"
+  sensors: 
+    - binary_sensor.kitchen_motion
+  entities:
+    - light.kitchen
+  delay: 120
+  backoff: true
+  backoff_factor: 1.1
+  backoff_max: 600
+  start_time: 'sunset - 01:00:00'
+  end_time: '19:30:00'
+  block_timeout: 3600
+
+kitchen_lamp_controller:
+  friendly_name: "Kitchen Lamp Controller"
+  sensors: 
+    - binary_sensor.kitchen_motion
+  entities:
+    - light.kitchen_lamp
+  delay: 120
+  backoff: true
+  backoff_factor: 1.1
+  backoff_max: 600
+  start_time: '17:30:00'
+  end_time: '23:00:00'
+  block_timeout: 3600
+
+studio_light_controller:
+  friendly_name: "Studio Light Controller"
+  sensor: binary_sensor.studio_motion
+  sensor_type: duration
+  entities:
+    - light.studio
+  delay: 120
+  backoff: true
+  backoff_factor: 1.1
+  backoff_max: 600
+  start_time: 'sunset'
+  end_time: '23:00:00'
+  block_timeout: 1800
+
+bathroom_light_controller:
+  friendly_name: "Bathroom Light Controller"
+  sensor: binary_sensor.bathroom_motion
+  sensor_type: duration
+  entities:
+    - light.bathroom
+  delay: 120
+  backoff: true
+  backoff_factor: 1.1
+  backoff_max: 600
+  start_time: 'sunset'
+  end_time: '23:00:00'
+  block_timeout: 900
+
+mirror_light_controller:
+  friendly_name: "Mirror Light Controller"
+  sensor: binary_sensor.bathroom_motion
+  sensor_type: duration
+  entities:
+    - light.mirror
+  delay: 120
+  backoff: true
+  backoff_factor: 1.1
+  backoff_max: 600
+  start_time: '23:00:00'
+  end_time: 'sunrise'
+  block_timeout: 900
+
+bedroom_light_controller:
+  friendly_name: "Bedroom Light Controller"
+  sensors: 
+    - binary_sensor.bedroom_motion
+  entities:
+    - light.bedroom
+  delay: 120
+  backoff: true
+  backoff_factor: 1.1
+  backoff_max: 600
+  start_time: 'sunset'
+  end_time: '22:30:00'
+  block_timeout: 1800
+
+guest_room_light_controller:
+  friendly_name: "Guest Room Light Controller"
+  sensors: 
+    - binary_sensor.guest_room_motion
+  entities:
+    - light.guest_room
+  delay: 120
+  backoff: true
+  backoff_factor: 1.1
+  backoff_max: 600
+  start_time: 'sunset'
+  end_time: '23:00:00'
+  block_timeout: 1800
+
+dressing_room_light_controller:
+  friendly_name: "Dressing Room Light Controller"
+  sensor: binary_sensor.dressing_room_motion
+  sensor_type: duration
+  entities:
+    - light.dressing_room
+  delay: 60
+  backoff: true
+  backoff_factor: 1.5
+  backoff_max: 300
+  start_time: 'sunset'
+  end_time: '23:00:00'
+  block_timeout: 1800
+
+landing_light_controller:
+  friendly_name: "Landing Light Controller"
+  sensors: 
+    - binary_sensor.landing_motion
+  entities:
+    - light.landing
+  delay: 60
+  start_time: 'sunset'
+  end_time: 'sunrise'
+  block_timeout: 1800
+
+toilet_light_controller:
+  friendly_name: "Toilet Light Controller"
+  sensors: 
+    - binary_sensor.toilet_motion
+  entities:
+    - light.toilet
+  delay: 60
+  backoff: true
+  backoff_factor: 1.5
+  backoff_max: 300
+  block_timeout: 900
+
+utility_room_light_controller:
+  friendly_name: "Utility Room Light Controller"
+  sensors: 
+    - binary_sensor.utility_room_motion
+  entities:
+    - light.utility_room
+  delay: 60
+  backoff: true
+  backoff_factor: 1.5
+  backoff_max: 300
+  block_timeout: 3600
+
+dining_room_light_controller:
+  friendly_name: "Dining Room Light Controller"
+  sensors: 
+    - binary_sensor.dining_room_motion
+  entities:
+    - light.dining_room
+  delay: 120
+  backoff: true
+  backoff_factor: 1.1
+  backoff_max: 600
+  block_timeout: 7200
+
+snug_light_controller:
+  friendly_name: "Snug Light Controller"
+  sensors: 
+    - binary_sensor.snug_motion
+  entities:
+    - light.snug
+  delay: 120
+  backoff: true
+  backoff_factor: 1.1
+  backoff_max: 600
+  block_timeout: 7200
+
+basement_hall_light_controller:
+  friendly_name: "Basement Hall Light Controller"
+  sensors: 
+    - binary_sensor.basement_hall_motion
+    - binary_sensor.basement_stairs_motion
+  entities:
+    - light.basement_hall
+  delay: 60
+  block_timeout: 1800

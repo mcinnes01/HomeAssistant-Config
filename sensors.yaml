@@ -1,9 +1,6 @@
 # MySensors
 - platform: mysensors
 
-# Weather
-- platform: yr
-
 # Nest
 - platform: nest
   monitored_conditions:

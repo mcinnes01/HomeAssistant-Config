@@ -3,3 +3,4 @@
 cameras:
   - entity: camera.patio_camera_substream
   - entity: camera.basement_hall_camera
+  - entity: camera.kitchen_camera

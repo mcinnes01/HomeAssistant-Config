@@ -288,3 +288,5 @@ withings:
   client_id: !secret withings_clientid
   client_secret: !secret withings_secret
   use_webhook: true
+
+entity_controller: !include entity_controller.yaml

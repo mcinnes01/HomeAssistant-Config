@@ -2,7 +2,7 @@
   entity: sensor.withings_weight_kg_claire
   min: 50
   max: 75
-  name: Andy Weight
+  name: Claire Weight
   unit: Kg
   severity:
     green: 52
@@ -20,7 +20,7 @@
   entities: 
     - sensor.withings_weight_kg_claire
   icon: mdi:weight
-  name: Andy Weight
+  name: Claire Weight
   animate: true
   color_thresholds:
     - color: '#0aaf31'
