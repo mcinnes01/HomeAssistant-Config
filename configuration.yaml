@@ -153,21 +153,9 @@ alarm_control_panel:
 sonoff:
   username: !secret sonoff_username
   password: !secret sonoff_password
-  #mode: local
-  #reload: always  # update device list every time HA starts
+  mode: local
+  reload: always  # update device list every time HA starts
   devices:
-    100032bd73:
-      device_class: [light,light,light,light]
-      name: Basement Lights 1
-    100032a00d:
-      device_class: [light,light,light,light]
-      name: Basement Lights 2
-    1000ba9977:
-      device_class: [light,light,light,light]
-      name: Ground Floor Lights 1
-    1000bab17a:
-      device_class: [light,light,light,light]
-      name: Ground Floor Lights 2
     1000bab381:
       device_class: [light,light,light,light]
       name: Upstairs Lights 1
@@ -177,22 +165,34 @@ sonoff:
     100032907e:
       device_class: [light,light,light,light]
       name: Outside Lights
+    1000ba9977:
+      device_class: [light,light,light,light]
+      name: Ground Floor Lights 1
+    1000bab17a:
+      device_class: [light,light,light,light]
+      name: Ground Floor Lights 2
+    100032bd73:
+      device_class: [light,light,light,light]
+      name: Basement Lights 1
+    100032a00d:
+      device_class: [light,light,light,light]
+      name: Basement Lights 2
 
 # Lights
 yeelight:
-  devices:
-    192.168.30.17:
-      name: Snug Lamp
-    192.168.30.43:
-      name: Bedroom Lamp
-    192.168.30.48:
-      name: Kitchen Lamp
-    192.168.30.106:
-      name: Hallway Lamp
-    192.168.30.171:
-      name: Drawing Room Lamp
-    192.168.30.200:
-      name: Lounge Lamp
+  # devices:
+  #   192.168.30.17:
+  #     name: Snug Lamp
+  #   192.168.30.43:
+  #     name: Bedroom Lamp
+  #   192.168.30.48:
+  #     name: Kitchen Lamp
+  #   192.168.30.106:
+  #     name: Hallway Lamp
+  #   192.168.30.171:
+  #     name: Drawing Room Lamp
+  #   192.168.30.200:
+  #     name: Lounge Lamp
 
 light:
   - platform: group
@@ -203,7 +203,7 @@ light:
       - light.lounge_lamp
       - light.hall_lamp
       - light.bedroom_lamp
-      - light.cellar_stairs
+      - light.basement_stairs
       - light.snug_lamp
   - platform: group
     name: Basement Lights
@@ -223,7 +223,6 @@ light:
       - light.lounge
       - light.lounge_lamp
       - light.drawing_room
-      - light.cabinet
       - light.drawing_room_lamp
       - light.kitchen
       - light.kitchen_lamp
@@ -273,7 +272,7 @@ switch:
       - light.lounge_lamp
       - light.hall_lamp
       - light.bedroom_lamp
-      - light.cellar_stairs
+      - light.basement_stairs
       - light.snug_lamp
 
 binary_sensor:
@@ -282,6 +281,7 @@ binary_sensor:
     state_topic: "cameras/patio/motion"
     payload_on: "ON"
     payload_off: "OFF"
+    off_delay: 5
     device_class: "motion"
 
 withings:

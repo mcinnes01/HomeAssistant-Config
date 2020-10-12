@@ -6,6 +6,20 @@ porch_light_controller:
   end_time: '23:00:00'
   block_timeout: 3600
 
+lounge_light_controller:
+  friendly_name: "Lounge Light Controller"
+  sensors: 
+    - binary_sensor.lounge_motion
+  entities:
+    - light.lounge
+  delay: 120
+  backoff: true
+  backoff_factor: 1.1
+  backoff_max: 600
+  start_time: 'sunset - 01:00:00'
+  end_time: '19:00:00'
+  block_timeout: 10800
+
 lounge_lamp_controller:
   friendly_name: "Lounge Lamp Controller"
   sensors: 
@@ -16,7 +30,7 @@ lounge_lamp_controller:
   backoff: true
   backoff_factor: 1.1
   backoff_max: 600
-  start_time: 'sunset'
+  start_time: '19:00:00'
   end_time: '23:00:00'
   block_timeout: 10800
 

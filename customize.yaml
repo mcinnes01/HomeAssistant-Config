@@ -57,5 +57,5 @@ light.bedroom_lamp:
   friendly_name: Bedroom Lamp
 light.snug_lamp:
   friendly_name: Snug Lamp
-light.cellar_stairs:
-  friendly_name: Cellar Stairs Light
+light.basement_stairs:
+  friendly_name: Basement Stairs Light

@@ -142,7 +142,7 @@
       - light.lounge_lamp
       - light.hall_lamp
       - light.bedroom_lamp
-      - light.cellar_stairs
+      - light.basement_stairs
       - light.snug_lamp
       friendly_name: Yeelights
       hs_color:
@@ -200,7 +200,7 @@
       - light.lounge_lamp
       - light.hall_lamp
       - light.bedroom_lamp
-      - light.cellar_stairs
+      - light.basement_stairs
       - light.snug_lamp
       friendly_name: Yeelights
       max_mireds: 588

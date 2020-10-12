@@ -134,7 +134,7 @@ views:
         entities:
           - climate.basement
           - light.basement_hall
-          - light.cellar_stairs
+          - light.basement_stairs
           - light.snug
           - light.snug_lamp
           - light.dining_room
@@ -277,7 +277,7 @@ views:
         show_header_toggle: true
         entities:
           - light.basement_hall
-          - light.cellar_stairs
+          - light.basement_stairs
           - motion.basement_hall_motion
           - motion.basement_stairs_motion
       - id: a57567239173469c93560fc0e0cb13e6  # Automatically created id

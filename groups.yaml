@@ -344,7 +344,7 @@ basement_hall_lights:
   name: Basement Hall Lights
   entities:
     - light.basement_hall
-    - light.cellar_stairs
+    - light.basement_stairs
 
 snug_lights:
   name: Snug Lights

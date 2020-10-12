@@ -450,7 +450,7 @@
   },
   "node-red-contrib-home-assistant-websocket": {
    "name": "node-red-contrib-home-assistant-websocket",
-   "version": "0.26.1",
+   "version": "0.27.0",
    "local": false,
    "nodes": {
     "server": {
@@ -825,7 +825,7 @@
   },
   "node-red-contrib-moment": {
    "name": "node-red-contrib-moment",
-   "version": "3.0.3",
+   "version": "4.0.0",
    "local": false,
    "nodes": {
     "moment": {
@@ -1447,6 +1447,20 @@
      "local": false,
      "module": "node-red-node-twitter",
      "file": "/opt/node_modules/node-red-node-twitter/27-twitter.js"
+    }
+   }
+  }
+ },
+ "users": {
+  "_": {
+   "editor": {
+    "view": {
+     "view-show-grid": true,
+     "view-snap-grid": true,
+     "view-grid-size": 20,
+     "view-node-status": true,
+     "view-node-show-label": true,
+     "view-show-tips": true
     }
    }
   }
