@@ -10,6 +10,9 @@
 
 global:
   language: en
+  safety_ok_strings: ["Ok", "Idle", "off"] #New since 1.5.0 REQUIRED
+  battery_empty_strings: ["unavailable"] #New since 1.5.0 REQUIRED
+  show_covers: closed #New since 1.5.0 NOT REQUIRED
   outside_temperature: sensor.garden_temperature
   outside_humidity: sensor.garden_relative_humidity
   inside_temperature: climate.downstairs #Can be climate. or sensor. entity

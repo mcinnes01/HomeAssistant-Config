@@ -1,3 +1,4 @@
+  
 #Translation by: Andreas (slack en)
 
 da:
@@ -50,6 +51,9 @@ da:
   device:
     title_plural: 'Enheder'
   
+  safety:
+    title_plural: 'Safties'
+
   media_player:
     title_plural: 'Medie afspillere'
   
@@ -105,3 +109,7 @@ da:
 
   alarm:
     title: 'Alarm'
+
+  vibration:
+    title: 'Vibration'
+    title_plural: "Vibration Sensors"

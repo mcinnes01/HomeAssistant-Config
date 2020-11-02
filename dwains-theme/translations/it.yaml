@@ -50,6 +50,9 @@ it:
   device:
     title_plural: 'Dispositivi'
   
+  safety:
+    title_plural: 'Sicurezze'
+
   media_player:
     title_plural: 'Media players'
   
@@ -105,3 +108,7 @@ it:
 
   alarm:
     title: 'Alarm'
+
+  vibration:
+    title: 'Vibration'
+    title_plural: "Vibration Sensors"

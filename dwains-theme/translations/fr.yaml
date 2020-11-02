@@ -1,107 +1,114 @@
-#Translation by: Alex (Slack en)
+# Translation by Charlie d'Gabriel and Adrian Scillato
 
-fr:
+es:
   greetings:
-    good_morning: 'Bonjour'
-    good_afternoon: 'Bon après-midi'
-    good_evening: 'Bonsoir'
+    good_morning: "Buenos Días"
+    good_afternoon: "Buenas Tardes"
+    good_evening: "Buena Noches"
 
   house_information:
-    title: 'Infos maison'
-    favorites: 'Favoris'
-    activity: 'Activité (Portes, fenêtres, mouvement)'
+    title: "Información de la Casa"
+    favorites: "Favoritos"
+    activity: "Actividad (puertas, ventanas, movimiento)"
 
   motion:
-    title: 'Mouvement'
-    title_plural: 'Mouvements'
+    title: "Movimiento"
+    title_plural: "Movimientos"
 
   light:
-    title_plural: 'Lumières'
+    title_plural: "Luces"
 
   door:
-    title: 'Porte'
-    title_plural: 'Portes'
+    title: "Puerta"
+    title_plural: "Puertas"
 
   window:
-    title: 'Fenêtre'
-    title_plural: 'Fenêtres'
+    title: "Ventana"
+    title_plural: "Ventanas"
 
   climate:
-    title: 'Température'
-    title_plural: 'Températures'
-    inside: 'intérieur'
-    outside: 'extérieur'
-    idle: 'En attente'
-    heating: 'chauffage'
-    off_text: 'fermée'
-    auto: 'Programme'
-    heat: 'Chaleur'
-    cool: 'Cool'
-    heat_cool: 'Heat/Cool'
-    dry: 'Dry'
-    fan_only: 'Fan only'
-    this_room: 'Cette pièce'
-    temperature: 'Température'
-    humidity: 'Humidité'
+    title: "Temperatura"
+    title_plural: "Temperaturas"
+    inside: "adentro"
+    outside: "afuera"
+    idle: "En espera"
+    heating: "Calentar a"
+    off_text: "Apagado"
+    auto: "Automático"
+    heat: "Calentar"
+    cool: 'Enfriar'
+    heat_cool: 'Calentar/Enfriar'
+    dry: 'Seco'
+    fan_only: 'Ventilador solamente'
+    this_room: "Esta habitación"
+    temperature: "Temperatura"
+    humidity: "Humedad"
 
   cover:
-    title_plural: 'Volets'
+    title_plural: "Persianas"
 
   device:
-    title_plural: 'Périphériques'
+    title_plural: "Dispositivos"
+
+  safety:
+    title_plural: 'Safties'
 
   media_player:
-    title_plural: 'Lecteurs multimédias'
+    title_plural: "Reproductores multimedia"
 
   vacuum:
-    title: 'Aspirateur'
-    title_plural: 'Aspirateurs'
+    title: "Aspiradora"
+    title_plural: "Aspiradoras"
 
   plant:
-    title_plural: 'Plantes'
-    
+    title_plural: "Plantas"
+
   home:
-    title: 'Accueil'
+    title: "Página principal"
 
   rooms:
-    title: 'Pièces'
+    title: "Habitaciones"
 
   all_lights:
-    title: 'Toutes lumières'
+    title: "Todas las luces"
 
   scenes:
-    title: 'Scènes'
-    not_defined: 'Aucune scène définie'
+    title: "Escenas"
+    not_defined: "No hay escenas definidas"
 
   cameras:
-    title: 'Caméras'
-    not_defined: 'Aucune caméra définie'
-    
+    title: "Cámaras"
+    not_defined: "No hay cámaras definidas"
+
   more_page:
-    title: 'Plus'
-    house_info: 'Infos maison'
-    house_data: 
-      title: 'Données maison'
-      all_sensors: 'Capteurs'
-      all_batteries: 'Batteries'
-      config: 'Config'
-      developer_tools: 'Outils développeur'
+    title: "Más"
+    house_info: "Información de la casa"
+    house_data:
+      title: "Datos de la casa"
+      all_sensors: "Todos los sensores"
+      all_batteries: "Todas las baterías"
+      config: "Configuración"
+      developer_tools: "Herramientas de desarrollo"
     settings:
-      title: 'Paramètres thème'
-      reload_configuration: 'Reload theme configuration'
-      theme_docs: 'Docs thème'
-      support_paypal: 'Support/Faire un don avec PayPal'
-      buy_coffee: 'Achetez-moi un café'
-      by: 'Par'
-      version: 'Version'
-      update_available: 'Update available of Dwains Theme!'
-    more_page_addons: "Plus d'extensions"
+      title: "Configuración de temas"
+      reload_configuration: 'Recargar temas'
+      theme_docs: "Lista de temas"
+      support_paypal: "Done con PayPal"
+      buy_coffee: "Cómprame un café"
+      by: "Por"
+      version: "Versión"
+      update_available: "¡Actualización disponible del tema Dwains!"
+    more_page_addons: "Más complementos"
 
   more_entities:
-    title: 'More entities'
+    title: 'Más entidades'
 
   lock:
-    title_plural: 'Locks'
+    title_plural: 'Cerraduras'
 
   alarm:
     title: 'Alarm'
+
+  vibration:
+    title: 'Vibration'
+    title_plural: "Vibration Sensors"

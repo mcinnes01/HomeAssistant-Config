@@ -3,9 +3,9 @@
 #Page for devices for a room
 
 {% for room in _d_t_config.rooms %}
-{% if room["device"] %}
-- title: {{ room["name"] }} {{ _d_t_trans.device.title_plural }}
-  path: {{ room["name"]|lower|replace("'", "_")|replace(" ", "_") }}_devices
+{% if room["safety"] %}
+- title: {{ room["name"] }} {{ _d_t_trans.safety.title_plural }}
+  path: {{ room["name"]|lower|replace("'", "_")|replace(" ", "_") }}_safety
   panel: true
   cards:    
     - type: custom:mod-card
@@ -22,32 +22,35 @@
           #Header
           - !include
             - ../../../partials/header.yaml
-            - title: {{ _d_t_trans.device.title_plural }}
+            - title: {{ _d_t_trans.safety.title_plural }}
               subtitle: {{ room["name"] }}
               navigation_path: {{ room["name"]|lower|replace("'", "_")|replace(" ", "_") }}  
           #Start for room devices content page
-          {% if room["device"].split('.')[0] == 'device' %}
+          {% if room["safety"].split('.')[0] == 'safety' %}
           # this room has only 1 device
           {% else %}
           # this room has group of devices
           - type: custom:auto-entities
             filter:
               include:
-                - group: {{ room["device"] }}
+                - group: {{ room["safety"] }}
                   options:
                     type: custom:button-card
-                    template: room_device
+                    template: room_safety
+                    icon: >
+                      [[[
+                        let conf = {{ _d_t_config.global["safety_ok_strings"] | tojson }};
+                        let ok_states = (Array.isArray(conf) && conf.length) ? conf : 'off';
+
+                        if(ok_states.includes(entity.state))
+                          return "{{ _d_t_icons.safety_ok|default('mdi:shield-check') }}";
+                        else
+                          return "{{ _d_t_icons.safety_alert|default('mdi:shield-alert-outline') }}";
+                      ]]]
                     tap_action:
-                      action: toggle
-                      haptic: light
-                    hold_action:
-                      !include
-                      - ../../../popups/more-info.yaml
-                      - entity: this.entity_id
-                    double_tap_action:
-                      !include
-                      - ../../../popups/more-info.yaml
-                      - entity: this.entity_id
+                      !include 
+                        - ../../../popups/more-info.yaml
+                        - entity: this.entity_id
             sort:
               method: name
               ignore_case: true

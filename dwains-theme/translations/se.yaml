@@ -49,6 +49,9 @@ se:
   device:
     title_plural: 'Enheter'
 
+  safety:
+    title_plural: 'Safties'
+
   media_player:
     title_plural: 'Media spelare'
 
@@ -104,3 +107,7 @@ se:
 
   alarm:
     title: 'Alarm'
+
+  vibration:
+    title: 'Vibration'
+    title_plural: "Vibration Sensors"

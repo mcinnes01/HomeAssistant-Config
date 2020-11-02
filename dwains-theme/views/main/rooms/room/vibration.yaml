@@ -3,9 +3,9 @@
 #Page for devices for a room
 
 {% for room in _d_t_config.rooms %}
-{% if room["device"] %}
-- title: {{ room["name"] }} {{ _d_t_trans.device.title_plural }}
-  path: {{ room["name"]|lower|replace("'", "_")|replace(" ", "_") }}_devices
+{% if room["vibration"] %}
+- title: {{ room["name"] }} {{ _d_t_trans.vibration.title }}
+  path: {{ room["name"]|lower|replace("'", "_")|replace(" ", "_") }}_vibration
   panel: true
   cards:    
     - type: custom:mod-card
@@ -22,32 +22,34 @@
           #Header
           - !include
             - ../../../partials/header.yaml
-            - title: {{ _d_t_trans.device.title_plural }}
+            - title: {{ _d_t_trans.vibration.title_plural }}
               subtitle: {{ room["name"] }}
               navigation_path: {{ room["name"]|lower|replace("'", "_")|replace(" ", "_") }}  
           #Start for room devices content page
-          {% if room["device"].split('.')[0] == 'device' %}
-          # this room has only 1 device
+          {% if room["vibration"].split('.')[0] == 'vibration' %}
+          # this room has only 1 vibration sensor
           {% else %}
-          # this room has group of devices
+          # this room has group of vibration sensors
           - type: custom:auto-entities
             filter:
               include:
-                - group: {{ room["device"] }}
+                - group: {{ room["vibration"] }}
                   options:
                     type: custom:button-card
-                    template: room_device
+                    template: room_vibration
                     tap_action:
-                      action: toggle
-                      haptic: light
-                    hold_action:
-                      !include
-                      - ../../../popups/more-info.yaml
-                      - entity: this.entity_id
-                    double_tap_action:
-                      !include
-                      - ../../../popups/more-info.yaml
-                      - entity: this.entity_id
+                      !include 
+                        - ../../../popups/more-info.yaml
+                        - entity: this.entity_id
+                    icon: >
+                      [[[
+                        if(entity.state == 'on')
+                          return "{{ _d_t_icons.vibration_on|default('mdi:vibration') }}";
+                        else if(entity.state == 'off')
+                          return "{{ _d_t_icons.safety_alert|default('mdi:vibrate-off') }}";
+                        else
+                          return "{{ _d_t_icons.safety_alert|default('mdi:cancel') }}";
+                      ]]]
             sort:
               method: name
               ignore_case: true
