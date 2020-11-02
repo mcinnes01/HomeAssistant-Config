@@ -44,28 +44,28 @@
   name: Watch Movie
   entities:
     light.basement_hall:
-      friendly_name: Basement Hall Light
-      icon: mdi:ceiling-light
-      local: online
       manufacturer: Sonoff
       model: 4CH Pro
-      rssi: -89
+      sw_version: PSF-B04-GL v3.4.1
+      local: online
+      rssi: -42
+      friendly_name: Basement Hall Light
+      supported_features: 0
+      icon: mdi:ceiling-light
       state: 'off'
-      supported_features: 0
-      sw_version: PSF-B04-GL v3.4.0
-    light.dining_room:
-      friendly_name: Dining Room Light
-      icon: mdi:ceiling-light
-      state: unavailable
-      supported_features: 0
     light.snug:
+      manufacturer: Sonoff
+      model: 4CH Pro
+      sw_version: PSF-B04-GL v3.4.1
+      local: online
+      rssi: -43
       friendly_name: Snug Light
-      icon: mdi:ceiling-light
-      state: unavailable
       supported_features: 0
+      icon: mdi:ceiling-light
+      state: 'off'
     light.snug_lamp:
-      brightness: 184
-      color_temp: 182
+      min_mireds: 153
+      max_mireds: 588
       effect_list:
       - Strobe color
       - Police
@@ -84,22 +84,31 @@
       - Twitter
       - Slow Temp
       - Stop
-      flowing: false
-      friendly_name: Snug Lamp
+      brightness: 184
+      color_temp: 274
       hs_color:
       - 240
-      - 71.765
-      max_mireds: 588
-      min_mireds: 153
+      - 72.157
       rgb_color:
-      - 71
-      - 71
+      - 70
+      - 70
       - 255
-      state: 'on'
-      supported_features: 63
       xy_color:
-      - 0.163
-      - 0.082
+      - 0.162
+      - 0.081
+      flowing: false
+      friendly_name: Snug Lamp
+      supported_features: 63
+      state: 'on'
+    input_select.snug_mode:
+      options:
+      - Normal
+      - Movie
+      - Chill
+      editable: true
+      friendly_name: Snug Mode
+      icon: mdi:projector
+      state: Movie
 - id: '1593602471773'
   name: Lighting Ambient
   entities:
@@ -210,12 +219,8 @@
   icon: mdi:brightness-7
 - id: '15936024717745'
   name: Lighting Day
-  icon: mdi:weather-sunny
   entities:
     input_select.ambience:
-      editable: true
-      friendly_name: Ambience
-      icon: mdi:theme-light-dark
       options:
       - Ambient
       - Bright
@@ -223,7 +228,21 @@
       - Emergency
       - Evening
       - Night
+      editable: true
+      friendly_name: Ambience
+      icon: mdi:theme-light-dark
       state: Day
+    input_boolean.disable_entity_controlled_lighting:
+      editable: true
+      friendly_name: Disable Entity Controlled Lighting
+      icon: mdi:light
+      state: 'off'
+    input_boolean.basement_lighting_enabled:
+      editable: true
+      friendly_name: Basement Lighting Enabled
+      icon: mdi:stairs-down
+      state: 'on'
+  icon: mdi:weather-sunny
 - id: '1593602471776'
   name: Lighting Evening
   icon: mdi:weather-sunset-down
@@ -244,9 +263,6 @@
   name: Lighting Night
   entities:
     input_select.ambience:
-      editable: true
-      friendly_name: Ambience
-      icon: mdi:theme-light-dark
       options:
       - Ambient
       - Bright
@@ -254,32 +270,46 @@
       - Emergency
       - Evening
       - Night
+      editable: true
+      friendly_name: Ambience
+      icon: mdi:theme-light-dark
       state: Night
     light.all_lights:
+      min_mireds: 153
+      max_mireds: 588
       effect_list:
       - Slowdown
-      - Police2
       - Stop
-      - Christmas
-      - Twitter
-      - Alarm
-      - Strobe epilepsy!
-      - Police
-      - Facebook
-      - Fast Random Loop
-      - WhatsApp
-      - LSD
       - Slow Temp
       - Strobe color
-      - Random Loop
       - RGB
+      - Strobe epilepsy!
+      - Twitter
+      - Random Loop
+      - Facebook
+      - Police
+      - LSD
+      - Christmas
+      - Alarm
       - Disco
+      - WhatsApp
+      - Police2
+      - Fast Random Loop
       entity_id:
       - light.inside_lights
       - light.outside_lights
       friendly_name: All Lights
-      max_mireds: 588
-      min_mireds: 153
-      state: 'off'
+      icon: mdi:lightbulb-group
       supported_features: 63
+      state: 'off'
+    input_boolean.disable_entity_controlled_lighting:
+      editable: true
+      friendly_name: Disable Entity Controlled Lighting
+      icon: mdi:light
+      state: 'on'
+    input_boolean.basement_lighting_enabled:
+      editable: true
+      friendly_name: Basement Lighting Enabled
+      icon: mdi:stairs-down
+      state: 'off'
   icon: mdi:weather-night

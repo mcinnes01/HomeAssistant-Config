@@ -108,3 +108,6 @@ night_lighting:
   - data: {}
     entity_id: light.ground_floor_lights
     service: light.turn_off
+  - service: input_boolean.turn_off
+    data: {}
+    entity_id: input_boolean.enable_entity_controlled_lighting
