@@ -1,9 +1,0 @@
-# Own resources?
-# Add here your own resources
-#
-- url: /hacsfiles/bar-card/bar-card.js
-  type: module
-- type: module
-  url: /hacsfiles/atomic-calendar-revive/atomic-calendar-revive.js
-- type: module
-  url: /hacsfiles/vacuum-card/vacuum-card.js
