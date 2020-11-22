@@ -1,0 +1,123 @@
+  
+# dwains_theme
+## Created by Cameron
+## Room add-on: FAN-control
+## Version: 1.0.0
+
+- type: vertical-stack
+  cards:
+    - type: custom:dwains-flexbox-card
+      padding: true
+      items_classes: 'col-lg-6 col-md-6 col-sm-12 col-xs-12'
+      cards:
+        - type: horizontal-stack
+          cards:
+          - type: custom:button-card
+            style: |
+                ha-card {
+                  background: var(--dwains-theme-primary);
+                  border-radius: 10px;
+                  box-shadow: 10px;
+                  font-weight: bold;
+                  opacity: 0.8;
+                }
+            icon: mdi:fan
+            name: 'Off'
+            entity: {{ (data | fromjson)['entity'] }}
+            tap_action:
+              action: call-service
+              service: fan.turn_off
+              service_data:
+                entity_id: {{ (data | fromjson)['entity'] }}
+                #speed: 'off'
+            state:
+              - operator: template
+                value: >
+                    [[[ if (states['{{ (data | fromjson)['entity'] }}'].state === 'off' ) return 'on'; ]]]
+            styles:
+              icon:
+                - color: >
+                    [[[ if (states['{{ (data | fromjson)['entity'] }}'].state === 'off') return '#299ec2'; return 'grey' ; ]]]
+          - type: custom:button-card
+            style: |
+                ha-card {
+                  background: var(--dwains-theme-primary);
+                  border-radius: 10px;
+                  box-shadow: 10px;
+                  font-weight: bold;
+                  opacity: 0.8;
+                }
+            entity: {{ (data | fromjson)['entity'] }}
+            icon: mdi:fan
+            name: 'Low'
+            tap_action:
+              action: call-service
+              service: fan.set_speed
+              service_data:
+                entity_id: {{ (data | fromjson)['entity'] }}
+                speed: 'low'
+            state:
+              - operator: template
+                value: >
+                    [[[ if ((states['{{ (data | fromjson)['entity'] }}'].attributes.speed === 'low') && (states['{{ (data | fromjson)['entity'] }}'].state === 'on' )) return 'on'; ]]]
+                spin: true
+            styles:
+              icon:
+                - color: >
+                    [[[ if ((states['{{ (data | fromjson)['entity'] }}'].attributes.speed === 'low') && (states['{{ (data | fromjson)['entity'] }}'].state === 'on' )) return '#299ec2'; return 'grey' ; ]]]
+          - type: custom:button-card
+            style: |
+                ha-card {
+                  background: var(--dwains-theme-primary);
+                  border-radius: 10px;
+                  box-shadow: 10px;
+                  font-weight: bold;
+                  opacity: 0.8;
+                }
+            entity: {{ (data | fromjson)['entity'] }}
+            icon: mdi:fan
+            name: 'Med'
+            tap_action:
+              action: call-service
+              entity: {{ (data | fromjson)['entity'] }}
+              service: fan.set_speed
+              service_data:
+                entity_id: {{ (data | fromjson)['entity'] }}
+                speed: 'medium'
+            state:
+              - operator: template
+                value: >
+                    [[[ if ((states['{{ (data | fromjson)['entity'] }}'].attributes.speed === 'medium') && (states['{{ (data | fromjson)['entity'] }}'].state === 'on' )) return 'on'; ]]]
+                spin: true
+            styles:
+              icon:
+                - color: >
+                    [[[ if ((states['{{ (data | fromjson)['entity'] }}'].attributes.speed === 'medium') && (states['{{ (data | fromjson)['entity'] }}'].state === 'on' )) return '#299ec2'; return 'grey' ; ]]]
+          - type: custom:button-card
+            style: |
+                ha-card {
+                  background: var(--dwains-theme-primary);
+                  border-radius: 10px;
+                  box-shadow: 10px;
+                  font-weight: bold;
+                  opacity: 0.8;
+                }
+            entity: {{ (data | fromjson)['entity'] }}
+            icon: mdi:fan
+            name: 'High'
+            tap_action:
+              action: call-service
+              entity: {{ (data | fromjson)['entity'] }}
+              service: fan.set_speed
+              service_data:
+                entity_id: {{ (data | fromjson)['entity'] }}
+                speed: 'high'
+            state:
+              - operator: template
+                value: >
+                    [[[ if ((states['{{ (data | fromjson)['entity'] }}'].attributes.speed === 'high') && (states['{{ (data | fromjson)['entity'] }}'].state === 'on' )) return 'on'; ]]]
+                spin: true
+            styles:
+              icon:
+                - color: >
+                    [[[ if ((states['{{ (data | fromjson)['entity'] }}'].attributes.speed === 'high') && (states['{{ (data | fromjson)['entity'] }}'].state === 'on' )) return '#299ec2'; return 'grey' ; ]]]
