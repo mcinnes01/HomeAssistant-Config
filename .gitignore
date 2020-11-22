@@ -18,7 +18,9 @@ custom_components/dwains_dashboard/__pycache__/
 custom_components/dwains_dashboard/.installed
 !custom_components/ezo
 www/
+!www/dwains_theme
 packages/
+!packages/dwains_theme
 customize.yaml
 google_calendars.yaml
 zigbee.db
@@ -31,6 +33,6 @@ neighbours/
 tts/
 .google.token
 dwainconfig/
-/themes/
+!/themes/
 test/
 image/
