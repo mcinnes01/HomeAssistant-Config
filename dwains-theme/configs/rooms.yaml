@@ -24,7 +24,7 @@ rooms:
     motion: binary_sensor.lounge_motion
     media_player: media_player.lounge_echo_plus
     climate: climate.downstairs
-    humidity: climate.downstairs_thermostat_humidity
+    humidity: sensor.downstairs_thermostat_humidity
     temperature: sensor.downstairs_thermostat_temperature
     vacuum: 
       advanced_view: 'true'
@@ -62,7 +62,7 @@ rooms:
     motion: binary_sensor.bedroom_motion
     media_player: media_player.bedroom_echo_spot
     climate: climate.upstairs
-    humidity: climate.upstairs_thermostat_humidity
+    humidity: sensor.upstairs_thermostat_humidity
     temperature: sensor.upstairs_thermostat_temperature
   - name: Guest Room
     icon: mdi:bed-double
@@ -97,7 +97,7 @@ rooms:
     motion: binary_sensor.dining_room_motion
     media_player: media_player.dining_room_echo_input
     climate: climate.basement
-    humidity: climate.basement_thermostat_humidity
+    humidity: sensor.basement_thermostat_humidity
     temperature: sensor.basement_thermostat_temperature
     addons:
       - name: Printer

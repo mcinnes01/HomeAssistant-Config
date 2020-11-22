@@ -2,30 +2,38 @@
 
 scenes:
   - entity: scene.watch_tv
+    icon: mdi:television-classic
+    icon_color: '#b3d9ff'
+    background: 'linear-gradient( 135deg, #ffffff 10%, #cca300 100%)'
+  - entity: scene.lounge_normal
     icon: mdi:sofa
     icon_color: '#b3d9ff'
-    background: 'linear-gradient( 135deg, #ffffff 10%, #b3d9ff 100%)'
+    background: 'linear-gradient( 135deg, #ffffff 10%, #ffff99 100%)'
   - entity: scene.watch_movie
-    icon: mdi:projector
+    icon: mdi:video-vintage
     icon_color: '#0000cc'
     background: 'linear-gradient( 135deg, #ffffff 10%, #0000cc 100%)'
+  - entity: scene.lights_up
+    icon: mdi:filmstrip-off
+    icon_color: '#0000cc'
+    background: 'linear-gradient( 135deg, #ffffff 10%, #ffff99 100%)'
   - entity: scene.lighting_ambient
     icon: mdi:weather-sunset
     icon_color: '#ffc61a'
     background: 'linear-gradient( 135deg, #ffffff 10%, #ffc61a 100%)'
   - entity: scene.lighting_bright
     icon: mdi:brightness-7
-    icon_color: '#ffffff'
-    background: 'linear-gradient( 135deg, #ffffff 10%, #ffff99 100%)'
+    icon_color: '#ffff99'
+    background: 'linear-gradient( 135deg, #ffffff 10%, #000000 100%)'
   - entity: scene.lighting_day
     icon: mdi:weather-sunny
     icon_color: '#ffff99'
-    background: 'linear-gradient( 135deg, #ffffff 10%, #ffff99 100%)'
+    background: 'linear-gradient( 135deg, #ffffff 10%, #b3d9ff 100%)'
   - entity: scene.lighting_evening
     icon: mdi:weather-sunset-down
     icon_color: '#cca300'
     background: 'linear-gradient( 135deg, #ffffff 10%, #cca300 100%)'
   - entity: scene.lighting_night
     icon: mdi:weather-night
-    icon_color: '#000000'
+    icon_color: '#ffff99'
     background: 'linear-gradient( 135deg, #ffffff 10%, #000000 100%)'

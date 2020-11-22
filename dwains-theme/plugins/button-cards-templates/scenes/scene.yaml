@@ -20,6 +20,7 @@ scene:
     icon:
       - color: var(--dwains-theme-header-text)
       - width: 55%
+      - height: 55%
     img_cell:
       - width: 45px
       - height: 45px

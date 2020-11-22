@@ -19,10 +19,10 @@ config:
 group: !include groups.yaml
 history:
 logbook:
-# logger:
-#   default: info
-#   logs:
-#     homeassistant.core: debug
+logger:
+  default: critical
+  logs:
+    custom_components.entity_controller: debug
 map:
   entities:
     - device_tracker.claires_iphone
@@ -41,11 +41,11 @@ system_health:
 updater:
 zeroconf:
 zone:
-input_boolean: !include input_boolean.yaml
+input_boolean:
 input_datetime:
 input_text:
 input_number:
-input_select: !include input_selects.yaml
+input_select:
   
 # History
 recorder:
@@ -64,14 +64,14 @@ alexa_media:
       url: amazon.co.uk
 
 # Bad Nest
-badnest:
-  user_id: !secret badnest_id
-  access_token: !secret badnest_access_token
-  region: eu
+# badnest:
+#   user_id: !secret badnest_id
+#   access_token: !secret badnest_access_token
+#   region: eu
 
-climate:
-  - platform: badnest
-    scan_interval: 10
+# climate:
+#   - platform: badnest
+#     scan_interval: 10
 
 # Spotify
 spotify:
@@ -96,10 +96,10 @@ panel_iframe:
     title: 'SqueezeBox'
     icon: mdi:music
     url: 'https://squeezebox.andisoft.co.uk'
-  brewblox:
-    title: 'BrewBlox'
-    icon: mdi:beer
-    url: 'https://brewery.northsouthbrewing.co.uk'
+  # brewblox:
+  #   title: 'BrewBlox'
+  #   icon: mdi:beer
+  #   url: 'https://brewery.northsouthbrewing.co.uk'
 
 #Weather
 weather:
@@ -117,7 +117,7 @@ notify:
     name: alexa_media
 
 # Timers
-timer: !include timers.yaml
+timer:
 
 # Camera
 stream:
@@ -276,13 +276,19 @@ switch:
       - light.snug_lamp
 
 binary_sensor:
-  - platform: mqtt
-    name: "Patio Motion"
-    state_topic: "cameras/patio/motion"
-    payload_on: "ON"
-    payload_off: "OFF"
-    off_delay: 5
-    device_class: "motion"
+  - platform: template
+    sensors:
+      patio_motion:
+        friendly_name: "Patio Motion"
+        value_template: "{{ is_state('input_boolean.patio_motion', 'on') }}"
+        device_class: "motion"
+  # - platform: mqtt
+  #   name: "Patio Motion"
+  #   state_topic: "cameras/patio/motion"
+  #   payload_on: "ON"
+  #   payload_off: "OFF"
+  #   off_delay: 5
+  #   device_class: "motion"
 
 withings:
   client_id: !secret withings_clientid

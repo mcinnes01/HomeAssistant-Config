@@ -1,26 +1,16 @@
-porch_light_controller:
-  friendly_name: "Porch Light Controller"
-  overrides:
-    - input_boolean.disable_entity_controlled_lighting
-  entities:
-    - light.porch
-  start_time: 'sunset + 01:00:00'
-  end_time: '23:00:00'
-  block_timeout: 600
-
 lounge_light_controller:
   friendly_name: "Lounge Light Controller"
   sensors: 
     - binary_sensor.lounge_motion
   overrides:
-    - input_boolean.disable_entity_controlled_lighting
+    - input_boolean.lounge_light_constrained
   entities:
   - light.lounge
   delay: 120
   backoff: true
-  backoff_factor: 1.1
+  backoff_factor: 1.5
   backoff_max: 600
-  start_time: 'sunset - 01:00:00'
+  start_time: 'sunset - 00:30:00'
   end_time: 'sunset + 02:00:00'
   block_timeout: 1200
 
@@ -29,12 +19,15 @@ lounge_lamp_controller:
   sensors: 
     - binary_sensor.lounge_motion
   overrides:
-    - input_boolean.disable_entity_controlled_lighting
+    - input_boolean.lounge_lamp_constrained
   entities:
   - light.lounge_lamp
+  state_attributes_ignore:
+    - brightness
+    - color_temp
   delay: 120
   backoff: true
-  backoff_factor: 1.1
+  backoff_factor: 1.5
   backoff_max: 600
   start_time: 'sunset + 02:00:00'
   end_time: 'sunrise'
@@ -45,14 +38,14 @@ drawing_room_light_controller:
   sensors: 
     - binary_sensor.drawing_room_motion
   overrides:
-    - input_boolean.disable_entity_controlled_lighting
+    - input_boolean.drawing_room_light_constrained
   entities:
     - light.drawing_room
   delay: 120
   backoff: true
-  backoff_factor: 1.1
+  backoff_factor: 1.5
   backoff_max: 600
-  start_time: 'sunset - 01:00:00'
+  start_time: 'sunset - 00:30:00'
   end_time: 'sunset + 02:00:00'
   block_timeout: 1200
 
@@ -61,12 +54,15 @@ drawing_room_lamp_controller:
   sensors: 
     - binary_sensor.drawing_room_motion
   overrides:
-    - input_boolean.disable_entity_controlled_lighting
+    - input_boolean.drawing_room_lamp_constrained
   entities:
     - light.drawing_room_lamp
+  state_attributes_ignore:
+    - brightness
+    - color_temp
   delay: 120
   backoff: true
-  backoff_factor: 1.1
+  backoff_factor: 1.5
   backoff_max: 600
   start_time: 'sunset + 02:00:00'
   end_time: 'sunrise'
@@ -77,11 +73,11 @@ hallway_light_controller:
   sensors: 
     - binary_sensor.hallway_motion
   overrides:
-    - input_boolean.disable_entity_controlled_lighting
+    - input_boolean.hallway_light_constrained
   entities:
     - light.hallway
   delay: 60
-  start_time: 'sunset - 01:00:00'
+  start_time: 'sunset - 00:30:00'
   end_time: 'sunset + 02:00:00'
   block_timeout: 600
 
@@ -90,9 +86,12 @@ hallway_lamp_controller:
   sensors: 
     - binary_sensor.hallway_motion
   overrides:
-    - input_boolean.disable_entity_controlled_lighting
+    - input_boolean.hallway_lamp_constrained
   entities:
     - light.hallway_lamp
+  state_attributes_ignore:
+    - brightness
+    - color_temp
   delay: 60
   start_time: 'sunset + 02:00:00'
   end_time: 'sunrise'
@@ -102,15 +101,16 @@ kitchen_light_controller:
   friendly_name: "Kitchen Light Controller"
   sensors: 
     - binary_sensor.kitchen_motion
+    - binary_sensor.motion_kitchen_camera
   overrides:
-    - input_boolean.disable_entity_controlled_lighting
+    - input_boolean.kitchen_light_constrained
   entities:
   - light.kitchen
   delay: 120
   backoff: true
-  backoff_factor: 1.1
+  backoff_factor: 1.5
   backoff_max: 600
-  start_time: 'sunset - 01:00:00'
+  start_time: 'sunset - 00:30:00'
   end_time: 'sunset + 02:00:00'
   block_timeout: 1200
 
@@ -118,13 +118,17 @@ kitchen_lamp_controller:
   friendly_name: "Kitchen Lamp Controller"
   sensors: 
     - binary_sensor.kitchen_motion
+    - binary_sensor.motion_kitchen_camera
   overrides:
-    - input_boolean.disable_entity_controlled_lighting
+    - input_boolean.kitchen_lamp_constrained
   entities:
   - light.kitchen_lamp
+  state_attributes_ignore:
+    - brightness
+    - color_temp
   delay: 120
   backoff: true
-  backoff_factor: 1.1
+  backoff_factor: 1.5
   backoff_max: 600
   start_time: 'sunset + 02:00:00'
   end_time: 'sunrise'
@@ -135,42 +139,46 @@ studio_light_controller:
   sensor: binary_sensor.studio_motion
   sensor_type: duration
   overrides:
-    - input_boolean.disable_entity_controlled_lighting
+    - input_boolean.studio_light_constrained
   entities:
     - light.studio
   delay: 120
   backoff: true
-  backoff_factor: 1.1
+  backoff_factor: 1.5
   backoff_max: 600
-  start_time: 'sunset'
+  start_time: 'sunset - 00:30:00'
   end_time: 'sunrise'
   block_timeout: 1200
 
-# bathroom_light_controller:
-#   friendly_name: "Bathroom Light Controller"
-#   sensor: binary_sensor.bathroom_motion
-#   sensor_type: duration
-#   entities:
-#     - light.bathroom
-#   delay: 120
-#   backoff: true
-#   backoff_factor: 1.1
-#   backoff_max: 600
-#   start_time: 'sunset'
-#   end_time: '23:00:00'
-#   block_timeout: 900
+bathroom_light_controller:
+  friendly_name: "Bathroom Light Controller"
+  sensor: binary_sensor.bathroom_motion
+  sensor_type: duration
+  overrides:
+    - input_boolean.bathroom_light_constrained
+  entities:
+    - light.bathroom
+  delay: 120
+  backoff: true
+  backoff_factor: 1.5
+  backoff_max: 600
+  start_time: 'sunset - 00:30:00'
+  end_time: 'sunset + 02:00:00'
+  block_timeout: 900
 
 mirror_light_controller:
   friendly_name: "Mirror Light Controller"
   sensor: binary_sensor.bathroom_motion
   sensor_type: duration
+  overrides:
+    - input_boolean.mirror_light_constrained
   entities:
     - light.mirror
   delay: 120
   backoff: true
-  backoff_factor: 1.1
+  backoff_factor: 1.5
   backoff_max: 600
-  start_time: 'sunset'
+  start_time: 'sunset + 02:00:00'
   end_time: 'sunrise'
   block_timeout: 900
 
@@ -179,14 +187,15 @@ bedroom_light_controller:
   sensors: 
     - binary_sensor.bedroom_motion
   overrides:
-    - input_boolean.disable_entity_controlled_lighting
+    - input_boolean.in_bed
+    - input_boolean.bedroom_light_constrained
   entities:
     - light.bedroom
   delay: 120
   backoff: true
-  backoff_factor: 1.1
+  backoff_factor: 1.5
   backoff_max: 600
-  start_time: 'sunset - 01:00:00'
+  start_time: 'sunset - 00:30:00'
   end_time: 'sunset + 02:00:00'
   block_timeout: 900
 
@@ -195,12 +204,15 @@ bedroom_lamp_controller:
   sensors: 
     - binary_sensor.bedroom_motion
   overrides:
-    - input_boolean.disable_entity_controlled_lighting
+    - input_boolean.bedroom_lamp_constrained
   entities:
     - light.bedroom_lamp
+  state_attributes_ignore:
+    - brightness
+    - color_temp
   delay: 120
   backoff: true
-  backoff_factor: 1.1
+  backoff_factor: 1.5
   backoff_max: 600
   start_time: 'sunset + 02:00:00'
   end_time: 'sunrise'
@@ -211,14 +223,14 @@ guest_room_light_controller:
   sensors: 
     - binary_sensor.guest_room_motion
   overrides:
-    - input_boolean.disable_entity_controlled_lighting
+    - input_boolean.guest_room_light_constrained
   entities:
   - light.guest_room
   delay: 120
   backoff: true
-  backoff_factor: 1.1
+  backoff_factor: 1.5
   backoff_max: 600
-  start_time: 'sunset'
+  start_time: 'sunset - 00:30:00'
   end_time: 'sunrise'
   block_timeout: 900
 
@@ -227,14 +239,14 @@ dressing_room_light_controller:
   sensor: binary_sensor.dressing_room_motion
   sensor_type: duration
   overrides:
-    - input_boolean.disable_entity_controlled_lighting
+    - input_boolean.dressing_room_light_constrained
   entities:
     - light.dressing_room
   delay: 60
   backoff: true
   backoff_factor: 1.5
   backoff_max: 300
-  start_time: 'sunset'
+  start_time: 'sunset - 00:30:00'
   end_time: 'sunrise'
   block_timeout: 900
 
@@ -245,7 +257,7 @@ landing_light_controller:
   entities:
     - light.landing
   delay: 60
-  start_time: 'sunset'
+  start_time: 'sunset - 00:30:00'
   end_time: 'sunrise'
   block_timeout: 600
 
@@ -253,6 +265,8 @@ toilet_light_controller:
   friendly_name: "Toilet Light Controller"
   sensors: 
     - binary_sensor.toilet_motion
+  overrides:
+    - input_boolean.toilet_light_constrained
   entities:
     - light.toilet
   delay: 60
@@ -266,7 +280,7 @@ utility_room_light_controller:
   sensors: 
     - binary_sensor.utility_room_motion
   overrides:
-    - input_boolean.basement_lighting_enabled
+    - input_boolean.utility_room_light_constrained
   entities:
     - light.utility_room
   delay: 60
@@ -280,12 +294,12 @@ dining_room_light_controller:
   sensors: 
     - binary_sensor.dining_room_motion
   overrides:
-    - input_boolean.basement_lighting_enabled
+    - input_boolean.dining_room_light_constrained
   entities:
     - light.dining_room
   delay: 120
   backoff: true
-  backoff_factor: 1.1
+  backoff_factor: 1.5
   backoff_max: 600
   block_timeout: 900
 
@@ -294,22 +308,52 @@ snug_light_controller:
   sensors: 
     - binary_sensor.snug_motion
   overrides:
-    - input_boolean.basement_lighting_enabled
+    - input_boolean.snug_light_constrained
   entities:
     - light.snug
   delay: 120
   backoff: true
-  backoff_factor: 1.1
+  backoff_factor: 1.5
   backoff_max: 600
   block_timeout: 900
 
+snug_lamp_controller:
+  friendly_name: "Snug Lamp Controller"
+  sensors: 
+    - binary_sensor.snug_motion
+  overrides:
+    - input_boolean.snug_lamp_constrained
+  entities:
+    - light.snug_lamp
+  state_attributes_ignore:
+    - brightness
+    - color_temp
+  delay: 120
+  backoff: true
+  backoff_factor: 1.5
+  backoff_max: 600
+  block_timeout: 900
 
 basement_hall_light_controller:
   friendly_name: "Basement Hall Light Controller"
   sensors: 
     - binary_sensor.basement_hall_motion
     - binary_sensor.basement_stairs_motion
+    - binary_sensor.motion_basement_hall_camera
+  overrides:
+    - input_boolean.basement_hall_light_constrained
   entities:
     - light.basement_hall
   delay: 60
+  block_timeout: 600
+
+back_door_light_controller:
+  friendly_name: "Back Door Light Controller"
+  sensors: 
+    - binary_sensor.patio_motion
+  entities:
+    - light.back_door
+  delay: 120
+  start_time: 'sunset'
+  end_time: 'sunrise'
   block_timeout: 600

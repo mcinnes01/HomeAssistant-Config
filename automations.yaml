@@ -407,16 +407,7 @@
   - event: sunrise
     platform: sun
   action:
-  - data:
-      entity_id: input_select.ambience
-      option: Day
-    service: input_select.select_option
-  - service: input_boolean.turn_on
-    data: {}
-    entity_id: input_boolean.disable_entity_controlled_lighting
-  - service: input_boolean.turn_on
-    data: {}
-    entity_id: input_boolean.basement_lighting_enabled
+  - scene: scene.lighting_day
   mode: single
 - id: 5dd55f812aa8446588f5b6d1b08921d3
   alias: Set Ambience to Evening
@@ -425,38 +416,463 @@
     platform: sun
     offset: -01:00:00
   action:
-  - data:
-      entity_id: input_select.ambience
-      option: Evening
-    service: input_select.select_option
+  - scene: scene.lighting_evening
+  mode: single
+- alias: Hallway Light Constrained
+  trigger:
+  - platform: state
+    entity_id:
+    - input_boolean.hallway_light_contrained
+    - input_select.ambience
+    - light.hallway_lamp
+  action:
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: '{{ not (states(''input_select.ambience'') in [''Bright'',
+          ''Evening''] and is_state(''light.hallway_lamp'', ''off'')) }}'
+      sequence:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.hallway_light_constrained
+    default:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.hallway_light_constrained
+  mode: single
+  id: 5b1af16edd2f419ab2a006d2615e3db2
+- alias: Hallway Lamp Constrained
+  trigger:
+  - platform: state
+    entity_id:
+    - input_boolean.hallway_light_contrained
+    - input_select.ambience
+    - light.hallway
+  action:
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: '{{ not (states(''input_select.ambience'') in [''Ambient'',
+          ''Evening''] and is_state(''light.hallway'', ''off'')) }}'
+      sequence:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.hallway_lamp_constrained
+    default:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.hallway_lamp_constrained
+  mode: single
+  id: b03b0847981b4e1f87e1435b36758a8f
+- alias: Lounge Light Constrained
+  trigger:
+  - platform: state
+    entity_id:
+    - input_boolean.lounge_light_contrained
+    - input_select.ambience
+    - input_select.lounge_mode
+    - light.lounge_lamp
+  action:
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: '{{ not (states(''input_select.ambience'') in [''Bright'',
+          ''Evening''] and is_state(''input_select.lounge_mode'', ''Normal'') and
+          is_state(''light.lounge_lamp'', ''off'')) }}'
+      sequence:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.lounge_light_constrained
+    default:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.lounge_light_constrained
+  mode: single
+  id: 7370bd68e87044beacd6a72f5028ad5a
+- alias: Lounge Lamp Constrained
+  trigger:
+  - platform: state
+    entity_id:
+    - input_boolean.lounge_light_contrained
+    - input_select.ambience
+    - input_select.lounge_mode
+    - light.lounge
+  action:
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: '{{ not (states(''input_select.ambience'') in [''Ambient'',
+          ''Evening''] and is_state(''input_select.lounge_mode'', ''Normal'') and
+          is_state(''light.lounge'', ''off'')) }}'
+      sequence:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.lounge_lamp_constrained
+    default:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.lounge_lamp_constrained
+  mode: single
+  id: 34d291332d9d4a9185327573b8c1a89e
+- alias: Drawing Room Light Constrained
+  trigger:
+  - platform: state
+    entity_id:
+    - input_boolean.drawing_room_light_contrained
+    - input_select.ambience
+    - light.drawing_room_lamp
+  action:
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: '{{ not (states(''input_select.ambience'') in [''Bright'',
+          ''Evening''] and is_state(''light.drawing_room_lamp'', ''off'') and is_state(''light.bookshelf'',
+          ''off'')) }}'
+      sequence:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.drawing_room_light_constrained
+    default:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.drawing_room_light_constrained
+  mode: single
+  id: 93bda13f503c4f5780004a4cdcf1b1ea
+- alias: Drawing Room Lamp Constrained
+  trigger:
+  - platform: state
+    entity_id:
+    - input_boolean.drawing_room_light_contrained
+    - input_select.ambience
+    - light.drawing_room
+  action:
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: '{{ not (states(''input_select.ambience'') in [''Ambient'',
+          ''Evening''] and is_state(''light.drawing_room'', ''off'')) }}'
+      sequence:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.lounge_lamp_constrained
+    default:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.lounge_lamp_constrained
+  mode: single
+  id: 1dd62d0407af4ba68939726a92353417
+- alias: Kitchen Light Constrained
+  trigger:
+  - platform: state
+    entity_id:
+    - input_boolean.kitchen_light_contrained
+    - input_select.ambience
+    - light.kitchen_lamp
+  action:
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: '{{ not (states(''input_select.ambience'') in [''Bright'',
+          ''Evening''] and is_state(''light.kitchen_lamp'', ''off'')) }}'
+      sequence:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.kitchen_light_constrained
+    default:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.kitchen_light_constrained
+  mode: single
+  id: f0c65ae0b59c4bfdbb6a9c41f6dfc9cf
+- alias: Kitchen Lamp Constrained
+  trigger:
+  - platform: state
+    entity_id:
+    - input_boolean.kitchen_light_contrained
+    - input_select.ambience
+    - light.kitchen
+  action:
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: '{{ not (states(''input_select.ambience'') in [''Ambient'',
+          ''Evening''] and is_state(''light.kitchen'', ''off'')) }}'
+      sequence:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.kitchen_lamp_constrained
+    default:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.kitchen_lamp_constrained
+  mode: single
+  id: e8e14ee636a442838221690bbffe178f
+- alias: Bathroom Light Constrained
+  trigger:
+  - platform: state
+    entity_id:
+    - input_boolean.bathroom_light_contrained
+    - input_select.ambience
+    - light.mirror
+  action:
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: '{{ not (states(''input_select.ambience'') in [''Bright'',
+          ''Evening''] and is_state(''light.mirror'', ''off'')) }}'
+      sequence:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.bathroom_light_constrained
+    default:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.bathroom_light_constrained
+  mode: single
+  id: f15e5f50e4aa43da84d66f16ea6b95cf
+- alias: Mirror Light Constrained
+  trigger:
+  - platform: state
+    entity_id:
+    - input_boolean.mirror_light_contrained
+    - input_select.ambience
+    - light.bathroom
+  action:
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: '{{ not (states(''input_select.ambience'') in [''Ambient'',
+          ''Evening'', ''Night''] and is_state(''light.bathroom'', ''off'')) }}'
+      sequence:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.mirror_light_constrained
+    default:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.mirror_light_constrained
+  mode: single
+  id: c22b53b755fd48b7b10dcba5bfdc3018
+- alias: Studio Light Constrained
+  trigger:
+  - platform: state
+    entity_id:
+    - input_select.ambience
+  action:
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: '{{ not (states(''input_select.ambience'') in [''Ambient'',
+          ''Evening''])}}'
+      sequence:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.studio_light_constrained
+    default:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.studio_light_constrained
+  mode: single
+  id: 7119d64911784af3a51dfe8e3a058989
+- alias: Bedroom Light Constrained
+  trigger:
+  - platform: state
+    entity_id:
+    - input_boolean.bedroom_light_contrained
+    - input_select.ambience
+    - light.bedroom_lamp
+    - input_boolean.in_bed
+  action:
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: '{{ not (states(''input_select.ambience'') in [''Bright'',
+          ''Evening''] and is_state(''light.bedroom_lamp'', ''off'') and is_state(''input_boolean.in_bed'',
+          ''off'')) }}'
+      sequence:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.bedroom_light_constrained
+    default:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.bedroom_light_constrained
+  mode: single
+  id: 18c5d98e6cd945ea8089ea36abe3049f
+- alias: Bedroom Lamp Constrained
+  trigger:
+  - platform: state
+    entity_id:
+    - input_boolean.bedroom_light_contrained
+    - input_select.ambience
+    - light.bedroom
+  action:
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: '{{ not (states(''input_select.ambience'') in [''Ambient'',
+          ''Evening''] and is_state(''light.bedroom'', ''off'')) }}'
+      sequence:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.bedroom_lamp_constrained
+    default:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.bedroom_lamp_constrained
+  mode: single
+  id: e6e53418e5474b03b92123912e18fdd3
+- alias: Dressing Room Constrained
+  trigger:
+  - platform: state
+    entity_id:
+    - input_select.ambience
+  action:
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: '{{ not (states(''input_select.ambience'') in [''Ambient'',
+          ''Evening'']) }}'
+      sequence:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.dressing_room_light_constrained
+    default:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.dressing_room_light_constrained
+  mode: single
+  id: 7c5305d3f9704edca32c6df5c5ad399b
+- alias: Guest Room Light Constrained
+  trigger:
+  - platform: state
+    entity_id:
+    - input_select.ambience
+  action:
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: '{{ not (states(''input_select.ambience'') in [''Ambient'',
+          ''Evening'']) }}'
+      sequence:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.guest_room_light_constrained
+    default:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.guest_room_light_constrained
+  mode: single
+  id: f6d3b5116682406888bd5ffc772efe81
+- alias: Snug Light Constrained
+  trigger:
+  - platform: state
+    entity_id:
+    - input_boolean.snug_light_contrained
+    - input_select.ambience
+    - input_select.snug_mode
+    - light.snug_lamp
+  action:
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: '{{ not (states(''input_select.ambience'') in [''Bright'',
+          ''Day''] and is_state(''input_select.snug_mode'', ''Normal'') and is_state(''light.snug_lamp'',
+          ''off'')) }}'
+      sequence:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.snug_light_constrained
+    default:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.snug_light_constrained
+  mode: single
+  id: 98cc3d557fef492b91a0adb25105598d
+- alias: Snug Lamp Constrained
+  trigger:
+  - platform: state
+    entity_id:
+    - input_boolean.snug_light_contrained
+    - input_select.ambience
+    - input_select.snug_mode
+    - light.snug
+  action:
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: '{{ not (states(''input_select.ambience'') in [''Ambient'',
+          ''Evening''] and is_state(''input_select.snug_mode'', ''Normal'') and is_state(''light.snug'',
+          ''off'')) }}'
+      sequence:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.snug_lamp_constrained
+    default:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.snug_lamp_constrained
+  mode: single
+  id: 36528c762af4461283418e7ac0c4f00a
+- alias: Dining Room Light Constrained
+  trigger:
+  - platform: state
+    entity_id:
+    - input_boolean.dining_room_light_contrained
+    - input_select.ambience
+  action:
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: '{{ not (states(''input_select.ambience'') in [''Bright'',
+          ''Day'', ''Evening'']) }}'
+      sequence:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.dining_room_light_constrained
+    default:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.dining_room_light_constrained
+  mode: single
+  id: 4b6ac44609014c3a8c0127ffaa9e0a9f
+- alias: Basement Hall Light Constrained
+  trigger:
+  - platform: state
+    entity_id:
+    - input_boolean.basement_hall_light_contrained
+    - input_select.ambience
+  action:
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: '{{ not (states(''input_select.ambience'') in [''Bright'',
+          ''Day'', ''Evening'']) }}'
+      sequence:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.basement_hall_light_constrained
+    default:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.basement_hall_light_constrained
+  mode: single
+  id: 170b8023063a4f83b9aba8cd0771a2d4
+- alias: Utility Room Light Constrained
+  trigger:
+  - platform: state
+    entity_id:
+    - input_boolean.utility_room_light_contrained
+    - input_select.ambience
+  action:
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: '{{ not (states(''input_select.ambience'') in [''Bright'',
+          ''Day'', ''Evening'']) }}'
+      sequence:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.utility_room_light_constrained
+    default:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.utility_room_light_constrained
+  mode: single
+  id: f26ce7ed75944637890f2ed2016ad2b3
+- alias: Toilet Light Constrained
+  trigger:
+  - platform: state
+    entity_id:
+    - input_boolean.toilet_light_contrained
+    - input_select.ambience
+  action:
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: '{{ not (states(''input_select.ambience'') in [''Bright'',
+          ''Day'', ''Evening'', ''Ambient'']) }}'
+      sequence:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.toilet_light_constrained
+    default:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.toilet_light_constrained
+  mode: single
+  id: f7ad91532b454991b258ed726b18c562
+- id: '1606003648616'
+  alias: Patio Motion Detected
+  description: ''
+  trigger:
+  - platform: webhook
+    webhook_id: patio-motion-detected
+  condition: []
+  action:
+  - service: input_boolean.turn_on
+    data: {}
+    entity_id: input_boolean.patio_motion
+  - delay: 00:00:20
   - service: input_boolean.turn_off
     data: {}
-    entity_id: input_boolean.disable_entity_controlled_lighting
-  mode: single
-- id: '1596880408095'
-  alias: Turn on back door light when motion detected
-  trigger:
-  - entity_id: binary_sensor.patio_motion
-    platform: state
-    to: 'on'
-  condition:
-  - after: sunset
-    before: sunrise
-    condition: sun
-  action:
-  - entity_id: light.back_door
-    service: light.turn_on
-  - entity_id: timer.patio
-    service: timer.start
-  mode: single
-- id: '1596880578933'
-  alias: Turn off back door light when there is no motion
-  trigger:
-    platform: event
-    event_type: timer.finished
-    event_data:
-      entity_id: timer.patio
-  action:
-  - entity_id: light.back_door
-    service: light.turn_off
-  mode: single
+    entity_id: input_boolean.patio_motion
+  mode: restart

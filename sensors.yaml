@@ -35,4 +35,118 @@
     - www
     - wlan
     - alerts
-    - firmware  
+    - firmware
+
+# Light state overrides
+
+# # Hallway light
+# - platform: template
+#   sensors:
+#     hallway_light_constrained:
+#       value_template: >-
+#         {{ not (states('input_select.ambience') in ['Bright', 'Evening'] and is_state('light.hallway_lamp', 'off')) }}
+
+# # Hallway lamp
+# - platform: template
+#   sensors:
+#     hallway_lamp_constrained:
+#       value_template: >-
+#         {{ not (states('input_select.ambience') in ['Ambient', 'Evening'] and is_state('light.hallway', 'off')) }}
+
+# # Lounge light
+# - platform: template
+#   sensors:
+#     lounge_light_constrained:
+#       value_template: >-
+#         {{ not (states('input_select.ambience') in ['Bright', 'Evening'] and is_state('input_select.lounge_mode', 'Normal') and is_state('light.lounge_lamp', 'off')) }}
+
+# # Lounge lamp
+# - platform: template
+#   sensors:
+#     lounge_lamp_constrained:
+#       value_template: >-
+#         {{ not (states('input_select.ambience') in ['Ambient', 'Evening'] and is_state('input_select.lounge_mode', 'Normal') and is_state('light.lounge', 'off')) }}
+
+# # Drawing Room light
+# - platform: template
+#   sensors:
+#     drawing_room_light_constrained:
+#       value_template: >-
+#         {{ not (states('input_select.ambience') in ['Bright', 'Evening'] and is_state('light.drawing_room_lamp', 'off') and is_state('light.bookshelf', 'off')) }}
+
+# # Drawing Room lamp
+# - platform: template
+#   sensors:
+#     drawing_room_lamp_constrained:
+#       value_template: >-
+#         {{ not (states('input_select.ambience') in ['Ambient', 'Evening'] and is_state('light.drawing_room', 'off')) }}
+
+# # Kitchen light
+# - platform: template
+#   sensors:
+#     kitchen_light_constrained:
+#       value_template: >-
+#         {{ not (states('input_select.ambience') in ['Bright', 'Evening'] and is_state('light.kitchen_lamp', 'off')) }}
+
+# # Kitchen lamp
+# - platform: template
+#   sensors:
+#     kitchen_lamp_constrained:
+#       value_template: >-
+#         {{ not (states('input_select.ambience') in ['Ambient', 'Evening'] and is_state('light.kitchen', 'off')) }}
+
+# # Bathroom light
+# - platform: template
+#   sensors:
+#     bathroom_light_constrained:
+#       value_template: >-
+#         {{ not (states('input_select.ambience') in ['Bright', 'Evening'] and is_state('light.mirror', 'off')) }}
+
+# # Mirror light
+# - platform: template
+#   sensors:
+#     mirror_light_constrained:
+#       value_template: >-
+#         {{ not (states('input_select.ambience') in ['Ambient', 'Evening', 'Night'] and is_state('light.bathroom', 'off')) }}
+
+# # Snug light
+# - platform: template
+#   sensors:
+#     snug_light_constrained:
+#       value_template: >-
+#         {{ not (states('input_select.ambience') in ['Bright', 'Day'] and is_state('input_select.snug_mode', 'Normal') and is_state('light.snug_lamp', 'off')) }}
+
+# # Snug lamp
+# - platform: template
+#   sensors:
+#     snug_lamp_constrained:
+#       value_template: >-
+#         {{ not (states('input_select.ambience') in ['Ambient', 'Evening'] and is_state('input_select.snug_mode', 'Normal') and is_state('light.snug', 'off')) }}
+
+# # Dining Room light
+# - platform: template
+#   sensors:
+#     dining_room_light_constrained:
+#       value_template: >-
+#         {{ not (states('input_select.ambience') in ['Bright', 'Day', 'Evening']) }}
+
+# # Basement Hall light
+# - platform: template
+#   sensors:
+#     basement_hall_light_constrained:
+#       value_template: >-
+#         {{ not (states('input_select.ambience') in ['Bright', 'Day', 'Evening']) }}
+
+# # Utility Room light
+# - platform: template
+#   sensors:
+#     utility_room_light_constrained:
+#       value_template: >-
+#         {{ not (states('input_select.ambience') in ['Bright', 'Day', 'Evening']) }}
+
+# # Toilet light
+# - platform: template
+#   sensors:
+#     toilet_light_constrained:
+#       value_template: >-
+#         {{ not (states('input_select.ambience') in ['Bright', 'Day', 'Evening', 'Night']) }}
