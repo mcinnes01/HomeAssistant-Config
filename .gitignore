@@ -18,6 +18,7 @@ custom_components/dwains_dashboard/__pycache__/
 custom_components/dwains_dashboard/.installed
 !custom_components/ezo
 www/
+!www/images/persons/
 packages/
 customize.yaml
 google_calendars.yaml
