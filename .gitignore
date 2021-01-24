@@ -24,6 +24,7 @@ customize.yaml
 google_calendars.yaml
 zigbee.db
 known_devices.yaml
+*v2.db*
 home-assistant_v2.db-shm
 home-assistant_v2.db-wal
 home-assistant_v2.db
