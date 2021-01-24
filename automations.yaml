@@ -549,7 +549,8 @@
       entity_id: input_boolean.lounge_lamp_constrained
   mode: single
   id: 1dd62d0407af4ba68939726a92353417
-- alias: Kitchen Light Constrained
+- id: f0c65ae0b59c4bfdbb6a9c41f6dfc9cf
+  alias: Kitchen Light Constrained
   trigger:
   - platform: state
     entity_id:
@@ -569,7 +570,6 @@
     - service: input_boolean.turn_off
       entity_id: input_boolean.kitchen_light_constrained
   mode: single
-  id: f0c65ae0b59c4bfdbb6a9c41f6dfc9cf
 - alias: Kitchen Lamp Constrained
   trigger:
   - platform: state
@@ -876,3 +876,43 @@
     data: {}
     entity_id: input_boolean.patio_motion
   mode: restart
+- id: '1607028082314'
+  alias: Ambiance To Day
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunrise
+  condition: []
+  action:
+  - service: input_select.select_option
+    data:
+      option: Day
+    entity_id: input_select.ambience
+  mode: single
+- id: '1607028501905'
+  alias: Ambiance To Evening
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+  condition: []
+  action:
+  - service: input_select.select_option
+    data:
+      option: Evening
+    entity_id: input_select.ambience
+  mode: single
+- id: '1607040725319'
+  alias: Ambiance To Night
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: input_boolean.in_bed
+    to: 'on'
+  condition: []
+  action:
+  - service: input_select.select_option
+    data:
+      option: Evening
+    entity_id: input_select.ambience
+  mode: single

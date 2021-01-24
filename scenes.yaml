@@ -13,6 +13,13 @@
       - Fast Random Loop
       - LSD
       - Slowdown
+      - Night Mode
+      - Date Night
+      - Movie
+      - Sunrise
+      - Sunset
+      - Romance
+      - Happy Birthday
       - Disco
       - Strobe epilepsy!
       - Alarm
@@ -20,20 +27,22 @@
       - WhatsApp
       - Facebook
       - Twitter
+      - Home
+      - Candle Flicker
       - Slow Temp
       - Stop
-      brightness: 74
-      color_temp: 253
+      brightness: 255
+      color_temp: 236
       hs_color:
-      - 26.739
-      - 36.078
+      - 26.736
+      - 30.74
       rgb_color:
       - 255
-      - 204
-      - 163
+      - 211
+      - 176
       xy_color:
-      - 0.424
-      - 0.366
+      - 0.407
+      - 0.361
       flowing: false
       friendly_name: Lounge Lamp
       supported_features: 63
@@ -43,7 +52,7 @@
       model: 4CHPRO
       sw_version: PSF-B04-GL v3.4.1
       local: online
-      rssi: -43
+      rssi: -48
       friendly_name: Lounge Light
       supported_features: 0
       icon: mdi:ceiling-light
@@ -133,97 +142,48 @@
 - id: '1593602471773'
   name: Lighting Ambient
   entities:
-    input_select.ambience:
-      editable: true
-      friendly_name: Ambience
-      icon: mdi:theme-light-dark
-      options:
-      - Ambient
-      - Bright
-      - Day
-      - Emergency
-      - Evening
-      - Night
-      state: Ambient
     light.yeelights:
-      brightness: 230
-      color_temp: 400
-      effect_list:
-      - Slowdown
-      - Random Loop
-      - Facebook
-      - RGB
-      - Christmas
-      - Police
-      - Disco
-      - Police2
-      - Twitter
-      - Fast Random Loop
-      - WhatsApp
-      - Strobe color
-      - Alarm
-      - Strobe epilepsy!
-      - Slow Temp
-      - LSD
-      - Stop
-      entity_id:
-      - light.kitchen_lamp
-      - light.drawing_room_lamp
-      - light.lounge_lamp
-      - light.hall_lamp
-      - light.bedroom_lamp
-      - light.basement_stairs
-      - light.snug_lamp
-      friendly_name: Yeelights
-      hs_color:
-      - 28.874
-      - 72.522
-      max_mireds: 588
       min_mireds: 153
+      max_mireds: 588
+      effect_list:
+      - RGB
+      - Candle Flicker
+      - Date Night
+      - Sunrise
+      - Police
+      - Christmas
+      - Random Loop
+      - Sunset
+      - WhatsApp
+      - Facebook
+      - Slow Temp
+      - Alarm
+      - Happy Birthday
+      - Home
+      - Police2
+      - Slowdown
+      - Stop
+      - Strobe epilepsy!
+      - LSD
+      - Romance
+      - Disco
+      - Movie
+      - Fast Random Loop
+      - Strobe color
+      - Night Mode
+      - Twitter
+      brightness: 230
+      color_temp: 254
+      hs_color:
+      - 28.865
+      - 72.549
       rgb_color:
       - 255
       - 159
       - 70
-      state: 'on'
-      supported_features: 63
       xy_color:
       - 0.546
       - 0.389
-  icon: mdi:weather-sunset
-- id: '1593602471774'
-  name: Lighting Bright
-  entities:
-    input_select.ambience:
-      editable: true
-      friendly_name: Ambience
-      icon: mdi:theme-light-dark
-      options:
-      - Ambient
-      - Bright
-      - Day
-      - Emergency
-      - Evening
-      - Night
-      state: Bright
-    light.yeelights:
-      effect_list:
-      - RGB
-      - Slow Temp
-      - Police
-      - Christmas
-      - Twitter
-      - LSD
-      - WhatsApp
-      - Disco
-      - Strobe epilepsy!
-      - Police2
-      - Slowdown
-      - Fast Random Loop
-      - Stop
-      - Random Loop
-      - Facebook
-      - Strobe color
-      - Alarm
       entity_id:
       - light.kitchen_lamp
       - light.drawing_room_lamp
@@ -233,79 +193,133 @@
       - light.basement_stairs
       - light.snug_lamp
       friendly_name: Yeelights
-      max_mireds: 588
-      min_mireds: 153
-      state: 'off'
+      icon: mdi:lightbulb-group
       supported_features: 63
+      state: 'on'
+    script.ambiance_to_ambient:
+      last_triggered: '2020-12-03T20:55:00.546831+00:00'
+      mode: single
+      current: 0
+      friendly_name: Ambiance To Ambient
+      state: 'off'
+  icon: mdi:weather-sunset
+- id: '1593602471774'
+  name: Lighting Bright
+  entities:
+    light.yeelights:
+      min_mireds: 153
+      max_mireds: 588
+      effect_list:
+      - RGB
+      - Candle Flicker
+      - Date Night
+      - Sunrise
+      - Police
+      - Christmas
+      - Random Loop
+      - Sunset
+      - WhatsApp
+      - Facebook
+      - Slow Temp
+      - Alarm
+      - Happy Birthday
+      - Home
+      - Police2
+      - Slowdown
+      - Stop
+      - Strobe epilepsy!
+      - LSD
+      - Romance
+      - Disco
+      - Movie
+      - Fast Random Loop
+      - Strobe color
+      - Night Mode
+      - Twitter
+      brightness: 230
+      color_temp: 250
+      hs_color:
+      - 28.865
+      - 72.549
+      rgb_color:
+      - 255
+      - 159
+      - 70
+      xy_color:
+      - 0.546
+      - 0.389
+      entity_id:
+      - light.kitchen_lamp
+      - light.drawing_room_lamp
+      - light.lounge_lamp
+      - light.hall_lamp
+      - light.bedroom_lamp
+      - light.basement_stairs
+      - light.snug_lamp
+      friendly_name: Yeelights
+      icon: mdi:lightbulb-group
+      supported_features: 63
+      state: 'on'
+    script.ambiance_to_bright:
+      last_triggered: '2020-12-03T20:55:01.840237+00:00'
+      mode: single
+      current: 0
+      friendly_name: Ambiance To Bright
+      state: 'off'
   icon: mdi:brightness-7
 - id: '15936024717745'
   name: Lighting Day
   entities:
-    input_select.ambience:
-      options:
-      - Ambient
-      - Bright
-      - Day
-      - Emergency
-      - Evening
-      - Night
-      editable: true
-      friendly_name: Ambience
-      icon: mdi:theme-light-dark
-      state: Day
+    script.ambiance_to_day:
+      last_triggered: '2020-12-03T20:55:10.941069+00:00'
+      mode: single
+      current: 0
+      friendly_name: Ambiance To Day
+      state: 'off'
   icon: mdi:weather-sunny
 - id: '1593602471776'
   name: Lighting Evening
-  icon: mdi:weather-sunset-down
   entities:
-    input_select.ambience:
-      editable: true
-      friendly_name: Ambience
-      icon: mdi:theme-light-dark
-      options:
-      - Ambient
-      - Bright
-      - Day
-      - Emergency
-      - Evening
-      - Night
-      state: Evening
+    script.ambiance_to_evening:
+      last_triggered: '2020-12-03T20:55:08.123720+00:00'
+      mode: single
+      current: 0
+      friendly_name: Ambiance To Evening
+      state: 'off'
+  icon: mdi:weather-sunset-down
 - id: '1593602471777'
   name: Lighting Night
   entities:
-    input_select.ambience:
-      options:
-      - Ambient
-      - Bright
-      - Day
-      - Emergency
-      - Evening
-      - Night
-      editable: true
-      friendly_name: Ambience
-      icon: mdi:theme-light-dark
-      state: Night
     light.all_lights:
       min_mireds: 153
       max_mireds: 588
       effect_list:
-      - Fast Random Loop
-      - Slow Temp
-      - Stop
-      - Twitter
-      - Christmas
-      - Police
-      - Random Loop
-      - LSD
-      - Slowdown
-      - Disco
-      - Police2
-      - Strobe color
       - RGB
-      - Strobe epilepsy!
+      - Candle Flicker
+      - Date Night
+      - Sunrise
+      - Police
+      - Christmas
+      - Random Loop
+      - Sunset
       - WhatsApp
       - Facebook
+      - Slow Temp
       - Alarm
+      - Happy Birthday
+      - Home
+      - Police2
+      - Slowdown
+      - Stop
+      - Strobe epilepsy!
+      - LSD
+      - Romance
+      - Disco
+      - Movie
+      - Fast Random Loop
+      - Strobe color
+      - Night Mode
+      - Twitter
       entity_id:
       - light.inside_lights
       - light.outside_lights
@@ -338,6 +352,12 @@
       friendly_name: Snug Mode
       icon: mdi:projector
       state: Normal
+    script.ambiance_to_night:
+      last_triggered: '2020-12-04T00:13:19.386189+00:00'
+      mode: single
+      current: 0
+      friendly_name: Ambiance To Night
+      state: 'off'
   icon: mdi:weather-night
 - id: '1604358522437'
   name: Get Ready For Bed
@@ -418,10 +438,22 @@
       - Twitter
       - Slow Temp
       - Stop
+      brightness: 26
+      color_temp: 279
+      hs_color:
+      - 26.727
+      - 43.137
+      rgb_color:
+      - 255
+      - 193
+      - 145
+      xy_color:
+      - 0.449
+      - 0.371
       flowing: false
       friendly_name: Bedroom Lamp
       supported_features: 63
-      state: 'off'
+      state: 'on'
     input_boolean.in_bed:
       editable: true
       friendly_name: In Bed

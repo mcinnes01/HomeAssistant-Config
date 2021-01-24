@@ -3,5 +3,8 @@
     "description": "A Node-RED Project",
     "version": "0.0.1",
     "private": true,
-    "dependencies": {}
+    "dependencies": {
+        "node-red-contrib-easing": "~0.2.2",
+        "node-red-contrib-stoptimer3": "~0.1.2"
+    }
 }

@@ -87,19 +87,19 @@ google:
 conversation:
 
 # Side bar configuration
-panel_iframe:
-  tasmota:
-    title: 'TasmoAdmin'
-    icon: mdi:lightbulb
-    url: 'https://tasmota.andisoft.co.uk'
-  squeezbox:
-    title: 'SqueezeBox'
-    icon: mdi:music
-    url: 'https://squeezebox.andisoft.co.uk'
-  # brewblox:
-  #   title: 'BrewBlox'
-  #   icon: mdi:beer
-  #   url: 'https://brewery.northsouthbrewing.co.uk'
+# panel_iframe:
+#   tasmota:
+#     title: 'TasmoAdmin'
+#     icon: mdi:lightbulb
+#     url: 'https://tasmota.andisoft.co.uk'
+#   squeezbox:
+#     title: 'SqueezeBox'
+#     icon: mdi:music
+#     url: 'https://squeezebox.andisoft.co.uk'
+#   fermentrack:
+#     title: 'Fermentrack'
+#     icon: mdi:beer
+#     url: 'https://brewery.northsouthbrewing.co.uk'
 
 #Weather
 weather:
@@ -134,6 +134,11 @@ mysensors:
   retain: true
   version: '2.3'
 
+# Neato
+neato:
+  client_id: !secret neato_clientid
+  client_secret: !secret neato_secret
+  
 # Alarm control panel
 alarm_control_panel:
   - platform: manual

@@ -1,7 +1,7 @@
 {
     "node-red": {
         "name": "node-red",
-        "version": "1.2.3",
+        "version": "1.2.5",
         "local": false,
         "nodes": {
             "inject": {
@@ -415,7 +415,7 @@
     },
     "node-red-contrib-cast": {
         "name": "node-red-contrib-cast",
-        "version": "0.2.15",
+        "version": "0.2.16",
         "local": false,
         "nodes": {
             "cast-to-client": {
@@ -449,7 +449,7 @@
     },
     "node-red-contrib-home-assistant-websocket": {
         "name": "node-red-contrib-home-assistant-websocket",
-        "version": "0.27.4",
+        "version": "0.27.5",
         "local": false,
         "nodes": {
             "server": {
@@ -633,7 +633,7 @@
     },
     "node-red-contrib-influxdb": {
         "name": "node-red-contrib-influxdb",
-        "version": "0.5.0",
+        "version": "0.5.1",
         "local": false,
         "nodes": {
             "influxdb": {
@@ -970,7 +970,7 @@
     },
     "node-red-dashboard": {
         "name": "node-red-dashboard",
-        "version": "2.23.5",
+        "version": "2.24.0",
         "local": false,
         "nodes": {
             "ui_base": {
@@ -1274,7 +1274,7 @@
     },
     "node-red-node-pi-gpio": {
         "name": "node-red-node-pi-gpio",
-        "version": "1.2.0",
+        "version": "1.2.1",
         "local": false,
         "nodes": {
             "rpi-gpio": {
@@ -1294,7 +1294,7 @@
     },
     "node-red-node-ping": {
         "name": "node-red-node-ping",
-        "version": "0.2.1",
+        "version": "0.2.2",
         "local": false,
         "nodes": {
             "ping": {
@@ -1433,7 +1433,7 @@
     },
     "node-red-node-twitter": {
         "name": "node-red-node-twitter",
-        "version": "1.1.6",
+        "version": "1.1.7",
         "local": false,
         "nodes": {
             "twitter": {
@@ -1447,6 +1447,57 @@
                 "local": false,
                 "module": "node-red-node-twitter",
                 "file": "/opt/node_modules/node-red-node-twitter/27-twitter.js"
+            }
+        }
+    },
+    "node-red-contrib-stoptimer3": {
+        "name": "node-red-contrib-stoptimer3",
+        "version": "0.1.2",
+        "local": true,
+        "nodes": {
+            "stoptimer3": {
+                "name": "stoptimer3",
+                "types": [
+                    "stoptimer3"
+                ],
+                "enabled": true,
+                "local": true,
+                "module": "node-red-contrib-stoptimer3",
+                "file": "/config/node-red/node_modules/node-red-contrib-stoptimer3/stoptimer3/stoptimer3.js"
+            }
+        }
+    },
+    "node-red-contrib-easing": {
+        "name": "node-red-contrib-easing",
+        "version": "0.2.2",
+        "local": true,
+        "nodes": {
+            "easing": {
+                "name": "easing",
+                "types": [
+                    "easing"
+                ],
+                "enabled": true,
+                "local": true,
+                "module": "node-red-contrib-easing",
+                "file": "/config/node-red/node_modules/node-red-contrib-easing/easing.js"
+            }
+        }
+    },
+    "node-red-contrib-exponential-timer": {
+        "name": "node-red-contrib-exponential-timer",
+        "version": "2021.1.16",
+        "local": false,
+        "nodes": {
+            "exponential-timer": {
+                "name": "exponential-timer",
+                "types": [
+                    "exponential-timer"
+                ],
+                "enabled": true,
+                "local": false,
+                "module": "node-red-contrib-exponential-timer",
+                "file": "/opt/node_modules/node-red-contrib-exponential-timer/exponential-timer.js"
             }
         }
     }

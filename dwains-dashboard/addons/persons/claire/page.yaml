@@ -1,13 +1,13 @@
 - type: gauge
   entity: sensor.withings_weight_kg_claire
   min: 50
-  max: 75
+  max: 62
   name: Claire Weight
   unit: Kg
   severity:
     green: 52
-    yellow: 65
-    red: 75
+    yellow: 57
+    red: 60
   style: | 
     ha-card {
       padding: 6px 16px 0px 16px;
@@ -26,9 +26,9 @@
     - color: '#0aaf31'
       value: 52
     - color: '#ffee00'
-      value: 65
+      value: 57
     - color: '#e01a1a'
-      value: 75
+      value: 62
   font_size: 75
   hours_to_show: 720
   line_width: 1

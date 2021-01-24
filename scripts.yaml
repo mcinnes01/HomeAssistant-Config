@@ -30,6 +30,8 @@ feed_cats:
       - email/mcinnes01@gmail.com
       data:
         file_url: https://image.freepik.com/free-vector/black-cat-silhouette_23-2147493570.jpg
+  mode: single
+  icon: hass:cat
 light_effect_continuous:
   alias: Light Effect Continuous
   sequence:
@@ -111,3 +113,51 @@ night_lighting:
   - service: input_boolean.turn_off
     data: {}
     entity_id: input_boolean.enable_entity_controlled_lighting
+ambiance_to_bright:
+  alias: Ambiance To Bright
+  sequence:
+  - service: input_select.select_option
+    data:
+      option: Bright
+    entity_id: input_select.ambience
+  mode: single
+ambiance_to_day:
+  alias: Ambiance To Day
+  sequence:
+  - service: input_select.select_option
+    data:
+      option: Day
+    entity_id: input_select.ambience
+  mode: single
+ambiance_to_evening:
+  alias: Ambiance To Evening
+  sequence:
+  - service: input_select.select_option
+    data:
+      option: Evening
+    entity_id: input_select.ambience
+  mode: single
+ambiance_to_night:
+  alias: Ambiance To Night
+  sequence:
+  - service: input_select.select_option
+    data:
+      option: Night
+    entity_id: input_select.ambience
+  mode: single
+ambiance_to_emergency:
+  alias: Ambiance To Emergency
+  sequence:
+  - service: input_select.select_option
+    data:
+      option: Emergency
+    entity_id: input_select.ambience
+  mode: single
+ambiance_to_ambient:
+  alias: Ambiance To Ambient
+  sequence:
+  - service: input_select.select_option
+    data:
+      option: Ambient
+    entity_id: input_select.ambience
+  mode: single
