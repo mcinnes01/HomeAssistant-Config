@@ -861,20 +861,20 @@
   mode: single
   id: f7ad91532b454991b258ed726b18c562
 - id: '1606003648616'
-  alias: Patio Motion Detected
+  alias: Cellar Door Motion Detected
   description: ''
   trigger:
   - platform: webhook
-    webhook_id: patio-motion-detected
+    webhook_id: cellar-door-motion-detected
   condition: []
   action:
   - service: input_boolean.turn_on
     data: {}
-    entity_id: input_boolean.patio_motion
+    entity_id: input_boolean.cellar_door_motion
   - delay: 00:00:20
   - service: input_boolean.turn_off
     data: {}
-    entity_id: input_boolean.patio_motion
+    entity_id: input_boolean.cellar_door_motion
   mode: restart
 - id: '1607028082314'
   alias: Ambiance To Day
@@ -916,3 +916,118 @@
       option: Evening
     entity_id: input_select.ambience
   mode: single
+- id: '1612647441014'
+  alias: Patio Person Detection
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.motion_patio_camera
+    attribute: event_object
+    to: person
+  condition:
+  - condition: sun
+    before: sunrise
+    after: sunset
+  action:
+  - service: light.turn_on
+    data: {}
+    entity_id: light.back_door
+  mode: single
+- id: '1612647968540'
+  alias: Turn off back door light when no detection
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.motion_patio_camera
+    attribute: event_object
+    to: None Identified
+  condition: []
+  action:
+  - delay:
+      hours: 0
+      minutes: 2
+      seconds: 0
+      milliseconds: 0
+  - service: light.turn_off
+    data: {}
+    entity_id: light.back_door
+  mode: restart
+- id: '1612648039991'
+  alias: Patio Car Detection
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.motion_patio_camera
+    attribute: event_object
+    to: vehicle
+  condition:
+  - condition: sun
+    before: sunrise
+    after: sunset
+  action:
+  - service: light.turn_on
+    data: {}
+    entity_id: light.back_door
+  mode: single
+- id: '1615127078441'
+  alias: Garbage reminder
+  description: ''
+  use_blueprint:
+    path: westenberg/garbage-reminder.yaml
+    input:
+      day_offset: '1'
+      reminder_time: '18:00:00'
+      garbage_sensor_1: sensor.green_bio_waste
+      garbage_sensor_2: sensor.black_refuse
+      garbage_sensor_3: sensor.brown_recyclables
+      garbage_sensor_4: sensor.blue_paper
+      notifier: notify.notify
+- id: '1615127356567'
+  alias: Claire is Home Notification
+  description: ''
+  use_blueprint:
+    path: Sjorsa/notify-entering-zone.yaml
+    input:
+      person_entity: person.claire
+      zone_entity: zone.home
+      notify_device: 646468413e957e6fe0d15b0f9624b670
+- id: '1616799000715'
+  alias: Send a camera snapshot when motion is detected
+  description: ''
+  use_blueprint:
+    path: vorion/send-camera-snapshot-notification-on-motion.yaml
+    input:
+      notification_message: '{{ motion_sensor_name }} detected movement!'
+      motion_sensor: binary_sensor.motion_kitchen_camera
+      camera: camera.kitchen_camera
+      notify_device: 646468413e957e6fe0d15b0f9624b670
+      is_ios: true
+      notification_title: Motion detected!
+      delay: 1
+- id: '1616970676460'
+  alias: Send notification when person in garden
+  description: ''
+  use_blueprint:
+    path: vorion/send-camera-snapshot-notification-on-motion.yaml
+    input:
+      notification_message: '{{ motion_sensor_name }} detected person!'
+      motion_sensor: binary_sensor.motion_patio_camera
+      camera: camera.patio_camera
+      notify_device: 646468413e957e6fe0d15b0f9624b670
+      notification_title: Someone is in the garden!
+      delay: 1
+      is_ios: true
+- id: '1617364615597'
+  alias: Patio person motion event snapshot
+  description: ''
+  use_blueprint:
+    path: mcinnes01/send-camera-snapshot-when-event-type-detected.yaml
+    input:
+      notification_message: '{{ motion_sensor_name }} detected movement!'
+      event_object: person
+      motion_sensor: binary_sensor.motion_patio_camera
+      camera: camera.patio_camera
+      notify_device: 646468413e957e6fe0d15b0f9624b670
+      is_ios: true
+      delay: 1
+      notification_title: Someone is in the garden!

@@ -1,7 +1,7 @@
 {
     "node-red": {
         "name": "node-red",
-        "version": "1.2.7",
+        "version": "1.2.9",
         "local": false,
         "nodes": {
             "inject": {
@@ -360,7 +360,7 @@
     },
     "node-red-contrib-actionflows": {
         "name": "node-red-contrib-actionflows",
-        "version": "2.0.3",
+        "version": "2.0.4",
         "local": false,
         "nodes": {
             "actionfilters": {
@@ -859,23 +859,6 @@
             }
         }
     },
-    "node-red-contrib-state-machine": {
-        "name": "node-red-contrib-state-machine",
-        "version": "1.2.0",
-        "local": false,
-        "nodes": {
-            "state-machine": {
-                "name": "state-machine",
-                "types": [
-                    "state-machine"
-                ],
-                "enabled": true,
-                "local": false,
-                "module": "node-red-contrib-state-machine",
-                "file": "/opt/node_modules/node-red-contrib-state-machine/state-machine.js"
-            }
-        }
-    },
     "node-red-contrib-statistics": {
         "name": "node-red-contrib-statistics",
         "version": "2.2.2",
@@ -912,7 +895,7 @@
     },
     "node-red-contrib-sunevents": {
         "name": "node-red-contrib-sunevents",
-        "version": "2.0.3",
+        "version": "3.0.3",
         "local": false,
         "nodes": {
             "node-red-contrib-sunevents": {
@@ -923,13 +906,13 @@
                 "enabled": true,
                 "local": false,
                 "module": "node-red-contrib-sunevents",
-                "file": "/opt/node_modules/node-red-contrib-sunevents/sunevents-node.js"
+                "file": "/opt/node_modules/node-red-contrib-sunevents/lib/sun-events-node.js"
             }
         }
     },
     "node-red-contrib-time-range-switch": {
         "name": "node-red-contrib-time-range-switch",
-        "version": "1.0.1",
+        "version": "1.1.0",
         "local": false,
         "nodes": {
             "time-range-switch": {
@@ -980,7 +963,7 @@
     },
     "node-red-dashboard": {
         "name": "node-red-dashboard",
-        "version": "2.27.0",
+        "version": "2.28.2",
         "local": false,
         "nodes": {
             "ui_base": {
@@ -1197,7 +1180,7 @@
     },
     "node-red-node-base64": {
         "name": "node-red-node-base64",
-        "version": "0.2.1",
+        "version": "0.3.0",
         "local": false,
         "nodes": {
             "base64": {
@@ -1214,7 +1197,7 @@
     },
     "node-red-node-email": {
         "name": "node-red-node-email",
-        "version": "1.8.3",
+        "version": "1.10.1",
         "local": false,
         "nodes": {
             "email": {
@@ -1233,7 +1216,7 @@
     },
     "node-red-node-feedparser": {
         "name": "node-red-node-feedparser",
-        "version": "0.1.16",
+        "version": "0.2.1",
         "local": false,
         "nodes": {
             "feedparse": {
@@ -1250,7 +1233,7 @@
     },
     "node-red-node-geofence": {
         "name": "node-red-node-geofence",
-        "version": "0.2.0",
+        "version": "0.2.1",
         "local": false,
         "nodes": {
             "geofence": {
@@ -1304,7 +1287,7 @@
     },
     "node-red-node-ping": {
         "name": "node-red-node-ping",
-        "version": "0.2.2",
+        "version": "0.3.0",
         "local": false,
         "nodes": {
             "ping": {
@@ -1321,7 +1304,7 @@
     },
     "node-red-node-random": {
         "name": "node-red-node-random",
-        "version": "0.3.1",
+        "version": "0.4.0",
         "local": false,
         "nodes": {
             "random": {
@@ -1372,7 +1355,7 @@
     },
     "node-red-node-serialport": {
         "name": "node-red-node-serialport",
-        "version": "0.11.1",
+        "version": "0.13.0",
         "local": false,
         "nodes": {
             "serialport": {
@@ -1443,7 +1426,7 @@
     },
     "node-red-node-twitter": {
         "name": "node-red-node-twitter",
-        "version": "1.1.7",
+        "version": "1.2.0",
         "local": false,
         "nodes": {
             "twitter": {
@@ -1508,6 +1491,23 @@
                 "local": false,
                 "module": "node-red-contrib-exponential-timer",
                 "file": "/opt/node_modules/node-red-contrib-exponential-timer/exponential-timer.js"
+            }
+        }
+    },
+    "node-red-contrib-persistent-fsm": {
+        "name": "node-red-contrib-persistent-fsm",
+        "version": "1.1.0",
+        "local": false,
+        "nodes": {
+            "state-machine": {
+                "name": "state-machine",
+                "types": [
+                    "state-machine"
+                ],
+                "enabled": true,
+                "local": false,
+                "module": "node-red-contrib-persistent-fsm",
+                "file": "/opt/node_modules/node-red-contrib-persistent-fsm/state-machine.js"
             }
         }
     }

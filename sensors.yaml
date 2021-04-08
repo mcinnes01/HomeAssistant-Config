@@ -1,6 +1,3 @@
-# MySensors
-- platform: mysensors
-
 # Nest
 - platform: nest
   monitored_conditions:

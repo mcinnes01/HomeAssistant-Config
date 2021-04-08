@@ -6,10 +6,10 @@ homeassistant:
   customize: !include customize.yaml
 
   # Below entry links to the packages folder required for Dwains Theme
-  packages: !include_dir_named packages/ # Comment this whole line if you want to disable Dwains Theme
+  #packages: !include_dir_named packages/ # Comment this whole line if you want to disable Dwains Theme
 
   # If you had any important strings before in homeassistant: place them back here below
-  # 
+  #
 #End of dwains-theme necessary code#
 
 # Default config to bring in standard component set
@@ -21,8 +21,8 @@ history:
 logbook:
 logger:
   default: critical
-  logs:
-    custom_components.entity_controller: debug
+  #logs:
+    #custom_components.entity_controller: debug
 map:
   entities:
     - device_tracker.claires_iphone
@@ -31,6 +31,7 @@ map:
   hours_to_show: 72
   dark_mode: true
 mobile_app:
+my:
 person:
 scene: !include scenes.yaml
 script: !include scripts.yaml
@@ -46,7 +47,7 @@ input_datetime:
 input_text:
 input_number:
 input_select:
-  
+
 # History
 recorder:
   purge_keep_days: 45
@@ -87,19 +88,19 @@ google:
 conversation:
 
 # Side bar configuration
-# panel_iframe:
-#   tasmota:
-#     title: 'TasmoAdmin'
-#     icon: mdi:lightbulb
-#     url: 'https://tasmota.andisoft.co.uk'
-#   squeezbox:
-#     title: 'SqueezeBox'
-#     icon: mdi:music
-#     url: 'https://squeezebox.andisoft.co.uk'
-#   fermentrack:
-#     title: 'Fermentrack'
-#     icon: mdi:beer
-#     url: 'https://brewery.northsouthbrewing.co.uk'
+panel_iframe:
+  fermentrack:
+    title: 'Fermentrack'
+    icon: mdi:beer
+    url: 'https://track.northsouthbrewing.co.uk'
+  # tasmota:
+  #   title: 'TasmoAdmin'
+  #   icon: mdi:lightbulb
+  #   url: 'https://tasmota.andisoft.co.uk'
+  # squeezbox:
+  #   title: 'SqueezeBox'
+  #   icon: mdi:music
+  #   url: 'https://squeezebox.andisoft.co.uk'
 
 #Weather
 weather:
@@ -123,22 +124,11 @@ timer:
 stream:
 ffmpeg:
 
-# MySensors 
-mysensors:
-  gateways:
-    - device: '/dev/ttyUSB0'
-      persistence_file: '/config/mysensors.json'
-      baud_rate: 115200
-  optimistic: false
-  persistence: true
-  retain: true
-  version: '2.3'
-
 # Neato
 neato:
   client_id: !secret neato_clientid
   client_secret: !secret neato_secret
-  
+
 # Alarm control panel
 alarm_control_panel:
   - platform: manual
@@ -281,6 +271,8 @@ switch:
       - light.snug_lamp
 
 binary_sensor:
+  - platform: uptimerobot
+    api_key: !secret uptime_key
   - platform: template
     sensors:
       patio_motion:

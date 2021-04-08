@@ -17,10 +17,10 @@ feed_cats:
       data:
         file_url: https://image.freepik.com/free-vector/black-cat-silhouette_23-2147493570.jpg
   - service: homeassistant.turn_on
-    entity_id: light.dimmable_light_1_1
+    entity_id: light.cat_feeder
   - delay: 00:01:26
   - service: homeassistant.turn_off
-    entity_id: light.dimmable_light_1_1
+    entity_id: light.cat_feeder
   - service: notify.pushbullet
     data:
       title: Feeding finished

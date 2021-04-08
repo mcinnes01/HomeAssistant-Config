@@ -1,58 +1,12 @@
 - id: '1593602471772'
   name: Watch TV
   entities:
-    light.lounge_lamp:
-      min_mireds: 153
-      max_mireds: 588
-      effect_list:
-      - Strobe color
-      - Police
-      - Christmas
-      - RGB
-      - Random Loop
-      - Fast Random Loop
-      - LSD
-      - Slowdown
-      - Night Mode
-      - Date Night
-      - Movie
-      - Sunrise
-      - Sunset
-      - Romance
-      - Happy Birthday
-      - Disco
-      - Strobe epilepsy!
-      - Alarm
-      - Police2
-      - WhatsApp
-      - Facebook
-      - Twitter
-      - Home
-      - Candle Flicker
-      - Slow Temp
-      - Stop
-      brightness: 255
-      color_temp: 236
-      hs_color:
-      - 26.736
-      - 30.74
-      rgb_color:
-      - 255
-      - 211
-      - 176
-      xy_color:
-      - 0.407
-      - 0.361
-      flowing: false
-      friendly_name: Lounge Lamp
-      supported_features: 63
-      state: 'on'
     light.lounge:
       manufacturer: SONOFF
       model: 4CHPRO
       sw_version: PSF-B04-GL v3.4.1
       local: online
-      rssi: -48
+      rssi: -44
       friendly_name: Lounge Light
       supported_features: 0
       icon: mdi:ceiling-light
@@ -68,6 +22,11 @@
       friendly_name: Lounge Mode
       icon: mdi:sofa
       state: Television
+    light.lounge_lamp:
+      state: 'on'
+      transition: 1
+      color_temp: 195
+      brightness: 255
   icon: hass:television-classic
 - id: '1593602714878'
   name: Watch Movie

@@ -2,7 +2,7 @@
 
 cameras:
   entities:
-    - camera.cellar_door_camera_substream
+    - camera.cellar_door_camera
     - camera.basement_hall_camera
     - camera.kitchen_camera
     - camera.patio_camera

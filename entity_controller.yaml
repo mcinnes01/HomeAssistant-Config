@@ -1,37 +1,37 @@
-# lounge_light_controller:
-#   friendly_name: "Lounge Light Controller"
-#   sensors: 
-#     - binary_sensor.lounge_motion
-#   overrides:
-#     - input_boolean.lounge_light_constrained
-#   entities:
-#   - light.lounge
-#   delay: 120
-#   backoff: true
-#   backoff_factor: 1.5
-#   backoff_max: 600
-#   start_time: 'sunset - 00:30:00'
-#   end_time: 'sunset + 02:00:00'
-#   block_timeout: 1200
+lounge_light_controller:
+  friendly_name: "Lounge Light Controller"
+  sensors: 
+    - binary_sensor.lounge_motion
+  overrides:
+    - input_boolean.lounge_light_constrained
+  entities:
+  - light.lounge
+  delay: 120
+  backoff: true
+  backoff_factor: 1.5
+  backoff_max: 600
+  start_time: 'sunset - 00:30:00'
+  end_time: 'sunset + 02:00:00'
+  block_timeout: 1200
 
-# lounge_lamp_controller:
-#   friendly_name: "Lounge Lamp Controller"
-#   sensors: 
-#     - binary_sensor.lounge_motion
-#   overrides:
-#     - input_boolean.lounge_lamp_constrained
-#   entities:
-#   - light.lounge_lamp
-#   state_attributes_ignore:
-#     - brightness
-#     - color_temp
-#   delay: 120
-#   backoff: true
-#   backoff_factor: 1.5
-#   backoff_max: 600
-#   start_time: 'sunset + 02:00:00'
-#   end_time: 'sunrise'
-#   block_timeout: 1200
+lounge_lamp_controller:
+  friendly_name: "Lounge Lamp Controller"
+  sensors: 
+    - binary_sensor.lounge_motion
+  overrides:
+    - input_boolean.lounge_lamp_constrained
+  entities:
+  - light.lounge_lamp
+  state_attributes_ignore:
+    - brightness
+    - color_temp
+  delay: 120
+  backoff: true
+  backoff_factor: 1.5
+  backoff_max: 600
+  start_time: 'sunset + 02:00:00'
+  end_time: 'sunrise'
+  block_timeout: 1200
 
 drawing_room_light_controller:
   friendly_name: "Drawing Room Light Controller"
