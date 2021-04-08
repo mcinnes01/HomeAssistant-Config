@@ -35,7 +35,31 @@ my:
 person:
 scene: !include scenes.yaml
 script: !include scripts.yaml
-sensor: !include sensors.yaml
+sensor:
+  - platform: nest
+    monitored_conditions:
+      - 'temperature'
+      - 'target'
+      - 'humidity'
+      - 'weather_temperature'
+      - 'weather_humidity'
+      - 'weather_condition'
+      - 'wind_speed'
+      - 'wind_direction'
+  - platform: dnsip
+  - platform: dnsip
+    hostname: home.andisoft.co.uk
+    name: hass
+    resolver: 8.8.8.8
+  - platform: unifigateway
+    host: 192.168.1.254
+    username: !secret unifi_username
+    password: !secret unifi_password
+    monitored_conditions:
+      - www
+      - wlan
+      - alerts
+      - firmware
 ssdp:
 sun:
 system_health:

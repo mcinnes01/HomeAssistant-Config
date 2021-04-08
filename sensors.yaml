@@ -1,39 +1,3 @@
-# Nest
-- platform: nest
-  monitored_conditions:
-    - 'temperature'
-    - 'target'
-    - 'humidity'
-    - 'weather_temperature'
-    - 'weather_humidity'
-    - 'weather_condition'
-    - 'wind_speed'
-    - 'wind_direction'
-
-# Plex
-#- platform: plex_recently_added
-#  token: !secret plex_token
-#  host: 192.168.1.1
-#  port: 32400
-  
-# Own public IPv4 address
-- platform: dnsip
-  # Resolve IP address of home-assistant.io via Google DNS
-- platform: dnsip
-  hostname: home.andisoft.co.uk
-  name: hass
-  resolver: 8.8.8.8
-  
-- platform: unifigateway
-  host: 192.168.1.254
-  username: !secret unifi_username
-  password: !secret unifi_password
-  monitored_conditions:
-    - www
-    - wlan
-    - alerts
-    - firmware
-
 # Light state overrides
 
 # # Hallway light
