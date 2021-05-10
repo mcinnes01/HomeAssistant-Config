@@ -135,7 +135,8 @@
     entity_id: light.yeelights
     service: light.turn_off
   id: 71bcd308a0bc484793b7d78e8ec8e69f
-- alias: Send notification when alarm is arming
+- id: a71c90774150444f9237ba14769e935a
+  alias: Send notification when alarm is arming
   trigger:
   - platform: state
     entity_id: alarm_control_panel.alarm
@@ -150,7 +151,7 @@
       - media_player.everywhere
       data:
         type: announce
-  id: a71c90774150444f9237ba14769e935a
+  mode: single
 - alias: Send notification when alarm is pending
   trigger:
   - platform: state
@@ -1031,3 +1032,64 @@
       is_ios: true
       delay: 1
       notification_title: Someone is in the garden!
+- id: '1618138464654'
+  alias: Test patio motion override
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.motion_patio_camera
+    from: 'off'
+    to: 'on'
+  condition:
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: binary_sensor.patio_door
+      state: 'off'
+    - condition: state
+      entity_id: binary_sensor.motion_patio_camera
+      state: person
+      attribute: event_object
+  action:
+  - device_id: 646468413e957e6fe0d15b0f9624b670
+    domain: mobile_app
+    type: notify
+    title: Hiya
+    message: Hello Dave
+  mode: single
+- id: '1619549518704'
+  alias: Shower timer start
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.bathroom_motion
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: input_boolean.in_shower
+    state: 'true'
+  action:
+  - service: timer.start
+    data:
+      duration: '600'
+  mode: restart
+- id: '1619550242949'
+  alias: Shower timer finished
+  description: ''
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.shower
+  condition:
+  - condition: state
+    entity_id: input_boolean.in_shower
+    state: 'true'
+  action:
+  - service: light.turn_off
+    target:
+      area_id: cc4d1282baa64200a75e9347f5f87bdb
+  - service: input_boolean.turn_off
+    target:
+      entity_id: input_boolean.in_shower
+  mode: single

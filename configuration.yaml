@@ -281,19 +281,6 @@ light:
       - light.inside_lights
       - light.outside_lights
 
-circadian_lighting:
-
-switch:
-  - platform: circadian_lighting
-    lights_ct:
-      - light.kitchen_lamp
-      - light.drawing_room_lamp
-      - light.lounge_lamp
-      - light.hall_lamp
-      - light.bedroom_lamp
-      - light.basement_stairs
-      - light.snug_lamp
-
 binary_sensor:
   - platform: uptimerobot
     api_key: !secret uptime_key
