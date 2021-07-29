@@ -33,14 +33,21 @@
 #   sensors:
 #     drawing_room_light_constrained:
 #       value_template: >-
-#         {{ not (states('input_select.ambience') in ['Bright', 'Evening'] and is_state('light.drawing_room_lamp', 'off') and is_state('light.bookshelf', 'off')) }}
+#         {{ not (states('input_select.ambience') in ['Bright', 'Evening'] and is_state('light.bookshelf', 'off')) }}
 
-# # Drawing Room lamp
+# # Bookshelf light
 # - platform: template
 #   sensors:
-#     drawing_room_lamp_constrained:
+#     bookshelf_light_constrained:
 #       value_template: >-
 #         {{ not (states('input_select.ambience') in ['Ambient', 'Evening'] and is_state('light.drawing_room', 'off')) }}
+
+# # Floor lamp
+# - platform: template
+#   sensors:
+#     floor_lamp_constrained:
+#       value_template: >-
+#         {{ not (states('input_select.ambience') in ['Ambient', 'Evening'] and is_state('input_select.lounge_mode', 'Normal') and is_state('light.lounge', 'off')) }}
 
 # # Kitchen light
 # - platform: template

@@ -1,37 +1,57 @@
-lounge_light_controller:
-  friendly_name: "Lounge Light Controller"
-  sensors: 
-    - binary_sensor.lounge_motion
-  overrides:
-    - input_boolean.lounge_light_constrained
-  entities:
-  - light.lounge
-  delay: 120
-  backoff: true
-  backoff_factor: 1.5
-  backoff_max: 600
-  start_time: 'sunset - 00:30:00'
-  end_time: 'sunset + 02:00:00'
-  block_timeout: 1200
+# lounge_light_controller:
+#   friendly_name: "Lounge Light Controller"
+#   sensors: 
+#     - binary_sensor.lounge_motion
+#   overrides:
+#     - input_boolean.lounge_light_constrained
+#     - switch.lounge_tv
+#   entities:
+#   - light.lounge
+#   delay: 120
+#   backoff: true
+#   backoff_factor: 1.5
+#   backoff_max: 600
+#   start_time: 'sunset - 00:30:00'
+#   end_time: 'sunset + 02:00:00'
+#   block_timeout: 1200
 
-lounge_lamp_controller:
-  friendly_name: "Lounge Lamp Controller"
-  sensors: 
-    - binary_sensor.lounge_motion
-  overrides:
-    - input_boolean.lounge_lamp_constrained
-  entities:
-  - light.lounge_lamp
-  state_attributes_ignore:
-    - brightness
-    - color_temp
-  delay: 120
-  backoff: true
-  backoff_factor: 1.5
-  backoff_max: 600
-  start_time: 'sunset + 02:00:00'
-  end_time: 'sunrise'
-  block_timeout: 1200
+# floor_lamp_controller:
+#   friendly_name: "Floor Lamp Controller"
+#   sensors: 
+#     - binary_sensor.lounge_motion
+#   overrides:
+#     - input_boolean.floor_lamp_constrained
+#   entities:
+#     - light.floor_lamp
+#   state_attributes_ignore:
+#     - brightness
+#     - color_temp
+#   delay: 120
+#   backoff: true
+#   backoff_factor: 1.5
+#   backoff_max: 600
+#   start_time: 'sunset + 02:00:00'
+#   end_time: 'sunrise'
+#   block_timeout: 1200
+
+# lounge_lamp_controller:
+#   friendly_name: "Lounge Lamp Controller"
+#   sensors: 
+#     - binary_sensor.lounge_motion
+#   overrides:
+#     - input_boolean.lounge_lamp_constrained
+#   entities:
+#   - light.lounge_lamp
+#   state_attributes_ignore:
+#     - brightness
+#     - color_temp
+#   delay: 120
+#   backoff: true
+#   backoff_factor: 1.5
+#   backoff_max: 600
+#   start_time: 'sunset + 02:00:00'
+#   end_time: 'sunrise'
+#   block_timeout: 1200
 
 drawing_room_light_controller:
   friendly_name: "Drawing Room Light Controller"
@@ -49,17 +69,14 @@ drawing_room_light_controller:
   end_time: 'sunset + 02:00:00'
   block_timeout: 1200
 
-drawing_room_lamp_controller:
-  friendly_name: "Drawing Room Lamp Controller"
+bookshelf_light_controller:
+  friendly_name: "Bookshelf Light Controller"
   sensors: 
     - binary_sensor.drawing_room_motion
   overrides:
-    - input_boolean.drawing_room_lamp_constrained
+    - input_boolean.bookshelf_light_constrained
   entities:
-    - light.drawing_room_lamp
-  state_attributes_ignore:
-    - brightness
-    - color_temp
+    - light.bookshelf
   delay: 120
   backoff: true
   backoff_factor: 1.5
@@ -303,36 +320,36 @@ dining_room_light_controller:
   backoff_max: 600
   block_timeout: 900
 
-snug_light_controller:
-  friendly_name: "Snug Light Controller"
-  sensors: 
-    - binary_sensor.snug_motion
-  overrides:
-    - input_boolean.snug_light_constrained
-  entities:
-    - light.snug
-  delay: 120
-  backoff: true
-  backoff_factor: 1.5
-  backoff_max: 600
-  block_timeout: 900
+# snug_light_controller:
+#   friendly_name: "Snug Light Controller"
+#   sensors: 
+#     - binary_sensor.snug_motion
+#   overrides:
+#     - input_boolean.snug_light_constrained
+#   entities:
+#     - light.snug
+#   delay: 120
+#   backoff: true
+#   backoff_factor: 1.5
+#   backoff_max: 600
+#   block_timeout: 900
 
-snug_lamp_controller:
-  friendly_name: "Snug Lamp Controller"
-  sensors: 
-    - binary_sensor.snug_motion
-  overrides:
-    - input_boolean.snug_lamp_constrained
-  entities:
-    - light.snug_lamp
-  state_attributes_ignore:
-    - brightness
-    - color_temp
-  delay: 120
-  backoff: true
-  backoff_factor: 1.5
-  backoff_max: 600
-  block_timeout: 900
+# snug_lamp_controller:
+#   friendly_name: "Snug Lamp Controller"
+#   sensors: 
+#     - binary_sensor.snug_motion
+#   overrides:
+#     - input_boolean.snug_lamp_constrained
+#   entities:
+#     - light.snug_lamp
+#   state_attributes_ignore:
+#     - brightness
+#     - color_temp
+#   delay: 120
+#   backoff: true
+#   backoff_factor: 1.5
+#   backoff_max: 600
+#   block_timeout: 900
 
 basement_hall_light_controller:
   friendly_name: "Basement Hall Light Controller"

@@ -11,18 +11,23 @@ homeassistant:
   # If you had any important strings before in homeassistant: place them back here below
   #
 #End of dwains-theme necessary code#
+http:
+  use_x_forwarded_for: true     # To ensure HA understands that client requests come via reverse proxy
+  trusted_proxies:
+    - 172.30.32.0/23            # In Hass.io we need to add the Docker subnet
 
 # Default config to bring in standard component set
-automation: !include automations.yaml
+automation: !include_dir_merge_list automations/
 cloud:
 config:
+counter:
 group: !include groups.yaml
 history:
 logbook:
 logger:
   default: critical
-  #logs:
-    #custom_components.entity_controller: debug
+  logs:
+    homeassistant.components.samsungtv: debug
 map:
   entities:
     - device_tracker.claires_iphone
@@ -111,21 +116,6 @@ google:
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
 
-# Side bar configuration
-panel_iframe:
-  fermentrack:
-    title: 'Fermentrack'
-    icon: mdi:beer
-    url: 'https://track.northsouthbrewing.co.uk'
-  # tasmota:
-  #   title: 'TasmoAdmin'
-  #   icon: mdi:lightbulb
-  #   url: 'https://tasmota.andisoft.co.uk'
-  # squeezbox:
-  #   title: 'SqueezeBox'
-  #   icon: mdi:music
-  #   url: 'https://squeezebox.andisoft.co.uk'
-
 #Weather
 weather:
   - platform: darksky
@@ -135,11 +125,13 @@ weather:
 
 # Notifications
 notify:
-  - platform: pushbullet
-    api_key: !secret pushbullet_secret
-    name: pushbullet
-  - platform: alexa_media
-    name: alexa_media
+  - name: Phones
+    platform: group
+    services:
+      - service: mobile_app_andrews_iphone
+      - service: mobile_app_claires_iphone
+  - name: alexa_media
+    platform: alexa_media
 
 # Timers
 timer:
@@ -186,10 +178,10 @@ sonoff:
       name: Outside Lights
     1000ba9977:
       device_class: [light,light,light,light]
-      name: Ground Floor Lights 1
+      name: Downstairs Lights 1
     1000bab17a:
       device_class: [light,light,light,light]
-      name: Ground Floor Lights 2
+      name: Downstairs Lights 2
     100032bd73:
       device_class: [light,light,light,light]
       name: Basement Lights 1
@@ -218,7 +210,7 @@ light:
     name: Yeelights
     entities:
       - light.kitchen_lamp
-      - light.drawing_room_lamp
+      - light.floor_lamp
       - light.lounge_lamp
       - light.hall_lamp
       - light.bedroom_lamp
@@ -235,14 +227,15 @@ light:
       - light.utility_room
       - light.brewery
   - platform: group
-    name: Ground Floor Lights
+    name: Downstairs Lights
     entities:
       - light.hallway
       - light.hallway_lamp
       - light.lounge
       - light.lounge_lamp
       - light.drawing_room
-      - light.drawing_room_lamp
+      - light.bookshelf
+      - light.floor_lamp
       - light.kitchen
       - light.kitchen_lamp
   - platform: group
@@ -260,7 +253,7 @@ light:
     name: Inside Lights
     entities:
       - light.basement_lights
-      - light.ground_floor_lights
+      - light.downstairs_lights
       - light.upstairs_lights
   - platform: group
     name: Outside Lights
@@ -280,6 +273,57 @@ light:
     entities:
       - light.inside_lights
       - light.outside_lights
+  - platform: group
+    name: Basement Hall Lights
+    entities:
+      - light.basement_hall
+      - light.basement_stairs
+  - platform: group
+    name: Snug Lights
+    entities:
+      - light.snug
+      - light.snug_lamp
+  - platform: group
+    name: Utility Room Lights
+    entities:
+      - light.utility_room
+      - light.brewery
+  - platform: group
+    name: Hallway Lights
+    entities:
+      - light.hallway
+      - light.hallway_lamp
+  - platform: group
+    name: Lounge Lights
+    entities:
+      - light.lounge
+      - light.lounge_lamp
+      - light.floor_lamp
+  - platform: group
+    name: Drawing Room Lights
+    entities:
+      - light.drawing_room
+      - light.bookshelf
+  - platform: group
+    name: Kitchen Lights
+    entities:
+      - light.kitchen
+      - light.kitchen_lamp
+  - platform: group
+    name: Patio Lights
+    entities:
+      - light.patio
+      - light.back_door
+  - platform: group
+    name: Bathroom Lights
+    entities:
+      - light.bathroom
+      - light.mirror
+  - platform: group
+    name: Bedroom Lights
+    entities:
+      - light.bedroom
+      - light.bedroom_lamp
 
 binary_sensor:
   - platform: uptimerobot
@@ -290,13 +334,8 @@ binary_sensor:
         friendly_name: "Patio Motion"
         value_template: "{{ is_state('input_boolean.patio_motion', 'on') }}"
         device_class: "motion"
-  # - platform: mqtt
-  #   name: "Patio Motion"
-  #   state_topic: "cameras/patio/motion"
-  #   payload_on: "ON"
-  #   payload_off: "OFF"
-  #   off_delay: 5
-  #   device_class: "motion"
+
+template: !include templates.yaml
 
 withings:
   client_id: !secret withings_clientid

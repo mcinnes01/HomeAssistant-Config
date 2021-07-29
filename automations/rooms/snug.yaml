@@ -1,0 +1,88 @@
+# - alias: Snug Light Constrained
+#   trigger:
+#   - platform: state
+#     entity_id:
+#     - input_boolean.snug_light_contrained
+#     - input_select.ambience
+#     - input_select.snug_mode
+#     - light.snug_lamp
+#   action:
+#   - choose:
+#     - conditions:
+#       - condition: template
+#         value_template: '{{ not (states(''input_select.ambience'') in [''Bright'',
+#           ''Day''] and is_state(''input_select.snug_mode'', ''Normal'') and is_state(''light.snug_lamp'',
+#           ''off'')) }}'
+#       sequence:
+#       - service: input_boolean.turn_on
+#         entity_id: input_boolean.snug_light_constrained
+#     default:
+#     - service: input_boolean.turn_off
+#       entity_id: input_boolean.snug_light_constrained
+#   mode: single
+#   id: 98cc3d557fef492b91a0adb25105598d
+# - alias: Snug Lamp Constrained
+#   trigger:
+#   - platform: state
+#     entity_id:
+#     - input_boolean.snug_lamp_contrained
+#     - input_select.ambience
+#     - input_select.snug_mode
+#     - light.snug
+#   action:
+#   - choose:
+#     - conditions:
+#       - condition: template
+#         value_template: '{{ not (states(''input_select.ambience'') in [''Ambient'',
+#           ''Evening''] and is_state(''input_select.snug_mode'', ''Normal'') and is_state(''light.snug'',
+#           ''off'')) }}'
+#       sequence:
+#       - service: input_boolean.turn_on
+#         entity_id: input_boolean.snug_lamp_constrained
+#     default:
+#     - service: input_boolean.turn_off
+#       entity_id: input_boolean.snug_lamp_constrained
+#   mode: single
+#   id: 36528c762af4461283418e7ac0c4f00a
+
+- alias: Snug Scene Normal
+  id: '1624997862387'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: input_select.snug_mode
+    to: Normal
+  condition: []
+  action:
+  - service: script.room_controller_reset
+    data:
+      room: Snug
+
+- alias: Snug Scene Watch Movie
+  id: '1624997862389'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: input_select.snug_mode
+    to: Movie
+  condition: []
+  action:
+  - service: script.room_controller_reset
+    data:
+      room: Snug
+  - service: input_boolean.turn_on
+    target:
+      entity_id:
+      - group.snug_overrides
+  - service: light.turn_off
+    target:
+      entity_id: 
+        - light.snug
+        - light.basement_hall
+  - service: light.turn_on
+    target:
+      entity_id: light.snug_lamp
+    data:
+      rgb_color: 70,70,255
+      brightness: 184
+  mode: single

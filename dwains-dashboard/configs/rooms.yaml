@@ -17,6 +17,7 @@ rooms:
     icon: mdi:view-agenda-outline
     media_player: media_player.hall_tablet_s_alexa_apps
     motion: binary_sensor.hallway_motion
+    door: binary_sensor.front_door_contact
     light: group.hallway_lights
   - name: Lounge
     icon: mdi:sofa
@@ -86,6 +87,7 @@ rooms:
   - name: Electric Cabinet
     icon: mdi:flash-outline
     light: light.basement_hall
+    door: binary_sensor.electric_cabinet_door_contact
   - name: Snug
     icon: mdi:filmstrip
     light: group.snug_lights

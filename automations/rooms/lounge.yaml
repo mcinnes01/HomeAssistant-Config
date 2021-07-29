@@ -1,0 +1,100 @@
+- alias: Lounge Light Constrained
+  trigger:
+  - platform: state
+    entity_id:
+    - input_boolean.lounge_light_contrained
+    - input_select.ambience
+    - input_select.lounge_mode
+    - light.lounge_lamp
+    - light.floor_lamp
+  action:
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: '{{ not (states(''input_select.ambience'') in [''Bright'',
+          ''Evening''] and is_state(''input_select.lounge_mode'', ''Normal'') and
+          is_state(''light.lounge_lamp'', ''off'')) and
+          is_state(''light.floor_lamp'', ''off'')) }}'
+      sequence:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.lounge_light_constrained
+    default:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.lounge_light_constrained
+  mode: single
+  id: 7370bd68e87044beacd6a72f5028ad5a
+- alias: Lounge Lamp Constrained
+  trigger:
+  - platform: state
+    entity_id:
+    - input_boolean.lounge_lamp_contrained
+    - input_select.ambience
+    - input_select.lounge_mode
+    - light.lounge
+  action:
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: '{{ not (states(''input_select.ambience'') in [''Ambient'',
+          ''Evening''] and is_state(''input_select.lounge_mode'', ''Normal'') and
+          is_state(''light.lounge'', ''off'')) }}'
+      sequence:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.lounge_lamp_constrained
+    default:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.lounge_lamp_constrained
+  mode: single
+  id: 34d291332d9d4a9185327573b8c1a89e
+- alias: Floor Lamp Constrained
+  trigger:
+  - platform: state
+    entity_id:
+    - input_boolean.floor_lamp_contrained
+    - input_select.ambience
+    - input_select.lounge_mode
+    - light.lounge
+  action:
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: '{{ not (states(''input_select.ambience'') in [''Ambient'',
+          ''Evening''] and is_state(''input_select.lounge_mode'', ''Normal'') and
+          is_state(''light.lounge'', ''off'')) }}'
+      sequence:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.floor_lamp_contrained
+    default:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.floor_lamp_contrained
+  mode: single
+  id: 34d291332d9d4a9185327573b8c1a89f
+- alias: Lounge Scene Watch Television
+  id: 34d291332d9d4a9185327573b8c1a90f
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: input_select.lounge_mode
+    to: Television
+  condition: []
+  action:
+  - service: script.room_controller_reset
+    data:
+      room: Lounge
+  - service: input_boolean.turn_on
+    target:
+      entity_id:
+      - group.lounge_overrides
+  - service: light.turn_off
+    target:
+      entity_id: 
+        - light.lounge
+  - service: yeelight.set_color_temp_scene
+    data:
+      kelvin: 3700
+      brightness: 80
+    target:
+      entity_id:
+      - light.lounge_lamp
+      - light.floor_lamp
+  mode: single

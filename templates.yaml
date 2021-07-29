@@ -1,0 +1,15 @@
+- binary_sensor:
+    - name: At Home
+      state: >
+        {{ is_state('device_tracker.claires_iphone', 'home')
+        or is_state('device_tracker.andrews_iphone', 'home') }}
+
+- binary_sensor:
+    - name: In Bed
+      state: >
+        {{ (is_state('binary_sensor.withings_in_bed_claire', 'on')
+          and is_state('binary_sensor.withings_in_bed_andy', 'on'))
+          or (is_state('binary_sensor.withings_in_bed_claire', 'on')
+          and not is_state('device_tracker.andrews_iphone', 'home'))
+          or (is_state('binary_sensor.withings_in_bed_andy', 'on')
+          and not is_state('device_tracker.claires_iphone', 'home')) }}

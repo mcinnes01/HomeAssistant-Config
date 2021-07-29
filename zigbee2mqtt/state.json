@@ -1,0 +1,23 @@
+{
+    "0x00124b0022fcff7b": {
+        "voltage": 3200,
+        "battery": 100,
+        "contact": false,
+        "tamper": false,
+        "battery_low": false
+    },
+    "0x00124b0022ff0377": {
+        "voltage": 3200,
+        "battery": 100,
+        "contact": true,
+        "tamper": false,
+        "battery_low": false
+    },
+    "0x00124b0022ff6b10": {
+        "voltage": 3200,
+        "battery": 100,
+        "contact": true,
+        "tamper": false,
+        "battery_low": false
+    }
+}

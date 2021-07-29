@@ -1,0 +1,55 @@
+- id: f0c65ae0b59c4bfdbb6a9c41f6dfc9cf
+  alias: Kitchen Light Constrained
+  trigger:
+  - platform: state
+    entity_id:
+    - input_boolean.kitchen_light_contrained
+    - input_select.ambience
+    - light.kitchen_lamp
+  action:
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: '{{ not (states(''input_select.ambience'') in [''Bright'',
+          ''Evening''] and is_state(''light.kitchen_lamp'', ''off'')) }}'
+      sequence:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.kitchen_light_constrained
+    default:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.kitchen_light_constrained
+  mode: single
+- alias: Kitchen Lamp Constrained
+  trigger:
+  - platform: state
+    entity_id:
+    - input_boolean.kitchen_light_contrained
+    - input_select.ambience
+    - light.kitchen
+  action:
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: '{{ not (states(''input_select.ambience'') in [''Ambient'',
+          ''Evening''] and is_state(''light.kitchen'', ''off'')) }}'
+      sequence:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.kitchen_lamp_constrained
+    default:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.kitchen_lamp_constrained
+  mode: single
+  id: e8e14ee636a442838221690bbffe178f
+- id: '1616799000715'
+  alias: Send a camera snapshot when motion is detected
+  description: ''
+  use_blueprint:
+    path: vorion/send-camera-snapshot-notification-on-motion.yaml
+    input:
+      notification_message: '{{ motion_sensor_name }} detected movement!'
+      motion_sensor: binary_sensor.motion_kitchen_camera
+      camera: camera.kitchen_camera
+      notify_device: 646468413e957e6fe0d15b0f9624b670
+      is_ios: true
+      notification_title: Motion detected!
+      delay: 1

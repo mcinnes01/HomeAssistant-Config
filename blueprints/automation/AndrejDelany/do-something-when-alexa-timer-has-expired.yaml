@@ -1,0 +1,49 @@
+blueprint:
+  name: Do something when Alexa Timer has expired
+  description: When a timer of an Echo or other Alexa device has expired, the defined
+    actions will be executed.
+  domain: automation
+  input:
+    echo_device_next_timer:
+      name: Alexa Device
+      description: Please select a sensor.*_next_timer entity to define the observed
+        Alexa Device.
+      selector:
+        entity:
+          domain: sensor
+          device_class: timestamp
+    target_action:
+      name: Action
+      description: What should be done, when the timer expires?
+      selector:
+        action: {}
+  source_url: https://community.home-assistant.io/t/do-something-when-alexa-timer-has-expired/255827
+variables:
+  timestamp_sensor: !input 'echo_device_next_timer'
+trigger:
+- platform: state
+  entity_id: !input 'echo_device_next_timer'
+condition:
+- condition: not
+  conditions:
+  - condition: state
+    state: unavailable
+    entity_id: !input 'echo_device_next_timer'
+action:
+- delay: '{% set index = (((state_attr(timestamp_sensor, ''sorted_active'') | from_json))
+    | list | length) - 1 %} {{ ((state_attr(timestamp_sensor, ''sorted_active'') |
+    from_json)[index][1].remainingTime/ 1000)| round(0) }}
+
+    '
+- condition: not
+  conditions:
+  - condition: state
+    entity_id: !input 'echo_device_next_timer'
+    state: unavailable
+- condition: template
+  value_template: '{{ as_timestamp(states(timestamp_sensor)) - as_timestamp(now())
+    < 0| int}}'
+- choose:
+  default: !input 'target_action'
+mode: parallel
+max: 10

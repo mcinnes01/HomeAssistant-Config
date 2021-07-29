@@ -6,7 +6,7 @@
   unit: Kg
   severity:
     green: 62
-    yellow: 83.7
+    yellow: 80
     red: 83.8
   style: | 
     ha-card {
@@ -23,11 +23,11 @@
   name: Andy Weight
   animate: true
   color_thresholds:
-    - color: '#0aaf31'
+    - color: '#e01a1a'
       value: 83.8
     - color: '#ffee00'
       value: 83.7
-    - color: '#e01a1a'
+    - color: '#0aaf31'
       value: 62
   font_size: 75
   hours_to_show: 720

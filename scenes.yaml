@@ -1,16 +1,6 @@
 - id: '1593602471772'
   name: Watch TV
   entities:
-    light.lounge:
-      manufacturer: SONOFF
-      model: 4CHPRO
-      sw_version: PSF-B04-GL v3.4.1
-      local: online
-      rssi: -44
-      friendly_name: Lounge Light
-      supported_features: 0
-      icon: mdi:ceiling-light
-      state: 'off'
     input_select.lounge_mode:
       options:
       - Normal
@@ -22,72 +12,10 @@
       friendly_name: Lounge Mode
       icon: mdi:sofa
       state: Television
-    light.lounge_lamp:
-      state: 'on'
-      transition: 1
-      color_temp: 195
-      brightness: 255
   icon: hass:television-classic
 - id: '1593602714878'
   name: Watch Movie
   entities:
-    light.basement_hall:
-      manufacturer: Sonoff
-      model: 4CH Pro
-      sw_version: PSF-B04-GL v3.4.1
-      local: online
-      rssi: -42
-      friendly_name: Basement Hall Light
-      supported_features: 0
-      icon: mdi:ceiling-light
-      state: 'off'
-    light.snug:
-      manufacturer: Sonoff
-      model: 4CH Pro
-      sw_version: PSF-B04-GL v3.4.1
-      local: online
-      rssi: -43
-      friendly_name: Snug Light
-      supported_features: 0
-      icon: mdi:ceiling-light
-      state: 'off'
-    light.snug_lamp:
-      min_mireds: 153
-      max_mireds: 588
-      effect_list:
-      - Strobe color
-      - Police
-      - Christmas
-      - RGB
-      - Random Loop
-      - Fast Random Loop
-      - LSD
-      - Slowdown
-      - Disco
-      - Strobe epilepsy!
-      - Alarm
-      - Police2
-      - WhatsApp
-      - Facebook
-      - Twitter
-      - Slow Temp
-      - Stop
-      brightness: 184
-      color_temp: 250
-      hs_color:
-      - 240
-      - 72.549
-      rgb_color:
-      - 70
-      - 70
-      - 255
-      xy_color:
-      - 0.162
-      - 0.081
-      flowing: false
-      friendly_name: Snug Lamp
-      supported_features: 63
-      state: 'on'
     input_select.snug_mode:
       options:
       - Normal
@@ -219,113 +147,30 @@
       icon: mdi:lightbulb-group
       supported_features: 63
       state: 'on'
-    script.ambiance_to_bright:
-      last_triggered: '2020-12-03T20:55:01.840237+00:00'
-      mode: single
-      current: 0
-      friendly_name: Ambiance To Bright
-      state: 'off'
+    script.ambiance_to_bright: 'off'
   icon: mdi:brightness-7
 - id: '15936024717745'
   name: Lighting Day
   entities:
-    script.ambiance_to_day:
-      last_triggered: '2020-12-03T20:55:10.941069+00:00'
-      mode: single
-      current: 0
-      friendly_name: Ambiance To Day
-      state: 'off'
+    script.ambiance_to_day: 'off'
   icon: mdi:weather-sunny
 - id: '1593602471776'
   name: Lighting Evening
   entities:
-    script.ambiance_to_evening:
-      last_triggered: '2020-12-03T20:55:08.123720+00:00'
-      mode: single
-      current: 0
-      friendly_name: Ambiance To Evening
-      state: 'off'
+    script.ambiance_to_evening: 'off'
   icon: mdi:weather-sunset-down
 - id: '1593602471777'
   name: Lighting Night
   entities:
-    light.all_lights:
-      min_mireds: 153
-      max_mireds: 588
-      effect_list:
-      - RGB
-      - Candle Flicker
-      - Date Night
-      - Sunrise
-      - Police
-      - Christmas
-      - Random Loop
-      - Sunset
-      - WhatsApp
-      - Facebook
-      - Slow Temp
-      - Alarm
-      - Happy Birthday
-      - Home
-      - Police2
-      - Slowdown
-      - Stop
-      - Strobe epilepsy!
-      - LSD
-      - Romance
-      - Disco
-      - Movie
-      - Fast Random Loop
-      - Strobe color
-      - Night Mode
-      - Twitter
-      entity_id:
-      - light.inside_lights
-      - light.outside_lights
-      friendly_name: All Lights
-      icon: mdi:lightbulb-group
-      supported_features: 63
-      state: 'off'
-    input_boolean.in_bed:
-      editable: true
-      friendly_name: In Bed
-      icon: mdi:bed
-      state: 'on'
-    input_select.lounge_mode:
-      options:
-      - Normal
-      - Reading
-      - Television
-      - Dark
-      - Chill
-      editable: true
-      friendly_name: Lounge Mode
-      icon: mdi:sofa
-      state: Normal
-    input_select.snug_mode:
-      options:
-      - Normal
-      - Movie
-      - Chill
-      editable: true
-      friendly_name: Snug Mode
-      icon: mdi:projector
-      state: Normal
-    script.ambiance_to_night:
-      last_triggered: '2020-12-04T00:13:19.386189+00:00'
-      mode: single
-      current: 0
-      friendly_name: Ambiance To Night
-      state: 'off'
+    light.all_lights: 'off'
+    input_boolean.in_bed: 'on'
+    input_select.lounge_mode: Normal
+    input_select.snug_mode: Normal
+    script.ambiance_to_night: 'off'
   icon: mdi:weather-night
 - id: '1604358522437'
   name: Get Ready For Bed
   entities:
-    input_boolean.in_bed:
-      editable: true
-      friendly_name: In Bed
-      icon: mdi:bed
-      state: 'on'
     light.bedroom_lamp:
       min_mireds: 153
       max_mireds: 588
@@ -338,6 +183,13 @@
       - Fast Random Loop
       - LSD
       - Slowdown
+      - Night Mode
+      - Date Night
+      - Movie
+      - Sunrise
+      - Sunset
+      - Romance
+      - Happy Birthday
       - Disco
       - Strobe epilepsy!
       - Alarm
@@ -345,30 +197,27 @@
       - WhatsApp
       - Facebook
       - Twitter
+      - Home
+      - Candle Flicker
       - Slow Temp
       - Stop
-      brightness: 212
-      color_temp: 279
-      hs_color:
-      - 27.093
-      - 42.979
-      rgb_color:
-      - 255
-      - 194
-      - 145
-      xy_color:
-      - 0.448
-      - 0.372
+      supported_color_modes:
+      - color_temp
+      - hs
+      - rgb
       flowing: false
+      music_mode: false
       friendly_name: Bedroom Lamp
-      supported_features: 63
-      state: 'on'
+      supported_features: 44
+      state: 'off'
     light.bedroom:
+      supported_color_modes:
+      - onoff
       manufacturer: SONOFF
       model: 4CHPRO
       sw_version: PSF-B04-GL v3.4.1
       local: online
-      rssi: -53
+      rssi: -50
       friendly_name: Bedroom Light
       supported_features: 0
       state: 'off'
@@ -377,226 +226,41 @@
   name: Get Up
   entities:
     light.bedroom_lamp:
-      min_mireds: 153
-      max_mireds: 588
-      effect_list:
-      - Strobe color
-      - Police
-      - Christmas
-      - RGB
-      - Random Loop
-      - Fast Random Loop
-      - LSD
-      - Slowdown
-      - Disco
-      - Strobe epilepsy!
-      - Alarm
-      - Police2
-      - WhatsApp
-      - Facebook
-      - Twitter
-      - Slow Temp
-      - Stop
       brightness: 26
       color_temp: 279
-      hs_color:
-      - 26.727
-      - 43.137
-      rgb_color:
-      - 255
-      - 193
-      - 145
-      xy_color:
-      - 0.449
-      - 0.371
-      flowing: false
-      friendly_name: Bedroom Lamp
-      supported_features: 63
       state: 'on'
-    input_boolean.in_bed:
-      editable: true
-      friendly_name: In Bed
-      icon: mdi:bed
-      state: 'off'
-    light.bedroom:
-      manufacturer: SONOFF
-      model: 4CHPRO
-      sw_version: PSF-B04-GL v3.4.1
-      local: online
-      rssi: -56
-      friendly_name: Bedroom Light
-      supported_features: 0
-      state: 'off'
+    input_boolean.in_bed: 'off'
+    light.bedroom: 'off'
   icon: hass:human-handsup
 - id: '1605288983801'
   name: Lounge Normal
   entities:
     light.lounge_lamp:
-      min_mireds: 153
-      max_mireds: 588
-      effect_list:
-      - Strobe color
-      - Police
-      - Christmas
-      - RGB
-      - Random Loop
-      - Fast Random Loop
-      - LSD
-      - Slowdown
-      - Disco
-      - Strobe epilepsy!
-      - Alarm
-      - Police2
-      - WhatsApp
-      - Facebook
-      - Twitter
-      - Slow Temp
-      - Stop
-      flowing: false
-      friendly_name: Lounge Lamp
-      supported_features: 63
       state: 'off'
-    light.lounge:
-      manufacturer: SONOFF
-      model: 4CHPRO
-      sw_version: PSF-B04-GL v3.4.1
-      local: online
-      rssi: -43
-      friendly_name: Lounge Light
-      supported_features: 0
-      icon: mdi:ceiling-light
-      state: 'off'
-    input_select.lounge_mode:
-      options:
-      - Normal
-      - Reading
-      - Television
-      - Dark
-      - Chill
-      editable: true
-      friendly_name: Lounge Mode
-      icon: mdi:sofa
-      state: Normal
+    light.lounge: 'off'
+    input_select.lounge_mode: Normal
+    switch.lounge_tv: 'off'
   icon: mdi:sofa
 - id: '1605351014819'
   name: Lights Up
   entities:
-    light.snug_lamp:
-      min_mireds: 153
-      max_mireds: 588
-      effect_list:
-      - Strobe color
-      - Police
-      - Christmas
-      - RGB
-      - Random Loop
-      - Fast Random Loop
-      - LSD
-      - Slowdown
-      - Disco
-      - Strobe epilepsy!
-      - Alarm
-      - Police2
-      - WhatsApp
-      - Facebook
-      - Twitter
-      - Slow Temp
-      - Stop
-      flowing: false
-      friendly_name: Snug Lamp
-      supported_features: 63
-      state: 'off'
-    light.snug:
-      manufacturer: Sonoff
-      model: 4CH Pro
-      sw_version: PSF-B04-GL v3.4.1
-      local: online
-      rssi: -43
-      friendly_name: Snug Light
-      supported_features: 0
-      icon: mdi:ceiling-light
-      state: 'off'
-    input_select.snug_mode:
-      options:
-      - Normal
-      - Movie
-      - Chill
-      editable: true
-      friendly_name: Snug Mode
-      icon: mdi:projector
-      state: Normal
+    light.snug_lamp: 'off'
+    light.snug: 'off'
+    input_select.snug_mode: Normal
   icon: hass:floor-lamp
 - id: '1605716138100'
   name: Showering
   entities:
-    light.bathroom_fan:
-      manufacturer: SONOFF
-      model: 4CHPRO
-      sw_version: PSF-B04-GL v3.4.1
-      local: online
-      rssi: -56
-      friendly_name: Bathroom Fan
-      icon: hass:fan
-      supported_features: 0
-      state: 'on'
-    light.bathroom:
-      manufacturer: SONOFF
-      model: 4CHPRO
-      sw_version: PSF-B04-GL v3.4.1
-      local: online
-      rssi: -56
-      friendly_name: Bathroom Light
-      supported_features: 0
-      state: 'on'
-    light.mirror:
-      manufacturer: SONOFF
-      model: 4CHPRO
-      sw_version: PSF-B04-GL v3.4.1
-      local: online
-      rssi: -56
-      friendly_name: Mirror Light
-      supported_features: 0
-      state: 'off'
-    input_boolean.in_shower:
-      editable: true
-      friendly_name: in_shower
-      icon: hass:shower-head
-      state: 'on'
+    light.bathroom_fan: 'on'
+    light.bathroom: 'on'
+    light.mirror: 'off'
+    input_boolean.in_shower: 'on'
   icon: hass:shower-head
 - id: '1605716301658'
   name: Bathroom Normal
   entities:
-    light.bathroom_fan:
-      manufacturer: SONOFF
-      model: 4CHPRO
-      sw_version: PSF-B04-GL v3.4.1
-      local: online
-      rssi: -56
-      friendly_name: Bathroom Fan
-      icon: hass:fan
-      supported_features: 0
-      state: 'off'
-    input_boolean.in_shower:
-      editable: true
-      friendly_name: in_shower
-      icon: hass:shower-head
-      state: 'off'
-    light.bathroom:
-      manufacturer: SONOFF
-      model: 4CHPRO
-      sw_version: PSF-B04-GL v3.4.1
-      local: online
-      rssi: -56
-      friendly_name: Bathroom Light
-      supported_features: 0
-      state: 'off'
-    light.mirror:
-      manufacturer: SONOFF
-      model: 4CHPRO
-      sw_version: PSF-B04-GL v3.4.1
-      local: online
-      rssi: -56
-      friendly_name: Mirror Light
-      supported_features: 0
-      state: 'off'
+    light.bathroom_fan: 'off'
+    input_boolean.in_shower: 'off'
+    light.bathroom: 'off'
+    light.mirror: 'off'
   icon: hass:shower

@@ -1,0 +1,37 @@
+
+- id: '1622742978922'
+  alias: Loft hatch open
+  description: ''
+  trigger:
+  - type: opened
+    platform: device
+    device_id: 7edaef3b07fdf64472991cfe09e62c2b
+    entity_id: binary_sensor.loft_hatch_contact
+    domain: binary_sensor
+  condition: []
+  action:
+  - service: notify.alexa_media_all_speakers
+    data:
+      message: Get off my things!
+      data:
+        method: all
+        type: announce
+  mode: single
+- id: '1622743049939'
+  alias: Loft hatch closed
+  description: ''
+  trigger:
+  - type: not_opened
+    platform: device
+    device_id: 7edaef3b07fdf64472991cfe09e62c2b
+    entity_id: binary_sensor.loft_hatch_contact
+    domain: binary_sensor
+  condition: []
+  action:
+  - service: notify.alexa_media_all_speakers
+    data:
+      message: You better put them back where you found them!
+      data:
+        method: all
+        type: announce
+  mode: single

@@ -94,12 +94,11 @@ views:
           - light.hallway_lamp
       - id: 5da46ea1e2f0490b96ed5fb1081c4201  # Automatically created id
         type: entities
-        title: Study
+        title: Drawing Room
         show_header_toggle: true
         entities:
-          - light.study_light
+          - light.drawing_room_light
           - light.bookshelf_light
-          - light.drawing_room_lamp
       - id: 3476a3749a8d4025822d558128934ea3  # Automatically created id
         type: entities
         title: Kitchen
@@ -209,12 +208,11 @@ views:
           - binary_sensor.lounge_motion
       - id: 01c76cb51b914a5c8e4cf48197f2a38f  # Automatically created id
         type: entities
-        title: Study
+        title: Drawing Room
         show_header_toggle: true
         entities:
           - light.drawing_room
           - light.bookshelf
-          - light.drawing_room_lamp
       - id: 363c10a8f2ab44f98f162f19a20cad13  # Automatically created id
         type: entities
         title: Kitchen

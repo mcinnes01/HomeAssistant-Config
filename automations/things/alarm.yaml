@@ -1,0 +1,163 @@
+- id: alarm_trigger
+  alias: Trigger alarm while armed away
+  trigger:
+  - device_id: f918e214648f4e25848333fcea985dfe
+    domain: binary_sensor
+    entity_id: binary_sensor.snug_motion
+    platform: device
+    type: motion
+  - device_id: f918e214648f4e25848333fcea985dfe
+    domain: binary_sensor
+    entity_id: binary_sensor.dining_room_motion
+    platform: device
+    type: motion
+  - device_id: f918e214648f4e25848333fcea985dfe
+    domain: binary_sensor
+    entity_id: binary_sensor.utility_room_motion
+    platform: device
+    type: motion
+  - device_id: f918e214648f4e25848333fcea985dfe
+    domain: binary_sensor
+    entity_id: binary_sensor.cellar_door
+    platform: device
+    type: opened
+  condition:
+  - condition: state
+    entity_id: alarm_control_panel.alarm
+    state: armed_away
+  action:
+  - data: {}
+    entity_id: alarm_control_panel.alarm
+    service: alarm_control_panel.alarm_trigger
+- alias: Send notification when alarm triggered
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.alarm
+    to: triggered
+  action:
+  - data:
+      title: Alarm Triggered
+      message: ALARM! The alarm has been triggered
+      data:
+        file_url: https://media.istockphoto.com/vectors/vector-fire-alarm-vector-id610426096?k=6&m=610426096&s=612x612&w=0&h=IIjBibeAUNdoq7XS4-esMGyxxw_xFkb07zbwKcwNB-I=
+      target:
+      - email/mcinnes01@gmail.com
+      - device/AndyPhone
+    service: notify.pushbullet
+  - data:
+      title: Alarm Triggered
+      message: The alarm has been triggered. The alarm has been triggered. The alarm
+        has been triggered. The alarm has been triggered. The alarm has been triggered.
+      target:
+      - media_player.everywhere
+      data:
+        type: announce
+    service: notify.alexa_media
+  id: 33a13ad590164e5a9542f8223820a928
+- alias: Turn On Ex Machina lights when alarm triggered
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.alarm
+    to: triggered
+  action:
+  - data: {}
+    entity_id: light.inside
+    service: light.turn_off
+  - data:
+      brightness_pct: 100
+      effect: Alarm
+    entity_id: light.yeelights
+    service: light.turn_on
+  id: 71bcd308a0bc484793b7d78e8ec8e69d
+- alias: Send notification when alarm is Disarmed
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.alarm
+    to: disarmed
+  action:
+  - data:
+      type: announce
+    service: notify.alexa_media
+    data_template:
+      title: Alarm disarmed
+      message: ALARM! The alarm is Disarmed at {{ states('sensor.date_time') }}
+      target:
+      - media_player.everywhere
+  id: 63385e6035f643aab8b67f619af4951b
+- alias: Turn Off Ex Machina lights when alarm disarmed
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.alarm
+    to: disarmed
+  action:
+  - data:
+      effect: Stop
+    entity_id: light.yeelights
+    service: light.turn_on
+  - data: {}
+    entity_id: light.yeelights
+    service: light.turn_off
+  id: 71bcd308a0bc484793b7d78e8ec8e69f
+- id: a71c90774150444f9237ba14769e935a
+  alias: Send notification when alarm is arming
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.alarm
+    from: disarmed
+    to: pending
+  action:
+  - service: notify.alexa_media
+    data_template:
+      title: Alarm arming
+      message: The alarm is arming you have 60 seconds to leave
+      target:
+      - media_player.everywhere
+      data:
+        type: announce
+  mode: single
+- alias: Send notification when alarm is pending
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.alarm
+    from: armed
+    to: pending
+  action:
+  - service: notify.alexa_media
+    data_template:
+      title: Alarm pending
+      message: You have 30 seconds to disable the alarm
+      target:
+      - media_player.everywhere
+      data:
+        type: announce
+  id: df6ae52914e648ec8d170fc4e508c29e
+- alias: Send notification when alarm is Armed in Away mode
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.alarm
+    to: armed_away
+  action:
+  - service: notify.alexa_media
+    data_template:
+      title: Alarm armed in away mode
+      message: The alarm is armed in Away mode
+      target:
+      - media_player.everywhere
+      data:
+        type: announce
+  id: e430701364844f3da246e6f2db218214
+- alias: Send notification when alarm is Armed in Home mode
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.alarm
+    to: armed_home
+  action:
+  - service: notify.alexa_media
+    data_template:
+      title: Alarm armed in home mode
+      message: The alarm is armed in Home mode
+      target:
+      - media_player.everywhere
+      data:
+        type: announce
+  id: b762a0f5608845a2800b4b408924d844

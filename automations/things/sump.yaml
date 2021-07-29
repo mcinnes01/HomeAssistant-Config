@@ -1,0 +1,29 @@
+- id: '1587464597280'
+  alias: Sump Alarm Triggered
+  description: The sump is at risk of overflowing, the pump may be offline or broken
+  trigger:
+  - device_id: 67c16ded941843d59f95ea1394628b0a
+    domain: binary_sensor
+    entity_id: binary_sensor.sump_alarm_trigger
+    platform: device
+    type: turned_on
+  action:
+  - data:
+      title: Sump Alarm Triggered
+      message: The sump alarm has been triggered, check the sump pump has power, this
+        could cause a flood if not attended.
+      data:
+        file_url: https://media.istockphoto.com/vectors/vector-fire-alarm-vector-id610426096?k=6&m=610426096&s=612x612&w=0&h=IIjBibeAUNdoq7XS4-esMGyxxw_xFkb07zbwKcwNB-I=
+      target:
+      - email/mcinnes01@gmail.com
+      - device/AndyPhone
+    service: notify.pushbullet
+  - data:
+      title: Sump Alarm Triggered
+      message: The sump alarm has been triggered, check the sump pump has power, this
+        could cause a flood if not attended.
+      target:
+      - media_player.everywhere
+      data:
+        type: announce
+    service: notify.alexa_media

@@ -1,0 +1,19 @@
+- alias: Dressing Room Constrained
+  trigger:
+  - platform: state
+    entity_id:
+    - input_select.ambience
+  action:
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: '{{ not (states(''input_select.ambience'') in [''Ambient'',
+          ''Evening'']) }}'
+      sequence:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.dressing_room_light_constrained
+    default:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.dressing_room_light_constrained
+  mode: single
+  id: 7c5305d3f9704edca32c6df5c5ad399b

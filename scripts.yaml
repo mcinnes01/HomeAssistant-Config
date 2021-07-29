@@ -1,35 +1,11 @@
-set_currenttheme:
-  alias: Set Current Theme
-  sequence:
-  - service: frontend.set_theme
-    data_template:
-      name: '{{states.input_select.current_theme.state}}'
 feed_cats:
   alias: Feed Cats
   sequence:
-  - service: notify.pushbullet
-    data:
-      title: Feeding started
-      message: Feeding the cats.
-      target:
-      - device/AndyPhone
-      - email/mcinnes01@gmail.com
-      data:
-        file_url: https://image.freepik.com/free-vector/black-cat-silhouette_23-2147493570.jpg
   - service: homeassistant.turn_on
     entity_id: light.cat_feeder
   - delay: 00:01:26
   - service: homeassistant.turn_off
     entity_id: light.cat_feeder
-  - service: notify.pushbullet
-    data:
-      title: Feeding finished
-      message: Finished feeding the cats.
-      target:
-      - device/AndyPhone
-      - email/mcinnes01@gmail.com
-      data:
-        file_url: https://image.freepik.com/free-vector/black-cat-silhouette_23-2147493570.jpg
   mode: single
   icon: hass:cat
 light_effect_continuous:
@@ -98,66 +74,39 @@ notify_all:
       title: '{{title}}'
       message: '{{message}}'
       picture_url: '{{picture_url}}'
-night_lighting:
-  alias: Night Lighting
-  icon: mdi:weather-night
-  mode: single
+doorbell_alexa:
+  alias: Doorbell Alexa
   sequence:
-  - data:
-      option: Night
-    entity_id: input_select.ambience
-    service: input_select.select_option
-  - data: {}
-    entity_id: light.ground_floor_lights
-    service: light.turn_off
+  - service: media_player.play_media
+    data:
+      media_content_id: amzn_sfx_doorbell_chime_01 in downstairs group
+      media_content_type: sound
+    target:
+      entity_id: media_player.bedroom_echo_show
+  mode: single
+  icon: hass:bell
+entity_controller_reset:
+  alias: Entity Controller Reset
+  sequence:
+  - service: light.turn_off
+    target:
+      entity_id: light.all_lights
+  - service: entity_controller.clear_block
+    data:
+      entity_id: group.entity_controllers
   - service: input_boolean.turn_off
-    data: {}
-    entity_id: input_boolean.enable_entity_controlled_lighting
-ambiance_to_bright:
-  alias: Ambiance To Bright
-  sequence:
-  - service: input_select.select_option
-    data:
-      option: Bright
-    entity_id: input_select.ambience
+    target:
+      entity_id: group.entity_overrides
   mode: single
-ambiance_to_day:
-  alias: Ambiance To Day
+room_controller_reset:
+  alias: Room Controller Reset
   sequence:
-  - service: input_select.select_option
+  - service: light.turn_off
+    target:
+      entity_id: group.{{room}}_lights
+  - service: entity_controller.clear_block
     data:
-      option: Day
-    entity_id: input_select.ambience
-  mode: single
-ambiance_to_evening:
-  alias: Ambiance To Evening
-  sequence:
-  - service: input_select.select_option
-    data:
-      option: Evening
-    entity_id: input_select.ambience
-  mode: single
-ambiance_to_night:
-  alias: Ambiance To Night
-  sequence:
-  - service: input_select.select_option
-    data:
-      option: Night
-    entity_id: input_select.ambience
-  mode: single
-ambiance_to_emergency:
-  alias: Ambiance To Emergency
-  sequence:
-  - service: input_select.select_option
-    data:
-      option: Emergency
-    entity_id: input_select.ambience
-  mode: single
-ambiance_to_ambient:
-  alias: Ambiance To Ambient
-  sequence:
-  - service: input_select.select_option
-    data:
-      option: Ambient
-    entity_id: input_select.ambience
-  mode: single
+      entity_id: group.{{room}}_entities
+  - service: input_boolean.turn_off
+    target:
+      entity_id: group.{{room}}_contraints

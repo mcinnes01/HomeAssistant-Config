@@ -1,0 +1,20 @@
+- alias: Utility Room Light Constrained
+  trigger:
+  - platform: state
+    entity_id:
+    - input_boolean.utility_room_light_contrained
+    - input_select.ambience
+  action:
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: '{{ not (states(''input_select.ambience'') in [''Bright'',
+          ''Day'', ''Evening'']) }}'
+      sequence:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.utility_room_light_constrained
+    default:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.utility_room_light_constrained
+  mode: single
+  id: f26ce7ed75944637890f2ed2016ad2b3
