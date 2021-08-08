@@ -4,13 +4,8 @@
 .sonoff.json
 .HA_VERSION
 .storage/
-automations.yaml
-configuration.yaml
-groups.yaml
 home-assistant.log
 home-assistant_v2.db
-scenes.yaml
-scripts.yaml
 secrets.yaml
 custom_components/*/
 !custom_components/dwains_dashboard
@@ -19,8 +14,6 @@ custom_components/dwains_dashboard/.installed
 !custom_components/ezo
 www/
 !www/images/persons
-packages/
-customize.yaml
 google_calendars.yaml
 zigbee.db
 known_devices.yaml
@@ -36,3 +29,7 @@ dwainconfig/
 themes/
 test/
 image/
+log.txt
+*.log
+zigbee2mqtt/
+c-sharp-for-homeassistant/logs/

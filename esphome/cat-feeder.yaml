@@ -1,0 +1,93 @@
+esphome:
+  name: cat-feeder
+  platform: ESP8266
+  board: esp01_1m
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+  password: "1196039b73e4bee9a68c5a96fb076438"
+
+wifi:
+  ssid: "Home.Iot.Private_2g"
+  password: "jellytots2009"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Cat-Feeder Fallback Hotspot"
+    password: "kSacMaQq095Q"
+
+captive_portal:
+
+# Sync time with Home Assistant.
+time:
+  - platform: homeassistant
+    id: homeassistant_time
+
+# Text sensors with general information.
+text_sensor:
+  # Expose ESPHome version as sensor.
+  - platform: version
+    name: Cat Feeder ESPHome Version
+  # Expose WiFi information as sensors.
+  - platform: wifi_info
+    ip_address:
+      name: Cat Feeder IP
+    ssid:
+      name: Cat Feeder SSID
+    bssid:
+      name: Cat Feeder BSSID
+
+# Sensors with general information.
+sensor:
+  # Uptime sensor.
+  - platform: uptime
+    name: Cat Feeder Uptime
+
+  # WiFi Signal sensor.
+  - platform: wifi_signal
+    name: Cat Feeder WiFi Signal
+    update_interval: 60s
+
+switch:
+  - platform: gpio
+    pin: GPIO3
+    name: "Dispenser Motor"
+    id: motor
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: 5
+      mode: INPUT_PULLUP
+      inverted: False
+    name: "Dispenser Rotating"
+    on_release:
+      then:
+        - switch.turn_off: motor
+  
+    # Run conditions
+  - platform: homeassistant
+    id: morning_feed_enabled
+    name: "Morning Feed Enabled"
+    entity_id: input_boolean.morning_feed_enabled
+  - platform: homeassistant
+    id: mornning_feed_complete
+    name: "Morning Feed Complete"
+    entity_id: input_boolean.mornning_feed_complete
+  - platform: homeassistant
+    id: evening_feed_enabled
+    name: "Evening Feed Enabled"
+    entity_id: input_boolean.evening_feed_enabled
+  - platform: homeassistant
+    id: evening_feed_complete
+    name: "Evening Feed Complete"
+    entity_id: input_boolean.evening_feed_complete
+  - platform: homeassistant
+    id: disable_next_feed
+    name: "Disable Next Feed"
+    entity_id: input_boolean.disable_next_feed
