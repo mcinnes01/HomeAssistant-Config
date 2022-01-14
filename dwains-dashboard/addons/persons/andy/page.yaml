@@ -30,7 +30,7 @@
     - color: '#0aaf31'
       value: 62
   font_size: 75
-  hours_to_show: 720
+  hours_to_show: 1440
   line_width: 1
   show:
     extrema: true

@@ -13,8 +13,8 @@ ota:
   password: "1196039b73e4bee9a68c5a96fb076438"
 
 wifi:
-  ssid: "Home.Iot.Private_2g"
-  password: "jellytots2009"
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
@@ -58,6 +58,8 @@ switch:
     pin: GPIO3
     name: "Dispenser Motor"
     id: motor
+  - platform: restart
+    name: Cat Feeder Restart
 
 binary_sensor:
   - platform: gpio

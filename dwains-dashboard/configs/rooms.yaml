@@ -40,15 +40,15 @@ rooms:
     icon: mdi:fridge-outline
     light: group.kitchen_lights
     media_player: media_player.kitchen_echo_show
-    motion: binary_sensor.kitchen_motion
+    motion: group.kitchen_motion_sensors
     door: binary_sensor.patio_door
   - name: Patio
     icon: mdi:flower-outline
     light: group.patio_lights
     media_player: media_player.kitchen_echo_show
     motion: binary_sensor.patio_motion
-    temperature: sensor.garden_temperature
-    humidity: sensor.garden_relative_humidity
+    temperature: sensor.weather_station_temperature
+    humidity: sensor.weather_station_relative_humidity
   - name: Studio
     icon: mdi:headphones
     light: light.studio
@@ -57,6 +57,7 @@ rooms:
     icon: mdi:shower
     light: group.bathroom_lights
     motion: binary_sensor.bathroom_motion
+    door: binary_sensor.bathroom_door
   - name: Bedroom
     icon: mdi:bed-double-outline
     light: group.bedroom_lights
@@ -82,7 +83,7 @@ rooms:
   - name: Basement Hall
     icon: mdi:stairs-down
     light: group.basement_hall_lights
-    motion: binary_sensor.basement_hall_motion
+    motion: group.basement_hall_motion_sensors
     media_player: media_player.lounge_echo_plus
   - name: Electric Cabinet
     icon: mdi:flash-outline
@@ -111,6 +112,7 @@ rooms:
     icon: mdi:toilet
     light: light.toilet
     motion: binary_sensor.toilet_motion
+    door: binary_sensor.toilet_door
   - name: Utility Room
     icon: mdi:washing-machine
     light: light.utility_room

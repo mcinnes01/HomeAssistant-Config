@@ -1,13 +1,13 @@
 blueprint:
   name: Send a camera snapshot when motion event type is detected
   description: This automation blueprint creates a camera snapshot if general motion
-    or a specific motion event object is detected  and sends a notification to your
+    or a specific motion event object is detected and sends a notification to your
     phone with the picture.
   domain: automation
   input:
     motion_sensor:
       name: Motion sensor
-      description: The sensor wich triggers the snapshot creation
+      description: The sensor which triggers the snapshot creation
       selector:
         entity:
           domain: binary_sensor
@@ -22,6 +22,12 @@ blueprint:
           - None Identified
           - person
           - car
+    override_sensor:
+      name: Override sensor
+      description: Binary sensor to override detection
+      selector:
+        entity:
+          domain: binary_sensor
     camera:
       name: Camera
       description: The camera which creates the snapshot
@@ -67,10 +73,15 @@ trigger:
   from: 'off'
   to: 'on'
 condition:
-  condition: state
-  entity_id: !input 'motion_sensor'
-  attribute: event_object
-  state: !input 'event_object'
+- condition: and
+  conditions:
+  - condition: state
+    entity_id: !input 'override_sensor'
+    state: false
+  - condition: state
+    entity_id: !input 'motion_sensor'
+    attribute: event_object
+    state: !input 'event_object'
 variables:
   motion_sensor: !input 'motion_sensor'
   motion_sensor_name: '{{ states[motion_sensor].name }}'

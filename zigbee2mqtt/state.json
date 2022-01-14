@@ -1,14 +1,14 @@
 {
     "0x00124b0022fcff7b": {
-        "voltage": 3200,
-        "battery": 100,
+        "voltage": 2900,
+        "battery": 77.5,
         "contact": false,
         "tamper": false,
         "battery_low": false
     },
     "0x00124b0022ff0377": {
-        "voltage": 3200,
-        "battery": 100,
+        "voltage": 3000,
+        "battery": 71.5,
         "contact": true,
         "tamper": false,
         "battery_low": false
@@ -19,5 +19,30 @@
         "contact": true,
         "tamper": false,
         "battery_low": false
+    },
+    "0x00124b0022ff39ad": {
+        "contact": false,
+        "tamper": false,
+        "battery_low": false,
+        "voltage": 3100,
+        "battery": 100
+    },
+    "0x00124b0022fd01fd": {
+        "contact": false,
+        "tamper": false,
+        "battery_low": false,
+        "voltage": 3200,
+        "battery": 100
+    },
+    "0x00124b00226650a6": {
+        "voltage": 2900,
+        "battery": 80
+    },
+    "0x00124b0023b85ca5": {
+        "occupancy": true,
+        "tamper": false,
+        "battery_low": false,
+        "voltage": 2900,
+        "battery": 69.5
     }
 }

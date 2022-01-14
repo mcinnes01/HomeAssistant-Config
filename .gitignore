@@ -30,6 +30,6 @@ themes/
 test/
 image/
 log.txt
-*.log
-zigbee2mqtt/
-c-sharp-for-homeassistant/logs/
+*.log*
+zigbee2mqtt
+core

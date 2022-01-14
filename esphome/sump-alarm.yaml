@@ -1,0 +1,81 @@
+esphome:
+  name: sump-alarm
+  platform: ESP32
+  board: esp32dev
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+  password: "45d8b8ff115c5da66c5cbba9832c4d88"
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Sump-Alarm Fallback Hotspot"
+    password: "CUI8xUEACJni"
+
+captive_portal:
+
+# Sync time with Home Assistant.
+time:
+  - platform: homeassistant
+    id: homeassistant_time
+
+# Text sensors with general information.
+text_sensor:
+  # Expose ESPHome version as sensor.
+  - platform: version
+    name: Sump Alarm ESPHome Version
+  # Expose WiFi information as sensors.
+  - platform: wifi_info
+    ip_address:
+      name: Sump Alarm IP
+    ssid:
+      name: Sump Alarm SSID
+    bssid:
+      name: Sump Alarm BSSID
+
+# Sensors with general information.
+sensor:
+  # Uptime sensor.
+  - platform: uptime
+    name: Sump Alarm Uptime
+
+  # WiFi Signal sensor.
+  - platform: wifi_signal
+    name: Sump Alarm WiFi Signal
+    update_interval: 60s
+
+# Exposed switches.
+switch:
+  # Switch to restart the sump alarm.
+  - platform: restart
+    name: Sump Alarm Restart
+  - platform: gpio
+    pin: GPIO4
+    id: relay
+  - platform: template
+    name: "Sump Alarm Reset"
+    icon: "mdi:bell"
+    turn_on_action:
+    - switch.turn_on: relay
+    - delay: 500ms
+    - switch.turn_off: relay
+# Binary sensor representing the
+# Sump Alarm button push.
+binary_sensor:
+  - platform: gpio
+    id: button
+    name: Sump Alarm Trigger
+    pin:
+      # Connected to GPIO on the ESP-01S.
+      number: GPIO15
+      mode: INPUT_PULLUP
+      inverted: true

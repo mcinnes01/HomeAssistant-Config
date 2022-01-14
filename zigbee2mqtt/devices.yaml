@@ -4,3 +4,11 @@
   friendly_name: Front Door
 '0x00124b0022ff6b10':
   friendly_name: Electric Cabinet Door
+'0x00124b0022ff39ad':
+  friendly_name: Toilet Door
+'0x00124b0022fd01fd':
+  friendly_name: Bathroom Door
+'0x00124b00226650a6':
+  friendly_name: Snug Switch
+'0x00124b0023b85ca5':
+  friendly_name: Basement Stairs Motion

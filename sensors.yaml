@@ -1,3 +1,28 @@
+- platform: nest
+  monitored_conditions:
+    - "temperature"
+    - "target"
+    - "humidity"
+    - "weather_temperature"
+    - "weather_humidity"
+    - "weather_condition"
+    - "wind_speed"
+    - "wind_direction"
+- platform: dnsip
+- platform: dnsip
+  hostname: home.andisoft.co.uk
+  name: hass
+  resolver: 8.8.8.8
+- platform: unifigateway
+  host: 192.168.1.254
+  username: !secret unifi_username
+  password: !secret unifi_password
+  monitored_conditions:
+    - www
+    - wlan
+    - alerts
+    - firmware
+
 # Light state overrides
 
 # # Hallway light
@@ -19,12 +44,12 @@
 #   sensors:
 #     lounge_light_constrained:
 #       value_template: >-
-#         {{ not (states('input_select.ambience') in ['Bright', 'Evening'] and is_state('input_select.lounge_mode', 'Normal') and is_state('light.lounge_lamp', 'off')) }}
+#         {{ not (states('input_select.ambience') in ['Bright', 'Evening'] and is_state('input_select.lounge_mode', 'Normal') and is_state('light.lounge_corner_lamp', 'off')) }}
 
-# # Lounge lamp
+# # Lounge Corner lamp
 # - platform: template
 #   sensors:
-#     lounge_lamp_constrained:
+#     lounge_corner_lamp_constrained:
 #       value_template: >-
 #         {{ not (states('input_select.ambience') in ['Ambient', 'Evening'] and is_state('input_select.lounge_mode', 'Normal') and is_state('light.lounge', 'off')) }}
 
@@ -42,10 +67,10 @@
 #       value_template: >-
 #         {{ not (states('input_select.ambience') in ['Ambient', 'Evening'] and is_state('light.drawing_room', 'off')) }}
 
-# # Floor lamp
+# # Lounge Floor lamp
 # - platform: template
 #   sensors:
-#     floor_lamp_constrained:
+#     lounge_floor_lamp_constrained:
 #       value_template: >-
 #         {{ not (states('input_select.ambience') in ['Ambient', 'Evening'] and is_state('input_select.lounge_mode', 'Normal') and is_state('light.lounge', 'off')) }}
 
@@ -54,12 +79,12 @@
 #   sensors:
 #     kitchen_light_constrained:
 #       value_template: >-
-#         {{ not (states('input_select.ambience') in ['Bright', 'Evening'] and is_state('light.kitchen_lamp', 'off')) }}
+#         {{ not (states('input_select.ambience') in ['Bright', 'Evening'] and is_state('light.breakfast_bar_lamp', 'off')) }}
 
-# # Kitchen lamp
+# # Breakfast Bar lamp
 # - platform: template
 #   sensors:
-#     kitchen_lamp_constrained:
+#     breakfast_bar_lamp_constrained:
 #       value_template: >-
 #         {{ not (states('input_select.ambience') in ['Ambient', 'Evening'] and is_state('light.kitchen', 'off')) }}
 
@@ -82,12 +107,12 @@
 #   sensors:
 #     snug_light_constrained:
 #       value_template: >-
-#         {{ not (states('input_select.ambience') in ['Bright', 'Day'] and is_state('input_select.snug_mode', 'Normal') and is_state('light.snug_lamp', 'off')) }}
+#         {{ not (states('input_select.ambience') in ['Bright', 'Day'] and is_state('input_select.snug_mode', 'Normal') and is_state('light.snug_floor_lamp', 'off')) }}
 
-# # Snug lamp
+# # Snug Floor lamp
 # - platform: template
 #   sensors:
-#     snug_lamp_constrained:
+#     snug_floor_lamp_constrained:
 #       value_template: >-
 #         {{ not (states('input_select.ambience') in ['Ambient', 'Evening'] and is_state('input_select.snug_mode', 'Normal') and is_state('light.snug', 'off')) }}
 
@@ -118,3 +143,48 @@
 #     toilet_light_constrained:
 #       value_template: >-
 #         {{ not (states('input_select.ambience') in ['Bright', 'Day', 'Evening', 'Night']) }}
+
+#Mqtt Presense Sensors
+- platform: mqtt_room
+  device_id: "tile:cd1dcb7ae277"
+  name: "Claire Keys Tile Ble"
+  state_topic: "espresense/devices/tile:cd1dcb7ae277"
+  timeout: 60
+  away_timeout: 120
+- platform: mqtt_room
+  device_id: "tile:e572c53969ee"
+  name: "Andy Keys Tile Ble"
+  state_topic: "espresense/devices/tile:e572c53969ee"
+  timeout: 60
+  away_timeout: 120
+- platform: mqtt_room
+  device_id: "tile:cd1dcb7ae277"
+  name: "Car Keys Tile Ble"
+  state_topic: "espresense/devices/tile:cd1dcb7ae277"
+  timeout: 60
+  away_timeout: 120
+- platform: mqtt_room
+  device_id: "apple:1005:9-12"
+  name: "Andy IPhone Ble"
+  state_topic: "espresense/devices/apple:1005:9-12"
+  timeout: 60
+  away_timeout: 120
+- platform: mqtt_room
+  device_id: "apple:1006:10-12"
+  name: "Claire IPhone Ble"
+  state_topic: "espresense/devices/apple:1006:10-12"
+  timeout: 60
+  away_timeout: 120
+- platform: mqtt_room
+  device_id: "apple:1005:9-26"
+  name: "Claire IWatch Ble"
+  state_topic: "espresense/devices/apple:1005:9-26"
+  timeout: 60
+  away_timeout: 120
+# Energy
+# - platform: integration
+#   source: sensor.bulb_energy_meter_gas_meter
+#   name: gas meter
+#   unit_prefix: k
+#   unit_time: h
+#   round: 2

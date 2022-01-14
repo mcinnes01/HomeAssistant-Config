@@ -7,7 +7,7 @@
     "groups.yaml"
   ],
   "homeassistant": true,
-  "permit_join": false,
+  "permit_join": true,
   "mqtt": {
     "base_topic": "zigbee2mqtt",
     "user": "addons",
@@ -15,7 +15,7 @@
     "server": "mqtt://core-mosquitto:1883"
   },
   "serial": {
-    "port": "/dev/ttyUSB1"
+    "port": "/dev/ttyUSB0"
   },
   "advanced": {
     "log_level": "warn",
@@ -49,5 +49,6 @@
   "frontend": {
     "port": 8099
   },
-  "experimental": {}
+  "experimental": {},
+  "availability": false
 }

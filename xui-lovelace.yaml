@@ -107,7 +107,7 @@ views:
           - entity: script.feed_cats
             name: Feed cats
             icon: mdi:cat
-          - entity: light.kitchen_lamp
+          - entity: light.breakfast_bar_lamp
           - entity: light.back_door
       - id: 9dcab691b15247e9b9c53e4acb140eda  # Automatically created id
         type: history-graph
@@ -135,7 +135,7 @@ views:
           - light.basement_hall
           - light.basement_stairs
           - light.snug
-          - light.snug_lamp
+          - light.snug_floor_lamp
           - light.dining_room
           - light.toilet
           - light.utility_room
@@ -221,7 +221,7 @@ views:
           - entity: script.feed_cats
             name: Feed cats
             icon: mdi:cat
-          - entity: light.kitchen_lamp
+          - entity: light.breakfast_bar_lamp
           - entity: light.back_door
       - id: 2be1c13cdc344eb19a3e58c0846b783d  # Automatically created id
         type: history-graph
@@ -267,7 +267,7 @@ views:
         title: Snug
         show_header_toggle: true
         entities:
-          - light.snug_lamp
+          - light.snug_floor_lamp
           - light.snug
       - id: 66b7e8b57f7146ab997a61f94414027f  # Automatically created id
         type: entities

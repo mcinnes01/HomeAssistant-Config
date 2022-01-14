@@ -47,15 +47,31 @@ sensor.blue_paper:
   icon: mdi:recycle
 sensor.brown_recyclables:
   icon: mdi:recycle
-light.lounge_lamp:
-  friendly_name: Lounge Lamp
-light.drawing_room_lamp:
-  friendly_name: Drawing Room Lamp
-light.kitchen_lamp:
-  friendly_name: Kitchen Lamp
-light.bedroom_lamp:
-  friendly_name: Bedroom Lamp
-light.snug_lamp:
-  friendly_name: Snug Lamp
 light.basement_stairs:
   friendly_name: Basement Stairs Light
+light.kitchen:
+  friendly_name: Kitchen Light
+light.bathroom:
+  friendly_name: Bathroom Light
+light.bedroom:
+  friendly_name: Bedroom Light
+light.brewery:
+  friendly_name: Brewery Light
+light.cabinet:
+  friendly_name: Cabinet Light
+light.dressing_room:
+  friendly_name: Dressing Room Light
+light.guest_room:
+  friendly_name: Guest Room Light
+light.landing:
+  friendly_name: Landing Light
+light.mirror:
+  friendly_name: Mirror Light
+light.studio:
+  friendly_name: Studio Light
+light.toilet:
+  friendly_name: Toilet Light
+sensor.bulb_energy_meter_gas_meter:
+  device_class: gas
+  state_class: total_increasing
+  last_reset: "1970-01-01T00:00:00+00:00"

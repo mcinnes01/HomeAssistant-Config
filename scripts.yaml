@@ -1,11 +1,24 @@
 feed_cats:
   alias: Feed Cats
   sequence:
-  - service: homeassistant.turn_on
-    entity_id: light.cat_feeder
-  - delay: 00:01:26
-  - service: homeassistant.turn_off
-    entity_id: light.cat_feeder
+  - service: switch.turn_on
+    target:
+      entity_id: switch.dispenser_motor
+  - service: notify.alexa_media_all_speakers
+    data:
+      message: Rupert, Gunther it's dinner time you little beauties.
+      data:
+        type: announce
+        method: all
+      title: Cat's dinner time
+  - delay:
+      hours: 0
+      minutes: 1
+      seconds: 20
+      milliseconds: 0
+  - service: switch.turn_off
+    target:
+      entity_id: switch.dispenser_motor
   mode: single
   icon: hass:cat
 light_effect_continuous:
@@ -94,6 +107,9 @@ entity_controller_reset:
   - service: entity_controller.clear_block
     data:
       entity_id: group.entity_controllers
+  - service: input_boolean.turn_on
+    target:
+      entity_id: group.entity_overrides
   - service: input_boolean.turn_off
     target:
       entity_id: group.entity_overrides
@@ -109,4 +125,5 @@ room_controller_reset:
       entity_id: group.{{room}}_entities
   - service: input_boolean.turn_off
     target:
-      entity_id: group.{{room}}_contraints
+      entity_id: group.{{room}}_overrides
+  mode: single

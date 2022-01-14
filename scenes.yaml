@@ -9,9 +9,130 @@
       - Dark
       - Chill
       editable: true
-      friendly_name: Lounge Mode
       icon: mdi:sofa
+      friendly_name: Lounge Mode
       state: Television
+    light.lounge_floor_lamp:
+      min_mireds: 153
+      max_mireds: 588
+      effect_list:
+      - Strobe color
+      - Police
+      - Christmas
+      - RGB
+      - Random Loop
+      - Fast Random Loop
+      - LSD
+      - Slowdown
+      - Night Mode
+      - Date Night
+      - Movie
+      - Sunrise
+      - Sunset
+      - Romance
+      - Happy Birthday
+      - Disco
+      - Strobe epilepsy!
+      - Alarm
+      - Police2
+      - WhatsApp
+      - Facebook
+      - Twitter
+      - Home
+      - Candle Flicker
+      - Slow Temp
+      - Stop
+      supported_color_modes:
+      - color_temp
+      - hs
+      - rgb
+      color_mode: color_temp
+      brightness: 255
+      color_temp: 250
+      hs_color:
+      - 26.812
+      - 34.87
+      rgb_color:
+      - 255
+      - 205
+      - 166
+      xy_color:
+      - 0.421
+      - 0.364
+      flowing: false
+      music_mode: false
+      friendly_name: Lounge Floor Lamp
+      supported_features: 44
+      state: 'on'
+    light.lounge_corner_lamp:
+      min_mireds: 153
+      max_mireds: 588
+      effect_list:
+      - Strobe color
+      - Police
+      - Christmas
+      - RGB
+      - Random Loop
+      - Fast Random Loop
+      - LSD
+      - Slowdown
+      - Night Mode
+      - Date Night
+      - Movie
+      - Sunrise
+      - Sunset
+      - Romance
+      - Happy Birthday
+      - Disco
+      - Strobe epilepsy!
+      - Alarm
+      - Police2
+      - WhatsApp
+      - Facebook
+      - Twitter
+      - Home
+      - Candle Flicker
+      - Slow Temp
+      - Stop
+      supported_color_modes:
+      - color_temp
+      - hs
+      - rgb
+      color_mode: color_temp
+      brightness: 255
+      color_temp: 294
+      hs_color:
+      - 27.277
+      - 46.969
+      rgb_color:
+      - 255
+      - 189
+      - 135
+      xy_color:
+      - 0.462
+      - 0.375
+      flowing: false
+      music_mode: false
+      friendly_name: Lounge Corner Lamp
+      supported_features: 44
+      state: 'on'
+    switch.lounge_tv:
+      friendly_name: Lounge TV
+      state: 'on'
+    light.lounge:
+      supported_color_modes:
+      - onoff
+      friendly_name: Lounge Light
+      supported_features: 0
+      icon: mdi:ceiling-light
+      state: 'off'
+    automation.lounge_light_constrained:
+      last_triggered: '2022-01-08T15:41:53.926336+00:00'
+      mode: single
+      current: 0
+      id: 7370bd68e87044beacd6a72f5028ad5a
+      friendly_name: Lounge Light Constrained
+      state: 'on'
   icon: hass:television-classic
 - id: '1593602714878'
   name: Watch Movie
@@ -72,13 +193,13 @@
       - 0.546
       - 0.389
       entity_id:
-      - light.kitchen_lamp
-      - light.drawing_room_lamp
-      - light.lounge_lamp
+      - light.breakfast_bar_lamp
+      - light.lounge_floor_lamp
+      - light.lounge_corner_lamp
       - light.hall_lamp
-      - light.bedroom_lamp
+      - light.bedside_lamp
       - light.basement_stairs
-      - light.snug_lamp
+      - light.snug_floor_lamp
       friendly_name: Yeelights
       icon: mdi:lightbulb-group
       supported_features: 63
@@ -136,13 +257,13 @@
       - 0.546
       - 0.389
       entity_id:
-      - light.kitchen_lamp
-      - light.drawing_room_lamp
-      - light.lounge_lamp
+      - light.breakfast_bar_lamp
+      - light.lounge_floor_lamp
+      - light.lounge_corner_lamp
       - light.hall_lamp
-      - light.bedroom_lamp
+      - light.bedside_lamp
       - light.basement_stairs
-      - light.snug_lamp
+      - light.snug_floor_lamp
       friendly_name: Yeelights
       icon: mdi:lightbulb-group
       supported_features: 63
@@ -171,7 +292,79 @@
 - id: '1604358522437'
   name: Get Ready For Bed
   entities:
-    light.bedroom_lamp:
+    light.bedroom:
+      supported_color_modes:
+      - onoff
+      friendly_name: Bedroom Light
+      supported_features: 0
+      state: 'off'
+    light.bedside_lamp:
+      min_mireds: 153
+      max_mireds: 588
+      effect_list:
+      - Strobe color
+      - Police
+      - Christmas
+      - RGB
+      - Random Loop
+      - Fast Random Loop
+      - LSD
+      - Slowdown
+      - Night Mode
+      - Date Night
+      - Movie
+      - Sunrise
+      - Sunset
+      - Romance
+      - Happy Birthday
+      - Disco
+      - Strobe epilepsy!
+      - Alarm
+      - Police2
+      - WhatsApp
+      - Facebook
+      - Twitter
+      - Home
+      - Candle Flicker
+      - Slow Temp
+      - Stop
+      supported_color_modes:
+      - color_temp
+      - hs
+      - rgb
+      color_mode: hs
+      brightness: 230
+      hs_color:
+      - 28
+      - 72
+      rgb_color:
+      - 255
+      - 157
+      - 71
+      xy_color:
+      - 0.548
+      - 0.386
+      flowing: false
+      music_mode: false
+      friendly_name: Bedside Lamp
+      supported_features: 44
+      state: 'on'
+  icon: mdi:bed
+- id: '1604359643659'
+  name: Get Up
+  entities:
+    input_boolean.in_bed:
+      editable: true
+      friendly_name: In Bed
+      icon: mdi:bed
+      state: 'off'
+    light.bedroom:
+      supported_color_modes:
+      - onoff
+      friendly_name: Bedroom Light
+      supported_features: 0
+      state: 'off'
+    light.bedside_lamp:
       min_mireds: 153
       max_mireds: 588
       effect_list:
@@ -207,60 +400,175 @@
       - rgb
       flowing: false
       music_mode: false
-      friendly_name: Bedroom Lamp
+      friendly_name: Bedside Lamp
       supported_features: 44
       state: 'off'
-    light.bedroom:
-      supported_color_modes:
-      - onoff
-      manufacturer: SONOFF
-      model: 4CHPRO
-      sw_version: PSF-B04-GL v3.4.1
-      local: online
-      rssi: -50
-      friendly_name: Bedroom Light
-      supported_features: 0
-      state: 'off'
-  icon: mdi:bed
-- id: '1604359643659'
-  name: Get Up
-  entities:
-    light.bedroom_lamp:
-      brightness: 26
-      color_temp: 279
-      state: 'on'
-    input_boolean.in_bed: 'off'
-    light.bedroom: 'off'
   icon: hass:human-handsup
 - id: '1605288983801'
   name: Lounge Normal
   entities:
-    light.lounge_lamp:
+    light.lounge_corner_lamp:
+      min_mireds: 153
+      max_mireds: 588
+      effect_list:
+      - Strobe color
+      - Police
+      - Christmas
+      - RGB
+      - Random Loop
+      - Fast Random Loop
+      - LSD
+      - Slowdown
+      - Night Mode
+      - Date Night
+      - Movie
+      - Sunrise
+      - Sunset
+      - Romance
+      - Happy Birthday
+      - Disco
+      - Strobe epilepsy!
+      - Alarm
+      - Police2
+      - WhatsApp
+      - Facebook
+      - Twitter
+      - Home
+      - Candle Flicker
+      - Slow Temp
+      - Stop
+      supported_color_modes:
+      - color_temp
+      - hs
+      - rgb
+      flowing: false
+      music_mode: false
+      friendly_name: Lounge Corner Lamp
+      supported_features: 44
       state: 'off'
-    light.lounge: 'off'
-    input_select.lounge_mode: Normal
-    switch.lounge_tv: 'off'
+    light.lounge:
+      supported_color_modes:
+      - onoff
+      friendly_name: Lounge Light
+      supported_features: 0
+      icon: mdi:ceiling-light
+      state: 'off'
+    input_select.lounge_mode:
+      options:
+      - Normal
+      - Reading
+      - Television
+      - Dark
+      - Chill
+      editable: true
+      icon: mdi:sofa
+      friendly_name: Lounge Mode
+      state: Normal
+    switch.lounge_tv:
+      friendly_name: Lounge TV
+      state: 'off'
+    light.lounge_floor_lamp:
+      min_mireds: 153
+      max_mireds: 588
+      effect_list:
+      - Strobe color
+      - Police
+      - Christmas
+      - RGB
+      - Random Loop
+      - Fast Random Loop
+      - LSD
+      - Slowdown
+      - Night Mode
+      - Date Night
+      - Movie
+      - Sunrise
+      - Sunset
+      - Romance
+      - Happy Birthday
+      - Disco
+      - Strobe epilepsy!
+      - Alarm
+      - Police2
+      - WhatsApp
+      - Facebook
+      - Twitter
+      - Home
+      - Candle Flicker
+      - Slow Temp
+      - Stop
+      supported_color_modes:
+      - color_temp
+      - hs
+      - rgb
+      flowing: false
+      music_mode: false
+      friendly_name: Lounge Floor Lamp
+      supported_features: 44
+      state: 'off'
+    automation.lounge_light_constrained:
+      last_triggered: '2022-01-08T16:03:37.371471+00:00'
+      mode: single
+      current: 0
+      id: 7370bd68e87044beacd6a72f5028ad5a
+      friendly_name: Lounge Light Constrained
+      state: 'off'
   icon: mdi:sofa
 - id: '1605351014819'
   name: Lights Up
   entities:
-    light.snug_lamp: 'off'
+    light.snug_floor_lamp: 'off'
     light.snug: 'off'
     input_select.snug_mode: Normal
   icon: hass:floor-lamp
 - id: '1605716138100'
   name: Showering
   entities:
-    light.bathroom_fan: 'on'
-    light.bathroom: 'on'
-    light.mirror: 'off'
-    input_boolean.in_shower: 'on'
+    light.bathroom:
+      supported_color_modes:
+      - onoff
+      color_mode: onoff
+      friendly_name: Bathroom Light
+      supported_features: 0
+      state: 'on'
+    light.mirror:
+      supported_color_modes:
+      - onoff
+      friendly_name: Mirror Light
+      supported_features: 0
+      state: 'off'
+    input_boolean.in_shower:
+      editable: true
+      friendly_name: in_shower
+      icon: hass:shower-head
+      state: 'on'
+    fan.bathroom_fan:
+      friendly_name: Bathroom Fan
+      supported_features: 0
+      state: 'on'
   icon: hass:shower-head
 - id: '1605716301658'
   name: Bathroom Normal
   entities:
-    light.bathroom_fan: 'off'
-    input_boolean.in_shower: 'off'
-    light.bathroom: 'off'
-    light.mirror: 'off'
+    input_boolean.in_shower:
+      editable: true
+      friendly_name: in_shower
+      icon: hass:shower-head
+      state: 'off'
+    light.bathroom:
+      supported_color_modes:
+      - onoff
+      friendly_name: Bathroom Light
+      supported_features: 0
+      state: 'off'
+    light.mirror:
+      supported_color_modes:
+      - onoff
+      friendly_name: Mirror Light
+      supported_features: 0
+      state: 'off'
+    fan.bathroom_fan:
+      friendly_name: Bathroom Fan
+      supported_features: 0
+      state: 'off'
   icon: hass:shower

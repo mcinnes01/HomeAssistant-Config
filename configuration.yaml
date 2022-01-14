@@ -13,15 +13,16 @@ homeassistant:
   #
 #End of dwains-theme necessary code#
 http:
-  use_x_forwarded_for: true     # To ensure HA understands that client requests come via reverse proxy
+  use_x_forwarded_for: true # To ensure HA understands that client requests come via reverse proxy
   trusted_proxies:
-    - 172.30.32.0/23            # In Hass.io we need to add the Docker subnet
+    - 172.30.32.0/23 # In Hass.io we need to add the Docker subnet
 
 # Default config to bring in standard component set
 automation: !include automations.yaml
 cloud:
 config:
 counter:
+energy:
 group: !include groups.yaml
 history:
 logbook:
@@ -29,7 +30,9 @@ logger:
   default: critical
   logs:
     homeassistant.components.samsungtv: debug
-    homeassistant.components.automation: debug
+    homeassistant.components.samsungtvws: debug
+    samsungtvws.remote: debug
+    #homeassistant.components.automation: debug
 map:
   entities:
     - device_tracker.claires_iphone
@@ -42,31 +45,7 @@ my:
 person:
 scene: !include scenes.yaml
 script: !include scripts.yaml
-sensor:
-  - platform: nest
-    monitored_conditions:
-      - 'temperature'
-      - 'target'
-      - 'humidity'
-      - 'weather_temperature'
-      - 'weather_humidity'
-      - 'weather_condition'
-      - 'wind_speed'
-      - 'wind_direction'
-  - platform: dnsip
-  - platform: dnsip
-    hostname: home.andisoft.co.uk
-    name: hass
-    resolver: 8.8.8.8
-  - platform: unifigateway
-    host: 192.168.1.254
-    username: !secret unifi_username
-    password: !secret unifi_password
-    monitored_conditions:
-      - www
-      - wlan
-      - alerts
-      - firmware
+sensor: !include sensors.yaml
 ssdp:
 sun:
 system_health:
@@ -163,67 +142,145 @@ alarm_control_panel:
       delay_time: 30
 
 # Sonoff
-sonoff:
-  username: !secret sonoff_username
-  password: !secret sonoff_password
-  mode: local
-  reload: always  # update device list every time HA starts
-  devices:
-    1000bab381:
-      device_class: [light,light,light,light]
-      name: Upstairs Lights 1
-    1000bab6de:
-      device_class: [light,light,light,light]
-      name: Upstairs Lights 2
-    100032907e:
-      device_class: [light,light,light,light]
-      name: Outside Lights
-    1000ba9977:
-      device_class: [light,light,light,light]
-      name: Downstairs Lights 1
-    1000bab17a:
-      device_class: [light,light,light,light]
-      name: Downstairs Lights 2
-    100032bd73:
-      device_class: [light,light,light,light]
-      name: Basement Lights 1
-    100032a00d:
-      device_class: [light,light,light,light]
-      name: Basement Lights 2
+# sonoff:
+#   username: !secret sonoff_username
+#   password: !secret sonoff_password
+#   mode: local
+#   reload: always  # update device list every time HA starts
+#   devices:
+#     1000bab381:
+#       device_class: [light,light,light,light]
+#       name: Upstairs Lights 1
+#     1000bab6de:
+#       device_class: [light,light,light,light]
+#       name: Upstairs Lights 2
+#     100032907e:
+#       device_class: [light,light,light,light]
+#       name: Outside Lights
+#     1000ba9977:
+#       device_class: [light,light,light,light]
+#       name: Downstairs Lights 1
+#     1000bab17a:
+#       device_class: [light,light,light,light]
+#       name: Downstairs Lights 2
+#     100032bd73:
+#       device_class: [light,light,light,light]
+#       name: Basement Lights 1
+#     100032a00d:
+#       device_class: [light,light,light,light]
+#       name: Basement Lights 2
 
 # Lights
 yeelight:
   # devices:
   #   192.168.30.17:
-  #     name: Snug Lamp
+  #     name: Snug Floor Lamp
   #   192.168.30.43:
-  #     name: Bedroom Lamp
+  #     name: Bedside Lamp
   #   192.168.30.48:
-  #     name: Kitchen Lamp
+  #     name: Breakfast Bar Lamp
   #   192.168.30.106:
   #     name: Hallway Lamp
   #   192.168.30.171:
-  #     name: Drawing Room Lamp
+  #     name: Lounge Floor Room Lamp
   #   192.168.30.200:
-  #     name: Lounge Lamp
+  #     name: Lounge Corner Lamp
 
 light:
+  - platform: switch
+    name: Basement Hall
+    entity_id: switch.100032bd73_3
+  - platform: switch
+    name: Brewery
+    entity_id: switch.100032bd73_4
+  - platform: switch
+    name: Toilet
+    entity_id: switch.100032bd73_1
+  - platform: switch
+    name: Utility Room
+    entity_id: switch.100032bd73_2
+  - platform: switch
+    name: Dining Room
+    entity_id: switch.100032a00d_1
+  - platform: switch
+    name: Snug
+    entity_id: switch.100032a00d_2
+  - platform: switch
+    name: Basement Spare 5
+    entity_id: switch.100032a00d_4
+  - platform: switch
+    name: Basement Spare 6
+    entity_id: switch.100032a00d_3
+  - platform: switch
+    name: Bookshelf
+    entity_id: switch.1000ba9977_4
+  - platform: switch
+    name: Hallway
+    entity_id: switch.1000ba9977_2
+  - platform: switch
+    name: Lounge
+    entity_id: switch.1000ba9977_1
+  - platform: switch
+    name: Cabinet
+    entity_id: switch.1000bab17a_2
+  - platform: switch
+    name: Drawing Room
+    entity_id: switch.1000bab17a_4
+  - platform: switch
+    name: Kitchen
+    entity_id: switch.1000bab17a_3
+  - platform: switch
+    name: Downstairs Spare 1
+    entity_id: switch.1000bab17a_1
+  - platform: switch
+    name: Back Door
+    entity_id: switch.100032907e_1
+  - platform: switch
+    name: Cellar Door
+    entity_id: switch.100032907e_4
+  - platform: switch
+    name: Patio
+    entity_id: switch.100032907e_2
+  - platform: switch
+    name: Porch
+    entity_id: switch.100032907e_3
+  - platform: switch
+    name: Dressing Room
+    entity_id: switch.1000bab381_3
+  - platform: switch
+    name: Guest Room
+    entity_id: switch.1000bab381_1
+  - platform: switch
+    name: Landing
+    entity_id: switch.1000bab381_2
+  - platform: switch
+    name: Bathroom
+    entity_id: switch.1000bab6de_3
+  - platform: switch
+    name: Bedroom
+    entity_id: switch.1000bab6de_1
+  - platform: switch
+    name: Mirror
+    entity_id: switch.1000bab6de_4
+  - platform: switch
+    name: Studio
+    entity_id: switch.1000bab6de_2
   - platform: group
     name: Yeelights
     entities:
-      - light.kitchen_lamp
-      - light.floor_lamp
-      - light.lounge_lamp
-      - light.hall_lamp
-      - light.bedroom_lamp
+      - light.breakfast_bar_lamp
+      - light.lounge_floor_lamp
+      - light.lounge_corner_lamp
+      - light.hallway_lamp
+      - light.bedside_lamp
       - light.basement_stairs
-      - light.snug_lamp
+      - light.snug_floor_lamp
   - platform: group
     name: Basement Lights
     entities:
       - light.basement_hall
       - light.snug
-      - light.snug_lamp
+      - light.snug_floor_lamp
       - light.dining_room
       - light.toilet
       - light.utility_room
@@ -234,12 +291,12 @@ light:
       - light.hallway
       - light.hallway_lamp
       - light.lounge
-      - light.lounge_lamp
+      - light.lounge_corner_lamp
       - light.drawing_room
       - light.bookshelf
-      - light.floor_lamp
+      - light.lounge_floor_lamp
       - light.kitchen
-      - light.kitchen_lamp
+      - light.breakfast_bar_lamp
   - platform: group
     name: Upstairs Lights
     entities:
@@ -248,7 +305,7 @@ light:
       - light.bathroom
       - light.mirror
       - light.bedroom
-      - light.bedroom_lamp
+      - light.bedside_lamp
       - light.guest_room
       - light.dressing_room
   - platform: group
@@ -284,7 +341,7 @@ light:
     name: Snug Lights
     entities:
       - light.snug
-      - light.snug_lamp
+      - light.snug_floor_lamp
   - platform: group
     name: Utility Room Lights
     entities:
@@ -299,8 +356,8 @@ light:
     name: Lounge Lights
     entities:
       - light.lounge
-      - light.lounge_lamp
-      - light.floor_lamp
+      - light.lounge_corner_lamp
+      - light.lounge_floor_lamp
   - platform: group
     name: Drawing Room Lights
     entities:
@@ -310,7 +367,7 @@ light:
     name: Kitchen Lights
     entities:
       - light.kitchen
-      - light.kitchen_lamp
+      - light.breakfast_bar_lamp
   - platform: group
     name: Patio Lights
     entities:
@@ -325,7 +382,7 @@ light:
     name: Bedroom Lights
     entities:
       - light.bedroom
-      - light.bedroom_lamp
+      - light.bedside_lamp
 
 binary_sensor:
   - platform: uptimerobot
@@ -337,6 +394,36 @@ binary_sensor:
         value_template: "{{ is_state('input_boolean.patio_motion', 'on') }}"
         device_class: "motion"
 
+fan:
+  - platform: template
+    fans:
+      bathroom_fan:
+        friendly_name: "Bathroom Fan"
+        value_template: "{{ states('switch.1000bab381_4') }}"
+        turn_on:
+          service: fan.turn_on
+          target:
+            entity_id: switch.1000bab381_4
+        turn_off:
+          service: fan.turn_off
+          target:
+            entity_id: switch.1000bab381_4
+        set_preset_mode:
+          service: fan.set_preset_mode
+      extractor_fan:
+        friendly_name: "Extractor Fan"
+        value_template: "{{ states('switch.1000ba9977_3') }}"
+        turn_on:
+          service: fan.turn_on
+          target:
+            entity_id: switch.1000ba9977_3
+        turn_off:
+          service: fan.turn_off
+          target:
+            entity_id: switch.1000ba9977_3
+        set_preset_mode:
+          service: fan.set_preset_mode
+
 template: !include templates.yaml
 
 withings:
@@ -345,3 +432,20 @@ withings:
   use_webhook: true
 
 entity_controller: !include entity_controller.yaml
+
+influxdb:
+  host: 192.168.1.1
+  port: 8086
+  database: homeassistant
+  username: homeassistant
+  password: !secret influxdb_password
+  max_retries: 3
+  default_measurement: state
+  exclude:
+    domains:
+      - automation
+      - script
+      - persistent_notification
+  tags:
+    instance: prod
+    source: hass

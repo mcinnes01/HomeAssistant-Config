@@ -10,9 +10,10 @@
 
 ### Control Entities
 1. Lounge Light
-2. Lounge Lamp
-3. Lounge Motion
-4. Sun
+2. Lounge Corner Lamp
+3. Lounge Floor Lamp
+4. Lounge Motion
+5. Sun
 
 ### Example of motion detected
 1. Motion is detected
