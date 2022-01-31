@@ -397,7 +397,7 @@ basement_controllers:
   name: Basement Controllers
   entities:
     - entity_controller.basement_hall_light_controller
-    - entity_controller.dining_room_light_controller
+#    - entity_controller.dining_room_light_controller
     - entity_controller.snug_floor_lamp_controller
     - entity_controller.snug_light_controller
     - entity_controller.toilet_light_controller
@@ -433,10 +433,10 @@ basement_hall_controllers:
   entities:
     - entity_controller.basement_hall_light_controller
 
-dining_room_controllers:
-  name: Dining Room Controllers
-  entities:
-    - entity_controller.dining_room_light_controller
+# dining_room_controllers:
+#   name: Dining Room Controllers
+#   entities:
+#     - entity_controller.dining_room_light_controller
 
 snug_controllers:
   name: Snug Controllers

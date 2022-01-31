@@ -33,3 +33,4 @@ log.txt
 *.log*
 zigbee2mqtt
 core
+netdaemon3/

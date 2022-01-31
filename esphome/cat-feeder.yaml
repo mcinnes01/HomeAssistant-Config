@@ -80,7 +80,7 @@ binary_sensor:
   - platform: homeassistant
     id: mornning_feed_complete
     name: "Morning Feed Complete"
-    entity_id: input_boolean.mornning_feed_complete
+    entity_id: input_boolean.morning_feed_complete
   - platform: homeassistant
     id: evening_feed_enabled
     name: "Evening Feed Enabled"
