@@ -288,8 +288,8 @@ namespace HomeAssistantGenerated
 		public BinarySensorEntity BasementStairsMotion => new(_haContext, "binary_sensor.basement_stairs_motion");
 		///<summary>Basement Stairs Motion battery low</summary>
 		public BinarySensorEntity BasementStairsMotionBatteryLow => new(_haContext, "binary_sensor.basement_stairs_motion_battery_low");
-		///<summary>Basement Stairs Motion occupancy</summary>
-		public BinarySensorEntity BasementStairsMotionOccupancy => new(_haContext, "binary_sensor.basement_stairs_motion_occupancy");
+		///<summary>Basement Stairs Motion Konnected</summary>
+		public BinarySensorEntity BasementStairsMotionKonnected => new(_haContext, "binary_sensor.basement_stairs_motion_konnected");
 		///<summary>Basement Stairs Motion tamper</summary>
 		public BinarySensorEntity BasementStairsMotionTamper => new(_haContext, "binary_sensor.basement_stairs_motion_tamper");
 		///<summary>Basement Thermostat fan</summary>
@@ -452,6 +452,10 @@ namespace HomeAssistantGenerated
 
 		///<summary>Basement Thermostat Identify</summary>
 		public ButtonEntity BasementThermostatIdentify => new(_haContext, "button.basement_thermostat_identify");
+		///<summary>ESPresense Kitchen Restart</summary>
+		public ButtonEntity EspresenseKitchenRestart => new(_haContext, "button.espresense_kitchen_restart");
+		///<summary>ESPresense Lounge Restart</summary>
+		public ButtonEntity EspresenseLoungeRestart => new(_haContext, "button.espresense_lounge_restart");
 		///<summary>Home Occupied Identify</summary>
 		public ButtonEntity HomeOccupiedIdentify => new(_haContext, "button.home_occupied_identify");
 		///<summary>Nest 8A11 Identify</summary>
@@ -534,8 +538,8 @@ namespace HomeAssistantGenerated
 
 		///<summary>Andrew’s iPhone</summary>
 		public DeviceTrackerEntity AndrewsIphone => new(_haContext, "device_tracker.andrews_iphone");
-		///<summary>Andrew’s iPhone iCloud</summary>
-		public DeviceTrackerEntity AndrewsIphoneIcloud => new(_haContext, "device_tracker.andrews_iphone_icloud");
+		///<summary>Andrew's iPhone iCloud</summary>
+		public DeviceTrackerEntity AndrewsIphoneIcloud3 => new(_haContext, "device_tracker.andrews_iphone_icloud_3");
 		///<summary>Andrew’s iPhone</summary>
 		public DeviceTrackerEntity AndrewsIphoneTile => new(_haContext, "device_tracker.andrews_iphone_tile");
 		///<summary>Andy's Keys</summary>
@@ -922,12 +926,32 @@ namespace HomeAssistantGenerated
 		public InputBooleanEntity MorningFeedEnabled => new(_haContext, "input_boolean.morning_feed_enabled");
 		///<summary>netdaemon_appmodelhelloyamlapp</summary>
 		public InputBooleanEntity NetdaemonAppmodelhelloyamlapp => new(_haContext, "input_boolean.netdaemon_appmodelhelloyamlapp");
+		///<summary>netdaemon_basementbasementhallbasementhalllights</summary>
+		public InputBooleanEntity NetdaemonBasementbasementhallbasementhalllights => new(_haContext, "input_boolean.netdaemon_basementbasementhallbasementhalllights");
+		///<summary>netdaemon_basementdiningroomdiningroomlights</summary>
+		public InputBooleanEntity NetdaemonBasementdiningroomdiningroomlights => new(_haContext, "input_boolean.netdaemon_basementdiningroomdiningroomlights");
+		///<summary>netdaemon_basementtoilettoiletlight</summary>
+		public InputBooleanEntity NetdaemonBasementtoilettoiletlight => new(_haContext, "input_boolean.netdaemon_basementtoilettoiletlight");
+		///<summary>netdaemon_basementutilityroomutilityroomlight</summary>
+		public InputBooleanEntity NetdaemonBasementutilityroomutilityroomlight => new(_haContext, "input_boolean.netdaemon_basementutilityroomutilityroomlight");
+		///<summary>netdaemon_downstairsloungeloungelights</summary>
+		public InputBooleanEntity NetdaemonDownstairsloungeloungelights => new(_haContext, "input_boolean.netdaemon_downstairsloungeloungelights");
 		///<summary>netdaemon_extensionsschedulingschedulingapp</summary>
 		public InputBooleanEntity NetdaemonExtensionsschedulingschedulingapp => new(_haContext, "input_boolean.netdaemon_extensionsschedulingschedulingapp");
 		///<summary>netdaemon_hassmodelhelloworldapp</summary>
 		public InputBooleanEntity NetdaemonHassmodelhelloworldapp => new(_haContext, "input_boolean.netdaemon_hassmodelhelloworldapp");
 		///<summary>netdaemon_hassmodellightonmovement</summary>
 		public InputBooleanEntity NetdaemonHassmodellightonmovement => new(_haContext, "input_boolean.netdaemon_hassmodellightonmovement");
+		///<summary>netdaemon_housestatemanager</summary>
+		public InputBooleanEntity NetdaemonHousestatemanager => new(_haContext, "input_boolean.netdaemon_housestatemanager");
+		///<summary>netdaemon_outsidepatioweatherstationambientlight</summary>
+		public InputBooleanEntity NetdaemonOutsidepatioweatherstationambientlight => new(_haContext, "input_boolean.netdaemon_outsidepatioweatherstationambientlight");
+		///<summary>netdaemon_upstairsbedroombedroomlights</summary>
+		public InputBooleanEntity NetdaemonUpstairsbedroombedroomlights => new(_haContext, "input_boolean.netdaemon_upstairsbedroombedroomlights");
+		///<summary>netdaemon_upstairsbedroombedroommode</summary>
+		public InputBooleanEntity NetdaemonUpstairsbedroombedroommode => new(_haContext, "input_boolean.netdaemon_upstairsbedroombedroommode");
+		///<summary>netdaemon_upstairsbedroomsleepanalyser</summary>
+		public InputBooleanEntity NetdaemonUpstairsbedroomsleepanalyser => new(_haContext, "input_boolean.netdaemon_upstairsbedroomsleepanalyser");
 		///<summary>Patio Motion</summary>
 		public InputBooleanEntity PatioMotion => new(_haContext, "input_boolean.patio_motion");
 		///<summary>Snug Floor Lamp Constrained</summary>
@@ -970,6 +994,8 @@ namespace HomeAssistantGenerated
 		public InputSelectEntity DressingRoomPresence => new(_haContext, "input_select.dressing_room_presence");
 		///<summary>Guest Room Presence</summary>
 		public InputSelectEntity GuestRoomPresence => new(_haContext, "input_select.guest_room_presence");
+		///<summary>House Mode Select</summary>
+		public InputSelectEntity HouseModeSelect => new(_haContext, "input_select.house_mode_select");
 		///<summary>House Presence</summary>
 		public InputSelectEntity HousePresence => new(_haContext, "input_select.house_presence");
 		///<summary>Kitchen Presence</summary>
@@ -1213,6 +1239,8 @@ namespace HomeAssistantGenerated
 
 		///<summary>Bathroom Normal</summary>
 		public SceneEntity BathroomNormal => new(_haContext, "scene.bathroom_normal");
+		///<summary>Cleaning</summary>
+		public SceneEntity Cleaning => new(_haContext, "scene.cleaning");
 		///<summary>Get Ready For Bed</summary>
 		public SceneEntity GetReadyForBed => new(_haContext, "scene.get_ready_for_bed");
 		///<summary>Get Up</summary>
@@ -1323,8 +1351,8 @@ namespace HomeAssistantGenerated
 		public NumericSensorEntity AndrewsIphoneFloorsAscended => new(_haContext, "sensor.andrews_iphone_floors_ascended");
 		///<summary>Andrew’s iPhone Floors Descended</summary>
 		public NumericSensorEntity AndrewsIphoneFloorsDescended => new(_haContext, "sensor.andrews_iphone_floors_descended");
-		///<summary>Andrew’s iPhone iCloud battery state</summary>
-		public NumericSensorEntity AndrewsIphoneIcloudBatteryState => new(_haContext, "sensor.andrews_iphone_icloud_battery_state");
+		///<summary>Andrew's iPhone iCloud battery state</summary>
+		public NumericSensorEntity AndrewsIphoneIcloudBatteryState2 => new(_haContext, "sensor.andrews_iphone_icloud_battery_state_2");
 		///<summary>Andrew’s iPhone Steps</summary>
 		public NumericSensorEntity AndrewsIphoneSteps => new(_haContext, "sensor.andrews_iphone_steps");
 		///<summary>Andrew’s iPhone Storage</summary>
@@ -1407,6 +1435,14 @@ namespace HomeAssistantGenerated
 		public NumericSensorEntity ElectricCabinetDoorLinkquality => new(_haContext, "sensor.electric_cabinet_door_linkquality");
 		///<summary>Electric Cabinet Door voltage</summary>
 		public NumericSensorEntity ElectricCabinetDoorVoltage => new(_haContext, "sensor.electric_cabinet_door_voltage");
+		///<summary>ESPresense Kitchen Free Memory</summary>
+		public NumericSensorEntity EspresenseKitchenFreeMemory => new(_haContext, "sensor.espresense_kitchen_free_memory");
+		///<summary>ESPresense Kitchen Uptime</summary>
+		public NumericSensorEntity EspresenseKitchenUptime => new(_haContext, "sensor.espresense_kitchen_uptime");
+		///<summary>ESPresense Lounge Free Memory</summary>
+		public NumericSensorEntity EspresenseLoungeFreeMemory => new(_haContext, "sensor.espresense_lounge_free_memory");
+		///<summary>ESPresense Lounge Uptime</summary>
+		public NumericSensorEntity EspresenseLoungeUptime => new(_haContext, "sensor.espresense_lounge_uptime");
 		///<summary>Front Door battery</summary>
 		public NumericSensorEntity FrontDoorBattery => new(_haContext, "sensor.front_door_battery");
 		///<summary>Front Door linkquality</summary>
@@ -1583,12 +1619,8 @@ namespace HomeAssistantGenerated
 		public NumericSensorEntity WithingsHeartPulseBpmClaire => new(_haContext, "sensor.withings_heart_pulse_bpm_claire");
 		///<summary>Withings height_m Andy</summary>
 		public NumericSensorEntity WithingsHeightMAndy => new(_haContext, "sensor.withings_height_m_andy");
-		///<summary>Withings height_m Claire</summary>
-		public NumericSensorEntity WithingsHeightMClaire => new(_haContext, "sensor.withings_height_m_claire");
 		///<summary>Withings hydration Andy</summary>
 		public NumericSensorEntity WithingsHydrationAndy => new(_haContext, "sensor.withings_hydration_andy");
-		///<summary>Withings hydration Claire</summary>
-		public NumericSensorEntity WithingsHydrationClaire => new(_haContext, "sensor.withings_hydration_claire");
 		///<summary>Withings muscle_mass_kg Andy</summary>
 		public NumericSensorEntity WithingsMuscleMassKgAndy => new(_haContext, "sensor.withings_muscle_mass_kg_andy");
 		///<summary>Withings muscle_mass_kg Claire</summary>
@@ -1603,72 +1635,38 @@ namespace HomeAssistantGenerated
 		public NumericSensorEntity WithingsSkinTemperatureCClaire => new(_haContext, "sensor.withings_skin_temperature_c_claire");
 		///<summary>Withings sleep_breathing_disturbances_intensity Andy</summary>
 		public NumericSensorEntity WithingsSleepBreathingDisturbancesIntensityAndy => new(_haContext, "sensor.withings_sleep_breathing_disturbances_intensity_andy");
-		///<summary>Withings sleep_breathing_disturbances_intensity Claire</summary>
-		public NumericSensorEntity WithingsSleepBreathingDisturbancesIntensityClaire => new(_haContext, "sensor.withings_sleep_breathing_disturbances_intensity_claire");
 		///<summary>Withings sleep_deep_duration_seconds Andy</summary>
 		public NumericSensorEntity WithingsSleepDeepDurationSecondsAndy => new(_haContext, "sensor.withings_sleep_deep_duration_seconds_andy");
-		///<summary>Withings sleep_deep_duration_seconds Claire</summary>
-		public NumericSensorEntity WithingsSleepDeepDurationSecondsClaire => new(_haContext, "sensor.withings_sleep_deep_duration_seconds_claire");
 		///<summary>Withings sleep_heart_rate_average_bpm Andy</summary>
 		public NumericSensorEntity WithingsSleepHeartRateAverageBpmAndy => new(_haContext, "sensor.withings_sleep_heart_rate_average_bpm_andy");
-		///<summary>Withings sleep_heart_rate_average_bpm Claire</summary>
-		public NumericSensorEntity WithingsSleepHeartRateAverageBpmClaire => new(_haContext, "sensor.withings_sleep_heart_rate_average_bpm_claire");
 		///<summary>Withings sleep_heart_rate_max_bpm Andy</summary>
 		public NumericSensorEntity WithingsSleepHeartRateMaxBpmAndy => new(_haContext, "sensor.withings_sleep_heart_rate_max_bpm_andy");
-		///<summary>Withings sleep_heart_rate_max_bpm Claire</summary>
-		public NumericSensorEntity WithingsSleepHeartRateMaxBpmClaire => new(_haContext, "sensor.withings_sleep_heart_rate_max_bpm_claire");
 		///<summary>Withings sleep_heart_rate_min_bpm Andy</summary>
 		public NumericSensorEntity WithingsSleepHeartRateMinBpmAndy => new(_haContext, "sensor.withings_sleep_heart_rate_min_bpm_andy");
-		///<summary>Withings sleep_heart_rate_min_bpm Claire</summary>
-		public NumericSensorEntity WithingsSleepHeartRateMinBpmClaire => new(_haContext, "sensor.withings_sleep_heart_rate_min_bpm_claire");
 		///<summary>Withings sleep_light_duration_seconds Andy</summary>
 		public NumericSensorEntity WithingsSleepLightDurationSecondsAndy => new(_haContext, "sensor.withings_sleep_light_duration_seconds_andy");
-		///<summary>Withings sleep_light_duration_seconds Claire</summary>
-		public NumericSensorEntity WithingsSleepLightDurationSecondsClaire => new(_haContext, "sensor.withings_sleep_light_duration_seconds_claire");
 		///<summary>Withings sleep_rem_duration_seconds Andy</summary>
 		public NumericSensorEntity WithingsSleepRemDurationSecondsAndy => new(_haContext, "sensor.withings_sleep_rem_duration_seconds_andy");
-		///<summary>Withings sleep_rem_duration_seconds Claire</summary>
-		public NumericSensorEntity WithingsSleepRemDurationSecondsClaire => new(_haContext, "sensor.withings_sleep_rem_duration_seconds_claire");
 		///<summary>Withings sleep_respiratory_average_bpm Andy</summary>
 		public NumericSensorEntity WithingsSleepRespiratoryAverageBpmAndy => new(_haContext, "sensor.withings_sleep_respiratory_average_bpm_andy");
-		///<summary>Withings sleep_respiratory_average_bpm Claire</summary>
-		public NumericSensorEntity WithingsSleepRespiratoryAverageBpmClaire => new(_haContext, "sensor.withings_sleep_respiratory_average_bpm_claire");
 		///<summary>Withings sleep_respiratory_max_bpm Andy</summary>
 		public NumericSensorEntity WithingsSleepRespiratoryMaxBpmAndy => new(_haContext, "sensor.withings_sleep_respiratory_max_bpm_andy");
-		///<summary>Withings sleep_respiratory_max_bpm Claire</summary>
-		public NumericSensorEntity WithingsSleepRespiratoryMaxBpmClaire => new(_haContext, "sensor.withings_sleep_respiratory_max_bpm_claire");
 		///<summary>Withings sleep_respiratory_min_bpm Andy</summary>
 		public NumericSensorEntity WithingsSleepRespiratoryMinBpmAndy => new(_haContext, "sensor.withings_sleep_respiratory_min_bpm_andy");
-		///<summary>Withings sleep_respiratory_min_bpm Claire</summary>
-		public NumericSensorEntity WithingsSleepRespiratoryMinBpmClaire => new(_haContext, "sensor.withings_sleep_respiratory_min_bpm_claire");
 		///<summary>Withings sleep_score Andy</summary>
 		public NumericSensorEntity WithingsSleepScoreAndy => new(_haContext, "sensor.withings_sleep_score_andy");
-		///<summary>Withings sleep_score Claire</summary>
-		public NumericSensorEntity WithingsSleepScoreClaire => new(_haContext, "sensor.withings_sleep_score_claire");
 		///<summary>Withings sleep_snoring Andy</summary>
 		public NumericSensorEntity WithingsSleepSnoringAndy => new(_haContext, "sensor.withings_sleep_snoring_andy");
-		///<summary>Withings sleep_snoring Claire</summary>
-		public NumericSensorEntity WithingsSleepSnoringClaire => new(_haContext, "sensor.withings_sleep_snoring_claire");
 		///<summary>Withings sleep_snoring_eposode_count Andy</summary>
 		public NumericSensorEntity WithingsSleepSnoringEposodeCountAndy => new(_haContext, "sensor.withings_sleep_snoring_eposode_count_andy");
-		///<summary>Withings sleep_snoring_eposode_count Claire</summary>
-		public NumericSensorEntity WithingsSleepSnoringEposodeCountClaire => new(_haContext, "sensor.withings_sleep_snoring_eposode_count_claire");
 		///<summary>Withings sleep_tosleep_duration_seconds Andy</summary>
 		public NumericSensorEntity WithingsSleepTosleepDurationSecondsAndy => new(_haContext, "sensor.withings_sleep_tosleep_duration_seconds_andy");
-		///<summary>Withings sleep_tosleep_duration_seconds Claire</summary>
-		public NumericSensorEntity WithingsSleepTosleepDurationSecondsClaire => new(_haContext, "sensor.withings_sleep_tosleep_duration_seconds_claire");
 		///<summary>Withings sleep_towakeup_duration_seconds Andy</summary>
 		public NumericSensorEntity WithingsSleepTowakeupDurationSecondsAndy => new(_haContext, "sensor.withings_sleep_towakeup_duration_seconds_andy");
-		///<summary>Withings sleep_towakeup_duration_seconds Claire</summary>
-		public NumericSensorEntity WithingsSleepTowakeupDurationSecondsClaire => new(_haContext, "sensor.withings_sleep_towakeup_duration_seconds_claire");
 		///<summary>Withings sleep_wakeup_count Andy</summary>
 		public NumericSensorEntity WithingsSleepWakeupCountAndy => new(_haContext, "sensor.withings_sleep_wakeup_count_andy");
-		///<summary>Withings sleep_wakeup_count Claire</summary>
-		public NumericSensorEntity WithingsSleepWakeupCountClaire => new(_haContext, "sensor.withings_sleep_wakeup_count_claire");
 		///<summary>Withings sleep_wakeup_duration_seconds Andy</summary>
 		public NumericSensorEntity WithingsSleepWakeupDurationSecondsAndy => new(_haContext, "sensor.withings_sleep_wakeup_duration_seconds_andy");
-		///<summary>Withings sleep_wakeup_duration_seconds Claire</summary>
-		public NumericSensorEntity WithingsSleepWakeupDurationSecondsClaire => new(_haContext, "sensor.withings_sleep_wakeup_duration_seconds_claire");
 		///<summary>Withings spo2_pct Andy</summary>
 		public NumericSensorEntity WithingsSpo2PctAndy => new(_haContext, "sensor.withings_spo2_pct_andy");
 		///<summary>Withings spo2_pct Claire</summary>
@@ -1879,8 +1877,6 @@ namespace HomeAssistantGenerated
 		public SensorEntity MfcJ5910dwStatus => new(_haContext, "sensor.mfc_j5910dw_status");
 		///<summary>myip</summary>
 		public SensorEntity Myip => new(_haContext, "sensor.myip");
-		///<summary>netdaemon_status</summary>
-		public SensorEntity NetdaemonStatus => new(_haContext, "sensor.netdaemon_status");
 		///<summary>Patio Camera Detected Object</summary>
 		public SensorEntity PatioCameraDetectedObject => new(_haContext, "sensor.patio_camera_detected_object");
 		///<summary>Patio Camera Oldest Recording</summary>
@@ -2107,8 +2103,6 @@ namespace HomeAssistantGenerated
 		public SwitchEntity EspresenseKitchenStatusLed => new(_haContext, "switch.espresense_kitchen_status_led");
 		///<summary>ESPresense Lounge Active Scan</summary>
 		public SwitchEntity EspresenseLoungeActiveScan => new(_haContext, "switch.espresense_lounge_active_scan");
-		///<summary>ESPresense Lounge Query</summary>
-		public SwitchEntity EspresenseLoungeQuery => new(_haContext, "switch.espresense_lounge_query");
 		///<summary>ESPresense Lounge Status LED</summary>
 		public SwitchEntity EspresenseLoungeStatusLed => new(_haContext, "switch.espresense_lounge_status_led");
 		///<summary>ESPresense Snug Active Scan</summary>
@@ -2165,26 +2159,6 @@ namespace HomeAssistantGenerated
 		public SwitchEntity LoungeTv => new(_haContext, "switch.lounge_tv");
 		///<summary>Mark Schedule</summary>
 		public SwitchEntity MarkSchedule => new(_haContext, "switch.mark_schedule");
-		///<summary>netdaemon_basementhalllights</summary>
-		public SwitchEntity NetdaemonBasementhalllights => new(_haContext, "switch.netdaemon_basementhalllights");
-		///<summary>netdaemon_bedroomlights</summary>
-		public SwitchEntity NetdaemonBedroomlights => new(_haContext, "switch.netdaemon_bedroomlights");
-		///<summary>netdaemon_bedroommode</summary>
-		public SwitchEntity NetdaemonBedroommode => new(_haContext, "switch.netdaemon_bedroommode");
-		///<summary>netdaemon_diningroomlights</summary>
-		public SwitchEntity NetdaemonDiningroomlights => new(_haContext, "switch.netdaemon_diningroomlights");
-		///<summary>netdaemon_loungelights</summary>
-		public SwitchEntity NetdaemonLoungelights => new(_haContext, "switch.netdaemon_loungelights");
-		///<summary>netdaemon_schedulingapp</summary>
-		public SwitchEntity NetdaemonSchedulingapp => new(_haContext, "switch.netdaemon_schedulingapp");
-		///<summary>netdaemon_sleepanalyser</summary>
-		public SwitchEntity NetdaemonSleepanalyser => new(_haContext, "switch.netdaemon_sleepanalyser");
-		///<summary>netdaemon_toiletlight</summary>
-		public SwitchEntity NetdaemonToiletlight => new(_haContext, "switch.netdaemon_toiletlight");
-		///<summary>netdaemon_utilityroomlight</summary>
-		public SwitchEntity NetdaemonUtilityroomlight => new(_haContext, "switch.netdaemon_utilityroomlight");
-		///<summary>netdaemon_weatherstationambientlight</summary>
-		public SwitchEntity NetdaemonWeatherstationambientlight => new(_haContext, "switch.netdaemon_weatherstationambientlight");
 		///<summary>Patio Camera Detections: Person</summary>
 		public SwitchEntity PatioCameraDetectionsPerson => new(_haContext, "switch.patio_camera_detections_person");
 		///<summary>Patio Camera Detections: Vehicle</summary>
@@ -2710,7 +2684,7 @@ namespace HomeAssistantGenerated
 		public string? LastTrippedTime { get; init; }
 
 		[JsonPropertyName("linkquality")]
-		public object? Linkquality { get; init; }
+		public double? Linkquality { get; init; }
 
 		[JsonPropertyName("maxAllocHeap")]
 		public double? MaxAllocHeap { get; init; }
@@ -2726,6 +2700,9 @@ namespace HomeAssistantGenerated
 
 		[JsonPropertyName("occupancy")]
 		public bool? Occupancy { get; init; }
+
+		[JsonPropertyName("queried")]
+		public double? Queried { get; init; }
 
 		[JsonPropertyName("release_notes")]
 		public string? ReleaseNotes { get; init; }
@@ -3127,7 +3104,7 @@ namespace HomeAssistantGenerated
 		public object? EntityId { get; init; }
 
 		[JsonPropertyName("flowing")]
-		public object? Flowing { get; init; }
+		public bool? Flowing { get; init; }
 
 		[JsonPropertyName("friendly_name")]
 		public string? FriendlyName { get; init; }
@@ -3146,9 +3123,6 @@ namespace HomeAssistantGenerated
 
 		[JsonPropertyName("music_mode")]
 		public bool? MusicMode { get; init; }
-
-		[JsonPropertyName("restored")]
-		public bool? Restored { get; init; }
 
 		[JsonPropertyName("rgb_color")]
 		public object? RgbColor { get; init; }
@@ -3194,6 +3168,9 @@ namespace HomeAssistantGenerated
 
 		[JsonPropertyName("media_content_type")]
 		public string? MediaContentType { get; init; }
+
+		[JsonPropertyName("media_playlist")]
+		public string? MediaPlaylist { get; init; }
 
 		[JsonPropertyName("media_position_updated_at")]
 		public string? MediaPositionUpdatedAt { get; init; }
@@ -3489,17 +3466,11 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("friendly_name")]
 		public string? FriendlyName { get; init; }
 
-		[JsonPropertyName("holidays")]
-		public string? Holidays { get; init; }
-
 		[JsonPropertyName("icon")]
 		public string? Icon { get; init; }
 
 		[JsonPropertyName("Inland Water")]
 		public string? InlandWater { get; init; }
-
-		[JsonPropertyName("integration")]
-		public string? Integration { get; init; }
 
 		[JsonPropertyName("ISO Country Code")]
 		public string? ISOCountryCode { get; init; }
@@ -3540,12 +3511,6 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("next_date")]
 		public string? NextDate { get; init; }
 
-		[JsonPropertyName("number_of_loaded_apps")]
-		public double? NumberOfLoadedApps { get; init; }
-
-		[JsonPropertyName("number_of_running_apps")]
-		public double? NumberOfRunningApps { get; init; }
-
 		[JsonPropertyName("Ocean")]
 		public string? Ocean { get; init; }
 
@@ -3558,17 +3523,11 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("process_timestamp")]
 		public string? ProcessTimestamp { get; init; }
 
-		[JsonPropertyName("Querytype")]
-		public string? Querytype { get; init; }
-
 		[JsonPropertyName("recurrence")]
 		public object? Recurrence { get; init; }
 
 		[JsonPropertyName("reminder")]
 		public object? Reminder { get; init; }
-
-		[JsonPropertyName("Resolver")]
-		public string? Resolver { get; init; }
 
 		[JsonPropertyName("restored")]
 		public bool? Restored { get; init; }
@@ -3617,9 +3576,6 @@ namespace HomeAssistantGenerated
 
 		[JsonPropertyName("Types")]
 		public object? Types { get; init; }
-
-		[JsonPropertyName("version")]
-		public string? Version { get; init; }
 
 		[JsonPropertyName("voltage")]
 		public double? Voltage { get; init; }
@@ -3674,9 +3630,6 @@ namespace HomeAssistantGenerated
 
 		[JsonPropertyName("icon")]
 		public string? Icon { get; init; }
-
-		[JsonPropertyName("integration")]
-		public string? Integration { get; init; }
 
 		[JsonPropertyName("restored")]
 		public bool? Restored { get; init; }

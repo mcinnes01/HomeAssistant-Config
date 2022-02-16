@@ -36,11 +36,11 @@
     },
     "0x00124b00226650a6": {
         "voltage": 2900,
-        "battery": 75
+        "battery": 81
     },
     "0x00124b0023b85ca5": {
         "voltage": 2900,
-        "battery": 64.5,
+        "battery": 81,
         "occupancy": false,
         "tamper": false,
         "battery_low": false

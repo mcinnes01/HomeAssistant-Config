@@ -1,5 +1,6 @@
 using System.Reflection;
 using Microsoft.Extensions.Hosting;
+using MotionState;
 using NetDaemon.Extensions.Logging;
 using NetDaemon.Extensions.Scheduler;
 using NetDaemon.Extensions.Tts;
@@ -14,12 +15,14 @@ try
         .UseNetDaemonDefaultLogging()
         .UseNetDaemonRuntime()
         .UseNetDaemonTextToSpeech()
+        .UseMotionState()
         .ConfigureServices((_, services) =>
+        {
             services
                 .AddAppsFromAssembly(Assembly.GetExecutingAssembly())
                 .AddNetDaemonStateManager()
-                .AddNetDaemonScheduler()
-        )
+                .AddNetDaemonScheduler();
+        })
         .Build()
         .RunAsync()
         .ConfigureAwait(false);

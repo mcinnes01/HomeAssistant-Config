@@ -1,5 +1,10 @@
 [
     {
+        "name": "Fix Hallway Motion Sensor",
+        "id": "810f8d7cb2af4d2f874bddfa7542598e",
+        "complete": false
+    },
+    {
         "name": "Fix Good Night Automation",
         "id": "0aa6d81ff0454580a77af64000a291c5",
         "complete": false

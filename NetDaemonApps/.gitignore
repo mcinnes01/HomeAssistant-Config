@@ -4,3 +4,4 @@ appsettings.json
 .vs
 *.gen
 .idea
+out

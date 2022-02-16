@@ -572,3 +572,7 @@
       supported_features: 0
       state: 'off'
   icon: hass:shower
+- id: '1645051325679'
+  name: Cleaning
+  entities: {}
+  icon: mdi:spray-bottle

@@ -1,3 +1,5 @@
+using MotionState;
+
 namespace Downstairs.Lounge;
 
 [NetDaemonApp]
@@ -5,11 +7,13 @@ public class LoungeLights
 {
     private readonly ILogger<LoungeLights> _logger;
     private readonly Entities _entities;
-
-    public LoungeLights(IHaContext ha, ILogger<LoungeLights> logger)
+    private readonly IMotionStateService _motionStateService;
+    
+    public LoungeLights(IHaContext ha, ILogger<LoungeLights> logger, IMotionStateService motionStateService)
     {
         _logger = logger;
         _entities = new Entities(ha);
+        _motionStateService = motionStateService;
 
         LoungeLightOnMovement();
         LoungeFloorLampOnMovement();
@@ -87,7 +91,12 @@ public class LoungeLights
                 && e.New.IsOff()
                 && _entities.Light.LoungeFloorLamp.IsOn();
             })
-            .Throttle(TimeSpan.FromMinutes(2))
+            .Throttle(t => 
+            {
+                var motionEvent = new MotionStateItem(_entities.Light.LoungeFloorLamp.EntityId, 
+                    _entities.BinarySensor.LoungeMotion, 120, 300, 1.1);
+                return _motionStateService.GetTimer(motionEvent, t);
+            })
             .Subscribe(_ => _entities.Light.LoungeFloorLamp.TurnOff());
     }
 }
