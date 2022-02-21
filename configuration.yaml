@@ -74,6 +74,11 @@ alexa_media:
       password: !secret amazon_password
       url: amazon.co.uk
 
+# Spotify
+spotcast:
+  sp_dc: !secret sp_dc
+  sp_key: !secret sp_key
+
 # Bad Nest
 # badnest:
 #   user_id: !secret badnest_id

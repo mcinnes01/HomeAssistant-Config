@@ -10,5 +10,7 @@ build:
 	dotnet publish -c Release -o out
 
 publish:
+	cd /usr/share/hassio/homeassistant/NetDaemonApps
 	rm -rf ../netdaemon3
 	cp -R out/ ../netdaemon3/
+	rm -rf out

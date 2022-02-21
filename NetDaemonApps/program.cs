@@ -2,6 +2,7 @@ using System.Reflection;
 using Microsoft.Extensions.Hosting;
 using MotionState;
 using NetDaemon.Extensions.Logging;
+using NetDaemon.Extensions.MqttEntityManager;
 using NetDaemon.Extensions.Scheduler;
 using NetDaemon.Extensions.Tts;
 using NetDaemon.Runtime;
@@ -15,6 +16,7 @@ try
         .UseNetDaemonDefaultLogging()
         .UseNetDaemonRuntime()
         .UseNetDaemonTextToSpeech()
+        .UseNetDaemonMqttEntityManagement()
         .UseMotionState()
         .ConfigureServices((_, services) =>
         {

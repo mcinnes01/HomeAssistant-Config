@@ -7,10 +7,7 @@
 home-assistant.log
 home-assistant_v2.db
 secrets.yaml
-custom_components/*/
-!custom_components/dwains_dashboard
-custom_components/dwains_dashboard/__pycache__/
-custom_components/dwains_dashboard/.installed
+custom_components/
 !custom_components/ezo
 www/
 !www/images/persons
