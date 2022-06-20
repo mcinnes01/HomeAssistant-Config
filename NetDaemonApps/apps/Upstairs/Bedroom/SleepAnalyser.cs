@@ -11,93 +11,106 @@ public class SleepAnalyser
         _logger = logger;
         _entities = new Entities(ha);
 
+        // TODO: Handle only one getting in or out of bed i.e. one is away
+        // Possibly check if other sensor has been in off state > 30 mins
+        // OR better still one is away
         ClaireThenAndyInBed();
         AndyThenClaireInBed();
         ClaireThenAndyOutOfBed();
         AndyThenClaireOutOfBed();
-        OutOfBed();
     }
 
     private void ClaireThenAndyInBed()
     {
         _entities.BinarySensor.WithingsInBedAndy
-            .StateChanges()
-            .Select(e => e.New.IsOn() && e.Old.IsOff())
+            .StateAllChangesWithCurrent()
             .Where(e => 
             {
-                _logger.LogDebug(@$"Light Mode: {_entities.InputSelect.LightControlMode.State}, 
+                _logger.LogTrace(@$"Light Mode: {_entities.InputSelect.LightControlMode.State}, 
                     Andy In Bed: {_entities.BinarySensor.WithingsInBedAndy.State},
                     Light: {_entities.Light.Bedroom.State},
-                    Time: {DateTime.Now} >= {DateTime.Today.AddHours(20)}");
-                return _entities.BinarySensor.WithingsInBedClaire.IsOn()
-                && (DateTime.Now >= DateTime.Today.AddHours(20) || DateTime.Now < DateTime.Today.AddHours(4));
+                    Time: {TimeOnly.FromDateTime(DateTime.Now)} >= {Constants.NIGHT_START}");
+                return e.New.IsOn() 
+                && (_entities.BinarySensor.WithingsInBedClaire.IsOn()
+                || !_entities.Person.Claire.IsHome())
+                && (TimeOnly.FromDateTime(DateTime.Now) >= Constants.NIGHT_START
+                || TimeOnly.FromDateTime(DateTime.Now) <= Constants.NIGHT_END);
             })
-            .Throttle(TimeSpan.FromMinutes(5))
+            .Throttle(TimeSpan.FromMinutes(15))
             .Subscribe(_ => 
             {
                 _logger.LogDebug("Andy in bed, setting mode to Night");
-                _entities.InputSelect.LightControlMode.SelectOption("Night");
+                _entities.InputSelect.LightControlMode.SelectOption(LightControlModeOptions.Sleeping);
+                _entities.InputSelect.BedroomMode.SelectOption(BedroomModeOptions.Sleeping);
+                _entities.InputSelect.TimeOfDay.SelectOption(TimeOfDayOptions.Night);
             });
     }
 
     private void AndyThenClaireInBed()
     {
         _entities.BinarySensor.WithingsInBedClaire
-            .StateChanges()
-            .Select(e => e.New.IsOn() && e.Old.IsOff())
+            .StateAllChangesWithCurrent()
             .Where(e => 
             {
-                _logger.LogDebug(@$"Light Mode: {_entities.InputSelect.LightControlMode.State}, 
+                _logger.LogTrace(@$"Light Mode: {_entities.InputSelect.LightControlMode.State}, 
                     Claire In Bed: {_entities.BinarySensor.WithingsInBedClaire.State},
                     Light: {_entities.Light.Bedroom.State},
-                    Time: {DateTime.Now}");
-                return _entities.BinarySensor.WithingsInBedClaire.IsOn()
-                && (DateTime.Now >= DateTime.Today.AddHours(20) || DateTime.Now < DateTime.Today.AddHours(4));
+                    Time: {TimeOnly.FromDateTime(DateTime.Now)} >= {Constants.NIGHT_START}");
+                return e.New.IsOn() 
+                && (_entities.BinarySensor.WithingsInBedAndy.IsOn()
+                || !_entities.Person.Andy.IsHome())
+                && (TimeOnly.FromDateTime(DateTime.Now) >= Constants.NIGHT_START
+                || TimeOnly.FromDateTime(DateTime.Now) <= Constants.NIGHT_END);
             })
-            .Throttle(TimeSpan.FromMinutes(5))
+            .Throttle(TimeSpan.FromMinutes(15))
             .Subscribe(_ => 
             {
-                _logger.LogDebug("Andy in bed, setting mode to Night");
-                _entities.InputSelect.LightControlMode.SelectOption("Night");
+                _logger.LogDebug("Claire in bed, setting mode to Night");
+                _entities.InputSelect.LightControlMode.SelectOption(LightControlModeOptions.Sleeping);
+                _entities.InputSelect.BedroomMode.SelectOption(BedroomModeOptions.Sleeping);
+                _entities.InputSelect.TimeOfDay.SelectOption(TimeOfDayOptions.Night);
             });
     }
 
     private void ClaireThenAndyOutOfBed()
     {
         _entities.BinarySensor.WithingsInBedAndy
-            .StateChanges()
-            .Select(e => e.New.IsOff() && e.Old.IsOn())
-            .Where(e => DateTime.Now >= DateTime.Today.AddHours(9) && DateTime.Now >= DateTime.Today.AddHours(6))
+            .StateAllChangesWithCurrent()
+            .Where(e => 
+            {
+                return !e.New.IsOn()
+                && (!_entities.BinarySensor.WithingsInBedClaire.IsOn()
+                || !_entities.Person.Andy.IsHome())
+                && TimeOnly.FromDateTime(DateTime.Now).IsBetween(Constants.MORNING_START, Constants.MORNING_END);
+            })
             .Throttle(TimeSpan.FromMinutes(5))
             .Subscribe(_ => 
             {
                 _logger.LogDebug("Andy out of bed, setting mode to Day");
-                _entities.InputSelect.LightControlMode.SelectOption("Day");
+                _entities.InputSelect.LightControlMode.SelectOption(LightControlModeOptions.Motion);
+                _entities.InputSelect.BedroomMode.SelectOption(BedroomModeOptions.Normal);
+                _entities.InputSelect.TimeOfDay.SelectOption(TimeOfDayOptions.Day);
             });
     }
 
     private void AndyThenClaireOutOfBed()
     {
         _entities.BinarySensor.WithingsInBedClaire
-            .StateChanges()
-            .Select(e => e.New.IsOff() && e.Old.IsOn())
-            .Where(e => DateTime.Now <= DateTime.Today.AddHours(9) && DateTime.Now >= DateTime.Today.AddHours(6))
+            .StateAllChangesWithCurrent()
+            .Where(e => 
+            {
+                return !e.New.IsOn()
+                && (!_entities.BinarySensor.WithingsInBedAndy.IsOn()
+                || !_entities.Person.Andy.IsHome())
+                && TimeOnly.FromDateTime(DateTime.Now).IsBetween(Constants.MORNING_START, Constants.MORNING_END);
+            })
             .Throttle(TimeSpan.FromMinutes(5))
             .Subscribe(_ =>
             {
                 _logger.LogDebug("Claire out of bed, setting mode to Day");
-                _entities.InputSelect.LightControlMode.SelectOption("Day");
+                _entities.InputSelect.LightControlMode.SelectOption(LightControlModeOptions.Motion);
+                _entities.InputSelect.BedroomMode.SelectOption(BedroomModeOptions.Normal);
+                _entities.InputSelect.TimeOfDay.SelectOption(TimeOfDayOptions.Day);
             });
-    }
-
-    private void OutOfBed()
-    {
-        if ((_entities.BinarySensor.WithingsInBedAndy.IsOn() 
-            || _entities.BinarySensor.WithingsInBedClaire.IsOn())
-            && DateTime.Now > DateTime.Today.AddHours(9)
-            && _entities.InputSelect.LightControlMode.State == "Night")
-            {
-                _entities.InputSelect.LightControlMode.SelectOption("Day");
-            }
     }
 }

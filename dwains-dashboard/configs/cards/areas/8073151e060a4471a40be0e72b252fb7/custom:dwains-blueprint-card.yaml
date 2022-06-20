@@ -1,0 +1,52 @@
+blueprint: fourinkprintercartridges.yaml
+card:
+  cards:
+  - direction: up
+    entities:
+    - color: $11_Cartridge_1_color$
+      entity: $12_Cartridge_1_entity$
+      name: $10_Cartridge_1_name$
+    - color: $21_Cartridge_2_color$
+      entity: $22_Cartridge_2_entity$
+      name: $20_Cartridge_2_name$
+    - color: $31_Cartridge_3_color$
+      entity: $32_Cartridge_3_entity$
+      name: $30_Cartridge_3_name$
+    - color: $41_Cartridge_4_color$
+      entity: $42_Cartridge_4_entity$
+      name: $40_Cartridge_4_name$
+    height: 200px
+    position: bottom
+    positions:
+      icon: inside
+      indicator: outside
+      name: outside
+      value: outside
+    stack: horizontal
+    target: 10
+    type: custom:bar-card
+    unit_of_measurement: '%'
+    width: 100%
+  items_classes: col-xs-12
+  type: custom:dwains-flexbox-card
+col_span: '2'
+col_span_lg: '2'
+col_span_xl: '4'
+data:
+  10_Cartridge_1_name: Black
+  11_Cartridge_1_color: black
+  12_Cartridge_1_entity: sensor.mfc_j5910dw_black_ink_remaining
+  20_Cartridge_2_name: Cyan
+  21_Cartridge_2_color: cyan
+  22_Cartridge_2_entity: sensor.mfc_j5910dw_cyan_ink_remaining
+  30_Cartridge_3_name: Magenta
+  31_Cartridge_3_color: magenta
+  32_Cartridge_3_entity: sensor.mfc_j5910dw_magenta_ink_remaining
+  40_Cartridge_4_name: Yellow
+  41_Cartridge_4_color: yellow
+  42_Cartridge_4_entity: sensor.mfc_j5910dw_yellow_ink_remaining
+position: bottom
+row_span: '2'
+row_span_lg: '2'
+row_span_xl: '1'
+type: custom:dwains-blueprint-card

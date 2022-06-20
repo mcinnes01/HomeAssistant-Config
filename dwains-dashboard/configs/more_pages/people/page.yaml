@@ -1,0 +1,199 @@
+blueprint: towpersonsblueprint.yaml
+card:
+  cards:
+  - cards:
+    - default: page01
+      entity: hash
+      states:
+        page01:
+          cards:
+          - cards:
+            - cards:
+              - name: $11_person_name$
+                styles:
+                  card:
+                  - width: 80px
+                  name:
+                  - color: lightgreen
+                tap_action:
+                  action: navigate
+                  navigation_path: '#page01'
+                type: custom:button-card
+              - name: $21_person_name$
+                styles:
+                  card:
+                  - width: 80px
+                tap_action:
+                  action: navigate
+                  navigation_path: '#page02'
+                type: custom:button-card
+              type: horizontal-stack
+            padding: true
+            type: custom:dwains-flexbox-card
+          - entity: $12_person_entity$
+            hide_name: false
+            hide_state: false
+            icon: mdi:account-plus
+            name: $11_person_name$
+            type: custom:mushroom-person-card
+            use_entity_picture: true
+          - title: Displacements for 24 hours
+            type: custom:dwains-heading-card
+          - entities:
+            - entity: $13_tracker_entity$
+            hours_to_show: 24
+            refresh_interval: 0
+            type: history-graph
+          - title: Battery charging
+            type: custom:dwains-heading-card
+          - entities:
+            - entity: $14_battery_charging_entity$
+            hours_to_show: 24
+            refresh_interval: 0
+            type: history-graph
+          - title: Battery charge level
+            type: custom:dwains-heading-card
+          - decimals: 0
+            entities:
+            - entity: $15_battery_level_entity$
+            hour24: true
+            hours_to_show: 24
+            line_color: green
+            line_width: 2
+            points_per_hour: 2
+            show:
+              animate: true
+              average: false
+              extrema: false
+              fill: true
+              graph: bar
+              icon: false
+              labels: false
+              legend: false
+              name: false
+            type: custom:mini-graph-card
+          type: vertical-stack
+        page02:
+          cards:
+          - cards:
+            - cards:
+              - name: $11_person_name$
+                styles:
+                  card:
+                  - width: 80px
+                tap_action:
+                  action: navigate
+                  navigation_path: '#page01'
+                type: custom:button-card
+              - name: $21_person_name$
+                styles:
+                  card:
+                  - width: 80px
+                  name:
+                  - color: lightgreen
+                tap_action:
+                  action: navigate
+                  navigation_path: '#page02'
+                type: custom:button-card
+              type: horizontal-stack
+            padding: true
+            type: custom:dwains-flexbox-card
+          - entity: $22_person_entity$
+            hide_name: false
+            hide_state: false
+            icon: mdi:account-plus
+            name: $21_person_name$
+            type: custom:mushroom-person-card
+            use_entity_picture: true
+          - title: Displacements for 24 hours
+            type: custom:dwains-heading-card
+          - entities:
+            - entity: $23_tracker_entity$
+            hours_to_show: 24
+            refresh_interval: 0
+            type: history-graph
+          - title: Battery charging
+            type: custom:dwains-heading-card
+          - entities:
+            - entity: $24_battery_charging_entity$
+            hours_to_show: 24
+            refresh_interval: 0
+            type: history-graph
+          - title: Battery charge level
+            type: custom:dwains-heading-card
+          - decimals: 0
+            entities:
+            - entity: $25_battery_level_entity$
+            hour24: true
+            hours_to_show: 24
+            line_color: green
+            line_width: 2
+            points_per_hour: 2
+            show:
+              animate: true
+              average: false
+              extrema: false
+              fill: true
+              graph: bar
+              icon: false
+              labels: false
+              legend: false
+              name: false
+            type: custom:mini-graph-card
+          type: vertical-stack
+      type: custom:state-switch
+    item_classes: col-xs-12 col-sm-7
+    type: vertical-stack
+  - cards:
+    - default: page01
+      entity: hash
+      states:
+        page01:
+          cards:
+          - color_type: blank-card
+            styles:
+              card:
+              - width: 120px
+              - height: 59px
+            type: custom:button-card
+          - title: Map
+            type: custom:dwains-heading-card
+          - default_zoom: 12
+            entities:
+            - entity: $13_tracker_entity$
+            hours_to_show: 24
+            type: map
+          type: vertical-stack
+        page02:
+          cards:
+          - color_type: blank-card
+            styles:
+              card:
+              - width: 120px
+              - height: 59px
+            type: custom:button-card
+          - title: Map
+            type: custom:dwains-heading-card
+          - default_zoom: 12
+            entities:
+            - entity: $23_tracker_entity$
+            hours_to_show: 24
+            type: map
+          type: vertical-stack
+      type: custom:state-switch
+    item_classes: col-xs-12 col-sm-5
+    type: vertical-stack
+  items_classes: col-xs-12
+  type: custom:dwains-flexbox-card
+data:
+  11_person_name: Andy
+  12_person_entity: person.andy
+  13_tracker_entity: person.andy
+  14_battery_charging_entity: sensor.andrews_iphone_battery_state
+  15_battery_level_entity: sensor.andrews_iphone_battery_level
+  21_person_name: Claire
+  22_person_entity: person.claire
+  23_tracker_entity: person.claire
+  24_battery_charging_entity: sensor.claires_iphone_battery_state
+  25_battery_level_entity: sensor.claires_iphone_battery_level
+type: custom:dwains-blueprint-card

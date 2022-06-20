@@ -135,42 +135,42 @@
 #         {{ not (states('input_select.ambience') in ['Bright', 'Day', 'Evening', 'Night']) }}
 
 #Mqtt Presense Sensors
-- platform: mqtt_room
-  device_id: "tile:cd1dcb7ae277"
-  name: "Claire Keys Tile Ble"
-  state_topic: "espresense/devices/tile:cd1dcb7ae277"
-  timeout: 60
-  away_timeout: 120
-- platform: mqtt_room
-  device_id: "tile:e572c53969ee"
-  name: "Andy Keys Tile Ble"
-  state_topic: "espresense/devices/tile:e572c53969ee"
-  timeout: 60
-  away_timeout: 120
-- platform: mqtt_room
-  device_id: "tile:cd1dcb7ae277"
-  name: "Car Keys Tile Ble"
-  state_topic: "espresense/devices/tile:cd1dcb7ae277"
-  timeout: 60
-  away_timeout: 120
-- platform: mqtt_room
-  device_id: "apple:1005:9-12"
-  name: "Andy IPhone Ble"
-  state_topic: "espresense/devices/apple:1005:9-12"
-  timeout: 60
-  away_timeout: 120
-- platform: mqtt_room
-  device_id: "apple:1006:10-12"
-  name: "Claire IPhone Ble"
-  state_topic: "espresense/devices/apple:1006:10-12"
-  timeout: 60
-  away_timeout: 120
-- platform: mqtt_room
-  device_id: "apple:1005:9-26"
-  name: "Claire IWatch Ble"
-  state_topic: "espresense/devices/apple:1005:9-26"
-  timeout: 60
-  away_timeout: 120
+# - platform: mqtt_room
+#   device_id: "tile:cd1dcb7ae277"
+#   name: "Claire Keys Tile Ble"
+#   state_topic: "espresense/devices/tile:cd1dcb7ae277"
+#   timeout: 60
+#   away_timeout: 120
+# - platform: mqtt_room
+#   device_id: "tile:e572c53969ee"
+#   name: "Andy Keys Tile Ble"
+#   state_topic: "espresense/devices/tile:e572c53969ee"
+#   timeout: 60
+#   away_timeout: 120
+# - platform: mqtt_room
+#   device_id: "tile:cd1dcb7ae277"
+#   name: "Car Keys Tile Ble"
+#   state_topic: "espresense/devices/tile:cd1dcb7ae277"
+#   timeout: 60
+#   away_timeout: 120
+# - platform: mqtt_room
+#   device_id: "apple:1005:9-12"
+#   name: "Andy IPhone Ble"
+#   state_topic: "espresense/devices/apple:1005:9-12"
+#   timeout: 60
+#   away_timeout: 120
+# - platform: mqtt_room
+#   device_id: "apple:1006:10-12"
+#   name: "Claire IPhone Ble"
+#   state_topic: "espresense/devices/apple:1006:10-12"
+#   timeout: 60
+#   away_timeout: 120
+# - platform: mqtt_room
+#   device_id: "apple:1005:9-26"
+#   name: "Claire IWatch Ble"
+#   state_topic: "espresense/devices/apple:1005:9-26"
+#   timeout: 60
+#   away_timeout: 120
 # Energy
 # - platform: integration
 #   source: sensor.bulb_energy_meter_gas_meter

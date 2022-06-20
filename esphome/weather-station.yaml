@@ -76,13 +76,36 @@ sensor:
       id: bme280_humidity
     address: 0x76
     update_interval: 60s
-
+    
   - platform: tsl2561
-    id: tsl2561_lux
-    gain: 1x
     name: "Weather Station Ambient Light"
+    id: "tsl2561_lux"
     address: 0x39
     update_interval: 60s
+    on_raw_value:
+      then:
+        lambda: |-
+          // Automatically adjust the TSL2561 gain setting.
+          // We need to track the gain independently as the gain_ property is private:
+          static tsl2561::TSL2561Gain lastgain = tsl2561::TSL2561_GAIN_16X; // Make sure initial value matches yaml!
+          
+          if(isnan(x) && lastgain == tsl2561::TSL2561_GAIN_16X) { // Sensor is saturated, so lower the gain:
+            // Note: id used here must match what is set in the yaml above.
+            tsl2561_lux->set_gain(tsl2561::TSL2561_GAIN_1X);
+            tsl2561_lux->setup();
+            lastgain = tsl2561::TSL2561_GAIN_1X;
+            ESP_LOGI("TSL2561 Auto-gain", "Lowered TSL2561 gain to 1x.");
+            x = 15000;
+            id(tsl2561_lux).state = x;
+            id(tsl2561_lux).publish_state(x);
+          }
+          else if(x < 50.0 && lastgain == tsl2561::TSL2561_GAIN_1X){ // Low light, so raise the gain:
+            // id used here must match what is set in the yaml above!
+            tsl2561_lux->set_gain(tsl2561::TSL2561_GAIN_16X);
+            tsl2561_lux->setup();
+            lastgain = tsl2561::TSL2561_GAIN_16X;
+            ESP_LOGI("TSL2561 Auto-gain", "Raised TSL2561 gain to 16x.");
+          }
 
   - platform: template
     name: "Weather Station Altitude"

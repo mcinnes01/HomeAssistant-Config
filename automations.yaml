@@ -1593,3 +1593,35 @@
         type: notify
         message: 'Low battery warnings for the following devices: {{sensors}}'
         title: Low Battery Warning
+- id: '1650023117276'
+  alias: Set cat feeder varaibles on restart
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.morning_feed_enabled
+    to: unknown
+    from: unavailable
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 10
+  action:
+  - service: input_boolean.toggle
+    data: {}
+    target:
+      entity_id:
+      - input_boolean.evening_feed_complete
+      - input_boolean.evening_feed_enabled
+      - input_boolean.morning_feed_complete
+      - input_boolean.morning_feed_enabled
+      - input_boolean.disable_next_feed
+  - service: input_boolean.toggle
+    data: {}
+    target:
+      entity_id:
+      - input_boolean.morning_feed_complete
+      - input_boolean.morning_feed_enabled
+      - input_boolean.evening_feed_complete
+      - input_boolean.evening_feed_enabled
+      - input_boolean.disable_next_feed
+  mode: single

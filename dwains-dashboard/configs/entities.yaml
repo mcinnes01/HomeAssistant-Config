@@ -1,0 +1,465 @@
+automation.bathroom_light_constrained:
+  hidden: true
+automation.mirror_light_constrained:
+  hidden: true
+binary_sensor.basement_hall_camera_is_dark:
+  hidden: true
+binary_sensor.basement_hall_camera_motion:
+  sort_order: 3
+binary_sensor.dispenser_rotating:
+  hidden: true
+binary_sensor.doorbell_button:
+  sort_order: 2
+binary_sensor.drawing_room_motion:
+  sort_order: 3
+binary_sensor.espresense_bedroom:
+  hidden: true
+binary_sensor.espresense_drawingroom:
+  hidden: true
+binary_sensor.espresense_kitchen:
+  hidden: true
+binary_sensor.espresense_lounge:
+  hidden: true
+binary_sensor.espresense_snug:
+  hidden: true
+  sort_order: 5
+binary_sensor.espresense_studio:
+  hidden: true
+binary_sensor.front_door_battery_low:
+  hidden: true
+binary_sensor.kitchen_camera_is_dark:
+  hidden: true
+binary_sensor.kitchen_camera_motion:
+  sort_order: 6
+binary_sensor.kitchen_motion:
+  sort_order: 5
+binary_sensor.lounge_motion:
+  sort_order: 1
+binary_sensor.patio_camera_is_dark:
+  hidden: true
+binary_sensor.patio_camera_motion:
+  sort_order: 5
+binary_sensor.patio_door:
+  sort_order: 4
+binary_sensor.sonoff_bridge_1_button1:
+  hidden: true
+binary_sensor.unifi_dream_machine_wan_status:
+  hidden: true
+button.basement_hall_camera_reboot_device:
+  hidden: true
+button.espresense_bedroom_restart:
+  hidden: true
+button.espresense_kitchen_restart:
+  hidden: true
+button.espresense_lounge_restart:
+  hidden: true
+button.espresense_snug_restart:
+  hidden: true
+button.onvif_icamera_reboot:
+  hidden: true
+camera.basement_hall_camera_medium:
+  sort_order: 2
+camera.cellar_door_camera:
+  hidden: true
+camera.cellar_door_camera_mainstream:
+  hidden: true
+camera.kitchen_camera_medium:
+  sort_order: 7
+camera.mark_cleaning_map:
+  hidden: true
+camera.patio_camera_medium:
+  sort_order: 2
+device_tracker.basement_hall_camera:
+  hidden: true
+device_tracker.cellar_door_camera:
+  hidden: true
+device_tracker.esphome_cat_feeder:
+  hidden: true
+device_tracker.esphome_doorbell:
+  hidden: true
+device_tracker.esphome_sump_alarm:
+  hidden: true
+device_tracker.esphome_weather_station:
+  hidden: true
+device_tracker.espresense_bedroom:
+  hidden: true
+device_tracker.espresense_kitchen:
+  hidden: true
+device_tracker.espresense_lounge:
+  hidden: true
+device_tracker.espresense_snug:
+  hidden: true
+device_tracker.kitchen_camera:
+  hidden: true
+device_tracker.patio_camera:
+  hidden: true
+fan.extractor_fan:
+  sort_order: 4
+input_boolean.bathroom_light_constrained:
+  hidden: true
+input_boolean.bedside_lamp_constrained:
+  hidden: true
+input_boolean.breakfast_bar_lamp_constrained:
+  hidden: true
+input_boolean.disable_next_feed:
+  sort_order: 5
+input_boolean.evening_feed_complete:
+  sort_order: 7
+input_boolean.evening_feed_enabled:
+  sort_order: 9
+input_boolean.hallway_lamp_constrained:
+  hidden: true
+input_boolean.lounge_corner_lamp_constrained:
+  hidden: true
+input_boolean.lounge_floor_lamp_constrained:
+  hidden: true
+input_boolean.mirror_light_constrained:
+  hidden: true
+input_boolean.morning_feed_complete:
+  sort_order: 6
+input_boolean.morning_feed_enabled:
+  sort_order: 8
+input_boolean.snug_floor_lamp_constrained:
+  hidden: true
+  sort_order: 1
+input_select.lounge_mode:
+  sort_order: 2
+input_select.snug_mode:
+  sort_order: 2
+light.back_door:
+  sort_order: 3
+light.basement_hall:
+  sort_order: 1
+light.basement_stairs:
+  sort_order: 4
+light.bookshelf:
+  sort_order: 1
+light.breakfast_bar_lamp:
+  sort_order: 2
+light.cabinet:
+  sort_order: 3
+light.drawing_room:
+  sort_order: 2
+light.kitchen:
+  hidden: false
+  sort_order: 1
+light.lounge:
+  hidden: false
+  sort_order: 5
+light.lounge_corner_lamp:
+  sort_order: 4
+light.lounge_floor_lamp:
+  sort_order: 3
+light.patio:
+  sort_order: 1
+light.porch:
+  sort_order: 1
+light.snug:
+  sort_order: 4
+light.snug_floor_lamp:
+  sort_order: 3
+number.basement_hall_camera_microphone_level:
+  hidden: true
+number.espresense_bedroom_absorption:
+  hidden: true
+number.espresense_bedroom_max_distance:
+  hidden: true
+number.espresense_drawingroom_max_distance:
+  hidden: true
+number.espresense_kitchen_max_distance:
+  hidden: true
+number.espresense_lounge_absorption:
+  hidden: true
+number.espresense_lounge_max_distance:
+  hidden: true
+number.espresense_snug_absorption:
+  hidden: true
+  sort_order: 6
+number.espresense_snug_max_distance:
+  hidden: true
+number.espresense_studio_max_distance:
+  hidden: true
+number.kitchen_camera_microphone_level:
+  hidden: true
+number.patio_camera_microphone_level:
+  hidden: true
+select.basement_hall_camera_infrared_mode:
+  hidden: true
+select.basement_hall_camera_recording_mode:
+  hidden: true
+select.kitchen_camera_infrared_mode:
+  hidden: true
+select.kitchen_camera_recording_mode:
+  hidden: true
+select.patio_camera_infrared_mode:
+  hidden: true
+select.patio_camera_recording_mode:
+  hidden: true
+sensor.basement_hall_camera_disk_write_rate:
+  hidden: true
+sensor.basement_hall_camera_oldest_recording:
+  hidden: true
+sensor.basement_hall_camera_storage_used:
+  hidden: true
+sensor.bulb_energy_meter_gas_meter_calorific:
+  hidden: true
+sensor.bulb_energy_meter_gas_meter_time:
+  hidden: true
+sensor.bulb_energy_meter_gas_meter_volume:
+  hidden: true
+sensor.cat_feeder_bssid:
+  hidden: true
+sensor.cat_feeder_esphome_version:
+  hidden: true
+sensor.cat_feeder_ip:
+  hidden: true
+sensor.cat_feeder_ssid:
+  hidden: true
+sensor.cat_feeder_uptime:
+  hidden: true
+sensor.cat_feeder_wifi_signal:
+  hidden: true
+sensor.cellar_door_camera_actions:
+  hidden: true
+sensor.doorbell_bssid:
+  hidden: true
+sensor.doorbell_esphome_version:
+  hidden: true
+sensor.doorbell_ip:
+  hidden: true
+sensor.doorbell_ssid:
+  hidden: true
+sensor.doorbell_uptime:
+  hidden: true
+sensor.doorbell_wifi_signal:
+  hidden: true
+sensor.espresense_bedroom_free_memory:
+  hidden: true
+sensor.espresense_bedroom_uptime:
+  hidden: true
+sensor.espresense_kitchen_free_memory:
+  hidden: true
+sensor.espresense_kitchen_uptime:
+  hidden: true
+sensor.espresense_lounge_free_memory:
+  hidden: true
+sensor.espresense_lounge_uptime:
+  hidden: true
+sensor.espresense_snug_free_mem:
+  hidden: true
+  sort_order: 7
+sensor.espresense_snug_uptime:
+  hidden: true
+sensor.front_door_linkquality:
+  hidden: true
+sensor.front_door_voltage:
+  hidden: true
+sensor.kitchen_camera_disk_write_rate:
+  hidden: true
+sensor.kitchen_camera_oldest_recording:
+  hidden: true
+sensor.kitchen_camera_storage_used:
+  hidden: true
+sensor.lounge_tv_energy_meter:
+  hidden: true
+sensor.lounge_tv_media_input_source:
+  hidden: true
+sensor.lounge_tv_media_playback_status:
+  hidden: true
+sensor.lounge_tv_power_meter:
+  hidden: true
+sensor.lounge_tv_tv_channel:
+  hidden: true
+sensor.lounge_tv_tv_channel_name:
+  hidden: true
+sensor.lounge_tv_volume:
+  hidden: true
+sensor.mark_battery:
+  sort_order: 8
+sensor.mfc_j5910dw_black_ink_remaining:
+  hidden: true
+sensor.mfc_j5910dw_cyan_ink_remaining:
+  hidden: true
+sensor.mfc_j5910dw_magenta_ink_remaining:
+  hidden: true
+sensor.mfc_j5910dw_page_counter:
+  hidden: true
+sensor.mfc_j5910dw_status:
+  sort_order: 8
+sensor.mfc_j5910dw_uptime:
+  hidden: true
+sensor.mfc_j5910dw_yellow_ink_remaining:
+  hidden: true
+sensor.patio_camera_detected_object:
+  hidden: true
+  sort_order: 11
+sensor.patio_camera_disk_write_rate:
+  hidden: true
+sensor.patio_camera_oldest_recording:
+  hidden: true
+sensor.patio_camera_storage_used:
+  hidden: true
+sensor.sump_alarm_bssid:
+  hidden: true
+sensor.sump_alarm_esphome_version:
+  hidden: true
+sensor.sump_alarm_ip:
+  hidden: true
+sensor.sump_alarm_ssid:
+  hidden: true
+sensor.sump_alarm_uptime:
+  hidden: true
+sensor.sump_alarm_wifi_signal:
+  hidden: true
+sensor.weather_station_altitude:
+  hidden: false
+  sort_order: 9
+sensor.weather_station_ambient_light:
+  sort_order: 7
+sensor.weather_station_bssid:
+  hidden: true
+sensor.weather_station_esphome_version:
+  hidden: true
+sensor.weather_station_humidity:
+  hidden: true
+  sort_order: 7
+sensor.weather_station_ip:
+  hidden: true
+sensor.weather_station_pressure:
+  sort_order: 8
+sensor.weather_station_relative_humidity:
+  hidden: true
+  sort_order: 3
+sensor.weather_station_ssid:
+  hidden: true
+sensor.weather_station_temperature:
+  sort_order: 6
+sensor.weather_station_uptime:
+  hidden: true
+sensor.weather_station_wifi_signal:
+  hidden: true
+switch.basement_hall_camera_hdr_mode:
+  hidden: true
+switch.basement_hall_camera_overlay_show_bitrate:
+  hidden: true
+switch.basement_hall_camera_overlay_show_date:
+  hidden: true
+switch.basement_hall_camera_overlay_show_logo:
+  hidden: true
+switch.basement_hall_camera_overlay_show_name:
+  hidden: true
+switch.basement_hall_camera_privacy_mode:
+  hidden: true
+switch.basement_hall_camera_status_light_on:
+  hidden: true
+switch.cat_feeder_restart:
+  sort_order: 10
+switch.cellar_door_camera_motion_detection:
+  hidden: true
+switch.cellar_door_camera_movies:
+  hidden: true
+switch.cellar_door_camera_still_images:
+  hidden: true
+switch.dispenser_motor:
+  hidden: true
+switch.doorbell_chime:
+  sort_order: 4
+switch.doorbell_chime_active:
+  sort_order: 5
+switch.doorbell_restart:
+  sort_order: 3
+switch.espresense_bedroom_active_scan:
+  hidden: true
+switch.espresense_bedroom_arduino_ota:
+  hidden: true
+switch.espresense_bedroom_auto_update:
+  hidden: true
+switch.espresense_bedroom_ota_update:
+  hidden: true
+switch.espresense_bedroom_prerelease:
+  hidden: true
+switch.espresense_bedroom_query:
+  hidden: true
+switch.espresense_bedroom_status_led:
+  hidden: true
+switch.espresense_drawingroom_active_scan:
+  hidden: true
+switch.espresense_drawingroom_query:
+  hidden: true
+switch.espresense_kitchen_active_scan:
+  hidden: true
+switch.espresense_kitchen_query:
+  hidden: true
+switch.espresense_kitchen_status_led:
+  hidden: true
+switch.espresense_lounge_active_scan:
+  hidden: true
+switch.espresense_lounge_arduino_ota:
+  hidden: true
+switch.espresense_lounge_auto_update:
+  hidden: true
+switch.espresense_lounge_prerelease:
+  hidden: true
+switch.espresense_lounge_query:
+  hidden: true
+switch.espresense_lounge_status_led:
+  hidden: true
+switch.espresense_snug_active_scan:
+  hidden: true
+switch.espresense_snug_arduino_ota:
+  hidden: true
+switch.espresense_snug_auto_update:
+  hidden: true
+switch.espresense_snug_prerelease:
+  hidden: true
+switch.espresense_snug_query:
+  hidden: true
+switch.espresense_snug_status_led:
+  hidden: true
+switch.espresense_studio_active_scan:
+  hidden: true
+switch.espresense_studio_query:
+  hidden: true
+switch.kitchen_camera_hdr_mode:
+  hidden: true
+switch.kitchen_camera_overlay_show_bitrate:
+  hidden: true
+switch.kitchen_camera_overlay_show_date:
+  hidden: true
+switch.kitchen_camera_overlay_show_logo:
+  hidden: true
+switch.kitchen_camera_overlay_show_name:
+  hidden: true
+switch.kitchen_camera_privacy_mode:
+  hidden: true
+switch.kitchen_camera_status_light_on:
+  hidden: true
+switch.lounge_tv:
+  sort_order: 6
+switch.mark_schedule:
+  hidden: true
+switch.patio_camera_detections_person:
+  hidden: true
+switch.patio_camera_detections_vehicle:
+  hidden: true
+switch.patio_camera_hdr_mode:
+  hidden: true
+switch.patio_camera_high_fps:
+  hidden: true
+switch.patio_camera_overlay_show_bitrate:
+  hidden: true
+switch.patio_camera_overlay_show_date:
+  hidden: true
+switch.patio_camera_overlay_show_logo:
+  hidden: true
+switch.patio_camera_overlay_show_name:
+  hidden: true
+switch.patio_camera_privacy_mode:
+  hidden: true
+switch.restart_weather_station:
+  hidden: true
+  sort_order: 12
+switch.sump_alarm_restart:
+  hidden: true
+vacuum.mark:
+  sort_order: 7

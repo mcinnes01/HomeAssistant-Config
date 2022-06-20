@@ -1,5 +1,3 @@
-using static HomeAssistantGenerated.InputSelectEntities;
-
 namespace Upstairs.Bedroom;
 
 [NetDaemonApp]
@@ -22,25 +20,28 @@ public class BedroomMode
             .StateChanges()
             // .Where(e => 
             // {
-            //     _logger.LogDebug(@$"Light Mode: {_entities.InputSelect.LightControlMode.State}, 
+            //     _logger.LogTrace(@$"Light Mode: {_entities.InputSelect.LightControlMode.State}, 
             //         Bedroom Mode: {_entities.InputSelect.BedroomMode.State}");
             //     return e.Old?.State != "Relaxing"
             //     && e.New?.State == "Relaxing";
             // })
             .Subscribe(s =>
             {
+                Enum.TryParse<BedroomModeOptions>(s.Old?.State, out var oldMode);
+                Enum.TryParse<BedroomModeOptions>(s.New?.State, out var newMode);
+                
                 // State machine
-                switch (s.Old?.State, s.New?.State)
+                switch (oldMode, newMode)
                 {
-                    case (_,"Night"):
+                    case (_,BedroomModeOptions.Sleeping):
                         _entities.Light.BedroomLights.TurnOff();
                         break;
-                    case ("Night", "Relaxing"):
-                    case ("Normal", "Relaxing"):
+                    case (BedroomModeOptions.Sleeping, BedroomModeOptions.Relaxing):
+                    case (BedroomModeOptions.Normal, BedroomModeOptions.Relaxing):
                         _entities.Light.Bedroom.TurnOff();
                         break;
-                    case ("Night", "Normal"):
-                    case ("Relaxing", "Normal"):
+                    case (BedroomModeOptions.Sleeping, BedroomModeOptions.Normal):
+                    case (BedroomModeOptions.Relaxing, BedroomModeOptions.Normal):
                         _entities.Light.BedsideLamp.TurnOff();
                         break;
                     default:

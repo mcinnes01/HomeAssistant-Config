@@ -143,9 +143,71 @@
       - Movie
       - Chill
       editable: true
-      friendly_name: Snug Mode
       icon: mdi:projector
-      state: Movie
+      friendly_name: Snug Mode
+      state: Normal
+    light.snug_floor_lamp:
+      min_mireds: 153
+      max_mireds: 588
+      effect_list:
+      - Strobe color
+      - Police
+      - Christmas
+      - RGB
+      - Random Loop
+      - Fast Random Loop
+      - LSD
+      - Slowdown
+      - Night Mode
+      - Date Night
+      - Movie
+      - Sunrise
+      - Sunset
+      - Romance
+      - Happy Birthday
+      - Disco
+      - Strobe epilepsy!
+      - Alarm
+      - Police2
+      - WhatsApp
+      - Facebook
+      - Twitter
+      - Home
+      - Candle Flicker
+      - Slow Temp
+      - Stop
+      supported_color_modes:
+      - color_temp
+      - hs
+      - rgb
+      flowing: false
+      music_mode: false
+      friendly_name: Snug Floor Lamp
+      supported_features: 44
+      color_mode: rgb
+      brightness: 255
+      hs_color:
+      - 240
+      - 100
+      rgb_color:
+      - 0
+      - 0
+      - 255
+      xy_color:
+      - 0.136
+      - 0.04
+      state: 'on'
+    light.snug:
+      supported_color_modes:
+      - onoff
+      friendly_name: Snug Light
+      supported_features: 0
+      state: 'off'
+    input_boolean.snug_light_constrained:
+      editable: true
+      icon: hass:check-circle-outline
+      friendly_name: Snug Light Constrained
+      state: 'on'
   icon: hass:video-vintage
 - id: '1593602471773'
   name: Lighting Ambient
@@ -283,18 +345,59 @@
 - id: '1593602471777'
   name: Lighting Night
   entities:
-    light.all_lights: 'off'
-    input_boolean.in_bed: 'on'
-    input_select.lounge_mode: Normal
-    input_select.snug_mode: Normal
-    script.ambiance_to_night: 'off'
+    input_boolean.in_bed:
+      editable: true
+      icon: mdi:bed
+      friendly_name: In Bed
+      state: 'on'
+    input_select.lounge_mode:
+      options:
+      - Normal
+      - Reading
+      - Television
+      - Dark
+      - Chill
+      editable: true
+      icon: mdi:sofa
+      friendly_name: Lounge Mode
+      state: Normal
+    input_select.snug_mode:
+      options:
+      - Normal
+      - Movie
+      - Chill
+      editable: true
+      icon: mdi:projector
+      friendly_name: Snug Mode
+      state: Normal
+    input_select.bedroom_mode:
+      options:
+      - Normal
+      - Relaxing
+      - Manual
+      - Blocked
+      - Sleeping
+      editable: true
+      icon: hass:bed
+      friendly_name: Bedroom Mode
+      state: Sleeping
   icon: mdi:weather-night
+  metadata:
+    input_select.lounge_mode:
+      entity_only: true
+    input_select.snug_mode:
+      entity_only: true
+    input_boolean.in_bed:
+      entity_only: true
+    input_select.bedroom_mode:
+      entity_only: true
 - id: '1604358522437'
   name: Get Ready For Bed
   entities:
     light.bedroom:
       supported_color_modes:
       - onoff
+      icon: mdi:globe-light
       friendly_name: Bedroom Light
       supported_features: 0
       state: 'off'
@@ -332,6 +435,10 @@
       - color_temp
       - hs
       - rgb
+      flowing: false
+      music_mode: false
+      friendly_name: Bedside Lamp
+      supported_features: 44
       color_mode: hs
       brightness: 230
       hs_color:
@@ -344,23 +451,38 @@
       xy_color:
       - 0.548
       - 0.386
-      flowing: false
-      music_mode: false
-      friendly_name: Bedside Lamp
-      supported_features: 44
       state: 'on'
+    input_select.bedroom_mode:
+      options:
+      - Normal
+      - Relaxing
+      - Manual
+      - Blocked
+      - Sleeping
+      editable: true
+      icon: hass:bed
+      friendly_name: Bedroom Mode
+      state: Relaxing
   icon: mdi:bed
+  metadata:
+    input_select.bedroom_mode:
+      entity_only: true
+    light.bedside_lamp:
+      entity_only: false
+    light.bedroom:
+      entity_only: true
 - id: '1604359643659'
   name: Get Up
   entities:
     input_boolean.in_bed:
       editable: true
-      friendly_name: In Bed
       icon: mdi:bed
+      friendly_name: In Bed
       state: 'off'
     light.bedroom:
       supported_color_modes:
       - onoff
+      icon: mdi:globe-light
       friendly_name: Bedroom Light
       supported_features: 0
       state: 'off'
@@ -403,7 +525,27 @@
       friendly_name: Bedside Lamp
       supported_features: 44
       state: 'off'
+    input_select.bedroom_mode:
+      options:
+      - Normal
+      - Relaxing
+      - Manual
+      - Blocked
+      - Sleeping
+      editable: true
+      icon: hass:bed
+      friendly_name: Bedroom Mode
+      state: Normal
   icon: hass:human-handsup
+  metadata:
+    input_boolean.in_bed:
+      entity_only: true
+    input_select.bedroom_mode:
+      entity_only: true
+    light.bedside_lamp:
+      entity_only: false
+    light.bedroom:
+      entity_only: true
 - id: '1605288983801'
   name: Lounge Normal
   entities:

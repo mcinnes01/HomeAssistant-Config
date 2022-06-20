@@ -1,0 +1,4 @@
+disable_clock: false
+disable_welcome_message: false
+weather_entity: weather.stockport
+alarm_entity: alarm_control_panel.alarm

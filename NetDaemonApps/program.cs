@@ -1,6 +1,6 @@
 using System.Reflection;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using MotionState;
 using NetDaemon.Extensions.Logging;
 using NetDaemon.Extensions.MqttEntityManager;
 using NetDaemon.Extensions.Scheduler;
@@ -17,13 +17,13 @@ try
         .UseNetDaemonRuntime()
         .UseNetDaemonTextToSpeech()
         .UseNetDaemonMqttEntityManagement()
-        .UseMotionState()
         .ConfigureServices((_, services) =>
         {
             services
                 .AddAppsFromAssembly(Assembly.GetExecutingAssembly())
                 .AddNetDaemonStateManager()
                 .AddNetDaemonScheduler();
+            services.AddTransient<ILightingStates, LightingStates>();
         })
         .Build()
         .RunAsync()

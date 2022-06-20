@@ -5,73 +5,12 @@ device_tracker.hauser_andy:
 light.dimmable_light_1_1:
   icon: mdi:cat
   friendly_name: Cat Auto Feeder
-light.porch:
-  friendly_name: Porch Light
-  icon: mdi:wall-sconce
-light.back_door:
-  friendly_name: Back Door Light
-  icon: mdi:wall-sconce
-light.patio:
-  friendly_name: Patio Light
-  icon: mdi:track-light
-light.cellar_door:
-  friendly_name: Cellar Door Light
-  icon: mdi:wall-sconce
-light.hallway:
-  friendly_name: Hallway Light
-  icon: mdi:ceiling-light
-light.lounge:
-  friendly_name: Lounge Light
-  icon: mdi:ceiling-light
-light.drawing_room:
-  friendly_name: Drawing Room Light
-  icon: mdi:ceiling-light
-light.bookshelf:
-  friendly_name: Bookshelf Light
-  icon: mdi:wall-sconce
-light.basement_hall:
-  friendly_name: Basement Hall Light
-  icon: mdi:ceiling-light
-light.snug:
-  friendly_name: Snug Light
-  icon: mdi:ceiling-light
-light.dining_room:
-  friendly_name: Dining Room Light
-  icon: mdi:ceiling-light
-light.utility_room:
-  friendly_name: Utility Room Light
-  icon: mdi:ceiling-light
 sensor.green_bio_waste:
   icon: mdi:recycle
 sensor.blue_paper:
   icon: mdi:recycle
 sensor.brown_recyclables:
   icon: mdi:recycle
-light.basement_stairs:
-  friendly_name: Basement Stairs Light
-light.kitchen:
-  friendly_name: Kitchen Light
-light.bathroom:
-  friendly_name: Bathroom Light
-light.bedroom:
-  friendly_name: Bedroom Light
-light.brewery:
-  friendly_name: Brewery Light
-light.cabinet:
-  friendly_name: Cabinet Light
-light.dressing_room:
-  friendly_name: Dressing Room Light
-light.guest_room:
-  friendly_name: Guest Room Light
-light.landing:
-  friendly_name: Landing Light
-light.mirror:
-  friendly_name: Mirror Light
-light.studio:
-  friendly_name: Studio Light
-light.toilet:
-  friendly_name: Toilet Light
 sensor.bulb_energy_meter_gas_meter:
-  device_class: gas
   state_class: total_increasing
-  last_reset: "1970-01-01T00:00:00+00:00"
+  device_class: energy

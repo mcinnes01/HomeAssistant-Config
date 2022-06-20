@@ -19,12 +19,18 @@ http:
 
 # Default config to bring in standard component set
 automation: !include automations.yaml
+button:
 cloud:
 config:
 counter:
 energy:
 group: !include groups.yaml
 history:
+input_boolean:
+input_datetime:
+input_text:
+input_number:
+input_select:
 logbook:
 logger:
   default: critical
@@ -40,6 +46,7 @@ map:
     - sensor.moto_g_7_geocoded_location
   hours_to_show: 72
   dark_mode: true
+media_source:
 mobile_app:
 my:
 person:
@@ -49,14 +56,9 @@ sensor: !include sensors.yaml
 ssdp:
 sun:
 system_health:
-updater:
+timer:
 zeroconf:
 zone:
-input_boolean:
-input_datetime:
-input_text:
-input_number:
-input_select:
 
 # History
 recorder:
@@ -68,11 +70,11 @@ discovery:
     - yeelight
 
 # Alexa media
-alexa_media:
-  accounts:
-    - email: !secret amazon_user
-      password: !secret amazon_password
-      url: amazon.co.uk
+# alexa_media:
+#   accounts:
+#     - email: !secret amazon_user
+#       password: !secret amazon_password
+#       url: amazon.co.uk
 
 # Spotify
 spotcast:
@@ -118,9 +120,6 @@ notify:
       - service: mobile_app_claires_iphone
   - name: alexa_media
     platform: alexa_media
-
-# Timers
-timer:
 
 # Camera
 stream:
@@ -191,244 +190,9 @@ yeelight:
   #   192.168.30.200:
   #     name: Lounge Corner Lamp
 
-light:
-  - platform: switch
-    name: Basement Hall
-    entity_id: switch.100032bd73_3
-  - platform: switch
-    name: Brewery
-    entity_id: switch.100032bd73_4
-  - platform: switch
-    name: Toilet
-    entity_id: switch.100032bd73_1
-  - platform: switch
-    name: Utility Room
-    entity_id: switch.100032bd73_2
-  - platform: switch
-    name: Dining Room
-    entity_id: switch.100032a00d_1
-  - platform: switch
-    name: Snug
-    entity_id: switch.100032a00d_2
-  - platform: switch
-    name: Basement Spare 5
-    entity_id: switch.100032a00d_4
-  - platform: switch
-    name: Basement Spare 6
-    entity_id: switch.100032a00d_3
-  - platform: switch
-    name: Bookshelf
-    entity_id: switch.1000ba9977_4
-  - platform: switch
-    name: Hallway
-    entity_id: switch.1000ba9977_2
-  - platform: switch
-    name: Lounge
-    entity_id: switch.1000ba9977_1
-  - platform: switch
-    name: Cabinet
-    entity_id: switch.1000bab17a_2
-  - platform: switch
-    name: Drawing Room
-    entity_id: switch.1000bab17a_4
-  - platform: switch
-    name: Kitchen
-    entity_id: switch.1000bab17a_3
-  - platform: switch
-    name: Downstairs Spare 1
-    entity_id: switch.1000bab17a_1
-  - platform: switch
-    name: Back Door
-    entity_id: switch.100032907e_1
-  - platform: switch
-    name: Cellar Door
-    entity_id: switch.100032907e_4
-  - platform: switch
-    name: Patio
-    entity_id: switch.100032907e_2
-  - platform: switch
-    name: Porch
-    entity_id: switch.100032907e_3
-  - platform: switch
-    name: Dressing Room
-    entity_id: switch.1000bab381_3
-  - platform: switch
-    name: Guest Room
-    entity_id: switch.1000bab381_1
-  - platform: switch
-    name: Landing
-    entity_id: switch.1000bab381_2
-  - platform: switch
-    name: Bathroom
-    entity_id: switch.1000bab6de_3
-  - platform: switch
-    name: Bedroom
-    entity_id: switch.1000bab6de_1
-  - platform: switch
-    name: Mirror
-    entity_id: switch.1000bab6de_4
-  - platform: switch
-    name: Studio
-    entity_id: switch.1000bab6de_2
-  - platform: group
-    name: Yeelights
-    entities:
-      - light.breakfast_bar_lamp
-      - light.lounge_floor_lamp
-      - light.lounge_corner_lamp
-      - light.hallway_lamp
-      - light.bedside_lamp
-      - light.basement_stairs
-      - light.snug_floor_lamp
-  - platform: group
-    name: Basement Lights
-    entities:
-      - light.basement_hall
-      - light.snug
-      - light.snug_floor_lamp
-      - light.dining_room
-      - light.toilet
-      - light.utility_room
-      - light.brewery
-  - platform: group
-    name: Downstairs Lights
-    entities:
-      - light.hallway
-      - light.hallway_lamp
-      - light.lounge
-      - light.lounge_corner_lamp
-      - light.drawing_room
-      - light.bookshelf
-      - light.lounge_floor_lamp
-      - light.kitchen
-      - light.breakfast_bar_lamp
-  - platform: group
-    name: Upstairs Lights
-    entities:
-      - light.landing
-      - light.studio
-      - light.bathroom
-      - light.mirror
-      - light.bedroom
-      - light.bedside_lamp
-      - light.guest_room
-      - light.dressing_room
-  - platform: group
-    name: Inside Lights
-    entities:
-      - light.basement_lights
-      - light.downstairs_lights
-      - light.upstairs_lights
-  - platform: group
-    name: Outside Lights
-    entities:
-      - light.porch
-      - light.cellar_door
-      - light.back_door
-      - light.patio
-  - platform: group
-    name: Garden Lights
-    entities:
-      - light.cellar_door
-      - light.back_door
-      - light.patio
-  - platform: group
-    name: All Lights
-    entities:
-      - light.inside_lights
-      - light.outside_lights
-  - platform: group
-    name: Basement Hall Lights
-    entities:
-      - light.basement_hall
-      - light.basement_stairs
-  - platform: group
-    name: Snug Lights
-    entities:
-      - light.snug
-      - light.snug_floor_lamp
-  - platform: group
-    name: Utility Room Lights
-    entities:
-      - light.utility_room
-      - light.brewery
-  - platform: group
-    name: Hallway Lights
-    entities:
-      - light.hallway
-      - light.hallway_lamp
-  - platform: group
-    name: Lounge Lights
-    entities:
-      - light.lounge
-      - light.lounge_corner_lamp
-      - light.lounge_floor_lamp
-  - platform: group
-    name: Drawing Room Lights
-    entities:
-      - light.drawing_room
-      - light.bookshelf
-  - platform: group
-    name: Kitchen Lights
-    entities:
-      - light.kitchen
-      - light.breakfast_bar_lamp
-  - platform: group
-    name: Patio Lights
-    entities:
-      - light.patio
-      - light.back_door
-  - platform: group
-    name: Bathroom Lights
-    entities:
-      - light.bathroom
-      - light.mirror
-  - platform: group
-    name: Bedroom Lights
-    entities:
-      - light.bedroom
-      - light.bedside_lamp
-
 binary_sensor:
   - platform: uptimerobot
     api_key: !secret uptime_key
-  - platform: template
-    sensors:
-      patio_motion:
-        friendly_name: "Patio Motion"
-        value_template: "{{ is_state('input_boolean.patio_motion', 'on') }}"
-        device_class: "motion"
-
-fan:
-  - platform: template
-    fans:
-      bathroom_fan:
-        friendly_name: "Bathroom Fan"
-        value_template: "{{ states('switch.1000bab381_4') }}"
-        turn_on:
-          service: fan.turn_on
-          target:
-            entity_id: switch.1000bab381_4
-        turn_off:
-          service: fan.turn_off
-          target:
-            entity_id: switch.1000bab381_4
-        set_preset_mode:
-          service: fan.set_preset_mode
-      extractor_fan:
-        friendly_name: "Extractor Fan"
-        value_template: "{{ states('switch.1000ba9977_3') }}"
-        turn_on:
-          service: fan.turn_on
-          target:
-            entity_id: switch.1000ba9977_3
-        turn_off:
-          service: fan.turn_off
-          target:
-            entity_id: switch.1000ba9977_3
-        set_preset_mode:
-          service: fan.set_preset_mode
-
 template: !include templates.yaml
 
 withings:
