@@ -1,62 +1,62 @@
 [
-    {
-        "name": "Fix Hallway Motion Sensor",
-        "id": "810f8d7cb2af4d2f874bddfa7542598e",
-        "complete": false
-    },
-    {
-        "name": "Fix Good Night Automation",
-        "id": "0aa6d81ff0454580a77af64000a291c5",
-        "complete": false
-    },
-    {
-        "name": "Fix In Bed Night Automation",
-        "id": "4eb3f0c573cf46308d64d8ea69242034",
-        "complete": false
-    },
-    {
-        "name": "Create Unavailable/Offline device list",
-        "id": "42574e97e05943d3937b8c0b64ebb2a4",
-        "complete": false
-    },
-    {
-        "name": "Create notification for devices offline",
-        "id": "d0784f3ead9f49709f1895e4019bbfa5",
-        "complete": false
-    },
-    {
-        "name": "Create normal automation for lounge, etc",
-        "id": "56cdb0597efc45918bbc5f83ade65ae9",
-        "complete": false
-    },
-    {
-        "name": "Back door light for detection and door",
-        "id": "039ceeb1f2744dbda8810e35713f6fcf",
-        "complete": false
-    },
-    {
-        "name": "Electric cabinet door open",
-        "id": "fa7203b0bccd4f238d0eddc7dcc9cc97",
-        "complete": false
-    },
-    {
-        "name": "Welcome home when door opens",
-        "id": "aa2e4e2829904151b15e25209ab2b738",
-        "complete": false
-    },
-    {
-        "name": "Loft light automation",
-        "id": "0839d3fda18e466ea7f3ee3e56cd1ed2",
-        "complete": false
-    },
-    {
-        "name": "Bedside lamp off in morning",
-        "id": "5c6974f20a084af78edc83368844e4d7",
-        "complete": false
-    },
-    {
-        "name": "Change Light automation to work per light and use states that specifically affect that light",
-        "id": "3f5ab7f8451a4e36b598f786ea350e83",
-        "complete": false
-    }
+  {
+    "name": "Fix Hallway Motion Sensor",
+    "id": "810f8d7cb2af4d2f874bddfa7542598e",
+    "complete": false
+  },
+  {
+    "name": "Fix Good Night Automation",
+    "id": "0aa6d81ff0454580a77af64000a291c5",
+    "complete": false
+  },
+  {
+    "name": "Fix In Bed Night Automation",
+    "id": "4eb3f0c573cf46308d64d8ea69242034",
+    "complete": false
+  },
+  {
+    "name": "Create Unavailable/Offline device list",
+    "id": "42574e97e05943d3937b8c0b64ebb2a4",
+    "complete": false
+  },
+  {
+    "name": "Create notification for devices offline",
+    "id": "d0784f3ead9f49709f1895e4019bbfa5",
+    "complete": false
+  },
+  {
+    "name": "Create normal automation for lounge, etc",
+    "id": "56cdb0597efc45918bbc5f83ade65ae9",
+    "complete": false
+  },
+  {
+    "name": "Back door light for detection and door",
+    "id": "039ceeb1f2744dbda8810e35713f6fcf",
+    "complete": true
+  },
+  {
+    "name": "Electric cabinet door open",
+    "id": "fa7203b0bccd4f238d0eddc7dcc9cc97",
+    "complete": false
+  },
+  {
+    "name": "Welcome home when door opens",
+    "id": "aa2e4e2829904151b15e25209ab2b738",
+    "complete": false
+  },
+  {
+    "name": "Loft light automation",
+    "id": "0839d3fda18e466ea7f3ee3e56cd1ed2",
+    "complete": false
+  },
+  {
+    "name": "Bedside lamp off in morning",
+    "id": "5c6974f20a084af78edc83368844e4d7",
+    "complete": false
+  },
+  {
+    "name": "Change Light automation to work per light and use states that specifically affect that light",
+    "id": "3f5ab7f8451a4e36b598f786ea350e83",
+    "complete": false
+  }
 ]

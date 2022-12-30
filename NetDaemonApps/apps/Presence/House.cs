@@ -1,7 +1,7 @@
 /// <summary>
 ///     Manage state of morning, house, day, evening, night and cleaning
 /// </summary>
-[NetDaemonApp]
+//[NetDaemonApp]
 public class HouseStateManager
 {
     private readonly IHaContext _haContext;

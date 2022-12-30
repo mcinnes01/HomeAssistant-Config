@@ -32,7 +32,13 @@ namespace HomeAssistantGenerated
 
 		InputBooleanEntities InputBoolean { get; }
 
+		InputDatetimeEntities InputDatetime { get; }
+
+		InputNumberEntities InputNumber { get; }
+
 		InputSelectEntities InputSelect { get; }
+
+		InputTextEntities InputText { get; }
 
 		LightEntities Light { get; }
 
@@ -41,6 +47,8 @@ namespace HomeAssistantGenerated
 		NumberEntities Number { get; }
 
 		PersonEntities Person { get; }
+
+		ProximityEntities Proximity { get; }
 
 		RemoteEntities Remote { get; }
 
@@ -87,11 +95,15 @@ namespace HomeAssistantGenerated
 		public FanEntities Fan => new(_haContext);
 		public GroupEntities Group => new(_haContext);
 		public InputBooleanEntities InputBoolean => new(_haContext);
+		public InputDatetimeEntities InputDatetime => new(_haContext);
+		public InputNumberEntities InputNumber => new(_haContext);
 		public InputSelectEntities InputSelect => new(_haContext);
+		public InputTextEntities InputText => new(_haContext);
 		public LightEntities Light => new(_haContext);
 		public MediaPlayerEntities MediaPlayer => new(_haContext);
 		public NumberEntities Number => new(_haContext);
 		public PersonEntities Person => new(_haContext);
+		public ProximityEntities Proximity => new(_haContext);
 		public RemoteEntities Remote => new(_haContext);
 		public SceneEntities Scene => new(_haContext);
 		public ScriptEntities Script => new(_haContext);
@@ -116,6 +128,8 @@ namespace HomeAssistantGenerated
 
 		///<summary>Alarm</summary>
 		public AlarmControlPanelEntity Alarm => new(_haContext, "alarm_control_panel.alarm");
+		///<summary>Alarmo</summary>
+		public AlarmControlPanelEntity Alarmo => new(_haContext, "alarm_control_panel.alarmo");
 	}
 
 	public class AutomationEntities
@@ -126,90 +140,40 @@ namespace HomeAssistantGenerated
 			_haContext = haContext;
 		}
 
-		///<summary>Ambiance To Day When Out of Bed</summary>
-		public AutomationEntity AmbianceToDay => new(_haContext, "automation.ambiance_to_day");
-		///<summary>Ambiance to Day after 9am on a week day</summary>
-		public AutomationEntity AmbianceToDayAfter9amOnAWeekDay => new(_haContext, "automation.ambiance_to_day_after_9am_on_a_week_day");
-		///<summary>Ambiance to Day at 12pm at the weekend</summary>
-		public AutomationEntity AmbianceToDayAt12pmAtTheWeekend => new(_haContext, "automation.ambiance_to_day_at_12pm_at_the_weekend");
-		///<summary>Ambiance to Night after 1am on a week day</summary>
-		public AutomationEntity AmbianceToNightAfter1amOnAWeekDay => new(_haContext, "automation.ambiance_to_night_after_1am_on_a_week_day");
-		///<summary>Ambiance To Night When In Bed</summary>
-		public AutomationEntity AmbianceToNightWhenInBed => new(_haContext, "automation.ambiance_to_night_when_in_bed");
 		///<summary>Andy is home</summary>
 		public AutomationEntity AndyIsHome => new(_haContext, "automation.andy_is_home");
 		///<summary>Patio door is open</summary>
 		public AutomationEntity BackDoorIsOpen => new(_haContext, "automation.back_door_is_open");
-		///<summary>Back Door Light Constrained</summary>
-		public AutomationEntity BackDoorLightConstrained => new(_haContext, "automation.back_door_light_constrained");
-		///<summary>Basement Hall Light Constrained</summary>
-		public AutomationEntity BasementHallLightConstrained => new(_haContext, "automation.basement_hall_light_constrained");
-		///<summary>Bathroom Light Constrained</summary>
-		public AutomationEntity BathroomLightConstrained => new(_haContext, "automation.bathroom_light_constrained");
-		///<summary>Bathroom Occupancy</summary>
-		public AutomationEntity BathroomOccupancy => new(_haContext, "automation.bathroom_occupancy");
 		///<summary>Out of bed</summary>
 		public AutomationEntity BedSensorSetsInBedToOff => new(_haContext, "automation.bed_sensor_sets_in_bed_to_off");
 		///<summary>In bed</summary>
 		public AutomationEntity BedSensorSetsInBedToOn => new(_haContext, "automation.bed_sensor_sets_in_bed_to_on");
-		///<summary>Bedside Lamp Constrained</summary>
-		public AutomationEntity BedroomLampConstrained => new(_haContext, "automation.bedroom_lamp_constrained");
-		///<summary>Bedroom Light Constrained</summary>
-		public AutomationEntity BedroomLightConstrained => new(_haContext, "automation.bedroom_light_constrained");
 		///<summary>Bedroom Lights Off Reset Mode</summary>
 		public AutomationEntity BedroomLightsOffResetMode => new(_haContext, "automation.bedroom_lights_off_reset_mode");
 		///<summary>Claire is home</summary>
 		public AutomationEntity ClaireIsHome => new(_haContext, "automation.claire_is_home");
-		///<summary>Dining Room Light Constrained</summary>
-		public AutomationEntity DiningRoomLightConstrained => new(_haContext, "automation.dining_room_light_constrained");
+		///<summary>Door open</summary>
+		public AutomationEntity DoorOpen => new(_haContext, "automation.door_open");
 		///<summary>Doorbell Notifications</summary>
 		public AutomationEntity DoorbellNotifications => new(_haContext, "automation.doorbell_notifications");
-		///<summary>Bookshelf Light Constrained</summary>
-		public AutomationEntity DrawingRoomLampConstrained => new(_haContext, "automation.drawing_room_lamp_constrained");
-		///<summary>Drawing Room Light Constrained</summary>
-		public AutomationEntity DrawingRoomLightConstrained => new(_haContext, "automation.drawing_room_light_constrained");
-		///<summary>Dressing Room Constrained</summary>
-		public AutomationEntity DressingRoomConstrained => new(_haContext, "automation.dressing_room_constrained");
-		///<summary>Electric Cabinet Occupancy</summary>
-		public AutomationEntity ElectricCabinetOccupancy => new(_haContext, "automation.electric_cabinet_occupancy");
 		///<summary>Feed Cats</summary>
 		public AutomationEntity FeedCats => new(_haContext, "automation.feed_cats");
-		///<summary>Floor Lamp Constrained</summary>
-		public AutomationEntity FloorLampConstrained => new(_haContext, "automation.floor_lamp_constrained");
-		///<summary>Front door closed after sunset</summary>
-		public AutomationEntity FrontDoorClosedAfterSunset => new(_haContext, "automation.front_door_closed_after_sunset");
-		///<summary>Front door open after sunset</summary>
-		public AutomationEntity FrontDoorOpenAfterSunset => new(_haContext, "automation.front_door_open_after_sunset");
-		///<summary>Guest Room Light Constrained</summary>
-		public AutomationEntity GuestRoomLightConstrained => new(_haContext, "automation.guest_room_light_constrained");
-		///<summary>Hallway Lamp Constrained</summary>
-		public AutomationEntity HallwayLampConstrained => new(_haContext, "automation.hallway_lamp_constrained");
-		///<summary>Hallway Light Constrained</summary>
-		public AutomationEntity HallwayLightConstrained => new(_haContext, "automation.hallway_light_constrained");
-		///<summary>Breakfast Bar Lamp Constrained</summary>
-		public AutomationEntity KitchenLampConstrained => new(_haContext, "automation.kitchen_lamp_constrained");
-		///<summary>Kitchen Light Constrained</summary>
-		public AutomationEntity KitchenLightConstrained => new(_haContext, "automation.kitchen_light_constrained");
+		///<summary>Guest Room Remote Actions</summary>
+		public AutomationEntity GuestRoomRemoteActions => new(_haContext, "automation.guest_room_remote_actions");
+		///<summary>Hallway Remote Actions</summary>
+		public AutomationEntity HallwayRemoteActions => new(_haContext, "automation.hallway_remote_actions");
 		///<summary>Patio person motion event snapshot - Andy iPhone</summary>
 		public AutomationEntity KitchenMotionEventSnapshot => new(_haContext, "automation.kitchen_motion_event_snapshot");
 		///<summary>Loft hatch closed</summary>
 		public AutomationEntity LoftHatchClosed => new(_haContext, "automation.loft_hatch_closed");
 		///<summary>Loft hatch open</summary>
 		public AutomationEntity LoftHatchOpen => new(_haContext, "automation.loft_hatch_open");
-		///<summary>Lounge Corner Lamp Constrained</summary>
-		public AutomationEntity LoungeLampConstrained => new(_haContext, "automation.lounge_lamp_constrained");
-		///<summary>Lounge Light Constrained</summary>
-		public AutomationEntity LoungeLightConstrained => new(_haContext, "automation.lounge_light_constrained");
-		///<summary>Lounge Lights Off Reset Mode</summary>
-		public AutomationEntity LoungeLightsOffResetMode => new(_haContext, "automation.lounge_lights_off_reset_mode");
-		///<summary>Lounge Motion Lighting</summary>
-		public AutomationEntity LoungeMotionLighting => new(_haContext, "automation.lounge_motion_lighting");
+		///<summary>Lounge Remote States</summary>
+		public AutomationEntity LoungeRemoteStates => new(_haContext, "automation.lounge_remote_states");
 		///<summary>Lounge Scene Watch Television</summary>
 		public AutomationEntity LoungeSceneWatchTelevision2 => new(_haContext, "automation.lounge_scene_watch_television_2");
 		///<summary>Low battery level detection & notification for all battery sensors</summary>
 		public AutomationEntity LowBatteryLevelDetectionNotificationForAllBatterySensors => new(_haContext, "automation.low_battery_level_detection_notification_for_all_battery_sensors");
-		///<summary>Mirror Light Constrained</summary>
-		public AutomationEntity MirrorLightConstrained => new(_haContext, "automation.mirror_light_constrained");
 		///<summary>Cellar Door Motion Detected</summary>
 		public AutomationEntity PatioMotionDetected => new(_haContext, "automation.patio_motion_detected");
 		///<summary>Patio person motion event snapshot - Claire iPhone</summary>
@@ -228,8 +192,6 @@ namespace HomeAssistantGenerated
 		public AutomationEntity SendNotificationWhenAlarmIsPending => new(_haContext, "automation.send_notification_when_alarm_is_pending");
 		///<summary>Send notification when alarm triggered</summary>
 		public AutomationEntity SendNotificationWhenAlarmTriggered2 => new(_haContext, "automation.send_notification_when_alarm_triggered_2");
-		///<summary>Ambience to Evening</summary>
-		public AutomationEntity SetAmbienceToEvening => new(_haContext, "automation.set_ambience_to_evening");
 		///<summary>Set cat feeder varaibles on restart</summary>
 		public AutomationEntity SetCatFeederVaraiblesOnRestart => new(_haContext, "automation.set_cat_feeder_varaibles_on_restart");
 		///<summary>Shower timer finished</summary>
@@ -244,32 +206,16 @@ namespace HomeAssistantGenerated
 		public AutomationEntity SnugSceneWatchMovie => new(_haContext, "automation.snug_scene_watch_movie");
 		///<summary>Snug Switch Actions</summary>
 		public AutomationEntity SnugSwitchActions => new(_haContext, "automation.snug_switch_actions");
-		///<summary>Studio Light Constrained</summary>
-		public AutomationEntity StudioLightConstrained => new(_haContext, "automation.studio_light_constrained");
 		///<summary>Sump Alarm Triggered</summary>
 		public AutomationEntity SumpAlarmTriggered => new(_haContext, "automation.sump_alarm_triggered");
-		///<summary>Turn on back door light when car or person detected or back door is open</summary>
-		public AutomationEntity TestPatioMotionOverride => new(_haContext, "automation.test_patio_motion_override");
-		///<summary>Toilet Light Constrained</summary>
-		public AutomationEntity ToiletLightConstrained => new(_haContext, "automation.toilet_light_constrained");
-		///<summary>Toilet Occupancy</summary>
-		public AutomationEntity ToiletOccupancy => new(_haContext, "automation.toilet_occupancy");
 		///<summary>Trigger alarm while armed away</summary>
 		public AutomationEntity TriggerAlarmWhileArmedAway => new(_haContext, "automation.trigger_alarm_while_armed_away");
-		///<summary>Turn off back door light when no detection or door is shut</summary>
-		public AutomationEntity TurnOffBackDoorLightWhenNoDetection => new(_haContext, "automation.turn_off_back_door_light_when_no_detection");
-		///<summary>Turn off basement hall light when electric cabinet door closed</summary>
-		public AutomationEntity TurnOffBasementHallLightWhenElectricCabinetDoorClosed => new(_haContext, "automation.turn_off_basement_hall_light_when_electric_cabinet_door_closed");
-		///<summary>Turn on basement hall lights when electric cabinet door is open</summary>
-		public AutomationEntity TurnOnBasementHallLightsWhenElectricCabinetDoorIsOpen => new(_haContext, "automation.turn_on_basement_hall_lights_when_electric_cabinet_door_is_open");
 		///<summary>Turn On Ex Machina lights when alarm triggered</summary>
 		public AutomationEntity TurnOnExMachinaLightsWhenAlarmTriggered => new(_haContext, "automation.turn_on_ex_machina_lights_when_alarm_triggered");
 		///<summary>Turn Off Porch Light at 11pm</summary>
 		public AutomationEntity TurnPorchLightOfAt11pm => new(_haContext, "automation.turn_porch_light_of_at_11pm");
 		///<summary>Turn On Porch Light when Sun is set</summary>
 		public AutomationEntity TurnPorchLightOnWhenSunIsSet => new(_haContext, "automation.turn_porch_light_on_when_sun_is_set");
-		///<summary>Utility Room Light Constrained</summary>
-		public AutomationEntity UtilityRoomLightConstrained => new(_haContext, "automation.utility_room_light_constrained");
 	}
 
 	public class BinarySensorEntities
@@ -280,8 +226,6 @@ namespace HomeAssistantGenerated
 			_haContext = haContext;
 		}
 
-		///<summary>Andy's iPhone Focus</summary>
-		public BinarySensorEntity AndySIphoneFocus => new(_haContext, "binary_sensor.andy_s_iphone_focus");
 		///<summary>At Home</summary>
 		public BinarySensorEntity AtHome => new(_haContext, "binary_sensor.at_home");
 		///<summary>Backups Stale</summary>
@@ -324,6 +268,8 @@ namespace HomeAssistantGenerated
 		public BinarySensorEntity BedroomMotion => new(_haContext, "binary_sensor.bedroom_motion");
 		///<summary>Cellar Door</summary>
 		public BinarySensorEntity CellarDoor => new(_haContext, "binary_sensor.cellar_door");
+		///<summary>Christmas Tree update available</summary>
+		public BinarySensorEntity ChristmasTreeUpdateAvailable => new(_haContext, "binary_sensor.christmas_tree_update_available");
 		///<summary>Claire’s iPhone Focus</summary>
 		public BinarySensorEntity ClairesIphoneFocus => new(_haContext, "binary_sensor.claires_iphone_focus");
 		///<summary>Dining Room Motion</summary>
@@ -362,14 +308,16 @@ namespace HomeAssistantGenerated
 		public BinarySensorEntity EspresenseSnug => new(_haContext, "binary_sensor.espresense_snug");
 		///<summary>ESPresense Studio</summary>
 		public BinarySensorEntity EspresenseStudio => new(_haContext, "binary_sensor.espresense_studio");
-		///<summary>eWeLink Smart Home: Update Available</summary>
-		public BinarySensorEntity EwelinkSmartHomeUpdateAvailable => new(_haContext, "binary_sensor.ewelink_smart_home_update_available");
 		///<summary>Front Door battery low</summary>
 		public BinarySensorEntity FrontDoorBatteryLow => new(_haContext, "binary_sensor.front_door_battery_low");
 		///<summary>Front Door contact</summary>
 		public BinarySensorEntity FrontDoorContact => new(_haContext, "binary_sensor.front_door_contact");
 		///<summary>Guest Room Motion</summary>
 		public BinarySensorEntity GuestRoomMotion => new(_haContext, "binary_sensor.guest_room_motion");
+		///<summary>Guest Room Remote update available</summary>
+		public BinarySensorEntity GuestRoomRemoteUpdateAvailable => new(_haContext, "binary_sensor.guest_room_remote_update_available");
+		///<summary>Hallway Remote update available</summary>
+		public BinarySensorEntity HallwayRemoteUpdateAvailable => new(_haContext, "binary_sensor.hallway_remote_update_available");
 		///<summary>homeassistant</summary>
 		public BinarySensorEntity Homeassistant => new(_haContext, "binary_sensor.homeassistant");
 		///<summary>In Bed</summary>
@@ -390,20 +338,102 @@ namespace HomeAssistantGenerated
 		public BinarySensorEntity LoftHatchContact => new(_haContext, "binary_sensor.loft_hatch_contact");
 		///<summary>Lounge Motion</summary>
 		public BinarySensorEntity LoungeMotion => new(_haContext, "binary_sensor.lounge_motion");
+		///<summary>Lounge Remote update available</summary>
+		public BinarySensorEntity LoungeRemoteUpdateAvailable => new(_haContext, "binary_sensor.lounge_remote_update_available");
 		///<summary>Manchester Road away</summary>
 		public BinarySensorEntity ManchesterRoadAway => new(_haContext, "binary_sensor.manchester_road_away");
+		///<summary>Patio Camera Audio Object Detected</summary>
+		public BinarySensorEntity PatioCameraAudioDetected => new(_haContext, "binary_sensor.patio_camera_audio_detected");
 		///<summary>Patio Camera Is Dark</summary>
 		public BinarySensorEntity PatioCameraIsDark => new(_haContext, "binary_sensor.patio_camera_is_dark");
 		///<summary>Patio Camera Motion</summary>
 		public BinarySensorEntity PatioCameraMotion => new(_haContext, "binary_sensor.patio_camera_motion");
+		///<summary>Patio Camera Object Detected</summary>
+		public BinarySensorEntity PatioCameraObjectDetected => new(_haContext, "binary_sensor.patio_camera_object_detected");
+		///<summary>Patio Camera Person Detected</summary>
+		public BinarySensorEntity PatioCameraPersonDetected => new(_haContext, "binary_sensor.patio_camera_person_detected");
+		///<summary>Patio Camera Vehicle Detected</summary>
+		public BinarySensorEntity PatioCameraVehicleDetected => new(_haContext, "binary_sensor.patio_camera_vehicle_detected");
 		///<summary>Patio Door</summary>
 		public BinarySensorEntity PatioDoor => new(_haContext, "binary_sensor.patio_door");
+		///<summary>Pixel 6 Is Charging</summary>
+		public BinarySensorEntity Pixel6IsCharging => new(_haContext, "binary_sensor.pixel_6_is_charging");
 		///<summary>Remote UI</summary>
 		public BinarySensorEntity RemoteUi => new(_haContext, "binary_sensor.remote_ui");
 		///<summary>Snug Motion</summary>
 		public BinarySensorEntity SnugMotion => new(_haContext, "binary_sensor.snug_motion");
+		///<summary>Sonoff Basement 1 Basement Hall Button</summary>
+		public BinarySensorEntity SonoffBasement1BasementHallButton => new(_haContext, "binary_sensor.sonoff_basement_1_basement_hall_button");
+		///<summary>Sonoff Basement 1 Brewery Button</summary>
+		public BinarySensorEntity SonoffBasement1BreweryButton => new(_haContext, "binary_sensor.sonoff_basement_1_brewery_button");
+		///<summary>Sonoff Basement 1 Status</summary>
+		public BinarySensorEntity SonoffBasement1Status => new(_haContext, "binary_sensor.sonoff_basement_1_status");
+		///<summary>Sonoff Basement 1 Toilet Button</summary>
+		public BinarySensorEntity SonoffBasement1ToiletButton => new(_haContext, "binary_sensor.sonoff_basement_1_toilet_button");
+		///<summary>Sonoff Basement 1 Utility Room Button</summary>
+		public BinarySensorEntity SonoffBasement1UtilityRoomButton => new(_haContext, "binary_sensor.sonoff_basement_1_utility_room_button");
+		///<summary>Sonoff Basement 2 Dining Room Button</summary>
+		public BinarySensorEntity SonoffBasement2DiningRoomButton => new(_haContext, "binary_sensor.sonoff_basement_2_dining_room_button");
+		///<summary>Sonoff Basement 2 Snug Button</summary>
+		public BinarySensorEntity SonoffBasement2SnugButton => new(_haContext, "binary_sensor.sonoff_basement_2_snug_button");
+		///<summary>Sonoff Basement 2 Spare Ch3 Button</summary>
+		public BinarySensorEntity SonoffBasement2SpareCh3Button => new(_haContext, "binary_sensor.sonoff_basement_2_spare_ch3_button");
+		///<summary>Sonoff Basement 2 Spare Ch4 Button</summary>
+		public BinarySensorEntity SonoffBasement2SpareCh4Button => new(_haContext, "binary_sensor.sonoff_basement_2_spare_ch4_button");
+		///<summary>Sonoff Basement 2 Status</summary>
+		public BinarySensorEntity SonoffBasement2Status => new(_haContext, "binary_sensor.sonoff_basement_2_status");
 		///<summary>Sonoff Bridge 1 Button1</summary>
 		public BinarySensorEntity SonoffBridge1Button1 => new(_haContext, "binary_sensor.sonoff_bridge_1_button1");
+		///<summary>Sonoff Downstairs 1 Bookshelf Light Button</summary>
+		public BinarySensorEntity SonoffDownstairs1BookshelfLightButton => new(_haContext, "binary_sensor.sonoff_downstairs_1_bookshelf_light_button");
+		///<summary>Sonoff Downstairs 1 Extractor Fan Button</summary>
+		public BinarySensorEntity SonoffDownstairs1ExtractorFanButton => new(_haContext, "binary_sensor.sonoff_downstairs_1_extractor_fan_button");
+		///<summary>Sonoff Downstairs 1 Hallway Light Button</summary>
+		public BinarySensorEntity SonoffDownstairs1HallwayLightButton => new(_haContext, "binary_sensor.sonoff_downstairs_1_hallway_light_button");
+		///<summary>Sonoff Downstairs 1 Lounge Light Button</summary>
+		public BinarySensorEntity SonoffDownstairs1LoungeLightButton => new(_haContext, "binary_sensor.sonoff_downstairs_1_lounge_light_button");
+		///<summary>Sonoff Downstairs 1 Status</summary>
+		public BinarySensorEntity SonoffDownstairs1Status => new(_haContext, "binary_sensor.sonoff_downstairs_1_status");
+		///<summary>Sonoff Downstairs 2 Cabinet Light Button</summary>
+		public BinarySensorEntity SonoffDownstairs2CabinetLightButton => new(_haContext, "binary_sensor.sonoff_downstairs_2_cabinet_light_button");
+		///<summary>Sonoff Downstairs 2 Drawing Room Light Button</summary>
+		public BinarySensorEntity SonoffDownstairs2DrawingRoomLightButton => new(_haContext, "binary_sensor.sonoff_downstairs_2_drawing_room_light_button");
+		///<summary>Sonoff Downstairs 2 Kitchen Light Button</summary>
+		public BinarySensorEntity SonoffDownstairs2KitchenLightButton => new(_haContext, "binary_sensor.sonoff_downstairs_2_kitchen_light_button");
+		///<summary>Sonoff Downstairs 2 Spare Ch1 Button</summary>
+		public BinarySensorEntity SonoffDownstairs2SpareCh1Button => new(_haContext, "binary_sensor.sonoff_downstairs_2_spare_ch1_button");
+		///<summary>Sonoff Downstairs 2 Status</summary>
+		public BinarySensorEntity SonoffDownstairs2Status => new(_haContext, "binary_sensor.sonoff_downstairs_2_status");
+		///<summary>Sonoff Outside 1 Back Door Button</summary>
+		public BinarySensorEntity SonoffOutside1BackDoorButton => new(_haContext, "binary_sensor.sonoff_outside_1_back_door_button");
+		///<summary>Sonoff Outside 1 Cellar Door Button</summary>
+		public BinarySensorEntity SonoffOutside1CellarDoorButton => new(_haContext, "binary_sensor.sonoff_outside_1_cellar_door_button");
+		///<summary>Sonoff Outside 1 Patio Button</summary>
+		public BinarySensorEntity SonoffOutside1PatioButton => new(_haContext, "binary_sensor.sonoff_outside_1_patio_button");
+		///<summary>Sonoff Outside 1 Porch Button</summary>
+		public BinarySensorEntity SonoffOutside1PorchButton => new(_haContext, "binary_sensor.sonoff_outside_1_porch_button");
+		///<summary>Sonoff Outside 1 Status</summary>
+		public BinarySensorEntity SonoffOutside1Status => new(_haContext, "binary_sensor.sonoff_outside_1_status");
+		///<summary>Sonoff Upstairs 1 Bathroom Fan Button</summary>
+		public BinarySensorEntity SonoffUpstairs1BathroomFanButton => new(_haContext, "binary_sensor.sonoff_upstairs_1_bathroom_fan_button");
+		///<summary>Sonoff Upstairs 1 Dressing Room Light Button</summary>
+		public BinarySensorEntity SonoffUpstairs1DressingRoomLightButton => new(_haContext, "binary_sensor.sonoff_upstairs_1_dressing_room_light_button");
+		///<summary>Sonoff Upstairs 1 Guest Room Light Button</summary>
+		public BinarySensorEntity SonoffUpstairs1GuestRoomLightButton => new(_haContext, "binary_sensor.sonoff_upstairs_1_guest_room_light_button");
+		///<summary>Sonoff Upstairs 1 Landing Light Button</summary>
+		public BinarySensorEntity SonoffUpstairs1LandingLightButton => new(_haContext, "binary_sensor.sonoff_upstairs_1_landing_light_button");
+		///<summary>Sonoff Upstairs 1 Status</summary>
+		public BinarySensorEntity SonoffUpstairs1Status => new(_haContext, "binary_sensor.sonoff_upstairs_1_status");
+		///<summary>Sonoff Upstairs 2 Bathroom Light Button</summary>
+		public BinarySensorEntity SonoffUpstairs2BathroomLightButton => new(_haContext, "binary_sensor.sonoff_upstairs_2_bathroom_light_button");
+		///<summary>Sonoff Upstairs 2 Bedroom Light Button</summary>
+		public BinarySensorEntity SonoffUpstairs2BedroomLightButton => new(_haContext, "binary_sensor.sonoff_upstairs_2_bedroom_light_button");
+		///<summary>Sonoff Upstairs 2 Mirror Light Button</summary>
+		public BinarySensorEntity SonoffUpstairs2MirrorLightButton => new(_haContext, "binary_sensor.sonoff_upstairs_2_mirror_light_button");
+		///<summary>Sonoff Upstairs 2 Status</summary>
+		public BinarySensorEntity SonoffUpstairs2Status => new(_haContext, "binary_sensor.sonoff_upstairs_2_status");
+		///<summary>Sonoff Upstairs 2 Studio Light Button</summary>
+		public BinarySensorEntity SonoffUpstairs2StudioLightButton => new(_haContext, "binary_sensor.sonoff_upstairs_2_studio_light_button");
 		///<summary>Studio Motion</summary>
 		public BinarySensorEntity StudioMotion => new(_haContext, "binary_sensor.studio_motion");
 		///<summary>Sump Alarm Trigger</summary>
@@ -416,7 +446,7 @@ namespace HomeAssistantGenerated
 		public BinarySensorEntity ToiletMotion => new(_haContext, "binary_sensor.toilet_motion");
 		///<summary>Toilet Occupancy</summary>
 		public BinarySensorEntity ToiletWasp => new(_haContext, "binary_sensor.toilet_wasp");
-		///<summary>UDMPRO Disk 0 Health</summary>
+		///<summary>UDMPRO Hdd 1</summary>
 		public BinarySensorEntity UdmproDisk0Health => new(_haContext, "binary_sensor.udmpro_disk_0_health");
 		///<summary>UniFi Dream Machine wan status</summary>
 		public BinarySensorEntity UnifiDreamMachineWanStatus => new(_haContext, "binary_sensor.unifi_dream_machine_wan_status");
@@ -458,8 +488,12 @@ namespace HomeAssistantGenerated
 		public ButtonEntity EspresenseLoungeRestart => new(_haContext, "button.espresense_lounge_restart");
 		///<summary>ESPresense Snug Restart</summary>
 		public ButtonEntity EspresenseSnugRestart => new(_haContext, "button.espresense_snug_restart");
-		///<summary>ONVIF_ICAMERA Reboot</summary>
-		public ButtonEntity OnvifIcameraReboot => new(_haContext, "button.onvif_icamera_reboot");
+		///<summary>Kitchen Camera Reboot Device</summary>
+		public ButtonEntity KitchenCameraRebootDevice => new(_haContext, "button.kitchen_camera_reboot_device");
+		///<summary>Patio Camera Reboot Device</summary>
+		public ButtonEntity PatioCameraRebootDevice => new(_haContext, "button.patio_camera_reboot_device");
+		///<summary>Safe Mode Boot</summary>
+		public ButtonEntity SafeModeBoot => new(_haContext, "button.safe_mode_boot");
 	}
 
 	public class CalendarEntities
@@ -474,9 +508,9 @@ namespace HomeAssistantGenerated
 		public CalendarEntity Contacts => new(_haContext, "calendar.contacts");
 		///<summary>Garbage Collection</summary>
 		public CalendarEntity GarbageCollection => new(_haContext, "calendar.garbage_collection");
-		///<summary>Holidays in United Kingdom</summary>
+		///<summary>Holidays in united kingdom</summary>
 		public CalendarEntity HolidaysInUnitedKingdom => new(_haContext, "calendar.holidays_in_united_kingdom");
-		///<summary>home.andisoft@gmail.com</summary>
+		///<summary>Home.andisoft@gmail.com</summary>
 		public CalendarEntity HomeAndisoftGmailCom => new(_haContext, "calendar.home_andisoft_gmail_com");
 	}
 
@@ -490,12 +524,6 @@ namespace HomeAssistantGenerated
 
 		///<summary>Basement Hall Camera Medium</summary>
 		public CameraEntity BasementHallCameraMedium => new(_haContext, "camera.basement_hall_camera_medium");
-		///<summary>Cellar Door Camera</summary>
-		public CameraEntity CellarDoorCamera => new(_haContext, "camera.cellar_door_camera");
-		///<summary>Cellar Door Camera</summary>
-		public CameraEntity CellarDoorCamera2 => new(_haContext, "camera.cellar_door_camera_2");
-		///<summary>Cellar Door Camera Main Stream</summary>
-		public CameraEntity CellarDoorCameraMainstream => new(_haContext, "camera.cellar_door_camera_mainstream");
 		///<summary>Kitchen Camera Medium</summary>
 		public CameraEntity KitchenCameraMedium => new(_haContext, "camera.kitchen_camera_medium");
 		///<summary>Mark Cleaning Map</summary>
@@ -534,22 +562,18 @@ namespace HomeAssistantGenerated
 			_haContext = haContext;
 		}
 
-		///<summary>Andrew’s iPhone iCloud</summary>
-		public DeviceTrackerEntity AndrewsIphoneIcloud => new(_haContext, "device_tracker.andrews_iphone_icloud");
+		public DeviceTrackerEntity E9d41000035d6F4ddBa60E7bd8dc491c027118791269ee => new(_haContext, "device_tracker.9d410000_35d6_f4dd_ba60_e7bd8dc491c0_27118_7912_69ee");
+		public DeviceTrackerEntity E9d41000035d6F4ddBa60E7bd8dc491c06538525776Ff69 => new(_haContext, "device_tracker.9d410000_35d6_f4dd_ba60_e7bd8dc491c0_65385_25776_ff69");
 		///<summary>Andrew’s iPhone</summary>
 		public DeviceTrackerEntity AndrewsIphoneTile => new(_haContext, "device_tracker.andrews_iphone_tile");
-		///<summary>Andy's iPhone</summary>
-		public DeviceTrackerEntity AndySIphone => new(_haContext, "device_tracker.andy_s_iphone");
 		///<summary>Andy's Keys</summary>
 		public DeviceTrackerEntity AndysKeys => new(_haContext, "device_tracker.andys_keys");
 		///<summary>Basement Hall Camera</summary>
 		public DeviceTrackerEntity BasementHallCamera => new(_haContext, "device_tracker.basement_hall_camera");
 		///<summary>Car</summary>
 		public DeviceTrackerEntity Car => new(_haContext, "device_tracker.car");
-		///<summary>Cellar Door Camera</summary>
-		public DeviceTrackerEntity CellarDoorCamera => new(_haContext, "device_tracker.cellar_door_camera");
-		///<summary>Claire’s Apple Watch iCloud</summary>
-		public DeviceTrackerEntity ClairesAppleWatchIcloud => new(_haContext, "device_tracker.claires_apple_watch_icloud");
+		///<summary>Claire’s Apple Watch</summary>
+		public DeviceTrackerEntity ClairesAppleWatch => new(_haContext, "device_tracker.claires_apple_watch");
 		///<summary>Claire’s iPhone</summary>
 		public DeviceTrackerEntity ClairesIphone => new(_haContext, "device_tracker.claires_iphone");
 		///<summary>Claire’s iPhone iCloud</summary>
@@ -558,8 +582,11 @@ namespace HomeAssistantGenerated
 		public DeviceTrackerEntity ClairesIphoneTile => new(_haContext, "device_tracker.claires_iphone_tile");
 		///<summary>Claire's Keys</summary>
 		public DeviceTrackerEntity ClairesKeys => new(_haContext, "device_tracker.claires_keys");
-		///<summary>Dream Machine Pro</summary>
-		public DeviceTrackerEntity DreamMachinePro => new(_haContext, "device_tracker.dream_machine_pro");
+		public DeviceTrackerEntity E20a39f473f54bc4186417d1ad07a9623810829772C6d1 => new(_haContext, "device_tracker.e20a39f4_73f5_4bc4_1864_17d1ad07a962_38108_29772_c6d1");
+		public DeviceTrackerEntity E20a39f473f54bc4186417d1ad07a9623941038168df7 => new(_haContext, "device_tracker.e20a39f4_73f5_4bc4_1864_17d1ad07a962_39410_3816_8df7");
+		public DeviceTrackerEntity E20a39f473f54bc4186417d1ad07a9624040050805F0e9 => new(_haContext, "device_tracker.e20a39f4_73f5_4bc4_1864_17d1ad07a962_40400_50805_f0e9");
+		public DeviceTrackerEntity E20a39f473f54bc4186417d1ad07a96262393370145f81 => new(_haContext, "device_tracker.e20a39f4_73f5_4bc4_1864_17d1ad07a962_62393_37014_5f81");
+		public DeviceTrackerEntity E2c56db5Dffb48d2B060D0f5a71096e000 => new(_haContext, "device_tracker.e2c56db5_dffb_48d2_b060_d0f5a71096e0_0_0");
 		///<summary>ESPHome Cat Feeder</summary>
 		public DeviceTrackerEntity EsphomeCatFeeder => new(_haContext, "device_tracker.esphome_cat_feeder");
 		///<summary>ESPHome Doorbell</summary>
@@ -568,14 +595,14 @@ namespace HomeAssistantGenerated
 		public DeviceTrackerEntity EsphomeSumpAlarm => new(_haContext, "device_tracker.esphome_sump_alarm");
 		///<summary>ESPHome Weather Station</summary>
 		public DeviceTrackerEntity EsphomeWeatherStation => new(_haContext, "device_tracker.esphome_weather_station");
-		///<summary>espresense-bedroom</summary>
-		public DeviceTrackerEntity EspresenseBedroom => new(_haContext, "device_tracker.espresense_bedroom");
-		///<summary>espresense-kitchen</summary>
+		///<summary>espresense-drawingroom</summary>
+		public DeviceTrackerEntity EspresenseDrawingroom => new(_haContext, "device_tracker.espresense_drawingroom");
+		///<summary>ESPresense Kitchen</summary>
 		public DeviceTrackerEntity EspresenseKitchen => new(_haContext, "device_tracker.espresense_kitchen");
-		///<summary>espresense-lounge</summary>
+		///<summary>ESPresense Lounge</summary>
 		public DeviceTrackerEntity EspresenseLounge => new(_haContext, "device_tracker.espresense_lounge");
-		///<summary>espresense-snug</summary>
-		public DeviceTrackerEntity EspresenseSnug => new(_haContext, "device_tracker.espresense_snug");
+		///<summary>studio-bluetooth-proxy</summary>
+		public DeviceTrackerEntity EspresenseStudio => new(_haContext, "device_tracker.espresense_studio");
 		///<summary>hauser</summary>
 		public DeviceTrackerEntity HauserAndy => new(_haContext, "device_tracker.hauser_andy");
 		///<summary>hauser</summary>
@@ -590,6 +617,27 @@ namespace HomeAssistantGenerated
 		public DeviceTrackerEntity KonnectedUpstairs => new(_haContext, "device_tracker.konnected_upstairs");
 		///<summary>Patio Camera</summary>
 		public DeviceTrackerEntity PatioCamera => new(_haContext, "device_tracker.patio_camera");
+		///<summary>Pixel 6</summary>
+		public DeviceTrackerEntity Pixel62 => new(_haContext, "device_tracker.pixel_6_2");
+		///<summary>Pixel 6 Tile</summary>
+		public DeviceTrackerEntity Pixel6Tile => new(_haContext, "device_tracker.pixel_6_tile");
+		public DeviceTrackerEntity S424d3be485e872ccc483c => new(_haContext, "device_tracker.s424d3be485e872ccc_483c");
+		public DeviceTrackerEntity S56bd949cabb74974cCa91 => new(_haContext, "device_tracker.s56bd949cabb74974c_ca91");
+		public DeviceTrackerEntity Sfd85968e835924d1c6058 => new(_haContext, "device_tracker.sfd85968e835924d1c_6058");
+		///<summary>Sonoff Basement 1</summary>
+		public DeviceTrackerEntity SonoffBasement1 => new(_haContext, "device_tracker.sonoff_basement_1");
+		///<summary>Sonoff Basement 2</summary>
+		public DeviceTrackerEntity SonoffBasement2 => new(_haContext, "device_tracker.sonoff_basement_2");
+		///<summary>Sonoff Downstairs 1</summary>
+		public DeviceTrackerEntity SonoffDownstairs1 => new(_haContext, "device_tracker.sonoff_downstairs_1");
+		///<summary>Sonoff Downstairs 2</summary>
+		public DeviceTrackerEntity SonoffDownstairs2 => new(_haContext, "device_tracker.sonoff_downstairs_2");
+		///<summary>Sonoff Outside 1</summary>
+		public DeviceTrackerEntity SonoffOutside1 => new(_haContext, "device_tracker.sonoff_outside_1");
+		///<summary>Sonoff Upstairs 1</summary>
+		public DeviceTrackerEntity SonoffUpstairs1 => new(_haContext, "device_tracker.sonoff_upstairs_1");
+		///<summary>Sonoff Upstairs 2</summary>
+		public DeviceTrackerEntity SonoffUpstairs2 => new(_haContext, "device_tracker.sonoff_upstairs_2");
 		///<summary>Car Key</summary>
 		public DeviceTrackerEntity SpareKey => new(_haContext, "device_tracker.spare_key");
 		///<summary>UAP-AC-LR-Basement</summary>
@@ -598,7 +646,9 @@ namespace HomeAssistantGenerated
 		public DeviceTrackerEntity UapAcLrUpstairs => new(_haContext, "device_tracker.uap_ac_lr_upstairs");
 		///<summary>UAP-FlexHD-Groundfloor</summary>
 		public DeviceTrackerEntity UapFlexhdGroundfloor => new(_haContext, "device_tracker.uap_flexhd_groundfloor");
-		///<summary>UHDIW</summary>
+		///<summary>UDMPRO</summary>
+		public DeviceTrackerEntity Udmpro => new(_haContext, "device_tracker.udmpro");
+		///<summary>UAP-IW-HD-Shed</summary>
 		public DeviceTrackerEntity Uhdiw => new(_haContext, "device_tracker.uhdiw");
 	}
 
@@ -625,9 +675,9 @@ namespace HomeAssistantGenerated
 		}
 
 		///<summary>Bathroom Fan</summary>
-		public FanEntity BathroomFan => new(_haContext, "fan.bathroom_fan");
+		public FanEntity Bathroom => new(_haContext, "fan.bathroom");
 		///<summary>Extractor Fan</summary>
-		public FanEntity ExtractorFan => new(_haContext, "fan.extractor_fan");
+		public FanEntity Extractor => new(_haContext, "fan.extractor");
 	}
 
 	public class GroupEntities
@@ -804,74 +854,48 @@ namespace HomeAssistantGenerated
 			_haContext = haContext;
 		}
 
-		///<summary>Back Door Light Constrained</summary>
-		public InputBooleanEntity BackDoorLightConstrained => new(_haContext, "input_boolean.back_door_light_constrained");
-		///<summary>Basement Hall Light Constrained</summary>
-		public InputBooleanEntity BasementHallLightConstrained => new(_haContext, "input_boolean.basement_hall_light_constrained");
-		///<summary>Bathroom Light Constrained</summary>
-		public InputBooleanEntity BathroomLightConstrained => new(_haContext, "input_boolean.bathroom_light_constrained");
-		///<summary>Bedroom Light Constrained</summary>
-		public InputBooleanEntity BedroomLightConstrained => new(_haContext, "input_boolean.bedroom_light_constrained");
-		///<summary>Bedside Lamp Constrained</summary>
-		public InputBooleanEntity BedsideLampConstrained => new(_haContext, "input_boolean.bedside_lamp_constrained");
-		///<summary>Bookshelf Light Constrained</summary>
-		public InputBooleanEntity BookshelfLightConstrained => new(_haContext, "input_boolean.bookshelf_light_constrained");
-		///<summary>Breakfast Bar Lamp Constrained</summary>
-		public InputBooleanEntity BreakfastBarLampConstrained => new(_haContext, "input_boolean.breakfast_bar_lamp_constrained");
-		///<summary>Brewery Light Constrained</summary>
-		public InputBooleanEntity BreweryLightConstrained => new(_haContext, "input_boolean.brewery_light_constrained");
-		///<summary>Dining Room Light Constrained</summary>
-		public InputBooleanEntity DiningRoomLightConstrained => new(_haContext, "input_boolean.dining_room_light_constrained");
 		///<summary>Disable Next Feed</summary>
 		public InputBooleanEntity DisableNextFeed => new(_haContext, "input_boolean.disable_next_feed");
-		///<summary>Drawing Room Light Constrained</summary>
-		public InputBooleanEntity DrawingRoomLightConstrained => new(_haContext, "input_boolean.drawing_room_light_constrained");
-		///<summary>Dressing Room Light Constrained</summary>
-		public InputBooleanEntity DressingRoomLightConstrained => new(_haContext, "input_boolean.dressing_room_light_constrained");
 		///<summary>Evening Feed Complete</summary>
 		public InputBooleanEntity EveningFeedComplete => new(_haContext, "input_boolean.evening_feed_complete");
 		///<summary>Evening Feed Enabled</summary>
 		public InputBooleanEntity EveningFeedEnabled => new(_haContext, "input_boolean.evening_feed_enabled");
-		///<summary>Guest Room Light Constrained</summary>
-		public InputBooleanEntity GuestRoomLightConstrained => new(_haContext, "input_boolean.guest_room_light_constrained");
-		///<summary>Hallway Lamp Constrained</summary>
-		public InputBooleanEntity HallwayLampConstrained => new(_haContext, "input_boolean.hallway_lamp_constrained");
-		///<summary>Hallway Light Constrained</summary>
-		public InputBooleanEntity HallwayLightConstrained => new(_haContext, "input_boolean.hallway_light_constrained");
 		///<summary>In Bed</summary>
 		public InputBooleanEntity InBed => new(_haContext, "input_boolean.in_bed");
 		///<summary>in_shower</summary>
 		public InputBooleanEntity InShower => new(_haContext, "input_boolean.in_shower");
-		///<summary>Kitchen Light Constrained</summary>
-		public InputBooleanEntity KitchenLightConstrained => new(_haContext, "input_boolean.kitchen_light_constrained");
-		///<summary>Landing Light Constrained</summary>
-		public InputBooleanEntity LandingLightConstrained => new(_haContext, "input_boolean.landing_light_constrained");
-		///<summary>Lounge Corner Lamp Constrained</summary>
-		public InputBooleanEntity LoungeCornerLampConstrained => new(_haContext, "input_boolean.lounge_corner_lamp_constrained");
-		///<summary>Lounge Floor Lamp Constrained</summary>
-		public InputBooleanEntity LoungeFloorLampConstrained => new(_haContext, "input_boolean.lounge_floor_lamp_constrained");
-		///<summary>Lounge Light Constrained</summary>
-		public InputBooleanEntity LoungeLightConstrained => new(_haContext, "input_boolean.lounge_light_constrained");
-		///<summary>Mirror Light Constrained</summary>
-		public InputBooleanEntity MirrorLightConstrained => new(_haContext, "input_boolean.mirror_light_constrained");
+		///<summary>Lounge Lamp Automation</summary>
+		public InputBooleanEntity LoungeLampAutomation => new(_haContext, "input_boolean.lounge_lamp_automation");
+		///<summary>Lounge Light Automation</summary>
+		public InputBooleanEntity LoungeLightAutomation => new(_haContext, "input_boolean.lounge_light_automation");
 		///<summary>Morning Feed Complete</summary>
 		public InputBooleanEntity MorningFeedComplete => new(_haContext, "input_boolean.morning_feed_complete");
 		///<summary>Morning Feed Enabled</summary>
 		public InputBooleanEntity MorningFeedEnabled => new(_haContext, "input_boolean.morning_feed_enabled");
 		///<summary>netdaemon_basement_basement_lights</summary>
 		public InputBooleanEntity NetdaemonBasementBasementLights => new(_haContext, "input_boolean.netdaemon_basement_basement_lights");
+		///<summary>netdaemon_basement_dining_room_light</summary>
+		public InputBooleanEntity NetdaemonBasementDiningRoomLight => new(_haContext, "input_boolean.netdaemon_basement_dining_room_light");
 		///<summary>netdaemon_downstairs_downstairs_lights</summary>
 		public InputBooleanEntity NetdaemonDownstairsDownstairsLights => new(_haContext, "input_boolean.netdaemon_downstairs_downstairs_lights");
 		///<summary>netdaemon_house_light_modes</summary>
 		public InputBooleanEntity NetdaemonHouseLightModes => new(_haContext, "input_boolean.netdaemon_house_light_modes");
 		///<summary>netdaemon_house_state_manager</summary>
 		public InputBooleanEntity NetdaemonHouseStateManager => new(_haContext, "input_boolean.netdaemon_house_state_manager");
+		///<summary>netdaemon_net_daemon_apps_automations_states_alarm_app_controller</summary>
+		public InputBooleanEntity NetdaemonNetDaemonAppsAutomationsStatesAlarmAppController => new(_haContext, "input_boolean.netdaemon_net_daemon_apps_automations_states_alarm_app_controller");
+		///<summary>netdaemon_net_daemon_apps_automations_states_brightness_controller</summary>
+		public InputBooleanEntity NetdaemonNetDaemonAppsAutomationsStatesBrightnessController => new(_haContext, "input_boolean.netdaemon_net_daemon_apps_automations_states_brightness_controller");
+		///<summary>netdaemon_net_daemon_apps_automations_states_light_state_controller</summary>
+		public InputBooleanEntity NetdaemonNetDaemonAppsAutomationsStatesLightStateController => new(_haContext, "input_boolean.netdaemon_net_daemon_apps_automations_states_light_state_controller");
+		///<summary>netdaemon_net_daemon_apps_automations_states_time_of_day_controller</summary>
+		public InputBooleanEntity NetdaemonNetDaemonAppsAutomationsStatesTimeOfDayController => new(_haContext, "input_boolean.netdaemon_net_daemon_apps_automations_states_time_of_day_controller");
 		///<summary>netdaemon_outside_patio_back_door_light_control</summary>
 		public InputBooleanEntity NetdaemonOutsidePatioBackDoorLightControl => new(_haContext, "input_boolean.netdaemon_outside_patio_back_door_light_control");
-		///<summary>netdaemon_outside_patio_weather_station_ambient_light</summary>
-		public InputBooleanEntity NetdaemonOutsidePatioWeatherStationAmbientLight => new(_haContext, "input_boolean.netdaemon_outside_patio_weather_station_ambient_light");
 		///<summary>netdaemon_outside_porch_front_door</summary>
 		public InputBooleanEntity NetdaemonOutsidePorchFrontDoor => new(_haContext, "input_boolean.netdaemon_outside_porch_front_door");
+		///<summary>netdaemon_scene_bedroom_scenes</summary>
+		public InputBooleanEntity NetdaemonSceneBedroomScenes => new(_haContext, "input_boolean.netdaemon_scene_bedroom_scenes");
 		///<summary>netdaemon_upstairs_bedroom_bedroom_mode</summary>
 		public InputBooleanEntity NetdaemonUpstairsBedroomBedroomMode => new(_haContext, "input_boolean.netdaemon_upstairs_bedroom_bedroom_mode");
 		///<summary>netdaemon_upstairs_bedroom_sleep_analyser</summary>
@@ -884,12 +908,36 @@ namespace HomeAssistantGenerated
 		public InputBooleanEntity SnugFloorLampConstrained => new(_haContext, "input_boolean.snug_floor_lamp_constrained");
 		///<summary>Snug Light Constrained</summary>
 		public InputBooleanEntity SnugLightConstrained => new(_haContext, "input_boolean.snug_light_constrained");
-		///<summary>Studio Light Constrained</summary>
-		public InputBooleanEntity StudioLightConstrained => new(_haContext, "input_boolean.studio_light_constrained");
-		///<summary>Toilet Light Constrained</summary>
-		public InputBooleanEntity ToiletLightConstrained => new(_haContext, "input_boolean.toilet_light_constrained");
-		///<summary>Utility Room Light Constrained</summary>
-		public InputBooleanEntity UtilityRoomLightConstrained => new(_haContext, "input_boolean.utility_room_light_constrained");
+		///<summary>Time Of Day Enabled</summary>
+		public InputBooleanEntity TimeOfDayEnabled => new(_haContext, "input_boolean.time_of_day_enabled");
+	}
+
+	public class InputDatetimeEntities
+	{
+		private readonly IHaContext _haContext;
+		public InputDatetimeEntities(IHaContext haContext)
+		{
+			_haContext = haContext;
+		}
+
+		///<summary>Evening Feed Time</summary>
+		public InputDatetimeEntity EveningFeedTime => new(_haContext, "input_datetime.evening_feed_time");
+		///<summary>Morning Feed Time</summary>
+		public InputDatetimeEntity MorningFeedTime => new(_haContext, "input_datetime.morning_feed_time");
+	}
+
+	public class InputNumberEntities
+	{
+		private readonly IHaContext _haContext;
+		public InputNumberEntities(IHaContext haContext)
+		{
+			_haContext = haContext;
+		}
+
+		///<summary>Brightness Bright Threshold</summary>
+		public InputNumberEntity BrightnessBrightThreshold => new(_haContext, "input_number.brightness_bright_threshold");
+		///<summary>Brightness Dark Threshold</summary>
+		public InputNumberEntity BrightnessDarkThreshold => new(_haContext, "input_number.brightness_dark_threshold");
 	}
 
 	public class InputSelectEntities
@@ -916,6 +964,24 @@ namespace HomeAssistantGenerated
 		public InputSelectEntity SnugMode => new(_haContext, "input_select.snug_mode");
 		///<summary>Time Of Day</summary>
 		public InputSelectEntity TimeOfDay => new(_haContext, "input_select.time_of_day");
+	}
+
+	public class InputTextEntities
+	{
+		private readonly IHaContext _haContext;
+		public InputTextEntities(IHaContext haContext)
+		{
+			_haContext = haContext;
+		}
+
+		///<summary>Alexa Actionable Notification Holder</summary>
+		public InputTextEntity AlexaActionableNotification => new(_haContext, "input_text.alexa_actionable_notification");
+		///<summary>Guest Room Remote Last State</summary>
+		public InputTextEntity GuestRoomRemoteLastState => new(_haContext, "input_text.guest_room_remote_last_state");
+		///<summary>Hallway Remote Last State</summary>
+		public InputTextEntity HallwayRemoteLastState => new(_haContext, "input_text.hallway_remote_last_state");
+		///<summary>Lounge Remote Last State</summary>
+		public InputTextEntity LoungeRemoteLastState => new(_haContext, "input_text.lounge_remote_last_state");
 	}
 
 	public class LightEntities
@@ -964,6 +1030,8 @@ namespace HomeAssistantGenerated
 		public LightEntity DownstairsLights => new(_haContext, "light.downstairs_lights");
 		///<summary>Drawing Room Light</summary>
 		public LightEntity DrawingRoom => new(_haContext, "light.drawing_room");
+		///<summary>Drawing Room Floor Lamp</summary>
+		public LightEntity DrawingRoomFloorLamp => new(_haContext, "light.drawing_room_floor_lamp");
 		///<summary>Drawing Room Lights</summary>
 		public LightEntity DrawingRoomLights => new(_haContext, "light.drawing_room_lights");
 		///<summary>Dressing Room Light</summary>
@@ -992,11 +1060,9 @@ namespace HomeAssistantGenerated
 		public LightEntity Lounge => new(_haContext, "light.lounge");
 		///<summary>Lounge Corner Lamp</summary>
 		public LightEntity LoungeCornerLamp => new(_haContext, "light.lounge_corner_lamp");
-		///<summary>Lounge Floor Lamp</summary>
-		public LightEntity LoungeFloorLamp => new(_haContext, "light.lounge_floor_lamp");
 		///<summary>Lounge Lights</summary>
 		public LightEntity LoungeLights => new(_haContext, "light.lounge_lights");
-		///<summary>Mirror  Light</summary>
+		///<summary>Mirror Light</summary>
 		public LightEntity Mirror => new(_haContext, "light.mirror");
 		///<summary>Outside Lights</summary>
 		public LightEntity OutsideLights => new(_haContext, "light.outside_lights");
@@ -1006,12 +1072,28 @@ namespace HomeAssistantGenerated
 		public LightEntity PatioLights => new(_haContext, "light.patio_lights");
 		///<summary>Porch Light</summary>
 		public LightEntity Porch => new(_haContext, "light.porch");
+		///<summary>RGB Lights</summary>
+		public LightEntity RgbLights => new(_haContext, "light.rgb_lights");
 		///<summary>Snug Light</summary>
 		public LightEntity Snug => new(_haContext, "light.snug");
 		///<summary>Snug Floor Lamp</summary>
 		public LightEntity SnugFloorLamp => new(_haContext, "light.snug_floor_lamp");
 		///<summary>Snug Lights</summary>
 		public LightEntity SnugLights => new(_haContext, "light.snug_lights");
+		///<summary>Sonoff Basement 1 Blue LED</summary>
+		public LightEntity SonoffBasement1BlueLed => new(_haContext, "light.sonoff_basement_1_blue_led");
+		///<summary>Sonoff Basement 2 Blue LED</summary>
+		public LightEntity SonoffBasement2BlueLed => new(_haContext, "light.sonoff_basement_2_blue_led");
+		///<summary>Sonoff Downstairs 1 Blue LED</summary>
+		public LightEntity SonoffDownstairs1BlueLed => new(_haContext, "light.sonoff_downstairs_1_blue_led");
+		///<summary>Sonoff Downstairs 2 Blue LED</summary>
+		public LightEntity SonoffDownstairs2BlueLed => new(_haContext, "light.sonoff_downstairs_2_blue_led");
+		///<summary>Sonoff Outside 1 Blue LED</summary>
+		public LightEntity SonoffOutside1BlueLed => new(_haContext, "light.sonoff_outside_1_blue_led");
+		///<summary>Sonoff Upstairs 1 Blue LED</summary>
+		public LightEntity SonoffUpstairs1BlueLed => new(_haContext, "light.sonoff_upstairs_1_blue_led");
+		///<summary>Sonoff Upstairs 2 Blue LED</summary>
+		public LightEntity SonoffUpstairs2BlueLed => new(_haContext, "light.sonoff_upstairs_2_blue_led");
 		///<summary>Studio Light</summary>
 		public LightEntity Studio => new(_haContext, "light.studio");
 		///<summary>Toilet Light</summary>
@@ -1038,10 +1120,10 @@ namespace HomeAssistantGenerated
 		public MediaPlayerEntity AllSpeakers => new(_haContext, "media_player.all_speakers");
 		///<summary>Andrew's Echo Buds</summary>
 		public MediaPlayerEntity AndrewSEchoBuds => new(_haContext, "media_player.andrew_s_echo_buds");
-		///<summary>Andrew's Fire TV</summary>
+		///<summary>Snug Fire TV</summary>
 		public MediaPlayerEntity AndrewSFireTv => new(_haContext, "media_player.andrew_s_fire_tv");
-		///<summary>Andrew's Samsung TV 2020-U</summary>
-		public MediaPlayerEntity AndrewSSamsungTv2020U => new(_haContext, "media_player.andrew_s_samsung_tv_2020_u");
+		///<summary>Basement</summary>
+		public MediaPlayerEntity Basement => new(_haContext, "media_player.basement");
 		///<summary>Bedroom Echo Show</summary>
 		public MediaPlayerEntity BedroomEchoShow => new(_haContext, "media_player.bedroom_echo_show");
 		///<summary>Dining Room Echo Input</summary>
@@ -1066,15 +1148,23 @@ namespace HomeAssistantGenerated
 		public MediaPlayerEntity LoungeEchoPlus => new(_haContext, "media_player.lounge_echo_plus");
 		///<summary>Lounge Fire TV</summary>
 		public MediaPlayerEntity LoungeFireTv => new(_haContext, "media_player.lounge_fire_tv");
-		///<summary>Snug</summary>
-		public MediaPlayerEntity Snug => new(_haContext, "media_player.snug");
-		///<summary>Snug Echo Input</summary>
-		public MediaPlayerEntity SnugEchoInput => new(_haContext, "media_player.snug_echo_input");
+		///<summary>Lounge TV</summary>
+		public MediaPlayerEntity LoungeTv => new(_haContext, "media_player.lounge_tv");
+		///<summary>Offices</summary>
+		public MediaPlayerEntity Offices => new(_haContext, "media_player.offices");
+		///<summary>Shed Echo Input</summary>
+		public MediaPlayerEntity ShedEchoInput => new(_haContext, "media_player.shed_echo_input");
+		///<summary>Snug Echo Show</summary>
+		public MediaPlayerEntity SnugEchoShow => new(_haContext, "media_player.snug_echo_show");
 		///<summary>Snug Projector</summary>
 		public MediaPlayerEntity SnugProjector => new(_haContext, "media_player.snug_projector");
+		///<summary>Snug Projector</summary>
+		public MediaPlayerEntity SnugProjector2 => new(_haContext, "media_player.snug_projector_2");
 		public MediaPlayerEntity SnugRadio => new(_haContext, "media_player.snug_radio");
 		///<summary>Spotify Andrew McInnes</summary>
 		public MediaPlayerEntity SpotifyAndrewMcinnes => new(_haContext, "media_player.spotify_andrew_mcinnes");
+		///<summary>This Device</summary>
+		public MediaPlayerEntity ThisDevice => new(_haContext, "media_player.this_device");
 		///<summary>Upstairs</summary>
 		public MediaPlayerEntity Upstairs => new(_haContext, "media_player.upstairs");
 		///<summary>Utility Room Echo Dot</summary>
@@ -1097,6 +1187,8 @@ namespace HomeAssistantGenerated
 		public NumberEntity EspresenseBedroomMaxDistance => new(_haContext, "number.espresense_bedroom_max_distance");
 		///<summary>ESPresense DrawingRoom Max Distance</summary>
 		public NumberEntity EspresenseDrawingroomMaxDistance => new(_haContext, "number.espresense_drawingroom_max_distance");
+		///<summary>ESPresense Kitchen Absorption</summary>
+		public NumberEntity EspresenseKitchenAbsorption => new(_haContext, "number.espresense_kitchen_absorption");
 		///<summary>ESPresense Kitchen Max Distance</summary>
 		public NumberEntity EspresenseKitchenMaxDistance => new(_haContext, "number.espresense_kitchen_max_distance");
 		///<summary>ESPresense Lounge Absorption</summary>
@@ -1125,8 +1217,22 @@ namespace HomeAssistantGenerated
 
 		///<summary>Andy</summary>
 		public PersonEntity Andy => new(_haContext, "person.andy");
+		///<summary>Car</summary>
+		public PersonEntity Car => new(_haContext, "person.car");
 		///<summary>Claire</summary>
 		public PersonEntity Claire => new(_haContext, "person.claire");
+	}
+
+	public class ProximityEntities
+	{
+		private readonly IHaContext _haContext;
+		public ProximityEntities(IHaContext haContext)
+		{
+			_haContext = haContext;
+		}
+
+		///<summary>home</summary>
+		public ProximityEntity Home => new(_haContext, "proximity.home");
 	}
 
 	public class RemoteEntities
@@ -1171,6 +1277,8 @@ namespace HomeAssistantGenerated
 		public SceneEntity LightsUp => new(_haContext, "scene.lights_up");
 		///<summary>Lounge Normal</summary>
 		public SceneEntity LoungeNormal => new(_haContext, "scene.lounge_normal");
+		///<summary>Pre Movie</summary>
+		public SceneEntity PreMovie => new(_haContext, "scene.pre_movie");
 		///<summary>Showering</summary>
 		public SceneEntity Showering => new(_haContext, "scene.showering");
 		///<summary>Watch Movie</summary>
@@ -1187,6 +1295,8 @@ namespace HomeAssistantGenerated
 			_haContext = haContext;
 		}
 
+		///<summary>Alarm Triggered</summary>
+		public ScriptEntity AlarmTriggered => new(_haContext, "script.alarm_triggered");
 		///<summary>Doorbell Alexa</summary>
 		public ScriptEntity DoorbellAlexa => new(_haContext, "script.doorbell_alexa");
 		///<summary>Entity Controller Reset</summary>
@@ -1197,6 +1307,8 @@ namespace HomeAssistantGenerated
 		public ScriptEntity LightEffectContinuous => new(_haContext, "script.light_effect_continuous");
 		///<summary>Light Effect Timed</summary>
 		public ScriptEntity LightEffectTimed => new(_haContext, "script.light_effect_timed");
+		///<summary>activate_alexa_actionable_notification</summary>
+		public ScriptEntity NewScript => new(_haContext, "script.new_script");
 		///<summary>Notify Alexa Everywhere</summary>
 		public ScriptEntity NotifyAlexaEverywhere => new(_haContext, "script.notify_alexa_everywhere");
 		///<summary>Notify All</summary>
@@ -1219,6 +1331,8 @@ namespace HomeAssistantGenerated
 		public SelectEntity BasementHallCameraInfraredMode => new(_haContext, "select.basement_hall_camera_infrared_mode");
 		///<summary>Basement Hall Camera Recording Mode</summary>
 		public SelectEntity BasementHallCameraRecordingMode => new(_haContext, "select.basement_hall_camera_recording_mode");
+		///<summary>Christmas Tree power on behavior</summary>
+		public SelectEntity ChristmasTreePowerOnBehavior => new(_haContext, "select.christmas_tree_power_on_behavior");
 		///<summary>Kitchen Camera Infrared Mode</summary>
 		public SelectEntity KitchenCameraInfraredMode => new(_haContext, "select.kitchen_camera_infrared_mode");
 		///<summary>Kitchen Camera Recording Mode</summary>
@@ -1239,36 +1353,24 @@ namespace HomeAssistantGenerated
 
 		///<summary>Snug Switch linkquality</summary>
 		public NumericSensorEntity E0x00124b00226650a6Linkquality => new(_haContext, "sensor.0x00124b00226650a6_linkquality");
-		///<summary>AdGuard Average Processing Speed</summary>
+		///<summary>Estimated Distance</summary>
+		public NumericSensorEntity E9d41000035d6F4ddBa60E7bd8dc491c027118791269eeEstimatedDistance => new(_haContext, "sensor.9d410000_35d6_f4dd_ba60_e7bd8dc491c0_27118_7912_69ee_estimated_distance");
+		///<summary>Estimated Distance</summary>
+		public NumericSensorEntity E9d41000035d6F4ddBa60E7bd8dc491c06538525776Ff69EstimatedDistance => new(_haContext, "sensor.9d410000_35d6_f4dd_ba60_e7bd8dc491c0_65385_25776_ff69_estimated_distance");
+		///<summary>AdGuard Home Average processing speed</summary>
 		public NumericSensorEntity AdguardAverageProcessingSpeed => new(_haContext, "sensor.adguard_average_processing_speed");
-		///<summary>AdGuard DNS Queries</summary>
+		///<summary>AdGuard Home DNS queries</summary>
 		public NumericSensorEntity AdguardDnsQueries => new(_haContext, "sensor.adguard_dns_queries");
-		///<summary>AdGuard DNS Queries Blocked</summary>
+		///<summary>AdGuard Home DNS queries blocked</summary>
 		public NumericSensorEntity AdguardDnsQueriesBlocked => new(_haContext, "sensor.adguard_dns_queries_blocked");
-		///<summary>AdGuard DNS Queries Blocked Ratio</summary>
+		///<summary>AdGuard Home DNS queries blocked ratio</summary>
 		public NumericSensorEntity AdguardDnsQueriesBlockedRatio => new(_haContext, "sensor.adguard_dns_queries_blocked_ratio");
-		///<summary>AdGuard Parental Control Blocked</summary>
+		///<summary>AdGuard Home Parental control blocked</summary>
 		public NumericSensorEntity AdguardParentalControlBlocked => new(_haContext, "sensor.adguard_parental_control_blocked");
-		///<summary>AdGuard Rules Count</summary>
+		///<summary>AdGuard Home Rules count</summary>
 		public NumericSensorEntity AdguardRulesCount => new(_haContext, "sensor.adguard_rules_count");
-		///<summary>AdGuard Safe Browsing Blocked</summary>
+		///<summary>AdGuard Home Safe browsing blocked</summary>
 		public NumericSensorEntity AdguardSafeBrowsingBlocked => new(_haContext, "sensor.adguard_safe_browsing_blocked");
-		///<summary>Andrew’s iPhone iCloud battery state</summary>
-		public NumericSensorEntity AndrewsIphoneIcloudBatteryState => new(_haContext, "sensor.andrews_iphone_icloud_battery_state");
-		///<summary>Andy's iPhone Average Active Pace</summary>
-		public NumericSensorEntity AndySIphoneAverageActivePace => new(_haContext, "sensor.andy_s_iphone_average_active_pace");
-		///<summary>Andy's iPhone Battery Level</summary>
-		public NumericSensorEntity AndySIphoneBatteryLevel => new(_haContext, "sensor.andy_s_iphone_battery_level");
-		///<summary>Andy's iPhone Distance</summary>
-		public NumericSensorEntity AndySIphoneDistance => new(_haContext, "sensor.andy_s_iphone_distance");
-		///<summary>Andy's iPhone Floors Ascended</summary>
-		public NumericSensorEntity AndySIphoneFloorsAscended => new(_haContext, "sensor.andy_s_iphone_floors_ascended");
-		///<summary>Andy's iPhone Floors Descended</summary>
-		public NumericSensorEntity AndySIphoneFloorsDescended => new(_haContext, "sensor.andy_s_iphone_floors_descended");
-		///<summary>Andy's iPhone Steps</summary>
-		public NumericSensorEntity AndySIphoneSteps => new(_haContext, "sensor.andy_s_iphone_steps");
-		///<summary>Andy's iPhone Storage</summary>
-		public NumericSensorEntity AndySIphoneStorage => new(_haContext, "sensor.andy_s_iphone_storage");
 		///<summary>Basement Hall Camera Disk Write Rate</summary>
 		public NumericSensorEntity BasementHallCameraDiskWriteRate => new(_haContext, "sensor.basement_hall_camera_disk_write_rate");
 		///<summary>Basement Hall Camera Storage Used</summary>
@@ -1299,8 +1401,8 @@ namespace HomeAssistantGenerated
 		public NumericSensorEntity CatFeederUptime => new(_haContext, "sensor.cat_feeder_uptime");
 		///<summary>Cat Feeder WiFi Signal</summary>
 		public NumericSensorEntity CatFeederWifiSignal => new(_haContext, "sensor.cat_feeder_wifi_signal");
-		///<summary>Claire’s Apple Watch iCloud battery state</summary>
-		public NumericSensorEntity ClairesAppleWatchIcloudBatteryState => new(_haContext, "sensor.claires_apple_watch_icloud_battery_state");
+		///<summary>Claire’s Apple Watch battery state</summary>
+		public NumericSensorEntity ClairesAppleWatchBatteryState => new(_haContext, "sensor.claires_apple_watch_battery_state");
 		///<summary>Claire’s iPhone Average Active Pace</summary>
 		public NumericSensorEntity ClairesIphoneAverageActivePace => new(_haContext, "sensor.claires_iphone_average_active_pace");
 		///<summary>Claire’s iPhone Battery Level</summary>
@@ -1317,7 +1419,7 @@ namespace HomeAssistantGenerated
 		public NumericSensorEntity ClairesIphoneSteps => new(_haContext, "sensor.claires_iphone_steps");
 		///<summary>Claire’s iPhone Storage</summary>
 		public NumericSensorEntity ClairesIphoneStorage => new(_haContext, "sensor.claires_iphone_storage");
-		///<summary>CO2 intensity</summary>
+		///<summary>CO2 signal CO2 intensity</summary>
 		public NumericSensorEntity Co2Intensity => new(_haContext, "sensor.co2_intensity");
 		///<summary>Doorbell Uptime</summary>
 		public NumericSensorEntity DoorbellUptime => new(_haContext, "sensor.doorbell_uptime");
@@ -1329,8 +1431,16 @@ namespace HomeAssistantGenerated
 		public NumericSensorEntity DownstairsThermostatTarget => new(_haContext, "sensor.downstairs_thermostat_target");
 		///<summary>Downstairs Thermostat temperature</summary>
 		public NumericSensorEntity DownstairsThermostatTemperature => new(_haContext, "sensor.downstairs_thermostat_temperature");
-		///<summary>Dwains Dashboard Latest version</summary>
-		public NumericSensorEntity DwainsDashboardLatestVersion => new(_haContext, "sensor.dwains_dashboard_latest_version");
+		///<summary>Estimated Distance</summary>
+		public NumericSensorEntity E20a39f473f54bc4186417d1ad07a9623810829772C6d1EstimatedDistance => new(_haContext, "sensor.e20a39f4_73f5_4bc4_1864_17d1ad07a962_38108_29772_c6d1_estimated_distance");
+		///<summary>Estimated Distance</summary>
+		public NumericSensorEntity E20a39f473f54bc4186417d1ad07a9623941038168df7EstimatedDistance => new(_haContext, "sensor.e20a39f4_73f5_4bc4_1864_17d1ad07a962_39410_3816_8df7_estimated_distance");
+		///<summary>Estimated Distance</summary>
+		public NumericSensorEntity E20a39f473f54bc4186417d1ad07a9624040050805F0e9EstimatedDistance => new(_haContext, "sensor.e20a39f4_73f5_4bc4_1864_17d1ad07a962_40400_50805_f0e9_estimated_distance");
+		///<summary>Estimated Distance</summary>
+		public NumericSensorEntity E20a39f473f54bc4186417d1ad07a96262393370145f81EstimatedDistance => new(_haContext, "sensor.e20a39f4_73f5_4bc4_1864_17d1ad07a962_62393_37014_5f81_estimated_distance");
+		///<summary>Estimated Distance</summary>
+		public NumericSensorEntity E2c56db5Dffb48d2B060D0f5a71096e000EstimatedDistance => new(_haContext, "sensor.e2c56db5_dffb_48d2_b060_d0f5a71096e0_0_0_estimated_distance");
 		///<summary>Electric Cabinet Door battery</summary>
 		public NumericSensorEntity ElectricCabinetDoorBattery => new(_haContext, "sensor.electric_cabinet_door_battery");
 		///<summary>Electric Cabinet Door linkquality</summary>
@@ -1341,7 +1451,7 @@ namespace HomeAssistantGenerated
 		public NumericSensorEntity EspresenseBedroomFreeMemory => new(_haContext, "sensor.espresense_bedroom_free_memory");
 		///<summary>ESPresense Bedroom Uptime</summary>
 		public NumericSensorEntity EspresenseBedroomUptime => new(_haContext, "sensor.espresense_bedroom_uptime");
-		///<summary>ESPresense Kitchen Free Memory</summary>
+		///<summary>ESPresense Kitchen Free Mem</summary>
 		public NumericSensorEntity EspresenseKitchenFreeMemory => new(_haContext, "sensor.espresense_kitchen_free_memory");
 		///<summary>ESPresense Kitchen Uptime</summary>
 		public NumericSensorEntity EspresenseKitchenUptime => new(_haContext, "sensor.espresense_kitchen_uptime");
@@ -1359,10 +1469,14 @@ namespace HomeAssistantGenerated
 		public NumericSensorEntity FrontDoorLinkquality => new(_haContext, "sensor.front_door_linkquality");
 		///<summary>Front Door voltage</summary>
 		public NumericSensorEntity FrontDoorVoltage => new(_haContext, "sensor.front_door_voltage");
-		///<summary>Grid fossil fuel percentage</summary>
+		///<summary>CO2 signal Grid fossil fuel percentage</summary>
 		public NumericSensorEntity GridFossilFuelPercentage => new(_haContext, "sensor.grid_fossil_fuel_percentage");
+		///<summary>Guest Room Remote battery</summary>
+		public NumericSensorEntity GuestRoomRemoteBattery => new(_haContext, "sensor.guest_room_remote_battery");
 		///<summary>hacs</summary>
 		public NumericSensorEntity Hacs => new(_haContext, "sensor.hacs");
+		///<summary>Hallway Remote battery</summary>
+		public NumericSensorEntity HallwayRemoteBattery => new(_haContext, "sensor.hallway_remote_battery");
 		///<summary>Kitchen Camera Disk Write Rate</summary>
 		public NumericSensorEntity KitchenCameraDiskWriteRate => new(_haContext, "sensor.kitchen_camera_disk_write_rate");
 		///<summary>Kitchen Camera Storage Used</summary>
@@ -1373,6 +1487,8 @@ namespace HomeAssistantGenerated
 		public NumericSensorEntity LoftHatchLinkquality => new(_haContext, "sensor.loft_hatch_linkquality");
 		///<summary>Loft Hatch voltage</summary>
 		public NumericSensorEntity LoftHatchVoltage => new(_haContext, "sensor.loft_hatch_voltage");
+		///<summary>Lounge Remote battery</summary>
+		public NumericSensorEntity LoungeRemoteBattery => new(_haContext, "sensor.lounge_remote_battery");
 		///<summary>Lounge TV Energy Meter</summary>
 		public NumericSensorEntity LoungeTvEnergyMeter => new(_haContext, "sensor.lounge_tv_energy_meter");
 		///<summary>Lounge TV Power Meter</summary>
@@ -1381,28 +1497,78 @@ namespace HomeAssistantGenerated
 		public NumericSensorEntity LoungeTvVolume => new(_haContext, "sensor.lounge_tv_volume");
 		///<summary>Mark Battery</summary>
 		public NumericSensorEntity MarkBattery => new(_haContext, "sensor.mark_battery");
-		///<summary>MFC-J5910DW Black Ink Remaining</summary>
+		///<summary>MFC-J5910DW Black ink remaining</summary>
 		public NumericSensorEntity MfcJ5910dwBlackInkRemaining => new(_haContext, "sensor.mfc_j5910dw_black_ink_remaining");
-		///<summary>MFC-J5910DW Cyan Ink Remaining</summary>
+		///<summary>MFC-J5910DW Cyan ink remaining</summary>
 		public NumericSensorEntity MfcJ5910dwCyanInkRemaining => new(_haContext, "sensor.mfc_j5910dw_cyan_ink_remaining");
-		///<summary>MFC-J5910DW Magenta Ink Remaining</summary>
+		///<summary>MFC-J5910DW Magenta ink remaining</summary>
 		public NumericSensorEntity MfcJ5910dwMagentaInkRemaining => new(_haContext, "sensor.mfc_j5910dw_magenta_ink_remaining");
-		///<summary>MFC-J5910DW Page Counter</summary>
+		///<summary>MFC-J5910DW Page counter</summary>
 		public NumericSensorEntity MfcJ5910dwPageCounter => new(_haContext, "sensor.mfc_j5910dw_page_counter");
-		///<summary>MFC-J5910DW Yellow Ink Remaining</summary>
+		///<summary>MFC-J5910DW Yellow ink remaining</summary>
 		public NumericSensorEntity MfcJ5910dwYellowInkRemaining => new(_haContext, "sensor.mfc_j5910dw_yellow_ink_remaining");
 		///<summary>Patio Camera Disk Write Rate</summary>
 		public NumericSensorEntity PatioCameraDiskWriteRate => new(_haContext, "sensor.patio_camera_disk_write_rate");
 		///<summary>Patio Camera Storage Used</summary>
 		public NumericSensorEntity PatioCameraStorageUsed => new(_haContext, "sensor.patio_camera_storage_used");
-		///<summary>AdGuard Safe Searches Enforced</summary>
+		///<summary>Pixel 6 Battery Level</summary>
+		public NumericSensorEntity Pixel6BatteryLevel => new(_haContext, "sensor.pixel_6_battery_level");
+		///<summary>Pixel 6 Battery Power</summary>
+		public NumericSensorEntity Pixel6BatteryPower => new(_haContext, "sensor.pixel_6_battery_power");
+		///<summary>Pixel 6 Battery Temperature</summary>
+		public NumericSensorEntity Pixel6BatteryTemperature => new(_haContext, "sensor.pixel_6_battery_temperature");
+		///<summary>Pixel 6 Sleep Confidence</summary>
+		public NumericSensorEntity Pixel6SleepConfidence => new(_haContext, "sensor.pixel_6_sleep_confidence");
+		///<summary>Pixel 6 Sleep Segment</summary>
+		public NumericSensorEntity Pixel6SleepSegment => new(_haContext, "sensor.pixel_6_sleep_segment");
+		///<summary>Pixel 6 Steps Sensor</summary>
+		public NumericSensorEntity Pixel6StepsSensor => new(_haContext, "sensor.pixel_6_steps_sensor");
+		///<summary>Estimated Distance</summary>
+		public NumericSensorEntity S424d3be485e872ccc483cEstimatedDistance => new(_haContext, "sensor.s424d3be485e872ccc_483c_estimated_distance");
+		///<summary>Estimated Distance</summary>
+		public NumericSensorEntity S56bd949cabb74974cCa91EstimatedDistance => new(_haContext, "sensor.s56bd949cabb74974c_ca91_estimated_distance");
+		///<summary>AdGuard Home Safe searches enforced</summary>
 		public NumericSensorEntity SearchesSafeSearchEnforced => new(_haContext, "sensor.searches_safe_search_enforced");
+		///<summary>Estimated Distance</summary>
+		public NumericSensorEntity Sfd85968e835924d1c6058EstimatedDistance => new(_haContext, "sensor.sfd85968e835924d1c_6058_estimated_distance");
+		///<summary>Signal Strength</summary>
+		public NumericSensorEntity SmartSeries700047aeSignalStrength => new(_haContext, "sensor.smart_series_7000_47ae_signal_strength");
+		///<summary>Time</summary>
+		public NumericSensorEntity SmartSeries700047aeTime => new(_haContext, "sensor.smart_series_7000_47ae_time");
 		///<summary>Snug Switch battery</summary>
 		public NumericSensorEntity SnugSwitchBattery => new(_haContext, "sensor.snug_switch_battery");
 		///<summary>Snug Switch voltage</summary>
 		public NumericSensorEntity SnugSwitchVoltage => new(_haContext, "sensor.snug_switch_voltage");
+		///<summary>Sonoff Basement 1 Signal</summary>
+		public NumericSensorEntity SonoffBasement1Signal => new(_haContext, "sensor.sonoff_basement_1_signal");
+		///<summary>Sonoff Basement 1 Uptime</summary>
+		public NumericSensorEntity SonoffBasement1Uptime => new(_haContext, "sensor.sonoff_basement_1_uptime");
+		///<summary>Sonoff Basement 2 Signal</summary>
+		public NumericSensorEntity SonoffBasement2Signal => new(_haContext, "sensor.sonoff_basement_2_signal");
+		///<summary>Sonoff Basement 2 Uptime</summary>
+		public NumericSensorEntity SonoffBasement2Uptime => new(_haContext, "sensor.sonoff_basement_2_uptime");
 		///<summary>Sonoff Bridge 1 status</summary>
 		public NumericSensorEntity SonoffBridge1Status => new(_haContext, "sensor.sonoff_bridge_1_status");
+		///<summary>Sonoff Downstairs 1 Signal</summary>
+		public NumericSensorEntity SonoffDownstairs1Signal => new(_haContext, "sensor.sonoff_downstairs_1_signal");
+		///<summary>Sonoff Downstairs 1 Uptime</summary>
+		public NumericSensorEntity SonoffDownstairs1Uptime => new(_haContext, "sensor.sonoff_downstairs_1_uptime");
+		///<summary>Sonoff Downstairs 2 Signal</summary>
+		public NumericSensorEntity SonoffDownstairs2Signal => new(_haContext, "sensor.sonoff_downstairs_2_signal");
+		///<summary>Sonoff Downstairs 2 Uptime</summary>
+		public NumericSensorEntity SonoffDownstairs2Uptime => new(_haContext, "sensor.sonoff_downstairs_2_uptime");
+		///<summary>Sonoff Outside 1 Signal</summary>
+		public NumericSensorEntity SonoffOutside1Signal => new(_haContext, "sensor.sonoff_outside_1_signal");
+		///<summary>Sonoff Outside 1 Uptime</summary>
+		public NumericSensorEntity SonoffOutside1Uptime => new(_haContext, "sensor.sonoff_outside_1_uptime");
+		///<summary>Sonoff Upstairs 1 Signal</summary>
+		public NumericSensorEntity SonoffUpstairs1Signal => new(_haContext, "sensor.sonoff_upstairs_1_signal");
+		///<summary>Sonoff Upstairs 1 Uptime</summary>
+		public NumericSensorEntity SonoffUpstairs1Uptime => new(_haContext, "sensor.sonoff_upstairs_1_uptime");
+		///<summary>Sonoff Upstairs 2 Signal</summary>
+		public NumericSensorEntity SonoffUpstairs2Signal => new(_haContext, "sensor.sonoff_upstairs_2_signal");
+		///<summary>Sonoff Upstairs 2 Uptime</summary>
+		public NumericSensorEntity SonoffUpstairs2Uptime => new(_haContext, "sensor.sonoff_upstairs_2_uptime");
 		///<summary>SpeedTest Download</summary>
 		public NumericSensorEntity SpeedtestDownload => new(_haContext, "sensor.speedtest_download");
 		///<summary>SpeedTest Ping</summary>
@@ -1419,6 +1585,12 @@ namespace HomeAssistantGenerated
 		public NumericSensorEntity ToiletDoorLinkquality => new(_haContext, "sensor.toilet_door_linkquality");
 		///<summary>Toilet Door voltage</summary>
 		public NumericSensorEntity ToiletDoorVoltage => new(_haContext, "sensor.toilet_door_voltage");
+		///<summary>UDMPRO Cpu Temperature</summary>
+		public NumericSensorEntity UdmproCpuTemperature => new(_haContext, "sensor.udmpro_cpu_temperature");
+		///<summary>UDMPRO Cpu Utilization</summary>
+		public NumericSensorEntity UdmproCpuUtilization => new(_haContext, "sensor.udmpro_cpu_utilization");
+		///<summary>UDMPRO Memory Utilization</summary>
+		public NumericSensorEntity UdmproMemoryUtilization => new(_haContext, "sensor.udmpro_memory_utilization");
 		///<summary>UDMPRO Recording Capacity</summary>
 		public NumericSensorEntity UdmproRecordingCapacity => new(_haContext, "sensor.udmpro_recording_capacity");
 		///<summary>UDMPRO Resolution: 4K Video</summary>
@@ -1451,14 +1623,6 @@ namespace HomeAssistantGenerated
 		public NumericSensorEntity UnifiDreamMachinePacketsSSent => new(_haContext, "sensor.unifi_dream_machine_packets_s_sent");
 		///<summary>UniFi Dream Machine packets sent</summary>
 		public NumericSensorEntity UnifiDreamMachinePacketsSent => new(_haContext, "sensor.unifi_dream_machine_packets_sent");
-		///<summary>UK Confirmed</summary>
-		public NumericSensorEntity UnitedKingdomCoronavirusConfirmed => new(_haContext, "sensor.united_kingdom_coronavirus_confirmed");
-		///<summary>UK Current</summary>
-		public NumericSensorEntity UnitedKingdomCoronavirusCurrent => new(_haContext, "sensor.united_kingdom_coronavirus_current");
-		///<summary>UK Deaths</summary>
-		public NumericSensorEntity UnitedKingdomCoronavirusDeaths => new(_haContext, "sensor.united_kingdom_coronavirus_deaths");
-		///<summary>UK Recovered</summary>
-		public NumericSensorEntity UnitedKingdomCoronavirusRecovered => new(_haContext, "sensor.united_kingdom_coronavirus_recovered");
 		///<summary>Upstairs Thermostat humidity</summary>
 		public NumericSensorEntity UpstairsThermostatHumidity => new(_haContext, "sensor.upstairs_thermostat_humidity");
 		///<summary>Upstairs Thermostat target</summary>
@@ -1535,44 +1699,14 @@ namespace HomeAssistantGenerated
 		public NumericSensorEntity WithingsWeightKgAndy => new(_haContext, "sensor.withings_weight_kg_andy");
 		///<summary>Withings weight_kg Claire</summary>
 		public NumericSensorEntity WithingsWeightKgClaire => new(_haContext, "sensor.withings_weight_kg_claire");
-		///<summary>World Confirmed</summary>
-		public NumericSensorEntity WorldwideCoronavirusConfirmed => new(_haContext, "sensor.worldwide_coronavirus_confirmed");
-		///<summary>World Current</summary>
-		public NumericSensorEntity WorldwideCoronavirusCurrent => new(_haContext, "sensor.worldwide_coronavirus_current");
-		///<summary>World Deaths</summary>
-		public NumericSensorEntity WorldwideCoronavirusDeaths => new(_haContext, "sensor.worldwide_coronavirus_deaths");
-		///<summary>World Recovered</summary>
-		public NumericSensorEntity WorldwideCoronavirusRecovered => new(_haContext, "sensor.worldwide_coronavirus_recovered");
 		///<summary>Andrew's Echo Buds next Reminder</summary>
 		public SensorEntity AndrewSEchoBudsNextReminder => new(_haContext, "sensor.andrew_s_echo_buds_next_reminder");
-		///<summary>Andrew's Fire TV next Alarm</summary>
+		///<summary>Snug Fire TV next Alarm</summary>
 		public SensorEntity AndrewSFireTvNextAlarm => new(_haContext, "sensor.andrew_s_fire_tv_next_alarm");
-		///<summary>Andrew's Fire TV next Reminder</summary>
+		///<summary>Snug Fire TV next Reminder</summary>
 		public SensorEntity AndrewSFireTvNextReminder => new(_haContext, "sensor.andrew_s_fire_tv_next_reminder");
-		///<summary>Andrew's Fire TV next Timer</summary>
+		///<summary>Snug Fire TV next Timer</summary>
 		public SensorEntity AndrewSFireTvNextTimer => new(_haContext, "sensor.andrew_s_fire_tv_next_timer");
-		///<summary>Andrew's Samsung TV 2020-U next Alarm</summary>
-		public SensorEntity AndrewSSamsungTv2020UNextAlarm => new(_haContext, "sensor.andrew_s_samsung_tv_2020_u_next_alarm");
-		///<summary>Andrew's Samsung TV 2020-U next Reminder</summary>
-		public SensorEntity AndrewSSamsungTv2020UNextReminder => new(_haContext, "sensor.andrew_s_samsung_tv_2020_u_next_reminder");
-		///<summary>Andrew's Samsung TV 2020-U next Timer</summary>
-		public SensorEntity AndrewSSamsungTv2020UNextTimer => new(_haContext, "sensor.andrew_s_samsung_tv_2020_u_next_timer");
-		///<summary>Andy's iPhone Activity</summary>
-		public SensorEntity AndySIphoneActivity => new(_haContext, "sensor.andy_s_iphone_activity");
-		///<summary>Andy's iPhone Battery State</summary>
-		public SensorEntity AndySIphoneBatteryState => new(_haContext, "sensor.andy_s_iphone_battery_state");
-		///<summary>Andy's iPhone BSSID</summary>
-		public SensorEntity AndySIphoneBssid => new(_haContext, "sensor.andy_s_iphone_bssid");
-		///<summary>Andy's iPhone Connection Type</summary>
-		public SensorEntity AndySIphoneConnectionType => new(_haContext, "sensor.andy_s_iphone_connection_type");
-		///<summary>Andy's iPhone Geocoded Location</summary>
-		public SensorEntity AndySIphoneGeocodedLocation => new(_haContext, "sensor.andy_s_iphone_geocoded_location");
-		///<summary>Andy's iPhone Last Update Trigger</summary>
-		public SensorEntity AndySIphoneLastUpdateTrigger => new(_haContext, "sensor.andy_s_iphone_last_update_trigger");
-		///<summary>Andy's iPhone SIM 1</summary>
-		public SensorEntity AndySIphoneSim1 => new(_haContext, "sensor.andy_s_iphone_sim_1");
-		///<summary>Andy's iPhone SSID</summary>
-		public SensorEntity AndySIphoneSsid => new(_haContext, "sensor.andy_s_iphone_ssid");
 		///<summary>Backup State</summary>
 		public SensorEntity BackupState => new(_haContext, "sensor.backup_state");
 		///<summary>Basement Hall Camera Oldest Recording</summary>
@@ -1601,8 +1735,6 @@ namespace HomeAssistantGenerated
 		public SensorEntity CatFeederIp => new(_haContext, "sensor.cat_feeder_ip");
 		///<summary>Cat Feeder SSID</summary>
 		public SensorEntity CatFeederSsid => new(_haContext, "sensor.cat_feeder_ssid");
-		///<summary>Cellar Door Camera Actions</summary>
-		public SensorEntity CellarDoorCameraActions => new(_haContext, "sensor.cellar_door_camera_actions");
 		///<summary>Claire’s iPhone Activity</summary>
 		public SensorEntity ClairesIphoneActivity => new(_haContext, "sensor.claires_iphone_activity");
 		///<summary>Claire’s iPhone Battery State</summary>
@@ -1649,10 +1781,6 @@ namespace HomeAssistantGenerated
 		public SensorEntity DressingRoomEchoDotNextReminder => new(_haContext, "sensor.dressing_room_echo_dot_next_reminder");
 		///<summary>Dressing Room Echo Dot next Timer</summary>
 		public SensorEntity DressingRoomEchoDotNextTimer => new(_haContext, "sensor.dressing_room_echo_dot_next_timer");
-		///<summary>eWeLink Smart Home: Newest Version</summary>
-		public SensorEntity EwelinkSmartHomeNewestVersion => new(_haContext, "sensor.ewelink_smart_home_newest_version");
-		///<summary>eWeLink Smart Home: Version</summary>
-		public SensorEntity EwelinkSmartHomeVersion => new(_haContext, "sensor.ewelink_smart_home_version");
 		///<summary>Green Bio Waste</summary>
 		public SensorEntity GreenBioWaste => new(_haContext, "sensor.green_bio_waste");
 		///<summary>Guest Room Echo Show next Alarm</summary>
@@ -1661,16 +1789,26 @@ namespace HomeAssistantGenerated
 		public SensorEntity GuestRoomEchoShowNextReminder => new(_haContext, "sensor.guest_room_echo_show_next_reminder");
 		///<summary>Guest Room Echo Show next Timer</summary>
 		public SensorEntity GuestRoomEchoShowNextTimer => new(_haContext, "sensor.guest_room_echo_show_next_timer");
+		///<summary>Guest Room Remote action</summary>
+		public SensorEntity GuestRoomRemoteAction => new(_haContext, "sensor.guest_room_remote_action");
+		///<summary>Guest Room Remote click</summary>
+		public SensorEntity GuestRoomRemoteClick => new(_haContext, "sensor.guest_room_remote_click");
 		///<summary>Hall Tablet next Alarm</summary>
 		public SensorEntity HallTabletNextAlarm => new(_haContext, "sensor.hall_tablet_next_alarm");
 		///<summary>Hall Tablet next Reminder</summary>
 		public SensorEntity HallTabletNextReminder => new(_haContext, "sensor.hall_tablet_next_reminder");
 		///<summary>Hall Tablet next Timer</summary>
 		public SensorEntity HallTabletNextTimer => new(_haContext, "sensor.hall_tablet_next_timer");
+		///<summary>Hallway Remote action</summary>
+		public SensorEntity HallwayRemoteAction => new(_haContext, "sensor.hallway_remote_action");
+		///<summary>Hallway Remote click</summary>
+		public SensorEntity HallwayRemoteClick => new(_haContext, "sensor.hallway_remote_click");
 		///<summary>home.andisoft.co.uk</summary>
 		public SensorEntity HomeAndisoftCoUk => new(_haContext, "sensor.home_andisoft_co_uk");
 		///<summary>homeassistant</summary>
 		public SensorEntity Homeassistant => new(_haContext, "sensor.homeassistant");
+		///<summary>Kitchen Camera Last Motion Detected</summary>
+		public SensorEntity KitchenCameraLastMotionDetected => new(_haContext, "sensor.kitchen_camera_last_motion_detected");
 		///<summary>Kitchen Camera Oldest Recording</summary>
 		public SensorEntity KitchenCameraOldestRecording => new(_haContext, "sensor.kitchen_camera_oldest_recording");
 		///<summary>Kitchen Echo Show next Alarm</summary>
@@ -1699,10 +1837,18 @@ namespace HomeAssistantGenerated
 		public SensorEntity LoungeFireTvNextReminder => new(_haContext, "sensor.lounge_fire_tv_next_reminder");
 		///<summary>Lounge Fire TV next Timer</summary>
 		public SensorEntity LoungeFireTvNextTimer => new(_haContext, "sensor.lounge_fire_tv_next_timer");
+		///<summary>Lounge Remote action</summary>
+		public SensorEntity LoungeRemoteAction => new(_haContext, "sensor.lounge_remote_action");
 		///<summary>Lounge TV Media Input Source</summary>
 		public SensorEntity LoungeTvMediaInputSource => new(_haContext, "sensor.lounge_tv_media_input_source");
 		///<summary>Lounge TV Media Playback Status</summary>
 		public SensorEntity LoungeTvMediaPlaybackStatus => new(_haContext, "sensor.lounge_tv_media_playback_status");
+		///<summary>Lounge TV next Alarm</summary>
+		public SensorEntity LoungeTvNextAlarm => new(_haContext, "sensor.lounge_tv_next_alarm");
+		///<summary>Lounge TV next Reminder</summary>
+		public SensorEntity LoungeTvNextReminder => new(_haContext, "sensor.lounge_tv_next_reminder");
+		///<summary>Lounge TV next Timer</summary>
+		public SensorEntity LoungeTvNextTimer => new(_haContext, "sensor.lounge_tv_next_timer");
 		///<summary>Lounge TV Tv Channel</summary>
 		public SensorEntity LoungeTvTvChannel => new(_haContext, "sensor.lounge_tv_tv_channel");
 		///<summary>Lounge TV Tv Channel Name</summary>
@@ -1719,14 +1865,102 @@ namespace HomeAssistantGenerated
 		public SensorEntity PatioCameraDetectedObject => new(_haContext, "sensor.patio_camera_detected_object");
 		///<summary>Patio Camera Oldest Recording</summary>
 		public SensorEntity PatioCameraOldestRecording => new(_haContext, "sensor.patio_camera_oldest_recording");
-		///<summary>Snug Echo Input next Alarm</summary>
-		public SensorEntity SnugEchoInputNextAlarm => new(_haContext, "sensor.snug_echo_input_next_alarm");
-		///<summary>Snug Echo Input next Reminder</summary>
-		public SensorEntity SnugEchoInputNextReminder => new(_haContext, "sensor.snug_echo_input_next_reminder");
-		///<summary>Snug Echo Input next Timer</summary>
-		public SensorEntity SnugEchoInputNextTimer => new(_haContext, "sensor.snug_echo_input_next_timer");
+		///<summary>Pixel 6 Audio Mode</summary>
+		public SensorEntity Pixel6AudioMode => new(_haContext, "sensor.pixel_6_audio_mode");
+		///<summary>Pixel 6 Battery Health</summary>
+		public SensorEntity Pixel6BatteryHealth => new(_haContext, "sensor.pixel_6_battery_health");
+		///<summary>Pixel 6 Battery State</summary>
+		public SensorEntity Pixel6BatteryState => new(_haContext, "sensor.pixel_6_battery_state");
+		///<summary>Pixel 6 Charger Type</summary>
+		public SensorEntity Pixel6ChargerType => new(_haContext, "sensor.pixel_6_charger_type");
+		///<summary>Pixel 6 Detected Activity</summary>
+		public SensorEntity Pixel6DetectedActivity => new(_haContext, "sensor.pixel_6_detected_activity");
+		///<summary>Pixel 6 Geocoded Location</summary>
+		public SensorEntity Pixel6GeocodedLocation => new(_haContext, "sensor.pixel_6_geocoded_location");
+		///<summary>Pixel 6 Next Alarm</summary>
+		public SensorEntity Pixel6NextAlarm => new(_haContext, "sensor.pixel_6_next_alarm");
+		///<summary>Shed Echo Input next Alarm</summary>
+		public SensorEntity ShedEchoInputNextAlarm => new(_haContext, "sensor.shed_echo_input_next_alarm");
+		///<summary>Shed Echo Input next Reminder</summary>
+		public SensorEntity ShedEchoInputNextReminder => new(_haContext, "sensor.shed_echo_input_next_reminder");
+		///<summary>Shed Echo Input next Timer</summary>
+		public SensorEntity ShedEchoInputNextTimer => new(_haContext, "sensor.shed_echo_input_next_timer");
+		///<summary>Mode</summary>
+		public SensorEntity SmartSeries700047aeMode => new(_haContext, "sensor.smart_series_7000_47ae_mode");
+		///<summary>Number of sectors</summary>
+		public SensorEntity SmartSeries700047aeNumberOfSectors => new(_haContext, "sensor.smart_series_7000_47ae_number_of_sectors");
+		///<summary>Pressure</summary>
+		public SensorEntity SmartSeries700047aePressure => new(_haContext, "sensor.smart_series_7000_47ae_pressure");
+		///<summary>Sector</summary>
+		public SensorEntity SmartSeries700047aeSector => new(_haContext, "sensor.smart_series_7000_47ae_sector");
+		///<summary>Sector Timer</summary>
+		public SensorEntity SmartSeries700047aeSectorTimer => new(_haContext, "sensor.smart_series_7000_47ae_sector_timer");
+		///<summary>Toothbrush State</summary>
+		public SensorEntity SmartSeries700047aeToothbrushState => new(_haContext, "sensor.smart_series_7000_47ae_toothbrush_state");
+		///<summary>Snug Echo Show next Alarm</summary>
+		public SensorEntity SnugEchoShowNextAlarm => new(_haContext, "sensor.snug_echo_show_next_alarm");
+		///<summary>Snug Echo Show next Reminder</summary>
+		public SensorEntity SnugEchoShowNextReminder => new(_haContext, "sensor.snug_echo_show_next_reminder");
+		///<summary>Snug Echo Show next Timer</summary>
+		public SensorEntity SnugEchoShowNextTimer => new(_haContext, "sensor.snug_echo_show_next_timer");
 		///<summary>Snug Switch action</summary>
 		public SensorEntity SnugSwitchAction => new(_haContext, "sensor.snug_switch_action");
+		///<summary>Sonoff Basement 1 BSSID</summary>
+		public SensorEntity SonoffBasement1Bssid => new(_haContext, "sensor.sonoff_basement_1_bssid");
+		///<summary>Sonoff Basement 1 ESPHome Version</summary>
+		public SensorEntity SonoffBasement1EsphomeVersion => new(_haContext, "sensor.sonoff_basement_1_esphome_version");
+		///<summary>Sonoff Basement 1 IP</summary>
+		public SensorEntity SonoffBasement1Ip => new(_haContext, "sensor.sonoff_basement_1_ip");
+		///<summary>Sonoff Basement 1 SSID</summary>
+		public SensorEntity SonoffBasement1Ssid => new(_haContext, "sensor.sonoff_basement_1_ssid");
+		///<summary>Sonoff Basement 2 BSSID</summary>
+		public SensorEntity SonoffBasement2Bssid => new(_haContext, "sensor.sonoff_basement_2_bssid");
+		///<summary>Sonoff Basement 2 ESPHome Version</summary>
+		public SensorEntity SonoffBasement2EsphomeVersion => new(_haContext, "sensor.sonoff_basement_2_esphome_version");
+		///<summary>Sonoff Basement 2 IP</summary>
+		public SensorEntity SonoffBasement2Ip => new(_haContext, "sensor.sonoff_basement_2_ip");
+		///<summary>Sonoff Basement 2 SSID</summary>
+		public SensorEntity SonoffBasement2Ssid => new(_haContext, "sensor.sonoff_basement_2_ssid");
+		///<summary>Sonoff Downstairs 1 BSSID</summary>
+		public SensorEntity SonoffDownstairs1Bssid => new(_haContext, "sensor.sonoff_downstairs_1_bssid");
+		///<summary>Sonoff Downstairs 1 ESPHome Version</summary>
+		public SensorEntity SonoffDownstairs1EsphomeVersion => new(_haContext, "sensor.sonoff_downstairs_1_esphome_version");
+		///<summary>Sonoff Downstairs 1 IP</summary>
+		public SensorEntity SonoffDownstairs1Ip => new(_haContext, "sensor.sonoff_downstairs_1_ip");
+		///<summary>Sonoff Downstairs 1 SSID</summary>
+		public SensorEntity SonoffDownstairs1Ssid => new(_haContext, "sensor.sonoff_downstairs_1_ssid");
+		///<summary>Sonoff Downstairs 2 BSSID</summary>
+		public SensorEntity SonoffDownstairs2Bssid => new(_haContext, "sensor.sonoff_downstairs_2_bssid");
+		///<summary>Sonoff Downstairs 2 ESPHome Version</summary>
+		public SensorEntity SonoffDownstairs2EsphomeVersion => new(_haContext, "sensor.sonoff_downstairs_2_esphome_version");
+		///<summary>Sonoff Downstairs 2 IP</summary>
+		public SensorEntity SonoffDownstairs2Ip => new(_haContext, "sensor.sonoff_downstairs_2_ip");
+		///<summary>Sonoff Downstairs 2 SSID</summary>
+		public SensorEntity SonoffDownstairs2Ssid => new(_haContext, "sensor.sonoff_downstairs_2_ssid");
+		///<summary>Sonoff Outside 1 BSSID</summary>
+		public SensorEntity SonoffOutside1Bssid => new(_haContext, "sensor.sonoff_outside_1_bssid");
+		///<summary>Sonoff Outside 1 ESPHome Version</summary>
+		public SensorEntity SonoffOutside1EsphomeVersion => new(_haContext, "sensor.sonoff_outside_1_esphome_version");
+		///<summary>Sonoff Outside 1 IP</summary>
+		public SensorEntity SonoffOutside1Ip => new(_haContext, "sensor.sonoff_outside_1_ip");
+		///<summary>Sonoff Outside 1 SSID</summary>
+		public SensorEntity SonoffOutside1Ssid => new(_haContext, "sensor.sonoff_outside_1_ssid");
+		///<summary>Sonoff Upstairs 1 BSSID</summary>
+		public SensorEntity SonoffUpstairs1Bssid => new(_haContext, "sensor.sonoff_upstairs_1_bssid");
+		///<summary>Sonoff Upstairs 1 ESPHome Version</summary>
+		public SensorEntity SonoffUpstairs1EsphomeVersion => new(_haContext, "sensor.sonoff_upstairs_1_esphome_version");
+		///<summary>Sonoff Upstairs 1 IP</summary>
+		public SensorEntity SonoffUpstairs1Ip => new(_haContext, "sensor.sonoff_upstairs_1_ip");
+		///<summary>Sonoff Upstairs 1 SSID</summary>
+		public SensorEntity SonoffUpstairs1Ssid => new(_haContext, "sensor.sonoff_upstairs_1_ssid");
+		///<summary>Sonoff Upstairs 2 BSSID</summary>
+		public SensorEntity SonoffUpstairs2Bssid => new(_haContext, "sensor.sonoff_upstairs_2_bssid");
+		///<summary>Sonoff Upstairs 2 ESPHome Version</summary>
+		public SensorEntity SonoffUpstairs2EsphomeVersion => new(_haContext, "sensor.sonoff_upstairs_2_esphome_version");
+		///<summary>Sonoff Upstairs 2 IP</summary>
+		public SensorEntity SonoffUpstairs2Ip => new(_haContext, "sensor.sonoff_upstairs_2_ip");
+		///<summary>Sonoff Upstairs 2 SSID</summary>
+		public SensorEntity SonoffUpstairs2Ssid => new(_haContext, "sensor.sonoff_upstairs_2_ssid");
 		///<summary>Sump Alarm BSSID</summary>
 		public SensorEntity SumpAlarmBssid => new(_haContext, "sensor.sump_alarm_bssid");
 		///<summary>Sump Alarm ESPHome Version</summary>
@@ -1735,6 +1969,12 @@ namespace HomeAssistantGenerated
 		public SensorEntity SumpAlarmIp => new(_haContext, "sensor.sump_alarm_ip");
 		///<summary>Sump Alarm SSID</summary>
 		public SensorEntity SumpAlarmSsid => new(_haContext, "sensor.sump_alarm_ssid");
+		///<summary>This Device next Alarm</summary>
+		public SensorEntity ThisDeviceNextAlarm => new(_haContext, "sensor.this_device_next_alarm");
+		///<summary>This Device next Reminder</summary>
+		public SensorEntity ThisDeviceNextReminder => new(_haContext, "sensor.this_device_next_reminder");
+		///<summary>This Device next Timer</summary>
+		public SensorEntity ThisDeviceNextTimer => new(_haContext, "sensor.this_device_next_timer");
 		///<summary>UDMPRO Uptime</summary>
 		public SensorEntity UdmproUptime => new(_haContext, "sensor.udmpro_uptime");
 		///<summary>UniFi Dream Machine External IP</summary>
@@ -1791,73 +2031,17 @@ namespace HomeAssistantGenerated
 			_haContext = haContext;
 		}
 
-		///<summary>Outside Lights 1-Back Door Light</summary>
-		public SwitchEntity E100032907e1 => new(_haContext, "switch.100032907e_1");
-		///<summary>Outside Lights 1-Patio Light</summary>
-		public SwitchEntity E100032907e2 => new(_haContext, "switch.100032907e_2");
-		///<summary>Outside Lights 1-Porch Light</summary>
-		public SwitchEntity E100032907e3 => new(_haContext, "switch.100032907e_3");
-		///<summary>Outside Lights 1-Cellar Door Light</summary>
-		public SwitchEntity E100032907e4 => new(_haContext, "switch.100032907e_4");
-		///<summary>Basement Lights 2-Dining Room Light</summary>
-		public SwitchEntity E100032a00d1 => new(_haContext, "switch.100032a00d_1");
-		///<summary>Basement Lights 2-Snug Light</summary>
-		public SwitchEntity E100032a00d2 => new(_haContext, "switch.100032a00d_2");
-		///<summary>Basement Lights 2-Spare BL6</summary>
-		public SwitchEntity E100032a00d3 => new(_haContext, "switch.100032a00d_3");
-		///<summary>Basement Lights 2-Spare BL5</summary>
-		public SwitchEntity E100032a00d4 => new(_haContext, "switch.100032a00d_4");
-		///<summary>Basement Lights 1-Toilet Light</summary>
-		public SwitchEntity E100032bd731 => new(_haContext, "switch.100032bd73_1");
-		///<summary>Basement Lights 1-Utility Room Light</summary>
-		public SwitchEntity E100032bd732 => new(_haContext, "switch.100032bd73_2");
-		///<summary>Basement Lights 1-Basement Hall Light</summary>
-		public SwitchEntity E100032bd733 => new(_haContext, "switch.100032bd73_3");
-		///<summary>Basement Lights 1-Brewery Light</summary>
-		public SwitchEntity E100032bd734 => new(_haContext, "switch.100032bd73_4");
-		///<summary>Ground Floor 1-Lounge light</summary>
-		public SwitchEntity E1000ba99771 => new(_haContext, "switch.1000ba9977_1");
-		///<summary>Ground Floor 1-Hallway light</summary>
-		public SwitchEntity E1000ba99772 => new(_haContext, "switch.1000ba9977_2");
-		///<summary>Ground Floor 1-Extractor fan</summary>
-		public SwitchEntity E1000ba99773 => new(_haContext, "switch.1000ba9977_3");
-		///<summary>Ground Floor 1-Bookshelf light</summary>
-		public SwitchEntity E1000ba99774 => new(_haContext, "switch.1000ba9977_4");
-		///<summary>Ground Floor 2-Spare GL1</summary>
-		public SwitchEntity E1000bab17a1 => new(_haContext, "switch.1000bab17a_1");
-		///<summary>Ground Floor 2-Cabinet light</summary>
-		public SwitchEntity E1000bab17a2 => new(_haContext, "switch.1000bab17a_2");
-		///<summary>Ground Floor 2-Kitchen light</summary>
-		public SwitchEntity E1000bab17a3 => new(_haContext, "switch.1000bab17a_3");
-		///<summary>Ground Floor 2-Drawing Room light</summary>
-		public SwitchEntity E1000bab17a4 => new(_haContext, "switch.1000bab17a_4");
-		///<summary>Upstairs 1-Guest Room light</summary>
-		public SwitchEntity E1000bab3811 => new(_haContext, "switch.1000bab381_1");
-		///<summary>Upstairs 1-Landing light</summary>
-		public SwitchEntity E1000bab3812 => new(_haContext, "switch.1000bab381_2");
-		///<summary>Upstairs 1-Dressing Room light</summary>
-		public SwitchEntity E1000bab3813 => new(_haContext, "switch.1000bab381_3");
-		///<summary>Upstairs 1-Bathroom fan</summary>
-		public SwitchEntity E1000bab3814 => new(_haContext, "switch.1000bab381_4");
-		///<summary>Upstairs 2-Bedroom light</summary>
-		public SwitchEntity E1000bab6de1 => new(_haContext, "switch.1000bab6de_1");
-		///<summary>Upstairs 2-Studio light</summary>
-		public SwitchEntity E1000bab6de2 => new(_haContext, "switch.1000bab6de_2");
-		///<summary>Upstairs 2-Bathroom light</summary>
-		public SwitchEntity E1000bab6de3 => new(_haContext, "switch.1000bab6de_3");
-		///<summary>Upstairs 2-Mirror light</summary>
-		public SwitchEntity E1000bab6de4 => new(_haContext, "switch.1000bab6de_4");
-		///<summary>AdGuard Filtering</summary>
+		///<summary>AdGuard Home Filtering</summary>
 		public SwitchEntity AdguardFiltering => new(_haContext, "switch.adguard_filtering");
-		///<summary>AdGuard Parental Control</summary>
+		///<summary>AdGuard Home Parental control</summary>
 		public SwitchEntity AdguardParentalControl => new(_haContext, "switch.adguard_parental_control");
-		///<summary>AdGuard Protection</summary>
+		///<summary>AdGuard Home Protection</summary>
 		public SwitchEntity AdguardProtection => new(_haContext, "switch.adguard_protection");
-		///<summary>AdGuard Query Log</summary>
+		///<summary>AdGuard Home Query log</summary>
 		public SwitchEntity AdguardQueryLog => new(_haContext, "switch.adguard_query_log");
-		///<summary>AdGuard Safe Browsing</summary>
+		///<summary>AdGuard Home Safe browsing</summary>
 		public SwitchEntity AdguardSafeBrowsing => new(_haContext, "switch.adguard_safe_browsing");
-		///<summary>AdGuard Safe Search</summary>
+		///<summary>AdGuard Home Safe search</summary>
 		public SwitchEntity AdguardSafeSearch => new(_haContext, "switch.adguard_safe_search");
 		///<summary>All Speakers do not disturb switch</summary>
 		public SwitchEntity AllSpeakersDoNotDisturbSwitch => new(_haContext, "switch.all_speakers_do_not_disturb_switch");
@@ -1867,17 +2051,15 @@ namespace HomeAssistantGenerated
 		public SwitchEntity AllSpeakersShuffleSwitch => new(_haContext, "switch.all_speakers_shuffle_switch");
 		///<summary>Andrew's Echo Buds do not disturb switch</summary>
 		public SwitchEntity AndrewSEchoBudsDoNotDisturbSwitch => new(_haContext, "switch.andrew_s_echo_buds_do_not_disturb_switch");
-		///<summary>Andrew's Fire TV do not disturb switch</summary>
+		///<summary>Snug Fire TV do not disturb switch</summary>
 		public SwitchEntity AndrewSFireTvDoNotDisturbSwitch => new(_haContext, "switch.andrew_s_fire_tv_do_not_disturb_switch");
-		///<summary>Andrew's Samsung TV 2020-U do not disturb switch</summary>
-		public SwitchEntity AndrewSSamsungTv2020UDoNotDisturbSwitch => new(_haContext, "switch.andrew_s_samsung_tv_2020_u_do_not_disturb_switch");
-		///<summary>Andrew's Samsung TV 2020-U repeat switch</summary>
-		public SwitchEntity AndrewSSamsungTv2020URepeatSwitch => new(_haContext, "switch.andrew_s_samsung_tv_2020_u_repeat_switch");
-		///<summary>Andrew's Samsung TV 2020-U shuffle switch</summary>
-		public SwitchEntity AndrewSSamsungTv2020UShuffleSwitch => new(_haContext, "switch.andrew_s_samsung_tv_2020_u_shuffle_switch");
+		///<summary>Basement do not disturb switch</summary>
+		public SwitchEntity BasementDoNotDisturbSwitch => new(_haContext, "switch.basement_do_not_disturb_switch");
+		///<summary>Basement Hall Camera Detections: Motion</summary>
+		public SwitchEntity BasementHallCameraDetectionsMotion => new(_haContext, "switch.basement_hall_camera_detections_motion");
 		///<summary>Basement Hall Camera HDR Mode</summary>
 		public SwitchEntity BasementHallCameraHdrMode => new(_haContext, "switch.basement_hall_camera_hdr_mode");
-		///<summary>Basement Hall Camera Overlay: Show Bitrate</summary>
+		///<summary>Basement Hall Camera Overlay: Show Nerd Mode</summary>
 		public SwitchEntity BasementHallCameraOverlayShowBitrate => new(_haContext, "switch.basement_hall_camera_overlay_show_bitrate");
 		///<summary>Basement Hall Camera Overlay: Show Date</summary>
 		public SwitchEntity BasementHallCameraOverlayShowDate => new(_haContext, "switch.basement_hall_camera_overlay_show_date");
@@ -1889,6 +2071,10 @@ namespace HomeAssistantGenerated
 		public SwitchEntity BasementHallCameraPrivacyMode => new(_haContext, "switch.basement_hall_camera_privacy_mode");
 		///<summary>Basement Hall Camera Status Light On</summary>
 		public SwitchEntity BasementHallCameraStatusLightOn => new(_haContext, "switch.basement_hall_camera_status_light_on");
+		///<summary>Basement repeat switch</summary>
+		public SwitchEntity BasementRepeatSwitch => new(_haContext, "switch.basement_repeat_switch");
+		///<summary>Basement shuffle switch</summary>
+		public SwitchEntity BasementShuffleSwitch => new(_haContext, "switch.basement_shuffle_switch");
 		///<summary>Bedroom Echo Show do not disturb switch</summary>
 		public SwitchEntity BedroomEchoShowDoNotDisturbSwitch => new(_haContext, "switch.bedroom_echo_show_do_not_disturb_switch");
 		///<summary>Bedroom Echo Show repeat switch</summary>
@@ -1897,12 +2083,8 @@ namespace HomeAssistantGenerated
 		public SwitchEntity BedroomEchoShowShuffleSwitch => new(_haContext, "switch.bedroom_echo_show_shuffle_switch");
 		///<summary>Cat Feeder Restart</summary>
 		public SwitchEntity CatFeederRestart => new(_haContext, "switch.cat_feeder_restart");
-		///<summary>Cellar Door Camera Motion Detection</summary>
-		public SwitchEntity CellarDoorCameraMotionDetection => new(_haContext, "switch.cellar_door_camera_motion_detection");
-		///<summary>Cellar Door Camera Movies</summary>
-		public SwitchEntity CellarDoorCameraMovies => new(_haContext, "switch.cellar_door_camera_movies");
-		///<summary>Cellar Door Camera Still Images</summary>
-		public SwitchEntity CellarDoorCameraStillImages => new(_haContext, "switch.cellar_door_camera_still_images");
+		///<summary>Christmas Tree</summary>
+		public SwitchEntity ChristmasTree => new(_haContext, "switch.christmas_tree");
 		///<summary>Dining Room Echo Input do not disturb switch</summary>
 		public SwitchEntity DiningRoomEchoInputDoNotDisturbSwitch => new(_haContext, "switch.dining_room_echo_input_do_not_disturb_switch");
 		///<summary>Dining Room Echo Input repeat switch</summary>
@@ -1955,6 +2137,12 @@ namespace HomeAssistantGenerated
 		public SwitchEntity EspresenseDrawingroomQuery => new(_haContext, "switch.espresense_drawingroom_query");
 		///<summary>ESPresense Kitchen Active Scan</summary>
 		public SwitchEntity EspresenseKitchenActiveScan => new(_haContext, "switch.espresense_kitchen_active_scan");
+		///<summary>ESPresense Kitchen Arduino OTA</summary>
+		public SwitchEntity EspresenseKitchenArduinoOta => new(_haContext, "switch.espresense_kitchen_arduino_ota");
+		///<summary>ESPresense Kitchen Auto Update</summary>
+		public SwitchEntity EspresenseKitchenAutoUpdate => new(_haContext, "switch.espresense_kitchen_auto_update");
+		///<summary>ESPresense Kitchen Prerelease</summary>
+		public SwitchEntity EspresenseKitchenPrerelease => new(_haContext, "switch.espresense_kitchen_prerelease");
 		///<summary>ESPresense Kitchen Query</summary>
 		public SwitchEntity EspresenseKitchenQuery => new(_haContext, "switch.espresense_kitchen_query");
 		///<summary>ESPresense Kitchen Status LED</summary>
@@ -1965,6 +2153,8 @@ namespace HomeAssistantGenerated
 		public SwitchEntity EspresenseLoungeArduinoOta => new(_haContext, "switch.espresense_lounge_arduino_ota");
 		///<summary>ESPresense Lounge Auto Update</summary>
 		public SwitchEntity EspresenseLoungeAutoUpdate => new(_haContext, "switch.espresense_lounge_auto_update");
+		///<summary>ESPresense Lounge OTA Update</summary>
+		public SwitchEntity EspresenseLoungeOtaUpdate => new(_haContext, "switch.espresense_lounge_ota_update");
 		///<summary>ESPresense Lounge Prerelease</summary>
 		public SwitchEntity EspresenseLoungePrerelease => new(_haContext, "switch.espresense_lounge_prerelease");
 		///<summary>ESPresense Lounge Query</summary>
@@ -1997,9 +2187,11 @@ namespace HomeAssistantGenerated
 		public SwitchEntity HallTabletDoNotDisturbSwitch => new(_haContext, "switch.hall_tablet_do_not_disturb_switch");
 		///<summary>homeassistant Active</summary>
 		public SwitchEntity HomeassistantActive => new(_haContext, "switch.homeassistant_active");
+		///<summary>Kitchen Camera Detections: Motion</summary>
+		public SwitchEntity KitchenCameraDetectionsMotion => new(_haContext, "switch.kitchen_camera_detections_motion");
 		///<summary>Kitchen Camera HDR Mode</summary>
 		public SwitchEntity KitchenCameraHdrMode => new(_haContext, "switch.kitchen_camera_hdr_mode");
-		///<summary>Kitchen Camera Overlay: Show Bitrate</summary>
+		///<summary>Kitchen Camera Overlay: Show Nerd Mode</summary>
 		public SwitchEntity KitchenCameraOverlayShowBitrate => new(_haContext, "switch.kitchen_camera_overlay_show_bitrate");
 		///<summary>Kitchen Camera Overlay: Show Date</summary>
 		public SwitchEntity KitchenCameraOverlayShowDate => new(_haContext, "switch.kitchen_camera_overlay_show_date");
@@ -2029,8 +2221,22 @@ namespace HomeAssistantGenerated
 		public SwitchEntity LoungeFireTvDoNotDisturbSwitch => new(_haContext, "switch.lounge_fire_tv_do_not_disturb_switch");
 		///<summary>Lounge TV</summary>
 		public SwitchEntity LoungeTv => new(_haContext, "switch.lounge_tv");
+		///<summary>Lounge TV do not disturb switch</summary>
+		public SwitchEntity LoungeTvDoNotDisturbSwitch => new(_haContext, "switch.lounge_tv_do_not_disturb_switch");
+		///<summary>Lounge TV repeat switch</summary>
+		public SwitchEntity LoungeTvRepeatSwitch => new(_haContext, "switch.lounge_tv_repeat_switch");
+		///<summary>Lounge TV shuffle switch</summary>
+		public SwitchEntity LoungeTvShuffleSwitch => new(_haContext, "switch.lounge_tv_shuffle_switch");
 		///<summary>Mark Schedule</summary>
 		public SwitchEntity MarkSchedule => new(_haContext, "switch.mark_schedule");
+		///<summary>Offices do not disturb switch</summary>
+		public SwitchEntity OfficesDoNotDisturbSwitch => new(_haContext, "switch.offices_do_not_disturb_switch");
+		///<summary>Offices repeat switch</summary>
+		public SwitchEntity OfficesRepeatSwitch => new(_haContext, "switch.offices_repeat_switch");
+		///<summary>Offices shuffle switch</summary>
+		public SwitchEntity OfficesShuffleSwitch => new(_haContext, "switch.offices_shuffle_switch");
+		///<summary>Patio Camera Detections: Motion</summary>
+		public SwitchEntity PatioCameraDetectionsMotion => new(_haContext, "switch.patio_camera_detections_motion");
 		///<summary>Patio Camera Detections: Person</summary>
 		public SwitchEntity PatioCameraDetectionsPerson => new(_haContext, "switch.patio_camera_detections_person");
 		///<summary>Patio Camera Detections: Vehicle</summary>
@@ -2039,7 +2245,7 @@ namespace HomeAssistantGenerated
 		public SwitchEntity PatioCameraHdrMode => new(_haContext, "switch.patio_camera_hdr_mode");
 		///<summary>Patio Camera High FPS</summary>
 		public SwitchEntity PatioCameraHighFps => new(_haContext, "switch.patio_camera_high_fps");
-		///<summary>Patio Camera Overlay: Show Bitrate</summary>
+		///<summary>Patio Camera Overlay: Show Nerd Mode</summary>
 		public SwitchEntity PatioCameraOverlayShowBitrate => new(_haContext, "switch.patio_camera_overlay_show_bitrate");
 		///<summary>Patio Camera Overlay: Show Date</summary>
 		public SwitchEntity PatioCameraOverlayShowDate => new(_haContext, "switch.patio_camera_overlay_show_date");
@@ -2049,24 +2255,100 @@ namespace HomeAssistantGenerated
 		public SwitchEntity PatioCameraOverlayShowName => new(_haContext, "switch.patio_camera_overlay_show_name");
 		///<summary>Patio Camera Privacy Mode</summary>
 		public SwitchEntity PatioCameraPrivacyMode => new(_haContext, "switch.patio_camera_privacy_mode");
+		///<summary>Restart Sonoff Basement 1</summary>
+		public SwitchEntity RestartSonoffBasement1 => new(_haContext, "switch.restart_sonoff_basement_1");
+		///<summary>Restart Sonoff Basement 2</summary>
+		public SwitchEntity RestartSonoffBasement2 => new(_haContext, "switch.restart_sonoff_basement_2");
+		///<summary>Restart Sonoff Downstairs 1</summary>
+		public SwitchEntity RestartSonoffDownstairs1 => new(_haContext, "switch.restart_sonoff_downstairs_1");
+		///<summary>Restart Sonoff Downstairs 2</summary>
+		public SwitchEntity RestartSonoffDownstairs2 => new(_haContext, "switch.restart_sonoff_downstairs_2");
+		///<summary>Restart Sonoff Outside 1</summary>
+		public SwitchEntity RestartSonoffOutside1 => new(_haContext, "switch.restart_sonoff_outside_1");
+		///<summary>Restart Sonoff Upstairs 1</summary>
+		public SwitchEntity RestartSonoffUpstairs1 => new(_haContext, "switch.restart_sonoff_upstairs_1");
+		///<summary>Restart Sonoff Upstairs 2</summary>
+		public SwitchEntity RestartSonoffUpstairs2 => new(_haContext, "switch.restart_sonoff_upstairs_2");
 		///<summary>Restart Weather Station</summary>
 		public SwitchEntity RestartWeatherStation => new(_haContext, "switch.restart_weather_station");
-		///<summary>Snug do not disturb switch</summary>
-		public SwitchEntity SnugDoNotDisturbSwitch => new(_haContext, "switch.snug_do_not_disturb_switch");
-		///<summary>Snug Echo Input do not disturb switch</summary>
-		public SwitchEntity SnugEchoInputDoNotDisturbSwitch => new(_haContext, "switch.snug_echo_input_do_not_disturb_switch");
-		///<summary>Snug Echo Input repeat switch</summary>
-		public SwitchEntity SnugEchoInputRepeatSwitch => new(_haContext, "switch.snug_echo_input_repeat_switch");
-		///<summary>Snug Echo Input shuffle switch</summary>
-		public SwitchEntity SnugEchoInputShuffleSwitch => new(_haContext, "switch.snug_echo_input_shuffle_switch");
-		///<summary>Snug repeat switch</summary>
-		public SwitchEntity SnugRepeatSwitch => new(_haContext, "switch.snug_repeat_switch");
-		///<summary>Snug shuffle switch</summary>
-		public SwitchEntity SnugShuffleSwitch => new(_haContext, "switch.snug_shuffle_switch");
+		///<summary>Shed Echo Input do not disturb switch</summary>
+		public SwitchEntity ShedEchoInputDoNotDisturbSwitch => new(_haContext, "switch.shed_echo_input_do_not_disturb_switch");
+		///<summary>Shed Echo Input repeat switch</summary>
+		public SwitchEntity ShedEchoInputRepeatSwitch => new(_haContext, "switch.shed_echo_input_repeat_switch");
+		///<summary>Shed Echo Input shuffle switch</summary>
+		public SwitchEntity ShedEchoInputShuffleSwitch => new(_haContext, "switch.shed_echo_input_shuffle_switch");
+		///<summary>Snug Echo Show do not disturb switch</summary>
+		public SwitchEntity SnugEchoShowDoNotDisturbSwitch => new(_haContext, "switch.snug_echo_show_do_not_disturb_switch");
+		///<summary>Snug Echo Show repeat switch</summary>
+		public SwitchEntity SnugEchoShowRepeatSwitch => new(_haContext, "switch.snug_echo_show_repeat_switch");
+		///<summary>Snug Echo Show shuffle switch</summary>
+		public SwitchEntity SnugEchoShowShuffleSwitch => new(_haContext, "switch.snug_echo_show_shuffle_switch");
+		///<summary>Sonoff Basement 1 Basement Hall</summary>
+		public SwitchEntity SonoffBasement1BasementHall => new(_haContext, "switch.sonoff_basement_1_basement_hall");
+		///<summary>Sonoff Basement 1 Brewery</summary>
+		public SwitchEntity SonoffBasement1Brewery => new(_haContext, "switch.sonoff_basement_1_brewery");
+		///<summary>Sonoff Basement 1 Toilet</summary>
+		public SwitchEntity SonoffBasement1Toilet => new(_haContext, "switch.sonoff_basement_1_toilet");
+		///<summary>Sonoff Basement 1 Utility Room</summary>
+		public SwitchEntity SonoffBasement1UtilityRoom => new(_haContext, "switch.sonoff_basement_1_utility_room");
+		///<summary>Sonoff Basement 2 Dining Room</summary>
+		public SwitchEntity SonoffBasement2DiningRoom => new(_haContext, "switch.sonoff_basement_2_dining_room");
+		///<summary>Sonoff Basement 2 Snug</summary>
+		public SwitchEntity SonoffBasement2Snug => new(_haContext, "switch.sonoff_basement_2_snug");
+		///<summary>Sonoff Basement 2 Spare Ch3</summary>
+		public SwitchEntity SonoffBasement2SpareCh3 => new(_haContext, "switch.sonoff_basement_2_spare_ch3");
+		///<summary>Sonoff Basement 2 Spare Ch4</summary>
+		public SwitchEntity SonoffBasement2SpareCh4 => new(_haContext, "switch.sonoff_basement_2_spare_ch4");
+		///<summary>Sonoff Downstairs 1 Bookshelf Light</summary>
+		public SwitchEntity SonoffDownstairs1BookshelfLight => new(_haContext, "switch.sonoff_downstairs_1_bookshelf_light");
+		///<summary>Sonoff Downstairs 1 Extractor Fan</summary>
+		public SwitchEntity SonoffDownstairs1ExtractorFan => new(_haContext, "switch.sonoff_downstairs_1_extractor_fan");
+		///<summary>Sonoff Downstairs 1 Hallway Light</summary>
+		public SwitchEntity SonoffDownstairs1HallwayLight => new(_haContext, "switch.sonoff_downstairs_1_hallway_light");
+		///<summary>Sonoff Downstairs 1 Lounge Light</summary>
+		public SwitchEntity SonoffDownstairs1LoungeLight => new(_haContext, "switch.sonoff_downstairs_1_lounge_light");
+		///<summary>Sonoff Downstairs 2 Cabinet Light</summary>
+		public SwitchEntity SonoffDownstairs2CabinetLight => new(_haContext, "switch.sonoff_downstairs_2_cabinet_light");
+		///<summary>Sonoff Downstairs 2 Drawing Room Light</summary>
+		public SwitchEntity SonoffDownstairs2DrawingRoomLight => new(_haContext, "switch.sonoff_downstairs_2_drawing_room_light");
+		///<summary>Sonoff Downstairs 2 Kitchen Light</summary>
+		public SwitchEntity SonoffDownstairs2KitchenLight => new(_haContext, "switch.sonoff_downstairs_2_kitchen_light");
+		///<summary>Sonoff Downstairs 2 Spare Ch1</summary>
+		public SwitchEntity SonoffDownstairs2SpareCh1 => new(_haContext, "switch.sonoff_downstairs_2_spare_ch1");
+		///<summary>Sonoff Outside 1 Back Door</summary>
+		public SwitchEntity SonoffOutside1BackDoor => new(_haContext, "switch.sonoff_outside_1_back_door");
+		///<summary>Sonoff Outside 1 Cellar Door</summary>
+		public SwitchEntity SonoffOutside1CellarDoor => new(_haContext, "switch.sonoff_outside_1_cellar_door");
+		///<summary>Sonoff Outside 1 Patio</summary>
+		public SwitchEntity SonoffOutside1Patio => new(_haContext, "switch.sonoff_outside_1_patio");
+		///<summary>Sonoff Outside 1 Porch</summary>
+		public SwitchEntity SonoffOutside1Porch => new(_haContext, "switch.sonoff_outside_1_porch");
+		///<summary>Sonoff Upstairs 1 Bathroom Fan</summary>
+		public SwitchEntity SonoffUpstairs1BathroomFan => new(_haContext, "switch.sonoff_upstairs_1_bathroom_fan");
+		///<summary>Sonoff Upstairs 1 Dressing Room Light</summary>
+		public SwitchEntity SonoffUpstairs1DressingRoomLight => new(_haContext, "switch.sonoff_upstairs_1_dressing_room_light");
+		///<summary>Sonoff Upstairs 1 Guest Room Light</summary>
+		public SwitchEntity SonoffUpstairs1GuestRoomLight => new(_haContext, "switch.sonoff_upstairs_1_guest_room_light");
+		///<summary>Sonoff Upstairs 1 Landing Light</summary>
+		public SwitchEntity SonoffUpstairs1LandingLight => new(_haContext, "switch.sonoff_upstairs_1_landing_light");
+		///<summary>Sonoff Upstairs 2 Bathroom Light</summary>
+		public SwitchEntity SonoffUpstairs2BathroomLight => new(_haContext, "switch.sonoff_upstairs_2_bathroom_light");
+		///<summary>Sonoff Upstairs 2 Bedroom Light</summary>
+		public SwitchEntity SonoffUpstairs2BedroomLight => new(_haContext, "switch.sonoff_upstairs_2_bedroom_light");
+		///<summary>Sonoff Upstairs 2 Mirror Light</summary>
+		public SwitchEntity SonoffUpstairs2MirrorLight => new(_haContext, "switch.sonoff_upstairs_2_mirror_light");
+		///<summary>Sonoff Upstairs 2 Studio Light</summary>
+		public SwitchEntity SonoffUpstairs2StudioLight => new(_haContext, "switch.sonoff_upstairs_2_studio_light");
 		///<summary>Sump Alarm Reset</summary>
 		public SwitchEntity SumpAlarmReset => new(_haContext, "switch.sump_alarm_reset");
 		///<summary>Sump Alarm Restart</summary>
 		public SwitchEntity SumpAlarmRestart => new(_haContext, "switch.sump_alarm_restart");
+		///<summary>This Device do not disturb switch</summary>
+		public SwitchEntity ThisDeviceDoNotDisturbSwitch => new(_haContext, "switch.this_device_do_not_disturb_switch");
+		///<summary>UDMPRO Analytics Enabled</summary>
+		public SwitchEntity UdmproAnalyticsEnabled => new(_haContext, "switch.udmpro_analytics_enabled");
+		///<summary>UDMPRO Insights Enabled</summary>
+		public SwitchEntity UdmproInsightsEnabled => new(_haContext, "switch.udmpro_insights_enabled");
 		///<summary>Upstairs do not disturb switch</summary>
 		public SwitchEntity UpstairsDoNotDisturbSwitch => new(_haContext, "switch.upstairs_do_not_disturb_switch");
 		///<summary>Upstairs repeat switch</summary>
@@ -2103,53 +2385,51 @@ namespace HomeAssistantGenerated
 			_haContext = haContext;
 		}
 
-		///<summary>AdGuard Home: Update</summary>
+		///<summary>AdGuard Home Update</summary>
 		public UpdateEntity AdguardHomeUpdate => new(_haContext, "update.adguard_home_update");
-		///<summary>AppDaemon: Update</summary>
+		///<summary>AppDaemon Update</summary>
 		public UpdateEntity AppdaemonUpdate => new(_haContext, "update.appdaemon_update");
-		///<summary>Check Home Assistant configuration: Update</summary>
+		///<summary>Check Home Assistant configuration Update</summary>
 		public UpdateEntity CheckHomeAssistantConfigurationUpdate => new(_haContext, "update.check_home_assistant_configuration_update");
-		///<summary>Dream Machine Pro</summary>
-		public UpdateEntity DreamMachinePro => new(_haContext, "update.dream_machine_pro");
-		///<summary>ESPHome: Update</summary>
+		///<summary>ESPHome Update</summary>
 		public UpdateEntity EsphomeUpdate => new(_haContext, "update.esphome_update");
-		///<summary>eWeLink Smart Home: Update</summary>
-		public UpdateEntity EwelinkSmartHomeUpdate => new(_haContext, "update.ewelink_smart_home_update");
-		///<summary>File editor: Update</summary>
+		///<summary>File editor Update</summary>
 		public UpdateEntity FileEditorUpdate => new(_haContext, "update.file_editor_update");
-		///<summary>Glances: Update</summary>
+		///<summary>Glances Update</summary>
 		public UpdateEntity GlancesUpdate => new(_haContext, "update.glances_update");
-		///<summary>Grafana: Update</summary>
+		///<summary>Grafana Update</summary>
 		public UpdateEntity GrafanaUpdate => new(_haContext, "update.grafana_update");
-		///<summary>Home Assistant Core: Update</summary>
+		///<summary>Home Assistant Core Update</summary>
 		public UpdateEntity HomeAssistantCoreUpdate => new(_haContext, "update.home_assistant_core_update");
-		///<summary>Home Assistant Google Drive Backup: Update</summary>
+		///<summary>Home Assistant Google Drive Backup Update</summary>
 		public UpdateEntity HomeAssistantGoogleDriveBackupUpdate => new(_haContext, "update.home_assistant_google_drive_backup_update");
-		///<summary>Home Assistant Supervisor: Update</summary>
+		///<summary>Home Assistant Supervisor Update</summary>
 		public UpdateEntity HomeAssistantSupervisorUpdate => new(_haContext, "update.home_assistant_supervisor_update");
-		///<summary>InfluxDB: Update</summary>
+		///<summary>InfluxDB Update</summary>
 		public UpdateEntity InfluxdbUpdate => new(_haContext, "update.influxdb_update");
-		///<summary>MariaDB: Update</summary>
+		///<summary>MariaDB Update</summary>
 		public UpdateEntity MariadbUpdate => new(_haContext, "update.mariadb_update");
-		///<summary>Mosquitto broker: Update</summary>
+		///<summary>Meross Local Broker Addon Update</summary>
+		public UpdateEntity MerossLocalBrokerAddonUpdate => new(_haContext, "update.meross_local_broker_addon_update");
+		///<summary>Mosquitto broker Update</summary>
 		public UpdateEntity MosquittoBrokerUpdate => new(_haContext, "update.mosquitto_broker_update");
-		///<summary>motionEye: Update</summary>
-		public UpdateEntity MotioneyeUpdate => new(_haContext, "update.motioneye_update");
-		///<summary>NetDaemon V3 - beta: Update</summary>
+		///<summary>NetDaemon V3.1 (.NET 7) Update</summary>
+		public UpdateEntity NetdaemonV31Net7Update => new(_haContext, "update.netdaemon_v3_1_net_7_update");
+		///<summary>NetDaemon V3 - beta Update</summary>
 		public UpdateEntity NetdaemonV3BetaUpdate => new(_haContext, "update.netdaemon_v3_beta_update");
-		///<summary>Nginx Proxy Manager: Update</summary>
+		///<summary>Nginx Proxy Manager Update</summary>
 		public UpdateEntity NginxProxyManagerUpdate => new(_haContext, "update.nginx_proxy_manager_update");
-		///<summary>Plex Media Server: Update</summary>
+		///<summary>Plex Media Server Update</summary>
 		public UpdateEntity PlexMediaServerUpdate => new(_haContext, "update.plex_media_server_update");
-		///<summary>Portainer: Update</summary>
+		///<summary>Portainer Update</summary>
 		public UpdateEntity PortainerUpdate => new(_haContext, "update.portainer_update");
-		///<summary>Samba share: Update</summary>
+		///<summary>Samba share Update</summary>
 		public UpdateEntity SambaShareUpdate => new(_haContext, "update.samba_share_update");
-		///<summary>Studio Code Server: Update</summary>
+		///<summary>Studio Code Server Update</summary>
 		public UpdateEntity StudioCodeServerUpdate => new(_haContext, "update.studio_code_server_update");
-		///<summary>TasmoAdmin: Update</summary>
+		///<summary>TasmoAdmin Update</summary>
 		public UpdateEntity TasmoadminUpdate => new(_haContext, "update.tasmoadmin_update");
-		///<summary>Terminal & SSH: Update</summary>
+		///<summary>Terminal & SSH Update</summary>
 		public UpdateEntity TerminalSshUpdate => new(_haContext, "update.terminal_ssh_update");
 		///<summary>UAP-AC-LR-Basement</summary>
 		public UpdateEntity UapAcLrBasement => new(_haContext, "update.uap_ac_lr_basement");
@@ -2157,11 +2437,15 @@ namespace HomeAssistantGenerated
 		public UpdateEntity UapAcLrUpstairs => new(_haContext, "update.uap_ac_lr_upstairs");
 		///<summary>UAP-FlexHD-Groundfloor</summary>
 		public UpdateEntity UapFlexhdGroundfloor => new(_haContext, "update.uap_flexhd_groundfloor");
-		///<summary>VSCode Remote: Update</summary>
+		///<summary>UDMPRO</summary>
+		public UpdateEntity Udmpro => new(_haContext, "update.udmpro");
+		///<summary>UAP-IW-HD-Shed</summary>
+		public UpdateEntity UnifiDeviceUpdateD021F9582389 => new(_haContext, "update.unifi_device_update_d0_21_f9_58_23_89");
+		///<summary>VSCode Remote Update</summary>
 		public UpdateEntity VscodeRemoteUpdate => new(_haContext, "update.vscode_remote_update");
-		///<summary>WireGuard: Update</summary>
+		///<summary>WireGuard Update</summary>
 		public UpdateEntity WireguardUpdate => new(_haContext, "update.wireguard_update");
-		///<summary>Zigbee2mqtt Edge: Update</summary>
+		///<summary>Zigbee2mqtt Edge Update</summary>
 		public UpdateEntity Zigbee2mqttEdgeUpdate => new(_haContext, "update.zigbee2mqtt_edge_update");
 	}
 
@@ -2205,10 +2489,6 @@ namespace HomeAssistantGenerated
 		public ZoneEntity AndySParentS => new(_haContext, "zone.andy_s_parent_s");
 		///<summary>Andy's Work</summary>
 		public ZoneEntity AndyWork => new(_haContext, "zone.andy_work");
-		///<summary>Chris & Rach London</summary>
-		public ZoneEntity ChrisRachLondon => new(_haContext, "zone.chris_rach_london");
-		///<summary>Claire's Work</summary>
-		public ZoneEntity ClaireWork => new(_haContext, "zone.claire_work");
 		///<summary>Gym</summary>
 		public ZoneEntity Gym => new(_haContext, "zone.gym");
 		///<summary>Heaton Hops</summary>
@@ -2221,7 +2501,7 @@ namespace HomeAssistantGenerated
 		public ZoneEntity Home => new(_haContext, "zone.home");
 		///<summary>Man Utd</summary>
 		public ZoneEntity ManUtd => new(_haContext, "zone.man_utd");
-		///<summary>Rachael And Chris</summary>
+		///<summary>Rachaels</summary>
 		public ZoneEntity RachaelAndChris => new(_haContext, "zone.rachael_and_chris");
 	}
 
@@ -2357,6 +2637,28 @@ namespace HomeAssistantGenerated
 		}
 	}
 
+	public record InputDatetimeEntity : Entity<InputDatetimeEntity, EntityState<InputDatetimeAttributes>, InputDatetimeAttributes>
+	{
+		public InputDatetimeEntity(IHaContext haContext, string entityId) : base(haContext, entityId)
+		{
+		}
+
+		public InputDatetimeEntity(Entity entity) : base(entity)
+		{
+		}
+	}
+
+	public record InputNumberEntity : NumericEntity<InputNumberEntity, NumericEntityState<InputNumberAttributes>, InputNumberAttributes>
+	{
+		public InputNumberEntity(IHaContext haContext, string entityId) : base(haContext, entityId)
+		{
+		}
+
+		public InputNumberEntity(Entity entity) : base(entity)
+		{
+		}
+	}
+
 	public record InputSelectEntity : Entity<InputSelectEntity, EntityState<InputSelectAttributes>, InputSelectAttributes>
 	{
 		public InputSelectEntity(IHaContext haContext, string entityId) : base(haContext, entityId)
@@ -2364,6 +2666,17 @@ namespace HomeAssistantGenerated
 		}
 
 		public InputSelectEntity(Entity entity) : base(entity)
+		{
+		}
+	}
+
+	public record InputTextEntity : Entity<InputTextEntity, EntityState<InputTextAttributes>, InputTextAttributes>
+	{
+		public InputTextEntity(IHaContext haContext, string entityId) : base(haContext, entityId)
+		{
+		}
+
+		public InputTextEntity(Entity entity) : base(entity)
 		{
 		}
 	}
@@ -2408,6 +2721,17 @@ namespace HomeAssistantGenerated
 		}
 
 		public PersonEntity(Entity entity) : base(entity)
+		{
+		}
+	}
+
+	public record ProximityEntity : Entity<ProximityEntity, EntityState<ProximityAttributes>, ProximityAttributes>
+	{
+		public ProximityEntity(IHaContext haContext, string entityId) : base(haContext, entityId)
+		{
+		}
+
+		public ProximityEntity(Entity entity) : base(entity)
 		{
 		}
 	}
@@ -2557,8 +2881,14 @@ namespace HomeAssistantGenerated
 
 	public record AlarmControlPanelAttributes
 	{
+		[JsonPropertyName("arm_mode")]
+		public object? ArmMode { get; init; }
+
+		[JsonPropertyName("bypassed_sensors")]
+		public object? BypassedSensors { get; init; }
+
 		[JsonPropertyName("changed_by")]
-		public object? ChangedBy { get; init; }
+		public string? ChangedBy { get; init; }
 
 		[JsonPropertyName("code_arm_required")]
 		public bool? CodeArmRequired { get; init; }
@@ -2566,8 +2896,17 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("code_format")]
 		public string? CodeFormat { get; init; }
 
+		[JsonPropertyName("delay")]
+		public object? Delay { get; init; }
+
 		[JsonPropertyName("friendly_name")]
 		public string? FriendlyName { get; init; }
+
+		[JsonPropertyName("icon")]
+		public string? Icon { get; init; }
+
+		[JsonPropertyName("open_sensors")]
+		public object? OpenSensors { get; init; }
 
 		[JsonPropertyName("supported_features")]
 		public double? SupportedFeatures { get; init; }
@@ -2617,14 +2956,14 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("contact")]
 		public bool? Contact { get; init; }
 
+		[JsonPropertyName("device")]
+		public object? Device { get; init; }
+
 		[JsonPropertyName("device_class")]
 		public string? DeviceClass { get; init; }
 
 		[JsonPropertyName("entity_id")]
 		public object? EntityId { get; init; }
-
-		[JsonPropertyName("event_score")]
-		public double? EventScore { get; init; }
 
 		[JsonPropertyName("firm")]
 		public string? Firm { get; init; }
@@ -2653,11 +2992,8 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("memFrag")]
 		public double? MemFrag { get; init; }
 
-		[JsonPropertyName("model")]
-		public string? Model { get; init; }
-
-		[JsonPropertyName("occupancy")]
-		public bool? Occupancy { get; init; }
+		[JsonPropertyName("power_on_behavior")]
+		public string? PowerOnBehavior { get; init; }
 
 		[JsonPropertyName("queried")]
 		public double? Queried { get; init; }
@@ -2692,6 +3028,15 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("target")]
 		public string? Target { get; init; }
 
+		[JsonPropertyName("teleFails")]
+		public double? TeleFails { get; init; }
+
+		[JsonPropertyName("update")]
+		public object? Update { get; init; }
+
+		[JsonPropertyName("update_available")]
+		public bool? UpdateAvailable { get; init; }
+
 		[JsonPropertyName("uptime")]
 		public double? Uptime { get; init; }
 
@@ -2715,6 +3060,9 @@ namespace HomeAssistantGenerated
 
 		[JsonPropertyName("friendly_name")]
 		public string? FriendlyName { get; init; }
+
+		[JsonPropertyName("icon")]
+		public string? Icon { get; init; }
 	}
 
 	public record CalendarAttributes
@@ -2742,6 +3090,9 @@ namespace HomeAssistantGenerated
 
 		[JsonPropertyName("start_time")]
 		public string? StartTime { get; init; }
+
+		[JsonPropertyName("supported_features")]
+		public double? SupportedFeatures { get; init; }
 	}
 
 	public record CameraAttributes
@@ -2754,9 +3105,6 @@ namespace HomeAssistantGenerated
 
 		[JsonPropertyName("bitrate")]
 		public double? Bitrate { get; init; }
-
-		[JsonPropertyName("brand")]
-		public string? Brand { get; init; }
 
 		[JsonPropertyName("channel_id")]
 		public double? ChannelId { get; init; }
@@ -2773,14 +3121,14 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("frontend_stream_type")]
 		public string? FrontendStreamType { get; init; }
 
-		[JsonPropertyName("generated_at")]
-		public string? GeneratedAt { get; init; }
-
 		[JsonPropertyName("height")]
 		public double? Height { get; init; }
 
 		[JsonPropertyName("motion_detection")]
 		public bool? MotionDetection { get; init; }
+
+		[JsonPropertyName("restored")]
+		public bool? Restored { get; init; }
 
 		[JsonPropertyName("supported_features")]
 		public double? SupportedFeatures { get; init; }
@@ -2836,9 +3184,6 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("ap_mac")]
 		public string? ApMac { get; init; }
 
-		[JsonPropertyName("attribution")]
-		public string? Attribution { get; init; }
-
 		[JsonPropertyName("battery")]
 		public double? Battery { get; init; }
 
@@ -2847,6 +3192,9 @@ namespace HomeAssistantGenerated
 
 		[JsonPropertyName("battery_status")]
 		public string? BatteryStatus { get; init; }
+
+		[JsonPropertyName("course")]
+		public double? Course { get; init; }
 
 		[JsonPropertyName("device_name")]
 		public string? DeviceName { get; init; }
@@ -2935,6 +3283,9 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("source_type")]
 		public string? SourceType { get; init; }
 
+		[JsonPropertyName("speed")]
+		public double? Speed { get; init; }
+
 		[JsonPropertyName("supported_features")]
 		public double? SupportedFeatures { get; init; }
 
@@ -2961,12 +3312,6 @@ namespace HomeAssistantGenerated
 
 		[JsonPropertyName("icon")]
 		public string? Icon { get; init; }
-
-		[JsonPropertyName("last_triggered_at")]
-		public string? LastTriggeredAt { get; init; }
-
-		[JsonPropertyName("last_triggered_by")]
-		public string? LastTriggeredBy { get; init; }
 
 		[JsonPropertyName("sensor_type")]
 		public string? SensorType { get; init; }
@@ -3011,6 +3356,66 @@ namespace HomeAssistantGenerated
 		public string? Icon { get; init; }
 	}
 
+	public record InputDatetimeAttributes
+	{
+		[JsonPropertyName("editable")]
+		public bool? Editable { get; init; }
+
+		[JsonPropertyName("friendly_name")]
+		public string? FriendlyName { get; init; }
+
+		[JsonPropertyName("has_date")]
+		public bool? HasDate { get; init; }
+
+		[JsonPropertyName("has_time")]
+		public bool? HasTime { get; init; }
+
+		[JsonPropertyName("hour")]
+		public double? Hour { get; init; }
+
+		[JsonPropertyName("icon")]
+		public string? Icon { get; init; }
+
+		[JsonPropertyName("minute")]
+		public double? Minute { get; init; }
+
+		[JsonPropertyName("second")]
+		public double? Second { get; init; }
+
+		[JsonPropertyName("timestamp")]
+		public double? Timestamp { get; init; }
+	}
+
+	public record InputNumberAttributes
+	{
+		[JsonPropertyName("editable")]
+		public bool? Editable { get; init; }
+
+		[JsonPropertyName("friendly_name")]
+		public string? FriendlyName { get; init; }
+
+		[JsonPropertyName("icon")]
+		public string? Icon { get; init; }
+
+		[JsonPropertyName("initial")]
+		public object? Initial { get; init; }
+
+		[JsonPropertyName("max")]
+		public double? Max { get; init; }
+
+		[JsonPropertyName("min")]
+		public double? Min { get; init; }
+
+		[JsonPropertyName("mode")]
+		public string? Mode { get; init; }
+
+		[JsonPropertyName("step")]
+		public double? Step { get; init; }
+
+		[JsonPropertyName("unit_of_measurement")]
+		public string? UnitOfMeasurement { get; init; }
+	}
+
 	public record InputSelectAttributes
 	{
 		[JsonPropertyName("editable")]
@@ -3026,6 +3431,30 @@ namespace HomeAssistantGenerated
 		public object? Options { get; init; }
 	}
 
+	public record InputTextAttributes
+	{
+		[JsonPropertyName("editable")]
+		public bool? Editable { get; init; }
+
+		[JsonPropertyName("friendly_name")]
+		public string? FriendlyName { get; init; }
+
+		[JsonPropertyName("icon")]
+		public string? Icon { get; init; }
+
+		[JsonPropertyName("max")]
+		public double? Max { get; init; }
+
+		[JsonPropertyName("min")]
+		public double? Min { get; init; }
+
+		[JsonPropertyName("mode")]
+		public string? Mode { get; init; }
+
+		[JsonPropertyName("pattern")]
+		public object? Pattern { get; init; }
+	}
+
 	public record LightAttributes
 	{
 		[JsonPropertyName("brightness")]
@@ -3033,9 +3462,6 @@ namespace HomeAssistantGenerated
 
 		[JsonPropertyName("color_mode")]
 		public string? ColorMode { get; init; }
-
-		[JsonPropertyName("color_temp")]
-		public double? ColorTemp { get; init; }
 
 		[JsonPropertyName("effect_list")]
 		public object? EffectList { get; init; }
@@ -3049,14 +3475,17 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("friendly_name")]
 		public string? FriendlyName { get; init; }
 
-		[JsonPropertyName("hs_color")]
-		public object? HsColor { get; init; }
-
 		[JsonPropertyName("icon")]
 		public string? Icon { get; init; }
 
+		[JsonPropertyName("max_color_temp_kelvin")]
+		public double? MaxColorTempKelvin { get; init; }
+
 		[JsonPropertyName("max_mireds")]
 		public double? MaxMireds { get; init; }
+
+		[JsonPropertyName("min_color_temp_kelvin")]
+		public double? MinColorTempKelvin { get; init; }
 
 		[JsonPropertyName("min_mireds")]
 		public double? MinMireds { get; init; }
@@ -3064,17 +3493,14 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("music_mode")]
 		public bool? MusicMode { get; init; }
 
-		[JsonPropertyName("rgb_color")]
-		public object? RgbColor { get; init; }
+		[JsonPropertyName("restored")]
+		public bool? Restored { get; init; }
 
 		[JsonPropertyName("supported_color_modes")]
 		public object? SupportedColorModes { get; init; }
 
 		[JsonPropertyName("supported_features")]
 		public double? SupportedFeatures { get; init; }
-
-		[JsonPropertyName("xy_color")]
-		public object? XyColor { get; init; }
 	}
 
 	public record MediaPlayerAttributes
@@ -3136,9 +3562,6 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("restored")]
 		public bool? Restored { get; init; }
 
-		[JsonPropertyName("shuffle")]
-		public bool? Shuffle { get; init; }
-
 		[JsonPropertyName("source")]
 		public string? Source { get; init; }
 
@@ -3174,6 +3597,9 @@ namespace HomeAssistantGenerated
 
 		[JsonPropertyName("step")]
 		public double? Step { get; init; }
+
+		[JsonPropertyName("unit_of_measurement")]
+		public string? UnitOfMeasurement { get; init; }
 	}
 
 	public record PersonAttributes
@@ -3204,6 +3630,21 @@ namespace HomeAssistantGenerated
 
 		[JsonPropertyName("user_id")]
 		public string? UserId { get; init; }
+	}
+
+	public record ProximityAttributes
+	{
+		[JsonPropertyName("dir_of_travel")]
+		public string? DirOfTravel { get; init; }
+
+		[JsonPropertyName("friendly_name")]
+		public string? FriendlyName { get; init; }
+
+		[JsonPropertyName("nearest")]
+		public string? Nearest { get; init; }
+
+		[JsonPropertyName("unit_of_measurement")]
+		public string? UnitOfMeasurement { get; init; }
 	}
 
 	public record RemoteAttributes
@@ -3253,14 +3694,29 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("attribution")]
 		public string? Attribution { get; init; }
 
+		[JsonPropertyName("device")]
+		public object? Device { get; init; }
+
 		[JsonPropertyName("friendly_name")]
 		public string? FriendlyName { get; init; }
 
 		[JsonPropertyName("icon")]
 		public string? Icon { get; init; }
 
+		[JsonPropertyName("linkquality")]
+		public double? Linkquality { get; init; }
+
 		[JsonPropertyName("options")]
 		public object? Options { get; init; }
+
+		[JsonPropertyName("power_on_behavior")]
+		public string? PowerOnBehavior { get; init; }
+
+		[JsonPropertyName("update")]
+		public object? Update { get; init; }
+
+		[JsonPropertyName("update_available")]
+		public bool? UpdateAvailable { get; init; }
 	}
 
 	public record NumericSensorAttributes
@@ -3304,6 +3760,12 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("country_code")]
 		public string? CountryCode { get; init; }
 
+		[JsonPropertyName("current")]
+		public double? Current { get; init; }
+
+		[JsonPropertyName("device")]
+		public object? Device { get; init; }
+
 		[JsonPropertyName("device_class")]
 		public string? DeviceClass { get; init; }
 
@@ -3313,11 +3775,17 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("device_status")]
 		public string? DeviceStatus { get; init; }
 
+		[JsonPropertyName("end")]
+		public double? End { get; init; }
+
 		[JsonPropertyName("friendly_name")]
 		public string? FriendlyName { get; init; }
 
 		[JsonPropertyName("icon")]
 		public string? Icon { get; init; }
+
+		[JsonPropertyName("light")]
+		public double? Light { get; init; }
 
 		[JsonPropertyName("linkquality")]
 		public double? Linkquality { get; init; }
@@ -3325,8 +3793,8 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("low_power_mode")]
 		public bool? LowPowerMode { get; init; }
 
-		[JsonPropertyName("occupancy")]
-		public bool? Occupancy { get; init; }
+		[JsonPropertyName("motion")]
+		public double? Motion { get; init; }
 
 		[JsonPropertyName("owner_fullname")]
 		public string? OwnerFullname { get; init; }
@@ -3346,14 +3814,23 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("server_name")]
 		public string? ServerName { get; init; }
 
+		[JsonPropertyName("start")]
+		public double? Start { get; init; }
+
 		[JsonPropertyName("state_class")]
 		public string? StateClass { get; init; }
+
+		[JsonPropertyName("status")]
+		public string? Status { get; init; }
 
 		[JsonPropertyName("supported_features")]
 		public double? SupportedFeatures { get; init; }
 
 		[JsonPropertyName("tamper")]
 		public bool? Tamper { get; init; }
+
+		[JsonPropertyName("timestamp")]
+		public double? Timestamp { get; init; }
 
 		[JsonPropertyName("Total")]
 		public string? Total { get; init; }
@@ -3370,11 +3847,11 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("action")]
 		public object? Action { get; init; }
 
-		[JsonPropertyName("actions")]
-		public object? Actions { get; init; }
-
 		[JsonPropertyName("Administrative Area")]
-		public string? AdministrativeArea { get; init; }
+		public string? AdministrativeArea_0 { get; init; }
+
+		[JsonPropertyName("administrative_area")]
+		public string? AdministrativeArea_1 { get; init; }
 
 		[JsonPropertyName("Allows VoIP")]
 		public bool? AllowsVoIP { get; init; }
@@ -3403,14 +3880,14 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("Carrier Name")]
 		public string? CarrierName { get; init; }
 
-		[JsonPropertyName("Cellular Technology")]
-		public string? CellularTechnology { get; init; }
-
 		[JsonPropertyName("Confidence")]
 		public string? Confidence { get; init; }
 
+		[JsonPropertyName("country")]
+		public string? Country_0 { get; init; }
+
 		[JsonPropertyName("Country")]
-		public string? Country { get; init; }
+		public string? Country_1 { get; init; }
 
 		[JsonPropertyName("Current Radio Technology")]
 		public string? CurrentRadioTechnology { get; init; }
@@ -3418,14 +3895,17 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("days")]
 		public double? Days { get; init; }
 
+		[JsonPropertyName("device")]
+		public object? Device { get; init; }
+
 		[JsonPropertyName("device_class")]
 		public string? DeviceClass { get; init; }
 
 		[JsonPropertyName("dismissed")]
 		public object? Dismissed { get; init; }
 
-		[JsonPropertyName("event_score")]
-		public double? EventScore { get; init; }
+		[JsonPropertyName("free_space_in_google_drive")]
+		public string? FreeSpaceInGoogleDrive { get; init; }
 
 		[JsonPropertyName("friendly_name")]
 		public string? FriendlyName { get; init; }
@@ -3435,6 +3915,9 @@ namespace HomeAssistantGenerated
 
 		[JsonPropertyName("Inland Water")]
 		public string? InlandWater { get; init; }
+
+		[JsonPropertyName("iso_country_code")]
+		public string? IsoCountryCode { get; init; }
 
 		[JsonPropertyName("ISO Country Code")]
 		public string? ISOCountryCode { get; init; }
@@ -3452,13 +3935,19 @@ namespace HomeAssistantGenerated
 		public string? LastUploaded { get; init; }
 
 		[JsonPropertyName("linkquality")]
-		public object? Linkquality { get; init; }
+		public double? Linkquality { get; init; }
+
+		[JsonPropertyName("locality")]
+		public string? Locality_0 { get; init; }
 
 		[JsonPropertyName("Locality")]
-		public string? Locality { get; init; }
+		public string? Locality_1 { get; init; }
+
+		[JsonPropertyName("location")]
+		public object? Location_0 { get; init; }
 
 		[JsonPropertyName("Location")]
-		public object? Location { get; init; }
+		public object? Location_1 { get; init; }
 
 		[JsonPropertyName("Low Power Mode")]
 		public bool? LowPowerMode { get; init; }
@@ -3469,8 +3958,11 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("Mobile Network Code")]
 		public string? MobileNetworkCode { get; init; }
 
+		[JsonPropertyName("name")]
+		public string? Name_0 { get; init; }
+
 		[JsonPropertyName("Name")]
-		public string? Name { get; init; }
+		public string? Name_1 { get; init; }
 
 		[JsonPropertyName("next_backup")]
 		public string? NextBackup { get; init; }
@@ -3481,8 +3973,20 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("Ocean")]
 		public string? Ocean { get; init; }
 
+		[JsonPropertyName("options")]
+		public object? Options { get; init; }
+
+		[JsonPropertyName("phone")]
+		public string? Phone { get; init; }
+
 		[JsonPropertyName("Postal Code")]
-		public string? PostalCode { get; init; }
+		public string? PostalCode_0 { get; init; }
+
+		[JsonPropertyName("postal_code")]
+		public string? PostalCode_1 { get; init; }
+
+		[JsonPropertyName("premises")]
+		public string? Premises { get; init; }
 
 		[JsonPropertyName("prior_value")]
 		public string? PriorValue { get; init; }
@@ -3491,10 +3995,10 @@ namespace HomeAssistantGenerated
 		public string? ProcessTimestamp { get; init; }
 
 		[JsonPropertyName("recurrence")]
-		public string? Recurrence { get; init; }
+		public object? Recurrence { get; init; }
 
 		[JsonPropertyName("reminder")]
-		public string? Reminder { get; init; }
+		public object? Reminder { get; init; }
 
 		[JsonPropertyName("restored")]
 		public bool? Restored { get; init; }
@@ -3517,14 +4021,26 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("status")]
 		public string? Status { get; init; }
 
+		[JsonPropertyName("still")]
+		public double? Still { get; init; }
+
 		[JsonPropertyName("Sub Administrative Area")]
-		public string? SubAdministrativeArea { get; init; }
+		public string? SubAdministrativeArea_0 { get; init; }
+
+		[JsonPropertyName("sub_administrative_area")]
+		public string? SubAdministrativeArea_1 { get; init; }
 
 		[JsonPropertyName("Sub Locality")]
-		public string? SubLocality { get; init; }
+		public string? SubLocality_0 { get; init; }
+
+		[JsonPropertyName("sub_locality")]
+		public string? SubLocality_1 { get; init; }
 
 		[JsonPropertyName("Sub Thoroughfare")]
-		public string? SubThoroughfare { get; init; }
+		public string? SubThoroughfare_0 { get; init; }
+
+		[JsonPropertyName("sub_thoroughfare")]
+		public string? SubThoroughfare_1 { get; init; }
 
 		[JsonPropertyName("supported_features")]
 		public double? SupportedFeatures { get; init; }
@@ -3532,8 +4048,11 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("target")]
 		public string? Target { get; init; }
 
+		[JsonPropertyName("thoroughfare")]
+		public string? Thoroughfare_0 { get; init; }
+
 		[JsonPropertyName("Thoroughfare")]
-		public string? Thoroughfare { get; init; }
+		public string? Thoroughfare_1 { get; init; }
 
 		[JsonPropertyName("Time Zone")]
 		public string? TimeZone { get; init; }
@@ -3546,6 +4065,9 @@ namespace HomeAssistantGenerated
 
 		[JsonPropertyName("Types")]
 		public object? Types { get; init; }
+
+		[JsonPropertyName("url")]
+		public string? Url { get; init; }
 
 		[JsonPropertyName("voltage")]
 		public double? Voltage { get; init; }
@@ -3592,6 +4114,9 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("attribution")]
 		public string? Attribution { get; init; }
 
+		[JsonPropertyName("device")]
+		public object? Device { get; init; }
+
 		[JsonPropertyName("device_class")]
 		public string? DeviceClass { get; init; }
 
@@ -3601,17 +4126,26 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("icon")]
 		public string? Icon { get; init; }
 
+		[JsonPropertyName("linkquality")]
+		public double? Linkquality { get; init; }
+
+		[JsonPropertyName("power_on_behavior")]
+		public string? PowerOnBehavior { get; init; }
+
 		[JsonPropertyName("restored")]
 		public bool? Restored { get; init; }
-
-		[JsonPropertyName("state")]
-		public string? State { get; init; }
 
 		[JsonPropertyName("supported_features")]
 		public double? SupportedFeatures { get; init; }
 
 		[JsonPropertyName("target")]
 		public string? Target { get; init; }
+
+		[JsonPropertyName("update")]
+		public object? Update { get; init; }
+
+		[JsonPropertyName("update_available")]
+		public bool? UpdateAvailable { get; init; }
 	}
 
 	public record TimerAttributes
@@ -3670,50 +4204,14 @@ namespace HomeAssistantGenerated
 
 	public record VacuumAttributes
 	{
-		[JsonPropertyName("battery_icon")]
-		public string? BatteryIcon { get; init; }
-
-		[JsonPropertyName("battery_level")]
-		public double? BatteryLevel { get; init; }
-
-		[JsonPropertyName("battery_level_at_clean_end")]
-		public double? BatteryLevelAtCleanEnd { get; init; }
-
-		[JsonPropertyName("battery_level_at_clean_start")]
-		public double? BatteryLevelAtCleanStart { get; init; }
-
-		[JsonPropertyName("clean_area")]
-		public double? CleanArea { get; init; }
-
-		[JsonPropertyName("clean_error_time")]
-		public double? CleanErrorTime { get; init; }
-
-		[JsonPropertyName("clean_pause_time")]
-		public double? CleanPauseTime { get; init; }
-
-		[JsonPropertyName("clean_start")]
-		public string? CleanStart { get; init; }
-
-		[JsonPropertyName("clean_stop")]
-		public string? CleanStop { get; init; }
-
-		[JsonPropertyName("clean_suspension_count")]
-		public double? CleanSuspensionCount { get; init; }
-
-		[JsonPropertyName("clean_suspension_time")]
-		public double? CleanSuspensionTime { get; init; }
-
 		[JsonPropertyName("friendly_name")]
 		public string? FriendlyName { get; init; }
 
 		[JsonPropertyName("icon")]
 		public string? Icon { get; init; }
 
-		[JsonPropertyName("launched_from")]
-		public string? LaunchedFrom { get; init; }
-
-		[JsonPropertyName("status")]
-		public string? Status { get; init; }
+		[JsonPropertyName("restored")]
+		public bool? Restored { get; init; }
 
 		[JsonPropertyName("supported_features")]
 		public double? SupportedFeatures { get; init; }
@@ -3736,20 +4234,35 @@ namespace HomeAssistantGenerated
 		[JsonPropertyName("ozone")]
 		public double? Ozone { get; init; }
 
+		[JsonPropertyName("precipitation_unit")]
+		public string? PrecipitationUnit { get; init; }
+
 		[JsonPropertyName("pressure")]
 		public double? Pressure { get; init; }
+
+		[JsonPropertyName("pressure_unit")]
+		public string? PressureUnit { get; init; }
 
 		[JsonPropertyName("temperature")]
 		public double? Temperature { get; init; }
 
+		[JsonPropertyName("temperature_unit")]
+		public string? TemperatureUnit { get; init; }
+
 		[JsonPropertyName("visibility")]
 		public double? Visibility { get; init; }
+
+		[JsonPropertyName("visibility_unit")]
+		public string? VisibilityUnit { get; init; }
 
 		[JsonPropertyName("wind_bearing")]
 		public double? WindBearing { get; init; }
 
 		[JsonPropertyName("wind_speed")]
 		public double? WindSpeed { get; init; }
+
+		[JsonPropertyName("wind_speed_unit")]
+		public string? WindSpeedUnit { get; init; }
 	}
 
 	public record ZoneAttributes
@@ -3785,6 +4298,8 @@ namespace HomeAssistantGenerated
 
 		AlarmControlPanelServices AlarmControlPanel { get; }
 
+		AlarmoServices Alarmo { get; }
+
 		AlexaMediaServices AlexaMedia { get; }
 
 		AutomationServices Automation { get; }
@@ -3804,8 +4319,6 @@ namespace HomeAssistantGenerated
 		CoverServices Cover { get; }
 
 		DeviceTrackerServices DeviceTracker { get; }
-
-		DwainsDashboardServices DwainsDashboard { get; }
 
 		EntityControllerServices EntityController { get; }
 
@@ -3849,11 +4362,7 @@ namespace HomeAssistantGenerated
 
 		MediaPlayerServices MediaPlayer { get; }
 
-		MotioneyeServices Motioneye { get; }
-
 		MqttServices Mqtt { get; }
-
-		NeatoServices Neato { get; }
 
 		NestServices Nest { get; }
 
@@ -3862,8 +4371,6 @@ namespace HomeAssistantGenerated
 		NotifyServices Notify { get; }
 
 		NumberServices Number { get; }
-
-		OnvifServices Onvif { get; }
 
 		PersistentNotificationServices PersistentNotification { get; }
 
@@ -3883,8 +4390,6 @@ namespace HomeAssistantGenerated
 
 		SirenServices Siren { get; }
 
-		SpeedtestdotnetServices Speedtestdotnet { get; }
-
 		SpotcastServices Spotcast { get; }
 
 		SqueezeboxServices Squeezebox { get; }
@@ -3894,6 +4399,8 @@ namespace HomeAssistantGenerated
 		SystemLogServices SystemLog { get; }
 
 		TemplateServices Template { get; }
+
+		TextServices Text { get; }
 
 		TimerServices Timer { get; }
 
@@ -3922,6 +4429,7 @@ namespace HomeAssistantGenerated
 
 		public AdguardServices Adguard => new(_haContext);
 		public AlarmControlPanelServices AlarmControlPanel => new(_haContext);
+		public AlarmoServices Alarmo => new(_haContext);
 		public AlexaMediaServices AlexaMedia => new(_haContext);
 		public AutomationServices Automation => new(_haContext);
 		public ButtonServices Button => new(_haContext);
@@ -3932,7 +4440,6 @@ namespace HomeAssistantGenerated
 		public CounterServices Counter => new(_haContext);
 		public CoverServices Cover => new(_haContext);
 		public DeviceTrackerServices DeviceTracker => new(_haContext);
-		public DwainsDashboardServices DwainsDashboard => new(_haContext);
 		public EntityControllerServices EntityController => new(_haContext);
 		public FanServices Fan => new(_haContext);
 		public FfmpegServices Ffmpeg => new(_haContext);
@@ -3954,14 +4461,11 @@ namespace HomeAssistantGenerated
 		public LogbookServices Logbook => new(_haContext);
 		public LoggerServices Logger => new(_haContext);
 		public MediaPlayerServices MediaPlayer => new(_haContext);
-		public MotioneyeServices Motioneye => new(_haContext);
 		public MqttServices Mqtt => new(_haContext);
-		public NeatoServices Neato => new(_haContext);
 		public NestServices Nest => new(_haContext);
 		public NetdaemonServices Netdaemon => new(_haContext);
 		public NotifyServices Notify => new(_haContext);
 		public NumberServices Number => new(_haContext);
-		public OnvifServices Onvif => new(_haContext);
 		public PersistentNotificationServices PersistentNotification => new(_haContext);
 		public PersonServices Person => new(_haContext);
 		public RecorderServices Recorder => new(_haContext);
@@ -3971,12 +4475,12 @@ namespace HomeAssistantGenerated
 		public SelectServices Select => new(_haContext);
 		public ShoppingListServices ShoppingList => new(_haContext);
 		public SirenServices Siren => new(_haContext);
-		public SpeedtestdotnetServices Speedtestdotnet => new(_haContext);
 		public SpotcastServices Spotcast => new(_haContext);
 		public SqueezeboxServices Squeezebox => new(_haContext);
 		public SwitchServices Switch => new(_haContext);
 		public SystemLogServices SystemLog => new(_haContext);
 		public TemplateServices Template => new(_haContext);
+		public TextServices Text => new(_haContext);
 		public TimerServices Timer => new(_haContext);
 		public TtsServices Tts => new(_haContext);
 		public UnifiServices Unifi => new(_haContext);
@@ -4262,6 +4766,120 @@ namespace HomeAssistantGenerated
 		///<summary>An optional code to trigger the alarm control panel with. eg: 1234</summary>
 		[JsonPropertyName("code")]
 		public string? Code { get; init; }
+	}
+
+	public class AlarmoServices
+	{
+		private readonly IHaContext _haContext;
+		public AlarmoServices(IHaContext haContext)
+		{
+			_haContext = haContext;
+		}
+
+		///<summary>Arm an Alarmo entity with custom settings.</summary>
+		public void Arm(AlarmoArmParameters data)
+		{
+			_haContext.CallService("alarmo", "arm", null, data);
+		}
+
+		///<summary>Arm an Alarmo entity with custom settings.</summary>
+		///<param name="entityId">Name of entity that should be armed. eg: alarm_control_panel.alarm</param>
+		///<param name="code">Code to arm the alarm with. eg: 1234</param>
+		///<param name="mode">Mode to arm the alarm in. eg: away</param>
+		///<param name="skipDelay">Skip the exit delay. eg: True</param>
+		///<param name="force">Automatically bypass all sensors that prevent the arming operation. eg: True</param>
+		public void Arm(string @entityId, string? @code = null, object? @mode = null, bool? @skipDelay = null, bool? @force = null)
+		{
+			_haContext.CallService("alarmo", "arm", null, new AlarmoArmParameters{EntityId = @entityId, Code = @code, Mode = @mode, SkipDelay = @skipDelay, Force = @force});
+		}
+
+		///<summary>Block a user from arming/disarming alarmo.</summary>
+		public void DisableUser(AlarmoDisableUserParameters data)
+		{
+			_haContext.CallService("alarmo", "disable_user", null, data);
+		}
+
+		///<summary>Block a user from arming/disarming alarmo.</summary>
+		///<param name="name">Name of the user to disable. eg: Frank</param>
+		public void DisableUser(string @name)
+		{
+			_haContext.CallService("alarmo", "disable_user", null, new AlarmoDisableUserParameters{Name = @name});
+		}
+
+		///<summary>Disarm an Alarmo entity.</summary>
+		public void Disarm(AlarmoDisarmParameters data)
+		{
+			_haContext.CallService("alarmo", "disarm", null, data);
+		}
+
+		///<summary>Disarm an Alarmo entity.</summary>
+		///<param name="entityId">Name of entity that should be disarmed. eg: alarm_control_panel.alarm</param>
+		///<param name="code">Code to disarm the alarm with. eg: 1234</param>
+		public void Disarm(string @entityId, string? @code = null)
+		{
+			_haContext.CallService("alarmo", "disarm", null, new AlarmoDisarmParameters{EntityId = @entityId, Code = @code});
+		}
+
+		///<summary>Allow a user to arm/disarm alarmo.</summary>
+		public void EnableUser(AlarmoEnableUserParameters data)
+		{
+			_haContext.CallService("alarmo", "enable_user", null, data);
+		}
+
+		///<summary>Allow a user to arm/disarm alarmo.</summary>
+		///<param name="name">Name of the user to enable. eg: Frank</param>
+		public void EnableUser(string @name)
+		{
+			_haContext.CallService("alarmo", "enable_user", null, new AlarmoEnableUserParameters{Name = @name});
+		}
+	}
+
+	public record AlarmoArmParameters
+	{
+		///<summary>Name of entity that should be armed. eg: alarm_control_panel.alarm</summary>
+		[JsonPropertyName("entity_id")]
+		public string? EntityId { get; init; }
+
+		///<summary>Code to arm the alarm with. eg: 1234</summary>
+		[JsonPropertyName("code")]
+		public string? Code { get; init; }
+
+		///<summary>Mode to arm the alarm in. eg: away</summary>
+		[JsonPropertyName("mode")]
+		public object? Mode { get; init; }
+
+		///<summary>Skip the exit delay. eg: True</summary>
+		[JsonPropertyName("skip_delay")]
+		public bool? SkipDelay { get; init; }
+
+		///<summary>Automatically bypass all sensors that prevent the arming operation. eg: True</summary>
+		[JsonPropertyName("force")]
+		public bool? Force { get; init; }
+	}
+
+	public record AlarmoDisableUserParameters
+	{
+		///<summary>Name of the user to disable. eg: Frank</summary>
+		[JsonPropertyName("name")]
+		public string? Name { get; init; }
+	}
+
+	public record AlarmoDisarmParameters
+	{
+		///<summary>Name of entity that should be disarmed. eg: alarm_control_panel.alarm</summary>
+		[JsonPropertyName("entity_id")]
+		public string? EntityId { get; init; }
+
+		///<summary>Code to disarm the alarm with. eg: 1234</summary>
+		[JsonPropertyName("code")]
+		public string? Code { get; init; }
+	}
+
+	public record AlarmoEnableUserParameters
+	{
+		///<summary>Name of the user to enable. eg: Frank</summary>
+		[JsonPropertyName("name")]
+		public string? Name { get; init; }
 	}
 
 	public class AlexaMediaServices
@@ -5027,92 +5645,25 @@ namespace HomeAssistantGenerated
 		public long? Battery { get; init; }
 	}
 
-	public class DwainsDashboardServices
-	{
-		private readonly IHaContext _haContext;
-		public DwainsDashboardServices(IHaContext haContext)
-		{
-			_haContext = haContext;
-		}
-
-		///<summary>Show a notification in the frontend.</summary>
-		public void NotificationCreate(DwainsDashboardNotificationCreateParameters data)
-		{
-			_haContext.CallService("dwains_dashboard", "notification_create", null, data);
-		}
-
-		///<summary>Show a notification in the frontend.</summary>
-		///<param name="message">Message body of the notification. [Templates accepted] eg: Dishwasher is done! :D</param>
-		///<param name="notificationId">Target ID of the notification, will replace a notification with the same Id. [Optional] eg: 1234</param>
-		public void NotificationCreate(object? @message = null, object? @notificationId = null)
-		{
-			_haContext.CallService("dwains_dashboard", "notification_create", null, new DwainsDashboardNotificationCreateParameters{Message = @message, NotificationId = @notificationId});
-		}
-
-		///<summary>Remove a notification from the frontend.</summary>
-		public void NotificationDismiss(DwainsDashboardNotificationDismissParameters data)
-		{
-			_haContext.CallService("dwains_dashboard", "notification_dismiss", null, data);
-		}
-
-		///<summary>Remove a notification from the frontend.</summary>
-		///<param name="notificationId">Target ID of the notification, which should be removed. [Required] eg: 1234</param>
-		public void NotificationDismiss(object? @notificationId = null)
-		{
-			_haContext.CallService("dwains_dashboard", "notification_dismiss", null, new DwainsDashboardNotificationDismissParameters{NotificationId = @notificationId});
-		}
-
-		///<summary>Mark a notification read.</summary>
-		public void NotificationMarkRead(DwainsDashboardNotificationMarkReadParameters data)
-		{
-			_haContext.CallService("dwains_dashboard", "notification_mark_read", null, data);
-		}
-
-		///<summary>Mark a notification read.</summary>
-		///<param name="notificationId">Target ID of the notification, which should be mark read. [Required] eg: 1234</param>
-		public void NotificationMarkRead(object? @notificationId = null)
-		{
-			_haContext.CallService("dwains_dashboard", "notification_mark_read", null, new DwainsDashboardNotificationMarkReadParameters{NotificationId = @notificationId});
-		}
-
-		///<summary>Reload dashboard configuration from Dwains dashboard</summary>
-		public void Reload()
-		{
-			_haContext.CallService("dwains_dashboard", "reload", null);
-		}
-	}
-
-	public record DwainsDashboardNotificationCreateParameters
-	{
-		///<summary>Message body of the notification. [Templates accepted] eg: Dishwasher is done! :D</summary>
-		[JsonPropertyName("message")]
-		public object? Message { get; init; }
-
-		///<summary>Target ID of the notification, will replace a notification with the same Id. [Optional] eg: 1234</summary>
-		[JsonPropertyName("notification_id")]
-		public object? NotificationId { get; init; }
-	}
-
-	public record DwainsDashboardNotificationDismissParameters
-	{
-		///<summary>Target ID of the notification, which should be removed. [Required] eg: 1234</summary>
-		[JsonPropertyName("notification_id")]
-		public object? NotificationId { get; init; }
-	}
-
-	public record DwainsDashboardNotificationMarkReadParameters
-	{
-		///<summary>Target ID of the notification, which should be mark read. [Required] eg: 1234</summary>
-		[JsonPropertyName("notification_id")]
-		public object? NotificationId { get; init; }
-	}
-
 	public class EntityControllerServices
 	{
 		private readonly IHaContext _haContext;
 		public EntityControllerServices(IHaContext haContext)
 		{
 			_haContext = haContext;
+		}
+
+		///<summary>Activates an Entity Controller. Turns on the entity and transitions to the active_timer state. This also clears the blocked state if set.</summary>
+		public void Activate(EntityControllerActivateParameters data)
+		{
+			_haContext.CallService("entity_controller", "activate", null, data);
+		}
+
+		///<summary>Activates an Entity Controller. Turns on the entity and transitions to the active_timer state. This also clears the blocked state if set.</summary>
+		///<param name="entityId">Name(s) of entities to trigger. eg: entity_controller.motion_light</param>
+		public void Activate(object? @entityId = null)
+		{
+			_haContext.CallService("entity_controller", "activate", null, new EntityControllerActivateParameters{EntityId = @entityId});
 		}
 
 		///<summary>Clears the blocked state of an Entity Controller, if set</summary>
@@ -5131,6 +5682,19 @@ namespace HomeAssistantGenerated
 		public void DisableStayMode()
 		{
 			_haContext.CallService("entity_controller", "disable_stay_mode", null);
+		}
+
+		///<summary>Enables the blocked state of an Entity Controller, if timer is active</summary>
+		public void EnableBlock(EntityControllerEnableBlockParameters data)
+		{
+			_haContext.CallService("entity_controller", "enable_block", null, data);
+		}
+
+		///<summary>Enables the blocked state of an Entity Controller, if timer is active</summary>
+		///<param name="entityId">Name(s) of entities to change. eg: entity_controller.motion_light</param>
+		public void EnableBlock(object? @entityId = null)
+		{
+			_haContext.CallService("entity_controller", "enable_block", null, new EntityControllerEnableBlockParameters{EntityId = @entityId});
 		}
 
 		public void EnableStayMode()
@@ -5154,7 +5718,21 @@ namespace HomeAssistantGenerated
 		}
 	}
 
+	public record EntityControllerActivateParameters
+	{
+		///<summary>Name(s) of entities to trigger. eg: entity_controller.motion_light</summary>
+		[JsonPropertyName("entity_id")]
+		public object? EntityId { get; init; }
+	}
+
 	public record EntityControllerClearBlockParameters
+	{
+		///<summary>Name(s) of entities to change. eg: entity_controller.motion_light</summary>
+		[JsonPropertyName("entity_id")]
+		public object? EntityId { get; init; }
+	}
+
+	public record EntityControllerEnableBlockParameters
 	{
 		///<summary>Name(s) of entities to change. eg: entity_controller.motion_light</summary>
 		[JsonPropertyName("entity_id")]
@@ -5644,10 +6222,25 @@ namespace HomeAssistantGenerated
 			_haContext.CallService("google", "add_event", null, new GoogleAddEventParameters{CalendarId = @calendarId, Summary = @summary, Description = @description, StartDateTime = @startDateTime, EndDateTime = @endDateTime, StartDate = @startDate, EndDate = @endDate, In = @in});
 		}
 
-		///<summary>Scan for new calendars.</summary>
-		public void ScanForCalendars()
+		///<summary>Add a new calendar event.</summary>
+		///<param name="target">The target for this service call</param>
+		public void CreateEvent(ServiceTarget target, GoogleCreateEventParameters data)
 		{
-			_haContext.CallService("google", "scan_for_calendars", null);
+			_haContext.CallService("google", "create_event", target, data);
+		}
+
+		///<summary>Add a new calendar event.</summary>
+		///<param name="target">The target for this service call</param>
+		///<param name="summary">Acts as the title of the event. eg: Bowling</param>
+		///<param name="description">The description of the event. Optional. eg: Birthday bowling</param>
+		///<param name="startDateTime">The date and time the event should start. eg: 2022-03-22 20:00:00</param>
+		///<param name="endDateTime">The date and time the event should end. eg: 2022-03-22 22:00:00</param>
+		///<param name="startDate">The date the whole day event should start. eg: 2022-03-10</param>
+		///<param name="endDate">The date the whole day event should end. eg: 2022-03-11</param>
+		///<param name="in">Days or weeks that you want to create the event in. eg: "days": 2 or "weeks": 2</param>
+		public void CreateEvent(ServiceTarget target, string @summary, string? @description = null, string? @startDateTime = null, string? @endDateTime = null, string? @startDate = null, string? @endDate = null, object? @in = null)
+		{
+			_haContext.CallService("google", "create_event", target, new GoogleCreateEventParameters{Summary = @summary, Description = @description, StartDateTime = @startDateTime, EndDateTime = @endDateTime, StartDate = @startDate, EndDate = @endDate, In = @in});
 		}
 	}
 
@@ -5678,6 +6271,37 @@ namespace HomeAssistantGenerated
 		public string? StartDate { get; init; }
 
 		///<summary>The date the whole day event should end. eg: 2019-03-11</summary>
+		[JsonPropertyName("end_date")]
+		public string? EndDate { get; init; }
+
+		///<summary>Days or weeks that you want to create the event in. eg: "days": 2 or "weeks": 2</summary>
+		[JsonPropertyName("in")]
+		public object? In { get; init; }
+	}
+
+	public record GoogleCreateEventParameters
+	{
+		///<summary>Acts as the title of the event. eg: Bowling</summary>
+		[JsonPropertyName("summary")]
+		public string? Summary { get; init; }
+
+		///<summary>The description of the event. Optional. eg: Birthday bowling</summary>
+		[JsonPropertyName("description")]
+		public string? Description { get; init; }
+
+		///<summary>The date and time the event should start. eg: 2022-03-22 20:00:00</summary>
+		[JsonPropertyName("start_date_time")]
+		public string? StartDateTime { get; init; }
+
+		///<summary>The date and time the event should end. eg: 2022-03-22 22:00:00</summary>
+		[JsonPropertyName("end_date_time")]
+		public string? EndDateTime { get; init; }
+
+		///<summary>The date the whole day event should start. eg: 2022-03-10</summary>
+		[JsonPropertyName("start_date")]
+		public string? StartDate { get; init; }
+
+		///<summary>The date the whole day event should end. eg: 2022-03-11</summary>
 		[JsonPropertyName("end_date")]
 		public string? EndDate { get; init; }
 
@@ -6656,15 +7280,14 @@ namespace HomeAssistantGenerated
 		///<param name="xyColor">Color for the light in XY-format. eg: [0.52, 0.43]</param>
 		///<param name="colorTemp">Color temperature for the light in mireds.</param>
 		///<param name="kelvin">Color temperature for the light in Kelvin.</param>
-		///<param name="whiteValue">Number indicating level of white.</param>
 		///<param name="brightness">Number indicating brightness, where 0 turns the light off, 1 is the minimum brightness and 255 is the maximum brightness supported by the light.</param>
 		///<param name="brightnessPct">Number indicating percentage of full brightness, where 0 turns the light off, 1 is the minimum brightness and 100 is the maximum brightness supported by the light.</param>
 		///<param name="profile">Name of a light profile to use. eg: relax</param>
 		///<param name="flash">If the light should flash.</param>
 		///<param name="effect">Light effect.</param>
-		public void Toggle(ServiceTarget target, long? @transition = null, object? @rgbColor = null, object? @colorName = null, object? @hsColor = null, object? @xyColor = null, object? @colorTemp = null, long? @kelvin = null, long? @whiteValue = null, long? @brightness = null, long? @brightnessPct = null, string? @profile = null, object? @flash = null, string? @effect = null)
+		public void Toggle(ServiceTarget target, long? @transition = null, object? @rgbColor = null, object? @colorName = null, object? @hsColor = null, object? @xyColor = null, object? @colorTemp = null, long? @kelvin = null, long? @brightness = null, long? @brightnessPct = null, string? @profile = null, object? @flash = null, string? @effect = null)
 		{
-			_haContext.CallService("light", "toggle", target, new LightToggleParameters{Transition = @transition, RgbColor = @rgbColor, ColorName = @colorName, HsColor = @hsColor, XyColor = @xyColor, ColorTemp = @colorTemp, Kelvin = @kelvin, WhiteValue = @whiteValue, Brightness = @brightness, BrightnessPct = @brightnessPct, Profile = @profile, Flash = @flash, Effect = @effect});
+			_haContext.CallService("light", "toggle", target, new LightToggleParameters{Transition = @transition, RgbColor = @rgbColor, ColorName = @colorName, HsColor = @hsColor, XyColor = @xyColor, ColorTemp = @colorTemp, Kelvin = @kelvin, Brightness = @brightness, BrightnessPct = @brightnessPct, Profile = @profile, Flash = @flash, Effect = @effect});
 		}
 
 		///<summary>Turns off one or more lights.</summary>
@@ -6744,10 +7367,6 @@ namespace HomeAssistantGenerated
 		///<summary>Color temperature for the light in Kelvin.</summary>
 		[JsonPropertyName("kelvin")]
 		public long? Kelvin { get; init; }
-
-		///<summary>Number indicating level of white.</summary>
-		[JsonPropertyName("white_value")]
-		public long? WhiteValue { get; init; }
 
 		///<summary>Number indicating brightness, where 0 turns the light off, 1 is the minimum brightness and 255 is the maximum brightness supported by the light.</summary>
 		[JsonPropertyName("brightness")]
@@ -7030,8 +7649,8 @@ namespace HomeAssistantGenerated
 
 		///<summary>Group players together. Only works on platforms with support for player groups.</summary>
 		///<param name="target">The target for this service call</param>
-		///<param name="groupMembers">The players which will be synced with the target player. eg: ["media_player.multiroom_player2","media_player.multiroom_player3"]</param>
-		public void Join(ServiceTarget target, object? @groupMembers = null)
+		///<param name="groupMembers">The players which will be synced with the target player. eg: - media_player.multiroom_player2 - media_player.multiroom_player3 </param>
+		public void Join(ServiceTarget target, string @groupMembers)
 		{
 			_haContext.CallService("media_player", "join", target, new MediaPlayerJoinParameters{GroupMembers = @groupMembers});
 		}
@@ -7246,9 +7865,9 @@ namespace HomeAssistantGenerated
 
 	public record MediaPlayerJoinParameters
 	{
-		///<summary>The players which will be synced with the target player. eg: ["media_player.multiroom_player2","media_player.multiroom_player3"]</summary>
+		///<summary>The players which will be synced with the target player. eg: - media_player.multiroom_player2 - media_player.multiroom_player3 </summary>
 		[JsonPropertyName("group_members")]
-		public object? GroupMembers { get; init; }
+		public string? GroupMembers { get; init; }
 	}
 
 	public record MediaPlayerMediaSeekParameters
@@ -7317,81 +7936,6 @@ namespace HomeAssistantGenerated
 		///<summary>Volume level to set as float.</summary>
 		[JsonPropertyName("volume_level")]
 		public double? VolumeLevel { get; init; }
-	}
-
-	public class MotioneyeServices
-	{
-		private readonly IHaContext _haContext;
-		public MotioneyeServices(IHaContext haContext)
-		{
-			_haContext = haContext;
-		}
-
-		///<summary>Trigger a motionEye action</summary>
-		///<param name="target">The target for this service call</param>
-		public void Action(ServiceTarget target, MotioneyeActionParameters data)
-		{
-			_haContext.CallService("motioneye", "action", target, data);
-		}
-
-		///<summary>Trigger a motionEye action</summary>
-		///<param name="target">The target for this service call</param>
-		///<param name="action">Action to trigger eg: snapshot</param>
-		public void Action(ServiceTarget target, object @action)
-		{
-			_haContext.CallService("motioneye", "action", target, new MotioneyeActionParameters{Action = @action});
-		}
-
-		///<summary>Sets the text overlay for a camera.</summary>
-		///<param name="target">The target for this service call</param>
-		public void SetTextOverlay(ServiceTarget target, MotioneyeSetTextOverlayParameters data)
-		{
-			_haContext.CallService("motioneye", "set_text_overlay", target, data);
-		}
-
-		///<summary>Sets the text overlay for a camera.</summary>
-		///<param name="target">The target for this service call</param>
-		///<param name="leftText">Text to display on the left eg: timestamp</param>
-		///<param name="customLeftText">Custom text to display on the left eg: Hello on the left!</param>
-		///<param name="rightText">Text to display on the right eg: timestamp</param>
-		///<param name="customRightText">Custom text to display on the right eg: Hello on the right!</param>
-		public void SetTextOverlay(ServiceTarget target, object? @leftText = null, string? @customLeftText = null, object? @rightText = null, string? @customRightText = null)
-		{
-			_haContext.CallService("motioneye", "set_text_overlay", target, new MotioneyeSetTextOverlayParameters{LeftText = @leftText, CustomLeftText = @customLeftText, RightText = @rightText, CustomRightText = @customRightText});
-		}
-
-		///<summary>Trigger a motionEye still snapshot</summary>
-		///<param name="target">The target for this service call</param>
-		public void Snapshot(ServiceTarget target)
-		{
-			_haContext.CallService("motioneye", "snapshot", target);
-		}
-	}
-
-	public record MotioneyeActionParameters
-	{
-		///<summary>Action to trigger eg: snapshot</summary>
-		[JsonPropertyName("action")]
-		public object? Action { get; init; }
-	}
-
-	public record MotioneyeSetTextOverlayParameters
-	{
-		///<summary>Text to display on the left eg: timestamp</summary>
-		[JsonPropertyName("left_text")]
-		public object? LeftText { get; init; }
-
-		///<summary>Custom text to display on the left eg: Hello on the left!</summary>
-		[JsonPropertyName("custom_left_text")]
-		public string? CustomLeftText { get; init; }
-
-		///<summary>Text to display on the right eg: timestamp</summary>
-		[JsonPropertyName("right_text")]
-		public object? RightText { get; init; }
-
-		///<summary>Custom text to display on the right eg: Hello on the right!</summary>
-		[JsonPropertyName("custom_right_text")]
-		public string? CustomRightText { get; init; }
 	}
 
 	public class MqttServices
@@ -7472,52 +8016,6 @@ namespace HomeAssistantGenerated
 		///<summary>If message should have the retain flag set.</summary>
 		[JsonPropertyName("retain")]
 		public bool? Retain { get; init; }
-	}
-
-	public class NeatoServices
-	{
-		private readonly IHaContext _haContext;
-		public NeatoServices(IHaContext haContext)
-		{
-			_haContext = haContext;
-		}
-
-		///<summary>Zone Cleaning service call specific to Neato Botvacs.</summary>
-		///<param name="target">The target for this service call</param>
-		public void CustomCleaning(ServiceTarget target, NeatoCustomCleaningParameters data)
-		{
-			_haContext.CallService("neato", "custom_cleaning", target, data);
-		}
-
-		///<summary>Zone Cleaning service call specific to Neato Botvacs.</summary>
-		///<param name="target">The target for this service call</param>
-		///<param name="mode">Set the cleaning mode: 1 for eco and 2 for turbo. Defaults to turbo if not set.</param>
-		///<param name="navigation">Set the navigation mode: 1 for normal, 2 for extra care, 3 for deep. Defaults to normal if not set.</param>
-		///<param name="category">Whether to use a persistent map or not for cleaning (i.e. No go lines): 2 for no map, 4 for map. Default to using map if not set (and fallback to no map if no map is found).</param>
-		///<param name="zone">Only supported on the Botvac D7. Name of the zone to clean. Defaults to no zone i.e. complete house cleanup. eg: Kitchen</param>
-		public void CustomCleaning(ServiceTarget target, long? @mode = null, long? @navigation = null, long? @category = null, string? @zone = null)
-		{
-			_haContext.CallService("neato", "custom_cleaning", target, new NeatoCustomCleaningParameters{Mode = @mode, Navigation = @navigation, Category = @category, Zone = @zone});
-		}
-	}
-
-	public record NeatoCustomCleaningParameters
-	{
-		///<summary>Set the cleaning mode: 1 for eco and 2 for turbo. Defaults to turbo if not set.</summary>
-		[JsonPropertyName("mode")]
-		public long? Mode { get; init; }
-
-		///<summary>Set the navigation mode: 1 for normal, 2 for extra care, 3 for deep. Defaults to normal if not set.</summary>
-		[JsonPropertyName("navigation")]
-		public long? Navigation { get; init; }
-
-		///<summary>Whether to use a persistent map or not for cleaning (i.e. No go lines): 2 for no map, 4 for map. Default to using map if not set (and fallback to no map if no map is found).</summary>
-		[JsonPropertyName("category")]
-		public long? Category { get; init; }
-
-		///<summary>Only supported on the Botvac D7. Name of the zone to clean. Defaults to no zone i.e. complete house cleanup. eg: Kitchen</summary>
-		[JsonPropertyName("zone")]
-		public string? Zone { get; init; }
 	}
 
 	public class NestServices
@@ -7840,20 +8338,20 @@ namespace HomeAssistantGenerated
 			_haContext.CallService("notify", "alexa_media_andrew_s_fire_tv", null, new NotifyAlexaMediaAndrewSFireTvParameters{Message = @message, Title = @title, Target = @target, Data = @data});
 		}
 
-		///<summary>Sends a notification message using the alexa_media_andrew_s_samsung_tv_2020_u integration.</summary>
-		public void AlexaMediaAndrewSSamsungTv2020U(NotifyAlexaMediaAndrewSSamsungTv2020UParameters data)
+		///<summary>Sends a notification message using the alexa_media_basement integration.</summary>
+		public void AlexaMediaBasement(NotifyAlexaMediaBasementParameters data)
 		{
-			_haContext.CallService("notify", "alexa_media_andrew_s_samsung_tv_2020_u", null, data);
+			_haContext.CallService("notify", "alexa_media_basement", null, data);
 		}
 
-		///<summary>Sends a notification message using the alexa_media_andrew_s_samsung_tv_2020_u integration.</summary>
+		///<summary>Sends a notification message using the alexa_media_basement integration.</summary>
 		///<param name="message">Message body of the notification. eg: The garage door has been open for 10 minutes.</param>
 		///<param name="title">Title for your notification. eg: Your Garage Door Friend</param>
 		///<param name="target">An array of targets to send the notification to. Optional depending on the platform. eg: platform specific</param>
 		///<param name="data">Extended information for notification. Optional depending on the platform. eg: platform specific</param>
-		public void AlexaMediaAndrewSSamsungTv2020U(string @message, string? @title = null, object? @target = null, object? @data = null)
+		public void AlexaMediaBasement(string @message, string? @title = null, object? @target = null, object? @data = null)
 		{
-			_haContext.CallService("notify", "alexa_media_andrew_s_samsung_tv_2020_u", null, new NotifyAlexaMediaAndrewSSamsungTv2020UParameters{Message = @message, Title = @title, Target = @target, Data = @data});
+			_haContext.CallService("notify", "alexa_media_basement", null, new NotifyAlexaMediaBasementParameters{Message = @message, Title = @title, Target = @target, Data = @data});
 		}
 
 		///<summary>Sends a notification message using the alexa_media_bedroom_echo_show integration.</summary>
@@ -8048,36 +8546,84 @@ namespace HomeAssistantGenerated
 			_haContext.CallService("notify", "alexa_media_lounge_fire_tv", null, new NotifyAlexaMediaLoungeFireTvParameters{Message = @message, Title = @title, Target = @target, Data = @data});
 		}
 
-		///<summary>Sends a notification message using the alexa_media_snug integration.</summary>
-		public void AlexaMediaSnug(NotifyAlexaMediaSnugParameters data)
+		///<summary>Sends a notification message using the alexa_media_lounge_tv integration.</summary>
+		public void AlexaMediaLoungeTv(NotifyAlexaMediaLoungeTvParameters data)
 		{
-			_haContext.CallService("notify", "alexa_media_snug", null, data);
+			_haContext.CallService("notify", "alexa_media_lounge_tv", null, data);
 		}
 
-		///<summary>Sends a notification message using the alexa_media_snug integration.</summary>
+		///<summary>Sends a notification message using the alexa_media_lounge_tv integration.</summary>
 		///<param name="message">Message body of the notification. eg: The garage door has been open for 10 minutes.</param>
 		///<param name="title">Title for your notification. eg: Your Garage Door Friend</param>
 		///<param name="target">An array of targets to send the notification to. Optional depending on the platform. eg: platform specific</param>
 		///<param name="data">Extended information for notification. Optional depending on the platform. eg: platform specific</param>
-		public void AlexaMediaSnug(string @message, string? @title = null, object? @target = null, object? @data = null)
+		public void AlexaMediaLoungeTv(string @message, string? @title = null, object? @target = null, object? @data = null)
 		{
-			_haContext.CallService("notify", "alexa_media_snug", null, new NotifyAlexaMediaSnugParameters{Message = @message, Title = @title, Target = @target, Data = @data});
+			_haContext.CallService("notify", "alexa_media_lounge_tv", null, new NotifyAlexaMediaLoungeTvParameters{Message = @message, Title = @title, Target = @target, Data = @data});
 		}
 
-		///<summary>Sends a notification message using the alexa_media_snug_echo_input integration.</summary>
-		public void AlexaMediaSnugEchoInput(NotifyAlexaMediaSnugEchoInputParameters data)
+		///<summary>Sends a notification message using the alexa_media_offices integration.</summary>
+		public void AlexaMediaOffices(NotifyAlexaMediaOfficesParameters data)
 		{
-			_haContext.CallService("notify", "alexa_media_snug_echo_input", null, data);
+			_haContext.CallService("notify", "alexa_media_offices", null, data);
 		}
 
-		///<summary>Sends a notification message using the alexa_media_snug_echo_input integration.</summary>
+		///<summary>Sends a notification message using the alexa_media_offices integration.</summary>
 		///<param name="message">Message body of the notification. eg: The garage door has been open for 10 minutes.</param>
 		///<param name="title">Title for your notification. eg: Your Garage Door Friend</param>
 		///<param name="target">An array of targets to send the notification to. Optional depending on the platform. eg: platform specific</param>
 		///<param name="data">Extended information for notification. Optional depending on the platform. eg: platform specific</param>
-		public void AlexaMediaSnugEchoInput(string @message, string? @title = null, object? @target = null, object? @data = null)
+		public void AlexaMediaOffices(string @message, string? @title = null, object? @target = null, object? @data = null)
 		{
-			_haContext.CallService("notify", "alexa_media_snug_echo_input", null, new NotifyAlexaMediaSnugEchoInputParameters{Message = @message, Title = @title, Target = @target, Data = @data});
+			_haContext.CallService("notify", "alexa_media_offices", null, new NotifyAlexaMediaOfficesParameters{Message = @message, Title = @title, Target = @target, Data = @data});
+		}
+
+		///<summary>Sends a notification message using the alexa_media_shed_echo_input integration.</summary>
+		public void AlexaMediaShedEchoInput(NotifyAlexaMediaShedEchoInputParameters data)
+		{
+			_haContext.CallService("notify", "alexa_media_shed_echo_input", null, data);
+		}
+
+		///<summary>Sends a notification message using the alexa_media_shed_echo_input integration.</summary>
+		///<param name="message">Message body of the notification. eg: The garage door has been open for 10 minutes.</param>
+		///<param name="title">Title for your notification. eg: Your Garage Door Friend</param>
+		///<param name="target">An array of targets to send the notification to. Optional depending on the platform. eg: platform specific</param>
+		///<param name="data">Extended information for notification. Optional depending on the platform. eg: platform specific</param>
+		public void AlexaMediaShedEchoInput(string @message, string? @title = null, object? @target = null, object? @data = null)
+		{
+			_haContext.CallService("notify", "alexa_media_shed_echo_input", null, new NotifyAlexaMediaShedEchoInputParameters{Message = @message, Title = @title, Target = @target, Data = @data});
+		}
+
+		///<summary>Sends a notification message using the alexa_media_snug_echo_show integration.</summary>
+		public void AlexaMediaSnugEchoShow(NotifyAlexaMediaSnugEchoShowParameters data)
+		{
+			_haContext.CallService("notify", "alexa_media_snug_echo_show", null, data);
+		}
+
+		///<summary>Sends a notification message using the alexa_media_snug_echo_show integration.</summary>
+		///<param name="message">Message body of the notification. eg: The garage door has been open for 10 minutes.</param>
+		///<param name="title">Title for your notification. eg: Your Garage Door Friend</param>
+		///<param name="target">An array of targets to send the notification to. Optional depending on the platform. eg: platform specific</param>
+		///<param name="data">Extended information for notification. Optional depending on the platform. eg: platform specific</param>
+		public void AlexaMediaSnugEchoShow(string @message, string? @title = null, object? @target = null, object? @data = null)
+		{
+			_haContext.CallService("notify", "alexa_media_snug_echo_show", null, new NotifyAlexaMediaSnugEchoShowParameters{Message = @message, Title = @title, Target = @target, Data = @data});
+		}
+
+		///<summary>Sends a notification message using the alexa_media_this_device integration.</summary>
+		public void AlexaMediaThisDevice(NotifyAlexaMediaThisDeviceParameters data)
+		{
+			_haContext.CallService("notify", "alexa_media_this_device", null, data);
+		}
+
+		///<summary>Sends a notification message using the alexa_media_this_device integration.</summary>
+		///<param name="message">Message body of the notification. eg: The garage door has been open for 10 minutes.</param>
+		///<param name="title">Title for your notification. eg: Your Garage Door Friend</param>
+		///<param name="target">An array of targets to send the notification to. Optional depending on the platform. eg: platform specific</param>
+		///<param name="data">Extended information for notification. Optional depending on the platform. eg: platform specific</param>
+		public void AlexaMediaThisDevice(string @message, string? @title = null, object? @target = null, object? @data = null)
+		{
+			_haContext.CallService("notify", "alexa_media_this_device", null, new NotifyAlexaMediaThisDeviceParameters{Message = @message, Title = @title, Target = @target, Data = @data});
 		}
 
 		///<summary>Sends a notification message using the alexa_media_upstairs integration.</summary>
@@ -8112,22 +8658,6 @@ namespace HomeAssistantGenerated
 			_haContext.CallService("notify", "alexa_media_utility_room_echo_dot", null, new NotifyAlexaMediaUtilityRoomEchoDotParameters{Message = @message, Title = @title, Target = @target, Data = @data});
 		}
 
-		///<summary>Sends a notification message using the mobile_app_andy_s_iphone integration.</summary>
-		public void MobileAppAndySIphone(NotifyMobileAppAndySIphoneParameters data)
-		{
-			_haContext.CallService("notify", "mobile_app_andy_s_iphone", null, data);
-		}
-
-		///<summary>Sends a notification message using the mobile_app_andy_s_iphone integration.</summary>
-		///<param name="message">Message body of the notification. eg: The garage door has been open for 10 minutes.</param>
-		///<param name="title">Title for your notification. eg: Your Garage Door Friend</param>
-		///<param name="target">An array of targets to send the notification to. Optional depending on the platform. eg: platform specific</param>
-		///<param name="data">Extended information for notification. Optional depending on the platform. eg: platform specific</param>
-		public void MobileAppAndySIphone(string @message, string? @title = null, object? @target = null, object? @data = null)
-		{
-			_haContext.CallService("notify", "mobile_app_andy_s_iphone", null, new NotifyMobileAppAndySIphoneParameters{Message = @message, Title = @title, Target = @target, Data = @data});
-		}
-
 		///<summary>Sends a notification message using the mobile_app_claires_iphone integration.</summary>
 		public void MobileAppClairesIphone(NotifyMobileAppClairesIphoneParameters data)
 		{
@@ -8142,6 +8672,22 @@ namespace HomeAssistantGenerated
 		public void MobileAppClairesIphone(string @message, string? @title = null, object? @target = null, object? @data = null)
 		{
 			_haContext.CallService("notify", "mobile_app_claires_iphone", null, new NotifyMobileAppClairesIphoneParameters{Message = @message, Title = @title, Target = @target, Data = @data});
+		}
+
+		///<summary>Sends a notification message using the mobile_app_pixel_6 integration.</summary>
+		public void MobileAppPixel6(NotifyMobileAppPixel6Parameters data)
+		{
+			_haContext.CallService("notify", "mobile_app_pixel_6", null, data);
+		}
+
+		///<summary>Sends a notification message using the mobile_app_pixel_6 integration.</summary>
+		///<param name="message">Message body of the notification. eg: The garage door has been open for 10 minutes.</param>
+		///<param name="title">Title for your notification. eg: Your Garage Door Friend</param>
+		///<param name="target">An array of targets to send the notification to. Optional depending on the platform. eg: platform specific</param>
+		///<param name="data">Extended information for notification. Optional depending on the platform. eg: platform specific</param>
+		public void MobileAppPixel6(string @message, string? @title = null, object? @target = null, object? @data = null)
+		{
+			_haContext.CallService("notify", "mobile_app_pixel_6", null, new NotifyMobileAppPixel6Parameters{Message = @message, Title = @title, Target = @target, Data = @data});
 		}
 
 		///<summary>Sends a notification message using the notify service.</summary>
@@ -8267,7 +8813,7 @@ namespace HomeAssistantGenerated
 		public object? Data { get; init; }
 	}
 
-	public record NotifyAlexaMediaAndrewSSamsungTv2020UParameters
+	public record NotifyAlexaMediaBasementParameters
 	{
 		///<summary>Message body of the notification. eg: The garage door has been open for 10 minutes.</summary>
 		[JsonPropertyName("message")]
@@ -8514,7 +9060,7 @@ namespace HomeAssistantGenerated
 		public object? Data { get; init; }
 	}
 
-	public record NotifyAlexaMediaSnugParameters
+	public record NotifyAlexaMediaLoungeTvParameters
 	{
 		///<summary>Message body of the notification. eg: The garage door has been open for 10 minutes.</summary>
 		[JsonPropertyName("message")]
@@ -8533,7 +9079,64 @@ namespace HomeAssistantGenerated
 		public object? Data { get; init; }
 	}
 
-	public record NotifyAlexaMediaSnugEchoInputParameters
+	public record NotifyAlexaMediaOfficesParameters
+	{
+		///<summary>Message body of the notification. eg: The garage door has been open for 10 minutes.</summary>
+		[JsonPropertyName("message")]
+		public string? Message { get; init; }
+
+		///<summary>Title for your notification. eg: Your Garage Door Friend</summary>
+		[JsonPropertyName("title")]
+		public string? Title { get; init; }
+
+		///<summary>An array of targets to send the notification to. Optional depending on the platform. eg: platform specific</summary>
+		[JsonPropertyName("target")]
+		public object? Target { get; init; }
+
+		///<summary>Extended information for notification. Optional depending on the platform. eg: platform specific</summary>
+		[JsonPropertyName("data")]
+		public object? Data { get; init; }
+	}
+
+	public record NotifyAlexaMediaShedEchoInputParameters
+	{
+		///<summary>Message body of the notification. eg: The garage door has been open for 10 minutes.</summary>
+		[JsonPropertyName("message")]
+		public string? Message { get; init; }
+
+		///<summary>Title for your notification. eg: Your Garage Door Friend</summary>
+		[JsonPropertyName("title")]
+		public string? Title { get; init; }
+
+		///<summary>An array of targets to send the notification to. Optional depending on the platform. eg: platform specific</summary>
+		[JsonPropertyName("target")]
+		public object? Target { get; init; }
+
+		///<summary>Extended information for notification. Optional depending on the platform. eg: platform specific</summary>
+		[JsonPropertyName("data")]
+		public object? Data { get; init; }
+	}
+
+	public record NotifyAlexaMediaSnugEchoShowParameters
+	{
+		///<summary>Message body of the notification. eg: The garage door has been open for 10 minutes.</summary>
+		[JsonPropertyName("message")]
+		public string? Message { get; init; }
+
+		///<summary>Title for your notification. eg: Your Garage Door Friend</summary>
+		[JsonPropertyName("title")]
+		public string? Title { get; init; }
+
+		///<summary>An array of targets to send the notification to. Optional depending on the platform. eg: platform specific</summary>
+		[JsonPropertyName("target")]
+		public object? Target { get; init; }
+
+		///<summary>Extended information for notification. Optional depending on the platform. eg: platform specific</summary>
+		[JsonPropertyName("data")]
+		public object? Data { get; init; }
+	}
+
+	public record NotifyAlexaMediaThisDeviceParameters
 	{
 		///<summary>Message body of the notification. eg: The garage door has been open for 10 minutes.</summary>
 		[JsonPropertyName("message")]
@@ -8590,7 +9193,7 @@ namespace HomeAssistantGenerated
 		public object? Data { get; init; }
 	}
 
-	public record NotifyMobileAppAndySIphoneParameters
+	public record NotifyMobileAppClairesIphoneParameters
 	{
 		///<summary>Message body of the notification. eg: The garage door has been open for 10 minutes.</summary>
 		[JsonPropertyName("message")]
@@ -8609,7 +9212,7 @@ namespace HomeAssistantGenerated
 		public object? Data { get; init; }
 	}
 
-	public record NotifyMobileAppClairesIphoneParameters
+	public record NotifyMobileAppPixel6Parameters
 	{
 		///<summary>Message body of the notification. eg: The garage door has been open for 10 minutes.</summary>
 		[JsonPropertyName("message")]
@@ -8706,72 +9309,6 @@ namespace HomeAssistantGenerated
 		///<summary>The target value the entity should be set to. eg: 42</summary>
 		[JsonPropertyName("value")]
 		public string? Value { get; init; }
-	}
-
-	public class OnvifServices
-	{
-		private readonly IHaContext _haContext;
-		public OnvifServices(IHaContext haContext)
-		{
-			_haContext = haContext;
-		}
-
-		///<summary>If your ONVIF camera supports PTZ, you will be able to pan, tilt or zoom your camera.</summary>
-		///<param name="target">The target for this service call</param>
-		public void Ptz(ServiceTarget target, OnvifPtzParameters data)
-		{
-			_haContext.CallService("onvif", "ptz", target, data);
-		}
-
-		///<summary>If your ONVIF camera supports PTZ, you will be able to pan, tilt or zoom your camera.</summary>
-		///<param name="target">The target for this service call</param>
-		///<param name="tilt">Tilt direction.</param>
-		///<param name="pan">Pan direction.</param>
-		///<param name="zoom">Zoom.</param>
-		///<param name="distance">Distance coefficient. Sets how much PTZ should be executed in one request.</param>
-		///<param name="speed">Speed coefficient. Sets how fast PTZ will be executed.</param>
-		///<param name="continuousDuration">Set ContinuousMove delay in seconds before stopping the move</param>
-		///<param name="preset">PTZ preset profile token. Sets the preset profile token which is executed with GotoPreset eg: 1</param>
-		///<param name="moveMode">PTZ moving mode.</param>
-		public void Ptz(ServiceTarget target, object? @tilt = null, object? @pan = null, object? @zoom = null, double? @distance = null, double? @speed = null, double? @continuousDuration = null, string? @preset = null, object? @moveMode = null)
-		{
-			_haContext.CallService("onvif", "ptz", target, new OnvifPtzParameters{Tilt = @tilt, Pan = @pan, Zoom = @zoom, Distance = @distance, Speed = @speed, ContinuousDuration = @continuousDuration, Preset = @preset, MoveMode = @moveMode});
-		}
-	}
-
-	public record OnvifPtzParameters
-	{
-		///<summary>Tilt direction.</summary>
-		[JsonPropertyName("tilt")]
-		public object? Tilt { get; init; }
-
-		///<summary>Pan direction.</summary>
-		[JsonPropertyName("pan")]
-		public object? Pan { get; init; }
-
-		///<summary>Zoom.</summary>
-		[JsonPropertyName("zoom")]
-		public object? Zoom { get; init; }
-
-		///<summary>Distance coefficient. Sets how much PTZ should be executed in one request.</summary>
-		[JsonPropertyName("distance")]
-		public double? Distance { get; init; }
-
-		///<summary>Speed coefficient. Sets how fast PTZ will be executed.</summary>
-		[JsonPropertyName("speed")]
-		public double? Speed { get; init; }
-
-		///<summary>Set ContinuousMove delay in seconds before stopping the move</summary>
-		[JsonPropertyName("continuous_duration")]
-		public double? ContinuousDuration { get; init; }
-
-		///<summary>PTZ preset profile token. Sets the preset profile token which is executed with GotoPreset eg: 1</summary>
-		[JsonPropertyName("preset")]
-		public string? Preset { get; init; }
-
-		///<summary>PTZ moving mode.</summary>
-		[JsonPropertyName("move_mode")]
-		public object? MoveMode { get; init; }
 	}
 
 	public class PersistentNotificationServices
@@ -9202,6 +9739,11 @@ namespace HomeAssistantGenerated
 			_haContext = haContext;
 		}
 
+		public void AlarmTriggered()
+		{
+			_haContext.CallService("script", "alarm_triggered", null);
+		}
+
 		public void DoorbellAlexa()
 		{
 			_haContext.CallService("script", "doorbell_alexa", null);
@@ -9225,6 +9767,21 @@ namespace HomeAssistantGenerated
 		public void LightEffectTimed()
 		{
 			_haContext.CallService("script", "light_effect_timed", null);
+		}
+
+		///<summary>Activates an actionable notification on a specific echo device</summary>
+		public void NewScript(ScriptNewScriptParameters data)
+		{
+			_haContext.CallService("script", "new_script", null, data);
+		}
+
+		///<summary>Activates an actionable notification on a specific echo device</summary>
+		///<param name="text">The text you would like alexa to speak. eg: What would you like the thermostat set to?</param>
+		///<param name="eventId">Correlation ID for event responses eg: ask_for_temperature</param>
+		///<param name="alexaDevice">Alexa device you want to trigger eg: media_player.bedroom_echo</param>
+		public void NewScript(object? @text = null, object? @eventId = null, object? @alexaDevice = null)
+		{
+			_haContext.CallService("script", "new_script", null, new ScriptNewScriptParameters{Text = @text, EventId = @eventId, AlexaDevice = @alexaDevice});
 		}
 
 		public void NotifyAlexaEverywhere()
@@ -9273,6 +9830,21 @@ namespace HomeAssistantGenerated
 		{
 			_haContext.CallService("script", "turn_on", target);
 		}
+	}
+
+	public record ScriptNewScriptParameters
+	{
+		///<summary>The text you would like alexa to speak. eg: What would you like the thermostat set to?</summary>
+		[JsonPropertyName("text")]
+		public object? Text { get; init; }
+
+		///<summary>Correlation ID for event responses eg: ask_for_temperature</summary>
+		[JsonPropertyName("event_id")]
+		public object? EventId { get; init; }
+
+		///<summary>Alexa device you want to trigger eg: media_player.bedroom_echo</summary>
+		[JsonPropertyName("alexa_device")]
+		public object? AlexaDevice { get; init; }
 	}
 
 	public class SelectServices
@@ -9333,42 +9905,55 @@ namespace HomeAssistantGenerated
 			_haContext.CallService("shopping_list", "clear_completed_items", null);
 		}
 
-		///<summary>Marks all items as completed in the shopping list. It does not remove the items.</summary>
+		///<summary>Mark all items as completed in the shopping list (without removing them from the list).</summary>
 		public void CompleteAll()
 		{
 			_haContext.CallService("shopping_list", "complete_all", null);
 		}
 
-		///<summary>Mark an item as completed in the shopping list.</summary>
+		///<summary>Mark the first item with matching name as completed in the shopping list.</summary>
 		public void CompleteItem(ShoppingListCompleteItemParameters data)
 		{
 			_haContext.CallService("shopping_list", "complete_item", null, data);
 		}
 
-		///<summary>Mark an item as completed in the shopping list.</summary>
+		///<summary>Mark the first item with matching name as completed in the shopping list.</summary>
 		///<param name="name">The name of the item to mark as completed (without removing). eg: Beer</param>
 		public void CompleteItem(string @name)
 		{
 			_haContext.CallService("shopping_list", "complete_item", null, new ShoppingListCompleteItemParameters{Name = @name});
 		}
 
-		///<summary>Marks all items as incomplete in the shopping list.</summary>
+		///<summary>Mark all items as incomplete in the shopping list.</summary>
 		public void IncompleteAll()
 		{
 			_haContext.CallService("shopping_list", "incomplete_all", null);
 		}
 
-		///<summary>Marks an item as incomplete in the shopping list.</summary>
+		///<summary>Mark the first item with matching name as incomplete in the shopping list.</summary>
 		public void IncompleteItem(ShoppingListIncompleteItemParameters data)
 		{
 			_haContext.CallService("shopping_list", "incomplete_item", null, data);
 		}
 
-		///<summary>Marks an item as incomplete in the shopping list.</summary>
+		///<summary>Mark the first item with matching name as incomplete in the shopping list.</summary>
 		///<param name="name">The name of the item to mark as incomplete. eg: Beer</param>
 		public void IncompleteItem(string @name)
 		{
 			_haContext.CallService("shopping_list", "incomplete_item", null, new ShoppingListIncompleteItemParameters{Name = @name});
+		}
+
+		///<summary>Remove the first item with matching name from the shopping list.</summary>
+		public void RemoveItem(ShoppingListRemoveItemParameters data)
+		{
+			_haContext.CallService("shopping_list", "remove_item", null, data);
+		}
+
+		///<summary>Remove the first item with matching name from the shopping list.</summary>
+		///<param name="name">The name of the item to remove. eg: Beer</param>
+		public void RemoveItem(string @name)
+		{
+			_haContext.CallService("shopping_list", "remove_item", null, new ShoppingListRemoveItemParameters{Name = @name});
 		}
 	}
 
@@ -9389,6 +9974,13 @@ namespace HomeAssistantGenerated
 	public record ShoppingListIncompleteItemParameters
 	{
 		///<summary>The name of the item to mark as incomplete. eg: Beer</summary>
+		[JsonPropertyName("name")]
+		public string? Name { get; init; }
+	}
+
+	public record ShoppingListRemoveItemParameters
+	{
+		///<summary>The name of the item to remove. eg: Beer</summary>
 		[JsonPropertyName("name")]
 		public string? Name { get; init; }
 	}
@@ -9446,21 +10038,6 @@ namespace HomeAssistantGenerated
 		///<summary>The duration in seconds of the noise to emit when turning the siren on. Must be supported by the integration. eg: 15</summary>
 		[JsonPropertyName("duration")]
 		public string? Duration { get; init; }
-	}
-
-	public class SpeedtestdotnetServices
-	{
-		private readonly IHaContext _haContext;
-		public SpeedtestdotnetServices(IHaContext haContext)
-		{
-			_haContext = haContext;
-		}
-
-		///<summary>Immediately execute a speed test with Speedtest.net</summary>
-		public void Speedtest()
-		{
-			_haContext.CallService("speedtestdotnet", "speedtest", null);
-		}
 	}
 
 	public class SpotcastServices
@@ -9747,6 +10324,37 @@ namespace HomeAssistantGenerated
 		{
 			_haContext.CallService("template", "reload", null);
 		}
+	}
+
+	public class TextServices
+	{
+		private readonly IHaContext _haContext;
+		public TextServices(IHaContext haContext)
+		{
+			_haContext = haContext;
+		}
+
+		///<summary>Set value of a text entity.</summary>
+		///<param name="target">The target for this service call</param>
+		public void SetValue(ServiceTarget target, TextSetValueParameters data)
+		{
+			_haContext.CallService("text", "set_value", target, data);
+		}
+
+		///<summary>Set value of a text entity.</summary>
+		///<param name="target">The target for this service call</param>
+		///<param name="value">Value to set. eg: Hello world!</param>
+		public void SetValue(ServiceTarget target, string @value)
+		{
+			_haContext.CallService("text", "set_value", target, new TextSetValueParameters{Value = @value});
+		}
+	}
+
+	public record TextSetValueParameters
+	{
+		///<summary>Value to set. eg: Hello world!</summary>
+		[JsonPropertyName("value")]
+		public string? Value { get; init; }
 	}
 
 	public class TimerServices
@@ -11345,6 +11953,49 @@ namespace HomeAssistantGenerated
 		}
 	}
 
+	public static class GoogleEntityExtensionMethods
+	{
+		///<summary>Add a new calendar event.</summary>
+		public static void CreateEvent(this CalendarEntity target, GoogleCreateEventParameters data)
+		{
+			target.CallService("create_event", data);
+		}
+
+		///<summary>Add a new calendar event.</summary>
+		public static void CreateEvent(this IEnumerable<CalendarEntity> target, GoogleCreateEventParameters data)
+		{
+			target.CallService("create_event", data);
+		}
+
+		///<summary>Add a new calendar event.</summary>
+		///<param name="target">The CalendarEntity to call this service for</param>
+		///<param name="summary">Acts as the title of the event. eg: Bowling</param>
+		///<param name="description">The description of the event. Optional. eg: Birthday bowling</param>
+		///<param name="startDateTime">The date and time the event should start. eg: 2022-03-22 20:00:00</param>
+		///<param name="endDateTime">The date and time the event should end. eg: 2022-03-22 22:00:00</param>
+		///<param name="startDate">The date the whole day event should start. eg: 2022-03-10</param>
+		///<param name="endDate">The date the whole day event should end. eg: 2022-03-11</param>
+		///<param name="in">Days or weeks that you want to create the event in. eg: "days": 2 or "weeks": 2</param>
+		public static void CreateEvent(this CalendarEntity target, string @summary, string? @description = null, string? @startDateTime = null, string? @endDateTime = null, string? @startDate = null, string? @endDate = null, object? @in = null)
+		{
+			target.CallService("create_event", new GoogleCreateEventParameters{Summary = @summary, Description = @description, StartDateTime = @startDateTime, EndDateTime = @endDateTime, StartDate = @startDate, EndDate = @endDate, In = @in});
+		}
+
+		///<summary>Add a new calendar event.</summary>
+		///<param name="target">The IEnumerable<CalendarEntity> to call this service for</param>
+		///<param name="summary">Acts as the title of the event. eg: Bowling</param>
+		///<param name="description">The description of the event. Optional. eg: Birthday bowling</param>
+		///<param name="startDateTime">The date and time the event should start. eg: 2022-03-22 20:00:00</param>
+		///<param name="endDateTime">The date and time the event should end. eg: 2022-03-22 22:00:00</param>
+		///<param name="startDate">The date the whole day event should start. eg: 2022-03-10</param>
+		///<param name="endDate">The date the whole day event should end. eg: 2022-03-11</param>
+		///<param name="in">Days or weeks that you want to create the event in. eg: "days": 2 or "weeks": 2</param>
+		public static void CreateEvent(this IEnumerable<CalendarEntity> target, string @summary, string? @description = null, string? @startDateTime = null, string? @endDateTime = null, string? @startDate = null, string? @endDate = null, object? @in = null)
+		{
+			target.CallService("create_event", new GoogleCreateEventParameters{Summary = @summary, Description = @description, StartDateTime = @startDateTime, EndDateTime = @endDateTime, StartDate = @startDate, EndDate = @endDate, In = @in});
+		}
+	}
+
 	public static class InputBooleanEntityExtensionMethods
 	{
 		///<summary>Toggle an input boolean</summary>
@@ -11381,6 +12032,98 @@ namespace HomeAssistantGenerated
 		public static void TurnOn(this IEnumerable<InputBooleanEntity> target)
 		{
 			target.CallService("turn_on");
+		}
+	}
+
+	public static class InputDatetimeEntityExtensionMethods
+	{
+		///<summary>This can be used to dynamically set the date and/or time.</summary>
+		public static void SetDatetime(this InputDatetimeEntity target, InputDatetimeSetDatetimeParameters data)
+		{
+			target.CallService("set_datetime", data);
+		}
+
+		///<summary>This can be used to dynamically set the date and/or time.</summary>
+		public static void SetDatetime(this IEnumerable<InputDatetimeEntity> target, InputDatetimeSetDatetimeParameters data)
+		{
+			target.CallService("set_datetime", data);
+		}
+
+		///<summary>This can be used to dynamically set the date and/or time.</summary>
+		///<param name="target">The InputDatetimeEntity to call this service for</param>
+		///<param name="date">The target date the entity should be set to. eg: "2019-04-20"</param>
+		///<param name="time">The target time the entity should be set to. eg: "05:04:20"</param>
+		///<param name="datetime">The target date & time the entity should be set to. eg: "2019-04-20 05:04:20"</param>
+		///<param name="timestamp">The target date & time the entity should be set to as expressed by a UNIX timestamp.</param>
+		public static void SetDatetime(this InputDatetimeEntity target, string? @date = null, DateTime? @time = null, string? @datetime = null, long? @timestamp = null)
+		{
+			target.CallService("set_datetime", new InputDatetimeSetDatetimeParameters{Date = @date, Time = @time, Datetime = @datetime, Timestamp = @timestamp});
+		}
+
+		///<summary>This can be used to dynamically set the date and/or time.</summary>
+		///<param name="target">The IEnumerable<InputDatetimeEntity> to call this service for</param>
+		///<param name="date">The target date the entity should be set to. eg: "2019-04-20"</param>
+		///<param name="time">The target time the entity should be set to. eg: "05:04:20"</param>
+		///<param name="datetime">The target date & time the entity should be set to. eg: "2019-04-20 05:04:20"</param>
+		///<param name="timestamp">The target date & time the entity should be set to as expressed by a UNIX timestamp.</param>
+		public static void SetDatetime(this IEnumerable<InputDatetimeEntity> target, string? @date = null, DateTime? @time = null, string? @datetime = null, long? @timestamp = null)
+		{
+			target.CallService("set_datetime", new InputDatetimeSetDatetimeParameters{Date = @date, Time = @time, Datetime = @datetime, Timestamp = @timestamp});
+		}
+	}
+
+	public static class InputNumberEntityExtensionMethods
+	{
+		///<summary>Decrement the value of an input number entity by its stepping.</summary>
+		public static void Decrement(this InputNumberEntity target)
+		{
+			target.CallService("decrement");
+		}
+
+		///<summary>Decrement the value of an input number entity by its stepping.</summary>
+		public static void Decrement(this IEnumerable<InputNumberEntity> target)
+		{
+			target.CallService("decrement");
+		}
+
+		///<summary>Increment the value of an input number entity by its stepping.</summary>
+		public static void Increment(this InputNumberEntity target)
+		{
+			target.CallService("increment");
+		}
+
+		///<summary>Increment the value of an input number entity by its stepping.</summary>
+		public static void Increment(this IEnumerable<InputNumberEntity> target)
+		{
+			target.CallService("increment");
+		}
+
+		///<summary>Set the value of an input number entity.</summary>
+		public static void SetValue(this InputNumberEntity target, InputNumberSetValueParameters data)
+		{
+			target.CallService("set_value", data);
+		}
+
+		///<summary>Set the value of an input number entity.</summary>
+		public static void SetValue(this IEnumerable<InputNumberEntity> target, InputNumberSetValueParameters data)
+		{
+			target.CallService("set_value", data);
+		}
+
+		///<summary>Set the value of an input number entity.</summary>
+		///<param name="target">The InputNumberEntity to call this service for</param>
+		///<param name="value">The target value the entity should be set to.</param>
+		public static void SetValue(this InputNumberEntity target, double @value)
+		{
+			target.CallService("set_value", new InputNumberSetValueParameters{Value = @value});
+		}
+
+		///<summary>Set the value of an input number entity.</summary>
+		///<param name="target">The IEnumerable<InputNumberEntity> to call this service for</param>
+		///<param name="value">The target value the entity should be set to.</param>
+		public static void SetValue(this IEnumerable<InputNumberEntity> target, double @value)
+		{
+			target.CallService("set_value", new InputNumberSetValueParameters{Value = @value});
 		}
 	}
 
@@ -11523,6 +12266,37 @@ namespace HomeAssistantGenerated
 		}
 	}
 
+	public static class InputTextEntityExtensionMethods
+	{
+		///<summary>Set the value of an input text entity.</summary>
+		public static void SetValue(this InputTextEntity target, InputTextSetValueParameters data)
+		{
+			target.CallService("set_value", data);
+		}
+
+		///<summary>Set the value of an input text entity.</summary>
+		public static void SetValue(this IEnumerable<InputTextEntity> target, InputTextSetValueParameters data)
+		{
+			target.CallService("set_value", data);
+		}
+
+		///<summary>Set the value of an input text entity.</summary>
+		///<param name="target">The InputTextEntity to call this service for</param>
+		///<param name="value">The target value the entity should be set to. eg: This is an example text</param>
+		public static void SetValue(this InputTextEntity target, string @value)
+		{
+			target.CallService("set_value", new InputTextSetValueParameters{Value = @value});
+		}
+
+		///<summary>Set the value of an input text entity.</summary>
+		///<param name="target">The IEnumerable<InputTextEntity> to call this service for</param>
+		///<param name="value">The target value the entity should be set to. eg: This is an example text</param>
+		public static void SetValue(this IEnumerable<InputTextEntity> target, string @value)
+		{
+			target.CallService("set_value", new InputTextSetValueParameters{Value = @value});
+		}
+	}
+
 	public static class LightEntityExtensionMethods
 	{
 		///<summary>Toggles one or more lights, from on to off, or, off to on, based on their current state. </summary>
@@ -11546,15 +12320,14 @@ namespace HomeAssistantGenerated
 		///<param name="xyColor">Color for the light in XY-format. eg: [0.52, 0.43]</param>
 		///<param name="colorTemp">Color temperature for the light in mireds.</param>
 		///<param name="kelvin">Color temperature for the light in Kelvin.</param>
-		///<param name="whiteValue">Number indicating level of white.</param>
 		///<param name="brightness">Number indicating brightness, where 0 turns the light off, 1 is the minimum brightness and 255 is the maximum brightness supported by the light.</param>
 		///<param name="brightnessPct">Number indicating percentage of full brightness, where 0 turns the light off, 1 is the minimum brightness and 100 is the maximum brightness supported by the light.</param>
 		///<param name="profile">Name of a light profile to use. eg: relax</param>
 		///<param name="flash">If the light should flash.</param>
 		///<param name="effect">Light effect.</param>
-		public static void Toggle(this LightEntity target, long? @transition = null, object? @rgbColor = null, object? @colorName = null, object? @hsColor = null, object? @xyColor = null, object? @colorTemp = null, long? @kelvin = null, long? @whiteValue = null, long? @brightness = null, long? @brightnessPct = null, string? @profile = null, object? @flash = null, string? @effect = null)
+		public static void Toggle(this LightEntity target, long? @transition = null, object? @rgbColor = null, object? @colorName = null, object? @hsColor = null, object? @xyColor = null, object? @colorTemp = null, long? @kelvin = null, long? @brightness = null, long? @brightnessPct = null, string? @profile = null, object? @flash = null, string? @effect = null)
 		{
-			target.CallService("toggle", new LightToggleParameters{Transition = @transition, RgbColor = @rgbColor, ColorName = @colorName, HsColor = @hsColor, XyColor = @xyColor, ColorTemp = @colorTemp, Kelvin = @kelvin, WhiteValue = @whiteValue, Brightness = @brightness, BrightnessPct = @brightnessPct, Profile = @profile, Flash = @flash, Effect = @effect});
+			target.CallService("toggle", new LightToggleParameters{Transition = @transition, RgbColor = @rgbColor, ColorName = @colorName, HsColor = @hsColor, XyColor = @xyColor, ColorTemp = @colorTemp, Kelvin = @kelvin, Brightness = @brightness, BrightnessPct = @brightnessPct, Profile = @profile, Flash = @flash, Effect = @effect});
 		}
 
 		///<summary>Toggles one or more lights, from on to off, or, off to on, based on their current state. </summary>
@@ -11566,15 +12339,14 @@ namespace HomeAssistantGenerated
 		///<param name="xyColor">Color for the light in XY-format. eg: [0.52, 0.43]</param>
 		///<param name="colorTemp">Color temperature for the light in mireds.</param>
 		///<param name="kelvin">Color temperature for the light in Kelvin.</param>
-		///<param name="whiteValue">Number indicating level of white.</param>
 		///<param name="brightness">Number indicating brightness, where 0 turns the light off, 1 is the minimum brightness and 255 is the maximum brightness supported by the light.</param>
 		///<param name="brightnessPct">Number indicating percentage of full brightness, where 0 turns the light off, 1 is the minimum brightness and 100 is the maximum brightness supported by the light.</param>
 		///<param name="profile">Name of a light profile to use. eg: relax</param>
 		///<param name="flash">If the light should flash.</param>
 		///<param name="effect">Light effect.</param>
-		public static void Toggle(this IEnumerable<LightEntity> target, long? @transition = null, object? @rgbColor = null, object? @colorName = null, object? @hsColor = null, object? @xyColor = null, object? @colorTemp = null, long? @kelvin = null, long? @whiteValue = null, long? @brightness = null, long? @brightnessPct = null, string? @profile = null, object? @flash = null, string? @effect = null)
+		public static void Toggle(this IEnumerable<LightEntity> target, long? @transition = null, object? @rgbColor = null, object? @colorName = null, object? @hsColor = null, object? @xyColor = null, object? @colorTemp = null, long? @kelvin = null, long? @brightness = null, long? @brightnessPct = null, string? @profile = null, object? @flash = null, string? @effect = null)
 		{
-			target.CallService("toggle", new LightToggleParameters{Transition = @transition, RgbColor = @rgbColor, ColorName = @colorName, HsColor = @hsColor, XyColor = @xyColor, ColorTemp = @colorTemp, Kelvin = @kelvin, WhiteValue = @whiteValue, Brightness = @brightness, BrightnessPct = @brightnessPct, Profile = @profile, Flash = @flash, Effect = @effect});
+			target.CallService("toggle", new LightToggleParameters{Transition = @transition, RgbColor = @rgbColor, ColorName = @colorName, HsColor = @hsColor, XyColor = @xyColor, ColorTemp = @colorTemp, Kelvin = @kelvin, Brightness = @brightness, BrightnessPct = @brightnessPct, Profile = @profile, Flash = @flash, Effect = @effect});
 		}
 
 		///<summary>Turns off one or more lights.</summary>
@@ -11696,16 +12468,16 @@ namespace HomeAssistantGenerated
 
 		///<summary>Group players together. Only works on platforms with support for player groups.</summary>
 		///<param name="target">The MediaPlayerEntity to call this service for</param>
-		///<param name="groupMembers">The players which will be synced with the target player. eg: ["media_player.multiroom_player2","media_player.multiroom_player3"]</param>
-		public static void Join(this MediaPlayerEntity target, object? @groupMembers = null)
+		///<param name="groupMembers">The players which will be synced with the target player. eg: - media_player.multiroom_player2 - media_player.multiroom_player3 </param>
+		public static void Join(this MediaPlayerEntity target, string @groupMembers)
 		{
 			target.CallService("join", new MediaPlayerJoinParameters{GroupMembers = @groupMembers});
 		}
 
 		///<summary>Group players together. Only works on platforms with support for player groups.</summary>
 		///<param name="target">The IEnumerable<MediaPlayerEntity> to call this service for</param>
-		///<param name="groupMembers">The players which will be synced with the target player. eg: ["media_player.multiroom_player2","media_player.multiroom_player3"]</param>
-		public static void Join(this IEnumerable<MediaPlayerEntity> target, object? @groupMembers = null)
+		///<param name="groupMembers">The players which will be synced with the target player. eg: - media_player.multiroom_player2 - media_player.multiroom_player3 </param>
+		public static void Join(this IEnumerable<MediaPlayerEntity> target, string @groupMembers)
 		{
 			target.CallService("join", new MediaPlayerJoinParameters{GroupMembers = @groupMembers});
 		}
@@ -12085,43 +12857,6 @@ namespace HomeAssistantGenerated
 		}
 	}
 
-	public static class NeatoEntityExtensionMethods
-	{
-		///<summary>Zone Cleaning service call specific to Neato Botvacs.</summary>
-		public static void CustomCleaning(this VacuumEntity target, NeatoCustomCleaningParameters data)
-		{
-			target.CallService("custom_cleaning", data);
-		}
-
-		///<summary>Zone Cleaning service call specific to Neato Botvacs.</summary>
-		public static void CustomCleaning(this IEnumerable<VacuumEntity> target, NeatoCustomCleaningParameters data)
-		{
-			target.CallService("custom_cleaning", data);
-		}
-
-		///<summary>Zone Cleaning service call specific to Neato Botvacs.</summary>
-		///<param name="target">The VacuumEntity to call this service for</param>
-		///<param name="mode">Set the cleaning mode: 1 for eco and 2 for turbo. Defaults to turbo if not set.</param>
-		///<param name="navigation">Set the navigation mode: 1 for normal, 2 for extra care, 3 for deep. Defaults to normal if not set.</param>
-		///<param name="category">Whether to use a persistent map or not for cleaning (i.e. No go lines): 2 for no map, 4 for map. Default to using map if not set (and fallback to no map if no map is found).</param>
-		///<param name="zone">Only supported on the Botvac D7. Name of the zone to clean. Defaults to no zone i.e. complete house cleanup. eg: Kitchen</param>
-		public static void CustomCleaning(this VacuumEntity target, long? @mode = null, long? @navigation = null, long? @category = null, string? @zone = null)
-		{
-			target.CallService("custom_cleaning", new NeatoCustomCleaningParameters{Mode = @mode, Navigation = @navigation, Category = @category, Zone = @zone});
-		}
-
-		///<summary>Zone Cleaning service call specific to Neato Botvacs.</summary>
-		///<param name="target">The IEnumerable<VacuumEntity> to call this service for</param>
-		///<param name="mode">Set the cleaning mode: 1 for eco and 2 for turbo. Defaults to turbo if not set.</param>
-		///<param name="navigation">Set the navigation mode: 1 for normal, 2 for extra care, 3 for deep. Defaults to normal if not set.</param>
-		///<param name="category">Whether to use a persistent map or not for cleaning (i.e. No go lines): 2 for no map, 4 for map. Default to using map if not set (and fallback to no map if no map is found).</param>
-		///<param name="zone">Only supported on the Botvac D7. Name of the zone to clean. Defaults to no zone i.e. complete house cleanup. eg: Kitchen</param>
-		public static void CustomCleaning(this IEnumerable<VacuumEntity> target, long? @mode = null, long? @navigation = null, long? @category = null, string? @zone = null)
-		{
-			target.CallService("custom_cleaning", new NeatoCustomCleaningParameters{Mode = @mode, Navigation = @navigation, Category = @category, Zone = @zone});
-		}
-	}
-
 	public static class NumberEntityExtensionMethods
 	{
 		///<summary>Set the value of a Number entity.</summary>
@@ -12150,51 +12885,6 @@ namespace HomeAssistantGenerated
 		public static void SetValue(this IEnumerable<NumberEntity> target, string? @value = null)
 		{
 			target.CallService("set_value", new NumberSetValueParameters{Value = @value});
-		}
-	}
-
-	public static class OnvifEntityExtensionMethods
-	{
-		///<summary>If your ONVIF camera supports PTZ, you will be able to pan, tilt or zoom your camera.</summary>
-		public static void Ptz(this CameraEntity target, OnvifPtzParameters data)
-		{
-			target.CallService("ptz", data);
-		}
-
-		///<summary>If your ONVIF camera supports PTZ, you will be able to pan, tilt or zoom your camera.</summary>
-		public static void Ptz(this IEnumerable<CameraEntity> target, OnvifPtzParameters data)
-		{
-			target.CallService("ptz", data);
-		}
-
-		///<summary>If your ONVIF camera supports PTZ, you will be able to pan, tilt or zoom your camera.</summary>
-		///<param name="target">The CameraEntity to call this service for</param>
-		///<param name="tilt">Tilt direction.</param>
-		///<param name="pan">Pan direction.</param>
-		///<param name="zoom">Zoom.</param>
-		///<param name="distance">Distance coefficient. Sets how much PTZ should be executed in one request.</param>
-		///<param name="speed">Speed coefficient. Sets how fast PTZ will be executed.</param>
-		///<param name="continuousDuration">Set ContinuousMove delay in seconds before stopping the move</param>
-		///<param name="preset">PTZ preset profile token. Sets the preset profile token which is executed with GotoPreset eg: 1</param>
-		///<param name="moveMode">PTZ moving mode.</param>
-		public static void Ptz(this CameraEntity target, object? @tilt = null, object? @pan = null, object? @zoom = null, double? @distance = null, double? @speed = null, double? @continuousDuration = null, string? @preset = null, object? @moveMode = null)
-		{
-			target.CallService("ptz", new OnvifPtzParameters{Tilt = @tilt, Pan = @pan, Zoom = @zoom, Distance = @distance, Speed = @speed, ContinuousDuration = @continuousDuration, Preset = @preset, MoveMode = @moveMode});
-		}
-
-		///<summary>If your ONVIF camera supports PTZ, you will be able to pan, tilt or zoom your camera.</summary>
-		///<param name="target">The IEnumerable<CameraEntity> to call this service for</param>
-		///<param name="tilt">Tilt direction.</param>
-		///<param name="pan">Pan direction.</param>
-		///<param name="zoom">Zoom.</param>
-		///<param name="distance">Distance coefficient. Sets how much PTZ should be executed in one request.</param>
-		///<param name="speed">Speed coefficient. Sets how fast PTZ will be executed.</param>
-		///<param name="continuousDuration">Set ContinuousMove delay in seconds before stopping the move</param>
-		///<param name="preset">PTZ preset profile token. Sets the preset profile token which is executed with GotoPreset eg: 1</param>
-		///<param name="moveMode">PTZ moving mode.</param>
-		public static void Ptz(this IEnumerable<CameraEntity> target, object? @tilt = null, object? @pan = null, object? @zoom = null, double? @distance = null, double? @speed = null, double? @continuousDuration = null, string? @preset = null, object? @moveMode = null)
-		{
-			target.CallService("ptz", new OnvifPtzParameters{Tilt = @tilt, Pan = @pan, Zoom = @zoom, Distance = @distance, Speed = @speed, ContinuousDuration = @continuousDuration, Preset = @preset, MoveMode = @moveMode});
 		}
 	}
 

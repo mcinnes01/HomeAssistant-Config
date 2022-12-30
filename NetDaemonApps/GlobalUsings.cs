@@ -1,0 +1,23 @@
+// Common usings for NetDaemon apps
+global using System;
+global using System.Collections.Generic;
+global using System.Linq;
+global using System.Reactive.Linq;
+global using System.Reactive.Concurrency;
+global using System.Text.Json;
+global using System.Text.Json.Serialization;
+global using System.Threading;
+global using Microsoft.Extensions.Logging;
+global using NetDaemon.AppModel;
+global using NetDaemon.HassModel;
+global using NetDaemon.HassModel.Entities;
+global using NetDaemon.Extensions.Scheduler;
+global using NetDaemon.Extensions.Tts;
+global using NetDaemon.Infrastructure.Alexa;
+global using NetDaemonApps.Models;
+global using Helpers.Enums;
+global using Helpers.Extensions;
+global using Helpers.State;
+global using HomeAssistantGenerated;
+global using NetDaemonApps.Extensions;
+global using NetDaemonApps.Infrastructure;

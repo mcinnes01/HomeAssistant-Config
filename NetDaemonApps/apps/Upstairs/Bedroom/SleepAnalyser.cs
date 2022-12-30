@@ -1,6 +1,6 @@
 namespace Upstairs.Bedroom;
 
-[NetDaemonApp]
+//[NetDaemonApp]
 public class SleepAnalyser
 {
     private readonly ILogger<SleepAnalyser> _logger;

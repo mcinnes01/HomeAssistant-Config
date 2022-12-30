@@ -186,103 +186,6 @@
         type: announce
         method: all
   mode: single
-- alias: Basement Hall Light Constrained
-  trigger:
-  - platform: state
-    entity_id:
-    - input_boolean.basement_hall_light_contrained
-    - input_select.ambience
-  action:
-  - choose:
-    - conditions:
-      - condition: template
-        value_template: '{{ not (states(''input_select.ambience'') in [''Bright'',
-          ''Day'', ''Evening'']) }}'
-      sequence:
-      - service: input_boolean.turn_on
-        entity_id: input_boolean.basement_hall_light_constrained
-    default:
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.basement_hall_light_constrained
-  mode: single
-  id: 170b8023063a4f83b9aba8cd0771a2d4
-- id: '1622719466285'
-  alias: Turn on basement hall lights when electric cabinet door is open
-  description: ''
-  trigger:
-  - type: opened
-    platform: device
-    device_id: 879be2aff99b3b5eb4f25bc6e00bcb62
-    entity_id: binary_sensor.electric_cabinet_door_contact
-    domain: binary_sensor
-  condition: []
-  action:
-  - service: light.turn_on
-    target:
-      entity_id: light.basement_hall
-  mode: single
-- id: '1622719668545'
-  alias: Turn off basement hall light when electric cabinet door closed
-  description: ''
-  trigger:
-  - type: not_opened
-    platform: device
-    device_id: 879be2aff99b3b5eb4f25bc6e00bcb62
-    entity_id: binary_sensor.electric_cabinet_door_contact
-    domain: binary_sensor
-  condition: []
-  action:
-  - delay:
-      hours: 0
-      minutes: 1
-      seconds: 0
-      milliseconds: 0
-  - service: light.turn_off
-    target:
-      entity_id: light.basement_hall
-  mode: single
-- alias: Bathroom Light Constrained
-  trigger:
-  - platform: state
-    entity_id:
-    - input_boolean.bathroom_light_contrained
-    - input_select.ambience
-    - light.mirror
-  action:
-  - choose:
-    - conditions:
-      - condition: template
-        value_template: '{{ not (states(''input_select.ambience'') in [''Bright'',
-          ''Evening''] and is_state(''light.mirror'', ''off'')) }}'
-      sequence:
-      - service: input_boolean.turn_on
-        entity_id: input_boolean.bathroom_light_constrained
-    default:
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.bathroom_light_constrained
-  mode: single
-  id: f15e5f50e4aa43da84d66f16ea6b95cf
-- alias: Mirror Light Constrained
-  trigger:
-  - platform: state
-    entity_id:
-    - input_boolean.mirror_light_contrained
-    - input_select.ambience
-    - light.bathroom
-  action:
-  - choose:
-    - conditions:
-      - condition: template
-        value_template: '{{ not (states(''input_select.ambience'') in [''Ambient'',
-          ''Evening'', ''Night''] and is_state(''light.bathroom'', ''off'')) }}'
-      sequence:
-      - service: input_boolean.turn_on
-        entity_id: input_boolean.mirror_light_constrained
-    default:
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.mirror_light_constrained
-  mode: single
-  id: c22b53b755fd48b7b10dcba5bfdc3018
 - id: '1619549518704'
   alias: Shower timer start
   description: ''
@@ -319,50 +222,6 @@
     target:
       entity_id: input_boolean.in_shower
   mode: single
-- alias: Bedroom Light Constrained
-  trigger:
-  - platform: state
-    entity_id:
-    - input_boolean.bedroom_light_contrained
-    - input_select.ambience
-    - light.bedside_lamp
-    - input_boolean.in_bed
-  action:
-  - choose:
-    - conditions:
-      - condition: template
-        value_template: '{{ not (states(''input_select.ambience'') in [''Bright'',
-          ''Evening''] and is_state(''light.bedside_lamp'', ''off'') and is_state(''input_boolean.in_bed'',
-          ''off'')) }}'
-      sequence:
-      - service: input_boolean.turn_on
-        entity_id: input_boolean.bedroom_light_constrained
-    default:
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.bedroom_light_constrained
-  mode: single
-  id: 18c5d98e6cd945ea8089ea36abe3049f
-- alias: Bedside Lamp Constrained
-  trigger:
-  - platform: state
-    entity_id:
-    - input_boolean.bedside_lamp_contrained
-    - input_select.ambience
-    - light.bedroom
-  action:
-  - choose:
-    - conditions:
-      - condition: template
-        value_template: '{{ not (states(''input_select.ambience'') in [''Ambient'',
-          ''Evening''] and is_state(''light.bedroom'', ''off'')) }}'
-      sequence:
-      - service: input_boolean.turn_on
-        entity_id: input_boolean.bedside_lamp_constrained
-    default:
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.bedside_lamp_constrained
-  mode: single
-  id: e6e53418e5474b03b92123912e18fdd3
 - id: '1624467229490'
   alias: In bed
   description: ''
@@ -403,10 +262,10 @@
     turn off morning and/or evening feed
   trigger:
   - platform: time
-    at: 07:00
+    at: 07:00:00
     id: morning-feed
   - platform: time
-    at: '17:00'
+    at: '17:30:00'
     id: evening-feed
   condition:
   - condition: or
@@ -416,17 +275,17 @@
       - condition: trigger
         id: morning-feed
       - condition: state
-        entity_id: binary_sensor.morning_feed_enabled
+        entity_id: input_boolean.morning_feed_enabled
         state: 'on'
       - condition: state
-        entity_id: binary_sensor.morning_feed_complete
+        entity_id: input_boolean.morning_feed_complete
         state: 'off'
     - condition: and
       conditions:
       - condition: trigger
         id: evening-feed
       - condition: state
-        entity_id: binary_sensor.evening_feed_enabled
+        entity_id: input_boolean.evening_feed_enabled
         state: 'on'
       - condition: state
         entity_id: input_boolean.evening_feed_complete
@@ -440,34 +299,7 @@
       - service: input_boolean.turn_off
         target:
           entity_id: input_boolean.evening_feed_complete
-      - choose:
-        - conditions:
-          - condition: state
-            entity_id: binary_sensor.disable_next_feed
-            state: 'on'
-          sequence:
-          - service: input_boolean.turn_off
-            target:
-              entity_id: input_boolean.disable_next_feed
-        default:
-        - service: switch.turn_on
-          target:
-            entity_id: switch.dispenser_motor
-        - delay:
-            hours: 0
-            minutes: 1
-            seconds: 20
-            milliseconds: 0
-        - service: input_boolean.turn_on
-          target:
-            entity_id: input_boolean.morning_feed_complete
-    - conditions:
-      - condition: trigger
-        id: evening-feed
-      sequence:
-      - service: input_boolean.turn_off
-        target:
-          entity_id: input_boolean.morning_feed_complete
+        data: {}
       - choose:
         - conditions:
           - condition: state
@@ -477,10 +309,44 @@
           - service: input_boolean.turn_off
             target:
               entity_id: input_boolean.disable_next_feed
+            data: {}
         default:
         - service: switch.turn_on
           target:
             entity_id: switch.dispenser_motor
+          data: {}
+        - delay:
+            hours: 0
+            minutes: 1
+            seconds: 20
+            milliseconds: 0
+        - service: input_boolean.turn_on
+          target:
+            entity_id: input_boolean.morning_feed_complete
+          data: {}
+    - conditions:
+      - condition: trigger
+        id: evening-feed
+      sequence:
+      - service: input_boolean.turn_off
+        target:
+          entity_id: input_boolean.morning_feed_complete
+        data: {}
+      - choose:
+        - conditions:
+          - condition: state
+            entity_id: input_boolean.disable_next_feed
+            state: 'on'
+          sequence:
+          - service: input_boolean.turn_off
+            target:
+              entity_id: input_boolean.disable_next_feed
+            data: {}
+        default:
+        - service: switch.turn_on
+          target:
+            entity_id: switch.dispenser_motor
+          data: {}
         - delay:
             hours: 0
             minutes: 1
@@ -489,6 +355,7 @@
         - service: input_boolean.turn_on
           target:
             entity_id: input_boolean.evening_feed_complete
+          data: {}
     default: []
   mode: single
 - id: '1621858546622'
@@ -515,246 +382,6 @@
       data:
         type: announce
         method: all
-  mode: single
-- alias: Dining Room Light Constrained
-  trigger:
-  - platform: state
-    entity_id:
-    - input_boolean.dining_room_light_contrained
-    - input_select.ambience
-  action:
-  - choose:
-    - conditions:
-      - condition: template
-        value_template: '{{ not (states(''input_select.ambience'') in [''Bright'',
-          ''Day'', ''Evening'']) }}'
-      sequence:
-      - service: input_boolean.turn_on
-        entity_id: input_boolean.dining_room_light_constrained
-    default:
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.dining_room_light_constrained
-  mode: single
-  id: 4b6ac44609014c3a8c0127ffaa9e0a9f
-- alias: Drawing Room Light Constrained
-  trigger:
-  - platform: state
-    entity_id:
-    - input_boolean.drawing_room_light_constrained
-    - input_select.ambience
-    - light.bookshelf
-  action:
-  - choose:
-    - conditions:
-      - condition: template
-        value_template: '{{ not (states(''input_select.ambience'') in [''Bright'',
-          ''Evening''] and is_state(''light.bookshelf'', ''off'')) }}'
-      sequence:
-      - service: input_boolean.turn_on
-        entity_id: input_boolean.drawing_room_light_constrained
-    default:
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.drawing_room_light_constrained
-  mode: single
-  id: 93bda13f503c4f5780004a4cdcf1b1ea
-- alias: Bookshelf Light Constrained
-  trigger:
-  - platform: state
-    entity_id:
-    - input_boolean.bookshelf_light_contrained
-    - input_select.ambience
-    - light.drawing_room
-  action:
-  - choose:
-    - conditions:
-      - condition: template
-        value_template: '{{ not (states(''input_select.ambience'') in [''Ambient'',
-          ''Evening''] and is_state(''light.drawing_room'', ''off'')) }}'
-      sequence:
-      - service: input_boolean.turn_on
-        entity_id: input_boolean.bookshelf_light_contrained
-    default:
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.bookshelf_light_contrained
-  mode: single
-  id: 1dd62d0407af4ba68939726a92353417
-- alias: Dressing Room Constrained
-  trigger:
-  - platform: state
-    entity_id:
-    - input_select.ambience
-  action:
-  - choose:
-    - conditions:
-      - condition: template
-        value_template: '{{ not (states(''input_select.ambience'') in [''Ambient'',
-          ''Evening'']) }}'
-      sequence:
-      - service: input_boolean.turn_on
-        entity_id: input_boolean.dressing_room_light_constrained
-    default:
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.dressing_room_light_constrained
-  mode: single
-  id: 7c5305d3f9704edca32c6df5c5ad399b
-- alias: Guest Room Light Constrained
-  trigger:
-  - platform: state
-    entity_id:
-    - input_select.ambience
-  action:
-  - choose:
-    - conditions:
-      - condition: template
-        value_template: '{{ not (states(''input_select.ambience'') in [''Ambient'',
-          ''Evening'']) }}'
-      sequence:
-      - service: input_boolean.turn_on
-        entity_id: input_boolean.guest_room_light_constrained
-    default:
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.guest_room_light_constrained
-  mode: single
-  id: f6d3b5116682406888bd5ffc772efe81
-- alias: Hallway Light Constrained
-  trigger:
-  - platform: state
-    entity_id:
-    - input_boolean.hallway_light_contrained
-    - input_select.ambience
-    - light.hallway_lamp
-  action:
-  - choose:
-    - conditions:
-      - condition: template
-        value_template: '{{ not (states(''input_select.ambience'') in [''Bright'',
-          ''Evening''] and is_state(''light.hallway_lamp'', ''off'')) }}'
-      sequence:
-      - service: input_boolean.turn_on
-        entity_id: input_boolean.hallway_light_constrained
-    default:
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.hallway_light_constrained
-  mode: single
-  id: 5b1af16edd2f419ab2a006d2615e3db2
-- alias: Hallway Lamp Constrained
-  trigger:
-  - platform: state
-    entity_id:
-    - input_boolean.hallway_light_contrained
-    - input_select.ambience
-    - light.hallway
-  action:
-  - choose:
-    - conditions:
-      - condition: template
-        value_template: '{{ not (states(''input_select.ambience'') in [''Ambient'',
-          ''Evening''] and is_state(''light.hallway'', ''off'')) }}'
-      sequence:
-      - service: input_boolean.turn_on
-        entity_id: input_boolean.hallway_lamp_constrained
-    default:
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.hallway_lamp_constrained
-  mode: single
-  id: b03b0847981b4e1f87e1435b36758a8f
-- id: '1622826722616'
-  alias: Front door open after sunset
-  description: ''
-  trigger:
-  - type: opened
-    platform: device
-    device_id: e87ea564142edf52ebc5fb9d015444ed
-    entity_id: binary_sensor.front_door_contact
-    domain: binary_sensor
-  condition:
-  - condition: sun
-    before: sunrise
-    after: sunset
-    after_offset: -00:30:00
-  action:
-  - service: light.turn_on
-    target:
-      entity_id: light.hallway
-  mode: single
-- id: '1622826801223'
-  alias: Front door closed after sunset
-  description: ''
-  trigger:
-  - type: not_opened
-    platform: device
-    device_id: e87ea564142edf52ebc5fb9d015444ed
-    entity_id: binary_sensor.front_door_contact
-    domain: binary_sensor
-  condition:
-  - condition: sun
-    before: sunrise
-    after: sunset
-    after_offset: -00:30:00
-  action:
-  - delay:
-      hours: 0
-      minutes: 1
-      seconds: 0
-      milliseconds: 0
-  - service: light.turn_off
-    target:
-      entity_id: light.hallway
-  mode: single
-- id: f0c65ae0b59c4bfdbb6a9c41f6dfc9cf
-  alias: Kitchen Light Constrained
-  trigger:
-  - platform: state
-    entity_id:
-    - input_boolean.kitchen_light_contrained
-    - input_select.ambience
-    - light.breakfast_bar_lamp
-  action:
-  - choose:
-    - conditions:
-      - condition: template
-        value_template: '{{ not (states(''input_select.ambience'') in [''Bright'',
-          ''Evening''] and is_state(''light.breakfast_bar_lamp'', ''off'')) }}'
-      sequence:
-      - service: input_boolean.turn_on
-        entity_id: input_boolean.kitchen_light_constrained
-    default:
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.kitchen_light_constrained
-  mode: single
-- alias: Breakfast Bar Lamp Constrained
-  trigger:
-  - platform: state
-    entity_id:
-    - input_boolean.kitchen_light_contrained
-    - input_select.ambience
-    - light.kitchen
-  action:
-  - choose:
-    - conditions:
-      - condition: template
-        value_template: '{{ not (states(''input_select.ambience'') in [''Ambient'',
-          ''Evening''] and is_state(''light.kitchen'', ''off'')) }}'
-      sequence:
-      - service: input_boolean.turn_on
-        entity_id: input_boolean.breakfast_bar_lamp_constrained
-    default:
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.breakfast_bar_lamp_constrained
-  mode: single
-  id: e8e14ee636a442838221690bbffe178f
-- id: 5dd55f812aa8446588f5b6d1b08921d3
-  alias: Ambience to Evening
-  trigger:
-  - event: sunset
-    platform: sun
-    offset: -01:00:00
-  action:
-  - service: input_select.select_option
-    target:
-      entity_id: input_select.ambience
-    data:
-      option: Evening
   mode: single
 - id: '1622742978922'
   alias: Loft hatch open
@@ -792,77 +419,6 @@
         method: all
         type: announce
   mode: single
-- id: 7370bd68e87044beacd6a72f5028ad5a
-  alias: Lounge Light Constrained
-  trigger:
-  - platform: state
-    entity_id:
-    - input_boolean.lounge_light_contrained
-    - input_select.ambience
-    - input_select.lounge_mode
-    - light.lounge_corner_lamp
-    - light.lounge_floor_lamp
-  action:
-  - choose:
-    - conditions:
-      - condition: template
-        value_template: '{{ not (states(''input_select.ambience'') in [''Bright'',
-          ''Evening''] and is_state(''input_select.lounge_mode'', ''Normal'') and
-          is_state(''light.lounge_corner_lamp'', ''on'') and is_state(''light.lounge_floor_lamp'',
-          ''on'')) }}'
-      sequence:
-      - service: input_boolean.turn_on
-        entity_id: input_boolean.lounge_light_constrained
-    default:
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.lounge_light_constrained
-  mode: single
-- id: 34d291332d9d4a9185327573b8c1a89e
-  alias: Lounge Corner Lamp Constrained
-  trigger:
-  - platform: state
-    entity_id:
-    - input_boolean.lounge_corner_lamp_contrained
-    - input_select.ambience
-    - input_select.lounge_mode
-    - light.lounge
-  action:
-  - choose:
-    - conditions:
-      - condition: template
-        value_template: '{{ not (states(''input_select.ambience'') in [''Ambient'',
-          ''Evening''] and is_state(''input_select.lounge_mode'', ''Normal'') and
-          is_state(''light.lounge'', ''on'')) }}'
-      sequence:
-      - service: input_boolean.turn_on
-        entity_id: input_boolean.lounge_corner_lamp_constrained
-    default:
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.lounge_corner_lamp_constrained
-  mode: single
-- id: 34d291332d9d4a9185327573b8c1a89f
-  alias: Floor Lamp Constrained
-  trigger:
-  - platform: state
-    entity_id:
-    - input_boolean.lounge_floor_lamp_contrained
-    - input_select.ambience
-    - input_select.lounge_mode
-    - light.lounge
-  action:
-  - choose:
-    - conditions:
-      - condition: template
-        value_template: '{{ not (states(''input_select.ambience'') in [''Ambient'',
-          ''Evening''] and is_state(''input_select.lounge_mode'', ''Normal'') and
-          is_state(''light.lounge'', ''on'')) }}'
-      sequence:
-      - service: input_boolean.turn_on
-        entity_id: input_boolean.lounge_floor_lamp_contrained
-    default:
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.lounge_floor_lamp_contrained
-  mode: single
 - alias: Lounge Scene Watch Television
   id: 34d291332d9d4a9185327573b8c1a90f
   description: ''
@@ -892,147 +448,6 @@
       - light.lounge_corner_lamp
       - light.lounge_floor_lamp
   mode: single
-- alias: Lounge Motion Lighting
-  id: '1627420103277'
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.lounge_motion
-    id: lounge-motion-on
-    to: 'on'
-  - platform: state
-    entity_id: binary_sensor.lounge_motion
-    id: lounge-motion-off
-    to: 'off'
-    for: 00:02:00
-  condition:
-  - condition: or
-    conditions:
-    - condition: state
-      entity_id: input_select.lounge_state
-      state: Idle
-    - condition: state
-      entity_id: input_select.lounge_state
-      state: Motion
-  - condition: and
-    conditions:
-    - condition: sun
-      before: sunrise
-      after: sunset
-      after_offset: -00:45:00
-  - condition: or
-    conditions:
-    - condition: state
-      entity_id: input_boolean.guest_mode
-      state: 'off'
-    - condition: state
-      entity_id: input_boolean.in_bed
-      state: 'off'
-  action:
-  - condition: and
-    conditions:
-    - condition: trigger
-      id: lounge-motion-on
-    - condition: sun
-      before: sunset
-      after: sunset
-      before_offset: 03:00:00
-      after_offset: -00:45:00
-  - service: input_select.select_option
-    target:
-      entity_id: input_select.lounge_state
-    data:
-      option: Motion
-  - service: light.turn_on
-    target:
-      entity_id: light.lounge
-  - condition: and
-    conditions:
-    - condition: trigger
-      id: lounge-motion-on
-    - condition: sun
-      before: sunrise
-      after: sunset
-      after_offset: 03:00:00
-  - service: yeelight.set_color_temp_scene
-    data:
-      kelvin: 3700
-      brightness: 50
-  - service: input_select.select_option
-    target:
-      entity_id: input_select.lounge_state
-    data:
-      option: Motion
-  - condition: trigger
-    id: lounge-motion-off
-  - service: input_select.select_option
-    target:
-      entity_id: input_select.lounge_state
-    data:
-      option: Idle
-  - service: light.turn_off
-    target:
-      area_id: f7a90e0bdcf941a6ba0ac65e1dc244ee
-  mode: restart
-- id: '1612647968540'
-  alias: Turn off back door light when no detection or door is shut
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.motion_patio_camera
-    attribute: event_object
-    to: None Identified
-    id: patio-motion-stopped
-  - platform: state
-    entity_id: binary_sensor.patio_door
-    id: patio-door-closed
-    to: 'off'
-  condition:
-  - condition: state
-    entity_id: binary_sensor.patio_door
-    state: 'off'
-  action:
-  - delay:
-      hours: 0
-      minutes: 2
-      seconds: 0
-      milliseconds: 0
-  - service: light.turn_off
-    data: {}
-    entity_id: light.back_door
-  mode: restart
-- id: '1618138464654'
-  alias: Turn on back door light when car or person detected or back door is open
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.motion_patio_camera
-    to: person
-    attribute: event_object
-    id: person-detected
-  - platform: state
-    entity_id: binary_sensor.motion_patio_camera
-    id: car-detected
-    attribute: event_object
-    to: car
-  - platform: state
-    entity_id: binary_sensor.patio_door
-    id: back-door-opened
-    to: 'on'
-  condition:
-  - condition: and
-    conditions:
-    - condition: state
-      entity_id: binary_sensor.patio_door
-      state: 'off'
-    - condition: sun
-      before: sunrise
-      after: sunset
-  action:
-  - service: light.turn_on
-    target:
-      entity_id: light.back_door
-  mode: single
 - id: '1621853753389'
   alias: Patio door is open
   description: ''
@@ -1057,10 +472,10 @@
     entity_id: binary_sensor.doorbell_button
     to: 'on'
   action:
-  - service: notify.mobile_app_andrews_iphone
+  - service: notify.phones
     data:
-      message: Someone is at the door
-      title: Doorbell Rang
+      message: 'Someone at the door '
+      title: Doorbell
   - service: notify.alexa_media_all_speakers
     data:
       message: Ding dong! Someone is at the door!
@@ -1125,25 +540,6 @@
       rgb_color: 70,70,255
       brightness: 184
   mode: single
-- alias: Studio Light Constrained
-  trigger:
-  - platform: state
-    entity_id:
-    - input_select.ambience
-  action:
-  - choose:
-    - conditions:
-      - condition: template
-        value_template: '{{ not (states(''input_select.ambience'') in [''Ambient'',
-          ''Evening''])}}'
-      sequence:
-      - service: input_boolean.turn_on
-        entity_id: input_boolean.studio_light_constrained
-    default:
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.studio_light_constrained
-  mode: single
-  id: 7119d64911784af3a51dfe8e3a058989
 - id: '1587464597280'
   alias: Sump Alarm Triggered
   description: The sump is at risk of overflowing, the pump may be offline or broken
@@ -1154,16 +550,8 @@
     platform: device
     type: turned_on
   action:
-  - data:
-      title: Sump Alarm Triggered
-      message: The sump alarm has been triggered, check the sump pump has power, this
-        could cause a flood if not attended.
-      data:
-        file_url: https://media.istockphoto.com/vectors/vector-fire-alarm-vector-id610426096?k=6&m=610426096&s=612x612&w=0&h=IIjBibeAUNdoq7XS4-esMGyxxw_xFkb07zbwKcwNB-I=
-      target:
-      - email/mcinnes01@gmail.com
-      - device/AndyPhone
-    service: notify.pushbullet
+  - service: script.notify_all
+    data: {}
   - data:
       title: Sump Alarm Triggered
       message: The sump alarm has been triggered, check the sump pump has power, this
@@ -1173,46 +561,6 @@
       data:
         type: announce
     service: notify.alexa_media
-- alias: Toilet Light Constrained
-  trigger:
-  - platform: state
-    entity_id:
-    - input_boolean.toilet_light_contrained
-    - input_select.ambience
-  action:
-  - choose:
-    - conditions:
-      - condition: template
-        value_template: '{{ not (states(''input_select.ambience'') in [''Bright'',
-          ''Day'', ''Evening'', ''Ambient'']) }}'
-      sequence:
-      - service: input_boolean.turn_on
-        entity_id: input_boolean.toilet_light_constrained
-    default:
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.toilet_light_constrained
-  mode: single
-  id: f7ad91532b454991b258ed726b18c562
-- alias: Utility Room Light Constrained
-  trigger:
-  - platform: state
-    entity_id:
-    - input_boolean.utility_room_light_contrained
-    - input_select.ambience
-  action:
-  - choose:
-    - conditions:
-      - condition: template
-        value_template: '{{ not (states(''input_select.ambience'') in [''Bright'',
-          ''Day'', ''Evening'']) }}'
-      sequence:
-      - service: input_boolean.turn_on
-        entity_id: input_boolean.utility_room_light_constrained
-    default:
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.utility_room_light_constrained
-  mode: single
-  id: f26ce7ed75944637890f2ed2016ad2b3
 - id: '1628676340481'
   alias: Snug Switch Actions
   description: ''
@@ -1259,120 +607,6 @@
       - service: automation.trigger
         target:
           entity_id: automation.snug_scene_watch_movie
-- id: '1630315543146'
-  alias: Ambiance To Day When Out of Bed
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: input_boolean.in_bed
-    to: 'off'
-  condition:
-  - condition: time
-    after: 05:00
-    weekday:
-    - mon
-    - tue
-    - wed
-    - thu
-    - fri
-    - sat
-    - sun
-  action:
-  - service: input_select.select_option
-    target:
-      entity_id: input_select.ambience
-    data:
-      option: Day
-  mode: single
-- id: '1630315855227'
-  alias: Ambiance to Day after 9am on a week day
-  description: ''
-  trigger:
-  - platform: time
-    at: 09:00
-  condition:
-  - condition: time
-    weekday:
-    - mon
-    - tue
-    - wed
-    - thu
-    - fri
-  action:
-  - service: input_boolean.turn_off
-    target:
-      entity_id: input_boolean.in_bed
-  mode: single
-- id: '1630315926698'
-  alias: Ambiance to Day at 12pm at the weekend
-  description: ''
-  trigger:
-  - platform: time
-    at: '12:00'
-  condition:
-  - condition: time
-    weekday:
-    - sat
-    - sun
-  action:
-  - service: input_boolean.turn_off
-    target:
-      entity_id: input_boolean.in_bed
-  mode: single
-- id: '1630316167007'
-  alias: Ambiance To Night When In Bed
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: input_boolean.in_bed
-    to: 'on'
-  condition:
-  - condition: time
-    after: '20:00'
-    weekday:
-    - mon
-    - tue
-    - wed
-    - thu
-    - fri
-    - sat
-    - sun
-  action:
-  - service: script.entity_controller_reset
-  - service: input_select.select_option
-    target:
-      entity_id:
-      - input_select.ambience
-      - input_select.bedroom_mode
-    data:
-      option: Night
-  - service: input_select.select_option
-    target:
-      entity_id:
-      - input_select.lounge_mode
-      - input_select.snug_mode
-    data:
-      option: Normal
-  mode: single
-- id: '1630316252349'
-  alias: Ambiance to Night after 1am on a week day
-  description: ''
-  trigger:
-  - platform: time
-    at: 01:00
-  condition:
-  - condition: time
-    weekday:
-    - mon
-    - tue
-    - wed
-    - thu
-    - sun
-  action:
-  - service: input_boolean.turn_on
-    target:
-      entity_id: input_boolean.in_bed
-  mode: single
 - id: '1631053304503'
   alias: Send snapshot when person is in the garden - Andy iPhone
   description: ''
@@ -1403,21 +637,6 @@
       is_ios: true
       notification_title: Someone is in the garden!
       delay: 1
-- id: '1631299978783'
-  alias: Lounge Lights Off Reset Mode
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: light.lounge_lights
-    to: 'off'
-  condition: []
-  action:
-  - service: input_select.select_option
-    target:
-      entity_id: input_select.lounge_mode
-    data:
-      option: Normal
-  mode: single
 - id: '1631300005347'
   alias: Snug Lights Off Reset Mode
   description: ''
@@ -1447,139 +666,6 @@
       option: Normal
     target:
       entity_id: input_select.bedroom_mode
-  mode: single
-- id: '1632689336110'
-  alias: Back Door Light Constrained
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: input_boolean.back_door_light_constrained,binary_sensor.patio_door,light.back_door
-  condition: []
-  action:
-  - choose:
-    - conditions:
-      - condition: and
-        conditions:
-        - condition: template
-          value_template: '{{ not is_state(''binary_sensor.patio_door'', ''off'')
-            }}'
-        - condition: sun
-          before: sunrise
-          after: sunset
-      sequence:
-      - service: input_boolean.turn_on
-        data: {}
-        target:
-          entity_id: input_boolean.back_door_light_constrained
-    default:
-    - service: input_boolean.turn_off
-      data: {}
-      target:
-        entity_id: input_boolean.back_door_light_constrained
-  mode: single
-- id: '1634076160865'
-  alias: Bathroom Occupancy
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.bathroom_wasp
-    id: occupied
-    to: 'on'
-  - platform: state
-    entity_id: binary_sensor.bathroom_wasp
-    id: vaccant
-    to: 'off'
-  condition: []
-  action:
-  - choose:
-    - conditions:
-      - condition: trigger
-        id: occupied
-      sequence:
-      - service: input_boolean.turn_on
-        target:
-          entity_id:
-          - input_boolean.bathroom_light_constrained
-          - input_boolean.mirror_light_constrained
-    - conditions:
-      - condition: trigger
-        id: vaccant
-      sequence:
-      - service: input_boolean.turn_off
-        target:
-          entity_id:
-          - input_boolean.bathroom_light_constrained
-          - input_boolean.mirror_light_constrained
-      - service: light.turn_off
-        target:
-          entity_id: light.bathroom_lights
-    default: []
-  mode: single
-- id: '1634076359937'
-  alias: Toilet Occupancy
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.toilet_wasp
-    id: occupied
-    to: 'on'
-  - platform: state
-    entity_id: binary_sensor.toilet_wasp
-    id: vaccant
-    to: 'off'
-  condition:
-  - condition: state
-    entity_id: light.toilet
-    state: 'on'
-  action:
-  - choose:
-    - conditions:
-      - condition: trigger
-        id: occupied
-      sequence:
-      - service: input_boolean.turn_on
-        target:
-          entity_id: input_boolean.toilet_light_constrained
-    default:
-    - service: input_boolean.turn_off
-      target:
-        entity_id: input_boolean.toilet_light_constrained
-    - service: light.turn_off
-      target:
-        entity_id: light.toilet
-  mode: single
-- id: '1634077012969'
-  alias: Electric Cabinet Occupancy
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.electric_cabinet_door_contact
-    id: occupied
-    to: 'off'
-  - platform: state
-    entity_id: binary_sensor.electric_cabinet_door_contact
-    id: vaccant
-    to: 'on'
-  condition:
-  - condition: state
-    entity_id: light.basement_hall
-    state: 'on'
-  action:
-  - choose:
-    - conditions:
-      - condition: trigger
-        id: occupied
-      sequence:
-      - service: input_boolean.turn_on
-        target:
-          entity_id: input_boolean.basement_hall_light_constrained
-    default:
-    - service: input_boolean.turn_off
-      target:
-        entity_id: input_boolean.basement_hall_light_constrained
-    - service: light.turn_off
-      target:
-        entity_id: light.basement_hall
   mode: single
 - id: '1638630199969'
   alias: Low battery level detection & notification for all battery sensors
@@ -1625,3 +711,184 @@
       - input_boolean.evening_feed_enabled
       - input_boolean.disable_next_feed
   mode: single
+- id: '1661598529211'
+  alias: Door open
+  description: ''
+  trigger:
+  - type: opened
+    platform: device
+    device_id: e87ea564142edf52ebc5fb9d015444ed
+    entity_id: binary_sensor.front_door_contact
+    domain: binary_sensor
+  - type: opened
+    platform: device
+    device_id: aa915be8056811eba8e26dd5543ccd1c
+    entity_id: binary_sensor.patio_door
+    domain: binary_sensor
+  condition: []
+  action:
+  - device_id: 32f46788cec66f0b092024e0cb01e5d6
+    domain: mobile_app
+    type: notify
+    message: Door opened
+    title: 'Someone opened a door '
+  mode: single
+- id: '1662122029793'
+  alias: Person in the garden
+  description: ''
+  use_blueprint:
+    path: mcinnes01/send-camera-snapshot-when-event-type-detected.yaml
+    input:
+      motion_sensor: binary_sensor.patio_camera_motion
+      event_object: person
+      camera: camera.patio_camera_medium
+      notify_device: 32f46788cec66f0b092024e0cb01e5d6
+      notification_title: Person outside
+      notification_message: '{{ motion_sensor_name }} detected a person!'
+      override_sensor: binary_sensor.patio_door
+- id: '1671115380432'
+  alias: Hallway Remote Actions
+  description: ''
+  use_blueprint:
+    path: EPMatt/ikea_e1743.yaml
+    input:
+      integration: Zigbee2MQTT
+      controller_device: 58709344f9c7b9f27d636aa393492456
+      controller_entity: sensor.hallway_remote_action
+      helper_last_controller_event: input_text.hallway_remote_last_state
+      action_button_up_short:
+      - service: light.turn_on
+        data: {}
+        target:
+          entity_id: light.hallway
+      action_button_up_long:
+      - device_id: 3f19fc07f1a211ea95ad67c149799e5f
+        domain: light
+        entity_id: light.hallway_lamp
+        type: brightness_increase
+      action_button_up_release: []
+      action_button_up_double:
+      - service: light.turn_on
+        data:
+          transition: 5
+          color_temp: 318
+          brightness: 255
+        target:
+          area_id: 2b51c17994054ee58ffcce8036f37129
+      action_button_down_short:
+      - service: light.turn_off
+        data: {}
+        target:
+          entity_id: light.hallway
+      action_button_down_long:
+      - device_id: 3f19fc07f1a211ea95ad67c149799e5f
+        domain: light
+        entity_id: light.hallway_lamp
+        type: brightness_decrease
+      action_button_down_double:
+      - service: light.turn_off
+        data:
+          transition: 5
+        target:
+          area_id: 2b51c17994054ee58ffcce8036f37129
+      button_up_long_loop: true
+      button_down_long_loop: true
+      button_up_double_press: true
+      button_down_double_press: true
+      helper_debounce_delay: 100
+- id: '1671115791416'
+  alias: Guest Room Remote Actions
+  description: ''
+  use_blueprint:
+    path: EPMatt/ikea_e1743.yaml
+    input:
+      integration: Zigbee2MQTT
+      controller_entity: sensor.guest_room_remote_action
+      helper_last_controller_event: input_text.guest_room_remote_last_state
+      action_button_up_short:
+      - service: light.turn_on
+        data: {}
+        target:
+          entity_id: light.guest_room
+      action_button_up_long: []
+      action_button_down_short:
+      - service: light.turn_off
+        data: {}
+        target:
+          entity_id: light.guest_room
+- id: '1671116345592'
+  alias: Lounge Remote States
+  description: ''
+  use_blueprint:
+    path: EPMatt/ikea_e2001_e2002.yaml
+    input:
+      integration: Zigbee2MQTT
+      controller_entity: sensor.lounge_remote_action
+      helper_last_controller_event: input_text.lounge_remote_last_state
+      action_button_up_short:
+      - service: light.turn_on
+        data: {}
+        target:
+          entity_id: light.lounge
+      action_button_down_short:
+      - service: light.turn_off
+        data: {}
+        target:
+          entity_id: light.lounge
+      action_button_down_long:
+      - device_id: 3f1a1e3af1a211eaa96f69882de0e925
+        domain: light
+        entity_id: light.lounge_corner_lamp
+        type: brightness_decrease
+      action_button_down_double:
+      - service: light.turn_off
+        data:
+          transition: 5
+        target:
+          entity_id: light.lounge
+      - type: turn_off
+        device_id: 3f1a1e3af1a211eaa96f69882de0e925
+        entity_id: light.lounge_corner_lamp
+        domain: light
+      action_button_left_short:
+      - type: turn_off
+        device_id: 3c021b0651dca44229fdfd8c740d7386
+        entity_id: switch.lounge_tv
+        domain: switch
+      action_button_right_short:
+      - type: turn_on
+        device_id: 3c021b0651dca44229fdfd8c740d7386
+        entity_id: switch.lounge_tv
+        domain: switch
+      action_button_left_double:
+      - service: scene.turn_on
+        target:
+          entity_id: scene.lounge_normal
+        metadata: {}
+      action_button_right_double:
+      - service: scene.turn_on
+        target:
+          entity_id: scene.watch_tv
+        metadata: {}
+      action_button_up_long:
+      - type: turn_on
+        device_id: 3f1a1e3af1a211eaa96f69882de0e925
+        entity_id: light.lounge_corner_lamp
+        domain: light
+      - device_id: 3f1a1e3af1a211eaa96f69882de0e925
+        domain: light
+        entity_id: light.lounge_corner_lamp
+        type: brightness_increase
+      action_button_up_double:
+      - type: toggle
+        device_id: 7adccebddf55340af0635228d988dd88
+        entity_id: switch.christmas_tree
+        domain: switch
+      button_up_double_press: true
+      button_right_double_press: true
+      button_left_double_press: true
+      button_down_double_press: true
+      button_down_long_loop: true
+      button_up_long_loop: true
+      button_right_long_loop: true
+      button_left_long_loop: true

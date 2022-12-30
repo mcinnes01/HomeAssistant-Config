@@ -2,29 +2,6 @@ namespace Helpers.Extensions;
 
 public static class EntityExtensions
 {
-    public static Entities MyEntities(this IHaContext ha) => new (ha);
-    public static Services Services(this IHaContext ha) => new (ha);
-  
-    public static bool IsOpen(this BinarySensorEntity? entity) => entity.IsOn();
-    public static bool IsClosed(this BinarySensorEntity? entity) => entity.IsOff();
-    public static bool IsOpen(this EntityState? entity) => entity.IsOn();
-    public static bool IsClosed(this EntityState? entity) => entity.IsOff();
-
-    public static void SwitchTo(this SwitchEntity? heaterSwitch, string? newState)
-    {
-        if (heaterSwitch?.State != newState)
-        {
-            if (newState == "on")
-            {
-                heaterSwitch?.TurnOn();
-            }
-            else
-            {
-                heaterSwitch?.TurnOff();
-            }
-        }
-    }
-
     public static IDisposable WhenTurnsOn<TEntity, TAttributes>(this Entity<TEntity, EntityState<TAttributes>, TAttributes> entity,
         Action<StateChange<TEntity, EntityState<TAttributes>>> action)
         where TAttributes : class
@@ -108,6 +85,4 @@ public static class EntityExtensions
     {
         return target?.State != @option.ToString();
     }
-    
-    public static bool IsHome(this PersonEntity? entity) => entity?.State == "home";
 }

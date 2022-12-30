@@ -1,0 +1,142 @@
+substitutions:
+  sonoff_name: sonoff-downstairs-1
+  sonoff_desc: Sonoff Downstairs 1
+  channel_1: Lounge Light
+  channel_2: Hallway Light
+  channel_3: Extractor Fan
+  channel_4: Bookshelf Light
+
+esphome:
+  name: ${sonoff_name}
+  on_boot:
+    priority: -100
+    then:
+      light.turn_on:
+        id: status_led
+
+esp8266:
+  board: esp01_1m
+  restore_from_flash: true
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "8Hr1XKT8oFmITz4qLN4K9namym0MuCLduYxf36T+dzc="
+
+ota:
+  password: "44c781e46ed8f4d03206e96e5728528f"
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: ${sonoff_desc} Hotspot
+    password: !secret wifi_password
+
+captive_portal:
+
+# Sync time with Home Assistant.
+time:
+  - platform: homeassistant
+    id: homeassistant_time
+
+# Text sensors with general information.
+text_sensor:
+  # Expose ESPHome version as sensor.
+  - platform: version
+    name: ${sonoff_desc} ESPHome Version
+  # Expose WiFi information as sensors.
+  - platform: wifi_info
+    ip_address:
+      name: ${sonoff_desc} IP
+    ssid:
+      name: ${sonoff_desc} SSID
+    bssid:
+      name: ${sonoff_desc} BSSID
+
+sensor:
+  # Uptime sensor.
+  - platform: uptime
+    name: ${sonoff_desc} Uptime
+
+  # WiFi Signal sensor.
+  - platform: wifi_signal
+    name: ${sonoff_desc} Signal
+    update_interval: 20s
+
+binary_sensor:
+  - platform: gpio
+    on_press:
+      then:
+        - switch.toggle: button_1
+    pin:
+      number: GPIO0
+      mode: INPUT_PULLUP
+      inverted: True
+    name: ${sonoff_desc} ${channel_1} Button
+  - platform: gpio
+    on_press:
+      then:
+        - switch.toggle: button_2
+    pin:
+      number: GPIO9
+      mode: INPUT_PULLUP
+      inverted: True
+    name: ${sonoff_desc} ${channel_2} Button
+  - platform: gpio
+    on_press:
+      then:
+        - switch.toggle: button_3
+    pin:
+      number: GPIO10
+      mode: INPUT_PULLUP
+      inverted: True
+    name: ${sonoff_desc} ${channel_3} Button
+  - platform: gpio
+    on_press:
+      then:
+        - switch.toggle: button_4
+    pin:
+      number: GPIO14
+      mode: INPUT_PULLUP
+      inverted: True
+    name: ${sonoff_desc} ${channel_4} Button
+  - platform: status
+    name: ${sonoff_desc} Status
+
+switch:
+  - platform: gpio
+    id: button_1
+    name: ${sonoff_desc} ${channel_1}
+    pin: GPIO12
+  - platform: gpio
+    id: button_2
+    name: ${sonoff_desc} ${channel_2}
+    pin: GPIO5
+  - platform: gpio
+    id: button_3
+    name: ${sonoff_desc} ${channel_3}
+    pin: GPIO4
+  - platform: gpio
+    id: button_4
+    name: ${sonoff_desc} ${channel_4}
+    pin: GPIO15
+  - platform: restart
+    name: Restart ${sonoff_desc}
+
+output:
+  - platform: esp8266_pwm
+    id: blue_led
+    pin: GPIO13
+    inverted: True
+
+light:
+  - platform: monochromatic
+    id: status_led
+    name: ${sonoff_desc} Blue LED
+    output: blue_led

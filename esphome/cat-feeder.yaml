@@ -23,12 +23,6 @@ wifi:
 
 captive_portal:
 
-# Sync time with Home Assistant.
-time:
-  - platform: homeassistant
-    id: homeassistant_time
-
-# Text sensors with general information.
 text_sensor:
   # Expose ESPHome version as sensor.
   - platform: version
@@ -42,6 +36,80 @@ text_sensor:
     bssid:
       name: Cat Feeder BSSID
 
+# Sync time with Home Assistant.
+time:
+  - platform: homeassistant
+    id: homeassistant_time
+    # timezone: Europe//London
+    on_time:
+      - hours: 7
+        minutes: 05
+        seconds: 45
+        then:
+          - if:
+              condition:
+                and:
+                  - binary_sensor.is_off: morning_feed_complete
+                  - binary_sensor.is_off: disable_next_feed
+                  - binary_sensor.is_on: morning_feed_enabled
+              then:
+                - switch.turn_on: motor
+                - homeassistant.service:
+                    service: input_boolean.turn_on
+                    data:
+                      entity_id: input_boolean.morning_feed_complete
+              else:
+                - if:
+                    condition:
+                        - binary_sensor.is_on: disable_next_feed
+                    then:
+                      - homeassistant.service:
+                          service: input_boolean.turn_off
+                          data:
+                            entity_id: input_boolean.disable_next_feed
+          - homeassistant.service:
+              service: input_boolean.turn_on
+              data:
+                entity_id: input_boolean.morning_feed_complete
+          - homeassistant.service:
+              service: input_boolean.turn_off
+              data:
+                entity_id: input_boolean.evening_feed_complete
+      - hours: 17
+        minutes: 35
+        seconds: 45
+        then:
+          - if:
+              condition:
+                and:
+                  - binary_sensor.is_off: evening_feed_complete
+                  - binary_sensor.is_off: disable_next_feed
+                  - binary_sensor.is_on: evening_feed_enabled
+              then:
+                - switch.turn_on: motor
+                - homeassistant.service:
+                    service: input_boolean.turn_on
+                    data:
+                      entity_id: input_boolean.evening_feed_complete
+              else:
+                - if:
+                    condition:
+                        - binary_sensor.is_on: disable_next_feed
+                    then:
+                      - homeassistant.service:
+                          service: input_boolean.turn_off
+                          data:
+                            entity_id: input_boolean.disable_next_feed
+          - homeassistant.service:
+              service: input_boolean.turn_on
+              data:
+                entity_id: input_boolean.evening_feed_complete
+          - homeassistant.service:
+              service: input_boolean.turn_off
+              data:
+                entity_id: input_boolean.morning_feed_complete
+
+    
 # Sensors with general information.
 sensor:
   # Uptime sensor.
@@ -58,6 +126,10 @@ switch:
     pin: GPIO3
     name: "Dispenser Motor"
     id: motor
+    on_turn_on:
+      - delay: 60000ms
+      - switch.turn_off: motor
+    # Todo do an on turn off that restarts the motor if it has run for < 10 seconds
   - platform: restart
     name: Cat Feeder Restart
 
@@ -78,7 +150,7 @@ binary_sensor:
     name: "Morning Feed Enabled"
     entity_id: input_boolean.morning_feed_enabled
   - platform: homeassistant
-    id: mornning_feed_complete
+    id: morning_feed_complete
     name: "Morning Feed Complete"
     entity_id: input_boolean.morning_feed_complete
   - platform: homeassistant

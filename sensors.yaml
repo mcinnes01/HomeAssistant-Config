@@ -1,13 +1,13 @@
-- platform: nest
-  monitored_conditions:
-    - "temperature"
-    - "target"
-    - "humidity"
-    - "weather_temperature"
-    - "weather_humidity"
-    - "weather_condition"
-    - "wind_speed"
-    - "wind_direction"
+#- platform: nest
+#  monitored_conditions:
+#    - "temperature"
+#    - "target"
+#    - "humidity"
+#    - "weather_temperature"
+#    - "weather_humidity"
+#    - "weather_condition"
+#    - "wind_speed"
+#    - "wind_direction"
 - platform: dnsip
 - platform: dnsip
   hostname: home.andisoft.co.uk

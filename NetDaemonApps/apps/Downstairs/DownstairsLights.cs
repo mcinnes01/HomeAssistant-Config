@@ -20,10 +20,11 @@ public class DownstairsLights
 
         // TODO: Fix Hallway motion sensor
         // TODO: Include door/doorbell to control hall lights too
+        HallwayLampAndPorchLightOnWhenFrontDoorOpenOrDoorbell();
         // HallwayLightOnMovement();
         // HallwayLightOffNoMovement();
         // HallwayLampOnMovement();
-        // HallwayLampOffNoMovement();
+        HallwayLampAndPorchLightOffWhenNoActivity();
         LoungeLightsOnMovement();
         LoungeLightsOffNoMovement();
         DrawingRoomLightsOnMovement();
@@ -33,9 +34,31 @@ public class DownstairsLights
     }
 
 #region Hallway
+    private void HallwayLampAndPorchLightOnWhenFrontDoorOpenOrDoorbell()
+    {
+        _entities.BinarySensor.FrontDoorContact.StateChanges()
+        .Merge(_entities.BinarySensor.DoorbellButton.StateChanges())
+        .Where(e => 
+        {
+            _logger.LogTrace(@$"Light Mode: {_entities.InputSelect.LightControlMode.State},
+                Front Door: {_entities.BinarySensor.FrontDoorContact.State}, 
+                Lamp: {_entities.Light.HallwayLamp.State}");
+            return !e.Old.IsOn()
+            && e.New.IsOn()
+            && _entities.InputSelect.LightControlMode.IsNotOption(LightControlModeOptions.Manual)
+            && _entities.InputSelect.Brightness.IsNotOption(BrightnessOptions.Bright);
+        })
+        .Subscribe(_ => 
+        {
+            _logger.LogDebug("Frontdoor open or doorbell rang, turning hallway lamp on");
+            _entities.Light.HallwayLamp.TurnOn();
+            _entities.Light.Porch.TurnOn();
+        });
+    }
+
     // private void HallwayLightOnMovement()
     // {
-    //     _entities.BinarySensor.Hallway.StateChanges()
+    //     _entities.BinarySensor.HallwayMotion.StateChanges()
     //     .Where(e => 
     //     {
     //         _logger.LogTrace(@$"Light Mode: {_entities.InputSelect.LightControlMode.State}, 
@@ -58,15 +81,15 @@ public class DownstairsLights
     // private void HallwayLightOffNoMovement()
     // {
     //     _entities.BinarySensor.HallwayMotion.StateAllChangesWithCurrent()
-    //         .WhenStateIsFor(s => s.IsOff()
-    //             && !_entities.Light.Hallway.IsOff()
-    //             && _entities.InputSelect.LightControlMode.IsNotOption(LightControlModeOptions.Manual),
-    //             TimeSpan.FromMinutes(2))
-    //         .Subscribe(_ => 
-    //         {
-    //             _logger.LogDebug("No motion, turning Hallway light off");
-    //             _entities.Light.Hallway.TurnOff();
-    //         });
+    //     .WhenStateIsFor(s => s.IsOff()
+    //         && !_entities.Light.Hallway.IsOff()
+    //         && _entities.InputSelect.LightControlMode.IsNotOption(LightControlModeOptions.Manual),
+    //         TimeSpan.FromMinutes(2))
+    //     .Subscribe(_ => 
+    //     {
+    //         _logger.LogDebug("No motion, turning Hallway light off");
+    //         _entities.Light.Hallway.TurnOff();
+    //     });
     // }
 
     // private void HallwayLampOnMovement()
@@ -91,19 +114,26 @@ public class DownstairsLights
     //     });
     // }
 
-    // private void HallwayLampOffNoMovement()
-    // {
-    //     _entities.BinarySensor.HallwayMotion.StateAllChangesWithCurrent()
-    //     .WhenStateIsFor(s => s.IsOff()
-    //         && !_entities.Light.HallwayLamp.IsOff()
-    //         && _entities.InputSelect.LightControlMode.IsNotOption(LightControlModeOptions.Manual),
-    //         TimeSpan.FromMinutes(2))
-    //     .Subscribe(_ => 
-    //     {
-    //         _logger.LogDebug("No motion, turning Hallway Lamp off");
-    //         _entities.Light.HallwayLamp.TurnOff();
-    //     });
-    // }
+    private void HallwayLampAndPorchLightOffWhenNoActivity()
+    {
+        //_entities.BinarySensor.HallwayMotion.StateAllChangesWithCurrent()
+        //.Merge(
+        _entities.BinarySensor.FrontDoorContact.StateAllChangesWithCurrent()
+        .Merge(_entities.BinarySensor.DoorbellButton.StateAllChangesWithCurrent())
+        .WhenStateIsFor(s => s.IsOff() &&
+            _entities.InputSelect.LightControlMode.IsNotOption(LightControlModeOptions.Manual),
+            TimeSpan.FromMinutes(2))
+        .Subscribe(_ => 
+        {
+            _logger.LogDebug("No motion, turning Hallway Lamp off");
+            //_entities.Light.HallwayLamp.TurnOff();
+            if (TimeOnly.FromDateTime(DateTime.Now) > Constants.PORCH_LIGHT_OFF_TIME)
+            {
+                _logger.LogDebug("No motion, turning Porch Light off");
+                _entities.Light.Porch.TurnOff();
+            }
+        });
+    }
 #endregion
 
 #region Lounge
@@ -125,8 +155,7 @@ public class DownstairsLights
                 Lounge Mode: {loungeMode},
                 Brightness: {_entities.InputSelect.Brightness.State},
                 Lounge motion: Old: {e.Old?.State} - New: {e.New?.State},
-                Lounge Corner Lamp: {_entities.Light.LoungeCornerLamp.State}, 
-                Lounge Floor Lamp: {_entities.Light.LoungeFloorLamp.State}, 
+                Lounge Corner Lamp: {_entities.Light.LoungeCornerLamp.State},
                 Lounge Light: {_entities.Light.Lounge.State}");
 
             if (Constants.NormalMotionModes.Contains(lightMode)
@@ -134,13 +163,14 @@ public class DownstairsLights
             {
                 _logger.LogDebug("Motion detected, turning Lounge Light On.");
                 _entities.Light.Lounge.TurnOn();
+                _entities.Light.LoungeCornerLamp.TurnOff();
             }
             else if (Constants.LampMotionModes.Contains(lightMode)
                 && Constants.LoungeLampModes.Contains(loungeMode))
             {
                 _logger.LogDebug("Motion detected, turning Lounge Lamps On.");
+                _entities.Light.Lounge.TurnOff();
                 _entities.Light.LoungeCornerLamp.TurnOn();
-                _entities.Light.LoungeFloorLamp.TurnOn();
             }
         });
     }
@@ -162,7 +192,6 @@ public class DownstairsLights
                 Brightness: {_entities.InputSelect.Brightness.State},
                 Lounge motion: Old: {e.Old?.State} - New: {e.New?.State},
                 Lounge Corner Lamp: {_entities.Light.LoungeCornerLamp.State}, 
-                Lounge Floor Lamp: {_entities.Light.LoungeFloorLamp.State}, 
                 Lounge Light: {_entities.Light.Lounge.State}");
 
             if (Constants.NormalMotionModes.Contains(lightMode)
@@ -176,7 +205,6 @@ public class DownstairsLights
             {
                 _logger.LogDebug("No motion, turning Lounge Lamps Off");
                 _entities.Light.LoungeCornerLamp.TurnOff();
-                _entities.Light.LoungeFloorLamp.TurnOff();
             }
         });
     }
@@ -200,6 +228,7 @@ public class DownstairsLights
                 Brightness: {_entities.InputSelect.Brightness.State},
                 Drawing Room Motion: Old: {e.Old?.State} - New: {e.New?.State},
                 Bookshelf Light: {_entities.Light.Bookshelf.State}, 
+                Drawing Room Floor Lamp: {_entities.Light.DrawingRoomFloorLamp.State}, 
                 Drawing Room Light: {_entities.Light.DrawingRoom.State}");
 
             if (Constants.NormalMotionModes.Contains(lightMode))
@@ -211,6 +240,7 @@ public class DownstairsLights
             {
                 _logger.LogDebug("Motion detected, turning Bookshelf Light On.");
                 _entities.Light.Bookshelf.TurnOn();
+                _entities.Light.DrawingRoomFloorLamp.TurnOn();
             }
         });
     }
@@ -230,6 +260,7 @@ public class DownstairsLights
                 Brightness: {_entities.InputSelect.Brightness.State},
                 Drawing Room Motion: Old: {e.Old?.State} - New: {e.New?.State},
                 Bookshelf Light: {_entities.Light.Bookshelf.State}, 
+                Drawing Room Floor Lamp: {_entities.Light.DrawingRoomFloorLamp.State}, 
                 Drawing Room Light: {_entities.Light.DrawingRoom.State}");
 
             if (Constants.NormalMotionModes.Contains(lightMode))
@@ -241,6 +272,7 @@ public class DownstairsLights
             {
                 _logger.LogDebug("No motion, turning Bookshelf Light Off");
                 _entities.Light.Bookshelf.TurnOff();
+                _entities.Light.DrawingRoomFloorLamp.TurnOff();
             }
         });
     }

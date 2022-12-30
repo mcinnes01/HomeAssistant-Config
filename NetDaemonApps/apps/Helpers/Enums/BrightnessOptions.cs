@@ -1,6 +1,6 @@
 namespace Helpers.Enums;
 
-public enum  BrightnessOptions
+public enum BrightnessOptions
 {
     Bright,
     Dim,

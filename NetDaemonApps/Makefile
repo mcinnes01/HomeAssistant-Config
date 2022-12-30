@@ -1,10 +1,9 @@
 .PHONY: build 
 
 generate:
-	nd-codegen -o apps/HomeAssistantGenerated.cs
+	nd-codegen -o HomeAssistantGenerated.cs
 
 build:
-	dotnet build -c Release
 	dotnet publish -c Release -o out
 
 publish:

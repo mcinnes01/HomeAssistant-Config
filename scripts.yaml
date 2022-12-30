@@ -82,11 +82,17 @@ notify_all:
     data_template:
       title: '{{title}}'
       message: '{{message}}'
-  - service: script.pushbullet
-    data_template:
-      title: '{{title}}'
-      message: '{{message}}'
-      picture_url: '{{picture_url}}'
+  - device_id: 32f46788cec66f0b092024e0cb01e5d6
+    domain: mobile_app
+    type: notify
+    message: '{{message}}'
+    title: '{{title}}'
+  - device_id: 3cf9e880497a947bf86f81e62cdb9fc3
+    domain: mobile_app
+    type: notify
+    message: '{{message}}'
+    title: '{{title}}'
+  mode: single
 doorbell_alexa:
   alias: Doorbell Alexa
   sequence:
@@ -127,3 +133,47 @@ room_controller_reset:
     target:
       entity_id: group.{{room}}_overrides
   mode: single
+new_script:
+  alias: activate_alexa_actionable_notification
+  description: Activates an actionable notification on a specific echo device
+  mode: single
+  icon: mdi:message-badge-outline
+  fields:
+    text:
+      description: The text you would like alexa to speak.
+      example: What would you like the thermostat set to?
+    event_id:
+      description: Correlation ID for event responses
+      example: ask_for_temperature
+    alexa_device:
+      description: Alexa device you want to trigger
+      example: media_player.bedroom_echo
+  sequence:
+  - service: input_text.set_value
+    data:
+      entity_id: input_text.alexa_actionable_notification
+      value: '{"text": "{{ text }}", "event": "{{ event_id }}"}'
+  - service: media_player.play_media
+    data:
+      entity_id: '{{ alexa_device }}'
+      media_content_type: skill
+      media_content_id: amzn1.ask.skill.7c6c5354-6fd2-4c4f-9a60-165e5ce9cac9
+alarm_triggered:
+  alias: Alarm Triggered
+  sequence:
+  - service: notify.alexa_media
+    data:
+      message: Alarm Triggered
+      title: Alarm Triggered
+      target: media_player.all_speakers
+      data:
+        type: announce
+        method: all
+  - service: media_player.play_media
+    target:
+      entity_id: media_player.all_speakers
+    data:
+      media_content_id: buzzers_pistols_01
+      media_content_type: sound
+  mode: single
+  icon: mdi:shield-home

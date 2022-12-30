@@ -189,8 +189,8 @@ data:
   11_person_name: Andy
   12_person_entity: person.andy
   13_tracker_entity: person.andy
-  14_battery_charging_entity: sensor.andrews_iphone_battery_state
-  15_battery_level_entity: sensor.andrews_iphone_battery_level
+  14_battery_charging_entity: sensor.andy_s_iphone_battery_state
+  15_battery_level_entity: sensor.andy_s_iphone_battery_level
   21_person_name: Claire
   22_person_entity: person.claire
   23_tracker_entity: person.claire

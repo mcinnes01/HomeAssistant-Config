@@ -3,8 +3,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NetDaemon.Extensions.Logging;
 using NetDaemon.Extensions.MqttEntityManager;
-using NetDaemon.Extensions.Scheduler;
-using NetDaemon.Extensions.Tts;
 using NetDaemon.Runtime;
 
 #pragma warning disable CA1812
@@ -17,14 +15,17 @@ try
         .UseNetDaemonRuntime()
         .UseNetDaemonTextToSpeech()
         .UseNetDaemonMqttEntityManagement()
+        //.UseDeviceTriggers()
         .ConfigureServices((_, services) =>
-        {
+         {
             services
-                .AddAppsFromAssembly(Assembly.GetExecutingAssembly())
-                .AddNetDaemonStateManager()
-                .AddNetDaemonScheduler();
+              .AddAppsFromAssembly(Assembly.GetExecutingAssembly())
+              .AddNetDaemonStateManager()
+              .AddNetDaemonScheduler()
+              .AddGeneratedCode();
+            services.AddSingleton<INotificationService, NotificationService>();
             services.AddTransient<ILightingStates, LightingStates>();
-        })
+         })      
         .Build()
         .RunAsync()
         .ConfigureAwait(false);

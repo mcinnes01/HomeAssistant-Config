@@ -2,7 +2,6 @@
 
 cameras:
   entities:
-    - camera.cellar_door_camera
     - camera.basement_hall_camera_medium
     - camera.kitchen_camera_medium
     - camera.patio_camera_medium

@@ -182,10 +182,11 @@
       - rgb
       flowing: false
       music_mode: false
+      icon: mdi:desk-lamp-on
       friendly_name: Snug Floor Lamp
       supported_features: 44
       color_mode: rgb
-      brightness: 255
+      brightness: 18
       hs_color:
       - 240
       - 100
@@ -200,6 +201,7 @@
     light.snug:
       supported_color_modes:
       - onoff
+      icon: mdi:light-recessed
       friendly_name: Snug Light
       supported_features: 0
       state: 'off'
@@ -209,6 +211,7 @@
       friendly_name: Snug Light Constrained
       state: 'on'
   icon: hass:video-vintage
+  metadata: {}
 - id: '1593602471773'
   name: Lighting Ambient
   entities:
@@ -381,15 +384,28 @@
       icon: hass:bed
       friendly_name: Bedroom Mode
       state: Sleeping
+    input_select.light_control_mode:
+      options:
+      - Manual
+      - Motion
+      - Sleeping
+      - Cleaning
+      - Relaxing
+      editable: true
+      icon: mdi:home-lightbulb-outline
+      friendly_name: Light Control Mode
+      state: Sleeping
   icon: mdi:weather-night
   metadata:
+    input_boolean.in_bed:
+      entity_only: true
     input_select.lounge_mode:
       entity_only: true
     input_select.snug_mode:
       entity_only: true
-    input_boolean.in_bed:
-      entity_only: true
     input_select.bedroom_mode:
+      entity_only: true
+    input_select.light_control_mode:
       entity_only: true
 - id: '1604358522437'
   name: Get Ready For Bed
@@ -659,62 +675,196 @@
 - id: '1605351014819'
   name: Lights Up
   entities:
-    light.snug_floor_lamp: 'off'
-    light.snug: 'off'
-    input_select.snug_mode: Normal
+    light.snug_floor_lamp:
+      min_mireds: 153
+      max_mireds: 588
+      effect_list:
+      - Strobe color
+      - Police
+      - Christmas
+      - RGB
+      - Random Loop
+      - Fast Random Loop
+      - LSD
+      - Slowdown
+      - Night Mode
+      - Date Night
+      - Movie
+      - Sunrise
+      - Sunset
+      - Romance
+      - Happy Birthday
+      - Disco
+      - Strobe epilepsy!
+      - Alarm
+      - Police2
+      - WhatsApp
+      - Facebook
+      - Twitter
+      - Home
+      - Candle Flicker
+      - Slow Temp
+      - Stop
+      supported_color_modes:
+      - color_temp
+      - hs
+      - rgb
+      flowing: false
+      music_mode: false
+      icon: mdi:desk-lamp-on
+      friendly_name: Snug Floor Lamp
+      supported_features: 44
+      state: 'off'
+    light.snug:
+      supported_color_modes:
+      - onoff
+      icon: mdi:light-recessed
+      friendly_name: Snug Light
+      supported_features: 0
+      color_mode: onoff
+      state: 'on'
+    input_select.snug_mode:
+      options:
+      - Normal
+      - Movie
+      - Chill
+      editable: true
+      icon: mdi:projector
+      friendly_name: Snug Mode
+      state: Normal
   icon: hass:floor-lamp
+  metadata: {}
 - id: '1605716138100'
   name: Showering
   entities:
+    input_boolean.in_shower:
+      editable: true
+      icon: hass:shower-head
+      friendly_name: in_shower
+      state: 'on'
     light.bathroom:
       supported_color_modes:
       - onoff
-      color_mode: onoff
+      icon: mdi:light-recessed
       friendly_name: Bathroom Light
       supported_features: 0
+      color_mode: onoff
       state: 'on'
-    light.mirror:
-      supported_color_modes:
-      - onoff
-      friendly_name: Mirror Light
-      supported_features: 0
-      state: 'off'
-    input_boolean.in_shower:
-      editable: true
-      friendly_name: in_shower
-      icon: hass:shower-head
-      state: 'on'
-    fan.bathroom_fan:
+    fan.bathroom:
       friendly_name: Bathroom Fan
       supported_features: 0
       state: 'on'
   icon: hass:shower-head
+  metadata:
+    light.bathroom:
+      entity_only: true
+    fan.bathroom:
+      entity_only: true
 - id: '1605716301658'
   name: Bathroom Normal
   entities:
     input_boolean.in_shower:
       editable: true
-      friendly_name: in_shower
       icon: hass:shower-head
+      friendly_name: in_shower
       state: 'off'
-    light.bathroom:
+    light.bathroom_lights:
       supported_color_modes:
       - onoff
-      friendly_name: Bathroom Light
+      entity_id:
+      - light.bathroom
+      - light.mirror
+      icon: mdi:lightbulb-group
+      friendly_name: Bathroom Lights
       supported_features: 0
       state: 'off'
-    light.mirror:
-      supported_color_modes:
-      - onoff
-      friendly_name: Mirror Light
-      supported_features: 0
-      state: 'off'
-    fan.bathroom_fan:
+    fan.bathroom:
       friendly_name: Bathroom Fan
       supported_features: 0
       state: 'off'
   icon: hass:shower
+  metadata:
+    light.bathroom_lights:
+      entity_only: true
+    fan.bathroom:
+      entity_only: true
 - id: '1645051325679'
   name: Cleaning
   entities: {}
   icon: mdi:spray-bottle
+- id: '1664644106310'
+  name: Pre Movie
+  entities:
+    light.snug:
+      supported_color_modes:
+      - onoff
+      icon: mdi:light-recessed
+      friendly_name: Snug Light
+      supported_features: 0
+      state: 'off'
+    light.snug_floor_lamp:
+      min_mireds: 153
+      max_mireds: 588
+      effect_list:
+      - Strobe color
+      - Police
+      - Christmas
+      - RGB
+      - Random Loop
+      - Fast Random Loop
+      - LSD
+      - Slowdown
+      - Night Mode
+      - Date Night
+      - Movie
+      - Sunrise
+      - Sunset
+      - Romance
+      - Happy Birthday
+      - Disco
+      - Strobe epilepsy!
+      - Alarm
+      - Police2
+      - WhatsApp
+      - Facebook
+      - Twitter
+      - Home
+      - Candle Flicker
+      - Slow Temp
+      - Stop
+      supported_color_modes:
+      - color_temp
+      - hs
+      - rgb
+      flowing: false
+      music_mode: false
+      icon: mdi:desk-lamp-on
+      friendly_name: Snug Floor Lamp
+      supported_features: 44
+      color_mode: color_temp
+      brightness: 255
+      hs_color:
+      - 27.539
+      - 14.724
+      rgb_color:
+      - 255
+      - 234
+      - 217
+      xy_color:
+      - 0.359
+      - 0.345
+      color_temp: 187
+      state: 'on'
+    input_boolean.snug_light_constrained:
+      editable: true
+      icon: hass:check-circle-outline
+      friendly_name: Snug Light Constrained
+      state: 'on'
+  icon: mdi:video-vintage
+  metadata:
+    light.snug:
+      entity_only: true
+    light.snug_floor_lamp:
+      entity_only: true
+    input_boolean.snug_light_constrained:
+      entity_only: true

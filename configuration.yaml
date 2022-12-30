@@ -29,27 +29,32 @@ history:
 input_boolean:
 input_datetime:
 input_text:
+  alexa_actionable_notification:
+    name: Alexa Actionable Notification Holder
+    max: 255
+    initial: '{"text": "This is a test of the alexa actions custom skill. Did it work?", "event": "actionable.skill.test"}'
 input_number:
 input_select:
 logbook:
 logger:
   default: critical
-  logs:
-    homeassistant.components.samsungtv: debug
-    homeassistant.components.samsungtvws: debug
-    samsungtvws.remote: debug
-    #homeassistant.components.automation: debug
 map:
   entities:
     - device_tracker.claires_iphone
-    - device_tracker.moto_g_7
-    - sensor.moto_g_7_geocoded_location
+    - device_tracker.pixel_6_2
   hours_to_show: 72
   dark_mode: true
 media_source:
 mobile_app:
 my:
 person:
+proximity:
+  home:
+    devices:
+      - person.andy
+      - person.claire
+    tolerance: 10
+    unit_of_measurement: mi
 scene: !include scenes.yaml
 script: !include scripts.yaml
 sensor: !include sensors.yaml
@@ -69,37 +74,10 @@ discovery:
   ignore:
     - yeelight
 
-# Alexa media
-# alexa_media:
-#   accounts:
-#     - email: !secret amazon_user
-#       password: !secret amazon_password
-#       url: amazon.co.uk
-
 # Spotify
 spotcast:
   sp_dc: !secret sp_dc
   sp_key: !secret sp_key
-
-# Bad Nest
-# badnest:
-#   user_id: !secret badnest_id
-#   access_token: !secret badnest_access_token
-#   region: eu
-
-# climate:
-#   - platform: badnest
-#     scan_interval: 10
-
-# Spotify
-spotify:
-  client_id: !secret spotify_clientid
-  client_secret: !secret spotify_secret
-
-# Google Calendar
-google:
-  client_id: !secret google_clientid
-  client_secret: !secret google_client_secret
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
@@ -145,50 +123,99 @@ alarm_control_panel:
       arming_time: 60
       delay_time: 30
 
-# Sonoff
-# sonoff:
-#   username: !secret sonoff_username
-#   password: !secret sonoff_password
-#   mode: local
-#   reload: always  # update device list every time HA starts
-#   devices:
-#     1000bab381:
-#       device_class: [light,light,light,light]
-#       name: Upstairs Lights 1
-#     1000bab6de:
-#       device_class: [light,light,light,light]
-#       name: Upstairs Lights 2
-#     100032907e:
-#       device_class: [light,light,light,light]
-#       name: Outside Lights
-#     1000ba9977:
-#       device_class: [light,light,light,light]
-#       name: Downstairs Lights 1
-#     1000bab17a:
-#       device_class: [light,light,light,light]
-#       name: Downstairs Lights 2
-#     100032bd73:
-#       device_class: [light,light,light,light]
-#       name: Basement Lights 1
-#     100032a00d:
-#       device_class: [light,light,light,light]
-#       name: Basement Lights 2
-
 # Lights
 yeelight:
-  # devices:
-  #   192.168.30.17:
-  #     name: Snug Floor Lamp
-  #   192.168.30.43:
-  #     name: Bedside Lamp
-  #   192.168.30.48:
-  #     name: Breakfast Bar Lamp
-  #   192.168.30.106:
-  #     name: Hallway Lamp
-  #   192.168.30.171:
-  #     name: Lounge Floor Room Lamp
-  #   192.168.30.200:
-  #     name: Lounge Corner Lamp
+  custom_effects:
+    - name: "Lightning"
+      flow_params:
+        count: 0
+        transitions:
+          - TemperatureTransition: [6500, 50, 0]
+          - TemperatureTransition: [6500, 50, 50]
+          - TemperatureTransition: [6500, 50, 0]
+          - SleepTransition: [3000]
+          - TemperatureTransition: [6500, 50, 50]
+          - TemperatureTransition: [6500, 50, 0]
+          - TemperatureTransition: [6500, 50, 50]
+          - TemperatureTransition: [6500, 50, 0]
+          - SleepTransition: [1500]
+    - name: "Flicker"
+      flow_params:
+        count: 0
+        transitions:
+          - TemperatureTransition: [6500, 50, 0]
+          - TemperatureTransition: [6500, 50, 50]
+          - SleepTransition: [3000]
+    - name: "Flicker2"
+      flow_params:
+        count: 0
+        transitions:
+          - TemperatureTransition: [6500, 50, 0]
+          - TemperatureTransition: [6500, 50, 50]
+          - SleepTransition: [3000]
+          - TemperatureTransition: [6500, 50, 0]
+          - TemperatureTransition: [6500, 50, 50]
+          - TemperatureTransition: [6500, 50, 0]
+          - TemperatureTransition: [6500, 50, 50]
+          - TemperatureTransition: [6500, 500, 0]
+          - TemperatureTransition: [6500, 50, 80]
+    - name: "FlickerScare"
+      flow_params:
+        count: 0
+        transitions:
+          - TemperatureTransition: [6500, 50, 0]
+          - TemperatureTransition: [6500, 50, 50]
+          - SleepTransition: [3000]
+          - TemperatureTransition: [6500, 50, 0]
+          - TemperatureTransition: [6500, 50, 50]
+          - TemperatureTransition: [6500, 50, 0]
+          - TemperatureTransition: [6500, 50, 50]
+          - TemperatureTransition: [6500, 500, 0]
+          - SleepTransition: [3000]
+          - RGBTransition: [255, 0, 0, 50, 80]
+          - SleepTransition: [10000]
+    - name: "FlickerWarm"
+      flow_params:
+        count: 0
+        transitions:
+          - TemperatureTransition: [1700, 50, 0]
+          - TemperatureTransition: [1700, 50, 50]
+          - SleepTransition: [3000]
+    - name: "FlickerWarmScare"
+      flow_params:
+        count: 0
+        transitions:
+          - TemperatureTransition: [1700, 50, 0]
+          - TemperatureTransition: [1700, 50, 50]
+          - SleepTransition: [3000]
+          - TemperatureTransition: [1700, 50, 0]
+          - TemperatureTransition: [1700, 50, 50]
+          - TemperatureTransition: [1700, 50, 0]
+          - TemperatureTransition: [1700, 50, 50]
+          - TemperatureTransition: [1700, 500, 0]
+          - SleepTransition: [3000]
+          - RGBTransition: [255, 0, 0, 50, 80]
+          - RGBTransition: [255, 0, 0, 50, 0]
+          - SleepTransition: [10000]
+    - name: "Self_Alarm"
+      flow_params:
+        count: 0
+        transitions:
+          - RGBTransition: [0, 0, 255, 300, 1]
+          - RGBTransition: [222, 0, 0, 50, 1]
+          - RGBTransition: [255, 52, 52, 50, 256]
+          - RGBTransition: [222, 0, 0, 50, 1]
+          - RGBTransition: [0, 0, 255, 50, 256]
+          - RGBTransition: [222, 0, 0, 50, 1]
+          - RGBTransition: [255, 52, 52, 50, 256]
+          - RGBTransition: [222, 0, 0, 50, 1]
+    - name: "Fire Flicker"
+      flow_params:
+        count: 0
+        transitions:
+          - TemperatureTransition: [1900, 1000, 80]
+          - TemperatureTransition: [1900, 2000, 60]
+          - SleepTransition: [1000]
 
 binary_sensor:
   - platform: uptimerobot

@@ -2,6 +2,7 @@ public static class Constants
 {
     public const double DARK_THRESHOLD = 30.0;
     public const double BRIGHT_THRESHOLD = 480.0;
+    public static TimeOnly PORCH_LIGHT_OFF_TIME = new TimeOnly(23, 0);
     public static TimeOnly DAYTIME = new TimeOnly(9, 0);
     public static TimeOnly BACK_IN_SHADOW = new TimeOnly(9, 0);
     public static TimeOnly NIGHTTIME_WEEKDAYS = new TimeOnly(23, 59, 59);

@@ -1,0 +1,42 @@
+NetDaemon.Infrastructure.Alexa.AlexaConfig:
+  Devices:
+    media_player.snug_echo_show:
+        DayVolume: 0.5
+        NightVolume: 0.3
+        NightWhisper: true
+    media_player.dining_room_echo_input:
+        DayVolume: 0.5
+        NightVolume: 0.3
+        NightWhisper: false
+    media_player.utility_room_echo_dot:
+        DayVolume: 0.5
+        NightVolume: 0.3
+        NightWhisper: false
+    media_player.kitchen_echo_show:
+        DayVolume: 0.5
+        NightVolume: 0.3
+        NightWhisper: false
+    media_player.drawing_room_echo_dot:
+        DayVolume: 0.5
+        NightVolume: 0.3
+        NightWhisper: false
+    media_player.lounge_echo_plus:
+        DayVolume: 0.5
+        NightVolume: 0.3
+        NightWhisper: false
+    media_player.lounge_tv:
+        DayVolume: 0.6
+        NightVolume: 0.4
+        NightWhisper: false
+    media_player.bedroom_echo_show:
+        DayVolume: 0.5
+        NightVolume: 0.3
+        NightWhisper: false
+    media_player.guest_room_echo_show:
+        DayVolume: 0.6
+        NightVolume: 0.4
+        NightWhisper: true
+    media_player.dressing_room_echo_dot:
+        DayVolume: 0.5
+        NightVolume: 0.3
+        NightWhisper: true
