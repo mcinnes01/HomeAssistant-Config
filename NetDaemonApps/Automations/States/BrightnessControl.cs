@@ -3,80 +3,106 @@ namespace NetDaemonApps.Automations.States;
 [NetDaemonApp]
 public class BrightnessController
 {
-    LogbookServices Logbook;
     private readonly ILogger<BrightnessController> logger;
     private readonly IEntities entities;
-    InputNumberEntity? darkThreshold;
-    InputNumberEntity? brightThreshold;
-    NumericSensorEntity? illuminanceSensor;
-    InputSelectEntity? timeOfDay;
-    InputSelectEntity? brightness;
-    SunEntity? sun;
+    InputNumberEntity? DarkThreshold;
+    InputNumberEntity? BrightThreshold;
+    NumericSensorEntity? IlluminanceSensor;
+    InputSelectEntity? TimeOfDay;
+    InputSelectEntity? Brightness;
+    SunEntity? Sun;
     InputBooleanEntity? IsEnabled;
-    bool isTooDark;
     bool sensorFault;
-    bool isMaxBrightness;
-    DateTime? timeInState;
+    string? lastState;
+    DateTime? TimeInState;
 
-    public BrightnessController(IHaContext context, IServices services, ILogger<BrightnessController> logger)
+
+    public BrightnessController(IHaContext context, ILogger<BrightnessController> logger)
     {
-        Logbook = services.Logbook;
         this.logger = logger;
         this.entities = new Entities(context);
 
-        illuminanceSensor = entities.Sensor.WeatherStationAmbientLight;
-        darkThreshold = entities.InputNumber.BrightnessDarkThreshold;
-        brightThreshold = entities.InputNumber.BrightnessBrightThreshold;
-        brightness = entities.InputSelect.Brightness;
-        timeOfDay = entities.InputSelect.TimeOfDay;
-        sun = entities.Sun.Sun;
+        IlluminanceSensor = entities.Sensor.WeatherStationAmbientLight;
+        DarkThreshold = entities.InputNumber.BrightnessDarkThreshold;
+        BrightThreshold = entities.InputNumber.BrightnessBrightThreshold;
+        Brightness = entities.InputSelect.Brightness;
+        TimeOfDay = entities.InputSelect.TimeOfDay;
+        Sun = entities.Sun.Sun;
         IsEnabled = entities.InputBoolean.TimeOfDayEnabled;
-        timeInState = brightness.EntityState?.LastChanged;
+        TimeInState = Brightness.EntityState?.LastChanged;
 
-        illuminanceSensor?.StateChanges()
+        // Lux sensor goes out of range or loses connection
+        IlluminanceSensor?.StateChanges()
             .Where(i => i.New == null || i.New.IsUnavailable() || i.New.IsUnknown())
             .Throttle(TimeSpan.FromMinutes(5))
-            .Subscribe(_ =>
+            .Subscribe(i =>
             {
+                lastState = i.Old?.State?.ToString();
                 sensorFault = true;
-                Handle();
+                Handle(Trigger.LuxFault);
             });
 
-        illuminanceSensor?.StateChanges()
-            .Where(i => i.New?.State < brightThreshold?.State)
+        // Lux below dark threshold
+        IlluminanceSensor?.StateChanges()
+            .Where(i => i.New?.State <= DarkThreshold?.State)
             .Throttle(TimeSpan.FromMinutes(5))
             .Subscribe(_ =>
             {
                 sensorFault = false;
-                isTooDark = true;
-                Handle();
+                Handle(Trigger.SensorDark);
             });
 
-        illuminanceSensor?.StateChanges()
-            .Where(i => i.New?.State >= brightThreshold?.State)
+        // Lux in dim range
+        IlluminanceSensor?.StateChanges()
+            .Where(i => i.New?.State < BrightThreshold?.State
+                     && i.New?.State > DarkThreshold?.State)
             .Throttle(TimeSpan.FromMinutes(5))
             .Subscribe(_ =>
             {
                 sensorFault = false;
-                isTooDark = false;
-                isMaxBrightness = true;
-                Handle();
+                Handle(Trigger.SensorDim);
             });
 
-        brightThreshold?.StateChanges()
+        // Lux above bright threshold
+        IlluminanceSensor?.StateChanges()
+            .Where(i => i.New?.State >= BrightThreshold?.State)
+            .Throttle(TimeSpan.FromMinutes(5))
             .Subscribe(_ =>
             {
-                // TODO doesn't handle sensor fault at start could produce error, 
-                //basic handling added but something to do with sun would help
-                isTooDark = sensorFault ? false : illuminanceSensor?.State <= brightThreshold?.State;
-                isMaxBrightness = sensorFault ? false : !isTooDark;
-                Handle();
+                sensorFault = false;
+                Handle(Trigger.SensorBright);
             });
 
-        sun?.StateChanges()
+        // Update brightness when sensor is working and dark theshold is changed
+        DarkThreshold?.StateChanges()
+            .Where(_ => !sensorFault)
+            .Subscribe(_ =>
+            {
+                Handle(Trigger.DarkThreshold);
+            });
+
+        // Update brightness when sensor is working and bright theshold is changed
+        BrightThreshold?.StateChanges()
+            .Where(_ => !sensorFault)
+            .Subscribe(_ =>
+            {
+                Handle(Trigger.BrightThreshold);
+            });
+
+        // Observe sun changes when the sensor is in fault
+        Sun?.StateChanges()
+            .Where(_ => sensorFault)
             .Subscribe(s =>
             {
-                Handle();
+                Handle(Trigger.Sun);
+            });
+
+        // Observe time of day changes when the sensor is in fault
+        TimeOfDay.StateChanges()
+            .Where(_ => sensorFault)
+            .Subscribe(s =>
+            {
+                Handle(Trigger.TimeOfDay);
             });
 
         IsEnabled?.StateChanges()
@@ -91,13 +117,9 @@ public class BrightnessController
 
     void Init()
     {
-        sensorFault = illuminanceSensor?.State == null ||
-            illuminanceSensor.IsUnavailable() ||
-            illuminanceSensor.IsUnknown();
-        // TODO doesn't handle sensor fault at start could produce error, 
-        //basic handling added but something to do with sun would help
-        isTooDark = sensorFault ? false : illuminanceSensor?.State <= brightThreshold?.State;
-        isMaxBrightness = sensorFault ? false : !isTooDark;
+        sensorFault = IlluminanceSensor?.State == null ||
+            IlluminanceSensor.IsUnavailable() ||
+            IlluminanceSensor.IsUnknown();
         Handle();
     }    
     
@@ -105,58 +127,71 @@ public class BrightnessController
     entityState?.State switch
     {
         <= Constants.DARK_THRESHOLD => BrightnessOptions.Dark,
+        > Constants.DARK_THRESHOLD and < Constants.BRIGHT_THRESHOLD => BrightnessOptions.Dim,
         >= Constants.BRIGHT_THRESHOLD => BrightnessOptions.Bright,
-        null => sun!.Attributes?.Elevation > 2 ? BrightnessOptions.Bright : BrightnessOptions.Dim,
-        _ => sun!.Attributes?.Elevation > 2 ? BrightnessOptions.Bright : BrightnessOptions.Dim,
+        null => Sun!.Attributes?.Elevation > 2 ? BrightnessOptions.Bright : BrightnessOptions.Dim,
+        _ => Sun!.Attributes?.Elevation > 2 ? BrightnessOptions.Bright : BrightnessOptions.Dim,
     };
 
-    void Handle()
+    void Handle(Trigger? trigger = null)
     {
         if (IsEnabled.IsOn())
         {
-            if (!sensorFault)
+            switch (trigger)
             {
-                var brightnessState = MapBrightness(illuminanceSensor!.EntityState);
-                Logbook.Log(entityId: brightness!.EntityId,
-                message: $"Lux: {illuminanceSensor.State}, setting brightness to {brightnessState.ToString()}.",
-                name: "Brightness",
-                domain: "InputSelect");
-                brightness!.SelectOption(brightnessState);
-            }
-            else
-            {
-                if (sun.IsAboveHorizon() &&
-                    isMaxBrightness &&
-                    DateTime.TryParse(sun?.Attributes?.NextSetting, out DateTime nextSetting) &&
-                    DateTime.TryParse(sun?.Attributes?.NextRising, out DateTime nextRising) &&
+                case Trigger.SensorDark: 
+                    Brightness!.SelectOption(BrightnessOptions.Dark);
+                    break;
+                case Trigger.SensorDim: 
+                    Brightness!.SelectOption(BrightnessOptions.Dim);
+                    break;
+                case Trigger.SensorBright:
+                    Brightness!.SelectOption(BrightnessOptions.Bright);
+                    break;
+                case Trigger.LuxFault:
+                case Trigger.Sun:
+                case Trigger.TimeOfDay:
+                    if (Sun.IsAboveHorizon() &&
+                    DateTime.TryParse(Sun?.Attributes?.NextSetting, out DateTime nextSetting) &&
+                    DateTime.TryParse(Sun?.Attributes?.NextRising, out DateTime nextRising) &&
                     nextSetting < nextRising &&
-                    nextSetting > DateTime.Now.AddHours(2))
-                {
-                    Logbook.Log(entityId: brightness!.EntityId,
-                    message: $"Lux sensor fault, using sun, previous state and time of day to set brightness: Bright.",
-                    name: "Brightness",
-                    domain: "InputSelect");
-                    brightness?.SelectOption(BrightnessOptions.Bright);
-                }
-                else if (sun.IsAboveHorizon())
-                {
-                    Logbook.Log(entityId: brightness!.EntityId,
-                    message: $"Lux sensor fault, using sun and time of day to set brightness Dim.",
-                    name: "Brightness",
-                    domain: "InputSelect");
-                    brightness?.SelectOption(BrightnessOptions.Dim);
-                    isMaxBrightness = false;
-                }
-                else
-                {
-                    Logbook.Log(entityId: brightness!.EntityId,
-                    message: $"Lux sensor fault, using sun below horizon to set brightness Dark.",
-                    name: "Brightness",
-                    domain: "InputSelect");
-                    brightness?.SelectOption(BrightnessOptions.Dark);
-                    isMaxBrightness = false;
-                }
-            }
+                    nextSetting > DateTime.Now.AddHours(2) &&
+                    TimeOfDay!.IsNotOption(TimeOfDayOptions.Night))
+                    {
+                        Brightness.Log($"Trigger: {trigger}, Lux sensor fault, using sun, previous state and time of day to set brightness: Bright.");
+                        Brightness?.SelectOption(BrightnessOptions.Bright);
+                    }
+                    else if (Sun.IsAboveHorizon() || TimeOfDay!.IsNotOption(TimeOfDayOptions.Night))
+                    {
+                        Brightness.Log($"Trigger: {trigger}, Lux sensor fault, using sun and time of day to set brightness Dim.");
+                        Brightness?.SelectOption(BrightnessOptions.Dim);
+                    }
+                    else
+                    {
+                        Brightness.Log($"Trigger: {trigger}, Lux sensor fault, using sun below horizon to set brightness Dark.");
+                        Brightness?.SelectOption(BrightnessOptions.Dark);
+                    }
+                    break;
+                case Trigger.DarkThreshold:
+                case Trigger.BrightThreshold:
+                default:
+                    Brightness!.SelectOption(MapBrightness(IlluminanceSensor?.EntityState));
+                    break;
+            };
+
+            Brightness.Log($"Trigger: {trigger}, Lux: {IlluminanceSensor?.State}, setting brightness to {Brightness.State}.");
         }
+    }
+
+    enum Trigger
+    {
+        DarkThreshold,
+        BrightThreshold,
+        LuxFault,
+        SensorBright,
+        SensorDim,
+        SensorDark,
+        Sun,
+        TimeOfDay
     }
 }

@@ -3,7 +3,6 @@ namespace NetDaemonApps.Automations.States;
 [NetDaemonApp]
 public class LocationModeController
 {
-    LogbookServices Logbook;
     ILogger<LocationModeController> logger;
     IEntities entities;
     InputSelectEntity? LocationMode;
@@ -15,9 +14,8 @@ public class LocationModeController
     bool claireChanged;
     bool manualChange;
 
-    public LocationModeController(IHaContext context, IServices services, ILogger<LocationModeController> logger)
+    public LocationModeController(IHaContext context, ILogger<LocationModeController> logger)
     {
-        Logbook = services.Logbook;
         this.logger = logger;
         this.entities = new Entities(context);
 
@@ -90,38 +88,26 @@ public class LocationModeController
         if (!Andy.IsHome() && !Claire.IsHome())
         {
             logger.LogDebug("House set to Away, {WhoMadeAction}.", WhoMadeAction());
-            Logbook.Log(entityId: LocationMode!.EntityId,
-                message: $"House set to Away, {WhoMadeAction}.",
-                name: "Location Mode",
-                domain: "InputSelect");
-            LocationMode.SelectOption(LocationModeOptions.Away);
+            LocationMode.Log($"House set to Away, {WhoMadeAction}.");
+            LocationMode?.SelectOption(LocationModeOptions.Away);
         }
         else if ((Andy.IsHome() && !Claire.IsHome())
             || (!Andy.IsHome() && Claire.IsHome()))
         {
             logger.LogDebug("House set to OneAway, {WhoMadeAction}.", WhoMadeAction());
-            Logbook.Log(entityId: LocationMode!.EntityId,
-                message: $"House set to OneAway, {WhoMadeAction}.",
-                name: "Location Mode",
-                domain: "InputSelect");
-            LocationMode.SelectOption(LocationModeOptions.OneAway);
+            LocationMode.Log($"House set to OneAway, {WhoMadeAction}.");
+            LocationMode?.SelectOption(LocationModeOptions.OneAway);
         }
         else if (Andy.IsHome() && Claire.IsHome())
         {
             logger.LogDebug("House set to Home, {WhoMadeAction}.", WhoMadeAction());
-            Logbook.Log(entityId: LocationMode!.EntityId,
-                message: $"House set to Home, {WhoMadeAction}.",
-                name: "Location Mode",
-                domain: "InputSelect");
-            LocationMode.SelectOption(LocationModeOptions.Home);
+            LocationMode.Log($"House set to Home, {WhoMadeAction}.");
+            LocationMode?.SelectOption(LocationModeOptions.Home);
         }
         else if (manualChange)
         {
-            logger.LogDebug("House set to {State} by manual change.", LocationMode!.State);
-            Logbook.Log(entityId: LocationMode!.EntityId,
-                message: $"House set to {LocationMode!.State}.",
-                name: "Location Mode",
-                domain: "InputSelect");
+            logger.LogDebug("House set to {State} by manual change.", LocationMode?.State);
+            LocationMode.Log($"House set to {LocationMode?.State}.");
         }
 
         Reset();

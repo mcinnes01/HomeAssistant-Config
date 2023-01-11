@@ -16,7 +16,7 @@ try
         .UseNetDaemonTextToSpeech()
         .UseNetDaemonMqttEntityManagement()
         //.UseDeviceTriggers()
-        .ConfigureServices((_, services) =>
+        .ConfigureServices((context, services) =>
          {
             services
               .AddAppsFromAssembly(Assembly.GetExecutingAssembly())
@@ -24,6 +24,7 @@ try
               .AddNetDaemonScheduler()
               .AddGeneratedCode();
             services.AddSingleton<INotificationService, NotificationService>();
+            services.AddSingleton<LogbookHelperRegister>();
             services.AddTransient<ILightingStates, LightingStates>();
          })      
         .Build()

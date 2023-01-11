@@ -21,3 +21,4 @@ global using Helpers.State;
 global using HomeAssistantGenerated;
 global using NetDaemonApps.Extensions;
 global using NetDaemonApps.Infrastructure;
+global using Stateless;

@@ -892,3 +892,31 @@
       button_up_long_loop: true
       button_right_long_loop: true
       button_left_long_loop: true
+- id: '1673304000157'
+  alias: NSPanel Configuration
+  description: ''
+  use_blueprint:
+    path: Blackymas/nspanel_blueprint.yaml
+    input:
+      nspanel_name: nspanel
+      language: ENG
+      sync_value_ha: select_yes
+      sync_slider_ha: select_yes
+      outdoortemp: sensor.weather_station_temperature
+      humidity: sensor.weather_station_humidity
+      climate: climate.downstairs
+      left_button_entity: light.lounge
+      left_button_name: Light
+      right_button_entity: light.lounge_lamps
+      right_button_name: Lamps
+      weather: Default
+      heatingsystemflame: []
+      button_page01_label: Lights
+      entity01: light.inside_lights
+      entity02: light.outside_lights
+      entity03: light.porch
+      entity04: light.patio_lights
+      entity01_name: Inside Lights
+      entity02_name: Outside Lights
+      entity03_name: Porch Light
+      entity04_name: Patio Lights

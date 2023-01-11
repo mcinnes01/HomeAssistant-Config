@@ -5,5 +5,6 @@ public enum TimeOfDayOptions
     Day,
     Evening,
     Morning,
-    Night
+    Night,
+    Afternoon
 }

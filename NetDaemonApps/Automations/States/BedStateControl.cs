@@ -1,5 +1,3 @@
-using Helpers.Extensions;
-
 namespace NetDaemonApps.Automations.States;
 
 [NetDaemonApp]
@@ -11,9 +9,9 @@ public class BedStateController
     InputSelectEntity? LocationMode;
     PersonEntity? Andy;
     PersonEntity? Claire;
-    BinarySensorEntity? andyInBed;
-    BinarySensorEntity? claireInBed;
-    InputBooleanEntity? inBed;
+    BinarySensorEntity? AndyInBed;
+    BinarySensorEntity? ClaireInBed;
+    InputBooleanEntity? InBed;
 
     bool claireBedStateChanged;
     bool andyBedStateChanged;
@@ -29,13 +27,14 @@ public class BedStateController
         this.logger = logger;
         this.entities = new Entities(context);
 
-        andyInBed = entities.BinarySensor.WithingsInBedAndy;
-        claireInBed = entities.BinarySensor.WithingsInBedClaire;
+        InBed = entities.InputBoolean.InBed;
+        AndyInBed = entities.BinarySensor.WithingsInBedAndy;
+        ClaireInBed = entities.BinarySensor.WithingsInBedClaire;
         LocationMode = entities.InputSelect.LocationMode;
         Andy = entities.Person.Andy;
         Claire = entities.Person.Claire;
 
-        inBed?.StateChanges()
+        InBed?.StateChanges()
         .Throttle(TimeSpan.FromMinutes(1)) // Debounce any loop behaviour
         .Subscribe(_ => {
             manualBedStateChanged = true;
@@ -43,7 +42,7 @@ public class BedStateController
         });
 
         // Andy in bed
-        andyInBed?.StateChanges()
+        AndyInBed?.StateChanges()
         .Where(a => a.New.IsDetected() && !a.Old.IsDetected()
             && (LocationMode.IsOption(LocationModeOptions.Home)
             || LocationMode.IsOption(LocationModeOptions.OneAway))
@@ -56,7 +55,7 @@ public class BedStateController
         });
 
         // Andy out of bed
-        andyInBed?.StateChanges()
+        AndyInBed?.StateChanges()
         .Where(a => a.New.IsNotDetected() && a.Old.IsDetected()
             && (LocationMode.IsOption(LocationModeOptions.Home)
             || LocationMode.IsOption(LocationModeOptions.OneAway))
@@ -68,7 +67,7 @@ public class BedStateController
         });
 
         // Claire in bed
-        claireInBed?.StateChanges()
+        ClaireInBed?.StateChanges()
         .Where(a => a.New.IsDetected() && !a.Old.IsDetected()
             && (LocationMode.IsOption(LocationModeOptions.Home)
             || LocationMode.IsOption(LocationModeOptions.OneAway))
@@ -81,7 +80,7 @@ public class BedStateController
         });
 
         // Claire out of bed
-        claireInBed?.StateChanges()
+        ClaireInBed?.StateChanges()
         .Where(a => a.New.IsNotDetected() && !a.Old.IsDetected()
             && (LocationMode.IsOption(LocationModeOptions.Home)
             || LocationMode.IsOption(LocationModeOptions.OneAway))
@@ -103,34 +102,26 @@ public class BedStateController
 
     void Handle()
     {
-        if (andyInBed.IsDetected() && claireInBed.IsDetected()
-        || andyInBed.IsDetected() && LocationMode!.IsOption(LocationModeOptions.OneAway)
-        || claireInBed.IsDetected() && LocationMode!.IsOption(LocationModeOptions.OneAway))
+        if (AndyInBed.IsDetected() && ClaireInBed.IsDetected()
+        || AndyInBed.IsDetected() && LocationMode!.IsOption(LocationModeOptions.OneAway)
+        || ClaireInBed.IsDetected() && LocationMode!.IsOption(LocationModeOptions.OneAway))
         {
             logger.LogDebug($"Set state to in Bed");
-            Logbook.Log(entityId: LocationMode!.EntityId,
-                message: $"Set state to in Bed, {WhoMadeAction}.",
-                name: "In Bed",
-                domain: "InputBoolean");
-            inBed!.TurnOn();
+            InBed.Log($"Set state to in Bed, {WhoMadeAction}.");
+            InBed!.TurnOn();
         } 
         else if ((andyBedStateChanged || claireBedStateChanged)
-            && (!andyInBed.IsDetected() || !claireInBed.IsDetected()))
+            && (!AndyInBed.IsDetected() || !ClaireInBed.IsDetected()))
         {
             logger.LogDebug($"Set state to out of Bed");
-            Logbook.Log(entityId: LocationMode!.EntityId,
-                message: $"Set state to in Bed, {WhoMadeAction}.",
-                name: "In Bed",
-                domain: "InputBoolean");
-            inBed!.TurnOff();
+            InBed.Log($"Set state to out of Bed, {WhoMadeAction}.");
+            // TODO use alexa questions on a backoff retry to check if you are actually up and not just going for a wee
+            InBed!.TurnOff();
         }
         else if (manualBedStateChanged)
         {
-            logger.LogDebug("Manual inBed: {State}, change occurred", inBed!.State);
-            Logbook.Log(entityId: LocationMode!.EntityId,
-                message: $"Manual inBed: {inBed!.State}, change occurred.",
-                name: "In Bed",
-                domain: "InputBoolean");
+            logger.LogDebug("Manual inBed: {State}, change occurred", InBed!.State);
+            InBed.Log($"Manual inBed: {InBed?.State}, change occurred.");
         }
         
         Reset();
@@ -140,8 +131,8 @@ public class BedStateController
     {
         var actor = LocationMode!.IsOption(LocationModeOptions.OneAway) ? Claire.IsHome() ? "Claire" : "Andy" :
         LocationMode!.IsOption(LocationModeOptions.Home) ? claireBedStateChanged ? "Claire" : "Andy" : "Cat";
-        var action = andyBedStateChanged ? andyInBed.IsDetected() ? "in Andy's side" : "out of Andy's side" :
-        claireBedStateChanged ? claireInBed.IsDetected() ? "in Claire's side" : "out of Claire's side" : "unknown state";
+        var action = andyBedStateChanged ? AndyInBed.IsDetected() ? "in Andy's side" : "out of Andy's side" :
+        claireBedStateChanged ? ClaireInBed.IsDetected() ? "in Claire's side" : "out of Claire's side" : "unknown state";
         return $"{actor} got {action} of the bed";
     }
 

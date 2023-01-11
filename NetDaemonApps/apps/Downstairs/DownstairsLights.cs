@@ -156,6 +156,7 @@ public class DownstairsLights
                 Brightness: {_entities.InputSelect.Brightness.State},
                 Lounge motion: Old: {e.Old?.State} - New: {e.New?.State},
                 Lounge Corner Lamp: {_entities.Light.LoungeCornerLamp.State},
+                Lounge Floor Lamp: {_entities.Light.LoungeFloorLamp.State}, 
                 Lounge Light: {_entities.Light.Lounge.State}");
 
             if (Constants.NormalMotionModes.Contains(lightMode)
@@ -164,6 +165,7 @@ public class DownstairsLights
                 _logger.LogDebug("Motion detected, turning Lounge Light On.");
                 _entities.Light.Lounge.TurnOn();
                 _entities.Light.LoungeCornerLamp.TurnOff();
+                _entities.Light.LoungeFloorLamp.TurnOff();
             }
             else if (Constants.LampMotionModes.Contains(lightMode)
                 && Constants.LoungeLampModes.Contains(loungeMode))
@@ -171,6 +173,7 @@ public class DownstairsLights
                 _logger.LogDebug("Motion detected, turning Lounge Lamps On.");
                 _entities.Light.Lounge.TurnOff();
                 _entities.Light.LoungeCornerLamp.TurnOn();
+                _entities.Light.LoungeFloorLamp.TurnOn();
             }
         });
     }
@@ -191,7 +194,8 @@ public class DownstairsLights
                 Lounge Mode: {loungeMode},
                 Brightness: {_entities.InputSelect.Brightness.State},
                 Lounge motion: Old: {e.Old?.State} - New: {e.New?.State},
-                Lounge Corner Lamp: {_entities.Light.LoungeCornerLamp.State}, 
+                Lounge Corner Lamp: {_entities.Light.LoungeCornerLamp.State},
+                Lounge Floor Lamp: {_entities.Light.LoungeFloorLamp.State}, 
                 Lounge Light: {_entities.Light.Lounge.State}");
 
             if (Constants.NormalMotionModes.Contains(lightMode)
@@ -205,6 +209,7 @@ public class DownstairsLights
             {
                 _logger.LogDebug("No motion, turning Lounge Lamps Off");
                 _entities.Light.LoungeCornerLamp.TurnOff();
+                _entities.Light.LoungeFloorLamp.TurnOff();
             }
         });
     }
@@ -227,8 +232,7 @@ public class DownstairsLights
             _logger.LogTrace(@$"Light Mode: {lightMode},  
                 Brightness: {_entities.InputSelect.Brightness.State},
                 Drawing Room Motion: Old: {e.Old?.State} - New: {e.New?.State},
-                Bookshelf Light: {_entities.Light.Bookshelf.State}, 
-                Drawing Room Floor Lamp: {_entities.Light.DrawingRoomFloorLamp.State}, 
+                Bookshelf Light: {_entities.Light.Bookshelf.State},
                 Drawing Room Light: {_entities.Light.DrawingRoom.State}");
 
             if (Constants.NormalMotionModes.Contains(lightMode))
@@ -240,7 +244,6 @@ public class DownstairsLights
             {
                 _logger.LogDebug("Motion detected, turning Bookshelf Light On.");
                 _entities.Light.Bookshelf.TurnOn();
-                _entities.Light.DrawingRoomFloorLamp.TurnOn();
             }
         });
     }
@@ -259,8 +262,7 @@ public class DownstairsLights
             _logger.LogTrace(@$"Light Mode: {lightMode},  
                 Brightness: {_entities.InputSelect.Brightness.State},
                 Drawing Room Motion: Old: {e.Old?.State} - New: {e.New?.State},
-                Bookshelf Light: {_entities.Light.Bookshelf.State}, 
-                Drawing Room Floor Lamp: {_entities.Light.DrawingRoomFloorLamp.State}, 
+                Bookshelf Light: {_entities.Light.Bookshelf.State},
                 Drawing Room Light: {_entities.Light.DrawingRoom.State}");
 
             if (Constants.NormalMotionModes.Contains(lightMode))
@@ -272,7 +274,6 @@ public class DownstairsLights
             {
                 _logger.LogDebug("No motion, turning Bookshelf Light Off");
                 _entities.Light.Bookshelf.TurnOff();
-                _entities.Light.DrawingRoomFloorLamp.TurnOff();
             }
         });
     }

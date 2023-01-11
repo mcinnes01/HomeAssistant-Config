@@ -1,5 +1,3 @@
-using Helpers.Extensions;
-
 namespace NetDaemonApps.Automations.States;
 
 [NetDaemonApp]
@@ -8,8 +6,10 @@ public class BedroomModeController
     LogbookServices Logbook;
     ILogger<BedroomModeController> logger;
     IEntities entities;
+    InputSelectEntity? BedroomMode;
     InputSelectEntity? LocationMode;
-    InputBooleanEntity? inBed;
+    InputBooleanEntity? InBed;
+    InputSelectEntity? TimeOfDay;
 
     // Controls the Lighting Control Mode Input Select which is used to manage global lighting controls
     // This can be manually overriden, but will mostly respond to being home/away, in/out bed, guests, time, brightness
@@ -21,103 +21,95 @@ public class BedroomModeController
         this.logger = logger;
         this.entities = new Entities(context);
 
+        BedroomMode = entities.InputSelect.BedroomMode;
         LocationMode = entities.InputSelect.LocationMode;
-        inBed = entities.InputBoolean.InBed;
+        InBed = entities.InputBoolean.InBed;
+        TimeOfDay = entities.InputSelect.TimeOfDay;
 
-        inBed?.StateChanges()
-        .Throttle()
+        // Got in bed
+        InBed?.StateChanges()
+        .Where(b => b.New.IsOn()
+        && Constants.HouseOccupied.Contains(LocationMode.AsOption<LocationModeOptions>()))
+        // TODO This needs to ask if you want to transition to sleeping and retry with backoff
+        .Throttle(TimeSpan.FromMinutes(10))
         .Subscribe(_ => Handle(Trigger.InBed));
 
+        // Got out of bed
+        InBed?.StateChanges()
+        .Where(b => b.New.IsOff()
+        && Constants.HouseOccupied.Contains(LocationMode.AsOption<LocationModeOptions>()))
+        // TODO This needs to ask if you want to transition to normal and retry with backoff
+        .Subscribe(_ => Handle(Trigger.OutOfBed));
 
+        // Set to normal if time is morning and we are away
+        TimeOfDay?.StateChanges()
+        .Where(t => t.New.IsOption(TimeOfDayOptions.Morning)
+        && (LocationMode.IsOption(LocationModeOptions.Away)
+        || LocationMode.IsOption(LocationModeOptions.HouseSitter)))
+        .Throttle(TimeSpan.FromMinutes(1))
+        .Subscribe(_ => Handle(Trigger.TimeOfDayMorning));
 
-        // Claire in bed
-        claireInBed?.StateChanges()
-        .Where(a => a.New.IsDetected() && !a.Old.IsDetected()
-            && (LocationMode.IsOption(LocationModeOptions.Home)
-            || LocationMode.IsOption(LocationModeOptions.OneAway))
-        )
-        .Throttle(TimeSpan.FromMinutes(5))
-        .Subscribe(_ =>
-        {
-            claireBedStateChanged = true;
-            Handle();
-        });
+        // Set to normal if time is day and still in bed
+        TimeOfDay?.StateChanges()
+        .Where(t => t.New.IsOption(TimeOfDayOptions.Day)
+        && InBed.IsOn()
+        && Constants.HouseOccupied.Contains(LocationMode.AsOption<LocationModeOptions>()))
+        .Throttle(TimeSpan.FromMinutes(1))
+        .Subscribe(_ => Handle(Trigger.TimeOfDayDay));
 
-        // Claire out of bed
-        claireInBed?.StateChanges()
-        .Where(a => a.New.IsNotDetected() && !a.Old.IsDetected()
-            && (LocationMode.IsOption(LocationModeOptions.Home)
-            || LocationMode.IsOption(LocationModeOptions.OneAway))
-        )
-        .Subscribe(_ =>
-        {
-            claireBedStateChanged = true;
-            Handle();
-        });
-        
-        Init();
-    }
+        // Set to night if time is night and we are away
+        TimeOfDay?.StateChanges()
+        .Where(t => t.New.IsOption(TimeOfDayOptions.Night)
+        && (LocationMode.IsOption(LocationModeOptions.Away)
+        || LocationMode.IsOption(LocationModeOptions.HouseSitter)))
+        .Throttle(TimeSpan.FromMinutes(1))
+        .Subscribe(_ => Handle(Trigger.TimeOfDayNight));
 
-    void Init()
-    {
-        Reset();
+        // Manual change
+        BedroomMode?.StateChanges()
+        .Throttle(TimeSpan.FromMinutes(1))
+        .Subscribe(_ => Handle(Trigger.Manual));
+
         Handle();
     }
 
-    void Handle(Trigger trigger)
+    void Handle(Trigger? trigger = null)
     {
-        if (andyInBed.IsDetected() && claireInBed.IsDetected()
-        || andyInBed.IsDetected() && LocationMode!.IsOption(LocationModeOptions.OneAway)
-        || claireInBed.IsDetected() && LocationMode!.IsOption(LocationModeOptions.OneAway))
+        // TODO: For got in bed, set a scheduler with alexa conversation
+        // to deal with "would you like me to keep the light on?"
+        switch (trigger)
         {
-            logger.LogDebug($"Set state to in Bed");
-            Logbook.Log(entityId: LocationMode!.EntityId,
-                message: $"Set state to in Bed, {WhoMadeAction}.",
-                name: "In Bed",
-                domain: "InputBoolean");
-            inBed!.TurnOn();
-        } 
-        else if ((andyBedStateChanged || claireBedStateChanged)
-            && (!andyInBed.IsDetected() || !claireInBed.IsDetected()))
-        {
-            logger.LogDebug($"Set state to out of Bed");
-            Logbook.Log(entityId: LocationMode!.EntityId,
-                message: $"Set state to in Bed, {WhoMadeAction}.",
-                name: "In Bed",
-                domain: "InputBoolean");
-            inBed!.TurnOff();
+            case Trigger.TimeOfDayNight:
+            case Trigger.InBed:
+                logger.LogDebug($"Set state to Sleeping");
+                BedroomMode.Log($"Set state to Sleeping, triggered by {trigger.ToString()}.");
+                BedroomMode!.SelectOption(BedroomModeOptions.Sleeping);
+                break;
+            case Trigger.TimeOfDayDay:
+                logger.LogDebug($"Set state to Normal");
+                BedroomMode.Log($"Set state to Normal, triggered by {trigger.ToString()}.");
+                BedroomMode!.SelectOption(BedroomModeOptions.Normal);
+                break;
+            case Trigger.TimeOfDayMorning:
+            case Trigger.OutOfBed:
+                logger.LogDebug($"Set state to Relaxing");
+                BedroomMode.Log($"Set state to Relaxing, triggered by {trigger.ToString()}.");
+                BedroomMode!.SelectOption(BedroomModeOptions.Relaxing);
+                break;
+            case Trigger.Manual:
+                logger.LogDebug("Manual bedroom mode: {State}, change occurred", BedroomMode!.State);
+                BedroomMode.Log($"Manual Bedroom Mode: {BedroomMode!.State}, change occurred.");
+                break;
         }
-        else if (manualBedStateChanged)
-        {
-            logger.LogDebug("Manual inBed: {State}, change occurred", inBed!.State);
-            Logbook.Log(entityId: LocationMode!.EntityId,
-                message: $"Manual inBed: {inBed!.State}, change occurred.",
-                name: "In Bed",
-                domain: "InputBoolean");
-        }
-        
-        Reset();
-    }
-
-    string WhoMadeAction()
-    {
-        var actor = LocationMode!.IsOption(LocationModeOptions.OneAway) ? Claire.IsHome() ? "Claire" : "Andy" :
-        LocationMode!.IsOption(LocationModeOptions.Home) ? claireBedStateChanged ? "Claire" : "Andy" : "Cat";
-        var action = andyBedStateChanged ? andyInBed.IsDetected() ? "in Andy's side" : "out of Andy's side" :
-        claireBedStateChanged ? claireInBed.IsDetected() ? "in Claire's side" : "out of Claire's side" : "unknown state";
-        return $"{actor} got {action} of the bed";
-    }
-
-    void Reset()
-    {
-        andyBedStateChanged = false;
-        claireBedStateChanged = false;
-        manualBedStateChanged = false;
     }
 
     enum Trigger
     {
         InBed,
-        TimeOfDay
+        OutOfBed,
+        TimeOfDayMorning,
+        TimeOfDayDay,
+        TimeOfDayNight,
+        Manual
     }
 }

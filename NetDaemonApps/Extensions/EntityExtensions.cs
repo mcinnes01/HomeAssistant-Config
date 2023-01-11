@@ -47,6 +47,10 @@ public static class EntityExtensions
         return null;
     }
 
+    public static string? Domain(this EntityState? entityState)
+        => entityState?.EntityId.Split('.')[0];
 
+    public static string? Domain(this Entity? entity)
+        => entity?.EntityId.Split('.')[0];
 }
 
