@@ -2,23 +2,22 @@
 
 public class LightSwitchHandler: AvailableEnabledHandler
 {
-    INotificationService notify;
-    IScheduler scheduler;
-    LightEntity light;
-    BinarySensorEntity? occupancySensor;
-    NumericSensorEntity? illuminanceSensor;
-    InputNumberEntity? illuminanceThreshold;
-    SunEntity? sun;
-    InputNumberEntity? overrideThreshold;
+    Entities _entities;
+    INotificationService Notify;
+    IScheduler Scheduler;
+    LightEntity Light;
+    BinarySensorEntity? OccupancySensor;
+    InputSelectEntity? Brightness;
     bool isLamp;
 
     public LightSwitchHandler(LightEntity light, IHaContext context, IScheduler scheduler,
         INotificationService notify, InputBooleanEntity enabledToggle) 
         : base(light, enabledToggle)
     {
-        this.light = light;
-        this.notify = notify;
-        this.scheduler = scheduler;
+        _entities = new Entities(context);
+        Light = light;
+        Notify = notify;
+        Scheduler = scheduler;
 
         var id = light.EntityId.Substring(light.EntityId.IndexOf('.') + 1);
         if (string.IsNullOrEmpty(id))
@@ -42,58 +41,34 @@ public class LightSwitchHandler: AvailableEnabledHandler
             entityParts[0] : $"{entityParts[0]}_{entityParts[1]}");
         
         var occupancySensorId = context.GetEntityId("binary_sensor." + room + "_motion");
-        var illuminanceSensorId = context.GetEntityId("sensor.weather_station_ambient_light");
-        var sunId = context.GetEntityId("sun.sun");
-        var illuminanceThresholdId = context.GetEntityId("input_number." + room + "_light_automation_lux_threshold");
-        var overrideThresholdId = context.GetEntityId("input_number." + room + "_light_automation_override_threshold");
+        var Brightness = context.GetEntityId("sensor.weather_station_ambient_light");
 
-        if (!String.IsNullOrEmpty(illuminanceSensorId))       
-            illuminanceSensor = new NumericSensorEntity(context, illuminanceSensorId);
-            
-        if (!String.IsNullOrEmpty(sunId))       
-            sun = new SunEntity(context, sunId);
+        // if (!String.IsNullOrEmpty(Brightness))
+        //     Brightness = _entities.InputSelect.Brightness;
 
         if (!String.IsNullOrEmpty(occupancySensorId))
-            occupancySensor = new BinarySensorEntity(context, occupancySensorId);
+            OccupancySensor = new BinarySensorEntity(context, occupancySensorId);
 
-        if (!String.IsNullOrEmpty(illuminanceThresholdId))
-            illuminanceThreshold = new InputNumberEntity(context, illuminanceThresholdId);
-
-        if (!String.IsNullOrEmpty(overrideThresholdId))
-            overrideThreshold = new InputNumberEntity(context, overrideThresholdId);
-
-        occupancySensor?.StateChanges()
+        OccupancySensor?.StateChanges()
            .Where(occ => occ.New.IsDetected())
            .Subscribe(_ => { isOccupied = true; Handle(); });
 
-        occupancySensor?.StateChanges()
+        OccupancySensor?.StateChanges()
             .WhenStateIsFor(occ => occ.IsCleared(), TimeSpan.FromSeconds(120))
             .Subscribe(_ => { isOccupied = false; Handle(); });
 
-        illuminanceSensor?.StateChanges()
-            .Where(i => (i.New == null && sun.IsBelowHorizon()) || i.New?.State <= illuminanceThresholdValue)            
-            .Subscribe(i => { isTooDark = true; Handle(); });
+        // sun?.StateChanges()
+        //     .Where(s => illuminanceSensor?.State == null)
+        //     .Subscribe(s => { isTooDark = s.New.IsBelowHorizon(); });
 
-        illuminanceSensor?.StateChanges()
-            .Where(i => (i.New == null && sun.IsAboveHorizon()) || i.New?.State >= illuminanceThresholdValue)
-            .Subscribe(_ => { isTooDark = false; Handle(); });
-
-        illuminanceThreshold?.StateChanges()
-            .Subscribe(_ => { isTooDark = illuminanceSensor?.State <= illuminanceThresholdValue; Handle(); });
-
-        sun?.StateChanges()
-            .Where(s => illuminanceSensor?.State == null)
-            .Subscribe(s => { isTooDark = s.New.IsBelowHorizon(); });
-
-        overrideThreshold?.StateChanges()
-            .Subscribe(_ => HandleOverride());
+        // overrideThreshold?.StateChanges()
+        //     .Subscribe(_ => HandleOverride());
 
         light.WhenOn(s => LightTurnedOn());
 
         light.WhenOff(s => LightTurnedOff()); 
 
-        isOccupied = occupancySensor?.IsDetected() ?? false;
-        isTooDark = illuminanceSensor?.State <= illuminanceThresholdValue;
+        isOccupied = OccupancySensor?.IsDetected() ?? false;
         Handle();
     }
 
@@ -108,7 +83,7 @@ public class LightSwitchHandler: AvailableEnabledHandler
             else
             {
                 var remaining = overrideThresholdValue - elapsedFromSchedule.TotalMinutes;
-                onOverride = scheduler.Schedule(TimeSpan.FromMinutes(remaining), () => personHasTurnedItOn = false);
+                onOverride = Scheduler.Schedule(TimeSpan.FromMinutes(remaining), () => personHasTurnedItOn = false);
             }
         }
 
@@ -121,7 +96,7 @@ public class LightSwitchHandler: AvailableEnabledHandler
             else
             {
                 var remaining = overrideThresholdValue - elapsedFromSchedule.TotalMinutes;
-                offOverride = scheduler.Schedule(TimeSpan.FromMinutes(remaining), () => personHasTurnedItOff = false);
+                offOverride = Scheduler.Schedule(TimeSpan.FromMinutes(remaining), () => personHasTurnedItOff = false);
             }
         }
     }
@@ -132,10 +107,8 @@ public class LightSwitchHandler: AvailableEnabledHandler
     DateTime onOverrideScheduled;
     DateTime offOverrideScheduled;
 
-    double overrideThresholdValue =>
-        overrideThreshold?.State ?? 30;
-    double illuminanceThresholdValue =>
-        illuminanceThreshold?.State ?? 3500;        
+    double overrideThresholdValue = 30;
+    double illuminanceThresholdValue = 3500;        
 
     private void LightTurnedOff()
     {
@@ -152,7 +125,7 @@ public class LightSwitchHandler: AvailableEnabledHandler
             else
             {
                 personHasTurnedItOff = true;
-                offOverride = scheduler.Schedule(TimeSpan.FromMinutes(overrideThresholdValue), () => personHasTurnedItOff = false);
+                offOverride = Scheduler.Schedule(TimeSpan.FromMinutes(overrideThresholdValue), () => personHasTurnedItOff = false);
                 offOverrideScheduled = DateTime.UtcNow;
             }
         }
@@ -173,7 +146,7 @@ public class LightSwitchHandler: AvailableEnabledHandler
             else
             {
                 personHasTurnedItOn = true;
-                onOverride = scheduler.Schedule(TimeSpan.FromMinutes(overrideThresholdValue), () => personHasTurnedItOn = false);
+                onOverride = Scheduler.Schedule(TimeSpan.FromMinutes(overrideThresholdValue), () => personHasTurnedItOn = false);
                 onOverrideScheduled = DateTime.UtcNow;
             }
         }
@@ -213,20 +186,20 @@ public class LightSwitchHandler: AvailableEnabledHandler
 
     private void TurnOn()
     {
-        if (light.IsOff())
+        if (Light.IsOff())
         {            
             turnedOnByHandler = true;
-            light.TurnOn();
+            Light.TurnOn();
             //notify.Send(ChannelTarget.State, String.Format(notify.GetMessage("light_on")!, light.Attributes?.FriendlyName));
         }
     }
 
     private void TurnOff()
     {
-        if (light.IsOn())
+        if (Light.IsOn())
         {                        
             turnedOffByHandler = true;
-            light.TurnOff();
+            Light.TurnOff();
             //notify.Send(ChannelTarget.State, String.Format(notify.GetMessage("light_off")!, light.Attributes?.FriendlyName));
         }
     }

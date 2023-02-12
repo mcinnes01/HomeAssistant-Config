@@ -21,15 +21,15 @@
         "battery_low": false
     },
     "0x00124b0022fd01fd": {
-        "contact": true,
+        "contact": false,
         "tamper": false,
         "battery_low": false,
-        "voltage": 2900,
-        "battery": 84
+        "voltage": 3000,
+        "battery": 100
     },
     "0x00124b00226650a6": {
         "voltage": 2900,
-        "battery": 82.5
+        "battery": 82
     },
     "0x00124b0023b85ca5": {
         "voltage": 2900,
@@ -43,7 +43,7 @@
         "tamper": false,
         "battery_low": false,
         "voltage": 2800,
-        "battery": 46.5
+        "battery": 51.5
     },
     "0x04cd15fffe78d9aa": {
         "battery": 100,
@@ -57,7 +57,7 @@
             "state": "idle"
         },
         "update_available": false,
-        "state": "ON",
+        "state": "OFF",
         "power_on_behavior": "previous"
     },
     "0xf082c0fffe7dd100": {
@@ -73,5 +73,11 @@
             "state": "available"
         },
         "update_available": true
+    },
+    "0xa4c138dff6d5bb59": {
+        "temperature": 19.58,
+        "humidity": 59.27,
+        "battery": 13,
+        "voltage": 2500
     }
 }

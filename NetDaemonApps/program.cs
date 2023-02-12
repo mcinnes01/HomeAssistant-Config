@@ -9,7 +9,7 @@ using NetDaemon.Runtime;
 
 try
 {
-    await Host.CreateDefaultBuilder(args)
+    var host = Host.CreateDefaultBuilder(args)
         .UseNetDaemonAppSettings()
         .UseNetDaemonDefaultLogging()
         .UseNetDaemonRuntime()
@@ -17,19 +17,24 @@ try
         .UseNetDaemonMqttEntityManagement()
         //.UseDeviceTriggers()
         .ConfigureServices((context, services) =>
-         {
+        {
             services
-              .AddAppsFromAssembly(Assembly.GetExecutingAssembly())
-              .AddNetDaemonStateManager()
-              .AddNetDaemonScheduler()
-              .AddGeneratedCode();
+                .AddAppsFromAssembly(Assembly.GetExecutingAssembly())
+                .AddNetDaemonStateManager()
+                .AddNetDaemonScheduler()
+                .AddGeneratedCode();
             services.AddSingleton<INotificationService, NotificationService>();
-            services.AddSingleton<LogbookHelperRegister>();
             services.AddTransient<ILightingStates, LightingStates>();
-         })      
-        .Build()
-        .RunAsync()
-        .ConfigureAwait(false);
+        })
+        .Build();
+
+    // Configure Logbook helper extension
+    var services = host.Services.GetService<IServices>();
+    LogbookHelper.Configure(services?.Logbook);
+
+    await host
+      .RunAsync()
+      .ConfigureAwait(false);
 }
 catch (Exception e)
 {

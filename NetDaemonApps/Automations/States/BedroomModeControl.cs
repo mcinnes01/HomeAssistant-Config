@@ -3,28 +3,28 @@ namespace NetDaemonApps.Automations.States;
 [NetDaemonApp]
 public class BedroomModeController
 {
-    LogbookServices Logbook;
-    ILogger<BedroomModeController> logger;
-    IEntities entities;
+    ILogger<BedroomModeController> _logger;
+    IEntities _entities;
     InputSelectEntity? BedroomMode;
     InputSelectEntity? LocationMode;
     InputBooleanEntity? InBed;
     InputSelectEntity? TimeOfDay;
+    InputBooleanEntity? IsEnabled;
 
     // Controls the Lighting Control Mode Input Select which is used to manage global lighting controls
     // This can be manually overriden, but will mostly respond to being home/away, in/out bed, guests, time, brightness
     // Manual overrides should have a general time limit or reset at a certain state.
 
-    public BedroomModeController(IHaContext context, IServices services, ILogger<BedroomModeController> logger)
+    public BedroomModeController(IHaContext context, ILogger<BedroomModeController> logger)
     {
-        Logbook = services.Logbook;
-        this.logger = logger;
-        this.entities = new Entities(context);
+        _logger = logger;
+        _entities = new Entities(context);
 
-        BedroomMode = entities.InputSelect.BedroomMode;
-        LocationMode = entities.InputSelect.LocationMode;
-        InBed = entities.InputBoolean.InBed;
-        TimeOfDay = entities.InputSelect.TimeOfDay;
+        BedroomMode = _entities.InputSelect.BedroomMode;
+        LocationMode = _entities.InputSelect.LocationMode;
+        InBed = _entities.InputBoolean.InBed;
+        TimeOfDay = _entities.InputSelect.TimeOfDay;
+        IsEnabled = _entities.InputBoolean.BedroomModeControlEnabled;
 
         // Got in bed
         InBed?.StateChanges()
@@ -49,10 +49,9 @@ public class BedroomModeController
         .Throttle(TimeSpan.FromMinutes(1))
         .Subscribe(_ => Handle(Trigger.TimeOfDayMorning));
 
-        // Set to normal if time is day and still in bed
+        // Set to normal if time is day
         TimeOfDay?.StateChanges()
         .Where(t => t.New.IsOption(TimeOfDayOptions.Day)
-        && InBed.IsOn()
         && Constants.HouseOccupied.Contains(LocationMode.AsOption<LocationModeOptions>()))
         .Throttle(TimeSpan.FromMinutes(1))
         .Subscribe(_ => Handle(Trigger.TimeOfDayDay));
@@ -70,6 +69,14 @@ public class BedroomModeController
         .Throttle(TimeSpan.FromMinutes(1))
         .Subscribe(_ => Handle(Trigger.Manual));
 
+        IsEnabled?.StateChanges()
+            .Where(s => s.New.IsOn())
+            .Subscribe(_ =>
+            {
+                _logger.LogDebug("Bedroom mode control has been enabled.");
+                Handle();
+            });
+
         Handle();
     }
 
@@ -77,29 +84,40 @@ public class BedroomModeController
     {
         // TODO: For got in bed, set a scheduler with alexa conversation
         // to deal with "would you like me to keep the light on?"
-        switch (trigger)
+        if (IsEnabled.IsOn())
         {
-            case Trigger.TimeOfDayNight:
-            case Trigger.InBed:
-                logger.LogDebug($"Set state to Sleeping");
-                BedroomMode.Log($"Set state to Sleeping, triggered by {trigger.ToString()}.");
-                BedroomMode!.SelectOption(BedroomModeOptions.Sleeping);
-                break;
-            case Trigger.TimeOfDayDay:
-                logger.LogDebug($"Set state to Normal");
-                BedroomMode.Log($"Set state to Normal, triggered by {trigger.ToString()}.");
-                BedroomMode!.SelectOption(BedroomModeOptions.Normal);
-                break;
-            case Trigger.TimeOfDayMorning:
-            case Trigger.OutOfBed:
-                logger.LogDebug($"Set state to Relaxing");
-                BedroomMode.Log($"Set state to Relaxing, triggered by {trigger.ToString()}.");
-                BedroomMode!.SelectOption(BedroomModeOptions.Relaxing);
-                break;
-            case Trigger.Manual:
-                logger.LogDebug("Manual bedroom mode: {State}, change occurred", BedroomMode!.State);
-                BedroomMode.Log($"Manual Bedroom Mode: {BedroomMode!.State}, change occurred.");
-                break;
+            switch (trigger)
+            {
+                case Trigger.TimeOfDayNight:
+                case Trigger.InBed:
+                    _logger.LogDebug($"Set state to Sleeping");
+                    BedroomMode.Log($"Set state to Sleeping, triggered by {trigger.ToString()}.");
+                    BedroomMode!.SelectOption(BedroomModeOptions.Sleeping);
+                    break;
+                case Trigger.TimeOfDayMorning:
+                case Trigger.OutOfBed:
+                    _logger.LogDebug($"Set state to Relaxing");
+                    BedroomMode.Log($"Set state to Relaxing, triggered by {trigger.ToString()}.");
+                    if (TimeOfDay!.IsOption(TimeOfDayOptions.Day))
+                    {
+                        BedroomMode!.SelectOption(BedroomModeOptions.Normal);
+                    }
+                    else
+                    {
+                        BedroomMode!.SelectOption(BedroomModeOptions.Relaxing);
+                    }
+                    break;
+                case Trigger.Manual:
+                    _logger.LogDebug("Manual bedroom mode: {State}, change occurred", BedroomMode!.State);
+                    BedroomMode.Log($"Manual Bedroom Mode: {BedroomMode!.State}, change occurred.");
+                    break;
+                default:
+                case Trigger.TimeOfDayDay:
+                    _logger.LogDebug($"Set state to Normal");
+                    BedroomMode.Log($"Set state to Normal, triggered by {trigger?.ToString()}.");
+                    BedroomMode!.SelectOption(BedroomModeOptions.Normal);
+                    break;
+            }
         }
     }
 

@@ -495,14 +495,9 @@
       icon: mdi:bed
       friendly_name: In Bed
       state: 'off'
-    light.bedroom:
-      supported_color_modes:
-      - onoff
-      icon: mdi:globe-light
-      friendly_name: Bedroom Light
-      supported_features: 0
-      state: 'off'
     light.bedside_lamp:
+      min_color_temp_kelvin: 1700
+      max_color_temp_kelvin: 6535
       min_mireds: 153
       max_mireds: 588
       effect_list:
@@ -532,12 +527,21 @@
       - Candle Flicker
       - Slow Temp
       - Stop
+      - Lightning
+      - Flicker
+      - Flicker2
+      - FlickerScare
+      - FlickerWarm
+      - FlickerWarmScare
+      - Self_Alarm
+      - Fire Flicker
       supported_color_modes:
       - color_temp
       - hs
       - rgb
       flowing: false
       music_mode: false
+      icon: mdi:desk-lamp-on
       friendly_name: Bedside Lamp
       supported_features: 44
       state: 'off'
@@ -556,11 +560,9 @@
   metadata:
     input_boolean.in_bed:
       entity_only: true
-    input_select.bedroom_mode:
-      entity_only: true
-    light.bedside_lamp:
-      entity_only: false
     light.bedroom:
+      entity_only: true
+    input_select.bedroom_mode:
       entity_only: true
 - id: '1605288983801'
   name: Lounge Normal
@@ -867,4 +869,54 @@
     light.snug_floor_lamp:
       entity_only: true
     input_boolean.snug_light_constrained:
+      entity_only: true
+- id: '1675005770994'
+  name: Lighting Manual
+  entities:
+    input_select.light_control_mode:
+      options:
+      - Manual
+      - Motion
+      - Sleeping
+      - Cleaning
+      - Relaxing
+      editable: true
+      icon: mdi:home-lightbulb-outline
+      friendly_name: Light Control Mode
+      state: Manual
+    input_boolean.light_control_mode_enabled:
+      editable: true
+      icon: mdi:light-switch
+      friendly_name: Light Control Mode Enabled
+      state: 'off'
+  icon: mdi:alarm-light-off-outline
+  metadata:
+    input_select.light_control_mode:
+      entity_only: true
+    input_boolean.light_control_mode_enabled:
+      entity_only: true
+- id: '1675005819495'
+  name: Lighting Automatic
+  entities:
+    input_boolean.light_control_mode_enabled:
+      editable: true
+      icon: mdi:light-switch
+      friendly_name: Light Control Mode Enabled
+      state: 'on'
+    input_select.light_control_mode:
+      options:
+      - Manual
+      - Motion
+      - Sleeping
+      - Cleaning
+      - Relaxing
+      editable: true
+      icon: mdi:home-lightbulb-outline
+      friendly_name: Light Control Mode
+      state: Motion
+  icon: mdi:alarm-light
+  metadata:
+    input_boolean.light_control_mode_enabled:
+      entity_only: true
+    input_select.light_control_mode:
       entity_only: true

@@ -27,6 +27,7 @@ energy:
 group: !include groups.yaml
 history:
 input_boolean:
+input_button:
 input_datetime:
 input_text:
   alexa_actionable_notification:
@@ -55,7 +56,9 @@ proximity:
       - person.claire
     tolerance: 10
     unit_of_measurement: mi
+prometheus:
 scene: !include scenes.yaml
+schedule:
 script: !include scripts.yaml
 sensor: !include sensors.yaml
 ssdp:

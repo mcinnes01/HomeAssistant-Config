@@ -83,4 +83,3 @@ public static class SunExtensions
             Constants.NIGHTTIME_WEEKDAYS.ToTimeSpan(); 
     }
 }
-

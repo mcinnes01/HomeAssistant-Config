@@ -3,15 +3,15 @@ namespace NetDaemonApps.Automations.States;
 [NetDaemonApp]
 public class BedStateController
 {
-    LogbookServices Logbook;
-    ILogger<BedStateController> logger;
-    IEntities entities;
+    ILogger<BedStateController> _logger;
+    IEntities _entities;
     InputSelectEntity? LocationMode;
     PersonEntity? Andy;
     PersonEntity? Claire;
     BinarySensorEntity? AndyInBed;
     BinarySensorEntity? ClaireInBed;
     InputBooleanEntity? InBed;
+    InputBooleanEntity? IsEnabled;
 
     bool claireBedStateChanged;
     bool andyBedStateChanged;
@@ -21,18 +21,18 @@ public class BedStateController
     // This can be manually overriden, but will mostly respond to being home/away, in/out bed, guests, time, brightness
     // Manual overrides should have a general time limit or reset at a certain state.
 
-    public BedStateController(IHaContext context, IServices services, ILogger<BedStateController> logger)
+    public BedStateController(IHaContext context, ILogger<BedStateController> logger)
     {
-        Logbook = services.Logbook;
-        this.logger = logger;
-        this.entities = new Entities(context);
+        _logger = logger;
+        _entities = new Entities(context);
 
-        InBed = entities.InputBoolean.InBed;
-        AndyInBed = entities.BinarySensor.WithingsInBedAndy;
-        ClaireInBed = entities.BinarySensor.WithingsInBedClaire;
-        LocationMode = entities.InputSelect.LocationMode;
-        Andy = entities.Person.Andy;
-        Claire = entities.Person.Claire;
+        InBed = _entities.InputBoolean.InBed;
+        AndyInBed = _entities.BinarySensor.WithingsInBedAndy;
+        ClaireInBed = _entities.BinarySensor.WithingsInBedClaire;
+        LocationMode = _entities.InputSelect.LocationMode;
+        Andy = _entities.Person.Andy;
+        Claire = _entities.Person.Claire;
+        IsEnabled = _entities.InputBoolean.BedStateControlEnabled;
 
         InBed?.StateChanges()
         .Throttle(TimeSpan.FromMinutes(1)) // Debounce any loop behaviour
@@ -83,13 +83,20 @@ public class BedStateController
         ClaireInBed?.StateChanges()
         .Where(a => a.New.IsNotDetected() && !a.Old.IsDetected()
             && (LocationMode.IsOption(LocationModeOptions.Home)
-            || LocationMode.IsOption(LocationModeOptions.OneAway))
-        )
+            || LocationMode.IsOption(LocationModeOptions.OneAway)))
         .Subscribe(_ =>
         {
             claireBedStateChanged = true;
             Handle();
         });
+
+        IsEnabled?.StateChanges()
+            .Where(s => s.New.IsOn())
+            .Subscribe(_ =>
+            {
+                _logger.LogDebug("Bed state control has been enabled.");
+                Init();
+            });
         
         Init();
     }
@@ -102,29 +109,32 @@ public class BedStateController
 
     void Handle()
     {
-        if (AndyInBed.IsDetected() && ClaireInBed.IsDetected()
-        || AndyInBed.IsDetected() && LocationMode!.IsOption(LocationModeOptions.OneAway)
-        || ClaireInBed.IsDetected() && LocationMode!.IsOption(LocationModeOptions.OneAway))
+        if (IsEnabled.IsOn())
         {
-            logger.LogDebug($"Set state to in Bed");
-            InBed.Log($"Set state to in Bed, {WhoMadeAction}.");
-            InBed!.TurnOn();
-        } 
-        else if ((andyBedStateChanged || claireBedStateChanged)
-            && (!AndyInBed.IsDetected() || !ClaireInBed.IsDetected()))
-        {
-            logger.LogDebug($"Set state to out of Bed");
-            InBed.Log($"Set state to out of Bed, {WhoMadeAction}.");
-            // TODO use alexa questions on a backoff retry to check if you are actually up and not just going for a wee
-            InBed!.TurnOff();
+            if (AndyInBed.IsDetected() && ClaireInBed.IsDetected()
+            || AndyInBed.IsDetected() && LocationMode!.IsOption(LocationModeOptions.OneAway)
+            || ClaireInBed.IsDetected() && LocationMode!.IsOption(LocationModeOptions.OneAway))
+            {
+                _logger.LogDebug($"Set state to in Bed");
+                InBed.Log($"Set state to in Bed, {WhoMadeAction}.");
+                InBed!.TurnOn();
+            } 
+            else if ((andyBedStateChanged || claireBedStateChanged)
+                && (!AndyInBed.IsDetected() || !ClaireInBed.IsDetected()))
+            {
+                _logger.LogDebug($"Set state to out of Bed");
+                InBed.Log($"Set state to out of Bed, {WhoMadeAction}.");
+                // TODO use alexa questions on a backoff retry to check if you are actually up and not just going for a wee
+                InBed!.TurnOff();
+            }
+            else if (manualBedStateChanged)
+            {
+                _logger.LogDebug("Manual inBed: {State}, change occurred", InBed!.State);
+                InBed.Log($"Manual inBed: {InBed?.State}, change occurred.");
+            }
+            
+            Reset();
         }
-        else if (manualBedStateChanged)
-        {
-            logger.LogDebug("Manual inBed: {State}, change occurred", InBed!.State);
-            InBed.Log($"Manual inBed: {InBed?.State}, change occurred.");
-        }
-        
-        Reset();
     }
 
     string WhoMadeAction()
