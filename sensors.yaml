@@ -8,6 +8,37 @@
 #    - "weather_condition"
 #    - "wind_speed"
 #    - "wind_direction"
+
+# Waste sensors
+- platform: waste_collection_schedule
+  name: Black bin
+  details_format: appointment_types
+  add_days_to: True
+  value_template: "{{ value.daysTo }}"
+  types:
+    - Black bin
+- platform: waste_collection_schedule
+  name: Brown bin
+  details_format: appointment_types
+  add_days_to: True
+  value_template: "{{ value.daysTo }}"
+  types:
+    - Brown bin
+- platform: waste_collection_schedule
+  name: Blue bin
+  details_format: appointment_types
+  add_days_to: True
+  value_template: "{{ value.daysTo }}"
+  types:
+    - Blue bin
+- platform: waste_collection_schedule
+  name: Green bin
+  details_format: appointment_types
+  add_days_to: True
+  value_template: "{{ value.daysTo }}"
+  types:
+    - Green bin
+
 - platform: dnsip
 - platform: dnsip
   hostname: home.andisoft.co.uk

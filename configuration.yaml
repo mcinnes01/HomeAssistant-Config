@@ -5,6 +5,9 @@ homeassistant:
   # Uncomment line below and create file customize.yaml or edit it
   customize: !include customize.yaml
   packages: !include_dir_named packages
+  whitelist_external_dirs:
+    - /config/www/tmp
+    - /config/www/images
 
   # Below entry links to the packages folder required for Dwains Theme
   #packages: !include_dir_named packages/ # Comment this whole line if you want to disable Dwains Theme
@@ -87,10 +90,10 @@ conversation:
 
 #Weather
 weather:
-  - platform: darksky
-    api_key: 82c93da6430dbe755461f4e4a9c20e3e
-    name: stockport
-    mode: daily
+  # - platform: darksky
+  #   api_key: 82c93da6430dbe755461f4e4a9c20e3e
+  #   name: stockport
+  #   mode: daily
 
 # Notifications
 notify:
@@ -248,3 +251,18 @@ influxdb:
   tags:
     instance: prod
     source: hass
+
+waste_collection_schedule:
+  sources:
+    - name: stockport_gov_uk
+      args:
+        uprn: "200000779202"
+      customize:
+        - type: Black bin
+          picture: /local/images/black-bin.png
+        - type: Brown bin
+          picture: /local/images/brown-bin.png
+        - type: Blue bin
+          picture: /local/images/blue-bin.png
+        - type: Green bin
+          picture: /local/images/green-bin.png

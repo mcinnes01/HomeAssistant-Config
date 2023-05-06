@@ -4,7 +4,7 @@
     "version": 1,
     "source": "zigbee-herdsman@0.14.27",
     "internal": {
-      "date": "2023-02-12T12:19:35.882Z",
+      "date": "2023-05-05T20:14:42.285Z",
       "znpVersion": 1
     }
   },
@@ -25,7 +25,7 @@
   "network_key": {
     "key": "01030507090b0d0f00020406080a0c0d",
     "sequence_number": 0,
-    "frame_counter": 4445925
+    "frame_counter": 5089819
   },
   "devices": [
     {
@@ -36,7 +36,7 @@
     {
       "nwk_address": "9ecf",
       "ieee_address": "00124b0022ff6b10",
-      "is_child": true
+      "is_child": false
     },
     {
       "nwk_address": "ff11",
@@ -55,13 +55,13 @@
       "link_key": {
         "key": "69936523040e048ba3f2d902405f3c09",
         "rx_counter": 0,
-        "tx_counter": 88
+        "tx_counter": 99
       }
     },
     {
       "nwk_address": "03a7",
       "ieee_address": "00124b0022fd01fd",
-      "is_child": false
+      "is_child": true
     },
     {
       "nwk_address": "bd82",
@@ -70,17 +70,17 @@
       "link_key": {
         "key": "3f5dbc6616c01ccb837cf8372e42d6aa",
         "rx_counter": 0,
-        "tx_counter": 0
+        "tx_counter": 11
       }
     },
     {
       "nwk_address": "0245",
       "ieee_address": "04cd15fffe78d9aa",
-      "is_child": false,
+      "is_child": true,
       "link_key": {
         "key": "6e73e2fffb50db8fa4125edebf01e30d",
         "rx_counter": 0,
-        "tx_counter": 61
+        "tx_counter": 72
       }
     },
     {
@@ -90,7 +90,7 @@
       "link_key": {
         "key": "12f9b8f73b712e8556a88075f11092a4",
         "rx_counter": 0,
-        "tx_counter": 55
+        "tx_counter": 66
       }
     },
     {
@@ -100,13 +100,18 @@
       "link_key": {
         "key": "c4bc1dbeebee8b34a5003cfabad609fe",
         "rx_counter": 0,
-        "tx_counter": 44
+        "tx_counter": 55
       }
     },
     {
-      "nwk_address": "6908",
+      "nwk_address": "25cb",
       "ieee_address": "f082c0fffe7dd100",
-      "is_child": false
+      "is_child": true,
+      "link_key": {
+        "key": "2ed8b95465c186b5165a7335d9e0c2e4",
+        "rx_counter": 0,
+        "tx_counter": 0
+      }
     },
     {
       "nwk_address": "dc0b",
@@ -115,7 +120,7 @@
       "link_key": {
         "key": "9d114ff7db7dd72f5770f3d69f2cefad",
         "rx_counter": 0,
-        "tx_counter": 0
+        "tx_counter": 11
       }
     }
   ]

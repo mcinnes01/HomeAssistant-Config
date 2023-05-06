@@ -49,32 +49,32 @@ time:
           - if:
               condition:
                 and:
-                  - binary_sensor.is_off: morning_feed_complete
-                  - binary_sensor.is_off: disable_next_feed
-                  - binary_sensor.is_on: morning_feed_enabled
+                  - switch.is_off: morning_feed_complete
+                  - switch.is_off: disable_next_feed
+                  - switch.is_on: morning_feed_enabled
               then:
                 - switch.turn_on: motor
                 - homeassistant.service:
-                    service: input_boolean.turn_on
+                    service: switch.turn_on
                     data:
-                      entity_id: input_boolean.morning_feed_complete
+                      entity_id: switch.morning_feed_complete
               else:
                 - if:
                     condition:
-                        - binary_sensor.is_on: disable_next_feed
+                        - switch.is_on: disable_next_feed
                     then:
                       - homeassistant.service:
-                          service: input_boolean.turn_off
+                          service: switch.turn_off
                           data:
-                            entity_id: input_boolean.disable_next_feed
+                            entity_id: switch.disable_next_feed
           - homeassistant.service:
-              service: input_boolean.turn_on
+              service: switch.turn_on
               data:
-                entity_id: input_boolean.morning_feed_complete
+                entity_id: switch.morning_feed_complete
           - homeassistant.service:
-              service: input_boolean.turn_off
+              service: switch.turn_off
               data:
-                entity_id: input_boolean.evening_feed_complete
+                entity_id: switch.evening_feed_complete
       - hours: 17
         minutes: 35
         seconds: 45
@@ -82,33 +82,32 @@ time:
           - if:
               condition:
                 and:
-                  - binary_sensor.is_off: evening_feed_complete
-                  - binary_sensor.is_off: disable_next_feed
-                  - binary_sensor.is_on: evening_feed_enabled
+                  - switch.is_off: evening_feed_complete
+                  - switch.is_off: disable_next_feed
+                  - switch.is_on: evening_feed_enabled
               then:
                 - switch.turn_on: motor
                 - homeassistant.service:
-                    service: input_boolean.turn_on
+                    service: switch.turn_on
                     data:
-                      entity_id: input_boolean.evening_feed_complete
+                      entity_id: switch.evening_feed_complete
               else:
                 - if:
                     condition:
-                        - binary_sensor.is_on: disable_next_feed
+                        - switch.is_on: disable_next_feed
                     then:
                       - homeassistant.service:
-                          service: input_boolean.turn_off
+                          service: switch.turn_off
                           data:
-                            entity_id: input_boolean.disable_next_feed
+                            entity_id: switch.disable_next_feed
           - homeassistant.service:
-              service: input_boolean.turn_on
+              service: switch.turn_on
               data:
-                entity_id: input_boolean.evening_feed_complete
+                entity_id: switch.evening_feed_complete
           - homeassistant.service:
-              service: input_boolean.turn_off
+              service: switch.turn_off
               data:
-                entity_id: input_boolean.morning_feed_complete
-
+                entity_id: switch.morning_feed_complete
     
 # Sensors with general information.
 sensor:
@@ -127,41 +126,51 @@ switch:
     name: "Dispenser Motor"
     id: motor
     on_turn_on:
-      - delay: 60000ms
-      - switch.turn_off: motor
-    # Todo do an on turn off that restarts the motor if it has run for < 10 seconds
+      - script.execute: run_motor
   - platform: restart
     name: Cat Feeder Restart
+    # Run conditions
+  - platform: template
+    id: morning_feed_enabled
+    name: "Morning Feed Enabled"
+    optimistic: true
+    restore_state: yes
+  - platform: template
+    id: morning_feed_complete
+    name: "Morning Feed Complete"
+    optimistic: true
+    restore_state: yes
+  - platform: template
+    id: evening_feed_enabled
+    name: "Evening Feed Enabled"
+    optimistic: true
+    restore_state: yes
+  - platform: template
+    id: evening_feed_complete
+    name: "Evening Feed Complete"
+    optimistic: true
+    restore_state: yes
+  - platform: template
+    id: disable_next_feed
+    name: "Disable Next Feed"
+    optimistic: true
+    restore_state: yes
+
+script:
+  id: run_motor
+  then:
+    - delay: 10s
+    - wait_until: 
+        condition:
+          binary_sensor.is_off: dispenser_rotating
+        timeout: 60s
+    - switch.turn_off: motor
 
 binary_sensor:
   - platform: gpio
+    name: "Dispenser Rotating"
+    id: dispenser_rotating
     pin:
       number: 5
       mode: INPUT_PULLUP
       inverted: False
-    name: "Dispenser Rotating"
-    on_release:
-      then:
-        - switch.turn_off: motor
-  
-    # Run conditions
-  - platform: homeassistant
-    id: morning_feed_enabled
-    name: "Morning Feed Enabled"
-    entity_id: input_boolean.morning_feed_enabled
-  - platform: homeassistant
-    id: morning_feed_complete
-    name: "Morning Feed Complete"
-    entity_id: input_boolean.morning_feed_complete
-  - platform: homeassistant
-    id: evening_feed_enabled
-    name: "Evening Feed Enabled"
-    entity_id: input_boolean.evening_feed_enabled
-  - platform: homeassistant
-    id: evening_feed_complete
-    name: "Evening Feed Complete"
-    entity_id: input_boolean.evening_feed_complete
-  - platform: homeassistant
-    id: disable_next_feed
-    name: "Disable Next Feed"
-    entity_id: input_boolean.disable_next_feed

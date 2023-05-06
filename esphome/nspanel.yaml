@@ -12,7 +12,7 @@ substitutions:
 
 ##### DO NOT CHANGE ANYTHING! #####
 
-  nextion_update_url: "http://192.168.1.1:8123/local/nspanel.tft"
+  nextion_update_url: "http://192.168.1.1:8123/local/nspanel_eu.tft"
 packages:
   ##### download esphome code from Github
   remote_package:

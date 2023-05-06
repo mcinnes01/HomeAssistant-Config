@@ -37,20 +37,20 @@ public class BrightnessController
             .Throttle(TimeSpan.FromMinutes(5))
             .Subscribe(i =>
             {
-                _logger.LogWarning("Fault on the illuminance sensor.");
+                _logger.LogWarning("Fault on the illuminance sensor.", new { Entity = Brightness });
                 lastState = i.Old?.State?.ToString();
                 sensorFault = true;
-                Handle(Trigger.LuxFault);
+                Handle(BrightnessTrigger.LuxFault);
             });
 
         // Lux sensor threshold change
         IlluminanceSensor?.StateAllChangesWithCurrent()
         .Where(e => !sensorFault && MapBrightness(e.Old) != MapBrightness(e.New))
-        .Throttle(TimeSpan.FromMinutes(3))
         .Select(e => (Lux: e.New?.State, Option: MapBrightness(e.New)))
         .Subscribe(e => 
         {
-            _logger.LogDebug($"Transitioning Brightness to: {e.Option} - Ambient Light {e.Lux}lx");
+            _logger.LogDebug("Transitioning Brightness to: {To} - Ambient Light {Lux}lx",
+                new { To = e.Option, Lux = e.Lux, Entity = Brightness });
             sensorFault = false;
             Handle(GetTransition(e.Option));
         });
@@ -61,8 +61,8 @@ public class BrightnessController
             .Throttle(TimeSpan.FromMinutes(1))
             .Subscribe(b =>
             {
-                _logger.LogDebug("Dark threshold was changed to {Lux}.", b.New?.State);
-                Handle(Trigger.DarkThreshold);
+                _logger.LogDebug("Dark threshold was changed to {Lux}.",new { Lux = b.New?.State, Entity = Brightness });
+                Handle(BrightnessTrigger.DarkThreshold);
             });
 
         // Update brightness when sensor is working and bright theshold is changed
@@ -71,8 +71,8 @@ public class BrightnessController
             .Throttle(TimeSpan.FromMinutes(1))
             .Subscribe(b =>
             {
-                _logger.LogDebug("Bright threshold was changed to {Lux}.", b.New?.State);
-                Handle(Trigger.BrightThreshold);
+                _logger.LogDebug("Bright threshold was changed to {Lux}.", new { Lux = b.New?.State, Entity = Brightness });
+                Handle(BrightnessTrigger.BrightThreshold);
             });
 
         // Observe sun changes when the sensor is in fault
@@ -81,8 +81,8 @@ public class BrightnessController
             .Throttle(TimeSpan.FromMinutes(5))
             .Subscribe(s =>
             {
-                _logger.LogDebug("Sun changed to {Sun}.", s.New?.State);
-                Handle(Trigger.Sun);
+                _logger.LogDebug("Sun changed to {Sun}.", new { Sun= s.New?.State, Entity = Brightness });
+                Handle(BrightnessTrigger.Sun);
             });
 
         // Observe time of day changes when the sensor is in fault
@@ -91,15 +91,15 @@ public class BrightnessController
             .Throttle(TimeSpan.FromMinutes(1))
             .Subscribe(t =>
             {
-                _logger.LogDebug("Time of day changed to {Time}.", t.New?.State);
-                Handle(Trigger.TimeOfDay);
+                _logger.LogDebug("Time of day changed to {Time}.", new { Time = t.New?.State, Entity = Brightness });
+                Handle(BrightnessTrigger.TimeOfDay);
             });
 
         IsEnabled?.StateChanges()
             .Where(s => s.New.IsOn())
             .Subscribe(_ =>
             {
-                _logger.LogDebug("Brightness control has been enabled.");
+                _logger.LogDebug("Brightness control has been enabled.", new { Entity = Brightness });
                 Init();
             });
         
@@ -113,7 +113,7 @@ public class BrightnessController
             IlluminanceSensor.IsUnknown();
         if (sensorFault)
         {
-            Handle(Trigger.LuxFault);
+            Handle(BrightnessTrigger.LuxFault);
         } 
         else 
         {
@@ -131,35 +131,38 @@ public class BrightnessController
         _ => Sun!.Attributes?.Elevation > 2 ? BrightnessOptions.Bright : BrightnessOptions.Dim,
     };
 
-    Trigger GetTransition(BrightnessOptions to) => to switch
+    BrightnessTrigger GetTransition(BrightnessOptions to) => to switch
     {
-        BrightnessOptions.Bright => Trigger.SensorBright,
-        BrightnessOptions.Dim => Trigger.SensorDim,
-        BrightnessOptions.Dark => Trigger.SensorDark,
-        _ => Trigger.LuxFault
+        BrightnessOptions.Bright => BrightnessTrigger.SensorBright,
+        BrightnessOptions.Dim => BrightnessTrigger.SensorDim,
+        BrightnessOptions.Dark => BrightnessTrigger.SensorDark,
+        _ => BrightnessTrigger.LuxFault
     };
 
-    void Handle(Trigger? trigger = null)
+    void Handle(BrightnessTrigger? trigger = null)
     {
         if (IsEnabled.IsOn())
         {
             switch (trigger)
             {
-                case Trigger.SensorDark: 
+                case BrightnessTrigger.SensorDark:
+                    _logger.LogDebug("Sensor is in Dark range, setting Brightness to Dark.", new { Entity = Brightness });
                     Brightness!.SelectOption(BrightnessOptions.Dark);
                     break;
-                case Trigger.SensorDim: 
+                case BrightnessTrigger.SensorDim:
+                    _logger.LogDebug("Sensor is in Dim range, setting Brightness to Dim.", new { Entity = Brightness });
                     Brightness!.SelectOption(BrightnessOptions.Dim);
                     break;
-                case Trigger.SensorBright:
+                case BrightnessTrigger.SensorBright:
+                    _logger.LogDebug("Sensor is in Bright range, setting Brightness to Bright.", new { Entity = Brightness });
                     Brightness!.SelectOption(BrightnessOptions.Bright);
                     break;
-                case Trigger.LuxFault:
-                case Trigger.Sun:
-                case Trigger.TimeOfDay:
+                case BrightnessTrigger.LuxFault:
+                case BrightnessTrigger.Sun:
+                case BrightnessTrigger.TimeOfDay:
                     if (Sun.IsBelowHorizon())
                     {
-                        Brightness.Log($"Trigger: {trigger}, Lux sensor fault, using sun below horizon to set brightness Dark.");
+                        _logger.LogDebug("BrightnessTrigger: {Trigger}, Lux sensor fault, using sun below horizon to set brightness Dark.", new { Trigger = trigger.ToString(), Entity = Brightness });
                         Brightness?.SelectOption(BrightnessOptions.Dark);
                     }
                     else if (Sun.IsAboveHorizon() &&
@@ -169,34 +172,25 @@ public class BrightnessController
                     nextSetting > DateTime.Now.AddHours(2) &&
                     TimeOfDay!.IsNotOption(TimeOfDayOptions.Night))
                     {
-                        Brightness.Log($"Trigger: {trigger}, Lux sensor fault, using sun, previous state and time of day to set brightness: Bright.");
+                        _logger.LogDebug("BrightnessTrigger: {Trigger}, Lux sensor fault, using sun, previous state and time of day to set brightness: Bright.",
+                            new { Trigger = trigger.ToString(), Entity = Brightness });
                         Brightness?.SelectOption(BrightnessOptions.Bright);
                     }
                     else
                     {
-                        Brightness.Log($"Trigger: {trigger}, Lux sensor fault, using sun and time of day to set brightness Dim.");
+                        _logger.LogDebug("BrightnessTrigger: {Trigger}, Lux sensor fault, using sun and time of day to set brightness Dim.",
+                            new { Trigger = trigger.ToString(), Entity = Brightness });
                         Brightness?.SelectOption(BrightnessOptions.Dim);
                     }
                     break;
-                case Trigger.DarkThreshold:
-                case Trigger.BrightThreshold:
+                case BrightnessTrigger.DarkThreshold:
+                case BrightnessTrigger.BrightThreshold:
                 default:
-                    Brightness.Log($"Trigger: {trigger?.ToString()}, Lux: {IlluminanceSensor?.State}, setting brightness to {Brightness?.State}.");
+                    _logger.LogDebug("BrightnessTrigger: {Trigger}, Lux: {Lux}, setting brightness to {Brightness}.",
+                        new { Trigger = trigger?.ToString(), Lux = IlluminanceSensor?.State, Brightness = Brightness?.State, Entity = Brightness });
                     Brightness!.SelectOption(MapBrightness(IlluminanceSensor?.EntityState));
                     break;
             };
         }
-    }
-
-    enum Trigger
-    {
-        DarkThreshold,
-        BrightThreshold,
-        LuxFault,
-        SensorBright,
-        SensorDim,
-        SensorDark,
-        Sun,
-        TimeOfDay
     }
 }

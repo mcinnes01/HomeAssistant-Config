@@ -1,0 +1,214 @@
+{
+  "format": 1,
+  "restore": {
+    "/usr/share/hassio/homeassistant/NetDaemonTests/NetDaemonTests.csproj": {}
+  },
+  "projects": {
+    "/usr/share/hassio/homeassistant/NetDaemonApps/NetDaemonApps.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/usr/share/hassio/homeassistant/NetDaemonApps/NetDaemonApps.csproj",
+        "projectName": "NetDaemonApps",
+        "projectPath": "/usr/share/hassio/homeassistant/NetDaemonApps/NetDaemonApps.csproj",
+        "packagesPath": "/home/holly/.nuget/packages/",
+        "outputPath": "/usr/share/hassio/homeassistant/NetDaemonApps/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/holly/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7",
+          "dependencies": {
+            "CacheManager.Core": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            },
+            "CacheManager.Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            },
+            "JoySoftware.NetDaemon.AppModel": {
+              "target": "Package",
+              "version": "[23.5.0, )"
+            },
+            "JoySoftware.NetDaemon.Client": {
+              "target": "Package",
+              "version": "[23.5.0, )"
+            },
+            "JoySoftware.NetDaemon.Extensions.Logging": {
+              "target": "Package",
+              "version": "[23.5.0, )"
+            },
+            "JoySoftware.NetDaemon.Extensions.Mqtt": {
+              "target": "Package",
+              "version": "[23.5.0, )"
+            },
+            "JoySoftware.NetDaemon.Extensions.Scheduling": {
+              "target": "Package",
+              "version": "[23.5.0, )"
+            },
+            "JoySoftware.NetDaemon.Extensions.Tts": {
+              "target": "Package",
+              "version": "[23.5.0, )"
+            },
+            "JoySoftware.NetDaemon.HassModel": {
+              "target": "Package",
+              "version": "[23.5.0, )"
+            },
+            "JoySoftware.NetDaemon.Runtime": {
+              "target": "Package",
+              "version": "[23.5.0, )"
+            },
+            "Microsoft.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[6.1.0, )"
+            },
+            "System.Reactive": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "stateless": {
+              "target": "Package",
+              "version": "[5.13.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/usr/share/hassio/homeassistant/NetDaemonTests/NetDaemonTests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/usr/share/hassio/homeassistant/NetDaemonTests/NetDaemonTests.csproj",
+        "projectName": "NetDaemonTests",
+        "projectPath": "/usr/share/hassio/homeassistant/NetDaemonTests/NetDaemonTests.csproj",
+        "packagesPath": "/home/holly/.nuget/packages/",
+        "outputPath": "/usr/share/hassio/homeassistant/NetDaemonTests/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/holly/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/usr/share/hassio/homeassistant/NetDaemonApps/NetDaemonApps.csproj": {
+                "projectPath": "/usr/share/hassio/homeassistant/NetDaemonApps/NetDaemonApps.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "JoySoftware.NetDaemon.Extensions.Logging": {
+              "target": "Package",
+              "version": "[23.5.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.4.1, )"
+            },
+            "Microsoft.Reactive.Testing": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.18.4, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.13.3, )"
+            },
+            "NUnit.Analyzers": {
+              "target": "Package",
+              "version": "[3.5.0, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[4.3.1, )"
+            },
+            "coverlet.collector": {
+              "target": "Package",
+              "version": "[3.2.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

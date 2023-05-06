@@ -1,5 +1,4 @@
-﻿
-namespace NetDaemonApps.Extensions;
+﻿namespace NetDaemonApps.Extensions;
 
 public static class ProximityExtensions
 {
@@ -10,7 +9,7 @@ public static class ProximityExtensions
         => entity?.EntityState?.IsTowards() ?? false;
 
     public static IDisposable WhenTowards(this ProximityEntity entity,
-        Action<StateChange<ProximityEntity, EntityState<ProximityAttributes>>> action)
+        Action<StateChange<ProximityEntity, NumericEntityState<ProximityAttributes>>> action)
         => entity.StateChanges().Where(e => e.New?.IsTowards() ?? false).Subscribe(action);
 
     public static bool IsArrived(this EntityState<ProximityAttributes>? entityState)
@@ -20,7 +19,7 @@ public static class ProximityExtensions
         => entity?.EntityState?.IsArrived() ?? false;
 
     public static IDisposable WhenArrived(this ProximityEntity entity,
-        Action<StateChange<ProximityEntity, EntityState<ProximityAttributes>>> action)
+        Action<StateChange<ProximityEntity, NumericEntityState<ProximityAttributes>>> action)
         => entity.StateChanges().Where(e => e.New?.IsArrived() ?? false).Subscribe(action);
 
     public static bool IsNotSet(this EntityState<ProximityAttributes>? entityState)
@@ -30,7 +29,7 @@ public static class ProximityExtensions
         => entity?.EntityState?.IsNotSet() ?? false;
 
     public static IDisposable WhenNotSet(this ProximityEntity entity,
-        Action<StateChange<ProximityEntity, EntityState<ProximityAttributes>>> action)
+        Action<StateChange<ProximityEntity, NumericEntityState<ProximityAttributes>>> action)
         => entity.StateChanges().Where(e => e.New?.IsNotSet() ?? false).Subscribe(action);
 
     public static bool IsAwayFrom(this EntityState<ProximityAttributes>? entityState)
@@ -40,7 +39,7 @@ public static class ProximityExtensions
         => entity?.EntityState?.IsAwayFrom() ?? false;
 
     public static IDisposable WhenAwayFrom(this ProximityEntity entity,
-        Action<StateChange<ProximityEntity, EntityState<ProximityAttributes>>> action)
+        Action<StateChange<ProximityEntity, NumericEntityState<ProximityAttributes>>> action)
         => entity.StateChanges().Where(e => e.New?.IsAwayFrom() ?? false).Subscribe(action);
 
     public static bool IsStationary(this EntityState<ProximityAttributes>? entityState)
@@ -50,9 +49,6 @@ public static class ProximityExtensions
         => entity?.EntityState?.IsStationary() ?? false;
 
     public static IDisposable WhenStationary(this ProximityEntity entity,
-        Action<StateChange<ProximityEntity, EntityState<ProximityAttributes>>> action)
+        Action<StateChange<ProximityEntity, NumericEntityState<ProximityAttributes>>> action)
         => entity.StateChanges().Where(e => e.New?.IsStationary() ?? false).Subscribe(action);
-
-
 }
-

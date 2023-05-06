@@ -262,10 +262,10 @@
     turn off morning and/or evening feed
   trigger:
   - platform: time
-    at: 07:00:00
+    at: input_datetime.morning_feed_time
     id: morning-feed
   - platform: time
-    at: '17:30:00'
+    at: input_datetime.evening_feed_time
     id: evening-feed
   condition:
   - condition: or
@@ -275,20 +275,20 @@
       - condition: trigger
         id: morning-feed
       - condition: state
-        entity_id: input_boolean.morning_feed_enabled
+        entity_id: switch.morning_feed_enabled
         state: 'on'
       - condition: state
-        entity_id: input_boolean.morning_feed_complete
+        entity_id: switch.morning_feed_complete
         state: 'off'
     - condition: and
       conditions:
       - condition: trigger
         id: evening-feed
       - condition: state
-        entity_id: input_boolean.evening_feed_enabled
+        entity_id: switch.evening_feed_enabled
         state: 'on'
       - condition: state
-        entity_id: input_boolean.evening_feed_complete
+        entity_id: switch.evening_feed_complete
         state: 'off'
   action:
   - choose:
@@ -296,19 +296,19 @@
       - condition: trigger
         id: morning-feed
       sequence:
-      - service: input_boolean.turn_off
+      - service: switch.turn_off
         target:
-          entity_id: input_boolean.evening_feed_complete
+          entity_id: switch.evening_feed_complete
         data: {}
       - choose:
         - conditions:
           - condition: state
-            entity_id: input_boolean.disable_next_feed
+            entity_id: switch.disable_next_feed
             state: 'on'
           sequence:
-          - service: input_boolean.turn_off
+          - service: switch.turn_off
             target:
-              entity_id: input_boolean.disable_next_feed
+              entity_id: switch.disable_next_feed
             data: {}
         default:
         - service: switch.turn_on
@@ -320,27 +320,27 @@
             minutes: 1
             seconds: 20
             milliseconds: 0
-        - service: input_boolean.turn_on
+        - service: switch.turn_on
           target:
-            entity_id: input_boolean.morning_feed_complete
+            entity_id: switch.morning_feed_complete
           data: {}
     - conditions:
       - condition: trigger
         id: evening-feed
       sequence:
-      - service: input_boolean.turn_off
+      - service: switch.turn_off
         target:
-          entity_id: input_boolean.morning_feed_complete
+          entity_id: switch.morning_feed_complete
         data: {}
       - choose:
         - conditions:
           - condition: state
-            entity_id: input_boolean.disable_next_feed
+            entity_id: switch.disable_next_feed
             state: 'on'
           sequence:
-          - service: input_boolean.turn_off
+          - service: switch.turn_off
             target:
-              entity_id: input_boolean.disable_next_feed
+              entity_id: switch.disable_next_feed
             data: {}
         default:
         - service: switch.turn_on
@@ -352,9 +352,9 @@
             minutes: 1
             seconds: 20
             milliseconds: 0
-        - service: input_boolean.turn_on
+        - service: switch.turn_on
           target:
-            entity_id: input_boolean.evening_feed_complete
+            entity_id: switch.evening_feed_complete
           data: {}
     default: []
   mode: single
@@ -914,3 +914,8 @@
       button_page02_label: Scenes
       button_page03_label: Climate
       button_page04_label: Lights
+      qrcode_state: true
+      qrcode_label: Guest Wifi
+      qrcode_value: WIFI:T:WPA;S:Home.Guest.Wifi;P:J3llyt0ts
+      entitypages_enabled: true
+      date_format: '%d/%m'

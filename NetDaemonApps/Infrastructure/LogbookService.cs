@@ -9,7 +9,7 @@ public static class LogbookHelper
         Logbook = logbook;
     }
 
-    public static void Log(this Entity? entity, string message)
+    public static void Logs(this Entity? entity, string message)
     {
         if (entity?.EntityId == null)
             return;

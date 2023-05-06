@@ -13,3 +13,6 @@ publish:
 	rm -rf out
 
 gbp: generate build publish
+
+update:
+	dotnet tool update -g JoySoftware.NetDaemon.HassModel.CodeGen

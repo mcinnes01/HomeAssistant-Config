@@ -75,7 +75,7 @@ public class LightControlModeController
         .Where(s => s.New.IsOn())
         .Subscribe(_ =>
         {
-            _logger.LogDebug("Light control mode control has been enabled.");
+            _logger.LogDebug("Light control mode control has been enabled.", new { Entity = LightControlMode });
             Handle();
         });
 
@@ -89,37 +89,31 @@ public class LightControlModeController
             switch(trigger)
             {
                 case Trigger.Unoccupied:
-                    _logger.LogDebug("House unoccupied, set Light Control Mode to Manual.");
-                    LightControlMode.Log($"Set state to Manual, triggered by house {trigger.ToString()}.");
+                    _logger.LogDebug("House unoccupied, set Light Control Mode to Manual.", new { Entity = LightControlMode });
                     LightControlMode?.SelectOption(LightControlModeOptions.Manual);
                     break;
                 case Trigger.Occupied:
-                    _logger.LogDebug("House occupied, set Light Control Mode to Motion.");
-                    LightControlMode.Log($"Set state to Motion, triggered by house {trigger.ToString()}.");
+                    _logger.LogDebug("House occupied, set Light Control Mode to Motion.", new { Entity = LightControlMode });
                     LightControlMode?.SelectOption(LightControlModeOptions.Motion);
                     break;
                 case Trigger.Dark:
-                    _logger.LogDebug("House occupied and it's dark outside, set Light Control Mode to Motion.");
-                    LightControlMode.Log($"Set state to Motion, triggered by Brightness {trigger.ToString()}.");
+                    _logger.LogDebug("House occupied and it's Dark outside, set Light Control Mode to Motion.", new { Entity = LightControlMode });
                     LightControlMode?.SelectOption(LightControlModeOptions.Motion);
                     break;
                 case Trigger.InBed:
-                    _logger.LogDebug("In Bed, set Light Control Mode to Sleeping.");
-                    LightControlMode.Log($"Set state to Sleeping, triggered by {trigger.ToString()}.");
+                    _logger.LogDebug("In Bed, set Light Control Mode to Sleeping.", new { Entity = LightControlMode });
                     LightControlMode?.SelectOption(LightControlModeOptions.Sleeping);
                     break;
                 case Trigger.OutOfBed:
-                    _logger.LogDebug("Out Of Bed, set Light Control Mode to Motion.");
-                    LightControlMode.Log($"Set state to Motion, triggered by {trigger.ToString()}.");
+                    _logger.LogDebug("Set state to Motion, triggered by {Trigger}.", new { Trigger = trigger.ToString(), Entity = LightControlMode });
                     LightControlMode?.SelectOption(LightControlModeOptions.Motion);
                     break;
                 case Trigger.Manual:
-                    _logger.LogDebug($"Manual change to Light Control Mode {LightControlMode?.State}.");
-                    LightControlMode.Log($"Manually set state to {LightControlMode?.State}, triggered by {trigger.ToString()}.");
+                    _logger.LogDebug("Manually set state to {State}, triggered by {Trigger}.",
+                        new { State = LightControlMode?.State, Trigger = trigger.ToString(), Entity = LightControlMode });
                     break;
                 default:
-                    _logger.LogDebug("Default Light Control Mode motion.");
-                    LightControlMode.Log($"Default Light Control Mode motion.");
+                    _logger.LogDebug("Default Light Control Mode motion.", new { Entity = LightControlMode });
                     LightControlMode?.SelectOption(LightControlModeOptions.Motion);
                     break;
                     //TODO: more needs doing here and alexa questions would benefit light changing events

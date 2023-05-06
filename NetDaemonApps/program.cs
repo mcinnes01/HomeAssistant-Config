@@ -4,6 +4,7 @@ using Microsoft.Extensions.Hosting;
 using NetDaemon.Extensions.Logging;
 using NetDaemon.Extensions.MqttEntityManager;
 using NetDaemon.Runtime;
+using NetDaemonApps.Infrastructure.State;
 
 #pragma warning disable CA1812
 

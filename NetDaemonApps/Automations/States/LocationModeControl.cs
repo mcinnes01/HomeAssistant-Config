@@ -80,7 +80,7 @@ public class LocationModeController
             .Where(s => s.New.IsOn())
             .Subscribe(_ =>
             {
-                _logger.LogDebug("Location mode control has been enabled.");
+                _logger.LogDebug("Location mode control has been enabled.", new { Entity = LocationMode });
                 Init();
             });
         
@@ -99,27 +99,23 @@ public class LocationModeController
         {
             if (!Andy.IsHome() && !Claire.IsHome())
             {
-                _logger.LogDebug("House set to Away, {WhoMadeAction}.", WhoMadeAction());
-                LocationMode.Log($"House set to Away, {WhoMadeAction}.");
+                _logger.LogDebug("House set to Away, {Action}.", new { Action = WhoMadeAction(), Entity = LocationMode });
                 LocationMode?.SelectOption(LocationModeOptions.Away);
             }
             else if ((Andy.IsHome() && !Claire.IsHome())
                 || (!Andy.IsHome() && Claire.IsHome()))
             {
-                _logger.LogDebug("House set to OneAway, {WhoMadeAction}.", WhoMadeAction());
-                LocationMode.Log($"House set to OneAway, {WhoMadeAction}.");
+                _logger.LogDebug("House set to OneAway, {WhoMadeAction}.", new { Action = WhoMadeAction(), Entity = LocationMode });
                 LocationMode?.SelectOption(LocationModeOptions.OneAway);
             }
             else if (Andy.IsHome() && Claire.IsHome())
             {
-                _logger.LogDebug("House set to Home, {WhoMadeAction}.", WhoMadeAction());
-                LocationMode.Log($"House set to Home, {WhoMadeAction}.");
+                _logger.LogDebug("House set to Home, {WhoMadeAction}.", new { Action = WhoMadeAction(), Entity = LocationMode });
                 LocationMode?.SelectOption(LocationModeOptions.Home);
             }
             else if (manualChange)
             {
-                _logger.LogDebug("House set to {State} by manual change.", LocationMode?.State);
-                LocationMode.Log($"House set to {LocationMode?.State}.");
+                _logger.LogDebug("House set to {State} by manual change.", new { State = LocationMode?.State, Entity = LocationMode });
             }
 
             Reset();
