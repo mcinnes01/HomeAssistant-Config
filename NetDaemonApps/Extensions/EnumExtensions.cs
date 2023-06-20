@@ -45,7 +45,7 @@ public static class EnumExtensions
         return Enum.Parse<E>(normalized, true);
     }
 
-        public static void SelectOption<T>(this InputSelectEntity target, T @option)
+    public static void SelectOption<T>(this InputSelectEntity target, T @option)
         where T : Enum
     {
         if(string.IsNullOrEmpty(option.ToString()))
@@ -60,41 +60,41 @@ public static class EnumExtensions
     public static T AsOption<T>(this InputSelectEntity? target)
         where T : struct
     {
-        try   
-        {   
+        try
+        {
             if(string.IsNullOrEmpty(target?.State))
                 throw new NullReferenceException();
 
-            T option = (T)Enum.Parse(typeof(T), target.State);   
+            T option = (T)Enum.Parse(typeof(T), target.State);
             if (!Enum.IsDefined(typeof(T), option))
                 throw new ArgumentOutOfRangeException($"Value: {target.State} not found for type: {nameof(T)}");
-  
-            return option;   
-        }   
-        catch 
-        {   
+
+            return option;
+        }
+        catch
+        {
             throw;
-        }  
+        }
     }
 
     public static T AsOption<T>(this EntityState<InputSelectAttributes> target)
         where T : struct
     {
-        try   
-        {   
+        try
+        {
             if(string.IsNullOrEmpty(target?.State))
                 throw new NullReferenceException();
 
-            T option = (T)Enum.Parse(typeof(T), target.State);   
+            T option = (T)Enum.Parse(typeof(T), target.State);
             if (!Enum.IsDefined(typeof(T), option))
                 throw new ArgumentOutOfRangeException($"Value: {target.State} not found for type: {nameof(T)}");
-  
+
             return option;
-        }   
-        catch 
-        {   
+        }
+        catch
+        {
             throw;
-        }  
+        }
     }
 
     public static bool IsOption(this InputSelectEntity target, Enum @option)

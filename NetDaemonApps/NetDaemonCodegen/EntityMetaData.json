@@ -23,7 +23,7 @@
         {
           "jsonName": "changed_by",
           "cSharpName": "ChangedBy",
-          "clrType": "System.String"
+          "clrType": "System.Object"
         },
         {
           "jsonName": "code_arm_required",
@@ -94,6 +94,16 @@
           "id": "automation.bedroom_lights_off_reset_mode",
           "friendlyName": "Bedroom Lights Off Reset Mode",
           "cSharpName": "BedroomLightsOffResetMode"
+        },
+        {
+          "id": "automation.bedroom_show_screen_off",
+          "friendlyName": "Bedroom show screen off ",
+          "cSharpName": "BedroomShowScreenOff"
+        },
+        {
+          "id": "automation.bedroom_show_screen_on",
+          "friendlyName": "Bedroom show screen on",
+          "cSharpName": "BedroomShowScreenOn"
         },
         {
           "id": "automation.claire_is_home",
@@ -323,6 +333,16 @@
           "cSharpName": "BackupsStale"
         },
         {
+          "id": "binary_sensor.basement_hall_camera_detections_motion",
+          "friendlyName": "Basement Hall Camera Detections: Motion",
+          "cSharpName": "BasementHallCameraDetectionsMotion"
+        },
+        {
+          "id": "binary_sensor.basement_hall_camera_hdr_mode",
+          "friendlyName": "Basement Hall Camera Hdr Mode",
+          "cSharpName": "BasementHallCameraHdrMode"
+        },
+        {
           "id": "binary_sensor.basement_hall_camera_is_dark",
           "friendlyName": "Basement Hall Camera Is Dark",
           "cSharpName": "BasementHallCameraIsDark"
@@ -331,6 +351,31 @@
           "id": "binary_sensor.basement_hall_camera_motion",
           "friendlyName": "Basement Hall Camera Motion",
           "cSharpName": "BasementHallCameraMotion"
+        },
+        {
+          "id": "binary_sensor.basement_hall_camera_overlay_show_bitrate",
+          "friendlyName": "Basement Hall Camera Overlay: Show Bitrate",
+          "cSharpName": "BasementHallCameraOverlayShowBitrate"
+        },
+        {
+          "id": "binary_sensor.basement_hall_camera_overlay_show_date",
+          "friendlyName": "Basement Hall Camera Overlay: Show Date",
+          "cSharpName": "BasementHallCameraOverlayShowDate"
+        },
+        {
+          "id": "binary_sensor.basement_hall_camera_overlay_show_logo",
+          "friendlyName": "Basement Hall Camera Overlay: Show Logo",
+          "cSharpName": "BasementHallCameraOverlayShowLogo"
+        },
+        {
+          "id": "binary_sensor.basement_hall_camera_overlay_show_name",
+          "friendlyName": "Basement Hall Camera Overlay: Show Name",
+          "cSharpName": "BasementHallCameraOverlayShowName"
+        },
+        {
+          "id": "binary_sensor.basement_hall_camera_status_light_on",
+          "friendlyName": "Basement Hall Camera Status Light On",
+          "cSharpName": "BasementHallCameraStatusLightOn"
         },
         {
           "id": "binary_sensor.basement_hall_motion",
@@ -503,6 +548,11 @@
           "cSharpName": "DispenserRotating"
         },
         {
+          "id": "binary_sensor.display_cabinet_light_update_available",
+          "friendlyName": "Display Cabinet Light update available",
+          "cSharpName": "DisplayCabinetLightUpdateAvailable"
+        },
+        {
           "id": "binary_sensor.doorbell_button",
           "friendlyName": "Doorbell Button",
           "cSharpName": "DoorbellButton"
@@ -608,26 +658,6 @@
           "cSharpName": "FrontDoorContact"
         },
         {
-          "id": "binary_sensor.g4_instant_is_dark",
-          "friendlyName": "Kitchen Camera Is Dark",
-          "cSharpName": "G4InstantIsDark"
-        },
-        {
-          "id": "binary_sensor.g4_instant_motion",
-          "friendlyName": "Kitchen Camera Motion",
-          "cSharpName": "G4InstantMotion"
-        },
-        {
-          "id": "binary_sensor.g5_bullet_is_dark",
-          "friendlyName": "Shed Camera Is Dark",
-          "cSharpName": "G5BulletIsDark"
-        },
-        {
-          "id": "binary_sensor.g5_bullet_motion",
-          "friendlyName": "Shed Camera Motion",
-          "cSharpName": "G5BulletMotion"
-        },
-        {
           "id": "binary_sensor.garden_sockets_overheating",
           "friendlyName": "Garden Sockets overheating",
           "cSharpName": "GardenSocketsOverheating"
@@ -658,6 +688,11 @@
           "cSharpName": "GateSocketOvervoltage"
         },
         {
+          "id": "binary_sensor.guest_room_bedside_lamp_update_available",
+          "friendlyName": "Guest Room Bedside Lamp update available",
+          "cSharpName": "GuestRoomBedsideLampUpdateAvailable"
+        },
+        {
           "id": "binary_sensor.guest_room_motion",
           "friendlyName": "Guest Room Motion",
           "cSharpName": "GuestRoomMotion"
@@ -668,24 +703,49 @@
           "cSharpName": "GuestRoomRemoteUpdateAvailable"
         },
         {
-          "id": "binary_sensor.hallway_camera_audio_object_detected",
-          "friendlyName": "Kitchen Camera Audio Object Detected",
-          "cSharpName": "HallwayCameraAudioObjectDetected"
+          "id": "binary_sensor.hallway_camera_detections_motion",
+          "friendlyName": "Hallway Camera Detections: Motion",
+          "cSharpName": "HallwayCameraDetectionsMotion"
         },
         {
-          "id": "binary_sensor.hallway_camera_object_detected",
-          "friendlyName": "Kitchen Camera Object Detected",
-          "cSharpName": "HallwayCameraObjectDetected"
+          "id": "binary_sensor.hallway_camera_hdr_mode",
+          "friendlyName": "Hallway Camera Hdr Mode",
+          "cSharpName": "HallwayCameraHdrMode"
         },
         {
-          "id": "binary_sensor.hallway_camera_person_detected",
-          "friendlyName": "Kitchen Camera Person Detected",
-          "cSharpName": "HallwayCameraPersonDetected"
+          "id": "binary_sensor.hallway_camera_is_dark",
+          "friendlyName": "Hallway Camera Is Dark",
+          "cSharpName": "HallwayCameraIsDark"
         },
         {
-          "id": "binary_sensor.hallway_camera_vehicle_detected",
-          "friendlyName": "Kitchen Camera Vehicle Detected",
-          "cSharpName": "HallwayCameraVehicleDetected"
+          "id": "binary_sensor.hallway_camera_motion",
+          "friendlyName": "Hallway Camera Motion",
+          "cSharpName": "HallwayCameraMotion"
+        },
+        {
+          "id": "binary_sensor.hallway_camera_overlay_show_bitrate",
+          "friendlyName": "Hallway Camera Overlay: Show Bitrate",
+          "cSharpName": "HallwayCameraOverlayShowBitrate"
+        },
+        {
+          "id": "binary_sensor.hallway_camera_overlay_show_date",
+          "friendlyName": "Hallway Camera Overlay: Show Date",
+          "cSharpName": "HallwayCameraOverlayShowDate"
+        },
+        {
+          "id": "binary_sensor.hallway_camera_overlay_show_logo",
+          "friendlyName": "Hallway Camera Overlay: Show Logo",
+          "cSharpName": "HallwayCameraOverlayShowLogo"
+        },
+        {
+          "id": "binary_sensor.hallway_camera_overlay_show_name",
+          "friendlyName": "Hallway Camera Overlay: Show Name",
+          "cSharpName": "HallwayCameraOverlayShowName"
+        },
+        {
+          "id": "binary_sensor.hallway_camera_status_light_on",
+          "friendlyName": "Hallway Camera Status Light On",
+          "cSharpName": "HallwayCameraStatusLightOn"
         },
         {
           "id": "binary_sensor.hallway_remote_update_available",
@@ -703,24 +763,99 @@
           "cSharpName": "InBed"
         },
         {
+          "id": "binary_sensor.kitchen_camera_audio_object_detected",
+          "friendlyName": "Kitchen Camera Audio Object Detected",
+          "cSharpName": "KitchenCameraAudioObjectDetected"
+        },
+        {
           "id": "binary_sensor.kitchen_camera_co_alarm_detected",
           "friendlyName": "Kitchen Camera Co Alarm Detected",
           "cSharpName": "KitchenCameraCoAlarmDetected"
         },
         {
+          "id": "binary_sensor.kitchen_camera_detections_motion",
+          "friendlyName": "Kitchen Camera Detections: Motion",
+          "cSharpName": "KitchenCameraDetectionsMotion"
+        },
+        {
+          "id": "binary_sensor.kitchen_camera_detections_person",
+          "friendlyName": "Kitchen Camera Detections: Person",
+          "cSharpName": "KitchenCameraDetectionsPerson"
+        },
+        {
+          "id": "binary_sensor.kitchen_camera_detections_smoke_co",
+          "friendlyName": "Kitchen Camera Detections: Smoke/Co",
+          "cSharpName": "KitchenCameraDetectionsSmokeCo"
+        },
+        {
+          "id": "binary_sensor.kitchen_camera_detections_vehicle",
+          "friendlyName": "Kitchen Camera Detections: Vehicle",
+          "cSharpName": "KitchenCameraDetectionsVehicle"
+        },
+        {
+          "id": "binary_sensor.kitchen_camera_hdr_mode",
+          "friendlyName": "Kitchen Camera Hdr Mode",
+          "cSharpName": "KitchenCameraHdrMode"
+        },
+        {
           "id": "binary_sensor.kitchen_camera_is_dark",
-          "friendlyName": "Hallway Camera Is Dark",
+          "friendlyName": "Kitchen Camera Is Dark",
           "cSharpName": "KitchenCameraIsDark"
         },
         {
           "id": "binary_sensor.kitchen_camera_motion",
-          "friendlyName": "Hallway Camera Motion",
+          "friendlyName": "Kitchen Camera Motion",
           "cSharpName": "KitchenCameraMotion"
+        },
+        {
+          "id": "binary_sensor.kitchen_camera_object_detected",
+          "friendlyName": "Kitchen Camera Object Detected",
+          "cSharpName": "KitchenCameraObjectDetected"
+        },
+        {
+          "id": "binary_sensor.kitchen_camera_overlay_show_bitrate",
+          "friendlyName": "Kitchen Camera Overlay: Show Bitrate",
+          "cSharpName": "KitchenCameraOverlayShowBitrate"
+        },
+        {
+          "id": "binary_sensor.kitchen_camera_overlay_show_date",
+          "friendlyName": "Kitchen Camera Overlay: Show Date",
+          "cSharpName": "KitchenCameraOverlayShowDate"
+        },
+        {
+          "id": "binary_sensor.kitchen_camera_overlay_show_logo",
+          "friendlyName": "Kitchen Camera Overlay: Show Logo",
+          "cSharpName": "KitchenCameraOverlayShowLogo"
+        },
+        {
+          "id": "binary_sensor.kitchen_camera_overlay_show_name",
+          "friendlyName": "Kitchen Camera Overlay: Show Name",
+          "cSharpName": "KitchenCameraOverlayShowName"
+        },
+        {
+          "id": "binary_sensor.kitchen_camera_person_detected",
+          "friendlyName": "Kitchen Camera Person Detected",
+          "cSharpName": "KitchenCameraPersonDetected"
         },
         {
           "id": "binary_sensor.kitchen_camera_smoke_alarm_detected",
           "friendlyName": "Kitchen Camera Smoke Alarm Detected",
           "cSharpName": "KitchenCameraSmokeAlarmDetected"
+        },
+        {
+          "id": "binary_sensor.kitchen_camera_status_light_on",
+          "friendlyName": "Kitchen Camera Status Light On",
+          "cSharpName": "KitchenCameraStatusLightOn"
+        },
+        {
+          "id": "binary_sensor.kitchen_camera_system_sounds",
+          "friendlyName": "Kitchen Camera System Sounds",
+          "cSharpName": "KitchenCameraSystemSounds"
+        },
+        {
+          "id": "binary_sensor.kitchen_camera_vehicle_detected",
+          "friendlyName": "Kitchen Camera Vehicle Detected",
+          "cSharpName": "KitchenCameraVehicleDetected"
         },
         {
           "id": "binary_sensor.kitchen_motion",
@@ -773,9 +908,44 @@
           "cSharpName": "NspanelRightButton"
         },
         {
-          "id": "binary_sensor.patio_camera_audio_detected",
+          "id": "binary_sensor.patio_camera_audio_object_detected",
           "friendlyName": "Patio Camera Audio Object Detected",
-          "cSharpName": "PatioCameraAudioDetected"
+          "cSharpName": "PatioCameraAudioObjectDetected"
+        },
+        {
+          "id": "binary_sensor.patio_camera_co_alarm_detected",
+          "friendlyName": "Patio Camera Co Alarm Detected",
+          "cSharpName": "PatioCameraCoAlarmDetected"
+        },
+        {
+          "id": "binary_sensor.patio_camera_detections_motion",
+          "friendlyName": "Patio Camera Detections: Motion",
+          "cSharpName": "PatioCameraDetectionsMotion"
+        },
+        {
+          "id": "binary_sensor.patio_camera_detections_person",
+          "friendlyName": "Patio Camera Detections: Person",
+          "cSharpName": "PatioCameraDetectionsPerson"
+        },
+        {
+          "id": "binary_sensor.patio_camera_detections_smoke_co",
+          "friendlyName": "Patio Camera Detections: Smoke/Co",
+          "cSharpName": "PatioCameraDetectionsSmokeCo"
+        },
+        {
+          "id": "binary_sensor.patio_camera_detections_vehicle",
+          "friendlyName": "Patio Camera Detections: Vehicle",
+          "cSharpName": "PatioCameraDetectionsVehicle"
+        },
+        {
+          "id": "binary_sensor.patio_camera_hdr_mode",
+          "friendlyName": "Patio Camera Hdr Mode",
+          "cSharpName": "PatioCameraHdrMode"
+        },
+        {
+          "id": "binary_sensor.patio_camera_high_fps",
+          "friendlyName": "Patio Camera High Fps",
+          "cSharpName": "PatioCameraHighFps"
         },
         {
           "id": "binary_sensor.patio_camera_is_dark",
@@ -791,6 +961,26 @@
           "id": "binary_sensor.patio_camera_object_detected",
           "friendlyName": "Patio Camera Object Detected",
           "cSharpName": "PatioCameraObjectDetected"
+        },
+        {
+          "id": "binary_sensor.patio_camera_overlay_show_bitrate",
+          "friendlyName": "Patio Camera Overlay: Show Bitrate",
+          "cSharpName": "PatioCameraOverlayShowBitrate"
+        },
+        {
+          "id": "binary_sensor.patio_camera_overlay_show_date",
+          "friendlyName": "Patio Camera Overlay: Show Date",
+          "cSharpName": "PatioCameraOverlayShowDate"
+        },
+        {
+          "id": "binary_sensor.patio_camera_overlay_show_logo",
+          "friendlyName": "Patio Camera Overlay: Show Logo",
+          "cSharpName": "PatioCameraOverlayShowLogo"
+        },
+        {
+          "id": "binary_sensor.patio_camera_overlay_show_name",
+          "friendlyName": "Patio Camera Overlay: Show Name",
+          "cSharpName": "PatioCameraOverlayShowName"
         },
         {
           "id": "binary_sensor.patio_camera_person_detected",
@@ -873,9 +1063,69 @@
           "cSharpName": "ShedCameraAudioObjectDetected"
         },
         {
+          "id": "binary_sensor.shed_camera_co_alarm_detected",
+          "friendlyName": "Shed Camera Co Alarm Detected",
+          "cSharpName": "ShedCameraCoAlarmDetected"
+        },
+        {
+          "id": "binary_sensor.shed_camera_detections_motion",
+          "friendlyName": "Shed Camera Detections: Motion",
+          "cSharpName": "ShedCameraDetectionsMotion"
+        },
+        {
+          "id": "binary_sensor.shed_camera_detections_person",
+          "friendlyName": "Shed Camera Detections: Person",
+          "cSharpName": "ShedCameraDetectionsPerson"
+        },
+        {
+          "id": "binary_sensor.shed_camera_detections_smoke_co",
+          "friendlyName": "Shed Camera Detections: Smoke/Co",
+          "cSharpName": "ShedCameraDetectionsSmokeCo"
+        },
+        {
+          "id": "binary_sensor.shed_camera_detections_vehicle",
+          "friendlyName": "Shed Camera Detections: Vehicle",
+          "cSharpName": "ShedCameraDetectionsVehicle"
+        },
+        {
+          "id": "binary_sensor.shed_camera_hdr_mode",
+          "friendlyName": "Shed Camera Hdr Mode",
+          "cSharpName": "ShedCameraHdrMode"
+        },
+        {
+          "id": "binary_sensor.shed_camera_is_dark",
+          "friendlyName": "Shed Camera Is Dark",
+          "cSharpName": "ShedCameraIsDark"
+        },
+        {
+          "id": "binary_sensor.shed_camera_motion",
+          "friendlyName": "Shed Camera Motion",
+          "cSharpName": "ShedCameraMotion"
+        },
+        {
           "id": "binary_sensor.shed_camera_object_detected",
           "friendlyName": "Shed Camera Object Detected",
           "cSharpName": "ShedCameraObjectDetected"
+        },
+        {
+          "id": "binary_sensor.shed_camera_overlay_show_bitrate",
+          "friendlyName": "Shed Camera Overlay: Show Bitrate",
+          "cSharpName": "ShedCameraOverlayShowBitrate"
+        },
+        {
+          "id": "binary_sensor.shed_camera_overlay_show_date",
+          "friendlyName": "Shed Camera Overlay: Show Date",
+          "cSharpName": "ShedCameraOverlayShowDate"
+        },
+        {
+          "id": "binary_sensor.shed_camera_overlay_show_logo",
+          "friendlyName": "Shed Camera Overlay: Show Logo",
+          "cSharpName": "ShedCameraOverlayShowLogo"
+        },
+        {
+          "id": "binary_sensor.shed_camera_overlay_show_name",
+          "friendlyName": "Shed Camera Overlay: Show Name",
+          "cSharpName": "ShedCameraOverlayShowName"
         },
         {
           "id": "binary_sensor.shed_camera_person_detected",
@@ -1128,9 +1378,9 @@
           "cSharpName": "ToiletWasp"
         },
         {
-          "id": "binary_sensor.udmpro_disk_0_health",
+          "id": "binary_sensor.udmpro_hdd_1",
           "friendlyName": "UDMPRO Hdd 1",
-          "cSharpName": "UdmproDisk0Health"
+          "cSharpName": "UdmproHdd1"
         },
         {
           "id": "binary_sensor.updater",
@@ -1388,17 +1638,17 @@
           "jsonName": "teleFails",
           "cSharpName": "TeleFails",
           "clrType": "System.Double"
+        },
+        {
+          "jsonName": "occupancy",
+          "cSharpName": "Occupancy",
+          "clrType": "System.Boolean"
         }
       ]
     },
     {
       "domain": "button",
       "entities": [
-        {
-          "id": "button.basement_hall_camera_reboot_device",
-          "friendlyName": "Basement Hall Camera Reboot Device",
-          "cSharpName": "BasementHallCameraRebootDevice"
-        },
         {
           "id": "button.espresense_bedroom_restart",
           "friendlyName": "ESPresense Bedroom Restart",
@@ -1420,29 +1670,14 @@
           "cSharpName": "EspresenseSnugRestart"
         },
         {
-          "id": "button.g4_instant_reboot_device",
-          "friendlyName": "Kitchen Camera Reboot Device",
-          "cSharpName": "G4InstantRebootDevice"
-        },
-        {
-          "id": "button.g5_bullet_reboot_device",
-          "friendlyName": "Shed Camera Reboot Device",
-          "cSharpName": "G5BulletRebootDevice"
-        },
-        {
-          "id": "button.kitchen_camera_reboot_device",
-          "friendlyName": "Hallway Camera Reboot Device",
-          "cSharpName": "KitchenCameraRebootDevice"
-        },
-        {
           "id": "button.nspanel_restart",
           "friendlyName": "nspanel Restart",
           "cSharpName": "NspanelRestart"
         },
         {
-          "id": "button.patio_camera_reboot_device",
-          "friendlyName": "Patio Camera Reboot Device",
-          "cSharpName": "PatioCameraRebootDevice"
+          "id": "button.nspanel_update_tft_display",
+          "friendlyName": "nspanel Update TFT display",
+          "cSharpName": "NspanelUpdateTftDisplay"
         },
         {
           "id": "button.safe_mode_boot",
@@ -1485,6 +1720,16 @@
           "jsonName": "attribution",
           "cSharpName": "Attribution",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "restored",
+          "cSharpName": "Restored",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "supported_features",
+          "cSharpName": "SupportedFeatures",
+          "clrType": "System.Double"
         }
       ]
     },
@@ -1497,11 +1742,6 @@
           "cSharpName": "Contacts"
         },
         {
-          "id": "calendar.garbage_collection",
-          "friendlyName": "Garbage Collection",
-          "cSharpName": "GarbageCollection"
-        },
-        {
           "id": "calendar.holidays_in_united_kingdom",
           "friendlyName": "Holidays in united kingdom",
           "cSharpName": "HolidaysInUnitedKingdom"
@@ -1510,6 +1750,11 @@
           "id": "calendar.home_andisoft_gmail_com",
           "friendlyName": "Home.andisoft@gmail.com",
           "cSharpName": "HomeAndisoftGmailCom"
+        },
+        {
+          "id": "calendar.stockport_council",
+          "friendlyName": "Stockport Council",
+          "cSharpName": "StockportCouncil"
         }
       ],
       "attributes": [
@@ -1570,12 +1815,12 @@
         },
         {
           "id": "camera.hallway_camera_medium",
-          "friendlyName": "Kitchen Camera Medium",
+          "friendlyName": "Hallway Camera Medium",
           "cSharpName": "HallwayCameraMedium"
         },
         {
           "id": "camera.kitchen_camera_medium",
-          "friendlyName": "Hallway Camera Medium",
+          "friendlyName": "Kitchen Camera Medium",
           "cSharpName": "KitchenCameraMedium"
         },
         {
@@ -1778,14 +2023,44 @@
           "cSharpName": "_9d41000035d6F4ddBa60E7bd8dc491c06538525776Ff69"
         },
         {
+          "id": "device_tracker.a3_printer",
+          "friendlyName": "A3 Printer A3 Printer",
+          "cSharpName": "A3Printer"
+        },
+        {
           "id": "device_tracker.ab1530ble",
           "friendlyName": "AB1530BLE",
           "cSharpName": "Ab1530ble"
         },
         {
+          "id": "device_tracker.amazon_1b80b5fcd",
+          "friendlyName": "amazon-1b80b5fcd amazon-1b80b5fcd",
+          "cSharpName": "Amazon1b80b5fcd"
+        },
+        {
           "id": "device_tracker.andrews_iphone_tile",
           "friendlyName": "Andrew\u2019s iPhone",
           "cSharpName": "AndrewsIphoneTile"
+        },
+        {
+          "id": "device_tracker.andrews_mini",
+          "friendlyName": "Andrews-Mini Andrews-Mini",
+          "cSharpName": "AndrewsMini"
+        },
+        {
+          "id": "device_tracker.andrews_mini_2",
+          "friendlyName": "Andrews-Mini Andrews-Mini",
+          "cSharpName": "AndrewsMini2"
+        },
+        {
+          "id": "device_tracker.andy_laptop",
+          "friendlyName": "Andy Laptop Andy Laptop",
+          "cSharpName": "AndyLaptop"
+        },
+        {
+          "id": "device_tracker.andy_sleep_analyser",
+          "friendlyName": "Andy Sleep Analyser Andy Sleep Analyser",
+          "cSharpName": "AndySleepAnalyser"
         },
         {
           "id": "device_tracker.andys_keys",
@@ -1808,14 +2083,54 @@
           "cSharpName": "BasementHallCamera"
         },
         {
+          "id": "device_tracker.basement_thermostat",
+          "friendlyName": "Basement Thermostat Basement Thermostat",
+          "cSharpName": "BasementThermostat"
+        },
+        {
           "id": "device_tracker.bcm4350c0_uart_37_4_mhz",
           "friendlyName": "BCM4350C0 UART 37.4 MHz",
           "cSharpName": "Bcm4350c0Uart374Mhz"
         },
         {
+          "id": "device_tracker.bedroom_echo_show",
+          "friendlyName": "Bedroom Echo Show Bedroom Echo Show",
+          "cSharpName": "BedroomEchoShow"
+        },
+        {
+          "id": "device_tracker.ben_s_s23_ultra",
+          "friendlyName": "Ben-s-S23-Ultra Ben-s-S23-Ultra",
+          "cSharpName": "BenSS23Ultra"
+        },
+        {
+          "id": "device_tracker.body_scales",
+          "friendlyName": "Body\u002B Scales Body\u002B Scales",
+          "cSharpName": "BodyScales"
+        },
+        {
+          "id": "device_tracker.bulb_ihd",
+          "friendlyName": "Bulb IHD Bulb IHD",
+          "cSharpName": "BulbIhd"
+        },
+        {
           "id": "device_tracker.car",
           "friendlyName": "Car",
           "cSharpName": "Car"
+        },
+        {
+          "id": "device_tracker.claire_laptop",
+          "friendlyName": "Claire-Laptop Claire-Laptop",
+          "cSharpName": "ClaireLaptop"
+        },
+        {
+          "id": "device_tracker.claire_sleep_analyzer",
+          "friendlyName": "Claire Sleep Analyzer Claire Sleep Analyzer",
+          "cSharpName": "ClaireSleepAnalyzer"
+        },
+        {
+          "id": "device_tracker.claireiphone",
+          "friendlyName": "claireiphone claireiphone",
+          "cSharpName": "Claireiphone"
         },
         {
           "id": "device_tracker.claires_apple_watch",
@@ -1824,12 +2139,12 @@
         },
         {
           "id": "device_tracker.claires_iphone",
-          "friendlyName": "Claire\u2019s iPhone",
+          "friendlyName": "claireiphone",
           "cSharpName": "ClairesIphone"
         },
         {
           "id": "device_tracker.claires_iphone_3",
-          "friendlyName": "Claire\u2019s iPhone",
+          "friendlyName": "claireiphone",
           "cSharpName": "ClairesIphone3"
         },
         {
@@ -1841,6 +2156,26 @@
           "id": "device_tracker.claires_keys",
           "friendlyName": "Claire\u0027s Keys",
           "cSharpName": "ClairesKeys"
+        },
+        {
+          "id": "device_tracker.dining_room_echo_input",
+          "friendlyName": "Dining Room Echo Input Dining Room Echo Input",
+          "cSharpName": "DiningRoomEchoInput"
+        },
+        {
+          "id": "device_tracker.docker_host",
+          "friendlyName": "Docker Host Docker Host",
+          "cSharpName": "DockerHost"
+        },
+        {
+          "id": "device_tracker.downstairs_thermostat",
+          "friendlyName": "Downstairs Thermostat Downstairs Thermostat",
+          "cSharpName": "DownstairsThermostat"
+        },
+        {
+          "id": "device_tracker.dressing_room_ecot_dot",
+          "friendlyName": "Dressing Room Ecot Dot Dressing Room Ecot Dot",
+          "cSharpName": "DressingRoomEcotDot"
         },
         {
           "id": "device_tracker.e20a39f4_73f5_4bc4_1864_17d1ad07a962_38108_29772_c6d1",
@@ -1868,9 +2203,24 @@
           "cSharpName": "E2c56db5Dffb48d2B060D0f5a71096e000"
         },
         {
+          "id": "device_tracker.echo_input_263",
+          "friendlyName": "Echo Input-263",
+          "cSharpName": "EchoInput263"
+        },
+        {
           "id": "device_tracker.echo_show_8_cx9",
           "friendlyName": "Echo Show 8-CX9",
           "cSharpName": "EchoShow8Cx9"
+        },
+        {
+          "id": "device_tracker.eml_l09_11_cloudclone",
+          "friendlyName": "EML-L09%11%CloudClone",
+          "cSharpName": "EmlL0911Cloudclone"
+        },
+        {
+          "id": "device_tracker.epic_air_sport_anc_ble",
+          "friendlyName": "Epic Air Sport ANC-BLE",
+          "cSharpName": "EpicAirSportAncBle"
         },
         {
           "id": "device_tracker.esphome_cat_feeder",
@@ -1893,34 +2243,29 @@
           "cSharpName": "EsphomeWeatherStation"
         },
         {
-          "id": "device_tracker.espresense_drawingroom",
-          "friendlyName": "espresense-drawingroom",
-          "cSharpName": "EspresenseDrawingroom"
-        },
-        {
-          "id": "device_tracker.espresense_kitchen",
-          "friendlyName": "ESPresense Kitchen ESPresense Kitchen",
-          "cSharpName": "EspresenseKitchen"
-        },
-        {
           "id": "device_tracker.espresense_lounge",
           "friendlyName": "ESPresense Lounge ESPresense Lounge",
           "cSharpName": "EspresenseLounge"
         },
         {
-          "id": "device_tracker.espresense_snug",
-          "friendlyName": "espresense-snug",
-          "cSharpName": "EspresenseSnug"
+          "id": "device_tracker.f_ace_21",
+          "friendlyName": "F_ACE_21",
+          "cSharpName": "FAce21"
         },
         {
-          "id": "device_tracker.espresense_studio",
-          "friendlyName": "studio-bluetooth-proxy",
-          "cSharpName": "EspresenseStudio"
+          "id": "device_tracker.galaxy_watch_active_8f60_le",
+          "friendlyName": "Galaxy Watch Active (8F60) LE",
+          "cSharpName": "GalaxyWatchActive8f60Le"
         },
         {
-          "id": "device_tracker.espressif_2",
-          "friendlyName": "nspanel nspanel",
-          "cSharpName": "Espressif2"
+          "id": "device_tracker.galaxy_watch4_x2pv",
+          "friendlyName": "Galaxy Watch4 (X2PV)",
+          "cSharpName": "GalaxyWatch4X2pv"
+        },
+        {
+          "id": "device_tracker.guest_room_echo_show",
+          "friendlyName": "Guest Room Echo Show Guest Room Echo Show",
+          "cSharpName": "GuestRoomEchoShow"
         },
         {
           "id": "device_tracker.hauser_andy",
@@ -1933,6 +2278,16 @@
           "cSharpName": "HauserClaire"
         },
         {
+          "id": "device_tracker.hp_designjet_5500ps",
+          "friendlyName": "HP DesignJet 5500ps HP DesignJet 5500ps",
+          "cSharpName": "HpDesignjet5500ps"
+        },
+        {
+          "id": "device_tracker.inspire_2",
+          "friendlyName": "Inspire 2",
+          "cSharpName": "Inspire2"
+        },
+        {
           "id": "device_tracker.ipad116",
           "friendlyName": "iPad11,6",
           "cSharpName": "Ipad116"
@@ -1943,9 +2298,39 @@
           "cSharpName": "Iphone"
         },
         {
+          "id": "device_tracker.iphone_2",
+          "friendlyName": "iPhone iPhone",
+          "cSharpName": "Iphone2"
+        },
+        {
+          "id": "device_tracker.iphone104",
+          "friendlyName": "iPhone10,4",
+          "cSharpName": "Iphone104"
+        },
+        {
           "id": "device_tracker.iphone121",
           "friendlyName": "iPhone12,1",
           "cSharpName": "Iphone121"
+        },
+        {
+          "id": "device_tracker.iphone128",
+          "friendlyName": "iPhone12,8",
+          "cSharpName": "Iphone128"
+        },
+        {
+          "id": "device_tracker.iphone132",
+          "friendlyName": "iPhone13,2",
+          "cSharpName": "Iphone132"
+        },
+        {
+          "id": "device_tracker.iphone133",
+          "friendlyName": "iPhone13,3",
+          "cSharpName": "Iphone133"
+        },
+        {
+          "id": "device_tracker.iphone142",
+          "friendlyName": "iPhone14,2",
+          "cSharpName": "Iphone142"
         },
         {
           "id": "device_tracker.iphone145",
@@ -1958,14 +2343,29 @@
           "cSharpName": "Iphone93"
         },
         {
+          "id": "device_tracker.jabra",
+          "friendlyName": "Jabra",
+          "cSharpName": "Jabra"
+        },
+        {
           "id": "device_tracker.jabra_elite_45h",
           "friendlyName": "Jabra Elite 45h",
           "cSharpName": "JabraElite45h"
         },
         {
+          "id": "device_tracker.kitchen",
+          "friendlyName": "Kitchen",
+          "cSharpName": "Kitchen"
+        },
+        {
           "id": "device_tracker.kitchen_camera",
           "friendlyName": "Hallway Camera Kitchen Camera",
           "cSharpName": "KitchenCamera"
+        },
+        {
+          "id": "device_tracker.kitchen_echo_show",
+          "friendlyName": "Kitchen Echo Show Kitchen Echo Show",
+          "cSharpName": "KitchenEchoShow"
         },
         {
           "id": "device_tracker.konnected_basement",
@@ -1983,6 +2383,16 @@
           "cSharpName": "KonnectedUpstairs"
         },
         {
+          "id": "device_tracker.le_headset",
+          "friendlyName": "LE-Headset",
+          "cSharpName": "LeHeadset"
+        },
+        {
+          "id": "device_tracker.le_wf_c500",
+          "friendlyName": "LE_WF-C500",
+          "cSharpName": "LeWfC500"
+        },
+        {
           "id": "device_tracker.le_wh_1000xm4",
           "friendlyName": "LE_WH-1000XM4",
           "cSharpName": "LeWh1000xm4"
@@ -1996,6 +2406,16 @@
           "id": "device_tracker.le_wh_xb910n",
           "friendlyName": "LE_WH-XB910N",
           "cSharpName": "LeWhXb910n"
+        },
+        {
+          "id": "device_tracker.lounge_echo_plus",
+          "friendlyName": "Lounge Echo Plus Lounge Echo Plus",
+          "cSharpName": "LoungeEchoPlus"
+        },
+        {
+          "id": "device_tracker.lounge_fire_tv",
+          "friendlyName": "Lounge Fire TV Lounge Fire TV",
+          "cSharpName": "LoungeFireTv"
         },
         {
           "id": "device_tracker.macmini91",
@@ -2018,14 +2438,39 @@
           "cSharpName": "N02rf"
         },
         {
+          "id": "device_tracker.netgear_gs724tp_attic",
+          "friendlyName": "netgear-gs724tp-attic netgear-gs724tp-attic",
+          "cSharpName": "NetgearGs724tpAttic"
+        },
+        {
+          "id": "device_tracker.netgear_gs724tp_basement",
+          "friendlyName": "netgear-gs724tp-basement netgear-gs724tp-basement",
+          "cSharpName": "NetgearGs724tpBasement"
+        },
+        {
+          "id": "device_tracker.oneplus_nord2_lg",
+          "friendlyName": "OnePlus Nord2 lg",
+          "cSharpName": "OneplusNord2Lg"
+        },
+        {
           "id": "device_tracker.patio_camera",
           "friendlyName": "Patio Camera Patio Camera",
           "cSharpName": "PatioCamera"
         },
         {
+          "id": "device_tracker.pixel_6",
+          "friendlyName": "Pixel-6 Pixel-6",
+          "cSharpName": "Pixel6"
+        },
+        {
           "id": "device_tracker.pixel_6_2",
           "friendlyName": "Pixel 6",
           "cSharpName": "Pixel62"
+        },
+        {
+          "id": "device_tracker.pixel_6_3",
+          "friendlyName": "Pixel-6 Pixel-6",
+          "cSharpName": "Pixel63"
         },
         {
           "id": "device_tracker.pixel_6_tile",
@@ -2068,13 +2513,23 @@
           "cSharpName": "Shed"
         },
         {
+          "id": "device_tracker.shed_echo_input",
+          "friendlyName": "Shed Echo Input Shed Echo Input",
+          "cSharpName": "ShedEchoInput"
+        },
+        {
+          "id": "device_tracker.shed_thermostat",
+          "friendlyName": "Shed Thermostat Shed Thermostat",
+          "cSharpName": "ShedThermostat"
+        },
+        {
           "id": "device_tracker.shelly_shed_lights",
-          "friendlyName": "Shelly Shed Lights shellypro4pm-30c6f784a4e0",
+          "friendlyName": "Shelly Shed Lights Shelly Shed Lights",
           "cSharpName": "ShellyShedLights"
         },
         {
           "id": "device_tracker.shelly_shed_sockets",
-          "friendlyName": "Shelly Shed Sockets Shelly Shed1",
+          "friendlyName": "Shelly Shed Sockets Shelly Shed Sockets",
           "cSharpName": "ShellyShedSockets"
         },
         {
@@ -2118,9 +2573,24 @@
           "cSharpName": "SpareKey"
         },
         {
+          "id": "device_tracker.squeezebox_dining_room",
+          "friendlyName": "Squeezebox Dining Room Squeezebox Dining Room",
+          "cSharpName": "SqueezeboxDiningRoom"
+        },
+        {
+          "id": "device_tracker.the_death_star",
+          "friendlyName": "The Death Star",
+          "cSharpName": "TheDeathStar"
+        },
+        {
           "id": "device_tracker.tile",
           "friendlyName": "Tile",
           "cSharpName": "Tile"
+        },
+        {
+          "id": "device_tracker.tozo_t12",
+          "friendlyName": "TOZO-T12",
+          "cSharpName": "TozoT12"
         },
         {
           "id": "device_tracker.uap_ac_lr_basement",
@@ -2138,19 +2608,79 @@
           "cSharpName": "UapFlexhdGroundfloor"
         },
         {
+          "id": "device_tracker.uap_iw_hd_shed",
+          "friendlyName": "UAP-IW-HD-Shed UAP-IW-HD-Shed",
+          "cSharpName": "UapIwHdShed"
+        },
+        {
           "id": "device_tracker.udmpro",
           "friendlyName": "UDMPRO UDMPRO",
           "cSharpName": "Udmpro"
         },
         {
-          "id": "device_tracker.uhdiw",
-          "friendlyName": "UAP-IW-HD-Shed UAP-IW-HD-Shed",
-          "cSharpName": "Uhdiw"
+          "id": "device_tracker.unifi_1c_4d_66_39_f0_31_default",
+          "friendlyName": "",
+          "cSharpName": "Unifi1c4d6639F031Default"
         },
         {
-          "id": "device_tracker.uvc_g4_instant",
-          "friendlyName": "Kitchen Camera Kitchen",
-          "cSharpName": "UvcG4Instant"
+          "id": "device_tracker.unifi_22_4a_e5_cc_a0_60_default",
+          "friendlyName": "",
+          "cSharpName": "Unifi224aE5CcA060Default"
+        },
+        {
+          "id": "device_tracker.unifi_2a_d3_59_f6_30_31_default",
+          "friendlyName": "",
+          "cSharpName": "Unifi2aD359F63031Default"
+        },
+        {
+          "id": "device_tracker.unifi_68_db_f5_9a_b9_02_default",
+          "friendlyName": "",
+          "cSharpName": "Unifi68DbF59aB902Default"
+        },
+        {
+          "id": "device_tracker.unifi_9a_6e_66_b1_6a_1b_default",
+          "friendlyName": "",
+          "cSharpName": "Unifi9a6e66B16a1bDefault"
+        },
+        {
+          "id": "device_tracker.unifi_b6_35_1c_cb_47_a0_default",
+          "friendlyName": "",
+          "cSharpName": "UnifiB6351cCb47A0Default"
+        },
+        {
+          "id": "device_tracker.unifi_ca_e5_7b_a9_2c_3a_default",
+          "friendlyName": "",
+          "cSharpName": "UnifiCaE57bA92c3aDefault"
+        },
+        {
+          "id": "device_tracker.unifi_d8_1f_12_6b_3f_b9_default",
+          "friendlyName": "",
+          "cSharpName": "UnifiD81f126b3fB9Default"
+        },
+        {
+          "id": "device_tracker.upstairs_thermostat",
+          "friendlyName": "Upstairs Thermostat Upstairs Thermostat",
+          "cSharpName": "UpstairsThermostat"
+        },
+        {
+          "id": "device_tracker.utility_room_echo_dot",
+          "friendlyName": "Utility Room Echo Dot Utility Room Echo Dot",
+          "cSharpName": "UtilityRoomEchoDot"
+        },
+        {
+          "id": "device_tracker.vacuumrobot",
+          "friendlyName": "VacuumRobot VacuumRobot",
+          "cSharpName": "Vacuumrobot"
+        },
+        {
+          "id": "device_tracker.versa_2",
+          "friendlyName": "Versa 2",
+          "cSharpName": "Versa2"
+        },
+        {
+          "id": "device_tracker.versa_3",
+          "friendlyName": "Versa 3",
+          "cSharpName": "Versa3"
         },
         {
           "id": "device_tracker.watch66",
@@ -2161,6 +2691,36 @@
           "id": "device_tracker.xp_pp_04e35a",
           "friendlyName": "XP PP 04E35A",
           "cSharpName": "XpPp04e35a"
+        },
+        {
+          "id": "device_tracker.yeelight_basement_stairs_light",
+          "friendlyName": "Yeelight Basement Stairs Light Yeelight Basement Stairs Light",
+          "cSharpName": "YeelightBasementStairsLight"
+        },
+        {
+          "id": "device_tracker.yeelight_bedroom_lamp",
+          "friendlyName": "Yeelight Bedroom Lamp Yeelight Bedroom Lamp",
+          "cSharpName": "YeelightBedroomLamp"
+        },
+        {
+          "id": "device_tracker.yeelight_hallway_lamp",
+          "friendlyName": "Yeelight Hallway Lamp Yeelight Hallway Lamp",
+          "cSharpName": "YeelightHallwayLamp"
+        },
+        {
+          "id": "device_tracker.yeelight_kitchen_lamp",
+          "friendlyName": "Yeelight Kitchen Lamp Yeelight Kitchen Lamp",
+          "cSharpName": "YeelightKitchenLamp"
+        },
+        {
+          "id": "device_tracker.yeelight_lounge_lamp",
+          "friendlyName": "Yeelight Lounge Lamp Yeelight Lounge Lamp",
+          "cSharpName": "YeelightLoungeLamp"
+        },
+        {
+          "id": "device_tracker.yeelight_snug_floor_lamp",
+          "friendlyName": "Yeelight Snug Floor Lamp Yeelight Snug Floor Lamp",
+          "cSharpName": "YeelightSnugFloorLamp"
         }
       ],
       "attributes": [
@@ -2398,6 +2958,11 @@
           "jsonName": "elevation",
           "cSharpName": "Elevation",
           "clrType": "System.Double"
+        },
+        {
+          "jsonName": "host_name",
+          "cSharpName": "HostName",
+          "clrType": "System.String"
         }
       ]
     },
@@ -2976,11 +3541,6 @@
           "cSharpName": "NetdaemonDownstairsDownstairsLights"
         },
         {
-          "id": "input_boolean.netdaemon_house_light_modes",
-          "friendlyName": "netdaemon_house_light_modes",
-          "cSharpName": "NetdaemonHouseLightModes"
-        },
-        {
           "id": "input_boolean.netdaemon_net_daemon_apps_automations_states_alarm_app_controller",
           "friendlyName": "netdaemon_net_daemon_apps_automations_states_alarm_app_controller",
           "cSharpName": "NetdaemonNetDaemonAppsAutomationsStatesAlarmAppController"
@@ -3019,6 +3579,11 @@
           "id": "input_boolean.netdaemon_scene_bedroom_scenes",
           "friendlyName": "netdaemon_scene_bedroom_scenes",
           "cSharpName": "NetdaemonSceneBedroomScenes"
+        },
+        {
+          "id": "input_boolean.netdaemon_states_light_modes",
+          "friendlyName": "netdaemon_states_light_modes",
+          "cSharpName": "NetdaemonStatesLightModes"
         },
         {
           "id": "input_boolean.netdaemon_time_of_day_control_app",
@@ -3569,6 +4134,11 @@
           "cSharpName": "Patio"
         },
         {
+          "id": "light.patio_floor_lamp",
+          "friendlyName": "Patio Floor Lamp",
+          "cSharpName": "PatioFloorLamp"
+        },
+        {
           "id": "light.patio_lights",
           "friendlyName": "Patio Lights",
           "cSharpName": "PatioLights"
@@ -3791,6 +4361,11 @@
           "cSharpName": "AndrewSEchoBuds"
         },
         {
+          "id": "media_player.andrew_s_echo_studio",
+          "friendlyName": "Andrew\u0027s Echo Studio",
+          "cSharpName": "AndrewSEchoStudio"
+        },
+        {
           "id": "media_player.andrew_s_fire_tv",
           "friendlyName": "Snug Fire TV",
           "cSharpName": "AndrewSFireTv"
@@ -3809,6 +4384,11 @@
           "id": "media_player.dining_room_echo_input",
           "friendlyName": "Dining Room Echo Input",
           "cSharpName": "DiningRoomEchoInput"
+        },
+        {
+          "id": "media_player.dining_room_radi",
+          "friendlyName": "Dining Room Radi",
+          "cSharpName": "DiningRoomRadi"
         },
         {
           "id": "media_player.dining_room_radio",
@@ -3831,6 +4411,11 @@
           "cSharpName": "DressingRoomEchoDot"
         },
         {
+          "id": "media_player.garden",
+          "friendlyName": "Garden",
+          "cSharpName": "Garden"
+        },
+        {
           "id": "media_player.guest_room_echo_show",
           "friendlyName": "Guest Room Echo Show",
           "cSharpName": "GuestRoomEchoShow"
@@ -3841,9 +4426,9 @@
           "cSharpName": "HallTablet"
         },
         {
-          "id": "media_player.hallway_camera_speaker",
+          "id": "media_player.kitchen_camera_speaker",
           "friendlyName": "Kitchen Camera Speaker",
-          "cSharpName": "HallwayCameraSpeaker"
+          "cSharpName": "KitchenCameraSpeaker"
         },
         {
           "id": "media_player.kitchen_echo_show",
@@ -3881,6 +4466,11 @@
           "cSharpName": "Offices"
         },
         {
+          "id": "media_player.patio",
+          "friendlyName": "Patio",
+          "cSharpName": "Patio"
+        },
+        {
           "id": "media_player.shed_echo_input",
           "friendlyName": "Shed Echo Input",
           "cSharpName": "ShedEchoInput"
@@ -3899,6 +4489,11 @@
           "id": "media_player.snug_projector_2",
           "friendlyName": "Snug Projector",
           "cSharpName": "SnugProjector2"
+        },
+        {
+          "id": "media_player.snug_radi",
+          "friendlyName": null,
+          "cSharpName": "SnugRadi"
         },
         {
           "id": "media_player.snug_radio",
@@ -4061,6 +4656,26 @@
           "jsonName": "restored",
           "cSharpName": "Restored",
           "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "media_content_id",
+          "cSharpName": "MediaContentId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "media_track",
+          "cSharpName": "MediaTrack",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "repeat",
+          "cSharpName": "Repeat",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "media_playlist",
+          "cSharpName": "MediaPlaylist",
+          "clrType": "System.String"
         }
       ]
     },
@@ -4068,11 +4683,6 @@
       "domain": "number",
       "isNumeric": true,
       "entities": [
-        {
-          "id": "number.basement_hall_camera_microphone_level",
-          "friendlyName": "Basement Hall Camera Microphone Level",
-          "cSharpName": "BasementHallCameraMicrophoneLevel"
-        },
         {
           "id": "number.espresense_bedroom_absorption",
           "friendlyName": "ESPresense Bedroom Absorption",
@@ -4124,16 +4734,6 @@
           "cSharpName": "EspresenseStudioMaxDistance"
         },
         {
-          "id": "number.hallway_camera_microphone_level",
-          "friendlyName": "Kitchen Camera Microphone Level",
-          "cSharpName": "HallwayCameraMicrophoneLevel"
-        },
-        {
-          "id": "number.kitchen_camera_microphone_level",
-          "friendlyName": "Hallway Camera Microphone Level",
-          "cSharpName": "KitchenCameraMicrophoneLevel"
-        },
-        {
           "id": "number.nspanel_display_brightness",
           "friendlyName": "nspanel Display Brightness",
           "cSharpName": "NspanelDisplayBrightness"
@@ -4152,21 +4752,6 @@
           "id": "number.nspanel_temperature_correction",
           "friendlyName": "nspanel Temperature Correction",
           "cSharpName": "NspanelTemperatureCorrection"
-        },
-        {
-          "id": "number.patio_camera_microphone_level",
-          "friendlyName": "Patio Camera Microphone Level",
-          "cSharpName": "PatioCameraMicrophoneLevel"
-        },
-        {
-          "id": "number.patio_camera_wide_dynamic_range",
-          "friendlyName": "Patio Camera Wide Dynamic Range",
-          "cSharpName": "PatioCameraWideDynamicRange"
-        },
-        {
-          "id": "number.shed_camera_microphone_level",
-          "friendlyName": "Shed Camera Microphone Level",
-          "cSharpName": "ShedCameraMicrophoneLevel"
         }
       ],
       "attributes": [
@@ -4286,6 +4871,11 @@
           "jsonName": "friendly_name",
           "cSharpName": "FriendlyName",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "device_trackers",
+          "cSharpName": "DeviceTrackers",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.String]"
         }
       ]
     },
@@ -4326,6 +4916,11 @@
       "domain": "remote",
       "entities": [
         {
+          "id": "remote.lounge_tv",
+          "friendlyName": "Lounge TV",
+          "cSharpName": "LoungeTv"
+        },
+        {
           "id": "remote.snug_projector",
           "friendlyName": "Snug Projector",
           "cSharpName": "SnugProjector"
@@ -4347,6 +4942,11 @@
     {
       "domain": "scene",
       "entities": [
+        {
+          "id": "scene.awake",
+          "friendlyName": "Awake",
+          "cSharpName": "Awake"
+        },
         {
           "id": "scene.bathroom_normal",
           "friendlyName": "Bathroom Normal",
@@ -4421,6 +5021,16 @@
           "id": "scene.showering",
           "friendlyName": "Showering",
           "cSharpName": "Showering"
+        },
+        {
+          "id": "scene.sleeping",
+          "friendlyName": "Sleeping",
+          "cSharpName": "Sleeping"
+        },
+        {
+          "id": "scene.waking",
+          "friendlyName": "Waking",
+          "cSharpName": "Waking"
         },
         {
           "id": "scene.watch_movie",
@@ -4547,59 +5157,19 @@
       "domain": "select",
       "entities": [
         {
-          "id": "select.basement_hall_camera_infrared_mode",
-          "friendlyName": "Basement Hall Camera Infrared Mode",
-          "cSharpName": "BasementHallCameraInfraredMode"
-        },
-        {
-          "id": "select.basement_hall_camera_recording_mode",
-          "friendlyName": "Basement Hall Camera Recording Mode",
-          "cSharpName": "BasementHallCameraRecordingMode"
-        },
-        {
           "id": "select.coffee_machine_power_on_behavior_2",
           "friendlyName": "Coffee Machine power on behavior",
           "cSharpName": "CoffeeMachinePowerOnBehavior2"
         },
         {
-          "id": "select.g4_instant_recording_mode",
-          "friendlyName": "Kitchen Camera Recording Mode",
-          "cSharpName": "G4InstantRecordingMode"
+          "id": "select.display_cabinet_light_power_on_behavior",
+          "friendlyName": "Display Cabinet Light power on behavior",
+          "cSharpName": "DisplayCabinetLightPowerOnBehavior"
         },
         {
-          "id": "select.g5_bullet_recording_mode",
-          "friendlyName": "Shed Camera Recording Mode",
-          "cSharpName": "G5BulletRecordingMode"
-        },
-        {
-          "id": "select.hallway_camera_infrared_mode",
-          "friendlyName": "Kitchen Camera Infrared Mode",
-          "cSharpName": "HallwayCameraInfraredMode"
-        },
-        {
-          "id": "select.kitchen_camera_infrared_mode",
-          "friendlyName": "Hallway Camera Infrared Mode",
-          "cSharpName": "KitchenCameraInfraredMode"
-        },
-        {
-          "id": "select.kitchen_camera_recording_mode",
-          "friendlyName": "Hallway Camera Recording Mode",
-          "cSharpName": "KitchenCameraRecordingMode"
-        },
-        {
-          "id": "select.patio_camera_infrared_mode",
-          "friendlyName": "Patio Camera Infrared Mode",
-          "cSharpName": "PatioCameraInfraredMode"
-        },
-        {
-          "id": "select.patio_camera_recording_mode",
-          "friendlyName": "Patio Camera Recording Mode",
-          "cSharpName": "PatioCameraRecordingMode"
-        },
-        {
-          "id": "select.shed_camera_infrared_mode",
-          "friendlyName": "Shed Camera Infrared Mode",
-          "cSharpName": "ShedCameraInfraredMode"
+          "id": "select.guest_room_bedside_lamp_power_on_behavior",
+          "friendlyName": "Guest Room Bedside Lamp power on behavior",
+          "cSharpName": "GuestRoomBedsideLampPowerOnBehavior"
         }
       ],
       "attributes": [
@@ -4647,6 +5217,16 @@
           "jsonName": "update_available",
           "cSharpName": "UpdateAvailable",
           "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "restored",
+          "cSharpName": "Restored",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "supported_features",
+          "cSharpName": "SupportedFeatures",
+          "clrType": "System.Double"
         }
       ]
     },
@@ -4679,9 +5259,24 @@
           "cSharpName": "BackupState"
         },
         {
-          "id": "sensor.basement_hall_camera_oldest_recording",
-          "friendlyName": "Basement Hall Camera Oldest Recording",
-          "cSharpName": "BasementHallCameraOldestRecording"
+          "id": "sensor.basement_hall_camera_infrared_mode",
+          "friendlyName": "Basement Hall Camera Infrared Mode",
+          "cSharpName": "BasementHallCameraInfraredMode"
+        },
+        {
+          "id": "sensor.basement_hall_camera_last_motion_detected",
+          "friendlyName": "Basement Hall Camera Last Motion Detected",
+          "cSharpName": "BasementHallCameraLastMotionDetected"
+        },
+        {
+          "id": "sensor.basement_hall_camera_recording_mode",
+          "friendlyName": "Basement Hall Camera Recording Mode",
+          "cSharpName": "BasementHallCameraRecordingMode"
+        },
+        {
+          "id": "sensor.basement_hall_camera_uptime",
+          "friendlyName": "Basement Hall Camera Uptime",
+          "cSharpName": "BasementHallCameraUptime"
         },
         {
           "id": "sensor.basement_thermostat_hvac_state",
@@ -4709,19 +5304,24 @@
           "cSharpName": "BedroomEchoShowNextTimer"
         },
         {
-          "id": "sensor.black_refuse",
-          "friendlyName": "Black Refuse",
-          "cSharpName": "BlackRefuse"
+          "id": "sensor.black_bin",
+          "friendlyName": "Black bin",
+          "cSharpName": "BlackBin"
         },
         {
-          "id": "sensor.blue_paper",
-          "friendlyName": "Blue Paper",
-          "cSharpName": "BluePaper"
+          "id": "sensor.blue_bin",
+          "friendlyName": "Blue bin",
+          "cSharpName": "BlueBin"
         },
         {
-          "id": "sensor.brown_recyclables",
-          "friendlyName": "Brown Recyclables",
-          "cSharpName": "BrownRecyclables"
+          "id": "sensor.brother_mfc_j5910dw_cups",
+          "friendlyName": "Brother MFC-J5910DW CUPS",
+          "cSharpName": "BrotherMfcJ5910dwCups"
+        },
+        {
+          "id": "sensor.brown_bin",
+          "friendlyName": "Brown bin",
+          "cSharpName": "BrownBin"
         },
         {
           "id": "sensor.cat_feeder_bssid",
@@ -4859,19 +5459,9 @@
           "cSharpName": "DressingRoomEchoDotNextTimer"
         },
         {
-          "id": "sensor.g4_instant_last_motion_detected",
-          "friendlyName": "Kitchen Camera Last Motion Detected",
-          "cSharpName": "G4InstantLastMotionDetected"
-        },
-        {
-          "id": "sensor.g5_bullet_last_motion_detected",
-          "friendlyName": "Shed Camera Last Motion Detected",
-          "cSharpName": "G5BulletLastMotionDetected"
-        },
-        {
-          "id": "sensor.green_bio_waste",
-          "friendlyName": "Green Bio Waste",
-          "cSharpName": "GreenBioWaste"
+          "id": "sensor.green_bin",
+          "friendlyName": "Green bin",
+          "cSharpName": "GreenBin"
         },
         {
           "id": "sensor.guest_room_echo_show_next_alarm",
@@ -4914,6 +5504,21 @@
           "cSharpName": "HallTabletNextTimer"
         },
         {
+          "id": "sensor.hallway_camera_infrared_mode",
+          "friendlyName": "Hallway Camera Infrared Mode",
+          "cSharpName": "HallwayCameraInfraredMode"
+        },
+        {
+          "id": "sensor.hallway_camera_last_motion_detected",
+          "friendlyName": "Hallway Camera Last Motion Detected",
+          "cSharpName": "HallwayCameraLastMotionDetected"
+        },
+        {
+          "id": "sensor.hallway_camera_recording_mode",
+          "friendlyName": "Hallway Camera Recording Mode",
+          "cSharpName": "HallwayCameraRecordingMode"
+        },
+        {
           "id": "sensor.hallway_remote_action",
           "friendlyName": "Hallway Remote action",
           "cSharpName": "HallwayRemoteAction"
@@ -4934,14 +5539,19 @@
           "cSharpName": "Homeassistant"
         },
         {
+          "id": "sensor.kitchen_camera_infrared_mode",
+          "friendlyName": "Kitchen Camera Infrared Mode",
+          "cSharpName": "KitchenCameraInfraredMode"
+        },
+        {
           "id": "sensor.kitchen_camera_last_motion_detected",
-          "friendlyName": "Hallway Camera Last Motion Detected",
+          "friendlyName": "Kitchen Camera Last Motion Detected",
           "cSharpName": "KitchenCameraLastMotionDetected"
         },
         {
-          "id": "sensor.kitchen_camera_oldest_recording",
-          "friendlyName": "Hallway Camera Oldest Recording",
-          "cSharpName": "KitchenCameraOldestRecording"
+          "id": "sensor.kitchen_camera_recording_mode",
+          "friendlyName": "Kitchen Camera Recording Mode",
+          "cSharpName": "KitchenCameraRecordingMode"
         },
         {
           "id": "sensor.kitchen_echo_show_next_alarm",
@@ -5114,9 +5724,24 @@
           "cSharpName": "NspanelNotificationText"
         },
         {
-          "id": "sensor.patio_camera_oldest_recording",
-          "friendlyName": "Patio Camera Oldest Recording",
-          "cSharpName": "PatioCameraOldestRecording"
+          "id": "sensor.nspanel_settings_entity",
+          "friendlyName": "nspanel Settings Entity",
+          "cSharpName": "NspanelSettingsEntity"
+        },
+        {
+          "id": "sensor.patio_camera_infrared_mode",
+          "friendlyName": "Patio Camera Infrared Mode",
+          "cSharpName": "PatioCameraInfraredMode"
+        },
+        {
+          "id": "sensor.patio_camera_last_motion_detected",
+          "friendlyName": "Patio Camera Last Motion Detected",
+          "cSharpName": "PatioCameraLastMotionDetected"
+        },
+        {
+          "id": "sensor.patio_camera_recording_mode",
+          "friendlyName": "Patio Camera Recording Mode",
+          "cSharpName": "PatioCameraRecordingMode"
         },
         {
           "id": "sensor.pixel_6_audio_mode",
@@ -5192,6 +5817,21 @@
           "id": "sensor.pixel_6_wifi_ip_address",
           "friendlyName": "Pixel 6 WiFi IP Address",
           "cSharpName": "Pixel6WifiIpAddress"
+        },
+        {
+          "id": "sensor.shed_camera_infrared_mode",
+          "friendlyName": "Shed Camera Infrared Mode",
+          "cSharpName": "ShedCameraInfraredMode"
+        },
+        {
+          "id": "sensor.shed_camera_last_motion_detected",
+          "friendlyName": "Shed Camera Last Motion Detected",
+          "cSharpName": "ShedCameraLastMotionDetected"
+        },
+        {
+          "id": "sensor.shed_camera_recording_mode",
+          "friendlyName": "Shed Camera Recording Mode",
+          "cSharpName": "ShedCameraRecordingMode"
         },
         {
           "id": "sensor.shed_echo_input_next_alarm",
@@ -5509,19 +6149,9 @@
           "cSharpName": "WeatherStationEsphomeVersion"
         },
         {
-          "id": "sensor.weather_station_full_spectrum_light",
-          "friendlyName": "Weather Station Full spectrum light",
-          "cSharpName": "WeatherStationFullSpectrumLight"
-        },
-        {
           "id": "sensor.weather_station_humidity",
           "friendlyName": "Weather Station Humidity",
           "cSharpName": "WeatherStationHumidity"
-        },
-        {
-          "id": "sensor.weather_station_infrared_light",
-          "friendlyName": "Weather Station Infrared light",
-          "cSharpName": "WeatherStationInfraredLight"
         },
         {
           "id": "sensor.weather_station_ip",
@@ -5532,11 +6162,6 @@
           "id": "sensor.weather_station_ssid",
           "friendlyName": "Weather Station SSID",
           "cSharpName": "WeatherStationSsid"
-        },
-        {
-          "id": "sensor.weather_station_visible_light",
-          "friendlyName": "Weather Station Visible light",
-          "cSharpName": "WeatherStationVisibleLight"
         }
       ],
       "attributes": [
@@ -5693,7 +6318,7 @@
         {
           "jsonName": "location",
           "cSharpName": "Location_1",
-          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.Double]"
+          "clrType": "System.Object"
         },
         {
           "jsonName": "Name",
@@ -5768,7 +6393,7 @@
         {
           "jsonName": "Zones",
           "cSharpName": "Zones",
-          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.String]"
+          "clrType": "System.Object"
         },
         {
           "jsonName": "in_vehicle",
@@ -5868,7 +6493,7 @@
         {
           "jsonName": "linkquality",
           "cSharpName": "Linkquality",
-          "clrType": "System.Double"
+          "clrType": "System.Object"
         },
         {
           "jsonName": "update",
@@ -5999,6 +6624,76 @@
           "jsonName": "on_bicycle",
           "cSharpName": "OnBicycle",
           "clrType": "System.Double"
+        },
+        {
+          "jsonName": "Black bin",
+          "cSharpName": "Blackbin",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "daysTo",
+          "cSharpName": "DaysTo",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "entity_picture",
+          "cSharpName": "EntityPicture",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "Brown bin",
+          "cSharpName": "Brownbin",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "Blue bin",
+          "cSharpName": "Bluebin",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "Green bin",
+          "cSharpName": "Greenbin",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "running",
+          "cSharpName": "Running",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "info",
+          "cSharpName": "Info",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "serial",
+          "cSharpName": "Serial",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "state_message",
+          "cSharpName": "StateMessage",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "state_reason",
+          "cSharpName": "StateReason",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "command_set",
+          "cSharpName": "CommandSet",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "uri_supported",
+          "cSharpName": "UriSupported",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "e20a39f4-73f5-4bc4-1864-17d1ad07a962_40400_50805",
+          "cSharpName": "E20a39f473f54bc4186417d1ad07a9624040050805",
+          "clrType": "System.String"
         }
       ]
     },
@@ -6012,6 +6707,11 @@
           "cSharpName": "_0x00124b00226650a6Linkquality"
         },
         {
+          "id": "sensor.0x00124b00226650a6_voltage",
+          "friendlyName": "Snug Switch voltage",
+          "cSharpName": "_0x00124b00226650a6Voltage"
+        },
+        {
           "id": "sensor.9d410000_35d6_f4dd_ba60_e7bd8dc491c0_27118_7912_69ee_estimated_distance",
           "friendlyName": "Estimated Distance",
           "cSharpName": "_9d41000035d6F4ddBa60E7bd8dc491c027118791269eeEstimatedDistance"
@@ -6020,6 +6720,16 @@
           "id": "sensor.9d410000_35d6_f4dd_ba60_e7bd8dc491c0_65385_25776_ff69_estimated_distance",
           "friendlyName": "Estimated Distance",
           "cSharpName": "_9d41000035d6F4ddBa60E7bd8dc491c06538525776Ff69EstimatedDistance"
+        },
+        {
+          "id": "sensor.a3_printer_rx",
+          "friendlyName": "A3 Printer RX",
+          "cSharpName": "A3PrinterRx"
+        },
+        {
+          "id": "sensor.a3_printer_tx",
+          "friendlyName": "A3 Printer TX",
+          "cSharpName": "A3PrinterTx"
         },
         {
           "id": "sensor.adguard_average_processing_speed",
@@ -6057,14 +6767,89 @@
           "cSharpName": "AdguardSafeBrowsingBlocked"
         },
         {
+          "id": "sensor.amazon_1b80b5fcd_rx",
+          "friendlyName": "amazon-1b80b5fcd RX",
+          "cSharpName": "Amazon1b80b5fcdRx"
+        },
+        {
+          "id": "sensor.amazon_1b80b5fcd_tx",
+          "friendlyName": "amazon-1b80b5fcd TX",
+          "cSharpName": "Amazon1b80b5fcdTx"
+        },
+        {
+          "id": "sensor.andrews_mini_rx",
+          "friendlyName": "Andrews-Mini RX",
+          "cSharpName": "AndrewsMiniRx"
+        },
+        {
+          "id": "sensor.andrews_mini_rx_2",
+          "friendlyName": "Andrews-Mini RX",
+          "cSharpName": "AndrewsMiniRx2"
+        },
+        {
+          "id": "sensor.andrews_mini_tx",
+          "friendlyName": "Andrews-Mini TX",
+          "cSharpName": "AndrewsMiniTx"
+        },
+        {
+          "id": "sensor.andrews_mini_tx_2",
+          "friendlyName": "Andrews-Mini TX",
+          "cSharpName": "AndrewsMiniTx2"
+        },
+        {
+          "id": "sensor.andy_laptop_rx",
+          "friendlyName": "Andy Laptop RX",
+          "cSharpName": "AndyLaptopRx"
+        },
+        {
+          "id": "sensor.andy_laptop_tx",
+          "friendlyName": "Andy Laptop TX",
+          "cSharpName": "AndyLaptopTx"
+        },
+        {
+          "id": "sensor.andy_sleep_analyser_rx",
+          "friendlyName": "Andy Sleep Analyser RX",
+          "cSharpName": "AndySleepAnalyserRx"
+        },
+        {
+          "id": "sensor.andy_sleep_analyser_tx",
+          "friendlyName": "Andy Sleep Analyser TX",
+          "cSharpName": "AndySleepAnalyserTx"
+        },
+        {
+          "id": "sensor.basement_alarm_panel_rx",
+          "friendlyName": "Basement Alarm Panel RX",
+          "cSharpName": "BasementAlarmPanelRx"
+        },
+        {
+          "id": "sensor.basement_alarm_panel_tx",
+          "friendlyName": "Basement Alarm Panel TX",
+          "cSharpName": "BasementAlarmPanelTx"
+        },
+        {
           "id": "sensor.basement_hall_camera_disk_write_rate",
           "friendlyName": "Basement Hall Camera Disk Write Rate",
           "cSharpName": "BasementHallCameraDiskWriteRate"
         },
         {
+          "id": "sensor.basement_hall_camera_microphone_level",
+          "friendlyName": "Basement Hall Camera Microphone Level",
+          "cSharpName": "BasementHallCameraMicrophoneLevel"
+        },
+        {
+          "id": "sensor.basement_hall_camera_rx",
+          "friendlyName": "Basement Hall Camera RX",
+          "cSharpName": "BasementHallCameraRx"
+        },
+        {
           "id": "sensor.basement_hall_camera_storage_used",
           "friendlyName": "Basement Hall Camera Storage Used",
           "cSharpName": "BasementHallCameraStorageUsed"
+        },
+        {
+          "id": "sensor.basement_hall_camera_tx",
+          "friendlyName": "Basement Hall Camera TX",
+          "cSharpName": "BasementHallCameraTx"
         },
         {
           "id": "sensor.basement_stairs_motion_battery",
@@ -6087,6 +6872,11 @@
           "cSharpName": "BasementThermostatHumidity"
         },
         {
+          "id": "sensor.basement_thermostat_rx",
+          "friendlyName": "Basement Thermostat RX",
+          "cSharpName": "BasementThermostatRx"
+        },
+        {
           "id": "sensor.basement_thermostat_target",
           "friendlyName": "Basement Thermostat target",
           "cSharpName": "BasementThermostatTarget"
@@ -6095,6 +6885,11 @@
           "id": "sensor.basement_thermostat_temperature",
           "friendlyName": "Basement Thermostat temperature",
           "cSharpName": "BasementThermostatTemperature"
+        },
+        {
+          "id": "sensor.basement_thermostat_tx",
+          "friendlyName": "Basement Thermostat TX",
+          "cSharpName": "BasementThermostatTx"
         },
         {
           "id": "sensor.bathroom_door_battery",
@@ -6132,6 +6927,36 @@
           "cSharpName": "BathroomHumidistatTemperature"
         },
         {
+          "id": "sensor.bedroom_echo_show_rx",
+          "friendlyName": "Bedroom Echo Show RX",
+          "cSharpName": "BedroomEchoShowRx"
+        },
+        {
+          "id": "sensor.bedroom_echo_show_tx",
+          "friendlyName": "Bedroom Echo Show TX",
+          "cSharpName": "BedroomEchoShowTx"
+        },
+        {
+          "id": "sensor.ben_s_s23_ultra_rx",
+          "friendlyName": "Ben-s-S23-Ultra RX",
+          "cSharpName": "BenSS23UltraRx"
+        },
+        {
+          "id": "sensor.ben_s_s23_ultra_tx",
+          "friendlyName": "Ben-s-S23-Ultra TX",
+          "cSharpName": "BenSS23UltraTx"
+        },
+        {
+          "id": "sensor.body_scales_rx",
+          "friendlyName": "Body\u002B Scales RX",
+          "cSharpName": "BodyScalesRx"
+        },
+        {
+          "id": "sensor.body_scales_tx",
+          "friendlyName": "Body\u002B Scales TX",
+          "cSharpName": "BodyScalesTx"
+        },
+        {
           "id": "sensor.brewery_device_temperature",
           "friendlyName": "Brewery device temperature",
           "cSharpName": "BreweryDeviceTemperature"
@@ -6147,6 +6972,26 @@
           "cSharpName": "BreweryPower"
         },
         {
+          "id": "sensor.brother_mfc_j5910dw_cups_black",
+          "friendlyName": "Brother MFC-J5910DW CUPS Black",
+          "cSharpName": "BrotherMfcJ5910dwCupsBlack"
+        },
+        {
+          "id": "sensor.brother_mfc_j5910dw_cups_cyan",
+          "friendlyName": "Brother MFC-J5910DW CUPS Cyan",
+          "cSharpName": "BrotherMfcJ5910dwCupsCyan"
+        },
+        {
+          "id": "sensor.brother_mfc_j5910dw_cups_magenta",
+          "friendlyName": "Brother MFC-J5910DW CUPS Magenta",
+          "cSharpName": "BrotherMfcJ5910dwCupsMagenta"
+        },
+        {
+          "id": "sensor.brother_mfc_j5910dw_cups_yellow",
+          "friendlyName": "Brother MFC-J5910DW CUPS Yellow",
+          "cSharpName": "BrotherMfcJ5910dwCupsYellow"
+        },
+        {
           "id": "sensor.bulb_energy_meter_energy_meter",
           "friendlyName": "Bulb Energy Meter Energy Meter",
           "cSharpName": "BulbEnergyMeterEnergyMeter"
@@ -6157,6 +7002,26 @@
           "cSharpName": "BulbEnergyMeterGasMeter"
         },
         {
+          "id": "sensor.bulb_ihd_rx",
+          "friendlyName": "Bulb IHD RX",
+          "cSharpName": "BulbIhdRx"
+        },
+        {
+          "id": "sensor.bulb_ihd_tx",
+          "friendlyName": "Bulb IHD TX",
+          "cSharpName": "BulbIhdTx"
+        },
+        {
+          "id": "sensor.cat_feeder_rx",
+          "friendlyName": "cat-feeder RX",
+          "cSharpName": "CatFeederRx"
+        },
+        {
+          "id": "sensor.cat_feeder_tx",
+          "friendlyName": "cat-feeder TX",
+          "cSharpName": "CatFeederTx"
+        },
+        {
           "id": "sensor.cat_feeder_uptime",
           "friendlyName": "Cat Feeder Uptime",
           "cSharpName": "CatFeederUptime"
@@ -6165,6 +7030,36 @@
           "id": "sensor.cat_feeder_wifi_signal",
           "friendlyName": "Cat Feeder WiFi Signal",
           "cSharpName": "CatFeederWifiSignal"
+        },
+        {
+          "id": "sensor.claire_laptop_rx",
+          "friendlyName": "Claire-Laptop RX",
+          "cSharpName": "ClaireLaptopRx"
+        },
+        {
+          "id": "sensor.claire_laptop_tx",
+          "friendlyName": "Claire-Laptop TX",
+          "cSharpName": "ClaireLaptopTx"
+        },
+        {
+          "id": "sensor.claire_sleep_analyzer_rx",
+          "friendlyName": "Claire Sleep Analyzer RX",
+          "cSharpName": "ClaireSleepAnalyzerRx"
+        },
+        {
+          "id": "sensor.claire_sleep_analyzer_tx",
+          "friendlyName": "Claire Sleep Analyzer TX",
+          "cSharpName": "ClaireSleepAnalyzerTx"
+        },
+        {
+          "id": "sensor.claireiphone_rx",
+          "friendlyName": "claireiphone RX",
+          "cSharpName": "ClaireiphoneRx"
+        },
+        {
+          "id": "sensor.claireiphone_tx",
+          "friendlyName": "claireiphone TX",
+          "cSharpName": "ClaireiphoneTx"
         },
         {
           "id": "sensor.claires_apple_watch_battery_state",
@@ -6183,7 +7078,7 @@
         },
         {
           "id": "sensor.claires_iphone_battery_state_2",
-          "friendlyName": "Claire\u2019s iPhone battery state",
+          "friendlyName": "claireiphone battery state",
           "cSharpName": "ClairesIphoneBatteryState2"
         },
         {
@@ -6262,6 +7157,36 @@
           "cSharpName": "DeckingWallPower"
         },
         {
+          "id": "sensor.dining_room_echo_input_rx",
+          "friendlyName": "Dining Room Echo Input RX",
+          "cSharpName": "DiningRoomEchoInputRx"
+        },
+        {
+          "id": "sensor.dining_room_echo_input_tx",
+          "friendlyName": "Dining Room Echo Input TX",
+          "cSharpName": "DiningRoomEchoInputTx"
+        },
+        {
+          "id": "sensor.docker_host_rx",
+          "friendlyName": "Docker Host RX",
+          "cSharpName": "DockerHostRx"
+        },
+        {
+          "id": "sensor.docker_host_tx",
+          "friendlyName": "Docker Host TX",
+          "cSharpName": "DockerHostTx"
+        },
+        {
+          "id": "sensor.doorbell_rx",
+          "friendlyName": "doorbell RX",
+          "cSharpName": "DoorbellRx"
+        },
+        {
+          "id": "sensor.doorbell_tx",
+          "friendlyName": "doorbell TX",
+          "cSharpName": "DoorbellTx"
+        },
+        {
           "id": "sensor.doorbell_uptime",
           "friendlyName": "Doorbell Uptime",
           "cSharpName": "DoorbellUptime"
@@ -6277,6 +7202,11 @@
           "cSharpName": "DownstairsThermostatHumidity"
         },
         {
+          "id": "sensor.downstairs_thermostat_rx",
+          "friendlyName": "Downstairs Thermostat RX",
+          "cSharpName": "DownstairsThermostatRx"
+        },
+        {
           "id": "sensor.downstairs_thermostat_target",
           "friendlyName": "Downstairs Thermostat target",
           "cSharpName": "DownstairsThermostatTarget"
@@ -6285,6 +7215,21 @@
           "id": "sensor.downstairs_thermostat_temperature",
           "friendlyName": "Downstairs Thermostat temperature",
           "cSharpName": "DownstairsThermostatTemperature"
+        },
+        {
+          "id": "sensor.downstairs_thermostat_tx",
+          "friendlyName": "Downstairs Thermostat TX",
+          "cSharpName": "DownstairsThermostatTx"
+        },
+        {
+          "id": "sensor.dressing_room_ecot_dot_rx",
+          "friendlyName": "Dressing Room Ecot Dot RX",
+          "cSharpName": "DressingRoomEcotDotRx"
+        },
+        {
+          "id": "sensor.dressing_room_ecot_dot_tx",
+          "friendlyName": "Dressing Room Ecot Dot TX",
+          "cSharpName": "DressingRoomEcotDotTx"
         },
         {
           "id": "sensor.e20a39f4_73f5_4bc4_1864_17d1ad07a962_38108_29772_c6d1_estimated_distance",
@@ -6352,6 +7297,16 @@
           "cSharpName": "EspresenseLoungeFreeMemory"
         },
         {
+          "id": "sensor.espresense_lounge_rx",
+          "friendlyName": "ESPresense Lounge RX",
+          "cSharpName": "EspresenseLoungeRx"
+        },
+        {
+          "id": "sensor.espresense_lounge_tx",
+          "friendlyName": "ESPresense Lounge TX",
+          "cSharpName": "EspresenseLoungeTx"
+        },
+        {
           "id": "sensor.espresense_lounge_uptime",
           "friendlyName": "ESPresense Lounge Uptime",
           "cSharpName": "EspresenseLoungeUptime"
@@ -6397,26 +7352,6 @@
           "cSharpName": "FrontDoorVoltage"
         },
         {
-          "id": "sensor.g4_instant_disk_write_rate",
-          "friendlyName": "Kitchen Camera Disk Write Rate",
-          "cSharpName": "G4InstantDiskWriteRate"
-        },
-        {
-          "id": "sensor.g4_instant_storage_used",
-          "friendlyName": "Kitchen Camera Storage Used",
-          "cSharpName": "G4InstantStorageUsed"
-        },
-        {
-          "id": "sensor.g5_bullet_disk_write_rate",
-          "friendlyName": "Shed Camera Disk Write Rate",
-          "cSharpName": "G5BulletDiskWriteRate"
-        },
-        {
-          "id": "sensor.g5_bullet_storage_used",
-          "friendlyName": "Shed Camera Storage Used",
-          "cSharpName": "G5BulletStorageUsed"
-        },
-        {
           "id": "sensor.garden_sockets_device_temperature",
           "friendlyName": "Garden Sockets device temperature",
           "cSharpName": "GardenSocketsDeviceTemperature"
@@ -6452,6 +7387,26 @@
           "cSharpName": "GridFossilFuelPercentage"
         },
         {
+          "id": "sensor.ground_floor_alarm_panel_rx",
+          "friendlyName": "Ground Floor Alarm Panel RX",
+          "cSharpName": "GroundFloorAlarmPanelRx"
+        },
+        {
+          "id": "sensor.ground_floor_alarm_panel_tx",
+          "friendlyName": "Ground Floor Alarm Panel TX",
+          "cSharpName": "GroundFloorAlarmPanelTx"
+        },
+        {
+          "id": "sensor.guest_room_echo_show_rx",
+          "friendlyName": "Guest Room Echo Show RX",
+          "cSharpName": "GuestRoomEchoShowRx"
+        },
+        {
+          "id": "sensor.guest_room_echo_show_tx",
+          "friendlyName": "Guest Room Echo Show TX",
+          "cSharpName": "GuestRoomEchoShowTx"
+        },
+        {
           "id": "sensor.guest_room_remote_battery",
           "friendlyName": "Guest Room Remote battery",
           "cSharpName": "GuestRoomRemoteBattery"
@@ -6462,19 +7417,89 @@
           "cSharpName": "Hacs"
         },
         {
+          "id": "sensor.hallway_camera_disk_write_rate",
+          "friendlyName": "Hallway Camera Disk Write Rate",
+          "cSharpName": "HallwayCameraDiskWriteRate"
+        },
+        {
+          "id": "sensor.hallway_camera_microphone_level",
+          "friendlyName": "Hallway Camera Microphone Level",
+          "cSharpName": "HallwayCameraMicrophoneLevel"
+        },
+        {
+          "id": "sensor.hallway_camera_storage_used",
+          "friendlyName": "Hallway Camera Storage Used",
+          "cSharpName": "HallwayCameraStorageUsed"
+        },
+        {
           "id": "sensor.hallway_remote_battery",
           "friendlyName": "Hallway Remote battery",
           "cSharpName": "HallwayRemoteBattery"
         },
         {
+          "id": "sensor.hp_designjet_5500ps_rx",
+          "friendlyName": "HP DesignJet 5500ps RX",
+          "cSharpName": "HpDesignjet5500psRx"
+        },
+        {
+          "id": "sensor.hp_designjet_5500ps_tx",
+          "friendlyName": "HP DesignJet 5500ps TX",
+          "cSharpName": "HpDesignjet5500psTx"
+        },
+        {
+          "id": "sensor.iphone_rx",
+          "friendlyName": "iPhone RX",
+          "cSharpName": "IphoneRx"
+        },
+        {
+          "id": "sensor.iphone_tx",
+          "friendlyName": "iPhone TX",
+          "cSharpName": "IphoneTx"
+        },
+        {
           "id": "sensor.kitchen_camera_disk_write_rate",
-          "friendlyName": "Hallway Camera Disk Write Rate",
+          "friendlyName": "Kitchen Camera Disk Write Rate",
           "cSharpName": "KitchenCameraDiskWriteRate"
         },
         {
+          "id": "sensor.kitchen_camera_microphone_level",
+          "friendlyName": "Kitchen Camera Microphone Level",
+          "cSharpName": "KitchenCameraMicrophoneLevel"
+        },
+        {
+          "id": "sensor.kitchen_camera_rx",
+          "friendlyName": "Hallway Camera RX",
+          "cSharpName": "KitchenCameraRx"
+        },
+        {
           "id": "sensor.kitchen_camera_storage_used",
-          "friendlyName": "Hallway Camera Storage Used",
+          "friendlyName": "Kitchen Camera Storage Used",
           "cSharpName": "KitchenCameraStorageUsed"
+        },
+        {
+          "id": "sensor.kitchen_camera_tx",
+          "friendlyName": "Hallway Camera TX",
+          "cSharpName": "KitchenCameraTx"
+        },
+        {
+          "id": "sensor.kitchen_echo_show_rx",
+          "friendlyName": "Kitchen Echo Show RX",
+          "cSharpName": "KitchenEchoShowRx"
+        },
+        {
+          "id": "sensor.kitchen_echo_show_tx",
+          "friendlyName": "Kitchen Echo Show TX",
+          "cSharpName": "KitchenEchoShowTx"
+        },
+        {
+          "id": "sensor.kitchen_rx",
+          "friendlyName": "Kitchen Camera RX",
+          "cSharpName": "KitchenRx"
+        },
+        {
+          "id": "sensor.kitchen_tx",
+          "friendlyName": "Kitchen Camera TX",
+          "cSharpName": "KitchenTx"
         },
         {
           "id": "sensor.loft_hatch_battery",
@@ -6492,6 +7517,26 @@
           "cSharpName": "LoftHatchVoltage"
         },
         {
+          "id": "sensor.lounge_echo_plus_rx",
+          "friendlyName": "Lounge Echo Plus RX",
+          "cSharpName": "LoungeEchoPlusRx"
+        },
+        {
+          "id": "sensor.lounge_echo_plus_tx",
+          "friendlyName": "Lounge Echo Plus TX",
+          "cSharpName": "LoungeEchoPlusTx"
+        },
+        {
+          "id": "sensor.lounge_fire_tv_rx",
+          "friendlyName": "Lounge Fire TV RX",
+          "cSharpName": "LoungeFireTvRx"
+        },
+        {
+          "id": "sensor.lounge_fire_tv_tx",
+          "friendlyName": "Lounge Fire TV TX",
+          "cSharpName": "LoungeFireTvTx"
+        },
+        {
           "id": "sensor.lounge_remote_battery",
           "friendlyName": "Lounge Remote battery",
           "cSharpName": "LoungeRemoteBattery"
@@ -6505,6 +7550,16 @@
           "id": "sensor.lounge_tv_power_meter",
           "friendlyName": "Lounge TV Power Meter",
           "cSharpName": "LoungeTvPowerMeter"
+        },
+        {
+          "id": "sensor.lounge_tv_rx",
+          "friendlyName": "Lounge TV RX",
+          "cSharpName": "LoungeTvRx"
+        },
+        {
+          "id": "sensor.lounge_tv_tx",
+          "friendlyName": "Lounge TV TX",
+          "cSharpName": "LoungeTvTx"
         },
         {
           "id": "sensor.lounge_tv_volume",
@@ -6542,6 +7597,26 @@
           "cSharpName": "MfcJ5910dwYellowInkRemaining"
         },
         {
+          "id": "sensor.netgear_gs724tp_attic_rx",
+          "friendlyName": "netgear-gs724tp-attic RX",
+          "cSharpName": "NetgearGs724tpAtticRx"
+        },
+        {
+          "id": "sensor.netgear_gs724tp_attic_tx",
+          "friendlyName": "netgear-gs724tp-attic TX",
+          "cSharpName": "NetgearGs724tpAtticTx"
+        },
+        {
+          "id": "sensor.netgear_gs724tp_basement_rx",
+          "friendlyName": "netgear-gs724tp-basement RX",
+          "cSharpName": "NetgearGs724tpBasementRx"
+        },
+        {
+          "id": "sensor.netgear_gs724tp_basement_tx",
+          "friendlyName": "netgear-gs724tp-basement TX",
+          "cSharpName": "NetgearGs724tpBasementTx"
+        },
+        {
           "id": "sensor.nspanel_rssi",
           "friendlyName": "nspanel RSSI",
           "cSharpName": "NspanelRssi"
@@ -6557,9 +7632,24 @@
           "cSharpName": "PatioCameraDiskWriteRate"
         },
         {
+          "id": "sensor.patio_camera_microphone_level",
+          "friendlyName": "Patio Camera Microphone Level",
+          "cSharpName": "PatioCameraMicrophoneLevel"
+        },
+        {
+          "id": "sensor.patio_camera_rx",
+          "friendlyName": "Patio Camera RX",
+          "cSharpName": "PatioCameraRx"
+        },
+        {
           "id": "sensor.patio_camera_storage_used",
           "friendlyName": "Patio Camera Storage Used",
           "cSharpName": "PatioCameraStorageUsed"
+        },
+        {
+          "id": "sensor.patio_camera_tx",
+          "friendlyName": "Patio Camera TX",
+          "cSharpName": "PatioCameraTx"
         },
         {
           "id": "sensor.pixel_6_battery_level",
@@ -6597,6 +7687,16 @@
           "cSharpName": "Pixel6PressureSensor"
         },
         {
+          "id": "sensor.pixel_6_rx",
+          "friendlyName": "Pixel-6 RX",
+          "cSharpName": "Pixel6Rx"
+        },
+        {
+          "id": "sensor.pixel_6_rx_2",
+          "friendlyName": "Pixel-6 RX",
+          "cSharpName": "Pixel6Rx2"
+        },
+        {
           "id": "sensor.pixel_6_sleep_confidence",
           "friendlyName": "Pixel 6 Sleep Confidence",
           "cSharpName": "Pixel6SleepConfidence"
@@ -6612,6 +7712,16 @@
           "cSharpName": "Pixel6StepsSensor"
         },
         {
+          "id": "sensor.pixel_6_tx",
+          "friendlyName": "Pixel-6 TX",
+          "cSharpName": "Pixel6Tx"
+        },
+        {
+          "id": "sensor.pixel_6_tx_2",
+          "friendlyName": "Pixel-6 TX",
+          "cSharpName": "Pixel6Tx2"
+        },
+        {
           "id": "sensor.pixel_6_wifi_frequency",
           "friendlyName": "Pixel 6 WiFi Frequency",
           "cSharpName": "Pixel6WifiFrequency"
@@ -6620,6 +7730,61 @@
           "id": "sensor.pixel_6_wifi_signal_strength",
           "friendlyName": "Pixel 6 WiFi Signal Strength",
           "cSharpName": "Pixel6WifiSignalStrength"
+        },
+        {
+          "id": "sensor.rx",
+          "friendlyName": " RX",
+          "cSharpName": "Rx"
+        },
+        {
+          "id": "sensor.rx_10",
+          "friendlyName": "RX",
+          "cSharpName": "Rx10"
+        },
+        {
+          "id": "sensor.rx_11",
+          "friendlyName": "RX",
+          "cSharpName": "Rx11"
+        },
+        {
+          "id": "sensor.rx_2",
+          "friendlyName": " RX",
+          "cSharpName": "Rx2"
+        },
+        {
+          "id": "sensor.rx_3",
+          "friendlyName": " RX",
+          "cSharpName": "Rx3"
+        },
+        {
+          "id": "sensor.rx_4",
+          "friendlyName": "RX",
+          "cSharpName": "Rx4"
+        },
+        {
+          "id": "sensor.rx_5",
+          "friendlyName": " RX",
+          "cSharpName": "Rx5"
+        },
+        {
+          "id": "sensor.rx_6",
+          "friendlyName": " RX",
+          "cSharpName": "Rx6"
+        },
+        {
+          "id": "sensor.rx_7",
+          "friendlyName": " RX",
+          "cSharpName": "Rx7"
+        },
+        {
+          "id": "sensor.rx_8",
+          "friendlyName": " RX",
+          "cSharpName": "Rx8"
+        },
+        {
+          "id": "sensor.rx_9",
+          "friendlyName": " RX",
+          "cSharpName": "Rx9"
         },
         {
           "id": "sensor.s424d3be485e872ccc_483c_estimated_distance",
@@ -6642,9 +7807,19 @@
           "cSharpName": "Sfd85968e835924d1c6058EstimatedDistance"
         },
         {
-          "id": "sensor.shed_camera_link_speed",
-          "friendlyName": "Shed Camera Link Speed",
-          "cSharpName": "ShedCameraLinkSpeed"
+          "id": "sensor.shed_camera_disk_write_rate",
+          "friendlyName": "Shed Camera Disk Write Rate",
+          "cSharpName": "ShedCameraDiskWriteRate"
+        },
+        {
+          "id": "sensor.shed_camera_microphone_level",
+          "friendlyName": "Shed Camera Microphone Level",
+          "cSharpName": "ShedCameraMicrophoneLevel"
+        },
+        {
+          "id": "sensor.shed_camera_storage_used",
+          "friendlyName": "Shed Camera Storage Used",
+          "cSharpName": "ShedCameraStorageUsed"
         },
         {
           "id": "sensor.shed_current_temperature",
@@ -6655,6 +7830,16 @@
           "id": "sensor.shed_device_temperature",
           "friendlyName": "Shed device temperature",
           "cSharpName": "ShedDeviceTemperature"
+        },
+        {
+          "id": "sensor.shed_echo_input_rx",
+          "friendlyName": "Shed Echo Input RX",
+          "cSharpName": "ShedEchoInputRx"
+        },
+        {
+          "id": "sensor.shed_echo_input_tx",
+          "friendlyName": "Shed Echo Input TX",
+          "cSharpName": "ShedEchoInputTx"
         },
         {
           "id": "sensor.shed_energy",
@@ -6672,6 +7857,46 @@
           "cSharpName": "ShedPower"
         },
         {
+          "id": "sensor.shed_rx",
+          "friendlyName": "Shed Camera RX",
+          "cSharpName": "ShedRx"
+        },
+        {
+          "id": "sensor.shed_thermostat_rx",
+          "friendlyName": "Shed Thermostat RX",
+          "cSharpName": "ShedThermostatRx"
+        },
+        {
+          "id": "sensor.shed_thermostat_tx",
+          "friendlyName": "Shed Thermostat TX",
+          "cSharpName": "ShedThermostatTx"
+        },
+        {
+          "id": "sensor.shed_tx",
+          "friendlyName": "Shed Camera TX",
+          "cSharpName": "ShedTx"
+        },
+        {
+          "id": "sensor.shelly_shed_lights_rx",
+          "friendlyName": "Shelly Shed Lights RX",
+          "cSharpName": "ShellyShedLightsRx"
+        },
+        {
+          "id": "sensor.shelly_shed_lights_tx",
+          "friendlyName": "Shelly Shed Lights TX",
+          "cSharpName": "ShellyShedLightsTx"
+        },
+        {
+          "id": "sensor.shelly_shed_sockets_rx",
+          "friendlyName": "Shelly Shed Sockets RX",
+          "cSharpName": "ShellyShedSocketsRx"
+        },
+        {
+          "id": "sensor.shelly_shed_sockets_tx",
+          "friendlyName": "Shelly Shed Sockets TX",
+          "cSharpName": "ShellyShedSocketsTx"
+        },
+        {
           "id": "sensor.smart_series_7000_47ae_signal_strength",
           "friendlyName": "Signal Strength",
           "cSharpName": "SmartSeries700047aeSignalStrength"
@@ -6687,9 +7912,9 @@
           "cSharpName": "SnugSwitchBattery"
         },
         {
-          "id": "sensor.snug_switch_voltage",
-          "friendlyName": "Snug Switch voltage",
-          "cSharpName": "SnugSwitchVoltage"
+          "id": "sensor.sonoff_basement_1_rx",
+          "friendlyName": "sonoff-basement-1 RX",
+          "cSharpName": "SonoffBasement1Rx"
         },
         {
           "id": "sensor.sonoff_basement_1_signal",
@@ -6697,14 +7922,29 @@
           "cSharpName": "SonoffBasement1Signal"
         },
         {
+          "id": "sensor.sonoff_basement_1_tx",
+          "friendlyName": "sonoff-basement-1 TX",
+          "cSharpName": "SonoffBasement1Tx"
+        },
+        {
           "id": "sensor.sonoff_basement_1_uptime",
           "friendlyName": "Sonoff Basement 1 Uptime",
           "cSharpName": "SonoffBasement1Uptime"
         },
         {
+          "id": "sensor.sonoff_basement_2_rx",
+          "friendlyName": "sonoff-basement-2 RX",
+          "cSharpName": "SonoffBasement2Rx"
+        },
+        {
           "id": "sensor.sonoff_basement_2_signal",
           "friendlyName": "Sonoff Basement 2 Signal",
           "cSharpName": "SonoffBasement2Signal"
+        },
+        {
+          "id": "sensor.sonoff_basement_2_tx",
+          "friendlyName": "sonoff-basement-2 TX",
+          "cSharpName": "SonoffBasement2Tx"
         },
         {
           "id": "sensor.sonoff_basement_2_uptime",
@@ -6717,9 +7957,19 @@
           "cSharpName": "SonoffBridge1Status"
         },
         {
+          "id": "sensor.sonoff_downstairs_1_rx",
+          "friendlyName": "sonoff-downstairs-1 RX",
+          "cSharpName": "SonoffDownstairs1Rx"
+        },
+        {
           "id": "sensor.sonoff_downstairs_1_signal",
           "friendlyName": "Sonoff Downstairs 1 Signal",
           "cSharpName": "SonoffDownstairs1Signal"
+        },
+        {
+          "id": "sensor.sonoff_downstairs_1_tx",
+          "friendlyName": "sonoff-downstairs-1 TX",
+          "cSharpName": "SonoffDownstairs1Tx"
         },
         {
           "id": "sensor.sonoff_downstairs_1_uptime",
@@ -6727,9 +7977,19 @@
           "cSharpName": "SonoffDownstairs1Uptime"
         },
         {
+          "id": "sensor.sonoff_downstairs_2_rx",
+          "friendlyName": "sonoff-downstairs-2 RX",
+          "cSharpName": "SonoffDownstairs2Rx"
+        },
+        {
           "id": "sensor.sonoff_downstairs_2_signal",
           "friendlyName": "Sonoff Downstairs 2 Signal",
           "cSharpName": "SonoffDownstairs2Signal"
+        },
+        {
+          "id": "sensor.sonoff_downstairs_2_tx",
+          "friendlyName": "sonoff-downstairs-2 TX",
+          "cSharpName": "SonoffDownstairs2Tx"
         },
         {
           "id": "sensor.sonoff_downstairs_2_uptime",
@@ -6737,9 +7997,19 @@
           "cSharpName": "SonoffDownstairs2Uptime"
         },
         {
+          "id": "sensor.sonoff_outside_1_rx",
+          "friendlyName": "sonoff-outside-1 RX",
+          "cSharpName": "SonoffOutside1Rx"
+        },
+        {
           "id": "sensor.sonoff_outside_1_signal",
           "friendlyName": "Sonoff Outside 1 Signal",
           "cSharpName": "SonoffOutside1Signal"
+        },
+        {
+          "id": "sensor.sonoff_outside_1_tx",
+          "friendlyName": "sonoff-outside-1 TX",
+          "cSharpName": "SonoffOutside1Tx"
         },
         {
           "id": "sensor.sonoff_outside_1_uptime",
@@ -6747,9 +8017,19 @@
           "cSharpName": "SonoffOutside1Uptime"
         },
         {
+          "id": "sensor.sonoff_upstairs_1_rx",
+          "friendlyName": "sonoff-upstairs-1 RX",
+          "cSharpName": "SonoffUpstairs1Rx"
+        },
+        {
           "id": "sensor.sonoff_upstairs_1_signal",
           "friendlyName": "Sonoff Upstairs 1 Signal",
           "cSharpName": "SonoffUpstairs1Signal"
+        },
+        {
+          "id": "sensor.sonoff_upstairs_1_tx",
+          "friendlyName": "sonoff-upstairs-1 TX",
+          "cSharpName": "SonoffUpstairs1Tx"
         },
         {
           "id": "sensor.sonoff_upstairs_1_uptime",
@@ -6757,9 +8037,19 @@
           "cSharpName": "SonoffUpstairs1Uptime"
         },
         {
+          "id": "sensor.sonoff_upstairs_2_rx",
+          "friendlyName": "sonoff-upstairs-2 RX",
+          "cSharpName": "SonoffUpstairs2Rx"
+        },
+        {
           "id": "sensor.sonoff_upstairs_2_signal",
           "friendlyName": "Sonoff Upstairs 2 Signal",
           "cSharpName": "SonoffUpstairs2Signal"
+        },
+        {
+          "id": "sensor.sonoff_upstairs_2_tx",
+          "friendlyName": "sonoff-upstairs-2 TX",
+          "cSharpName": "SonoffUpstairs2Tx"
         },
         {
           "id": "sensor.sonoff_upstairs_2_uptime",
@@ -6780,6 +8070,26 @@
           "id": "sensor.speedtest_upload",
           "friendlyName": "SpeedTest Upload",
           "cSharpName": "SpeedtestUpload"
+        },
+        {
+          "id": "sensor.squeezebox_dining_room_rx",
+          "friendlyName": "Squeezebox Dining Room RX",
+          "cSharpName": "SqueezeboxDiningRoomRx"
+        },
+        {
+          "id": "sensor.squeezebox_dining_room_tx",
+          "friendlyName": "Squeezebox Dining Room TX",
+          "cSharpName": "SqueezeboxDiningRoomTx"
+        },
+        {
+          "id": "sensor.sump_alarm_rx",
+          "friendlyName": "sump-alarm RX",
+          "cSharpName": "SumpAlarmRx"
+        },
+        {
+          "id": "sensor.sump_alarm_tx",
+          "friendlyName": "sump-alarm TX",
+          "cSharpName": "SumpAlarmTx"
         },
         {
           "id": "sensor.sump_alarm_uptime",
@@ -6805,6 +8115,61 @@
           "id": "sensor.toilet_door_voltage",
           "friendlyName": "Toilet Door voltage",
           "cSharpName": "ToiletDoorVoltage"
+        },
+        {
+          "id": "sensor.tx",
+          "friendlyName": " TX",
+          "cSharpName": "Tx"
+        },
+        {
+          "id": "sensor.tx_10",
+          "friendlyName": "TX",
+          "cSharpName": "Tx10"
+        },
+        {
+          "id": "sensor.tx_11",
+          "friendlyName": "TX",
+          "cSharpName": "Tx11"
+        },
+        {
+          "id": "sensor.tx_2",
+          "friendlyName": " TX",
+          "cSharpName": "Tx2"
+        },
+        {
+          "id": "sensor.tx_3",
+          "friendlyName": " TX",
+          "cSharpName": "Tx3"
+        },
+        {
+          "id": "sensor.tx_4",
+          "friendlyName": "TX",
+          "cSharpName": "Tx4"
+        },
+        {
+          "id": "sensor.tx_5",
+          "friendlyName": " TX",
+          "cSharpName": "Tx5"
+        },
+        {
+          "id": "sensor.tx_6",
+          "friendlyName": " TX",
+          "cSharpName": "Tx6"
+        },
+        {
+          "id": "sensor.tx_7",
+          "friendlyName": " TX",
+          "cSharpName": "Tx7"
+        },
+        {
+          "id": "sensor.tx_8",
+          "friendlyName": " TX",
+          "cSharpName": "Tx8"
+        },
+        {
+          "id": "sensor.tx_9",
+          "friendlyName": " TX",
+          "cSharpName": "Tx9"
         },
         {
           "id": "sensor.udmpro_cpu_temperature",
@@ -6872,9 +8237,24 @@
           "cSharpName": "UnifiDreamMachineKibSSent"
         },
         {
+          "id": "sensor.upstairs_alarm_panel_rx",
+          "friendlyName": "Upstairs Alarm Panel RX",
+          "cSharpName": "UpstairsAlarmPanelRx"
+        },
+        {
+          "id": "sensor.upstairs_alarm_panel_tx",
+          "friendlyName": "Upstairs Alarm Panel TX",
+          "cSharpName": "UpstairsAlarmPanelTx"
+        },
+        {
           "id": "sensor.upstairs_thermostat_humidity",
           "friendlyName": "Upstairs Thermostat humidity",
           "cSharpName": "UpstairsThermostatHumidity"
+        },
+        {
+          "id": "sensor.upstairs_thermostat_rx",
+          "friendlyName": "Upstairs Thermostat RX",
+          "cSharpName": "UpstairsThermostatRx"
         },
         {
           "id": "sensor.upstairs_thermostat_target",
@@ -6887,14 +8267,34 @@
           "cSharpName": "UpstairsThermostatTemperature"
         },
         {
+          "id": "sensor.upstairs_thermostat_tx",
+          "friendlyName": "Upstairs Thermostat TX",
+          "cSharpName": "UpstairsThermostatTx"
+        },
+        {
+          "id": "sensor.utility_room_echo_dot_rx",
+          "friendlyName": "Utility Room Echo Dot RX",
+          "cSharpName": "UtilityRoomEchoDotRx"
+        },
+        {
+          "id": "sensor.utility_room_echo_dot_tx",
+          "friendlyName": "Utility Room Echo Dot TX",
+          "cSharpName": "UtilityRoomEchoDotTx"
+        },
+        {
+          "id": "sensor.vacuumrobot_rx",
+          "friendlyName": "VacuumRobot RX",
+          "cSharpName": "VacuumrobotRx"
+        },
+        {
+          "id": "sensor.vacuumrobot_tx",
+          "friendlyName": "VacuumRobot TX",
+          "cSharpName": "VacuumrobotTx"
+        },
+        {
           "id": "sensor.weather_station_ambient_light",
           "friendlyName": "Weather Station Ambient Light",
           "cSharpName": "WeatherStationAmbientLight"
-        },
-        {
-          "id": "sensor.weather_station_lux",
-          "friendlyName": "Weather Station Lux",
-          "cSharpName": "WeatherStationLux"
         },
         {
           "id": "sensor.weather_station_pressure",
@@ -6907,9 +8307,19 @@
           "cSharpName": "WeatherStationRelativeHumidity"
         },
         {
+          "id": "sensor.weather_station_rx",
+          "friendlyName": "weather-station RX",
+          "cSharpName": "WeatherStationRx"
+        },
+        {
           "id": "sensor.weather_station_temperature",
           "friendlyName": "Weather Station Temperature",
           "cSharpName": "WeatherStationTemperature"
+        },
+        {
+          "id": "sensor.weather_station_tx",
+          "friendlyName": "weather-station TX",
+          "cSharpName": "WeatherStationTx"
         },
         {
           "id": "sensor.weather_station_uptime",
@@ -7065,6 +8475,66 @@
           "id": "sensor.withings_weight_kg_claire",
           "friendlyName": "Withings weight_kg Claire",
           "cSharpName": "WithingsWeightKgClaire"
+        },
+        {
+          "id": "sensor.yeelight_basement_stairs_light_rx",
+          "friendlyName": "Yeelight Basement Stairs Light RX",
+          "cSharpName": "YeelightBasementStairsLightRx"
+        },
+        {
+          "id": "sensor.yeelight_basement_stairs_light_tx",
+          "friendlyName": "Yeelight Basement Stairs Light TX",
+          "cSharpName": "YeelightBasementStairsLightTx"
+        },
+        {
+          "id": "sensor.yeelight_bedroom_lamp_rx",
+          "friendlyName": "Yeelight Bedroom Lamp RX",
+          "cSharpName": "YeelightBedroomLampRx"
+        },
+        {
+          "id": "sensor.yeelight_bedroom_lamp_tx",
+          "friendlyName": "Yeelight Bedroom Lamp TX",
+          "cSharpName": "YeelightBedroomLampTx"
+        },
+        {
+          "id": "sensor.yeelight_hallway_lamp_rx",
+          "friendlyName": "Yeelight Hallway Lamp RX",
+          "cSharpName": "YeelightHallwayLampRx"
+        },
+        {
+          "id": "sensor.yeelight_hallway_lamp_tx",
+          "friendlyName": "Yeelight Hallway Lamp TX",
+          "cSharpName": "YeelightHallwayLampTx"
+        },
+        {
+          "id": "sensor.yeelight_kitchen_lamp_rx",
+          "friendlyName": "Yeelight Kitchen Lamp RX",
+          "cSharpName": "YeelightKitchenLampRx"
+        },
+        {
+          "id": "sensor.yeelight_kitchen_lamp_tx",
+          "friendlyName": "Yeelight Kitchen Lamp TX",
+          "cSharpName": "YeelightKitchenLampTx"
+        },
+        {
+          "id": "sensor.yeelight_lounge_lamp_rx",
+          "friendlyName": "Yeelight Lounge Lamp RX",
+          "cSharpName": "YeelightLoungeLampRx"
+        },
+        {
+          "id": "sensor.yeelight_lounge_lamp_tx",
+          "friendlyName": "Yeelight Lounge Lamp TX",
+          "cSharpName": "YeelightLoungeLampTx"
+        },
+        {
+          "id": "sensor.yeelight_snug_floor_lamp_rx",
+          "friendlyName": "Yeelight Snug Floor Lamp RX",
+          "cSharpName": "YeelightSnugFloorLampRx"
+        },
+        {
+          "id": "sensor.yeelight_snug_floor_lamp_tx",
+          "friendlyName": "Yeelight Snug Floor Lamp TX",
+          "cSharpName": "YeelightSnugFloorLampTx"
         }
       ],
       "attributes": [
@@ -7191,7 +8661,7 @@
         {
           "jsonName": "connected_paired_devices",
           "cSharpName": "ConnectedPairedDevices",
-          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.Object]"
+          "clrType": "System.Object"
         },
         {
           "jsonName": "paired_devices",
@@ -7307,6 +8777,26 @@
           "jsonName": "supported_features",
           "cSharpName": "SupportedFeatures",
           "clrType": "System.Double"
+        },
+        {
+          "jsonName": "marker_high_level",
+          "cSharpName": "MarkerHighLevel",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "marker_low_level",
+          "cSharpName": "MarkerLowLevel",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "marker_type",
+          "cSharpName": "MarkerType",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "occupancy",
+          "cSharpName": "Occupancy",
+          "clrType": "System.Boolean"
         }
       ]
     },
@@ -7436,46 +8926,6 @@
           "cSharpName": "BasementDoNotDisturbSwitch"
         },
         {
-          "id": "switch.basement_hall_camera_detections_motion",
-          "friendlyName": "Basement Hall Camera Detections: Motion",
-          "cSharpName": "BasementHallCameraDetectionsMotion"
-        },
-        {
-          "id": "switch.basement_hall_camera_hdr_mode",
-          "friendlyName": "Basement Hall Camera HDR Mode",
-          "cSharpName": "BasementHallCameraHdrMode"
-        },
-        {
-          "id": "switch.basement_hall_camera_overlay_show_bitrate",
-          "friendlyName": "Basement Hall Camera Overlay: Show Nerd Mode",
-          "cSharpName": "BasementHallCameraOverlayShowBitrate"
-        },
-        {
-          "id": "switch.basement_hall_camera_overlay_show_date",
-          "friendlyName": "Basement Hall Camera Overlay: Show Date",
-          "cSharpName": "BasementHallCameraOverlayShowDate"
-        },
-        {
-          "id": "switch.basement_hall_camera_overlay_show_logo",
-          "friendlyName": "Basement Hall Camera Overlay: Show Logo",
-          "cSharpName": "BasementHallCameraOverlayShowLogo"
-        },
-        {
-          "id": "switch.basement_hall_camera_overlay_show_name",
-          "friendlyName": "Basement Hall Camera Overlay: Show Name",
-          "cSharpName": "BasementHallCameraOverlayShowName"
-        },
-        {
-          "id": "switch.basement_hall_camera_privacy_mode",
-          "friendlyName": "Basement Hall Camera Privacy Mode",
-          "cSharpName": "BasementHallCameraPrivacyMode"
-        },
-        {
-          "id": "switch.basement_hall_camera_status_light_on",
-          "friendlyName": "Basement Hall Camera Status Light On",
-          "cSharpName": "BasementHallCameraStatusLightOn"
-        },
-        {
           "id": "switch.basement_repeat_switch",
           "friendlyName": "Basement repeat switch",
           "cSharpName": "BasementRepeatSwitch"
@@ -7544,6 +8994,11 @@
           "id": "switch.dispenser_motor",
           "friendlyName": "Dispenser Motor",
           "cSharpName": "DispenserMotor"
+        },
+        {
+          "id": "switch.display_cabinet_light",
+          "friendlyName": "Display Cabinet Light",
+          "cSharpName": "DisplayCabinetLight"
         },
         {
           "id": "switch.doorbell_chime",
@@ -7766,64 +9221,19 @@
           "cSharpName": "EveningFeedEnabled"
         },
         {
-          "id": "switch.g4_instant_detections_motion",
-          "friendlyName": "Kitchen Camera Detections: Motion",
-          "cSharpName": "G4InstantDetectionsMotion"
+          "id": "switch.garden_do_not_disturb_switch",
+          "friendlyName": "Garden do not disturb switch",
+          "cSharpName": "GardenDoNotDisturbSwitch"
         },
         {
-          "id": "switch.g4_instant_overlay_show_date",
-          "friendlyName": "Kitchen Camera Overlay: Show Date",
-          "cSharpName": "G4InstantOverlayShowDate"
+          "id": "switch.garden_repeat_switch",
+          "friendlyName": "Garden repeat switch",
+          "cSharpName": "GardenRepeatSwitch"
         },
         {
-          "id": "switch.g4_instant_overlay_show_logo",
-          "friendlyName": "Kitchen Camera Overlay: Show Logo",
-          "cSharpName": "G4InstantOverlayShowLogo"
-        },
-        {
-          "id": "switch.g4_instant_overlay_show_name",
-          "friendlyName": "Kitchen Camera Overlay: Show Name",
-          "cSharpName": "G4InstantOverlayShowName"
-        },
-        {
-          "id": "switch.g4_instant_overlay_show_nerd_mode",
-          "friendlyName": "Kitchen Camera Overlay: Show Nerd Mode",
-          "cSharpName": "G4InstantOverlayShowNerdMode"
-        },
-        {
-          "id": "switch.g4_instant_privacy_mode",
-          "friendlyName": "Kitchen Camera Privacy Mode",
-          "cSharpName": "G4InstantPrivacyMode"
-        },
-        {
-          "id": "switch.g5_bullet_detections_motion",
-          "friendlyName": "Shed Camera Detections: Motion",
-          "cSharpName": "G5BulletDetectionsMotion"
-        },
-        {
-          "id": "switch.g5_bullet_overlay_show_date",
-          "friendlyName": "Shed Camera Overlay: Show Date",
-          "cSharpName": "G5BulletOverlayShowDate"
-        },
-        {
-          "id": "switch.g5_bullet_overlay_show_logo",
-          "friendlyName": "Shed Camera Overlay: Show Logo",
-          "cSharpName": "G5BulletOverlayShowLogo"
-        },
-        {
-          "id": "switch.g5_bullet_overlay_show_name",
-          "friendlyName": "Shed Camera Overlay: Show Name",
-          "cSharpName": "G5BulletOverlayShowName"
-        },
-        {
-          "id": "switch.g5_bullet_overlay_show_nerd_mode",
-          "friendlyName": "Shed Camera Overlay: Show Nerd Mode",
-          "cSharpName": "G5BulletOverlayShowNerdMode"
-        },
-        {
-          "id": "switch.g5_bullet_privacy_mode",
-          "friendlyName": "Shed Camera Privacy Mode",
-          "cSharpName": "G5BulletPrivacyMode"
+          "id": "switch.garden_shuffle_switch",
+          "friendlyName": "Garden shuffle switch",
+          "cSharpName": "GardenShuffleSwitch"
         },
         {
           "id": "switch.garden_sockets",
@@ -7834,6 +9244,11 @@
           "id": "switch.gate_socket",
           "friendlyName": "Gate Socket",
           "cSharpName": "GateSocket"
+        },
+        {
+          "id": "switch.guest_room_bedside_lamp",
+          "friendlyName": "Guest Room Bedside Lamp",
+          "cSharpName": "GuestRoomBedsideLamp"
         },
         {
           "id": "switch.guest_room_echo_show_do_not_disturb_switch",
@@ -7856,79 +9271,9 @@
           "cSharpName": "HallTabletDoNotDisturbSwitch"
         },
         {
-          "id": "switch.hallway_camera_detections_person",
-          "friendlyName": "Kitchen Camera Detections: Person",
-          "cSharpName": "HallwayCameraDetectionsPerson"
-        },
-        {
-          "id": "switch.hallway_camera_detections_vehicle",
-          "friendlyName": "Kitchen Camera Detections: Vehicle",
-          "cSharpName": "HallwayCameraDetectionsVehicle"
-        },
-        {
-          "id": "switch.hallway_camera_hdr_mode",
-          "friendlyName": "Kitchen Camera HDR Mode",
-          "cSharpName": "HallwayCameraHdrMode"
-        },
-        {
-          "id": "switch.hallway_camera_status_light_on",
-          "friendlyName": "Kitchen Camera Status Light On",
-          "cSharpName": "HallwayCameraStatusLightOn"
-        },
-        {
-          "id": "switch.hallway_camera_system_sounds",
-          "friendlyName": "Kitchen Camera System Sounds",
-          "cSharpName": "HallwayCameraSystemSounds"
-        },
-        {
           "id": "switch.homeassistant_active",
           "friendlyName": "homeassistant Active",
           "cSharpName": "HomeassistantActive"
-        },
-        {
-          "id": "switch.kitchen_camera_detections_motion",
-          "friendlyName": "Hallway Camera Detections: Motion",
-          "cSharpName": "KitchenCameraDetectionsMotion"
-        },
-        {
-          "id": "switch.kitchen_camera_detections_smoke_co",
-          "friendlyName": "Kitchen Camera Detections: Smoke/CO",
-          "cSharpName": "KitchenCameraDetectionsSmokeCo"
-        },
-        {
-          "id": "switch.kitchen_camera_hdr_mode",
-          "friendlyName": "Hallway Camera HDR Mode",
-          "cSharpName": "KitchenCameraHdrMode"
-        },
-        {
-          "id": "switch.kitchen_camera_overlay_show_bitrate",
-          "friendlyName": "Hallway Camera Overlay: Show Nerd Mode",
-          "cSharpName": "KitchenCameraOverlayShowBitrate"
-        },
-        {
-          "id": "switch.kitchen_camera_overlay_show_date",
-          "friendlyName": "Hallway Camera Overlay: Show Date",
-          "cSharpName": "KitchenCameraOverlayShowDate"
-        },
-        {
-          "id": "switch.kitchen_camera_overlay_show_logo",
-          "friendlyName": "Hallway Camera Overlay: Show Logo",
-          "cSharpName": "KitchenCameraOverlayShowLogo"
-        },
-        {
-          "id": "switch.kitchen_camera_overlay_show_name",
-          "friendlyName": "Hallway Camera Overlay: Show Name",
-          "cSharpName": "KitchenCameraOverlayShowName"
-        },
-        {
-          "id": "switch.kitchen_camera_privacy_mode",
-          "friendlyName": "Hallway Camera Privacy Mode",
-          "cSharpName": "KitchenCameraPrivacyMode"
-        },
-        {
-          "id": "switch.kitchen_camera_status_light_on",
-          "friendlyName": "Hallway Camera Status Light On",
-          "cSharpName": "KitchenCameraStatusLightOn"
         },
         {
           "id": "switch.kitchen_echo_show_do_not_disturb_switch",
@@ -8071,54 +9416,19 @@
           "cSharpName": "OfficesShuffleSwitch"
         },
         {
-          "id": "switch.patio_camera_detections_motion",
-          "friendlyName": "Patio Camera Detections: Motion",
-          "cSharpName": "PatioCameraDetectionsMotion"
+          "id": "switch.patio_do_not_disturb_switch",
+          "friendlyName": "Patio do not disturb switch",
+          "cSharpName": "PatioDoNotDisturbSwitch"
         },
         {
-          "id": "switch.patio_camera_detections_person",
-          "friendlyName": "Patio Camera Detections: Person",
-          "cSharpName": "PatioCameraDetectionsPerson"
+          "id": "switch.patio_repeat_switch",
+          "friendlyName": "Patio repeat switch",
+          "cSharpName": "PatioRepeatSwitch"
         },
         {
-          "id": "switch.patio_camera_detections_smoke_co",
-          "friendlyName": "Patio Camera Detections: Smoke/CO",
-          "cSharpName": "PatioCameraDetectionsSmokeCo"
-        },
-        {
-          "id": "switch.patio_camera_detections_vehicle",
-          "friendlyName": "Patio Camera Detections: Vehicle",
-          "cSharpName": "PatioCameraDetectionsVehicle"
-        },
-        {
-          "id": "switch.patio_camera_high_fps",
-          "friendlyName": "Patio Camera High FPS",
-          "cSharpName": "PatioCameraHighFps"
-        },
-        {
-          "id": "switch.patio_camera_overlay_show_bitrate",
-          "friendlyName": "Patio Camera Overlay: Show Nerd Mode",
-          "cSharpName": "PatioCameraOverlayShowBitrate"
-        },
-        {
-          "id": "switch.patio_camera_overlay_show_date",
-          "friendlyName": "Patio Camera Overlay: Show Date",
-          "cSharpName": "PatioCameraOverlayShowDate"
-        },
-        {
-          "id": "switch.patio_camera_overlay_show_logo",
-          "friendlyName": "Patio Camera Overlay: Show Logo",
-          "cSharpName": "PatioCameraOverlayShowLogo"
-        },
-        {
-          "id": "switch.patio_camera_overlay_show_name",
-          "friendlyName": "Patio Camera Overlay: Show Name",
-          "cSharpName": "PatioCameraOverlayShowName"
-        },
-        {
-          "id": "switch.patio_camera_privacy_mode",
-          "friendlyName": "Patio Camera Privacy Mode",
-          "cSharpName": "PatioCameraPrivacyMode"
+          "id": "switch.patio_shuffle_switch",
+          "friendlyName": "Patio shuffle switch",
+          "cSharpName": "PatioShuffleSwitch"
         },
         {
           "id": "switch.restart_sonoff_basement_1",
@@ -8159,26 +9469,6 @@
           "id": "switch.restart_weather_station",
           "friendlyName": "Restart Weather Station",
           "cSharpName": "RestartWeatherStation"
-        },
-        {
-          "id": "switch.shed_camera_detections_person",
-          "friendlyName": "Shed Camera Detections: Person",
-          "cSharpName": "ShedCameraDetectionsPerson"
-        },
-        {
-          "id": "switch.shed_camera_detections_smoke_co",
-          "friendlyName": "Shed Camera Detections: Smoke/CO",
-          "cSharpName": "ShedCameraDetectionsSmokeCo"
-        },
-        {
-          "id": "switch.shed_camera_detections_vehicle",
-          "friendlyName": "Shed Camera Detections: Vehicle",
-          "cSharpName": "ShedCameraDetectionsVehicle"
-        },
-        {
-          "id": "switch.shed_camera_hdr_mode",
-          "friendlyName": "Shed Camera HDR Mode",
-          "cSharpName": "ShedCameraHdrMode"
         },
         {
           "id": "switch.shed_echo_input_do_not_disturb_switch",
@@ -8364,16 +9654,6 @@
           "id": "switch.this_device_do_not_disturb_switch",
           "friendlyName": "This Device do not disturb switch",
           "cSharpName": "ThisDeviceDoNotDisturbSwitch"
-        },
-        {
-          "id": "switch.udmpro_analytics_enabled",
-          "friendlyName": "UDMPRO Analytics Enabled",
-          "cSharpName": "UdmproAnalyticsEnabled"
-        },
-        {
-          "id": "switch.udmpro_insights_enabled",
-          "friendlyName": "UDMPRO Insights Enabled",
-          "cSharpName": "UdmproInsightsEnabled"
         },
         {
           "id": "switch.upstairs_do_not_disturb_switch",
@@ -8715,14 +9995,14 @@
           "cSharpName": "UapFlexhdGroundfloor"
         },
         {
+          "id": "update.uap_iw_hd_shed",
+          "friendlyName": "UAP-IW-HD-Shed",
+          "cSharpName": "UapIwHdShed"
+        },
+        {
           "id": "update.udmpro",
           "friendlyName": "UDMPRO",
           "cSharpName": "Udmpro"
-        },
-        {
-          "id": "update.unifi_device_update_d0_21_f9_58_23_89",
-          "friendlyName": "UAP-IW-HD-Shed",
-          "cSharpName": "UnifiDeviceUpdateD021F9582389"
         },
         {
           "id": "update.vscode_remote_update",
@@ -8896,7 +10176,7 @@
         {
           "jsonName": "persons",
           "cSharpName": "Persons",
-          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.String]"
+          "clrType": "System.Object"
         },
         {
           "jsonName": "editable",

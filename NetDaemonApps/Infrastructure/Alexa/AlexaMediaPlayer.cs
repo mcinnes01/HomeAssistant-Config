@@ -1,13 +1,15 @@
 using System.Reactive.Subjects;
 
 namespace NetDaemon.Infrastructure.Alexa;
-
+//https://github.com/eugeneniemand/netdaemon-app-template/blob/main/Helpers/Notifications/IAlexa.cs
 public interface IAlexa
 {
     void Announce(AlexaMediaPlayer.Config config);
     void Announce(string mediaPlayer, string message);
     void TextToSpeech(AlexaMediaPlayer.Config config);
     void TextToSpeech(string mediaPlayer, string message);
+    void TurnScreenOn(string entityId);
+    void TurnScreenOff(string entityId);
 }
 
 public class AlexaMediaPlayer : IAlexa
@@ -46,6 +48,12 @@ public class AlexaMediaPlayer : IAlexa
     public void TextToSpeech(string mediaPlayer, string message) =>
         QueueNotification(new Config { Entity = mediaPlayer, Message = message }, "tts");
 
+    public void TurnScreenOn(string entityId) =>
+        SetScreen(entityId, "on");
+
+    public void TurnScreenOff(string entityId) =>
+        SetScreen(entityId, "off");
+
     private string FormatMessage(string message, string voice, bool whisper)
     {
         var messageBreaks  = message.Replace(",", "<break />");
@@ -59,6 +67,12 @@ public class AlexaMediaPlayer : IAlexa
         object? vol = null;
         _ha.Entity(entityId).Attributes?.ToDictionary()?.TryGetValue("volume_level", out vol);
         return double.Parse(vol?.ToString() ?? "-1");
+    }
+
+    private bool HasScreen(string entityId)
+    {
+        _devices.TryGetValue(entityId, out var deviceConfig);
+        return deviceConfig?.HasScreen ?? false;
     }
 
     private void ProcessNotifications(IEnumerable<Config> cfgs)
@@ -128,6 +142,17 @@ public class AlexaMediaPlayer : IAlexa
         entitiesVolumeLevel.Add(entityId, GetVolume(entityId));
     }
 
+    private void SetScreen(string entityId, string action)
+    {
+        if (!HasScreen(entityId))
+            return;
+
+        for (int i = 0; i < 2; i++)
+        {
+            _services.MediaPlayer.PlayMedia(ServiceTarget.FromEntity(entityId), $"turn screen {action}", "custom");
+            Thread.Sleep(3000);
+        }
+    }
 
     public class Config
     {

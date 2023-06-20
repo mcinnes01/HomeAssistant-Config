@@ -6,7 +6,7 @@ public class BackDoorLightControl
     private readonly ITextToSpeechService _tts;
     private readonly ILogger<BackDoorLightControl> _logger;
     private readonly Entities _entities;
-    
+
     public BackDoorLightControl(IHaContext ha, ITextToSpeechService tts, ILogger<BackDoorLightControl> logger)
     {
         _tts = tts;
@@ -26,16 +26,16 @@ public class BackDoorLightControl
     {
         _entities.BinarySensor.ShedCameraPersonDetected
             .StateChanges()
-            .Where(e => 
+            .Where(e =>
             {
-                _logger.LogTrace(@$"Brightness: {_entities.InputSelect.Brightness.State}, 
-                    Person Detection: Old: {e.Old?.State} - New: {e.New?.State}, 
+                _logger.LogTrace(@$"Brightness: {_entities.InputSelect.Brightness.State},
+                    Person Detection: Old: {e.Old?.State} - New: {e.New?.State},
                     Shed Light: {_entities.Light.Shed.State}");
                 return _entities.InputSelect.Brightness.IsOption(BrightnessOptions.Dark)
                 && e.New.IsDetected()
                 && _entities.Light.Shed.IsOff() && _entities.Light.FenceLights.IsOff();
             })
-            .Subscribe(_ => 
+            .Subscribe(_ =>
             {
                 _logger.LogDebug("Person detected in the garden");
                 _entities.Light.Shed.TurnOn();
@@ -52,17 +52,17 @@ public class BackDoorLightControl
     {
         _entities.BinarySensor.ShedCameraVehicleDetected
             .StateChanges()
-            .Where(e => 
+            .Where(e =>
             {
-                _logger.LogTrace(@$"Brightness: {_entities.InputSelect.Brightness.State}, 
-                    Vehicle Detection: Old: {e.Old?.State} - New: {e.New?.State}, 
-                    Shed Light: {_entities.Light.Shed.State}, 
+                _logger.LogTrace(@$"Brightness: {_entities.InputSelect.Brightness.State},
+                    Vehicle Detection: Old: {e.Old?.State} - New: {e.New?.State},
+                    Shed Light: {_entities.Light.Shed.State},
                     Fence Lights: {_entities.Light.FenceLights.State}");
                 return _entities.InputSelect.Brightness.IsOption(BrightnessOptions.Dark)
                 && e.New.IsDetected()
                 && _entities.Light.Shed.IsOff() && _entities.Light.FenceLights.IsOff();
             })
-            .Subscribe(_ => 
+            .Subscribe(_ =>
             {
                 _logger.LogDebug("Car detected in the garden");
                 _entities.Light.Shed.TurnOn();
@@ -74,11 +74,11 @@ public class BackDoorLightControl
     {
         _entities.BinarySensor.PatioCameraPersonDetected
             .StateChanges()
-            .Where(e => 
+            .Where(e =>
             {
-                _logger.LogTrace(@$"Brightness: {_entities.InputSelect.Brightness.State}, 
-                    Person Detection: Old: {e.Old?.State} - New: {e.New?.State}, 
-                    Back Door Light: {_entities.Light.BackDoor.State}, 
+                _logger.LogTrace(@$"Brightness: {_entities.InputSelect.Brightness.State},
+                    Person Detection: Old: {e.Old?.State} - New: {e.New?.State},
+                    Back Door Light: {_entities.Light.BackDoor.State},
                     Decking Wall Light: {_entities.Light.DeckingWall.State}");
                 return _entities.InputSelect.Brightness.IsOption(BrightnessOptions.Dark)
                 && e.New.IsDetected()
@@ -86,7 +86,7 @@ public class BackDoorLightControl
                 && _entities.Light.BackDoor.IsOff()
                 && _entities.Light.DeckingWall.IsOff();
             })
-            .Subscribe(_ => 
+            .Subscribe(_ =>
             {
                 _logger.LogDebug("Person detected in the garden");
                 _entities.Light.BackDoor.TurnOn();
@@ -104,12 +104,12 @@ public class BackDoorLightControl
     {
         _entities.BinarySensor.PatioCameraVehicleDetected
             .StateChanges()
-            .Where(e => 
+            .Where(e =>
             {
-                _logger.LogTrace(@$"Brightness: {_entities.InputSelect.Brightness.State}, 
-                    Vehicle Detection: Old: {e.Old?.State} - New: {e.New?.State}, 
-                    Patio Light: {_entities.Light.Patio.State}, 
-                    Back Door Light: {_entities.Light.BackDoor.State}, 
+                _logger.LogTrace(@$"Brightness: {_entities.InputSelect.Brightness.State},
+                    Vehicle Detection: Old: {e.Old?.State} - New: {e.New?.State},
+                    Patio Light: {_entities.Light.Patio.State},
+                    Back Door Light: {_entities.Light.BackDoor.State},
                     Decking Wall Light: {_entities.Light.DeckingWall.State}");
                 return _entities.InputSelect.Brightness.IsOption(BrightnessOptions.Dark)
                 && e.New.IsDetected()
@@ -117,7 +117,7 @@ public class BackDoorLightControl
                 && _entities.Light.BackDoor.IsOff()
                 && _entities.Light.DeckingWall.IsOff();
             })
-            .Subscribe(_ => 
+            .Subscribe(_ =>
             {
                 _logger.LogDebug("Car detected in the garden");
                 _entities.Light.BackDoor.TurnOn();
@@ -130,12 +130,12 @@ public class BackDoorLightControl
     {
         _entities.BinarySensor.PatioDoor
             .StateChanges()
-            .Where(e => 
+            .Where(e =>
             {
-                _logger.LogTrace(@$"Brightness: {_entities.InputSelect.Brightness.State}, 
-                    Patio Door: Old: {e.Old?.State} - New: {e.New?.State}, 
-                    Patio Light: {_entities.Light.Patio.State}, 
-                    Back Door Light: {_entities.Light.BackDoor.State}, 
+                _logger.LogTrace(@$"Brightness: {_entities.InputSelect.Brightness.State},
+                    Patio Door: Old: {e.Old?.State} - New: {e.New?.State},
+                    Patio Light: {_entities.Light.Patio.State},
+                    Back Door Light: {_entities.Light.BackDoor.State},
                     Decking Wall Light: {_entities.Light.DeckingWall.State}");
                 return _entities.InputSelect.Brightness.IsOption(BrightnessOptions.Dark)
                 && e.New.IsOpen()
@@ -143,7 +143,7 @@ public class BackDoorLightControl
                 && _entities.Light.BackDoor.IsOff()
                 && _entities.Light.DeckingWall.IsOff();
             })
-            .Subscribe(_ => 
+            .Subscribe(_ =>
             {
                 _logger.LogDebug("Patio door is open");
                 _entities.Light.BackDoor.TurnOn();
@@ -161,7 +161,7 @@ public class BackDoorLightControl
         .Merge(_entities.BinarySensor.ShedCameraObjectDetected.StateChanges())
         .Merge(_entities.BinarySensor.ShedCameraPersonDetected.StateChanges())
         .Merge(_entities.BinarySensor.ShedCameraVehicleDetected.StateChanges())
-            .Where(e => 
+            .Where(e =>
             {
                 _logger.LogTrace(@$"Patio motion: Old: {e.Old?.State} - New: {e.New?.State},
                     BackDoor Light: {_entities.Light.BackDoor.State},
@@ -181,12 +181,12 @@ public class BackDoorLightControl
                 && _entities.BinarySensor.PatioDoor.IsClosed();
             })
             .Throttle(TimeSpan.FromMinutes(2))
-            .Subscribe(_ => 
+            .Subscribe(_ =>
             {
                 _logger.LogDebug("No motion in the garden.");
                 if (_entities.Light.BackDoor.IsOn())
                     _entities.Light.BackDoor.TurnOff();
-                    
+
                 if (_entities.Light.DeckingWall.IsOn())
                     _entities.Light.DeckingWall.TurnOff();
 

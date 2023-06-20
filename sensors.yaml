@@ -39,11 +39,11 @@
   types:
     - Green bin
 
-- platform: dnsip
-- platform: dnsip
-  hostname: home.andisoft.co.uk
-  name: hass
-  resolver: 8.8.8.8
+#platform: dnsip
+#platform: dnsip
+  #hostname: home.andisoft.co.uk
+  #name: hass
+  #resolver: 8.8.8.8
 # Light state overrides
 
 # # Hallway light

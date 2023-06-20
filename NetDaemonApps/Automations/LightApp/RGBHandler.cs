@@ -5,6 +5,7 @@ namespace NetDaemonApps.Automations.LightApp;
 
 public class RGBHandler : AvailableEnabledHandler
 {
+    IScheduler Scheduler;
     ILogger logger;
     IEntities entities;
     InputNumberEntity? minBrightness;
@@ -17,10 +18,11 @@ public class RGBHandler : AvailableEnabledHandler
     InputSelectEntity? mode;
     INotificationService notify;
 
-    public RGBHandler(LightEntity light, IHaContext context, IEntities entities, ILogger logger, INotificationService notify, 
-        InputBooleanEntity enabledToggle) 
+    public RGBHandler(LightEntity light, IHaContext context, IEntities entities, ILogger logger, INotificationService notify,
+        InputBooleanEntity enabledToggle, IScheduler scheduler)
         : base(light, enabledToggle)
     {
+        this.Scheduler = scheduler;
         this.logger = logger;
         this.light = light;
         this.entities = entities;
@@ -64,15 +66,15 @@ public class RGBHandler : AvailableEnabledHandler
             .Subscribe(_ => { isOccupied = true; Handle(); });
 
         occupancySensor?.StateChanges()
-            .WhenStateIsFor(occ => occ.IsCleared(), TimeSpan.FromSeconds(60))
+            .WhenStateIsFor(occ => occ.IsCleared(), TimeSpan.FromSeconds(60), Scheduler)
             .Subscribe(_ => { isOccupied = false; Handle(); });
-     
+
         motionSensor?.StateChanges()
             .Where(mot => mot.New.IsDetected())
             .Subscribe(_ => { isMoving = true; Handle(); });
 
         motionSensor?.StateChanges()
-            .WhenStateIsFor(mot => mot.IsCleared(), TimeSpan.FromSeconds(60))
+            .WhenStateIsFor(mot => mot.IsCleared(), TimeSpan.FromSeconds(60), Scheduler)
             .Subscribe(_ => { isMoving =false; Handle(); });
 
         illuminanceSensor?.StateChanges()
@@ -107,10 +109,10 @@ public class RGBHandler : AvailableEnabledHandler
         isOccupied = occupancySensor.IsDetected();
         isMoving = motionSensor.IsDetected();
         isTooDark = illuminanceSensor?.State <= illuminanceThreshold?.State;
-        isRightTime = mode?.State == "always" || 
-            (mode?.State == "evening" && entities.InputSelect.TimeOfDay.IsOption(TimeOfDayOptions.Evening)) || 
+        isRightTime = mode?.State == "always" ||
+            (mode?.State == "evening" && entities.InputSelect.TimeOfDay.IsOption(TimeOfDayOptions.Evening)) ||
             (mode?.State == "sunset" && entities.Sun.Sun.IsBelowHorizon());
-        
+
         Handle();
     }
 

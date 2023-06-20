@@ -310,6 +310,10 @@
             target:
               entity_id: switch.disable_next_feed
             data: {}
+          - service: switch.turn_on
+            data: {}
+            target:
+              entity_id: switch.morning_feed_complete
         default:
         - service: switch.turn_on
           target:
@@ -342,6 +346,10 @@
             target:
               entity_id: switch.disable_next_feed
             data: {}
+          - service: switch.turn_on
+            data: {}
+            target:
+              entity_id: switch.evening_feed_complete
         default:
         - service: switch.turn_on
           target:
@@ -919,3 +927,37 @@
       qrcode_value: WIFI:T:WPA;S:Home.Guest.Wifi;P:J3llyt0ts
       entitypages_enabled: true
       date_format: '%d/%m'
+- id: '1685484233163'
+  alias: 'Bedroom show screen off '
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - input_select.bedroom_mode
+    to: Sleeping
+  condition: []
+  action:
+  - service: media_player.play_media
+    data:
+      media_content_type: custom
+      media_content_id: Turn off the screen
+    target:
+      device_id: 05fc0ef00cc911eb9bd319798131fa33
+  mode: single
+- id: '1685484296390'
+  alias: Bedroom show screen on
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - input_select.bedroom_mode
+    from: Sleeping
+  condition: []
+  action:
+  - service: media_player.play_media
+    data:
+      media_content_type: custom
+      media_content_id: home
+    target:
+      device_id: 05fc0ef00cc911eb9bd319798131fa33
+  mode: single

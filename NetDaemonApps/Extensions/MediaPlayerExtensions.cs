@@ -57,7 +57,6 @@ public static class MediaPlayerExtensions
             foreach (var observer in observers)
                 observer.Dispose();
         }
-
     }
 
     // public static void EdgeSay(this MediaPlayerEntity mediaPlayer, string @message, bool? @cache = null, string? @language = null, object? @options = null)
@@ -88,7 +87,7 @@ public static class MediaPlayerExtensions
 
     // public static void GoogleTranslateSay(this MediaPlayerEntity mediaPlayer, string @message, bool? @cache = null, string? @language = null, object? @options = null)
     // {
-    //     mediaPlayer.HaContext.CallService("tts", "google_translate_say", 
+    //     mediaPlayer.HaContext.CallService("tts", "google_translate_say",
     //         null, new TtsGoogleTranslateSayParameters { EntityId = mediaPlayer.EntityId, Message = @message, Cache = @cache, Language = @language, Options = @options });
     // }
 

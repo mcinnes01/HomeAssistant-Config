@@ -13,8 +13,8 @@ public class LightModes
     private readonly LightEntity[] _brightLightsNoRoomControl;
     private readonly LightEntity[] _loungeLights;
     private readonly LightEntity[] _insideNoRoomControlNotBasement;
-    
-    
+
+
     public LightModes(IHaContext ha, ILogger<LightModes> logger,
         IScheduler scheduler, ILightingStates lightingStates)
     {
@@ -66,13 +66,13 @@ public class LightModes
     private void  BrightnessChanged()
     {
         _entities.InputSelect.Brightness.StateAllChangesWithCurrent()
-        .Where(e => 
+        .Where(e =>
         {
             _logger.LogTrace(@$"Brightness New: {e.New?.State} Old: {e.Old?.State}
                 Light Mode: {_entities.InputSelect.LightControlMode.State}
                 Bedroom Mode: {_entities.InputSelect.BedroomMode.State}
                 Lounge Mode: {_entities.InputSelect.LoungeMode.State}
-                Snug Mode: {_entities.InputSelect.SnugMode.State}");    
+                Snug Mode: {_entities.InputSelect.SnugMode.State}");
             return e.New.IsOption(BrightnessOptions.Bright)
             && _entities.InputSelect.LightControlMode.IsNotOption(LightControlModeOptions.Cleaning)
             && _entities.InputSelect.LightControlMode.IsNotOption(LightControlModeOptions.Manual);
@@ -98,7 +98,7 @@ public class LightModes
     private void LightControlModeChanged()
     {
         _entities.InputSelect.LightControlMode.StateAllChangesWithCurrent()
-        .Subscribe(e => 
+        .Subscribe(e =>
         {
             var oldMode = e.Old?.AsOption<LightControlModeOptions>();
             var newMode = e.New?.AsOption<LightControlModeOptions>();
@@ -109,6 +109,7 @@ public class LightModes
                     {
                         _logger.LogDebug($"Old: {oldMode} to New: {newMode} setting Bedroom Mode to Normal.");
                         _entities.InputSelect.BedroomMode.SelectOption(BedroomModeOptions.Normal);
+                        _entities.Scene.Awake.TurnOn();
                     }
                     break;
                 case (LightControlModeOptions.Cleaning, LightControlModeOptions.Motion):
@@ -156,6 +157,7 @@ public class LightModes
                     {
                         _logger.LogDebug($"Old: {oldMode} to New: {newMode} setting Bedroom Mode to Sleeping.");
                         _entities.InputSelect.BedroomMode.SelectOption(BedroomModeOptions.Sleeping);
+                        _entities.Scene.Sleeping.TurnOn();
                     }
                     break;
                 default:

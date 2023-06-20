@@ -8,8 +8,6 @@
   friendly_name: Toilet Door
 '0x00124b0022fd01fd':
   friendly_name: Bathroom Door
-'0x00124b00226650a6':
-  friendly_name: Snug Switch
 '0x00124b0023b85ca5':
   friendly_name: Basement Stairs Motion
 '0x04cd15fffe78d9aa':
@@ -22,3 +20,9 @@
   friendly_name: Hallway Remote
 '0xa4c138dff6d5bb59':
   friendly_name: Bathroom Humidistat
+'0x385b44fffee655af':
+  friendly_name: Display Cabinet Light
+'0x70ac08fffefb73fa':
+  friendly_name: Guest Room Bedside Lamp
+'0x00124b00226650a6':
+  friendly_name: Snug Switch

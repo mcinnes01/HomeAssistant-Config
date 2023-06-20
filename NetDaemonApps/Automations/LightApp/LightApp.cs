@@ -21,7 +21,7 @@ public class LightApp
         // lightSwitches.Add(new LightSwitchHandler(entities.Light.KitchenSwitch, haContext, scheduler,
         //     notificationService, entities.InputBoolean.KitchenLightAutomation));
 
-        rgbLights.Add(new RGBHandler(entities.Light.LoungeCornerLamp, haContext, entities, logger, notificationService, entities.InputBoolean.LoungeLampAutomation));
+        rgbLights.Add(new RGBHandler(entities.Light.LoungeCornerLamp, haContext, entities, logger, notificationService, entities.InputBoolean.LoungeLampAutomation, scheduler));
 
         //rgbLights.Add(new RGBHandler(entities.Light.DrawingRoomFloorLamp, haContext, entities, logger, notificationService, entities.InputBoolean.LoungeLampAutomation));
 

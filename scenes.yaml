@@ -920,3 +920,18 @@
       entity_only: true
     input_select.light_control_mode:
       entity_only: true
+- id: '1687294177262'
+  name: Sleeping
+  entities: {}
+  icon: mdi:weather-night
+  metadata: {}
+- id: '1687294268704'
+  name: Waking
+  entities: {}
+  icon: mdi:weather-sunset-up
+  metadata: {}
+- id: '1687294354909'
+  name: Awake
+  entities: {}
+  icon: mdi:sun-clock-outline
+  metadata: {}

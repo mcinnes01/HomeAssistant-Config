@@ -3,11 +3,13 @@ namespace Basement;
 [NetDaemonApp]
 public class DiningRoomLight
 {
+    private readonly IScheduler _scheduler;
     private readonly ILogger<DiningRoomLight> _logger;
     private readonly Entities _entities;
 
-    public DiningRoomLight(IHaContext ha, ILogger<DiningRoomLight> logger)
+    public DiningRoomLight(IHaContext ha, ILogger<DiningRoomLight> logger, IScheduler scheduler)
     {
+        _scheduler = scheduler;
         _logger = logger;
         _entities = new Entities(ha);
         //DiningRoomLightOnMovement();
@@ -18,11 +20,11 @@ public class DiningRoomLight
     {
         _entities.BinarySensor.DiningRoomMotion.StateAllChanges()
         //.Merge(_entities.Light.DiningRoom.StateAllChanges())
-        
-        .Where(e => 
+
+        .Where(e =>
         {
-            _logger.LogTrace(@$"Light Mode: {_entities.InputSelect.LightControlMode.State}, 
-                Dining Room motion: Old: {e.Old?.State} - New: {e.New?.State}, 
+            _logger.LogTrace(@$"Light Mode: {_entities.InputSelect.LightControlMode.State},
+                Dining Room motion: Old: {e.Old?.State} - New: {e.New?.State},
                 Light: {_entities.Light.DiningRoom.State}");
             return _entities.InputSelect.LightControlMode.IsOption(LightControlModeOptions.Motion)
             && !(_entities.InputSelect.Brightness.IsOption(BrightnessOptions.Bright)
@@ -31,7 +33,7 @@ public class DiningRoomLight
             && e.New.IsOn()
             && _entities.Light.DiningRoom.IsOff();
         })
-        .Subscribe(_ => 
+        .Subscribe(_ =>
         {
             _logger.LogDebug("Motion detected, turning Dining Room Light on");
             _entities.Light.DiningRoom.TurnOn();
@@ -44,8 +46,8 @@ public class DiningRoomLight
         .WhenStateIsFor(s => s.IsOff()
             && !_entities.Light.DiningRoom.IsOff()
             && _entities.InputSelect.LightControlMode.IsNotOption(LightControlModeOptions.Manual),
-            TimeSpan.FromMinutes(2))
-        .Subscribe(_ => 
+            TimeSpan.FromMinutes(2), _scheduler)
+        .Subscribe(_ =>
         {
             _logger.LogDebug("No motion, turning Dining Room Light off");
             _entities.Light.DiningRoom.TurnOff();

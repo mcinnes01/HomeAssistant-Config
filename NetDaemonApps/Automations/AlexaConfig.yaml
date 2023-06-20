@@ -4,6 +4,7 @@ NetDaemon.Infrastructure.Alexa.AlexaConfig:
         DayVolume: 0.5
         NightVolume: 0.3
         NightWhisper: true
+        HasScreen: true
     media_player.dining_room_echo_input:
         DayVolume: 0.5
         NightVolume: 0.3

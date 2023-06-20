@@ -11,7 +11,7 @@ public class LightSwitchHandler: AvailableEnabledHandler
     bool isLamp;
 
     public LightSwitchHandler(LightEntity light, IHaContext context, IScheduler scheduler,
-        INotificationService notify, InputBooleanEntity enabledToggle) 
+        INotificationService notify, InputBooleanEntity enabledToggle)
         : base(light, enabledToggle)
     {
         _entities = new Entities(context);
@@ -32,14 +32,14 @@ public class LightSwitchHandler: AvailableEnabledHandler
             isLamp = true;
             entityParts = entityParts.Take(entityParts.Length - 1).ToArray();
         }
-				
+
         var roomSpecifiers = new[] { "room", "hall" };
         // Get the room from the lights area
-        var room = light.Area ?? 
+        var room = light.Area ??
         // Otherwise try to extract it form the light name
         (entityParts.Length == 1 || !roomSpecifiers.Contains(entityParts[1]) ?
             entityParts[0] : $"{entityParts[0]}_{entityParts[1]}");
-        
+
         var occupancySensorId = context.GetEntityId("binary_sensor." + room + "_motion");
         var Brightness = context.GetEntityId("sensor.weather_station_ambient_light");
 
@@ -54,7 +54,7 @@ public class LightSwitchHandler: AvailableEnabledHandler
            .Subscribe(_ => { isOccupied = true; Handle(); });
 
         OccupancySensor?.StateChanges()
-            .WhenStateIsFor(occ => occ.IsCleared(), TimeSpan.FromSeconds(120))
+            .WhenStateIsFor(occ => occ.IsCleared(), TimeSpan.FromSeconds(120), Scheduler)
             .Subscribe(_ => { isOccupied = false; Handle(); });
 
         // sun?.StateChanges()
@@ -66,7 +66,7 @@ public class LightSwitchHandler: AvailableEnabledHandler
 
         light.WhenOn(s => LightTurnedOn());
 
-        light.WhenOff(s => LightTurnedOff()); 
+        light.WhenOff(s => LightTurnedOff());
 
         isOccupied = OccupancySensor?.IsDetected() ?? false;
         Handle();
@@ -108,7 +108,7 @@ public class LightSwitchHandler: AvailableEnabledHandler
     DateTime offOverrideScheduled;
 
     double overrideThresholdValue = 30;
-    double illuminanceThresholdValue = 3500;        
+    double illuminanceThresholdValue = 3500;
 
     private void LightTurnedOff()
     {
@@ -165,7 +165,7 @@ public class LightSwitchHandler: AvailableEnabledHandler
     {
           if (IsAvailable && IsEnabled && !personHasTurnedItOff && !personHasTurnedItOn)
         {
-            if (!isOccupied || !isTooDark)            
+            if (!isOccupied || !isTooDark)
                 TurnOff();
             else if (isOccupied && isTooDark)
                 TurnOn();
@@ -187,7 +187,7 @@ public class LightSwitchHandler: AvailableEnabledHandler
     private void TurnOn()
     {
         if (Light.IsOff())
-        {            
+        {
             turnedOnByHandler = true;
             Light.TurnOn();
             //notify.Send(ChannelTarget.State, String.Format(notify.GetMessage("light_on")!, light.Attributes?.FriendlyName));
@@ -197,7 +197,7 @@ public class LightSwitchHandler: AvailableEnabledHandler
     private void TurnOff()
     {
         if (Light.IsOn())
-        {                        
+        {
             turnedOffByHandler = true;
             Light.TurnOff();
             //notify.Send(ChannelTarget.State, String.Format(notify.GetMessage("light_off")!, light.Attributes?.FriendlyName));

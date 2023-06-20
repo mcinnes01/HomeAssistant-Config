@@ -10,7 +10,7 @@ public class DownstairsLights
     private readonly Entities _entities;
     private readonly IScheduler _scheduler;
     private readonly ILightingStates _lightingStates;
-    
+
     public DownstairsLights(IHaContext ha, ILogger<DownstairsLights> logger,
         IScheduler scheduler, ILightingStates lightingStates)
     {
@@ -39,17 +39,17 @@ public class DownstairsLights
     {
         _entities.BinarySensor.FrontDoorContact.StateChanges()
         .Merge(_entities.BinarySensor.DoorbellButton.StateChanges())
-        .Where(e => 
+        .Where(e =>
         {
             _logger.LogTrace(@$"Light Mode: {_entities.InputSelect.LightControlMode.State},
-                Front Door: {_entities.BinarySensor.FrontDoorContact.State}, 
+                Front Door: {_entities.BinarySensor.FrontDoorContact.State},
                 Lamp: {_entities.Light.HallwayLamp.State}");
             return e.New.IsOn()
             && _entities.InputSelect.LightControlMode.IsNotOption(LightControlModeOptions.Manual)
             && _entities.InputSelect.Brightness.IsNotOption(BrightnessOptions.Bright)
-            && _entities.Sun.Sun.IsBelowHorizon(); //<< This should go when brightness automation is fixed 
+            && _entities.Sun.Sun.IsBelowHorizon(); //<< This should go when brightness automation is fixed
         })
-        .Subscribe(_ => 
+        .Subscribe(_ =>
         {
             _logger.LogDebug("Frontdoor open or doorbell rang, turning hallway lamp on");
             _entities.Light.HallwayLamp.TurnOn();
@@ -60,11 +60,11 @@ public class DownstairsLights
     // private void HallwayLightOnMovement()
     // {
     //     _entities.BinarySensor.HallwayMotion.StateChanges()
-    //     .Where(e => 
+    //     .Where(e =>
     //     {
-    //         _logger.LogTrace(@$"Light Mode: {_entities.InputSelect.LightControlMode.State}, 
-    //             Hallway motion: Old: {e.Old?.State} - New: {e.New?.State}, 
-    //             Light: {_entities.Light.Hallway.State}, 
+    //         _logger.LogTrace(@$"Light Mode: {_entities.InputSelect.LightControlMode.State},
+    //             Hallway motion: Old: {e.Old?.State} - New: {e.New?.State},
+    //             Light: {_entities.Light.Hallway.State},
     //             Lamp: {_entities.Light.HallwayLamp.State}");
     //         return !e.Old.IsOn()
     //         && e.New.IsOn()
@@ -72,7 +72,7 @@ public class DownstairsLights
     //         && _entities.Light.Hallway.IsOff()
     //         && _entities.Light.HallwayLamp.IsOff();
     //     })
-    //     .Subscribe(_ => 
+    //     .Subscribe(_ =>
     //     {
     //         _logger.LogDebug("Motion detected, turning hallway light on");
     //         _entities.Light.Hallway.TurnOn();
@@ -86,7 +86,7 @@ public class DownstairsLights
     //         && !_entities.Light.Hallway.IsOff()
     //         && _entities.InputSelect.LightControlMode.IsNotOption(LightControlModeOptions.Manual),
     //         TimeSpan.FromMinutes(2))
-    //     .Subscribe(_ => 
+    //     .Subscribe(_ =>
     //     {
     //         _logger.LogDebug("No motion, turning Hallway light off");
     //         _entities.Light.Hallway.TurnOff();
@@ -95,12 +95,12 @@ public class DownstairsLights
 
     // private void HallwayLampOnMovement()
     // {
-    //     _entities.BinarySensor.HallwayMotion.StateChanges() 
-    //     .Where(e => 
+    //     _entities.BinarySensor.HallwayMotion.StateChanges()
+    //     .Where(e =>
     //     {
-    //         _logger.LogTrace(@$"Light Mode: {_entities.InputSelect.LightControlMode.State}, 
-    //             Hallway motion: Old: {e.Old?.State} - New: {e.New?.State}, 
-    //             Light: {_entities.Light.Hallway.State}, 
+    //         _logger.LogTrace(@$"Light Mode: {_entities.InputSelect.LightControlMode.State},
+    //             Hallway motion: Old: {e.Old?.State} - New: {e.New?.State},
+    //             Light: {_entities.Light.Hallway.State},
     //             Lamp: {_entities.Light.HallwayLamp.State}");
     //         return !e.Old.IsOn()
     //         && e.New.IsOn()
@@ -108,7 +108,7 @@ public class DownstairsLights
     //         && _entities.Light.Hallway.IsOff()
     //         && _entities.Light.HallwayLamp.IsOff();
     //     })
-    //     .Subscribe(_ => 
+    //     .Subscribe(_ =>
     //     {
     //         _logger.LogDebug("Motion detected, turning Hallway Lamp on");
     //         _entities.Light.HallwayLamp.TurnOn();
@@ -122,8 +122,8 @@ public class DownstairsLights
         .Where(_ => TimeOnly.FromDateTime(DateTime.Now) > Constants.PORCH_LIGHT_OFF_TIME)
         .WhenStateIsFor(s => s.IsOff() &&
             _entities.InputSelect.LightControlMode.IsNotOption(LightControlModeOptions.Manual),
-            TimeSpan.FromMinutes(2))
-        .Subscribe(_ => 
+            TimeSpan.FromMinutes(2), _scheduler)
+        .Subscribe(_ =>
         {
             _logger.LogDebug("No motion, turning Porch Light off");
             _entities.Light.Porch.TurnOff();
@@ -135,14 +135,14 @@ public class DownstairsLights
     private void LoungeLightsOnMovement()
     {
         _entities.BinarySensor.LoungeMotion.StateChanges()
-        .Where(e => 
+        .Where(e =>
         {
             return !e.Old.IsOn()
             && e.New.IsOn()
             && _lightingStates.InMotionMode()
             && _entities.Light.LoungeLights.IsOff();
         })
-        .Subscribe(e => 
+        .Subscribe(e =>
         {
             var loungeMode = _entities.InputSelect.LoungeMode.AsOption<LoungeModeOptions>();
             var lightMode = _entities.InputSelect.LightControlMode.AsOption<LightControlModeOptions>();
@@ -151,7 +151,7 @@ public class DownstairsLights
                 Brightness: {_entities.InputSelect.Brightness.State},
                 Lounge motion: Old: {e.Old?.State} - New: {e.New?.State},
                 Lounge Corner Lamp: {_entities.Light.LoungeCornerLamp.State},
-                Lounge Floor Lamp: {_entities.Light.LoungeFloorLamp.State}, 
+                Lounge Floor Lamp: {_entities.Light.LoungeFloorLamp.State},
                 Lounge Light: {_entities.Light.Lounge.State}");
 
             if (Constants.NormalMotionModes.Contains(lightMode)
@@ -180,8 +180,8 @@ public class DownstairsLights
         .WhenStateIsFor(s => s.IsOff()
             && !_entities.Light.LoungeLights.IsOff()
             && _entities.InputSelect.LightControlMode.IsNotOption(LightControlModeOptions.Manual),
-            TimeSpan.FromMinutes(2))
-        .Subscribe(e => 
+            TimeSpan.FromMinutes(2), _scheduler)
+        .Subscribe(e =>
         {
             var loungeMode = _entities.InputSelect.LoungeMode.AsOption<LoungeModeOptions>();
             var lightMode = _entities.InputSelect.LightControlMode.AsOption<LightControlModeOptions>();
@@ -190,7 +190,7 @@ public class DownstairsLights
                 Brightness: {_entities.InputSelect.Brightness.State},
                 Lounge motion: Old: {e.Old?.State} - New: {e.New?.State},
                 Lounge Corner Lamp: {_entities.Light.LoungeCornerLamp.State},
-                Lounge Floor Lamp: {_entities.Light.LoungeFloorLamp.State}, 
+                Lounge Floor Lamp: {_entities.Light.LoungeFloorLamp.State},
                 Lounge Light: {_entities.Light.Lounge.State}");
 
             if (Constants.NormalMotionModes.Contains(lightMode)
@@ -214,17 +214,17 @@ public class DownstairsLights
     private void DrawingRoomLightsOnMovement()
     {
         _entities.BinarySensor.DrawingRoomMotion.StateChanges()
-        .Where(e => 
+        .Where(e =>
         {
             return !e.Old.IsOn()
             && e.New.IsOn()
             && _lightingStates.InMotionMode()
             && _entities.Light.DrawingRoomLights.IsOff();
         })
-        .Subscribe(e => 
+        .Subscribe(e =>
         {
             var lightMode = _entities.InputSelect.LightControlMode.AsOption<LightControlModeOptions>();
-            _logger.LogTrace(@$"Light Mode: {lightMode},  
+            _logger.LogTrace(@$"Light Mode: {lightMode},
                 Brightness: {_entities.InputSelect.Brightness.State},
                 Drawing Room Motion: Old: {e.Old?.State} - New: {e.New?.State},
                 Bookshelf Light: {_entities.Light.Bookshelf.State},
@@ -250,11 +250,11 @@ public class DownstairsLights
         .WhenStateIsFor(s => s.IsOff()
             && !_entities.Light.DrawingRoomLights.IsOff()
             && _entities.InputSelect.LightControlMode.IsNotOption(LightControlModeOptions.Manual),
-            TimeSpan.FromMinutes(2))
-        .Subscribe(e => 
+            TimeSpan.FromMinutes(2), _scheduler)
+        .Subscribe(e =>
         {
             var lightMode = _entities.InputSelect.LightControlMode.AsOption<LightControlModeOptions>();
-            _logger.LogTrace(@$"Light Mode: {lightMode},  
+            _logger.LogTrace(@$"Light Mode: {lightMode},
                 Brightness: {_entities.InputSelect.Brightness.State},
                 Drawing Room Motion: Old: {e.Old?.State} - New: {e.New?.State},
                 Bookshelf Light: {_entities.Light.Bookshelf.State},
@@ -279,7 +279,7 @@ public class DownstairsLights
     {
         _entities.BinarySensor.KitchenMotion.StateChanges()
         .Merge(_entities.BinarySensor.KitchenCameraMotion.StateChanges())
-        .Where(e => 
+        .Where(e =>
         {
             return !e.Old.IsOn()
             && e.New.IsOn()
@@ -287,13 +287,13 @@ public class DownstairsLights
             && _entities.Light.Kitchen.IsOff()
             && _entities.Light.BreakfastBarLamp.IsOff();
         })
-        .Subscribe(e => 
+        .Subscribe(e =>
         {
             var lightMode = _entities.InputSelect.LightControlMode.AsOption<LightControlModeOptions>();
-            _logger.LogTrace(@$"Light Mode: {lightMode},  
+            _logger.LogTrace(@$"Light Mode: {lightMode},
                 Brightness: {_entities.InputSelect.Brightness.State},
                 Kitchen Motion: Old: {e.Old?.State} - New: {e.New?.State},
-                Breakfast Bar Lamp: {_entities.Light.BreakfastBarLamp.State}, 
+                Breakfast Bar Lamp: {_entities.Light.BreakfastBarLamp.State},
                 Kitchen Light: {_entities.Light.Kitchen.State}");
 
             if (Constants.NormalMotionModes.Contains(lightMode))
@@ -314,17 +314,16 @@ public class DownstairsLights
         _entities.BinarySensor.KitchenMotion.StateAllChangesWithCurrent()
         .Merge(_entities.BinarySensor.KitchenCameraMotion.StateAllChangesWithCurrent())
         .WhenStateIsFor(s => s.IsOff()
-            && !_entities.Light.Kitchen.IsOff()
-            && !_entities.Light.BreakfastBarLamp.IsOff()
-            && _entities.InputSelect.LightControlMode.IsNotOption(LightControlModeOptions.Manual),
-            TimeSpan.FromMinutes(2))
-        .Subscribe(e => 
+            && _entities.InputSelect.LightControlMode.IsNotOption(LightControlModeOptions.Manual)
+            && (!_entities.Light.Kitchen.IsOff() || !_entities.Light.BreakfastBarLamp.IsOff()),
+            TimeSpan.FromMinutes(2), _scheduler)
+        .Subscribe(e =>
         {
             var lightMode = _entities.InputSelect.LightControlMode.AsOption<LightControlModeOptions>();
-            _logger.LogTrace(@$"Light Mode: {lightMode},  
+            _logger.LogTrace(@$"Light Mode: {lightMode},
                 Brightness: {_entities.InputSelect.Brightness.State},
                 Kitchen Motion: Old: {e.Old?.State} - New: {e.New?.State},
-                Breakfast Bar Lamp: {_entities.Light.BreakfastBarLamp.State}, 
+                Breakfast Bar Lamp: {_entities.Light.BreakfastBarLamp.State},
                 Kitchen Light: {_entities.Light.Kitchen.State}");
 
             if (Constants.NormalMotionModes.Contains(lightMode))
@@ -348,7 +347,7 @@ public class DownstairsLights
         //     // Get how long light has been on for or defaults to now
         //     var lightState = _entities.Light.Lounge.EntityState;
         //     var turnedOn = lightState.IsOn()
-        //         ? lightState?.LastUpdated ?? DateTime.Now 
+        //         ? lightState?.LastUpdated ?? DateTime.Now
         //         : DateTime.Now;
         //     // The default duration before turning the light off
         //     var duration = TimeSpan.FromMinutes(2);
@@ -358,8 +357,8 @@ public class DownstairsLights
         //     var exponentialDelay = duration + ((DateTime.Now - turnedOn) / 2);
         //     _logger.LogTrace($"Exponential Delay: {exponentialDelay} - Light turn on at: {turnedOn} - Old duration: {duration}");
         //     // Set the new duration between our default and max duration
-        //     duration = exponentialDelay < maxDuration 
-        //         ? exponentialDelay : maxDuration;    
+        //     duration = exponentialDelay < maxDuration
+        //         ? exponentialDelay : maxDuration;
         //     return Observable.Timer(duration);
         // })
         // .Switch()

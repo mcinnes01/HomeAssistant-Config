@@ -3,30 +3,51 @@ public class TimeOfDayControlApp
 {
     private readonly Entities _entities;
     private readonly IHaContext _haContext;
+    private readonly INetDaemonScheduler _scheduler;
     private readonly ILogger<TimeOfDayControlApp> _logger;
-
     private readonly InputSelectEntity _timeOfDay;
     private readonly InputBooleanEntity _inBed;
     private readonly SunEntity _sun;
     private readonly InputBooleanEntity _enabled;
     private TimeOfDayOptions _currentTimeOfDay;
+    private SunTimes _sunTimes = new SunTimes();
     private StateMachine<TimeOfDayOptions, Trigger> _stateMachine;
 
-    public TimeOfDayControlApp(IHaContext haContext, ILogger<TimeOfDayControlApp> logger)
+    public TimeOfDayControlApp(IHaContext haContext, INetDaemonScheduler scheduler, ILogger<TimeOfDayControlApp> logger)
     {
         _haContext = haContext;
+        _scheduler = scheduler;
         _entities = new Entities(haContext);
         _logger = logger;
-
         _timeOfDay = _entities.InputSelect.TimeOfDay;
         _inBed = _entities.InputBoolean.InBed;
         _sun = _entities.Sun.Sun;
         _enabled = _entities.InputBoolean.TimeOfDayEnabled;
+
+        RefreshSunTimes();
         SetTimeOfDay();
         InitializeStateMachine();
         SubscribeToSunEvents();
         SubscribeToEnabledEvents();
         SubscribeToInBedEvents();
+    }
+
+    private void RefreshSunTimes()
+    {
+        ScheduleSunTimes();
+        _scheduler.RunEvery(TimeSpan.FromDays(1), DateTimeOffset.Parse("02:00"), () => ScheduleSunTimes());
+    }
+
+    private void ScheduleSunTimes()
+    {
+        if(DateTime.TryParse(_entities.Sensor.SunNextDawn.State, out DateTime nextDawn)
+        && DateTime.TryParse(_entities.Sensor.SunNextNoon.State, out DateTime nextNoon)
+        && DateTime.TryParse(_entities.Sensor.SunNextDusk.State, out DateTime nextDusk))
+        {
+            _sunTimes.Dawn = nextDawn;
+            _sunTimes.Noon = nextNoon;
+            _sunTimes.Dusk = nextDusk;
+        }
     }
 
     private void InitializeStateMachine()
@@ -63,11 +84,7 @@ public class TimeOfDayControlApp
     private void SubscribeToSunEvents()
     {
         _sun.StateAllChanges()
-        .Where(e => (e.Entity.Attributes?.NextDawn != null
-            || e.Entity.Attributes?.NextDusk != null
-            || e.Entity.Attributes?.NextNoon != null)
-            && _enabled.IsOn())
-        .Throttle(TimeSpan.FromMinutes(5))
+        .Where(e => _sunTimes?.Dawn != null && _enabled.IsOn())
         .Subscribe(_ =>
         {
             _logger.LogDebug("Sun Event current time: {Time}",
@@ -120,51 +137,39 @@ public class TimeOfDayControlApp
     private bool SetTimeOfDay()
     {
         var currentTime = DateTime.Now;
-        var nextDawn = new DateTime();
-        var nextNoon = new DateTime();
-        var nextDusk = new DateTime();
-        if(!DateTime.TryParse(_sun.Attributes?.NextDawn, out nextDawn)
-        || !DateTime.TryParse(_sun.Attributes?.NextNoon, out nextNoon)
-        || !DateTime.TryParse(_sun.Attributes?.NextDusk, out nextDusk))
+        if (currentTime >= _sunTimes.Dawn && currentTime < _sunTimes.Noon)
         {
-            _currentTimeOfDay = _timeOfDay.AsOption<TimeOfDayOptions>();
-            _logger.LogError(@"One or more sun attributes aren't set.
-                next_dawn: {Dawn}, next_noon: {Noon}, next_dusk: {Dusk}.
-                TimeOfDay: {Current}",
-                new { Dawn =  nextDawn, Noon = nextNoon, Dusk = nextDusk,
-                      Current = _currentTimeOfDay, Entity = _timeOfDay });
-            return false;
-        }
-
-        if (currentTime >= nextDawn && currentTime < nextNoon)
-        {
+            if(TimeOnly.FromDateTime(currentTime) >= Constants.DAYTIME)
+                _currentTimeOfDay = TimeOfDayOptions.Day;
             _currentTimeOfDay = TimeOfDayOptions.Morning;
         }
-        else if (currentTime >= nextDawn && currentTime < nextNoon
-            && TimeOnly.FromDateTime(currentTime) >= Constants.DAYTIME)
-        {
-            _currentTimeOfDay = TimeOfDayOptions.Day;
-        }
-        else if (currentTime >= nextNoon && currentTime < nextDusk)
+        else if (currentTime >= _sunTimes.Noon && currentTime < _sunTimes.Dusk)
         {
             _currentTimeOfDay = TimeOfDayOptions.Afternoon;
         }
-        else if (currentTime >= nextDusk && currentTime < nextDawn.AddDays(1)
+        else if (currentTime >= _sunTimes.Dusk && currentTime < _sunTimes.Dawn.AddDays(1)
             && TimeOnly.FromDateTime(currentTime) < Constants.NIGHTTIME_WEEKDAYS)
         {
             _currentTimeOfDay = TimeOfDayOptions.Evening;
         }
-        else if (currentTime < nextDawn.AddDays(1)
+        else if (currentTime < _sunTimes.Dawn.AddDays(1)
             && TimeOnly.FromDateTime(currentTime) >= Constants.NIGHTTIME_WEEKDAYS)
         {
             _currentTimeOfDay = TimeOfDayOptions.Night;
         }
         _logger.LogDebug(@"TimeOfDay: {ToD} - Now: {Current}
             next_dawn: {Dawn}, next_noon: {Noon}, next_dusk: {Dusk}.",
-            new { ToD = _currentTimeOfDay, Current = currentTime, Dawn = nextDawn,
-                  Noon = nextNoon, Dusk = nextDusk, Entity = _timeOfDay });
+            new { ToD = _currentTimeOfDay, Current = currentTime, Dawn = _sunTimes.Dawn,
+                  Noon = _sunTimes.Noon, Dusk = _sunTimes.Dusk, Entity = _timeOfDay });
 
         return _currentTimeOfDay != _timeOfDay.AsOption<TimeOfDayOptions>();
+    }
+
+    public class SunTimes
+    {
+        public DateTime Dawn { get; set; }
+        public DateTime Noon { get; set; }
+        public DateTime Dusk { get; set; }
     }
 
     private enum Trigger

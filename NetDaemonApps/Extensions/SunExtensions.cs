@@ -5,16 +5,16 @@ public static class SunExtensions
     public static bool IsAboveHorizon(this EntityState<SunAttributes>? state)
         => string.Equals(state?.State, "above_horizon", StringComparison.OrdinalIgnoreCase);
 
-    public static bool IsAboveHorizon(this SunEntity? entity) 
+    public static bool IsAboveHorizon(this SunEntity? entity)
         => entity?.EntityState?.IsAboveHorizon() ?? false;
 
-    public static bool IsRising(this SunEntity? entity) 
+    public static bool IsRising(this SunEntity? entity)
         => entity?.EntityState?.Attributes?.Rising ?? false;
 
-    public static bool IsSetting(this SunEntity? entity) 
+    public static bool IsSetting(this SunEntity? entity)
         => !IsRising(entity);
 
-    public static IDisposable WhenAboveHorizon(this SunEntity entity, 
+    public static IDisposable WhenAboveHorizon(this SunEntity entity,
         Action<StateChange<SunEntity, EntityState<SunAttributes>>> action)
         => entity.StateChanges().Where(e => e.New?.IsAboveHorizon() ?? false).Subscribe(action);
 
@@ -40,7 +40,7 @@ public static class SunExtensions
         }
         return Constants.WeekendNightDays.Contains(DateTime.Now.DayOfWeek) ?
             Constants.MORNINGTIME_WEEKENDS.ToTimeSpan() :
-            Constants.MORNINGTIME_WEEKDAYS.ToTimeSpan(); 
+            Constants.MORNINGTIME_WEEKDAYS.ToTimeSpan();
     }
 
     public static TimeSpan NextNoon(this SunEntity? entity)
@@ -50,7 +50,7 @@ public static class SunExtensions
         {
             return TimeOnly.FromDateTime(nextNoon).ToTimeSpan();
         }
-        return Constants.AFTERNOONTIME.ToTimeSpan(); 
+        return Constants.AFTERNOONTIME.ToTimeSpan();
     }
 
     public static TimeSpan NextEvening(this SunEntity? entity)
@@ -65,7 +65,7 @@ public static class SunExtensions
                     Constants.EVENING_START.ToTimeSpan() :
                 Constants.EVENING_END.ToTimeSpan();
         }
-        return Constants.EVENINGTIME.ToTimeSpan(); 
+        return Constants.EVENINGTIME.ToTimeSpan();
     }
 
     public static TimeSpan NextNight(this SunEntity? entity)
@@ -80,6 +80,11 @@ public static class SunExtensions
         }
         return Constants.WeekendNightDays.Contains(DateTime.Now.DayOfWeek) ?
             Constants.NIGHTTIME_WEEKENDS.ToTimeSpan() :
-            Constants.NIGHTTIME_WEEKDAYS.ToTimeSpan(); 
+            Constants.NIGHTTIME_WEEKDAYS.ToTimeSpan();
+    }
+
+    public static bool IsToday(this DateTime sunEvent)
+    {
+        return sunEvent.Day == DateTime.Today.Day;
     }
 }

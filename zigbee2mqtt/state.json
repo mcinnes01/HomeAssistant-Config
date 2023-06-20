@@ -6,30 +6,12 @@
         "tamper": false,
         "battery_low": false
     },
-    "0x00124b0022ff0377": {
-        "voltage": 3000,
-        "battery": 71.5,
-        "contact": true,
-        "tamper": false,
-        "battery_low": false
-    },
-    "0x00124b0022ff6b10": {
-        "voltage": 2900,
-        "battery": 82,
-        "contact": true,
-        "tamper": false,
-        "battery_low": false
-    },
     "0x00124b0022fd01fd": {
         "contact": false,
         "tamper": false,
         "battery_low": false,
-        "voltage": 3000,
+        "voltage": 3100,
         "battery": 100
-    },
-    "0x00124b00226650a6": {
-        "voltage": 2900,
-        "battery": 82
     },
     "0x00124b0023b85ca5": {
         "voltage": 2900,
@@ -43,7 +25,7 @@
         "tamper": false,
         "battery_low": false,
         "voltage": 2800,
-        "battery": 52
+        "battery": 20
     },
     "0x04cd15fffe78d9aa": {
         "battery": 100,
@@ -68,16 +50,48 @@
         "update_available": true
     },
     "0xf082c0fffe3d9a0f": {
-        "battery": 47,
+        "battery": 60,
         "update": {
             "state": "available"
         },
         "update_available": true
     },
     "0xa4c138dff6d5bb59": {
-        "temperature": 18.48,
-        "humidity": 60.84,
-        "battery": 10,
-        "voltage": 2500
+        "temperature": 24.58,
+        "humidity": 61.11,
+        "battery": 28,
+        "voltage": 2600
+    },
+    "0x70ac08fffefb73fa": {
+        "state": "OFF",
+        "update": {
+            "state": "available"
+        },
+        "update_available": true
+    },
+    "0x385b44fffee655af": {
+        "state": "OFF",
+        "update": {
+            "state": "available"
+        },
+        "update_available": true
+    },
+    "0x00124b0022ff0377": {
+        "contact": false,
+        "tamper": false,
+        "battery_low": false,
+        "voltage": 3200,
+        "battery": 100
+    },
+    "0x00124b0022ff6b10": {
+        "contact": false,
+        "tamper": false,
+        "battery_low": false,
+        "voltage": 3100,
+        "battery": 100
+    },
+    "0x00124b00226650a6": {
+        "voltage": 4200,
+        "battery": 100
     }
 }

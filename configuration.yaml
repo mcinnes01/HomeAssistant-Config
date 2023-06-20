@@ -223,9 +223,9 @@ yeelight:
           - TemperatureTransition: [1900, 2000, 60]
           - SleepTransition: [1000]
 
-binary_sensor:
-  - platform: uptimerobot
-    api_key: !secret uptime_key
+#binary_sensor:
+  #- platform: uptimerobot
+   # api_key: !secret uptime_key
 template: !include templates.yaml
 
 withings:
