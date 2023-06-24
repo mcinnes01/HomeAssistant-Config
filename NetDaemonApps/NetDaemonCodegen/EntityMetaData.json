@@ -2013,6 +2013,11 @@
       "domain": "device_tracker",
       "entities": [
         {
+          "id": "device_tracker.74278bda_b644_4520_8f0c_720eaf059935_0_42355_512c",
+          "friendlyName": "74278bda-b644-4520-8f0c-720eaf059935_0_42355 512C",
+          "cSharpName": "_74278bdaB64445208f0c720eaf059935042355512c"
+        },
+        {
           "id": "device_tracker.9d410000_35d6_f4dd_ba60_e7bd8dc491c0_27118_7912_69ee",
           "friendlyName": null,
           "cSharpName": "_9d41000035d6F4ddBa60E7bd8dc491c027118791269ee"
@@ -2049,7 +2054,7 @@
         },
         {
           "id": "device_tracker.andrews_mini_2",
-          "friendlyName": "Andrews-Mini Andrews-Mini",
+          "friendlyName": "Andrews-Mini",
           "cSharpName": "AndrewsMini2"
         },
         {
@@ -2133,6 +2138,11 @@
           "cSharpName": "Claireiphone"
         },
         {
+          "id": "device_tracker.claireiphone_2",
+          "friendlyName": "claireiphone",
+          "cSharpName": "Claireiphone2"
+        },
+        {
           "id": "device_tracker.claires_apple_watch",
           "friendlyName": "Claire\u2019s Apple Watch",
           "cSharpName": "ClairesAppleWatch"
@@ -2141,11 +2151,6 @@
           "id": "device_tracker.claires_iphone",
           "friendlyName": "claireiphone",
           "cSharpName": "ClairesIphone"
-        },
-        {
-          "id": "device_tracker.claires_iphone_3",
-          "friendlyName": "claireiphone",
-          "cSharpName": "ClairesIphone3"
         },
         {
           "id": "device_tracker.claires_iphone_tile",
@@ -2178,6 +2183,11 @@
           "cSharpName": "DressingRoomEcotDot"
         },
         {
+          "id": "device_tracker.e20a39f4_73f5_4bc4_1864_17d1ad07a962_15106_22352_47d4",
+          "friendlyName": "e20a39f4-73f5-4bc4-1864-17d1ad07a962_15106_22352 47D4",
+          "cSharpName": "E20a39f473f54bc4186417d1ad07a962151062235247d4"
+        },
+        {
           "id": "device_tracker.e20a39f4_73f5_4bc4_1864_17d1ad07a962_38108_29772_c6d1",
           "friendlyName": null,
           "cSharpName": "E20a39f473f54bc4186417d1ad07a9623810829772C6d1"
@@ -2199,7 +2209,7 @@
         },
         {
           "id": "device_tracker.e2c56db5_dffb_48d2_b060_d0f5a71096e0_0_0",
-          "friendlyName": null,
+          "friendlyName": "e2c56db5-dffb-48d2-b060-d0f5a71096e0_0_0",
           "cSharpName": "E2c56db5Dffb48d2B060D0f5a71096e000"
         },
         {
@@ -2351,6 +2361,11 @@
           "id": "device_tracker.jabra_elite_45h",
           "friendlyName": "Jabra Elite 45h",
           "cSharpName": "JabraElite45h"
+        },
+        {
+          "id": "device_tracker.kalibrate_ddmm8",
+          "friendlyName": "KALIBRATE-dDMm8 KALIBRATE-dDMm8",
+          "cSharpName": "KalibrateDdmm8"
         },
         {
           "id": "device_tracker.kitchen",
@@ -2578,6 +2593,11 @@
           "cSharpName": "SqueezeboxDiningRoom"
         },
         {
+          "id": "device_tracker.studio_bluetooth_proxy",
+          "friendlyName": "studio-bluetooth-proxy studio-bluetooth-proxy",
+          "cSharpName": "StudioBluetoothProxy"
+        },
+        {
           "id": "device_tracker.the_death_star",
           "friendlyName": "The Death Star",
           "cSharpName": "TheDeathStar"
@@ -2631,6 +2651,11 @@
           "id": "device_tracker.unifi_2a_d3_59_f6_30_31_default",
           "friendlyName": "",
           "cSharpName": "Unifi2aD359F63031Default"
+        },
+        {
+          "id": "device_tracker.unifi_3e_47_6f_b6_ea_0c_default",
+          "friendlyName": "",
+          "cSharpName": "Unifi3e476fB6Ea0cDefault"
         },
         {
           "id": "device_tracker.unifi_68_db_f5_9a_b9_02_default",
@@ -2962,6 +2987,26 @@
         {
           "jsonName": "host_name",
           "cSharpName": "HostName",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "uuid",
+          "cSharpName": "Uuid",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "major",
+          "cSharpName": "Major",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "minor",
+          "cSharpName": "Minor",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "source",
+          "cSharpName": "Source",
           "clrType": "System.String"
         }
       ]
@@ -6712,6 +6757,11 @@
           "cSharpName": "_0x00124b00226650a6Voltage"
         },
         {
+          "id": "sensor.74278bda_b644_4520_8f0c_720eaf059935_0_42355_512c_estimated_distance",
+          "friendlyName": "74278bda-b644-4520-8f0c-720eaf059935_0_42355 512C Estimated Distance",
+          "cSharpName": "_74278bdaB64445208f0c720eaf059935042355512cEstimatedDistance"
+        },
+        {
           "id": "sensor.9d410000_35d6_f4dd_ba60_e7bd8dc491c0_27118_7912_69ee_estimated_distance",
           "friendlyName": "Estimated Distance",
           "cSharpName": "_9d41000035d6F4ddBa60E7bd8dc491c027118791269eeEstimatedDistance"
@@ -7232,6 +7282,11 @@
           "cSharpName": "DressingRoomEcotDotTx"
         },
         {
+          "id": "sensor.e20a39f4_73f5_4bc4_1864_17d1ad07a962_15106_22352_47d4_estimated_distance",
+          "friendlyName": "e20a39f4-73f5-4bc4-1864-17d1ad07a962_15106_22352 47D4 Estimated Distance",
+          "cSharpName": "E20a39f473f54bc4186417d1ad07a962151062235247d4EstimatedDistance"
+        },
+        {
           "id": "sensor.e20a39f4_73f5_4bc4_1864_17d1ad07a962_38108_29772_c6d1_estimated_distance",
           "friendlyName": "Estimated Distance",
           "cSharpName": "E20a39f473f54bc4186417d1ad07a9623810829772C6d1EstimatedDistance"
@@ -7253,7 +7308,7 @@
         },
         {
           "id": "sensor.e2c56db5_dffb_48d2_b060_d0f5a71096e0_0_0_estimated_distance",
-          "friendlyName": "Estimated Distance",
+          "friendlyName": "e2c56db5-dffb-48d2-b060-d0f5a71096e0_0_0 Estimated Distance",
           "cSharpName": "E2c56db5Dffb48d2B060D0f5a71096e000EstimatedDistance"
         },
         {
@@ -7455,6 +7510,16 @@
           "id": "sensor.iphone_tx",
           "friendlyName": "iPhone TX",
           "cSharpName": "IphoneTx"
+        },
+        {
+          "id": "sensor.kalibrate_ddmm8_rx",
+          "friendlyName": "KALIBRATE-dDMm8 RX",
+          "cSharpName": "KalibrateDdmm8Rx"
+        },
+        {
+          "id": "sensor.kalibrate_ddmm8_tx",
+          "friendlyName": "KALIBRATE-dDMm8 TX",
+          "cSharpName": "KalibrateDdmm8Tx"
         },
         {
           "id": "sensor.kitchen_camera_disk_write_rate",
@@ -7745,6 +7810,11 @@
           "id": "sensor.rx_11",
           "friendlyName": "RX",
           "cSharpName": "Rx11"
+        },
+        {
+          "id": "sensor.rx_12",
+          "friendlyName": " RX",
+          "cSharpName": "Rx12"
         },
         {
           "id": "sensor.rx_2",
@@ -8082,6 +8152,16 @@
           "cSharpName": "SqueezeboxDiningRoomTx"
         },
         {
+          "id": "sensor.studio_bluetooth_proxy_rx",
+          "friendlyName": "studio-bluetooth-proxy RX",
+          "cSharpName": "StudioBluetoothProxyRx"
+        },
+        {
+          "id": "sensor.studio_bluetooth_proxy_tx",
+          "friendlyName": "studio-bluetooth-proxy TX",
+          "cSharpName": "StudioBluetoothProxyTx"
+        },
+        {
           "id": "sensor.sump_alarm_rx",
           "friendlyName": "sump-alarm RX",
           "cSharpName": "SumpAlarmRx"
@@ -8130,6 +8210,11 @@
           "id": "sensor.tx_11",
           "friendlyName": "TX",
           "cSharpName": "Tx11"
+        },
+        {
+          "id": "sensor.tx_12",
+          "friendlyName": " TX",
+          "cSharpName": "Tx12"
         },
         {
           "id": "sensor.tx_2",
@@ -8666,7 +8751,7 @@
         {
           "jsonName": "paired_devices",
           "cSharpName": "PairedDevices",
-          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.String]"
+          "clrType": "System.Object"
         },
         {
           "jsonName": "current",
@@ -8797,6 +8882,26 @@
           "jsonName": "occupancy",
           "cSharpName": "Occupancy",
           "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "uuid",
+          "cSharpName": "Uuid",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "major",
+          "cSharpName": "Major",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "minor",
+          "cSharpName": "Minor",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "source",
+          "cSharpName": "Source",
+          "clrType": "System.String"
         }
       ]
     },
@@ -9958,6 +10063,11 @@
           "id": "update.sonoff_upstairs_2_firmware",
           "friendlyName": "sonoff-upstairs-2 Firmware",
           "cSharpName": "SonoffUpstairs2Firmware"
+        },
+        {
+          "id": "update.studio_bluetooth_proxy_firmware",
+          "friendlyName": "studio-bluetooth-proxy Firmware",
+          "cSharpName": "StudioBluetoothProxyFirmware"
         },
         {
           "id": "update.studio_code_server_update",

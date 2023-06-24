@@ -34,14 +34,14 @@ public static class Constants
         DayOfWeek.Saturday,
     };
 
-    public static LoungeModeOptions[] LoungeLightModes = new[] 
-    { 
-        LoungeModeOptions.Normal, 
+    public static LoungeModeOptions[] LoungeLightModes = new[]
+    {
+        LoungeModeOptions.Normal,
         LoungeModeOptions.Reading
     };
 
-    public static LoungeModeOptions[] LoungeLampModes = new[] 
-    { 
+    public static LoungeModeOptions[] LoungeLampModes = new[]
+    {
         LoungeModeOptions.Television
     };
 
