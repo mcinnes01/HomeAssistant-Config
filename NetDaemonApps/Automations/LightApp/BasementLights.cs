@@ -141,7 +141,7 @@ public class BasementLights
     private void ToiletLightOnMovement()
     {
         _entities.BinarySensor.ToiletMotion.StateChanges()
-        //.Merge(_entities.BinarySensor.ToiletDoor.StateChanges())
+        .Merge(_entities.BinarySensor.ToiletDoor.StateChanges())
         .Where(e =>
         {
             _logger.LogTrace(@$"Light Mode: {_entities.InputSelect.LightControlMode.State},

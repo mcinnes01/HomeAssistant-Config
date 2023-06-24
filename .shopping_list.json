@@ -58,5 +58,30 @@
     "name": "Change Light automation to work per light and use states that specifically affect that light",
     "id": "3f5ab7f8451a4e36b598f786ea350e83",
     "complete": false
+  },
+  {
+    "name": "Studio time",
+    "id": "de2acc42246f4161a3fb251cde4756b3",
+    "complete": false
+  },
+  {
+    "name": "Clean brewery",
+    "id": "bcd562d23b144725b9c554c196c9b5e8",
+    "complete": false
+  },
+  {
+    "name": "Get bits from shop",
+    "id": "fa2f7d5fe4ce4c229b400ff1daf47f39",
+    "complete": false
+  },
+  {
+    "name": "Do some home assistant ",
+    "id": "3c6c0d150dbd442091028666862367ce",
+    "complete": false
+  },
+  {
+    "name": "Make BBQ doors",
+    "id": "996ec7d593904a2dae7bf76c38ea6ef0",
+    "complete": false
   }
 ]

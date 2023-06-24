@@ -21,15 +21,18 @@ public class AlexaMediaPlayer : IAlexa
     private readonly IScheduler                             _scheduler;
     private readonly IServices                              _services;
     private readonly List<string>                           _voices = new() { "Amy", "Brian", "Emma", "Nicole", "Russell", "Geraint" };
+    private readonly ILogger<AlexaMediaPlayer>              _logger;
 
 
-    public AlexaMediaPlayer(IHaContext ha, IEntities entities, IServices services, IScheduler scheduler, IAppConfig<AlexaConfig> config)
+    public AlexaMediaPlayer(IHaContext ha, IEntities entities, IServices services,
+        IScheduler scheduler, IAppConfig<AlexaConfig> config, ILogger<AlexaMediaPlayer> logger)
     {
         _ha        = ha;
         _entities  = entities;
         _services  = services;
         _scheduler = scheduler;
         _devices   = config.Value.Devices;
+        _logger    = logger;
 
         _messages.Buffer(TimeSpan.FromMilliseconds(500)).Subscribe(ProcessNotifications);
     }
@@ -144,9 +147,11 @@ public class AlexaMediaPlayer : IAlexa
 
     private void SetScreen(string entityId, string action)
     {
+        _logger.LogDebug($"Set screen to {action} for entity: {entityId}");
         if (!HasScreen(entityId))
             return;
 
+        _logger.LogDebug("Alexa {entityId} has screen turning it {action}");
         for (int i = 0; i < 2; i++)
         {
             _services.MediaPlayer.PlayMedia(ServiceTarget.FromEntity(entityId), $"turn screen {action}", "custom");
