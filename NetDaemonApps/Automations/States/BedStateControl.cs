@@ -97,7 +97,7 @@ public class BedStateController
                 _logger.LogDebug("Bed state control has been enabled.", new { Entity = InBed });
                 Init();
             });
-        
+
         Init();
     }
 
@@ -117,7 +117,7 @@ public class BedStateController
             {
                 _logger.LogDebug("Set state to in Bed, {Action}.", new { Action = WhoMadeAction(), Entity = InBed });
                 _entities.InputBoolean.InBed.TurnOn();
-            } 
+            }
             else if ((andyBedStateChanged || claireBedStateChanged)
                 && (!AndyInBed.IsDetected() || !ClaireInBed.IsDetected()))
             {
@@ -129,7 +129,7 @@ public class BedStateController
             {
                 _logger.LogDebug("Manual inBed: {State}, change occurred", new { State = InBed!.State, Entity = InBed });
             }
-            
+
             Reset();
         }
     }

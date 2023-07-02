@@ -101,7 +101,7 @@ public static class EnumExtensions
     {
         return target.State == @option.ToString();
     }
-
+    
     public static bool IsNotOption(this InputSelectEntity target, Enum @option)
     {
         return target.State != @option.ToString();

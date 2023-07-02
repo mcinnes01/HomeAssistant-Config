@@ -22,7 +22,7 @@ public class LightControlModeController
         _entities = new Entities(context);
 
         LightControlMode = _entities.InputSelect.LightControlMode;
-        LocationMode = _entities.InputSelect.LocationMode;   
+        LocationMode = _entities.InputSelect.LocationMode;
         TimeOfDay = _entities.InputSelect.TimeOfDay;
         Brightness = _entities.InputSelect.Brightness;
         BedroomMode = _entities.InputSelect.BedroomMode;
@@ -31,7 +31,7 @@ public class LightControlModeController
         // Manual change or scene or schedule
         LightControlMode?.StateAllChangesWithCurrent()
         .Where(l => l?.New?.State != l?.Old?.State)
-        .Throttle(TimeSpan.FromSeconds(30)) // Debounce for loops
+        .Throttle(TimeSpan.FromSeconds(5)) // Debounce for loops
         .Subscribe(_ => Handle(Trigger.Manual));
 
         // No one home don't use motion lighting
@@ -58,10 +58,17 @@ public class LightControlModeController
          && l.Old.IsOption(BedroomModeOptions.Sleeping))
         .Subscribe(_ => Handle(Trigger.OutOfBed));
 
-        // 
+        // Set to motion control when its day time and we are home
         TimeOfDay?.StateAllChangesWithCurrent()
-        .Throttle(TimeSpan.FromMinutes(1))
-        .Subscribe(_ => Handle(Trigger.TimeOfDay));
+        .Where(t => t.New.IsOption(TimeOfDayOptions.Day)
+        && Constants.HouseOccupied.Contains(LocationMode.AsOption<LocationModeOptions>()))
+        .Subscribe(_ => Handle(Trigger.Day));
+
+        // Set to motion control when its day time and we are home
+        TimeOfDay?.StateAllChangesWithCurrent()
+        .Where(t => t.New.IsOption(TimeOfDayOptions.Night)
+        && Constants.HouseOccupied.Contains(LocationMode.AsOption<LocationModeOptions>()))
+        .Subscribe(_ => Handle(Trigger.Night));
 
         // Goes dark or dim
         Brightness?.StateAllChangesWithCurrent()
@@ -71,6 +78,7 @@ public class LightControlModeController
         .Throttle(TimeSpan.FromMinutes(1))
         .Subscribe(_ => Handle(Trigger.Dark));
 
+        // Enabled
         IsEnabled?.StateChanges()
         .Where(s => s.New.IsOn())
         .Subscribe(_ =>
@@ -104,7 +112,12 @@ public class LightControlModeController
                     _logger.LogDebug("In Bed, set Light Control Mode to Sleeping.", new { Entity = LightControlMode });
                     LightControlMode?.SelectOption(LightControlModeOptions.Sleeping);
                     break;
+                case Trigger.Night:
+                    _logger.LogDebug("Night and we're away, set Light Control Mode to Sleeping.", new { Entity = LightControlMode });
+                    LightControlMode?.SelectOption(LightControlModeOptions.Sleeping);
+                    break;
                 case Trigger.OutOfBed:
+                case Trigger.Day:
                     _logger.LogDebug("Set state to Motion, triggered by {Trigger}.", new { Trigger = trigger.ToString(), Entity = LightControlMode });
                     LightControlMode?.SelectOption(LightControlModeOptions.Motion);
                     break;
@@ -127,8 +140,9 @@ public class LightControlModeController
         Manual,
         Unoccupied,
         Occupied,
-        TimeOfDay,
         Dark,
-        OutOfBed
+        OutOfBed,
+        Day,
+        Night
     }
 }

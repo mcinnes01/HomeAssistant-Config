@@ -47,7 +47,7 @@ public class BrightnessController
         IlluminanceSensor?.StateAllChangesWithCurrent()
         .Where(e => !sensorFault && MapBrightness(e.Old) != MapBrightness(e.New))
         .Select(e => (Lux: e.New?.State, Option: MapBrightness(e.New)))
-        .Subscribe(e => 
+        .Subscribe(e =>
         {
             _logger.LogDebug("Transitioning Brightness to: {To} - Ambient Light {Lux}lx",
                 new { To = e.Option, Lux = e.Lux, Entity = Brightness });
@@ -102,7 +102,7 @@ public class BrightnessController
                 _logger.LogDebug("Brightness control has been enabled.", new { Entity = Brightness });
                 Init();
             });
-        
+
         Init();
     }
 
@@ -114,13 +114,13 @@ public class BrightnessController
         if (sensorFault)
         {
             Handle(BrightnessTrigger.LuxFault);
-        } 
-        else 
+        }
+        else
         {
             Handle();
         }
-    }    
-    
+    }
+
     BrightnessOptions MapBrightness(NumericEntityState<HomeAssistantGenerated.NumericSensorAttributes>? entityState) =>
     entityState?.State switch
     {

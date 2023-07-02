@@ -1,6 +1,4 @@
-﻿
-namespace NetDaemonApps.Extensions;
-
+﻿namespace NetDaemonApps.Extensions;
 
 public static class EntityExtensions
 {
@@ -17,7 +15,7 @@ public static class EntityExtensions
     => entity.StateChanges().Where(c => c.New?.IsOff() ?? false).Subscribe(action);
 
 
-    public static bool IsUnknown(this EntityState? entityState) 
+    public static bool IsUnknown(this EntityState? entityState)
         => string.Equals(entityState?.State, "unknown", StringComparison.OrdinalIgnoreCase);
 
     public static bool IsUnknown(this Entity? entity) => entity?.EntityState?.IsUnknown() ?? false;

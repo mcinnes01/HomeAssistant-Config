@@ -83,7 +83,7 @@ public class LocationModeController
                 _logger.LogDebug("Location mode control has been enabled.", new { Entity = LocationMode });
                 Init();
             });
-        
+
         Init();
     }
 

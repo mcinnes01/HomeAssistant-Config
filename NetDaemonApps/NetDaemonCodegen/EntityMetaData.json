@@ -181,6 +181,11 @@
           "cSharpName": "PatioPersonMotionEventSnapshotClaireIphone"
         },
         {
+          "id": "automation.person_in_the_garden",
+          "friendlyName": "Person in the garden",
+          "cSharpName": "PersonInTheGarden"
+        },
+        {
           "id": "automation.send_notification_when_alarm_is_armed_in_away_mode",
           "friendlyName": "Send notification when alarm is Armed in Away mode",
           "cSharpName": "SendNotificationWhenAlarmIsArmedInAwayMode"
@@ -214,6 +219,16 @@
           "id": "automation.send_notification_when_alarm_triggered_2",
           "friendlyName": "Send notification when alarm triggered",
           "cSharpName": "SendNotificationWhenAlarmTriggered2"
+        },
+        {
+          "id": "automation.send_snapshot_when_person_is_in_the_garden_andy_iphone",
+          "friendlyName": "Send snapshot when person is in the garden - Andy iPhone",
+          "cSharpName": "SendSnapshotWhenPersonIsInTheGardenAndyIphone"
+        },
+        {
+          "id": "automation.send_snapshot_when_person_is_in_the_garden_claire_iphone",
+          "friendlyName": "Send snapshot when person is in the garden - Claire iPhone",
+          "cSharpName": "SendSnapshotWhenPersonIsInTheGardenClaireIphone"
         },
         {
           "id": "automation.set_cat_feeder_varaibles_on_restart",
@@ -1681,7 +1696,7 @@
         },
         {
           "id": "button.safe_mode_boot",
-          "friendlyName": "Safe Mode Boot",
+          "friendlyName": "studio-bluetooth-proxy Safe Mode Boot",
           "cSharpName": "SafeModeBoot"
         },
         {
@@ -2013,9 +2028,29 @@
       "domain": "device_tracker",
       "entities": [
         {
+          "id": "device_tracker.10079d74_8ee8_48e9_8a1f_e565c9fb7324_100_1",
+          "friendlyName": null,
+          "cSharpName": "_10079d748ee848e98a1fE565c9fb73241001"
+        },
+        {
+          "id": "device_tracker.74278bda_b644_4520_8f0c_720eaf059935_0_23646_c68b",
+          "friendlyName": null,
+          "cSharpName": "_74278bdaB64445208f0c720eaf059935023646C68b"
+        },
+        {
           "id": "device_tracker.74278bda_b644_4520_8f0c_720eaf059935_0_42355_512c",
-          "friendlyName": "74278bda-b644-4520-8f0c-720eaf059935_0_42355 512C",
+          "friendlyName": null,
           "cSharpName": "_74278bdaB64445208f0c720eaf059935042355512c"
+        },
+        {
+          "id": "device_tracker.74278bda_b644_4520_8f0c_720eaf059935_0_44740_4a03",
+          "friendlyName": null,
+          "cSharpName": "_74278bdaB64445208f0c720eaf0599350447404a03"
+        },
+        {
+          "id": "device_tracker.74278bda_b644_4520_8f0c_720eaf059935_0_9565_0951",
+          "friendlyName": null,
+          "cSharpName": "_74278bdaB64445208f0c720eaf059935095650951"
         },
         {
           "id": "device_tracker.9d410000_35d6_f4dd_ba60_e7bd8dc491c0_27118_7912_69ee",
@@ -2184,7 +2219,7 @@
         },
         {
           "id": "device_tracker.e20a39f4_73f5_4bc4_1864_17d1ad07a962_15106_22352_47d4",
-          "friendlyName": "e20a39f4-73f5-4bc4-1864-17d1ad07a962_15106_22352 47D4",
+          "friendlyName": null,
           "cSharpName": "E20a39f473f54bc4186417d1ad07a962151062235247d4"
         },
         {
@@ -2209,7 +2244,7 @@
         },
         {
           "id": "device_tracker.e2c56db5_dffb_48d2_b060_d0f5a71096e0_0_0",
-          "friendlyName": "e2c56db5-dffb-48d2-b060-d0f5a71096e0_0_0",
+          "friendlyName": null,
           "cSharpName": "E2c56db5Dffb48d2B060D0f5a71096e000"
         },
         {
@@ -2256,6 +2291,11 @@
           "id": "device_tracker.espresense_lounge",
           "friendlyName": "ESPresense Lounge ESPresense Lounge",
           "cSharpName": "EspresenseLounge"
+        },
+        {
+          "id": "device_tracker.espressif",
+          "friendlyName": "espressif espressif",
+          "cSharpName": "Espressif"
         },
         {
           "id": "device_tracker.f_ace_21",
@@ -2653,6 +2693,11 @@
           "cSharpName": "Unifi2aD359F63031Default"
         },
         {
+          "id": "device_tracker.unifi_3a_56_f1_a5_94_e7_default",
+          "friendlyName": "",
+          "cSharpName": "Unifi3a56F1A594E7Default"
+        },
+        {
           "id": "device_tracker.unifi_3e_47_6f_b6_ea_0c_default",
           "friendlyName": "",
           "cSharpName": "Unifi3e476fB6Ea0cDefault"
@@ -2746,6 +2791,11 @@
           "id": "device_tracker.yeelight_snug_floor_lamp",
           "friendlyName": "Yeelight Snug Floor Lamp Yeelight Snug Floor Lamp",
           "cSharpName": "YeelightSnugFloorLamp"
+        },
+        {
+          "id": "device_tracker.yeelink_light_color1_miio313150241",
+          "friendlyName": "yeelink-light-color1_miio313150241 yeelink-light-color1_miio313150241",
+          "cSharpName": "YeelinkLightColor1Miio313150241"
         }
       ],
       "attributes": [
@@ -3075,6 +3125,26 @@
           "jsonName": "last_triggered_at",
           "cSharpName": "LastTriggeredAt",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "expires_at",
+          "cSharpName": "ExpiresAt",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "service_data",
+          "cSharpName": "ServiceData",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "reset_at",
+          "cSharpName": "ResetAt",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "backoff_count",
+          "cSharpName": "BackoffCount",
+          "clrType": "System.Double"
         }
       ]
     },
@@ -4506,6 +4576,11 @@
           "cSharpName": "LoungeTv2"
         },
         {
+          "id": "media_player.lounge_tv_3",
+          "friendlyName": "Lounge TV",
+          "cSharpName": "LoungeTv3"
+        },
+        {
           "id": "media_player.offices",
           "friendlyName": "Offices",
           "cSharpName": "Offices"
@@ -4547,7 +4622,7 @@
         },
         {
           "id": "media_player.spotify_andrew_mcinnes",
-          "friendlyName": "Spotify Andrew McInnes",
+          "friendlyName": null,
           "cSharpName": "SpotifyAndrewMcinnes"
         },
         {
@@ -4964,6 +5039,11 @@
           "id": "remote.lounge_tv",
           "friendlyName": "Lounge TV",
           "cSharpName": "LoungeTv"
+        },
+        {
+          "id": "remote.lounge_tv_2",
+          "friendlyName": "Lounge TV",
+          "cSharpName": "LoungeTv2"
         },
         {
           "id": "remote.snug_projector",
@@ -5729,11 +5809,6 @@
           "cSharpName": "NspanelCurrentpage"
         },
         {
-          "id": "sensor.nspanel_display_target_temperature",
-          "friendlyName": "nspanel Display Target Temperature",
-          "cSharpName": "NspanelDisplayTargetTemperature"
-        },
-        {
           "id": "sensor.nspanel_ip",
           "friendlyName": "nspanel IP",
           "cSharpName": "NspanelIp"
@@ -6179,11 +6254,6 @@
           "cSharpName": "UtilityRoomEchoDotNextTimer"
         },
         {
-          "id": "sensor.weather_station_altitude",
-          "friendlyName": "Weather Station Altitude",
-          "cSharpName": "WeatherStationAltitude"
-        },
-        {
           "id": "sensor.weather_station_bssid",
           "friendlyName": "Weather Station BSSID",
           "cSharpName": "WeatherStationBssid"
@@ -6192,11 +6262,6 @@
           "id": "sensor.weather_station_esphome_version",
           "friendlyName": "Weather Station ESPHome Version",
           "cSharpName": "WeatherStationEsphomeVersion"
-        },
-        {
-          "id": "sensor.weather_station_humidity",
-          "friendlyName": "Weather Station Humidity",
-          "cSharpName": "WeatherStationHumidity"
         },
         {
           "id": "sensor.weather_station_ip",
@@ -6739,6 +6804,11 @@
           "jsonName": "e20a39f4-73f5-4bc4-1864-17d1ad07a962_40400_50805",
           "cSharpName": "E20a39f473f54bc4186417d1ad07a9624040050805",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "assumed_state",
+          "cSharpName": "AssumedState",
+          "clrType": "System.Boolean"
         }
       ]
     },
@@ -6757,9 +6827,29 @@
           "cSharpName": "_0x00124b00226650a6Voltage"
         },
         {
+          "id": "sensor.10079d74_8ee8_48e9_8a1f_e565c9fb7324_100_1_estimated_distance",
+          "friendlyName": "Estimated distance",
+          "cSharpName": "_10079d748ee848e98a1fE565c9fb73241001EstimatedDistance"
+        },
+        {
+          "id": "sensor.74278bda_b644_4520_8f0c_720eaf059935_0_23646_c68b_estimated_distance",
+          "friendlyName": "Estimated Distance",
+          "cSharpName": "_74278bdaB64445208f0c720eaf059935023646C68bEstimatedDistance"
+        },
+        {
           "id": "sensor.74278bda_b644_4520_8f0c_720eaf059935_0_42355_512c_estimated_distance",
-          "friendlyName": "74278bda-b644-4520-8f0c-720eaf059935_0_42355 512C Estimated Distance",
+          "friendlyName": "Estimated Distance",
           "cSharpName": "_74278bdaB64445208f0c720eaf059935042355512cEstimatedDistance"
+        },
+        {
+          "id": "sensor.74278bda_b644_4520_8f0c_720eaf059935_0_44740_4a03_estimated_distance",
+          "friendlyName": "Estimated Distance",
+          "cSharpName": "_74278bdaB64445208f0c720eaf0599350447404a03EstimatedDistance"
+        },
+        {
+          "id": "sensor.74278bda_b644_4520_8f0c_720eaf059935_0_9565_0951_estimated_distance",
+          "friendlyName": "Estimated Distance",
+          "cSharpName": "_74278bdaB64445208f0c720eaf059935095650951EstimatedDistance"
         },
         {
           "id": "sensor.9d410000_35d6_f4dd_ba60_e7bd8dc491c0_27118_7912_69ee_estimated_distance",
@@ -7283,7 +7373,7 @@
         },
         {
           "id": "sensor.e20a39f4_73f5_4bc4_1864_17d1ad07a962_15106_22352_47d4_estimated_distance",
-          "friendlyName": "e20a39f4-73f5-4bc4-1864-17d1ad07a962_15106_22352 47D4 Estimated Distance",
+          "friendlyName": "Estimated Distance",
           "cSharpName": "E20a39f473f54bc4186417d1ad07a962151062235247d4EstimatedDistance"
         },
         {
@@ -7308,7 +7398,7 @@
         },
         {
           "id": "sensor.e2c56db5_dffb_48d2_b060_d0f5a71096e0_0_0_estimated_distance",
-          "friendlyName": "e2c56db5-dffb-48d2-b060-d0f5a71096e0_0_0 Estimated Distance",
+          "friendlyName": "Estimated Distance",
           "cSharpName": "E2c56db5Dffb48d2B060D0f5a71096e000EstimatedDistance"
         },
         {
@@ -7377,6 +7467,16 @@
           "cSharpName": "EspresenseSnugUptime"
         },
         {
+          "id": "sensor.espressif_rx",
+          "friendlyName": "espressif RX",
+          "cSharpName": "EspressifRx"
+        },
+        {
+          "id": "sensor.espressif_tx",
+          "friendlyName": "espressif TX",
+          "cSharpName": "EspressifTx"
+        },
+        {
           "id": "sensor.fence_lights_device_temperature",
           "friendlyName": "Fence Lights device temperature",
           "cSharpName": "FenceLightsDeviceTemperature"
@@ -7435,6 +7535,11 @@
           "id": "sensor.gate_socket_power",
           "friendlyName": "Gate Socket power",
           "cSharpName": "GateSocketPower"
+        },
+        {
+          "id": "sensor.genius_x_47ae_battery",
+          "friendlyName": "Battery",
+          "cSharpName": "GeniusX47aeBattery"
         },
         {
           "id": "sensor.grid_fossil_fuel_percentage",
@@ -7682,6 +7787,11 @@
           "cSharpName": "NetgearGs724tpBasementTx"
         },
         {
+          "id": "sensor.nspanel_display_target_temperature",
+          "friendlyName": "nspanel Display Target Temperature",
+          "cSharpName": "NspanelDisplayTargetTemperature"
+        },
+        {
           "id": "sensor.nspanel_rssi",
           "friendlyName": "nspanel RSSI",
           "cSharpName": "NspanelRssi"
@@ -7815,6 +7925,11 @@
           "id": "sensor.rx_12",
           "friendlyName": " RX",
           "cSharpName": "Rx12"
+        },
+        {
+          "id": "sensor.rx_13",
+          "friendlyName": " RX",
+          "cSharpName": "Rx13"
         },
         {
           "id": "sensor.rx_2",
@@ -8217,6 +8332,11 @@
           "cSharpName": "Tx12"
         },
         {
+          "id": "sensor.tx_13",
+          "friendlyName": " TX",
+          "cSharpName": "Tx13"
+        },
+        {
           "id": "sensor.tx_2",
           "friendlyName": " TX",
           "cSharpName": "Tx2"
@@ -8377,9 +8497,19 @@
           "cSharpName": "VacuumrobotTx"
         },
         {
+          "id": "sensor.weather_station_altitude",
+          "friendlyName": "Weather Station Altitude",
+          "cSharpName": "WeatherStationAltitude"
+        },
+        {
           "id": "sensor.weather_station_ambient_light",
           "friendlyName": "Weather Station Ambient Light",
           "cSharpName": "WeatherStationAmbientLight"
+        },
+        {
+          "id": "sensor.weather_station_humidity",
+          "friendlyName": "Weather Station Humidity",
+          "cSharpName": "WeatherStationHumidity"
         },
         {
           "id": "sensor.weather_station_pressure",
@@ -8620,6 +8750,16 @@
           "id": "sensor.yeelight_snug_floor_lamp_tx",
           "friendlyName": "Yeelight Snug Floor Lamp TX",
           "cSharpName": "YeelightSnugFloorLampTx"
+        },
+        {
+          "id": "sensor.yeelink_light_color1_miio313150241_rx",
+          "friendlyName": "yeelink-light-color1_miio313150241 RX",
+          "cSharpName": "YeelinkLightColor1Miio313150241Rx"
+        },
+        {
+          "id": "sensor.yeelink_light_color1_miio313150241_tx",
+          "friendlyName": "yeelink-light-color1_miio313150241 TX",
+          "cSharpName": "YeelinkLightColor1Miio313150241Tx"
         }
       ],
       "attributes": [
@@ -8786,7 +8926,7 @@
         {
           "jsonName": "linkquality",
           "cSharpName": "Linkquality",
-          "clrType": "System.Double"
+          "clrType": "System.Object"
         },
         {
           "jsonName": "tamper",
@@ -8902,6 +9042,11 @@
           "jsonName": "source",
           "cSharpName": "Source",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "assumed_state",
+          "cSharpName": "AssumedState",
+          "clrType": "System.Boolean"
         }
       ]
     },
@@ -10066,7 +10211,7 @@
         },
         {
           "id": "update.studio_bluetooth_proxy_firmware",
-          "friendlyName": "studio-bluetooth-proxy Firmware",
+          "friendlyName": "Firmware",
           "cSharpName": "StudioBluetoothProxyFirmware"
         },
         {
