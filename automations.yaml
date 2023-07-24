@@ -44,15 +44,15 @@
       - email/mcinnes01@gmail.com
       - device/AndyPhone
     service: notify.pushbullet
-  - data:
+  - service: notify.alexa_media
+    data:
       title: Alarm Triggered
       message: The alarm has been triggered. The alarm has been triggered. The alarm
         has been triggered. The alarm has been triggered. The alarm has been triggered.
-      target:
-      - media_player.everywhere
+      target: media_player.all_speakers
       data:
         type: announce
-    service: notify.alexa_media
+        method: all
   id: 33a13ad590164e5a9542f8223820a928
 - alias: Turn On Ex Machina lights when alarm triggered
   trigger:
@@ -75,14 +75,14 @@
     entity_id: alarm_control_panel.alarm
     to: disarmed
   action:
-  - data:
-      type: announce
-    service: notify.alexa_media
-    data_template:
+  - service: notify.alexa_media
+    data:
       title: Alarm disarmed
       message: ALARM! The alarm is Disarmed at {{ states('sensor.date_time') }}
-      target:
-      - media_player.everywhere
+      target: media_player.all_speakers
+      data:
+        type: announce
+        method: all
   id: 63385e6035f643aab8b67f619af4951b
 - alias: Turn Off Ex Machina lights when alarm disarmed
   trigger:
@@ -107,13 +107,13 @@
     to: pending
   action:
   - service: notify.alexa_media
-    data_template:
+    data:
       title: Alarm arming
       message: The alarm is arming you have 60 seconds to leave
-      target:
-      - media_player.everywhere
+      target: media_player.all_speakers
       data:
         type: announce
+        method: all
   mode: single
 - alias: Send notification when alarm is pending
   trigger:
@@ -123,13 +123,13 @@
     to: pending
   action:
   - service: notify.alexa_media
-    data_template:
+    data:
       title: Alarm pending
       message: You have 30 seconds to disable the alarm
-      target:
-      - media_player.everywhere
+      target: media_player.all_speakers
       data:
         type: announce
+        method: all
   id: df6ae52914e648ec8d170fc4e508c29e
 - alias: Send notification when alarm is Armed in Away mode
   trigger:
@@ -138,13 +138,13 @@
     to: armed_away
   action:
   - service: notify.alexa_media
-    data_template:
+    data:
       title: Alarm armed in away mode
       message: The alarm is armed in Away mode
-      target:
-      - media_player.everywhere
+      target: media_player.all_speakers
       data:
         type: announce
+        method: all
   id: e430701364844f3da246e6f2db218214
 - alias: Send notification when alarm is Armed in Home mode
   trigger:
@@ -153,13 +153,13 @@
     to: armed_home
   action:
   - service: notify.alexa_media
-    data_template:
+    data:
       title: Alarm armed in home mode
       message: The alarm is armed in Home mode
-      target:
-      - media_player.everywhere
+      target: media_player.all_speakers
       data:
         type: announce
+        method: all
   id: b762a0f5608845a2800b4b408924d844
 - id: '1621858546623'
   alias: Andy is home
@@ -178,10 +178,11 @@
       minutes: 2
       seconds: 0
       milliseconds: 0
-  - service: notify.alexa_media_all_speakers
+  - service: notify.alexa_media
     data:
       message: Welcome home Andy
       title: Andy is home
+      target: media_player.all_speakers
       data:
         type: announce
         method: all
@@ -383,13 +384,14 @@
       minutes: 2
       seconds: 0
       milliseconds: 0
-  - service: notify.alexa_media_all_speakers
+  - service: notify.alexa_media
     data:
-      message: Welcome home Claire
-      title: Claire is home
       data:
         type: announce
-        method: all
+        state: all
+      target: media_player.all_speakers
+      title: Welcome home Claire
+      message: Welcome home Claire
   mode: single
 - id: '1622742978922'
   alias: Loft hatch open
@@ -402,9 +404,10 @@
     domain: binary_sensor
   condition: []
   action:
-  - service: notify.alexa_media_all_speakers
+  - service: notify.alexa_media
     data:
       message: Get off my things!
+      target: media_player.all_speakers
       data:
         method: all
         type: announce
@@ -420,15 +423,16 @@
     domain: binary_sensor
   condition: []
   action:
-  - service: notify.alexa_media_all_speakers
+  - service: notify.alexa_media
     data:
+      target: media_player.all_speakers
       message: You better put them back where you found them!
       data:
         method: all
         type: announce
   mode: single
-- alias: Lounge Scene Watch Television
-  id: 34d291332d9d4a9185327573b8c1a90f
+- id: 34d291332d9d4a9185327573b8c1a90f
+  alias: Lounge Scene Watch Television
   description: ''
   trigger:
   - platform: state
@@ -443,10 +447,12 @@
     target:
       entity_id:
       - group.lounge_overrides
+    data: {}
   - service: light.turn_off
     target:
       entity_id:
       - light.lounge
+    data: {}
   - service: yeelight.set_color_temp_scene
     data:
       kelvin: 3700
@@ -455,6 +461,10 @@
       entity_id:
       - light.lounge_corner_lamp
       - light.lounge_floor_lamp
+  - service: switch.turn_on
+    data: {}
+    target:
+      entity_id: switch.lounge_tv
   mode: single
 - id: '1621853753389'
   alias: Patio door is open
@@ -465,12 +475,13 @@
     to: 'on'
   condition: []
   action:
-  - service: notify.alexa_media_all_speakers
+  - service: notify.alexa_media
     data:
       data:
         type: announce
         state: all
       title: Door Open
+      target: media_player.all_speakers
       message: Patio door is open!
   mode: single
 - id: doorbell_trigger
@@ -484,13 +495,14 @@
     data:
       message: 'Someone at the door '
       title: Doorbell
-  - service: notify.alexa_media_all_speakers
+  - service: notify.alexa_media
     data:
       message: Ding dong! Someone is at the door!
       title: Doorbell rang
+      target: media_player.all_speakers
       data:
-        method: all
         type: announce
+        state: all
   mode: single
 - id: '1579518320766'
   alias: Turn On Porch Light when Sun is set
@@ -560,15 +572,15 @@
   action:
   - service: script.notify_all
     data: {}
-  - data:
+  - service: notify.alexa_media
+    data:
       title: Sump Alarm Triggered
       message: The sump alarm has been triggered, check the sump pump has power, this
         could cause a flood if not attended.
-      target:
-      - media_player.everywhere
+      target: media_player.all_speakers
       data:
         type: announce
-    service: notify.alexa_media
+        method: all
 - id: '1628676340481'
   alias: Snug Switch Actions
   description: ''
@@ -824,6 +836,16 @@
         data: {}
         target:
           entity_id: light.guest_room
+      action_button_up_double:
+      - type: turn_on
+        device_id: 4875dd3867ce4b5e2dcfe16c535a8f86
+        entity_id: ed424323a4fc290e0be09dec3a44bc67
+        domain: switch
+      action_button_down_double:
+      - type: turn_off
+        device_id: 4875dd3867ce4b5e2dcfe16c535a8f86
+        entity_id: ed424323a4fc290e0be09dec3a44bc67
+        domain: switch
 - id: '1671116345592'
   alias: Lounge Remote States
   description: ''
@@ -961,3 +983,14 @@
     target:
       device_id: 05fc0ef00cc911eb9bd319798131fa33
   mode: single
+- id: '1688678984181'
+  alias: Conversation agent agenda notification
+  description: ''
+  use_blueprint:
+    path: homeassistant/notify_agent_agenda.yaml
+    input:
+      conversation_agent: homeassistant
+      notify_time: 07:30:00
+      calendar_entity: calendar.home_andisoft_gmail_com
+      weather_entity: weather.met_office_heaton_chapel_daily
+      zone_entity: zone.home

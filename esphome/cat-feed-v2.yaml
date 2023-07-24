@@ -1,0 +1,29 @@
+esphome:
+  name: cat-feed-v2
+  friendly_name: cat-feed-v2
+
+esp8266:
+  board: esp01_1m
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "idlx1MKtnmhvJpg2TXQmx1F8hjuP6sOI35woPqCWgRk="
+
+ota:
+  password: "2eb7fa9dc3fee1aa1196c21f81785d71"
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Cat-Feed-V2 Fallback Hotspot"
+    password: "JgD3spOupHGp"
+
+captive_portal:
+    

@@ -5,7 +5,7 @@ homeassistant:
   # Uncomment line below and create file customize.yaml or edit it
   customize: !include customize.yaml
   packages: !include_dir_named packages
-  whitelist_external_dirs:
+  allowlist_external_dirs:
     - /config/www/tmp
     - /config/www/images
 
@@ -87,13 +87,6 @@ spotcast:
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
-
-#Weather
-weather:
-  # - platform: darksky
-  #   api_key: 82c93da6430dbe755461f4e4a9c20e3e
-  #   name: stockport
-  #   mode: daily
 
 # Notifications
 notify:
@@ -224,8 +217,8 @@ yeelight:
           - SleepTransition: [1000]
 
 #binary_sensor:
-  #- platform: uptimerobot
-   # api_key: !secret uptime_key
+#- platform: uptimerobot
+# api_key: !secret uptime_key
 template: !include templates.yaml
 
 withings:

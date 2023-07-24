@@ -134,27 +134,27 @@ switch:
     id: morning_feed_enabled
     name: "Morning Feed Enabled"
     optimistic: true
-    restore_state: yes
+    restore_mode: RESTORE_DEFAULT_ON
   - platform: template
     id: morning_feed_complete
     name: "Morning Feed Complete"
     optimistic: true
-    restore_state: yes
+    restore_mode: RESTORE_DEFAULT_OFF
   - platform: template
     id: evening_feed_enabled
     name: "Evening Feed Enabled"
     optimistic: true
-    restore_state: yes
+    restore_mode: RESTORE_DEFAULT_ON
   - platform: template
     id: evening_feed_complete
     name: "Evening Feed Complete"
     optimistic: true
-    restore_state: yes
+    restore_mode: RESTORE_DEFAULT_OFF
   - platform: template
     id: disable_next_feed
     name: "Disable Next Feed"
     optimistic: true
-    restore_state: yes
+    restore_mode: RESTORE_DEFAULT_OFF
 
 script:
   id: run_motor

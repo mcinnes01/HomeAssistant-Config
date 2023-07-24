@@ -4,8 +4,9 @@ feed_cats:
   - service: switch.turn_on
     target:
       entity_id: switch.dispenser_motor
-  - service: notify.alexa_media_all_speakers
+  - service: notify.alexa_media
     data:
+      target: media_player.all_speakers
       message: Rupert, Gunther it's dinner time you little beauties.
       data:
         type: announce
@@ -59,10 +60,10 @@ notify_alexa_everywhere:
     data:
       title: '{{title}}'
       message: '{{message}}'
-      target:
-      - media_player.everywhere
+      target: media_player.all_speakers
       data:
         type: announce
+        method: all
 notify_pushbullet:
   alias: Notify Pushbullet
   sequence:

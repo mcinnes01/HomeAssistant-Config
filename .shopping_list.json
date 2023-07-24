@@ -1,5 +1,10 @@
 [
   {
+    "name": "TimeOfDay still doesn't work enable toggling cycles the transition and the the startup isn't setting the right time of day either. Possible dump the state machine",
+    "id": "de36c2c5c1704b23b94077b3d6c985a7",
+    "complete": true
+  },
+  {
     "name": "Fix Hallway Motion Sensor",
     "id": "810f8d7cb2af4d2f874bddfa7542598e",
     "complete": false
@@ -7,17 +12,17 @@
   {
     "name": "Fix Good Night Automation",
     "id": "0aa6d81ff0454580a77af64000a291c5",
-    "complete": false
+    "complete": true
   },
   {
     "name": "Fix In Bed Night Automation",
     "id": "4eb3f0c573cf46308d64d8ea69242034",
-    "complete": false
+    "complete": true
   },
   {
     "name": "Create Unavailable/Offline device list",
     "id": "42574e97e05943d3937b8c0b64ebb2a4",
-    "complete": false
+    "complete": true
   },
   {
     "name": "Create notification for devices offline",
@@ -28,11 +33,6 @@
     "name": "Create normal automation for lounge, etc",
     "id": "56cdb0597efc45918bbc5f83ade65ae9",
     "complete": false
-  },
-  {
-    "name": "Back door light for detection and door",
-    "id": "039ceeb1f2744dbda8810e35713f6fcf",
-    "complete": true
   },
   {
     "name": "Electric cabinet door open",
@@ -50,38 +50,43 @@
     "complete": false
   },
   {
-    "name": "Bedside lamp off in morning",
-    "id": "5c6974f20a084af78edc83368844e4d7",
-    "complete": false
-  },
-  {
     "name": "Change Light automation to work per light and use states that specifically affect that light",
     "id": "3f5ab7f8451a4e36b598f786ea350e83",
     "complete": false
   },
   {
-    "name": "Studio time",
-    "id": "de2acc42246f4161a3fb251cde4756b3",
-    "complete": false
-  },
-  {
     "name": "Clean brewery",
     "id": "bcd562d23b144725b9c554c196c9b5e8",
-    "complete": false
+    "complete": true
   },
   {
     "name": "Get bits from shop",
     "id": "fa2f7d5fe4ce4c229b400ff1daf47f39",
-    "complete": false
-  },
-  {
-    "name": "Do some home assistant ",
-    "id": "3c6c0d150dbd442091028666862367ce",
-    "complete": false
+    "complete": true
   },
   {
     "name": "Make BBQ doors",
     "id": "996ec7d593904a2dae7bf76c38ea6ef0",
+    "complete": false
+  },
+  {
+    "name": "Light Control Mode is triggering when Morning is set i.e. 3.47am and causing a transition to Motion",
+    "id": "5452c2747abc471b8489c776fc9f4b61",
+    "complete": true
+  },
+  {
+    "name": "Fix upstairs WiFi packet loss ",
+    "id": "d04958cadca64d098fdf3c82e000f3af",
+    "complete": false
+  },
+  {
+    "name": "Fix time of day going to day at night",
+    "id": "06d9a7521caa4d829a8b112402cf4182",
+    "complete": true
+  },
+  {
+    "name": "Fix time of day not going to evening",
+    "id": "db58733f4ed44312a768aa4cfe75231b",
     "complete": false
   }
 ]

@@ -160,7 +160,14 @@ public class BrightnessController
                 case BrightnessTrigger.LuxFault:
                 case BrightnessTrigger.Sun:
                 case BrightnessTrigger.TimeOfDay:
-                    if (Sun.IsBelowHorizon())
+                    if (IlluminanceSensor?.State > 0.0)
+                    {
+                        var brightness = MapBrightness(IlluminanceSensor.EntityState);
+                        _logger.LogDebug("BrightnessTrigger: {Trigger}, Lux: {Lux}, setting brightness to {Brightness}.",
+                            trigger, IlluminanceSensor?.State, brightness);
+                        Brightness!.SelectOption(brightness);
+                    }
+                    else if (Sun.IsBelowHorizon())
                     {
                         _logger.LogDebug("BrightnessTrigger: {Trigger}, Lux sensor fault, using sun below horizon to set brightness Dark.", new { Trigger = trigger.ToString(), Entity = Brightness });
                         Brightness?.SelectOption(BrightnessOptions.Dark);

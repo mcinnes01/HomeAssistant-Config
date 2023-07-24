@@ -61,13 +61,13 @@ public class LightControlModeController
         // Set to motion control when its day time and we are home
         TimeOfDay?.StateAllChangesWithCurrent()
         .Where(t => t.New.IsOption(TimeOfDayOptions.Day)
-        && Constants.HouseOccupied.Contains(LocationMode.AsOption<LocationModeOptions>()))
+         && Constants.HouseOccupied.Contains(LocationMode.AsOption<LocationModeOptions>()))
         .Subscribe(_ => Handle(Trigger.Day));
 
         // Set to motion control when its day time and we are home
         TimeOfDay?.StateAllChangesWithCurrent()
         .Where(t => t.New.IsOption(TimeOfDayOptions.Night)
-        && Constants.HouseOccupied.Contains(LocationMode.AsOption<LocationModeOptions>()))
+         && !Constants.HouseOccupied.Contains(LocationMode.AsOption<LocationModeOptions>()))
         .Subscribe(_ => Handle(Trigger.Night));
 
         // Goes dark or dim

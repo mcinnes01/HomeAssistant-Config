@@ -62,6 +62,7 @@ public class TimeOfDayControlApp
             _scheduler.RunAt(nextNoon, () => RunTimeUpdate());
             _scheduler.RunAt(nextEvening, () => RunTimeUpdate());
             _scheduler.RunAt(nextDusk, () => RunTimeUpdate());
+            _logger.LogInformation($"Todays sun times Morning: {nextDawn} Day: {nextDay} Noon: {nextNoon} Evening: {nextEvening} Night: {nextDusk}");
         }
     }
 
