@@ -122,7 +122,10 @@ sensor:
 
 switch:
   - platform: gpio
-    pin: GPIO3
+    pin:
+      number: 13
+      inverted: True
+      #mode: INPUT_PULLUP
     name: "Dispenser Motor"
     id: motor
     on_turn_on:

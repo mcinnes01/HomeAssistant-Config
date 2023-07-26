@@ -41,28 +41,19 @@ public class TimeOfDayControlApp
 
     private void ScheduleSunTimes()
     {
-        //_logbook.Log("ScheduleSunTimes", $"Setting todays sun times at {DateTime.Now}", _timeOfDay.EntityId, "input_select");
-        _logger.LogInformation($"Setting todays sun times at {DateTime.Now}");
         if(DateTime.TryParse(_entities.Sensor.SunNextDawn.State, out DateTime nextDawn)
         && DateTime.TryParse(_entities.Sensor.SunNextNoon.State, out DateTime nextNoon)
         && DateTime.TryParse(_entities.Sensor.SunNextDusk.State, out DateTime nextDusk))
         {
-            //_logbook.Log("ScheduleSunTimes", $"Todays sun times Dawn: {nextDawn} Noon: {nextNoon} Dusk: {nextDusk}", _timeOfDay.EntityId, "input_select");
-            _logger.LogInformation($"Todays sun times Dawn: {nextDawn} Noon: {nextNoon} Dusk: {nextDusk}");
+            // Set sun times
             _sunTimes = _sunTimes.Set(nextDawn, nextNoon, nextDusk);
 
-            var nextDay = DateTime.Today.Add(Constants.DAYTIME.ToTimeSpan());
-            var nextEvening = DateTime.Today.Add(Constants.EVENINGTIME.ToTimeSpan());
-            if (DateOnly.FromDateTime(nextNoon) > DateOnly.FromDateTime(nextEvening)
-                && TimeOnly.FromDateTime(DateTime.Now) > Constants.NIGHT_START)
-                nextEvening.AddDays(1);
-
-            _scheduler.RunAt(nextDawn, () => RunTimeUpdate());
-            _scheduler.RunAt(nextDay, () => RunTimeUpdate());
-            _scheduler.RunAt(nextNoon, () => RunTimeUpdate());
-            _scheduler.RunAt(nextEvening, () => RunTimeUpdate());
-            _scheduler.RunAt(nextDusk, () => RunTimeUpdate());
-            _logger.LogInformation($"Todays sun times Morning: {nextDawn} Day: {nextDay} Noon: {nextNoon} Evening: {nextEvening} Night: {nextDusk}");
+            _scheduler.RunAt(_sunTimes.Morning, () => RunTimeUpdate());
+            _scheduler.RunAt(_sunTimes.Day, () => RunTimeUpdate());
+            _scheduler.RunAt(_sunTimes.Afternoon, () => RunTimeUpdate());
+            _scheduler.RunAt(_sunTimes.Evening, () => RunTimeUpdate());
+            _scheduler.RunAt(_sunTimes.Night, () => RunTimeUpdate());
+            _logger.LogInformation($"Todays sun times Morning: {_sunTimes.Morning} Day: {_sunTimes.Day} Noon: {_sunTimes.Afternoon} Evening: {_sunTimes.Evening} Night: {_sunTimes.Night}");
         }
     }
 
@@ -110,44 +101,39 @@ public class TimeOfDayControlApp
 
     private void SetTimeOfDay()
     {
-        var now = TimeOnly.FromDateTime(DateTime.Now);
-        var today = DateOnly.FromDateTime(DateTime.Now);
-        var dawn = TimeOnly.FromDateTime(_sunTimes.Dawn);
-        var noon = TimeOnly.FromDateTime(_sunTimes.Noon);
-        var dusk = TimeOnly.FromDateTime(_sunTimes.Dusk);
-        if (now >= dawn && now < noon)
+        if (_sunTimes.Now >= _sunTimes.Morning && _sunTimes.Now < _sunTimes.Afternoon)
         {
-            if(now >= Constants.DAYTIME)
+            if(_sunTimes.NowTime >= Constants.DAYTIME)
             {
                 _currentTimeOfDay = TimeOfDayOptions.Day;
-                _logger.LogInformation($"Setting current TimeOfDay: {_currentTimeOfDay} - Now: {now} >= {Constants.DAYTIME} >= (dawn):{_sunTimes.Dawn} < (noon):{_sunTimes.Noon}");
+                _logger.LogInformation($"Setting current TimeOfDay: {_currentTimeOfDay} - Now: {_sunTimes.Now} >= {Constants.DAYTIME} >= (dawn):{_sunTimes.Morning} < (noon):{_sunTimes.Afternoon}");
             }
             else
             {
                 _currentTimeOfDay = TimeOfDayOptions.Morning;
-                _logger.LogInformation($"Setting current TimeOfDay: {_currentTimeOfDay} - Now: {now} < {Constants.DAYTIME} >= (dawn):{_sunTimes.Dawn} < (noon):{_sunTimes.Noon}");
+                _logger.LogInformation($"Setting current TimeOfDay: {_currentTimeOfDay} - Now: {_sunTimes.Now} < {Constants.DAYTIME} >= (dawn):{_sunTimes.Morning} < (noon):{_sunTimes.Afternoon}");
             }
         }
-        else if (now >= noon && ((now < dusk && dusk < Constants.EVENING_END) || now < Constants.EVENINGTIME))
+        else if (_sunTimes.Now >= _sunTimes.Afternoon && ((_sunTimes.Now < _sunTimes.Night && _sunTimes.NightTime < Constants.EVENING_END) || _sunTimes.NowTime < Constants.EVENINGTIME))
         {
             _currentTimeOfDay = TimeOfDayOptions.Afternoon;
-            _logger.LogInformation($"Setting current TimeOfDay: {_currentTimeOfDay} - Now: {now} >= (noon):{_sunTimes.Noon} < (dusk):{_sunTimes.Dusk}");
+            _logger.LogInformation($"Setting current TimeOfDay: {_currentTimeOfDay} - Now: {_sunTimes.Now} >= (noon):{_sunTimes.Afternoon} < (dusk):{_sunTimes.Night}");
         }
-        else if ((now >= dusk || now >= Constants.EVENINGTIME)
-            && now < Constants.NIGHTTIME_WEEKDAYS)
+        else if ((_sunTimes.Now >= _sunTimes.Night || _sunTimes.NowTime >= Constants.EVENINGTIME)
+            && _sunTimes.NowTime < Constants.NIGHTTIME_WEEKDAYS)
         {
             _currentTimeOfDay = TimeOfDayOptions.Evening;
-            _logger.LogInformation($"Setting current TimeOfDay: {_currentTimeOfDay} - Now: {now} >= (dusk):{_sunTimes.Dusk} < (dawn):{_sunTimes.Dawn.AddDays(1)}");
+            _logger.LogInformation($"Setting current TimeOfDay: {_currentTimeOfDay} - Now: {_sunTimes.Now} >= (dusk):{_sunTimes.Night} < (dawn):{_sunTimes.Morning.AddDays(1)}");
         }
-        else if ((now > dusk && today == DateOnly.FromDateTime(_sunTimes.Dusk) && now > Constants.NIGHTTIME_WEEKDAYS)
-              || (now < dawn && today == DateOnly.FromDateTime(_sunTimes.Dawn)))
+        else if ((_sunTimes.Now > _sunTimes.Night && _sunTimes.NowDate == _sunTimes.NightDate && _sunTimes.NowTime > Constants.NIGHTTIME_WEEKDAYS)
+              || (_sunTimes.Now < _sunTimes.Morning && _sunTimes.NowDate == _sunTimes.MorningDate))
         {
             _currentTimeOfDay = TimeOfDayOptions.Night;
-            _logger.LogInformation($"Setting current TimeOfDay: {_currentTimeOfDay} - Now: {now} < (dawn):{_sunTimes.Dawn.AddDays(1)}");
+            _logger.LogInformation($"Setting current TimeOfDay: {_currentTimeOfDay} - Now: {_sunTimes.Now} < (dawn):{_sunTimes.Morning.AddDays(1)}");
         }
         else
         {
-            _logger.LogInformation($"Well how did we end up here: CurrentTime: {now} Dawn {_sunTimes.Dawn} Noon {_sunTimes.Noon} Dusk {_sunTimes.Dusk}");
+            _logger.LogInformation($"Well how did we end up here: CurrentTime: {_sunTimes.Now} Dawn {_sunTimes.Morning} Noon {_sunTimes.Afternoon} Dusk {_sunTimes.Night}");
         }
 
         if (_currentTimeOfDay != _timeOfDay.AsOption<TimeOfDayOptions>())

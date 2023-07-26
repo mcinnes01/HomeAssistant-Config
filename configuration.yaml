@@ -76,9 +76,9 @@ recorder:
   purge_keep_days: 45
 
 # Discover some devices automatically
-discovery:
-  ignore:
-    - yeelight
+# discovery:
+#   ignore:
+#     - yeelight
 
 # Spotify
 spotcast:

@@ -39,7 +39,7 @@
             "state": "idle"
         },
         "update_available": false,
-        "state": "ON",
+        "state": "OFF",
         "power_on_behavior": "previous"
     },
     "0xf082c0fffe7dd100": {
@@ -57,9 +57,9 @@
         "update_available": true
     },
     "0xa4c138dff6d5bb59": {
-        "temperature": 20.22,
-        "humidity": 69.61,
-        "battery": 23,
+        "temperature": 21.18,
+        "humidity": 61.35,
+        "battery": 22,
         "voltage": 2600
     },
     "0x70ac08fffefb73fa": {
@@ -84,7 +84,7 @@
         "battery": 100
     },
     "0x00124b0022ff6b10": {
-        "contact": false,
+        "contact": true,
         "tamper": false,
         "battery_low": false,
         "voltage": 3100,

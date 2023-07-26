@@ -414,7 +414,7 @@
         },
         {
           "id": "binary_sensor.basement_stairs_motion_battery_low",
-          "friendlyName": "Basement Stairs Motion battery low",
+          "friendlyName": "Basement Stairs Motion Basement Stairs Motion battery low",
           "cSharpName": "BasementStairsMotionBatteryLow"
         },
         {
@@ -424,33 +424,8 @@
         },
         {
           "id": "binary_sensor.basement_stairs_motion_tamper",
-          "friendlyName": "Basement Stairs Motion tamper",
+          "friendlyName": "Basement Stairs Motion Basement Stairs Motion tamper",
           "cSharpName": "BasementStairsMotionTamper"
-        },
-        {
-          "id": "binary_sensor.basement_thermostat_fan",
-          "friendlyName": "Basement Thermostat fan",
-          "cSharpName": "BasementThermostatFan"
-        },
-        {
-          "id": "binary_sensor.basement_thermostat_has_leaf",
-          "friendlyName": "Basement Thermostat has leaf",
-          "cSharpName": "BasementThermostatHasLeaf"
-        },
-        {
-          "id": "binary_sensor.basement_thermostat_is_locked",
-          "friendlyName": "Basement Thermostat is locked",
-          "cSharpName": "BasementThermostatIsLocked"
-        },
-        {
-          "id": "binary_sensor.basement_thermostat_is_using_emergency_heat",
-          "friendlyName": "Basement Thermostat is using emergency heat",
-          "cSharpName": "BasementThermostatIsUsingEmergencyHeat"
-        },
-        {
-          "id": "binary_sensor.basement_thermostat_online",
-          "friendlyName": "Basement Thermostat online",
-          "cSharpName": "BasementThermostatOnline"
         },
         {
           "id": "binary_sensor.bathroom_door",
@@ -459,7 +434,7 @@
         },
         {
           "id": "binary_sensor.bathroom_door_battery_low",
-          "friendlyName": "Bathroom Door battery low",
+          "friendlyName": "Bathroom Door Bathroom Door battery low",
           "cSharpName": "BathroomDoorBatteryLow"
         },
         {
@@ -509,7 +484,7 @@
         },
         {
           "id": "binary_sensor.coffee_machine_update_available_2",
-          "friendlyName": "Coffee Machine update available",
+          "friendlyName": "Coffee Machine Coffee Machine update available",
           "cSharpName": "CoffeeMachineUpdateAvailable2"
         },
         {
@@ -564,43 +539,18 @@
         },
         {
           "id": "binary_sensor.dispenser_rotating",
-          "friendlyName": "Dispenser Rotating",
+          "friendlyName": "cat-feeder Dispenser Rotating",
           "cSharpName": "DispenserRotating"
         },
         {
           "id": "binary_sensor.display_cabinet_light_update_available",
-          "friendlyName": "Display Cabinet Light update available",
+          "friendlyName": "Display Cabinet Light Display Cabinet Light update available",
           "cSharpName": "DisplayCabinetLightUpdateAvailable"
         },
         {
           "id": "binary_sensor.doorbell_button",
-          "friendlyName": "Doorbell Button",
+          "friendlyName": "Doorbell Doorbell Button",
           "cSharpName": "DoorbellButton"
-        },
-        {
-          "id": "binary_sensor.downstairs_thermostat_fan",
-          "friendlyName": "Downstairs Thermostat fan",
-          "cSharpName": "DownstairsThermostatFan"
-        },
-        {
-          "id": "binary_sensor.downstairs_thermostat_has_leaf",
-          "friendlyName": "Downstairs Thermostat has leaf",
-          "cSharpName": "DownstairsThermostatHasLeaf"
-        },
-        {
-          "id": "binary_sensor.downstairs_thermostat_is_locked",
-          "friendlyName": "Downstairs Thermostat is locked",
-          "cSharpName": "DownstairsThermostatIsLocked"
-        },
-        {
-          "id": "binary_sensor.downstairs_thermostat_is_using_emergency_heat",
-          "friendlyName": "Downstairs Thermostat is using emergency heat",
-          "cSharpName": "DownstairsThermostatIsUsingEmergencyHeat"
-        },
-        {
-          "id": "binary_sensor.downstairs_thermostat_online",
-          "friendlyName": "Downstairs Thermostat online",
-          "cSharpName": "DownstairsThermostatOnline"
         },
         {
           "id": "binary_sensor.drawing_room_motion",
@@ -614,42 +564,42 @@
         },
         {
           "id": "binary_sensor.electric_cabinet_door_battery_low",
-          "friendlyName": "Electric Cabinet Door battery low",
+          "friendlyName": "Electric Cabinet Door Electric Cabinet Door battery low",
           "cSharpName": "ElectricCabinetDoorBatteryLow"
         },
         {
           "id": "binary_sensor.electric_cabinet_door_contact",
-          "friendlyName": "Electric Cabinet Door contact",
+          "friendlyName": "Electric Cabinet Door Electric Cabinet Door contact",
           "cSharpName": "ElectricCabinetDoorContact"
         },
         {
           "id": "binary_sensor.espresense_bedroom",
-          "friendlyName": "ESPresense Bedroom",
+          "friendlyName": "ESPresense Bedroom ESPresense Bedroom",
           "cSharpName": "EspresenseBedroom"
         },
         {
           "id": "binary_sensor.espresense_drawingroom",
-          "friendlyName": "ESPresense DrawingRoom",
+          "friendlyName": "ESPresense DrawingRoom ESPresense DrawingRoom",
           "cSharpName": "EspresenseDrawingroom"
         },
         {
           "id": "binary_sensor.espresense_kitchen",
-          "friendlyName": "ESPresense Kitchen",
+          "friendlyName": "ESPresense Kitchen ESPresense Kitchen",
           "cSharpName": "EspresenseKitchen"
         },
         {
           "id": "binary_sensor.espresense_lounge",
-          "friendlyName": "ESPresense Lounge",
+          "friendlyName": "ESPresense Lounge ESPresense Lounge",
           "cSharpName": "EspresenseLounge"
         },
         {
           "id": "binary_sensor.espresense_snug",
-          "friendlyName": "ESPresense Snug",
+          "friendlyName": "ESPresense Snug ESPresense Snug",
           "cSharpName": "EspresenseSnug"
         },
         {
           "id": "binary_sensor.espresense_studio",
-          "friendlyName": "ESPresense Studio",
+          "friendlyName": "studio-bluetooth-proxy ESPresense Studio",
           "cSharpName": "EspresenseStudio"
         },
         {
@@ -669,12 +619,12 @@
         },
         {
           "id": "binary_sensor.front_door_battery_low",
-          "friendlyName": "Front Door battery low",
+          "friendlyName": "Front Door Front Door battery low",
           "cSharpName": "FrontDoorBatteryLow"
         },
         {
           "id": "binary_sensor.front_door_contact",
-          "friendlyName": "Front Door contact",
+          "friendlyName": "Front Door Front Door contact",
           "cSharpName": "FrontDoorContact"
         },
         {
@@ -709,7 +659,7 @@
         },
         {
           "id": "binary_sensor.guest_room_bedside_lamp_update_available",
-          "friendlyName": "Guest Room Bedside Lamp update available",
+          "friendlyName": "Guest Room Bedside Lamp Guest Room Bedside Lamp update available",
           "cSharpName": "GuestRoomBedsideLampUpdateAvailable"
         },
         {
@@ -719,7 +669,7 @@
         },
         {
           "id": "binary_sensor.guest_room_remote_update_available",
-          "friendlyName": "Guest Room Remote update available",
+          "friendlyName": "Guest Room Remote Guest Room Remote update available",
           "cSharpName": "GuestRoomRemoteUpdateAvailable"
         },
         {
@@ -769,7 +719,7 @@
         },
         {
           "id": "binary_sensor.hallway_remote_update_available",
-          "friendlyName": "Hallway Remote update available",
+          "friendlyName": "Hallway Remote Hallway Remote update available",
           "cSharpName": "HallwayRemoteUpdateAvailable"
         },
         {
@@ -924,22 +874,17 @@
         },
         {
           "id": "binary_sensor.lounge_remote_update_available",
-          "friendlyName": "Lounge Remote update available",
+          "friendlyName": "Lounge Remote Lounge Remote update available",
           "cSharpName": "LoungeRemoteUpdateAvailable"
         },
         {
-          "id": "binary_sensor.manchester_road_away",
-          "friendlyName": "Manchester Road away",
-          "cSharpName": "ManchesterRoadAway"
-        },
-        {
           "id": "binary_sensor.nspanel_left_button",
-          "friendlyName": "nspanel Left Button",
+          "friendlyName": "nspanel nspanel Left Button",
           "cSharpName": "NspanelLeftButton"
         },
         {
           "id": "binary_sensor.nspanel_right_button",
-          "friendlyName": "nspanel Right Button",
+          "friendlyName": "nspanel nspanel Right Button",
           "cSharpName": "NspanelRightButton"
         },
         {
@@ -1204,182 +1149,182 @@
         },
         {
           "id": "binary_sensor.sonoff_basement_1_basement_hall_button",
-          "friendlyName": "Sonoff Basement 1 Basement Hall Button",
+          "friendlyName": "Sonoff-Basement-1 Sonoff Basement 1 Basement Hall Button",
           "cSharpName": "SonoffBasement1BasementHallButton"
         },
         {
           "id": "binary_sensor.sonoff_basement_1_brewery_button",
-          "friendlyName": "Sonoff Basement 1 Brewery Button",
+          "friendlyName": "Sonoff-Basement-1 Sonoff Basement 1 Brewery Button",
           "cSharpName": "SonoffBasement1BreweryButton"
         },
         {
           "id": "binary_sensor.sonoff_basement_1_status",
-          "friendlyName": "Sonoff Basement 1 Status",
+          "friendlyName": "Sonoff-Basement-1 Sonoff Basement 1 Status",
           "cSharpName": "SonoffBasement1Status"
         },
         {
           "id": "binary_sensor.sonoff_basement_1_toilet_button",
-          "friendlyName": "Sonoff Basement 1 Toilet Button",
+          "friendlyName": "Sonoff-Basement-1 Sonoff Basement 1 Toilet Button",
           "cSharpName": "SonoffBasement1ToiletButton"
         },
         {
           "id": "binary_sensor.sonoff_basement_1_utility_room_button",
-          "friendlyName": "Sonoff Basement 1 Utility Room Button",
+          "friendlyName": "Sonoff-Basement-1 Sonoff Basement 1 Utility Room Button",
           "cSharpName": "SonoffBasement1UtilityRoomButton"
         },
         {
           "id": "binary_sensor.sonoff_basement_2_dining_room_button",
-          "friendlyName": "Sonoff Basement 2 Dining Room Button",
+          "friendlyName": "Sonoff-Basement-2 Sonoff Basement 2 Dining Room Button",
           "cSharpName": "SonoffBasement2DiningRoomButton"
         },
         {
           "id": "binary_sensor.sonoff_basement_2_snug_button",
-          "friendlyName": "Sonoff Basement 2 Snug Button",
+          "friendlyName": "Sonoff-Basement-2 Sonoff Basement 2 Snug Button",
           "cSharpName": "SonoffBasement2SnugButton"
         },
         {
           "id": "binary_sensor.sonoff_basement_2_spare_ch3_button",
-          "friendlyName": "Sonoff Basement 2 Spare Ch3 Button",
+          "friendlyName": "Sonoff-Basement-2 Sonoff Basement 2 Spare Ch3 Button",
           "cSharpName": "SonoffBasement2SpareCh3Button"
         },
         {
           "id": "binary_sensor.sonoff_basement_2_spare_ch4_button",
-          "friendlyName": "Sonoff Basement 2 Spare Ch4 Button",
+          "friendlyName": "Sonoff-Basement-2 Sonoff Basement 2 Spare Ch4 Button",
           "cSharpName": "SonoffBasement2SpareCh4Button"
         },
         {
           "id": "binary_sensor.sonoff_basement_2_status",
-          "friendlyName": "Sonoff Basement 2 Status",
+          "friendlyName": "Sonoff-Basement-2 Sonoff Basement 2 Status",
           "cSharpName": "SonoffBasement2Status"
         },
         {
           "id": "binary_sensor.sonoff_bridge_1_button1",
-          "friendlyName": "Sonoff Bridge 1 Button1",
+          "friendlyName": "Sonoff Bridge 1 Sonoff Bridge 1 Button1",
           "cSharpName": "SonoffBridge1Button1"
         },
         {
           "id": "binary_sensor.sonoff_downstairs_1_bookshelf_light_button",
-          "friendlyName": "Sonoff Downstairs 1 Bookshelf Light Button",
+          "friendlyName": "Sonoff-Downstairs-1 Sonoff Downstairs 1 Bookshelf Light Button",
           "cSharpName": "SonoffDownstairs1BookshelfLightButton"
         },
         {
           "id": "binary_sensor.sonoff_downstairs_1_extractor_fan_button",
-          "friendlyName": "Sonoff Downstairs 1 Extractor Fan Button",
+          "friendlyName": "Sonoff-Downstairs-1 Sonoff Downstairs 1 Extractor Fan Button",
           "cSharpName": "SonoffDownstairs1ExtractorFanButton"
         },
         {
           "id": "binary_sensor.sonoff_downstairs_1_hallway_light_button",
-          "friendlyName": "Sonoff Downstairs 1 Hallway Light Button",
+          "friendlyName": "Sonoff-Downstairs-1 Sonoff Downstairs 1 Hallway Light Button",
           "cSharpName": "SonoffDownstairs1HallwayLightButton"
         },
         {
           "id": "binary_sensor.sonoff_downstairs_1_lounge_light_button",
-          "friendlyName": "Sonoff Downstairs 1 Lounge Light Button",
+          "friendlyName": "Sonoff-Downstairs-1 Sonoff Downstairs 1 Lounge Light Button",
           "cSharpName": "SonoffDownstairs1LoungeLightButton"
         },
         {
           "id": "binary_sensor.sonoff_downstairs_1_status",
-          "friendlyName": "Sonoff Downstairs 1 Status",
+          "friendlyName": "Sonoff-Downstairs-1 Sonoff Downstairs 1 Status",
           "cSharpName": "SonoffDownstairs1Status"
         },
         {
           "id": "binary_sensor.sonoff_downstairs_2_cabinet_light_button",
-          "friendlyName": "Sonoff Downstairs 2 Cabinet Light Button",
+          "friendlyName": "Sonoff-Downstairs-2 Sonoff Downstairs 2 Cabinet Light Button",
           "cSharpName": "SonoffDownstairs2CabinetLightButton"
         },
         {
           "id": "binary_sensor.sonoff_downstairs_2_drawing_room_light_button",
-          "friendlyName": "Sonoff Downstairs 2 Drawing Room Light Button",
+          "friendlyName": "Sonoff-Downstairs-2 Sonoff Downstairs 2 Drawing Room Light Button",
           "cSharpName": "SonoffDownstairs2DrawingRoomLightButton"
         },
         {
           "id": "binary_sensor.sonoff_downstairs_2_kitchen_light_button",
-          "friendlyName": "Sonoff Downstairs 2 Kitchen Light Button",
+          "friendlyName": "Sonoff-Downstairs-2 Sonoff Downstairs 2 Kitchen Light Button",
           "cSharpName": "SonoffDownstairs2KitchenLightButton"
         },
         {
           "id": "binary_sensor.sonoff_downstairs_2_spare_ch1_button",
-          "friendlyName": "Sonoff Downstairs 2 Spare Ch1 Button",
+          "friendlyName": "Sonoff-Downstairs-2 Sonoff Downstairs 2 Spare Ch1 Button",
           "cSharpName": "SonoffDownstairs2SpareCh1Button"
         },
         {
           "id": "binary_sensor.sonoff_downstairs_2_status",
-          "friendlyName": "Sonoff Downstairs 2 Status",
+          "friendlyName": "Sonoff-Downstairs-2 Sonoff Downstairs 2 Status",
           "cSharpName": "SonoffDownstairs2Status"
         },
         {
           "id": "binary_sensor.sonoff_outside_1_back_door_button",
-          "friendlyName": "Sonoff Outside 1 Back Door Button",
+          "friendlyName": "Sonoff-Outside-1 Sonoff Outside 1 Back Door Button",
           "cSharpName": "SonoffOutside1BackDoorButton"
         },
         {
           "id": "binary_sensor.sonoff_outside_1_cellar_door_button",
-          "friendlyName": "Sonoff Outside 1 Cellar Door Button",
+          "friendlyName": "Sonoff-Outside-1 Sonoff Outside 1 Cellar Door Button",
           "cSharpName": "SonoffOutside1CellarDoorButton"
         },
         {
           "id": "binary_sensor.sonoff_outside_1_patio_button",
-          "friendlyName": "Sonoff Outside 1 Patio Button",
+          "friendlyName": "Sonoff-Outside-1 Sonoff Outside 1 Patio Button",
           "cSharpName": "SonoffOutside1PatioButton"
         },
         {
           "id": "binary_sensor.sonoff_outside_1_porch_button",
-          "friendlyName": "Sonoff Outside 1 Porch Button",
+          "friendlyName": "Sonoff-Outside-1 Sonoff Outside 1 Porch Button",
           "cSharpName": "SonoffOutside1PorchButton"
         },
         {
           "id": "binary_sensor.sonoff_outside_1_status",
-          "friendlyName": "Sonoff Outside 1 Status",
+          "friendlyName": "Sonoff-Outside-1 Sonoff Outside 1 Status",
           "cSharpName": "SonoffOutside1Status"
         },
         {
           "id": "binary_sensor.sonoff_upstairs_1_bathroom_fan_button",
-          "friendlyName": "Sonoff Upstairs 1 Bathroom Fan Button",
+          "friendlyName": "Sonoff-Upstairs-1 Sonoff Upstairs 1 Bathroom Fan Button",
           "cSharpName": "SonoffUpstairs1BathroomFanButton"
         },
         {
           "id": "binary_sensor.sonoff_upstairs_1_dressing_room_light_button",
-          "friendlyName": "Sonoff Upstairs 1 Dressing Room Light Button",
+          "friendlyName": "Sonoff-Upstairs-1 Sonoff Upstairs 1 Dressing Room Light Button",
           "cSharpName": "SonoffUpstairs1DressingRoomLightButton"
         },
         {
           "id": "binary_sensor.sonoff_upstairs_1_guest_room_light_button",
-          "friendlyName": "Sonoff Upstairs 1 Guest Room Light Button",
+          "friendlyName": "Sonoff-Upstairs-1 Sonoff Upstairs 1 Guest Room Light Button",
           "cSharpName": "SonoffUpstairs1GuestRoomLightButton"
         },
         {
           "id": "binary_sensor.sonoff_upstairs_1_landing_light_button",
-          "friendlyName": "Sonoff Upstairs 1 Landing Light Button",
+          "friendlyName": "Sonoff-Upstairs-1 Sonoff Upstairs 1 Landing Light Button",
           "cSharpName": "SonoffUpstairs1LandingLightButton"
         },
         {
           "id": "binary_sensor.sonoff_upstairs_1_status",
-          "friendlyName": "Sonoff Upstairs 1 Status",
+          "friendlyName": "Sonoff-Upstairs-1 Sonoff Upstairs 1 Status",
           "cSharpName": "SonoffUpstairs1Status"
         },
         {
           "id": "binary_sensor.sonoff_upstairs_2_bathroom_light_button",
-          "friendlyName": "Sonoff Upstairs 2 Bathroom Light Button",
+          "friendlyName": "Sonoff-Upstairs-2 Sonoff Upstairs 2 Bathroom Light Button",
           "cSharpName": "SonoffUpstairs2BathroomLightButton"
         },
         {
           "id": "binary_sensor.sonoff_upstairs_2_bedroom_light_button",
-          "friendlyName": "Sonoff Upstairs 2 Bedroom Light Button",
+          "friendlyName": "Sonoff-Upstairs-2 Sonoff Upstairs 2 Bedroom Light Button",
           "cSharpName": "SonoffUpstairs2BedroomLightButton"
         },
         {
           "id": "binary_sensor.sonoff_upstairs_2_mirror_light_button",
-          "friendlyName": "Sonoff Upstairs 2 Mirror Light Button",
+          "friendlyName": "Sonoff-Upstairs-2 Sonoff Upstairs 2 Mirror Light Button",
           "cSharpName": "SonoffUpstairs2MirrorLightButton"
         },
         {
           "id": "binary_sensor.sonoff_upstairs_2_status",
-          "friendlyName": "Sonoff Upstairs 2 Status",
+          "friendlyName": "Sonoff-Upstairs-2 Sonoff Upstairs 2 Status",
           "cSharpName": "SonoffUpstairs2Status"
         },
         {
           "id": "binary_sensor.sonoff_upstairs_2_studio_light_button",
-          "friendlyName": "Sonoff Upstairs 2 Studio Light Button",
+          "friendlyName": "Sonoff-Upstairs-2 Sonoff Upstairs 2 Studio Light Button",
           "cSharpName": "SonoffUpstairs2StudioLightButton"
         },
         {
@@ -1389,7 +1334,7 @@
         },
         {
           "id": "binary_sensor.sump_alarm_trigger",
-          "friendlyName": "Sump Alarm Trigger",
+          "friendlyName": "Sump-Alarm Sump Alarm Trigger",
           "cSharpName": "SumpAlarmTrigger"
         },
         {
@@ -1399,7 +1344,7 @@
         },
         {
           "id": "binary_sensor.toilet_door_battery_low",
-          "friendlyName": "Toilet Door battery low",
+          "friendlyName": "Toilet Door Toilet Door battery low",
           "cSharpName": "ToiletDoorBatteryLow"
         },
         {
@@ -1421,31 +1366,6 @@
           "id": "binary_sensor.updater",
           "friendlyName": "Updater",
           "cSharpName": "Updater"
-        },
-        {
-          "id": "binary_sensor.upstairs_thermostat_fan",
-          "friendlyName": "Upstairs Thermostat fan",
-          "cSharpName": "UpstairsThermostatFan"
-        },
-        {
-          "id": "binary_sensor.upstairs_thermostat_has_leaf",
-          "friendlyName": "Upstairs Thermostat has leaf",
-          "cSharpName": "UpstairsThermostatHasLeaf"
-        },
-        {
-          "id": "binary_sensor.upstairs_thermostat_is_locked",
-          "friendlyName": "Upstairs Thermostat is locked",
-          "cSharpName": "UpstairsThermostatIsLocked"
-        },
-        {
-          "id": "binary_sensor.upstairs_thermostat_is_using_emergency_heat",
-          "friendlyName": "Upstairs Thermostat is using emergency heat",
-          "cSharpName": "UpstairsThermostatIsUsingEmergencyHeat"
-        },
-        {
-          "id": "binary_sensor.upstairs_thermostat_online",
-          "friendlyName": "Upstairs Thermostat online",
-          "cSharpName": "UpstairsThermostatOnline"
         },
         {
           "id": "binary_sensor.utility_room_motion",
@@ -1686,22 +1606,22 @@
       "entities": [
         {
           "id": "button.espresense_bedroom_restart",
-          "friendlyName": "ESPresense Bedroom Restart",
+          "friendlyName": "ESPresense Bedroom ESPresense Bedroom Restart",
           "cSharpName": "EspresenseBedroomRestart"
         },
         {
           "id": "button.espresense_kitchen_restart",
-          "friendlyName": "ESPresense Kitchen Restart",
+          "friendlyName": "ESPresense Kitchen ESPresense Kitchen Restart",
           "cSharpName": "EspresenseKitchenRestart"
         },
         {
           "id": "button.espresense_lounge_restart",
-          "friendlyName": "ESPresense Lounge Restart",
+          "friendlyName": "ESPresense Lounge ESPresense Lounge Restart",
           "cSharpName": "EspresenseLoungeRestart"
         },
         {
           "id": "button.espresense_snug_restart",
-          "friendlyName": "ESPresense Snug Restart",
+          "friendlyName": "ESPresense Snug ESPresense Snug Restart",
           "cSharpName": "EspresenseSnugRestart"
         },
         {
@@ -1731,12 +1651,12 @@
         },
         {
           "id": "button.nspanel_restart",
-          "friendlyName": "nspanel Restart",
+          "friendlyName": "nspanel nspanel Restart",
           "cSharpName": "NspanelRestart"
         },
         {
           "id": "button.nspanel_update_tft_display",
-          "friendlyName": "nspanel Update TFT display",
+          "friendlyName": "nspanel nspanel Update TFT display",
           "cSharpName": "NspanelUpdateTftDisplay"
         },
         {
@@ -1976,19 +1896,9 @@
       "domain": "climate",
       "entities": [
         {
-          "id": "climate.basement",
-          "friendlyName": "Basement",
-          "cSharpName": "Basement"
-        },
-        {
           "id": "climate.basement_thermostat",
           "friendlyName": "Basement Thermostat",
           "cSharpName": "BasementThermostat"
-        },
-        {
-          "id": "climate.downstairs",
-          "friendlyName": "Downstairs",
-          "cSharpName": "Downstairs"
         },
         {
           "id": "climate.downstairs_thermostat",
@@ -1999,11 +1909,6 @@
           "id": "climate.shed_thermostat",
           "friendlyName": "Shed Thermostat",
           "cSharpName": "ShedThermostat"
-        },
-        {
-          "id": "climate.upstairs",
-          "friendlyName": "Upstairs",
-          "cSharpName": "Upstairs"
         },
         {
           "id": "climate.upstairs_thermostat",
@@ -2109,17 +2014,17 @@
         },
         {
           "id": "device_tracker.a3_printer",
-          "friendlyName": "A3 Printer A3 Printer",
+          "friendlyName": "A3 Printer",
           "cSharpName": "A3Printer"
         },
         {
           "id": "device_tracker.ab1530ble",
-          "friendlyName": "AB1530BLE",
+          "friendlyName": "AB1530BLE AB1530BLE",
           "cSharpName": "Ab1530ble"
         },
         {
           "id": "device_tracker.amazon_1b80b5fcd",
-          "friendlyName": "amazon-1b80b5fcd amazon-1b80b5fcd",
+          "friendlyName": "amazon-1b80b5fcd",
           "cSharpName": "Amazon1b80b5fcd"
         },
         {
@@ -2129,22 +2034,22 @@
         },
         {
           "id": "device_tracker.andrews_mini",
-          "friendlyName": "Andrews-Mini Andrews-Mini",
+          "friendlyName": "Andrews-Mini",
           "cSharpName": "AndrewsMini"
         },
         {
           "id": "device_tracker.andrews_mini_2",
-          "friendlyName": "Andrews-Mini Andrews-Mini",
+          "friendlyName": "Andrews-Mini",
           "cSharpName": "AndrewsMini2"
         },
         {
           "id": "device_tracker.andy_laptop",
-          "friendlyName": "Andy Laptop Andy Laptop",
+          "friendlyName": "Andy Laptop",
           "cSharpName": "AndyLaptop"
         },
         {
           "id": "device_tracker.andy_sleep_analyser",
-          "friendlyName": "Andy Sleep Analyser Andy Sleep Analyser",
+          "friendlyName": "Andy Sleep Analyser",
           "cSharpName": "AndySleepAnalyser"
         },
         {
@@ -2154,47 +2059,47 @@
         },
         {
           "id": "device_tracker.at_1e24",
-          "friendlyName": "AT 1E24",
+          "friendlyName": "AT 1E24 AT 1E24",
           "cSharpName": "At1e24"
         },
         {
           "id": "device_tracker.at_52832x",
-          "friendlyName": "AT 52832X",
+          "friendlyName": "AT 52832X AT 52832X",
           "cSharpName": "At52832x"
         },
         {
           "id": "device_tracker.basement_hall_camera",
-          "friendlyName": "Basement Hall Camera Basement Hall Camera",
+          "friendlyName": "Basement Hall Camera",
           "cSharpName": "BasementHallCamera"
         },
         {
           "id": "device_tracker.basement_thermostat",
-          "friendlyName": "Basement Thermostat Basement Thermostat",
+          "friendlyName": "Basement Thermostat",
           "cSharpName": "BasementThermostat"
         },
         {
           "id": "device_tracker.bcm4350c0_uart_37_4_mhz",
-          "friendlyName": "BCM4350C0 UART 37.4 MHz",
+          "friendlyName": "BCM4350C0 UART 37.4 MHz BCM4350C0 UART 37.4 MHz",
           "cSharpName": "Bcm4350c0Uart374Mhz"
         },
         {
           "id": "device_tracker.bedroom_echo_show",
-          "friendlyName": "Bedroom Echo Show Bedroom Echo Show",
+          "friendlyName": "Bedroom Echo Show",
           "cSharpName": "BedroomEchoShow"
         },
         {
           "id": "device_tracker.ben_s_s23_ultra",
-          "friendlyName": "Ben-s-S23-Ultra Ben-s-S23-Ultra",
+          "friendlyName": "Ben-s-S23-Ultra",
           "cSharpName": "BenSS23Ultra"
         },
         {
           "id": "device_tracker.body_scales",
-          "friendlyName": "Body\u002B Scales Body\u002B Scales",
+          "friendlyName": "Body\u002B Scales",
           "cSharpName": "BodyScales"
         },
         {
           "id": "device_tracker.bulb_ihd",
-          "friendlyName": "Bulb IHD Bulb IHD",
+          "friendlyName": "Bulb IHD",
           "cSharpName": "BulbIhd"
         },
         {
@@ -2204,28 +2109,23 @@
         },
         {
           "id": "device_tracker.claire_laptop",
-          "friendlyName": "Claire-Laptop Claire-Laptop",
+          "friendlyName": "Claire-Laptop",
           "cSharpName": "ClaireLaptop"
         },
         {
           "id": "device_tracker.claire_sleep_analyzer",
-          "friendlyName": "Claire Sleep Analyzer Claire Sleep Analyzer",
+          "friendlyName": "Claire Sleep Analyzer",
           "cSharpName": "ClaireSleepAnalyzer"
         },
         {
           "id": "device_tracker.claireiphone",
-          "friendlyName": "claireiphone claireiphone",
+          "friendlyName": "claireiphone",
           "cSharpName": "Claireiphone"
         },
         {
           "id": "device_tracker.claireiphone_2",
           "friendlyName": "claireiphone",
           "cSharpName": "Claireiphone2"
-        },
-        {
-          "id": "device_tracker.claires_apple_watch",
-          "friendlyName": "Claire\u2019s Apple Watch",
-          "cSharpName": "ClairesAppleWatch"
         },
         {
           "id": "device_tracker.claires_iphone",
@@ -2244,22 +2144,22 @@
         },
         {
           "id": "device_tracker.dining_room_echo_input",
-          "friendlyName": "Dining Room Echo Input Dining Room Echo Input",
+          "friendlyName": "Dining Room Echo Input",
           "cSharpName": "DiningRoomEchoInput"
         },
         {
           "id": "device_tracker.docker_host",
-          "friendlyName": "Docker Host Docker Host",
+          "friendlyName": "Docker Host",
           "cSharpName": "DockerHost"
         },
         {
           "id": "device_tracker.downstairs_thermostat",
-          "friendlyName": "Downstairs Thermostat Downstairs Thermostat",
+          "friendlyName": "Downstairs Thermostat",
           "cSharpName": "DownstairsThermostat"
         },
         {
           "id": "device_tracker.dressing_room_ecot_dot",
-          "friendlyName": "Dressing Room Ecot Dot Dressing Room Ecot Dot",
+          "friendlyName": "Dressing Room Ecot Dot",
           "cSharpName": "DressingRoomEcotDot"
         },
         {
@@ -2294,72 +2194,72 @@
         },
         {
           "id": "device_tracker.echo_input_263",
-          "friendlyName": "Echo Input-263",
+          "friendlyName": "Echo Input-263 Echo Input-263",
           "cSharpName": "EchoInput263"
         },
         {
           "id": "device_tracker.echo_show_8_cx9",
-          "friendlyName": "Echo Show 8-CX9",
+          "friendlyName": "Echo Show 8-CX9 Echo Show 8-CX9",
           "cSharpName": "EchoShow8Cx9"
         },
         {
           "id": "device_tracker.eml_l09_11_cloudclone",
-          "friendlyName": "EML-L09%11%CloudClone",
+          "friendlyName": "EML-L09%11%CloudClone EML-L09%11%CloudClone",
           "cSharpName": "EmlL0911Cloudclone"
         },
         {
           "id": "device_tracker.epic_air_sport_anc_ble",
-          "friendlyName": "Epic Air Sport ANC-BLE",
+          "friendlyName": "Epic Air Sport ANC-BLE Epic Air Sport ANC-BLE",
           "cSharpName": "EpicAirSportAncBle"
         },
         {
           "id": "device_tracker.esphome_cat_feeder",
-          "friendlyName": "cat-feeder ESPHome Cat Feeder",
+          "friendlyName": "ESPHome Cat Feeder",
           "cSharpName": "EsphomeCatFeeder"
         },
         {
           "id": "device_tracker.esphome_doorbell",
-          "friendlyName": "doorbell ESPHome Doorbell",
+          "friendlyName": "ESPHome Doorbell",
           "cSharpName": "EsphomeDoorbell"
         },
         {
           "id": "device_tracker.esphome_sump_alarm",
-          "friendlyName": "sump-alarm ESPHome Sump Alarm",
+          "friendlyName": "ESPHome Sump Alarm",
           "cSharpName": "EsphomeSumpAlarm"
         },
         {
           "id": "device_tracker.esphome_weather_station",
-          "friendlyName": "weather-station ESPHome Weather Station",
+          "friendlyName": "ESPHome Weather Station",
           "cSharpName": "EsphomeWeatherStation"
         },
         {
           "id": "device_tracker.espresense_lounge",
-          "friendlyName": "ESPresense Lounge ESPresense Lounge",
+          "friendlyName": "ESPresense Lounge",
           "cSharpName": "EspresenseLounge"
         },
         {
           "id": "device_tracker.espressif",
-          "friendlyName": "espressif espressif",
+          "friendlyName": "espressif",
           "cSharpName": "Espressif"
         },
         {
           "id": "device_tracker.f_ace_21",
-          "friendlyName": "F_ACE_21",
+          "friendlyName": "F_ACE_21 F_ACE_21",
           "cSharpName": "FAce21"
         },
         {
           "id": "device_tracker.galaxy_watch_active_8f60_le",
-          "friendlyName": "Galaxy Watch Active (8F60) LE",
+          "friendlyName": "Galaxy Watch Active (8F60) LE Galaxy Watch Active (8F60) LE",
           "cSharpName": "GalaxyWatchActive8f60Le"
         },
         {
           "id": "device_tracker.galaxy_watch4_x2pv",
-          "friendlyName": "Galaxy Watch4 (X2PV)",
+          "friendlyName": "Galaxy Watch4 (X2PV) Galaxy Watch4 (X2PV)",
           "cSharpName": "GalaxyWatch4X2pv"
         },
         {
           "id": "device_tracker.guest_room_echo_show",
-          "friendlyName": "Guest Room Echo Show Guest Room Echo Show",
+          "friendlyName": "Guest Room Echo Show",
           "cSharpName": "GuestRoomEchoShow"
         },
         {
@@ -2374,82 +2274,82 @@
         },
         {
           "id": "device_tracker.hp_designjet_5500ps",
-          "friendlyName": "HP DesignJet 5500ps HP DesignJet 5500ps",
+          "friendlyName": "HP DesignJet 5500ps",
           "cSharpName": "HpDesignjet5500ps"
         },
         {
           "id": "device_tracker.inspire_2",
-          "friendlyName": "Inspire 2",
+          "friendlyName": "Inspire 2 Inspire 2",
           "cSharpName": "Inspire2"
         },
         {
           "id": "device_tracker.ipad116",
-          "friendlyName": "iPad11,6",
+          "friendlyName": "iPad11,6 iPad11,6",
           "cSharpName": "Ipad116"
         },
         {
           "id": "device_tracker.iphone",
-          "friendlyName": "iPhone",
+          "friendlyName": "iPhone iPhone",
           "cSharpName": "Iphone"
         },
         {
           "id": "device_tracker.iphone_2",
-          "friendlyName": "iPhone iPhone",
+          "friendlyName": "iPhone",
           "cSharpName": "Iphone2"
         },
         {
           "id": "device_tracker.iphone104",
-          "friendlyName": "iPhone10,4",
+          "friendlyName": "iPhone10,4 iPhone10,4",
           "cSharpName": "Iphone104"
         },
         {
           "id": "device_tracker.iphone121",
-          "friendlyName": "iPhone12,1",
+          "friendlyName": "iPhone12,1 iPhone12,1",
           "cSharpName": "Iphone121"
         },
         {
           "id": "device_tracker.iphone128",
-          "friendlyName": "iPhone12,8",
+          "friendlyName": "iPhone12,8 iPhone12,8",
           "cSharpName": "Iphone128"
         },
         {
           "id": "device_tracker.iphone132",
-          "friendlyName": "iPhone13,2",
+          "friendlyName": "iPhone13,2 iPhone13,2",
           "cSharpName": "Iphone132"
         },
         {
           "id": "device_tracker.iphone133",
-          "friendlyName": "iPhone13,3",
+          "friendlyName": "iPhone13,3 iPhone13,3",
           "cSharpName": "Iphone133"
         },
         {
           "id": "device_tracker.iphone142",
-          "friendlyName": "iPhone14,2",
+          "friendlyName": "iPhone14,2 iPhone14,2",
           "cSharpName": "Iphone142"
         },
         {
           "id": "device_tracker.iphone145",
-          "friendlyName": "iPhone14,5",
+          "friendlyName": "iPhone14,5 iPhone14,5",
           "cSharpName": "Iphone145"
         },
         {
           "id": "device_tracker.iphone93",
-          "friendlyName": "iPhone9,3",
+          "friendlyName": "iPhone9,3 iPhone9,3",
           "cSharpName": "Iphone93"
         },
         {
           "id": "device_tracker.jabra",
-          "friendlyName": "Jabra",
+          "friendlyName": "Jabra Jabra",
           "cSharpName": "Jabra"
         },
         {
           "id": "device_tracker.jabra_elite_45h",
-          "friendlyName": "Jabra Elite 45h",
+          "friendlyName": "Jabra Elite 45h Jabra Elite 45h",
           "cSharpName": "JabraElite45h"
         },
         {
           "id": "device_tracker.kalibrate_ddmm8",
-          "friendlyName": "KALIBRATE-dDMm8 KALIBRATE-dDMm8",
+          "friendlyName": "KALIBRATE-dDMm8",
           "cSharpName": "KalibrateDdmm8"
         },
         {
@@ -2459,107 +2359,107 @@
         },
         {
           "id": "device_tracker.kitchen_camera",
-          "friendlyName": "Hallway Camera Kitchen Camera",
+          "friendlyName": "Kitchen Camera",
           "cSharpName": "KitchenCamera"
         },
         {
           "id": "device_tracker.kitchen_echo_show",
-          "friendlyName": "Kitchen Echo Show Kitchen Echo Show",
+          "friendlyName": "Kitchen Echo Show",
           "cSharpName": "KitchenEchoShow"
         },
         {
           "id": "device_tracker.konnected_basement",
-          "friendlyName": "Basement Alarm Panel Konnected Basement",
+          "friendlyName": "Konnected Basement",
           "cSharpName": "KonnectedBasement"
         },
         {
           "id": "device_tracker.konnected_downstairs",
-          "friendlyName": "Ground Floor Alarm Panel Konnected Downstairs",
+          "friendlyName": "Konnected Downstairs",
           "cSharpName": "KonnectedDownstairs"
         },
         {
           "id": "device_tracker.konnected_upstairs",
-          "friendlyName": "Upstairs Alarm Panel Konnected Upstairs",
+          "friendlyName": "Konnected Upstairs",
           "cSharpName": "KonnectedUpstairs"
         },
         {
           "id": "device_tracker.le_headset",
-          "friendlyName": "LE-Headset",
+          "friendlyName": "LE-Headset LE-Headset",
           "cSharpName": "LeHeadset"
         },
         {
           "id": "device_tracker.le_wf_c500",
-          "friendlyName": "LE_WF-C500",
+          "friendlyName": "LE_WF-C500 LE_WF-C500",
           "cSharpName": "LeWfC500"
         },
         {
           "id": "device_tracker.le_wh_1000xm4",
-          "friendlyName": "LE_WH-1000XM4",
+          "friendlyName": "LE_WH-1000XM4 LE_WH-1000XM4",
           "cSharpName": "LeWh1000xm4"
         },
         {
           "id": "device_tracker.le_wh_h910n_h_ear",
-          "friendlyName": "LE_WH-H910N (h.ear)",
+          "friendlyName": "LE_WH-H910N (h.ear) LE_WH-H910N (h.ear)",
           "cSharpName": "LeWhH910nHEar"
         },
         {
           "id": "device_tracker.le_wh_xb910n",
-          "friendlyName": "LE_WH-XB910N",
+          "friendlyName": "LE_WH-XB910N LE_WH-XB910N",
           "cSharpName": "LeWhXb910n"
         },
         {
           "id": "device_tracker.lounge_echo_plus",
-          "friendlyName": "Lounge Echo Plus Lounge Echo Plus",
+          "friendlyName": "Lounge Echo Plus",
           "cSharpName": "LoungeEchoPlus"
         },
         {
           "id": "device_tracker.lounge_fire_tv",
-          "friendlyName": "Lounge Fire TV Lounge Fire TV",
+          "friendlyName": "Lounge Fire TV",
           "cSharpName": "LoungeFireTv"
         },
         {
           "id": "device_tracker.macmini91",
-          "friendlyName": "Macmini9,1",
+          "friendlyName": "Macmini9,1 Macmini9,1",
           "cSharpName": "Macmini91"
         },
         {
           "id": "device_tracker.michael_s_galaxy_a41",
-          "friendlyName": "Michael\u0027s Galaxy A41",
+          "friendlyName": "Michael\u0027s Galaxy A41 Michael\u0027s Galaxy A41",
           "cSharpName": "MichaelSGalaxyA41"
         },
         {
           "id": "device_tracker.motif_a_n_c_le",
-          "friendlyName": "MOTIF A.N.C. [LE]",
+          "friendlyName": "MOTIF A.N.C. [LE] MOTIF A.N.C. [LE]",
           "cSharpName": "MotifANCLe"
         },
         {
           "id": "device_tracker.n02rf",
-          "friendlyName": "N02RF",
+          "friendlyName": "N02RF N02RF",
           "cSharpName": "N02rf"
         },
         {
           "id": "device_tracker.netgear_gs724tp_attic",
-          "friendlyName": "netgear-gs724tp-attic netgear-gs724tp-attic",
+          "friendlyName": "netgear-gs724tp-attic",
           "cSharpName": "NetgearGs724tpAttic"
         },
         {
           "id": "device_tracker.netgear_gs724tp_basement",
-          "friendlyName": "netgear-gs724tp-basement netgear-gs724tp-basement",
+          "friendlyName": "netgear-gs724tp-basement",
           "cSharpName": "NetgearGs724tpBasement"
         },
         {
           "id": "device_tracker.oneplus_nord2_lg",
-          "friendlyName": "OnePlus Nord2 lg",
+          "friendlyName": "OnePlus Nord2 lg OnePlus Nord2 lg",
           "cSharpName": "OneplusNord2Lg"
         },
         {
           "id": "device_tracker.patio_camera",
-          "friendlyName": "Patio Camera Patio Camera",
+          "friendlyName": "Patio Camera",
           "cSharpName": "PatioCamera"
         },
         {
           "id": "device_tracker.pixel_6",
-          "friendlyName": "Pixel-6 Pixel-6",
+          "friendlyName": "Pixel-6",
           "cSharpName": "Pixel6"
         },
         {
@@ -2569,12 +2469,12 @@
         },
         {
           "id": "device_tracker.pixel_6_3",
-          "friendlyName": "Pixel-6 Pixel-6",
+          "friendlyName": "Pixel-6",
           "cSharpName": "Pixel63"
         },
         {
           "id": "device_tracker.pixel_6_4",
-          "friendlyName": "Pixel-6 Pixel-6",
+          "friendlyName": "Pixel-6",
           "cSharpName": "Pixel64"
         },
         {
@@ -2584,7 +2484,7 @@
         },
         {
           "id": "device_tracker.rtl62939",
-          "friendlyName": "RTL62939",
+          "friendlyName": "RTL62939 RTL62939",
           "cSharpName": "Rtl62939"
         },
         {
@@ -2599,12 +2499,12 @@
         },
         {
           "id": "device_tracker.samsung",
-          "friendlyName": "Lounge TV Samsung",
+          "friendlyName": "Samsung",
           "cSharpName": "Samsung"
         },
         {
           "id": "device_tracker.series_06",
-          "friendlyName": "Series 06",
+          "friendlyName": "Series 06 Series 06",
           "cSharpName": "Series06"
         },
         {
@@ -2614,62 +2514,62 @@
         },
         {
           "id": "device_tracker.shed",
-          "friendlyName": "Shed Camera Shed",
+          "friendlyName": "Shed",
           "cSharpName": "Shed"
         },
         {
           "id": "device_tracker.shed_echo_input",
-          "friendlyName": "Shed Echo Input Shed Echo Input",
+          "friendlyName": "Shed Echo Input",
           "cSharpName": "ShedEchoInput"
         },
         {
           "id": "device_tracker.shed_thermostat",
-          "friendlyName": "Shed Thermostat Shed Thermostat",
+          "friendlyName": "Shed Thermostat",
           "cSharpName": "ShedThermostat"
         },
         {
           "id": "device_tracker.shelly_shed_lights",
-          "friendlyName": "Shelly Shed Lights Shelly Shed Lights",
+          "friendlyName": "Shelly Shed Lights",
           "cSharpName": "ShellyShedLights"
         },
         {
           "id": "device_tracker.shelly_shed_sockets",
-          "friendlyName": "Shelly Shed Sockets Shelly Shed Sockets",
+          "friendlyName": "Shelly Shed Sockets",
           "cSharpName": "ShellyShedSockets"
         },
         {
           "id": "device_tracker.sonoff_basement_1",
-          "friendlyName": "sonoff-basement-1 Sonoff Basement 1",
+          "friendlyName": "Sonoff Basement 1",
           "cSharpName": "SonoffBasement1"
         },
         {
           "id": "device_tracker.sonoff_basement_2",
-          "friendlyName": "sonoff-basement-2 Sonoff Basement 2",
+          "friendlyName": "Sonoff Basement 2",
           "cSharpName": "SonoffBasement2"
         },
         {
           "id": "device_tracker.sonoff_downstairs_1",
-          "friendlyName": "sonoff-downstairs-1 Sonoff Downstairs 1",
+          "friendlyName": "Sonoff Downstairs 1",
           "cSharpName": "SonoffDownstairs1"
         },
         {
           "id": "device_tracker.sonoff_downstairs_2",
-          "friendlyName": "sonoff-downstairs-2 Sonoff Downstairs 2",
+          "friendlyName": "Sonoff Downstairs 2",
           "cSharpName": "SonoffDownstairs2"
         },
         {
           "id": "device_tracker.sonoff_outside_1",
-          "friendlyName": "sonoff-outside-1 Sonoff Outside 1",
+          "friendlyName": "Sonoff Outside 1",
           "cSharpName": "SonoffOutside1"
         },
         {
           "id": "device_tracker.sonoff_upstairs_1",
-          "friendlyName": "sonoff-upstairs-1 Sonoff Upstairs 1",
+          "friendlyName": "Sonoff Upstairs 1",
           "cSharpName": "SonoffUpstairs1"
         },
         {
           "id": "device_tracker.sonoff_upstairs_2",
-          "friendlyName": "sonoff-upstairs-2 Sonoff Upstairs 2",
+          "friendlyName": "Sonoff Upstairs 2",
           "cSharpName": "SonoffUpstairs2"
         },
         {
@@ -2679,52 +2579,52 @@
         },
         {
           "id": "device_tracker.squeezebox_dining_room",
-          "friendlyName": "Squeezebox Dining Room Squeezebox Dining Room",
+          "friendlyName": "Squeezebox Dining Room",
           "cSharpName": "SqueezeboxDiningRoom"
         },
         {
           "id": "device_tracker.studio_bluetooth_proxy",
-          "friendlyName": "studio-bluetooth-proxy studio-bluetooth-proxy",
+          "friendlyName": "studio-bluetooth-proxy",
           "cSharpName": "StudioBluetoothProxy"
         },
         {
           "id": "device_tracker.the_death_star",
-          "friendlyName": "The Death Star",
+          "friendlyName": "The Death Star The Death Star",
           "cSharpName": "TheDeathStar"
         },
         {
           "id": "device_tracker.tile",
-          "friendlyName": "Tile",
+          "friendlyName": "Tile Tile",
           "cSharpName": "Tile"
         },
         {
           "id": "device_tracker.tozo_t12",
-          "friendlyName": "TOZO-T12",
+          "friendlyName": "TOZO-T12 TOZO-T12",
           "cSharpName": "TozoT12"
         },
         {
           "id": "device_tracker.uap_ac_lr_basement",
-          "friendlyName": "UAP-AC-LR-Basement UAP-AC-LR-Basement",
+          "friendlyName": "UAP-AC-LR-Basement",
           "cSharpName": "UapAcLrBasement"
         },
         {
           "id": "device_tracker.uap_ac_lr_upstairs",
-          "friendlyName": "UAP-AC-LR-Upstairs UAP-AC-LR-Upstairs",
+          "friendlyName": "UAP-AC-LR-Upstairs",
           "cSharpName": "UapAcLrUpstairs"
         },
         {
           "id": "device_tracker.uap_flexhd_groundfloor",
-          "friendlyName": "UAP-FlexHD-Groundfloor UAP-FlexHD-Groundfloor",
+          "friendlyName": "UAP-FlexHD-Groundfloor",
           "cSharpName": "UapFlexhdGroundfloor"
         },
         {
           "id": "device_tracker.uap_iw_hd_shed",
-          "friendlyName": "UAP-IW-HD-Shed UAP-IW-HD-Shed",
+          "friendlyName": "UAP-IW-HD-Shed",
           "cSharpName": "UapIwHdShed"
         },
         {
           "id": "device_tracker.udmpro",
-          "friendlyName": "UDMPRO UDMPRO",
+          "friendlyName": "UDMPRO",
           "cSharpName": "Udmpro"
         },
         {
@@ -2764,7 +2664,7 @@
         },
         {
           "id": "device_tracker.unifi_68_db_f5_9a_b9_02_default",
-          "friendlyName": "KFKAWI Hallway Tablet",
+          "friendlyName": "Hallway Tablet",
           "cSharpName": "Unifi68DbF59aB902Default"
         },
         {
@@ -2779,7 +2679,7 @@
         },
         {
           "id": "device_tracker.unifi_bc_dd_c2_67_e7_d5_default",
-          "friendlyName": "cat-feed-v2 cat-feed-v2",
+          "friendlyName": "cat-feed-v2",
           "cSharpName": "UnifiBcDdC267E7D5Default"
         },
         {
@@ -2799,77 +2699,77 @@
         },
         {
           "id": "device_tracker.upstairs_thermostat",
-          "friendlyName": "Upstairs Thermostat Upstairs Thermostat",
+          "friendlyName": "Upstairs Thermostat",
           "cSharpName": "UpstairsThermostat"
         },
         {
           "id": "device_tracker.utility_room_echo_dot",
-          "friendlyName": "Utility Room Echo Dot Utility Room Echo Dot",
+          "friendlyName": "Utility Room Echo Dot",
           "cSharpName": "UtilityRoomEchoDot"
         },
         {
           "id": "device_tracker.vacuumrobot",
-          "friendlyName": "VacuumRobot VacuumRobot",
+          "friendlyName": "VacuumRobot",
           "cSharpName": "Vacuumrobot"
         },
         {
           "id": "device_tracker.versa_2",
-          "friendlyName": "Versa 2",
+          "friendlyName": "Versa 2 Versa 2",
           "cSharpName": "Versa2"
         },
         {
           "id": "device_tracker.versa_3",
-          "friendlyName": "Versa 3",
+          "friendlyName": "Versa 3 Versa 3",
           "cSharpName": "Versa3"
         },
         {
           "id": "device_tracker.watch66",
-          "friendlyName": "Watch6,6",
+          "friendlyName": "Watch6,6 Watch6,6",
           "cSharpName": "Watch66"
         },
         {
           "id": "device_tracker.xp_pp_04e35a",
-          "friendlyName": "XP PP 04E35A",
+          "friendlyName": "XP PP 04E35A XP PP 04E35A",
           "cSharpName": "XpPp04e35a"
         },
         {
           "id": "device_tracker.yeelight_basement_stairs_light",
-          "friendlyName": "Yeelight Basement Stairs Light Yeelight Basement Stairs Light",
+          "friendlyName": "Yeelight Basement Stairs Light",
           "cSharpName": "YeelightBasementStairsLight"
         },
         {
           "id": "device_tracker.yeelight_bedroom_lamp",
-          "friendlyName": "Yeelight Bedroom Lamp Yeelight Bedroom Lamp",
+          "friendlyName": "Yeelight Bedroom Lamp",
           "cSharpName": "YeelightBedroomLamp"
         },
         {
           "id": "device_tracker.yeelight_hallway_lamp",
-          "friendlyName": "Yeelight Hallway Lamp Yeelight Hallway Lamp",
+          "friendlyName": "Yeelight Hallway Lamp",
           "cSharpName": "YeelightHallwayLamp"
         },
         {
           "id": "device_tracker.yeelight_kitchen_lamp",
-          "friendlyName": "Yeelight Kitchen Lamp Yeelight Kitchen Lamp",
+          "friendlyName": "Yeelight Kitchen Lamp",
           "cSharpName": "YeelightKitchenLamp"
         },
         {
           "id": "device_tracker.yeelight_lounge_floor_lamp",
-          "friendlyName": "Yeelight Lounge Floor Lamp Yeelight Lounge Floor Lamp",
+          "friendlyName": "Yeelight Lounge Floor Lamp",
           "cSharpName": "YeelightLoungeFloorLamp"
         },
         {
           "id": "device_tracker.yeelight_lounge_lamp",
-          "friendlyName": "Yeelight Lounge Lamp Yeelight Lounge Lamp",
+          "friendlyName": "Yeelight Lounge Lamp",
           "cSharpName": "YeelightLoungeLamp"
         },
         {
           "id": "device_tracker.yeelight_snug_floor_lamp",
-          "friendlyName": "Yeelight Snug Floor Lamp Yeelight Snug Floor Lamp",
+          "friendlyName": "Yeelight Snug Floor Lamp",
           "cSharpName": "YeelightSnugFloorLamp"
         },
         {
           "id": "device_tracker.yeelink_light_color1_miio313150241",
-          "friendlyName": "yeelink-light-color1_miio313150241 yeelink-light-color1_miio313150241",
+          "friendlyName": "yeelink-light-color1_miio313150241",
           "cSharpName": "YeelinkLightColor1Miio313150241"
         }
       ],
@@ -4365,37 +4265,37 @@
         },
         {
           "id": "light.sonoff_basement_1_blue_led",
-          "friendlyName": "Sonoff Basement 1 Blue LED",
+          "friendlyName": "Sonoff-Basement-1 Sonoff Basement 1 Blue LED",
           "cSharpName": "SonoffBasement1BlueLed"
         },
         {
           "id": "light.sonoff_basement_2_blue_led",
-          "friendlyName": "Sonoff Basement 2 Blue LED",
+          "friendlyName": "Sonoff-Basement-2 Sonoff Basement 2 Blue LED",
           "cSharpName": "SonoffBasement2BlueLed"
         },
         {
           "id": "light.sonoff_downstairs_1_blue_led",
-          "friendlyName": "Sonoff Downstairs 1 Blue LED",
+          "friendlyName": "Sonoff-Downstairs-1 Sonoff Downstairs 1 Blue LED",
           "cSharpName": "SonoffDownstairs1BlueLed"
         },
         {
           "id": "light.sonoff_downstairs_2_blue_led",
-          "friendlyName": "Sonoff Downstairs 2 Blue LED",
+          "friendlyName": "Sonoff-Downstairs-2 Sonoff Downstairs 2 Blue LED",
           "cSharpName": "SonoffDownstairs2BlueLed"
         },
         {
           "id": "light.sonoff_outside_1_blue_led",
-          "friendlyName": "Sonoff Outside 1 Blue LED",
+          "friendlyName": "Sonoff-Outside-1 Sonoff Outside 1 Blue LED",
           "cSharpName": "SonoffOutside1BlueLed"
         },
         {
           "id": "light.sonoff_upstairs_1_blue_led",
-          "friendlyName": "Sonoff Upstairs 1 Blue LED",
+          "friendlyName": "Sonoff-Upstairs-1 Sonoff Upstairs 1 Blue LED",
           "cSharpName": "SonoffUpstairs1BlueLed"
         },
         {
           "id": "light.sonoff_upstairs_2_blue_led",
-          "friendlyName": "Sonoff Upstairs 2 Blue LED",
+          "friendlyName": "Sonoff-Upstairs-2 Sonoff Upstairs 2 Blue LED",
           "cSharpName": "SonoffUpstairs2BlueLed"
         },
         {
@@ -4662,7 +4562,7 @@
         },
         {
           "id": "media_player.snug_projector",
-          "friendlyName": "Snug Projector",
+          "friendlyName": "Projector",
           "cSharpName": "SnugProjector"
         },
         {
@@ -4860,52 +4760,52 @@
       "entities": [
         {
           "id": "number.espresense_bedroom_absorption",
-          "friendlyName": "ESPresense Bedroom Absorption",
+          "friendlyName": "ESPresense Bedroom ESPresense Bedroom Absorption",
           "cSharpName": "EspresenseBedroomAbsorption"
         },
         {
           "id": "number.espresense_bedroom_max_distance",
-          "friendlyName": "ESPresense Bedroom Max Distance",
+          "friendlyName": "ESPresense Bedroom ESPresense Bedroom Max Distance",
           "cSharpName": "EspresenseBedroomMaxDistance"
         },
         {
           "id": "number.espresense_drawingroom_max_distance",
-          "friendlyName": "ESPresense DrawingRoom Max Distance",
+          "friendlyName": "ESPresense DrawingRoom ESPresense DrawingRoom Max Distance",
           "cSharpName": "EspresenseDrawingroomMaxDistance"
         },
         {
           "id": "number.espresense_kitchen_absorption",
-          "friendlyName": "ESPresense Kitchen Absorption",
+          "friendlyName": "ESPresense Kitchen ESPresense Kitchen Absorption",
           "cSharpName": "EspresenseKitchenAbsorption"
         },
         {
           "id": "number.espresense_kitchen_max_distance",
-          "friendlyName": "ESPresense Kitchen Max Distance",
+          "friendlyName": "ESPresense Kitchen ESPresense Kitchen Max Distance",
           "cSharpName": "EspresenseKitchenMaxDistance"
         },
         {
           "id": "number.espresense_lounge_absorption",
-          "friendlyName": "ESPresense Lounge Absorption",
+          "friendlyName": "ESPresense Lounge ESPresense Lounge Absorption",
           "cSharpName": "EspresenseLoungeAbsorption"
         },
         {
           "id": "number.espresense_lounge_max_distance",
-          "friendlyName": "ESPresense Lounge Max Distance",
+          "friendlyName": "ESPresense Lounge ESPresense Lounge Max Distance",
           "cSharpName": "EspresenseLoungeMaxDistance"
         },
         {
           "id": "number.espresense_snug_absorption",
-          "friendlyName": "ESPresense Snug Absorption",
+          "friendlyName": "ESPresense Snug ESPresense Snug Absorption",
           "cSharpName": "EspresenseSnugAbsorption"
         },
         {
           "id": "number.espresense_snug_max_distance",
-          "friendlyName": "ESPresense Snug Max Distance",
+          "friendlyName": "ESPresense Snug ESPresense Snug Max Distance",
           "cSharpName": "EspresenseSnugMaxDistance"
         },
         {
           "id": "number.espresense_studio_max_distance",
-          "friendlyName": "ESPresense Studio Max Distance",
+          "friendlyName": "studio-bluetooth-proxy ESPresense Studio Max Distance",
           "cSharpName": "EspresenseStudioMaxDistance"
         },
         {
@@ -4930,22 +4830,22 @@
         },
         {
           "id": "number.nspanel_display_brightness",
-          "friendlyName": "nspanel Display Brightness",
+          "friendlyName": "nspanel nspanel Display Brightness",
           "cSharpName": "NspanelDisplayBrightness"
         },
         {
           "id": "number.nspanel_display_brightness_dimdown",
-          "friendlyName": "nspanel Display Brightness Dimdown",
+          "friendlyName": "nspanel nspanel Display Brightness Dimdown",
           "cSharpName": "NspanelDisplayBrightnessDimdown"
         },
         {
           "id": "number.nspanel_page_timeout",
-          "friendlyName": "nspanel Page Timeout",
+          "friendlyName": "nspanel nspanel Page Timeout",
           "cSharpName": "NspanelPageTimeout"
         },
         {
           "id": "number.nspanel_temperature_correction",
-          "friendlyName": "nspanel Temperature Correction",
+          "friendlyName": "nspanel nspanel Temperature Correction",
           "cSharpName": "NspanelTemperatureCorrection"
         }
       ],
@@ -5112,7 +5012,7 @@
       "entities": [
         {
           "id": "remote.snug_projector",
-          "friendlyName": "Snug Projector",
+          "friendlyName": "Projector",
           "cSharpName": "SnugProjector"
         }
       ],
@@ -5348,17 +5248,17 @@
       "entities": [
         {
           "id": "select.coffee_machine_power_on_behavior_2",
-          "friendlyName": "Coffee Machine power on behavior",
+          "friendlyName": "Coffee Machine Coffee Machine power on behavior",
           "cSharpName": "CoffeeMachinePowerOnBehavior2"
         },
         {
           "id": "select.display_cabinet_light_power_on_behavior",
-          "friendlyName": "Display Cabinet Light power on behavior",
+          "friendlyName": "Display Cabinet Light Display Cabinet Light power on behavior",
           "cSharpName": "DisplayCabinetLightPowerOnBehavior"
         },
         {
           "id": "select.guest_room_bedside_lamp_power_on_behavior",
-          "friendlyName": "Guest Room Bedside Lamp power on behavior",
+          "friendlyName": "Guest Room Bedside Lamp Guest Room Bedside Lamp power on behavior",
           "cSharpName": "GuestRoomBedsideLampPowerOnBehavior"
         }
       ],
@@ -5469,16 +5369,6 @@
           "cSharpName": "BasementHallCameraUptime"
         },
         {
-          "id": "sensor.basement_thermostat_hvac_state",
-          "friendlyName": "Basement Thermostat hvac state",
-          "cSharpName": "BasementThermostatHvacState"
-        },
-        {
-          "id": "sensor.basement_thermostat_operation_mode",
-          "friendlyName": "Basement Thermostat operation mode",
-          "cSharpName": "BasementThermostatOperationMode"
-        },
-        {
           "id": "sensor.bedroom_echo_show_next_alarm",
           "friendlyName": "Bedroom Echo Show next Alarm",
           "cSharpName": "BedroomEchoShowNextAlarm"
@@ -5519,23 +5409,28 @@
           "cSharpName": "BulbEnergyMeterGasMeterCalorific"
         },
         {
+          "id": "sensor.bulb_energy_meter_gas_meter_time",
+          "friendlyName": "Bulb Energy Meter Gas Meter Time",
+          "cSharpName": "BulbEnergyMeterGasMeterTime"
+        },
+        {
           "id": "sensor.cat_feeder_bssid",
-          "friendlyName": "Cat Feeder BSSID",
+          "friendlyName": "cat-feeder Cat Feeder BSSID",
           "cSharpName": "CatFeederBssid"
         },
         {
           "id": "sensor.cat_feeder_esphome_version",
-          "friendlyName": "Cat Feeder ESPHome Version",
+          "friendlyName": "cat-feeder Cat Feeder ESPHome Version",
           "cSharpName": "CatFeederEsphomeVersion"
         },
         {
           "id": "sensor.cat_feeder_ip",
-          "friendlyName": "Cat Feeder IP",
+          "friendlyName": "cat-feeder Cat Feeder IP",
           "cSharpName": "CatFeederIp"
         },
         {
           "id": "sensor.cat_feeder_ssid",
-          "friendlyName": "Cat Feeder SSID",
+          "friendlyName": "cat-feeder Cat Feeder SSID",
           "cSharpName": "CatFeederSsid"
         },
         {
@@ -5600,33 +5495,23 @@
         },
         {
           "id": "sensor.doorbell_bssid",
-          "friendlyName": "Doorbell BSSID",
+          "friendlyName": "Doorbell Doorbell BSSID",
           "cSharpName": "DoorbellBssid"
         },
         {
           "id": "sensor.doorbell_esphome_version",
-          "friendlyName": "Doorbell ESPHome Version",
+          "friendlyName": "Doorbell Doorbell ESPHome Version",
           "cSharpName": "DoorbellEsphomeVersion"
         },
         {
           "id": "sensor.doorbell_ip",
-          "friendlyName": "Doorbell IP",
+          "friendlyName": "Doorbell Doorbell IP",
           "cSharpName": "DoorbellIp"
         },
         {
           "id": "sensor.doorbell_ssid",
-          "friendlyName": "Doorbell SSID",
+          "friendlyName": "Doorbell Doorbell SSID",
           "cSharpName": "DoorbellSsid"
-        },
-        {
-          "id": "sensor.downstairs_thermostat_hvac_state",
-          "friendlyName": "Downstairs Thermostat hvac state",
-          "cSharpName": "DownstairsThermostatHvacState"
-        },
-        {
-          "id": "sensor.downstairs_thermostat_operation_mode",
-          "friendlyName": "Downstairs Thermostat operation mode",
-          "cSharpName": "DownstairsThermostatOperationMode"
         },
         {
           "id": "sensor.drawing_room_echo_dot_next_alarm",
@@ -5680,12 +5565,12 @@
         },
         {
           "id": "sensor.guest_room_remote_action",
-          "friendlyName": "Guest Room Remote action",
+          "friendlyName": "Guest Room Remote Guest Room Remote action",
           "cSharpName": "GuestRoomRemoteAction"
         },
         {
           "id": "sensor.guest_room_remote_click",
-          "friendlyName": "Guest Room Remote click",
+          "friendlyName": "Guest Room Remote Guest Room Remote click",
           "cSharpName": "GuestRoomRemoteClick"
         },
         {
@@ -5720,12 +5605,12 @@
         },
         {
           "id": "sensor.hallway_remote_action",
-          "friendlyName": "Hallway Remote action",
+          "friendlyName": "Hallway Remote Hallway Remote action",
           "cSharpName": "HallwayRemoteAction"
         },
         {
           "id": "sensor.hallway_remote_click",
-          "friendlyName": "Hallway Remote click",
+          "friendlyName": "Hallway Remote Hallway Remote click",
           "cSharpName": "HallwayRemoteClick"
         },
         {
@@ -5835,7 +5720,7 @@
         },
         {
           "id": "sensor.lounge_remote_action",
-          "friendlyName": "Lounge Remote action",
+          "friendlyName": "Lounge Remote Lounge Remote action",
           "cSharpName": "LoungeRemoteAction"
         },
         {
@@ -5857,11 +5742,6 @@
           "id": "sensor.lounge_tv_tv_channel_name",
           "friendlyName": "Lounge TV Tv Channel Name",
           "cSharpName": "LoungeTvTvChannelName"
-        },
-        {
-          "id": "sensor.manchester_road_eta",
-          "friendlyName": "Manchester Road eta",
-          "cSharpName": "ManchesterRoadEta"
         },
         {
           "id": "sensor.met_office_heaton_chapel_station_name_3_hourly",
@@ -5920,52 +5800,52 @@
         },
         {
           "id": "sensor.nspanel_currentpage",
-          "friendlyName": "nspanel currentpage",
+          "friendlyName": "nspanel nspanel currentpage",
           "cSharpName": "NspanelCurrentpage"
         },
         {
           "id": "sensor.nspanel_display_target_temperature",
-          "friendlyName": "nspanel Display Target Temperature",
+          "friendlyName": "nspanel nspanel Display Target Temperature",
           "cSharpName": "NspanelDisplayTargetTemperature"
         },
         {
           "id": "sensor.nspanel_ip",
-          "friendlyName": "nspanel IP",
+          "friendlyName": "nspanel nspanel IP",
           "cSharpName": "NspanelIp"
         },
         {
           "id": "sensor.nspanel_last_click",
-          "friendlyName": "nspanel Last Click",
+          "friendlyName": "nspanel nspanel Last Click",
           "cSharpName": "NspanelLastClick"
         },
         {
           "id": "sensor.nspanel_last_click_climatesettings",
-          "friendlyName": "nspanel last click climatesettings",
+          "friendlyName": "nspanel nspanel last click climatesettings",
           "cSharpName": "NspanelLastClickClimatesettings"
         },
         {
           "id": "sensor.nspanel_last_click_coversettings",
-          "friendlyName": "nspanel last click coversettings",
+          "friendlyName": "nspanel nspanel last click coversettings",
           "cSharpName": "NspanelLastClickCoversettings"
         },
         {
           "id": "sensor.nspanel_last_click_lightsettings",
-          "friendlyName": "nspanel last click lightsettings",
+          "friendlyName": "nspanel nspanel last click lightsettings",
           "cSharpName": "NspanelLastClickLightsettings"
         },
         {
           "id": "sensor.nspanel_notification_label",
-          "friendlyName": "nspanel Notification Label",
+          "friendlyName": "nspanel nspanel Notification Label",
           "cSharpName": "NspanelNotificationLabel"
         },
         {
           "id": "sensor.nspanel_notification_text",
-          "friendlyName": "nspanel Notification Text",
+          "friendlyName": "nspanel nspanel Notification Text",
           "cSharpName": "NspanelNotificationText"
         },
         {
           "id": "sensor.nspanel_settings_entity",
-          "friendlyName": "nspanel Settings Entity",
+          "friendlyName": "nspanel nspanel Settings Entity",
           "cSharpName": "NspanelSettingsEntity"
         },
         {
@@ -6135,167 +6015,167 @@
         },
         {
           "id": "sensor.snug_switch_action",
-          "friendlyName": "Snug Switch action",
+          "friendlyName": "Snug Switch Snug Switch action",
           "cSharpName": "SnugSwitchAction"
         },
         {
           "id": "sensor.sonoff_basement_1_bssid",
-          "friendlyName": "Sonoff Basement 1 BSSID",
+          "friendlyName": "Sonoff-Basement-1 Sonoff Basement 1 BSSID",
           "cSharpName": "SonoffBasement1Bssid"
         },
         {
           "id": "sensor.sonoff_basement_1_esphome_version",
-          "friendlyName": "Sonoff Basement 1 ESPHome Version",
+          "friendlyName": "Sonoff-Basement-1 Sonoff Basement 1 ESPHome Version",
           "cSharpName": "SonoffBasement1EsphomeVersion"
         },
         {
           "id": "sensor.sonoff_basement_1_ip",
-          "friendlyName": "Sonoff Basement 1 IP",
+          "friendlyName": "Sonoff-Basement-1 Sonoff Basement 1 IP",
           "cSharpName": "SonoffBasement1Ip"
         },
         {
           "id": "sensor.sonoff_basement_1_ssid",
-          "friendlyName": "Sonoff Basement 1 SSID",
+          "friendlyName": "Sonoff-Basement-1 Sonoff Basement 1 SSID",
           "cSharpName": "SonoffBasement1Ssid"
         },
         {
           "id": "sensor.sonoff_basement_2_bssid",
-          "friendlyName": "Sonoff Basement 2 BSSID",
+          "friendlyName": "Sonoff-Basement-2 Sonoff Basement 2 BSSID",
           "cSharpName": "SonoffBasement2Bssid"
         },
         {
           "id": "sensor.sonoff_basement_2_esphome_version",
-          "friendlyName": "Sonoff Basement 2 ESPHome Version",
+          "friendlyName": "Sonoff-Basement-2 Sonoff Basement 2 ESPHome Version",
           "cSharpName": "SonoffBasement2EsphomeVersion"
         },
         {
           "id": "sensor.sonoff_basement_2_ip",
-          "friendlyName": "Sonoff Basement 2 IP",
+          "friendlyName": "Sonoff-Basement-2 Sonoff Basement 2 IP",
           "cSharpName": "SonoffBasement2Ip"
         },
         {
           "id": "sensor.sonoff_basement_2_ssid",
-          "friendlyName": "Sonoff Basement 2 SSID",
+          "friendlyName": "Sonoff-Basement-2 Sonoff Basement 2 SSID",
           "cSharpName": "SonoffBasement2Ssid"
         },
         {
           "id": "sensor.sonoff_downstairs_1_bssid",
-          "friendlyName": "Sonoff Downstairs 1 BSSID",
+          "friendlyName": "Sonoff-Downstairs-1 Sonoff Downstairs 1 BSSID",
           "cSharpName": "SonoffDownstairs1Bssid"
         },
         {
           "id": "sensor.sonoff_downstairs_1_esphome_version",
-          "friendlyName": "Sonoff Downstairs 1 ESPHome Version",
+          "friendlyName": "Sonoff-Downstairs-1 Sonoff Downstairs 1 ESPHome Version",
           "cSharpName": "SonoffDownstairs1EsphomeVersion"
         },
         {
           "id": "sensor.sonoff_downstairs_1_ip",
-          "friendlyName": "Sonoff Downstairs 1 IP",
+          "friendlyName": "Sonoff-Downstairs-1 Sonoff Downstairs 1 IP",
           "cSharpName": "SonoffDownstairs1Ip"
         },
         {
           "id": "sensor.sonoff_downstairs_1_ssid",
-          "friendlyName": "Sonoff Downstairs 1 SSID",
+          "friendlyName": "Sonoff-Downstairs-1 Sonoff Downstairs 1 SSID",
           "cSharpName": "SonoffDownstairs1Ssid"
         },
         {
           "id": "sensor.sonoff_downstairs_2_bssid",
-          "friendlyName": "Sonoff Downstairs 2 BSSID",
+          "friendlyName": "Sonoff-Downstairs-2 Sonoff Downstairs 2 BSSID",
           "cSharpName": "SonoffDownstairs2Bssid"
         },
         {
           "id": "sensor.sonoff_downstairs_2_esphome_version",
-          "friendlyName": "Sonoff Downstairs 2 ESPHome Version",
+          "friendlyName": "Sonoff-Downstairs-2 Sonoff Downstairs 2 ESPHome Version",
           "cSharpName": "SonoffDownstairs2EsphomeVersion"
         },
         {
           "id": "sensor.sonoff_downstairs_2_ip",
-          "friendlyName": "Sonoff Downstairs 2 IP",
+          "friendlyName": "Sonoff-Downstairs-2 Sonoff Downstairs 2 IP",
           "cSharpName": "SonoffDownstairs2Ip"
         },
         {
           "id": "sensor.sonoff_downstairs_2_ssid",
-          "friendlyName": "Sonoff Downstairs 2 SSID",
+          "friendlyName": "Sonoff-Downstairs-2 Sonoff Downstairs 2 SSID",
           "cSharpName": "SonoffDownstairs2Ssid"
         },
         {
           "id": "sensor.sonoff_outside_1_bssid",
-          "friendlyName": "Sonoff Outside 1 BSSID",
+          "friendlyName": "Sonoff-Outside-1 Sonoff Outside 1 BSSID",
           "cSharpName": "SonoffOutside1Bssid"
         },
         {
           "id": "sensor.sonoff_outside_1_esphome_version",
-          "friendlyName": "Sonoff Outside 1 ESPHome Version",
+          "friendlyName": "Sonoff-Outside-1 Sonoff Outside 1 ESPHome Version",
           "cSharpName": "SonoffOutside1EsphomeVersion"
         },
         {
           "id": "sensor.sonoff_outside_1_ip",
-          "friendlyName": "Sonoff Outside 1 IP",
+          "friendlyName": "Sonoff-Outside-1 Sonoff Outside 1 IP",
           "cSharpName": "SonoffOutside1Ip"
         },
         {
           "id": "sensor.sonoff_outside_1_ssid",
-          "friendlyName": "Sonoff Outside 1 SSID",
+          "friendlyName": "Sonoff-Outside-1 Sonoff Outside 1 SSID",
           "cSharpName": "SonoffOutside1Ssid"
         },
         {
           "id": "sensor.sonoff_upstairs_1_bssid",
-          "friendlyName": "Sonoff Upstairs 1 BSSID",
+          "friendlyName": "Sonoff-Upstairs-1 Sonoff Upstairs 1 BSSID",
           "cSharpName": "SonoffUpstairs1Bssid"
         },
         {
           "id": "sensor.sonoff_upstairs_1_esphome_version",
-          "friendlyName": "Sonoff Upstairs 1 ESPHome Version",
+          "friendlyName": "Sonoff-Upstairs-1 Sonoff Upstairs 1 ESPHome Version",
           "cSharpName": "SonoffUpstairs1EsphomeVersion"
         },
         {
           "id": "sensor.sonoff_upstairs_1_ip",
-          "friendlyName": "Sonoff Upstairs 1 IP",
+          "friendlyName": "Sonoff-Upstairs-1 Sonoff Upstairs 1 IP",
           "cSharpName": "SonoffUpstairs1Ip"
         },
         {
           "id": "sensor.sonoff_upstairs_1_ssid",
-          "friendlyName": "Sonoff Upstairs 1 SSID",
+          "friendlyName": "Sonoff-Upstairs-1 Sonoff Upstairs 1 SSID",
           "cSharpName": "SonoffUpstairs1Ssid"
         },
         {
           "id": "sensor.sonoff_upstairs_2_bssid",
-          "friendlyName": "Sonoff Upstairs 2 BSSID",
+          "friendlyName": "Sonoff-Upstairs-2 Sonoff Upstairs 2 BSSID",
           "cSharpName": "SonoffUpstairs2Bssid"
         },
         {
           "id": "sensor.sonoff_upstairs_2_esphome_version",
-          "friendlyName": "Sonoff Upstairs 2 ESPHome Version",
+          "friendlyName": "Sonoff-Upstairs-2 Sonoff Upstairs 2 ESPHome Version",
           "cSharpName": "SonoffUpstairs2EsphomeVersion"
         },
         {
           "id": "sensor.sonoff_upstairs_2_ip",
-          "friendlyName": "Sonoff Upstairs 2 IP",
+          "friendlyName": "Sonoff-Upstairs-2 Sonoff Upstairs 2 IP",
           "cSharpName": "SonoffUpstairs2Ip"
         },
         {
           "id": "sensor.sonoff_upstairs_2_ssid",
-          "friendlyName": "Sonoff Upstairs 2 SSID",
+          "friendlyName": "Sonoff-Upstairs-2 Sonoff Upstairs 2 SSID",
           "cSharpName": "SonoffUpstairs2Ssid"
         },
         {
           "id": "sensor.sump_alarm_bssid",
-          "friendlyName": "Sump Alarm BSSID",
+          "friendlyName": "Sump-Alarm Sump Alarm BSSID",
           "cSharpName": "SumpAlarmBssid"
         },
         {
           "id": "sensor.sump_alarm_esphome_version",
-          "friendlyName": "Sump Alarm ESPHome Version",
+          "friendlyName": "Sump-Alarm Sump Alarm ESPHome Version",
           "cSharpName": "SumpAlarmEsphomeVersion"
         },
         {
           "id": "sensor.sump_alarm_ip",
-          "friendlyName": "Sump Alarm IP",
+          "friendlyName": "Sump-Alarm Sump Alarm IP",
           "cSharpName": "SumpAlarmIp"
         },
         {
           "id": "sensor.sump_alarm_ssid",
-          "friendlyName": "Sump Alarm SSID",
+          "friendlyName": "Sump-Alarm Sump Alarm SSID",
           "cSharpName": "SumpAlarmSsid"
         },
         {
@@ -6349,16 +6229,6 @@
           "cSharpName": "UdmproUptime"
         },
         {
-          "id": "sensor.upstairs_thermostat_hvac_state",
-          "friendlyName": "Upstairs Thermostat hvac state",
-          "cSharpName": "UpstairsThermostatHvacState"
-        },
-        {
-          "id": "sensor.upstairs_thermostat_operation_mode",
-          "friendlyName": "Upstairs Thermostat operation mode",
-          "cSharpName": "UpstairsThermostatOperationMode"
-        },
-        {
           "id": "sensor.utility_room_echo_dot_next_alarm",
           "friendlyName": "Utility Room Echo Dot next Alarm",
           "cSharpName": "UtilityRoomEchoDotNextAlarm"
@@ -6375,32 +6245,32 @@
         },
         {
           "id": "sensor.weather_station_altitude",
-          "friendlyName": "Weather Station Altitude",
+          "friendlyName": "Weather-Station Weather Station Altitude",
           "cSharpName": "WeatherStationAltitude"
         },
         {
           "id": "sensor.weather_station_bssid",
-          "friendlyName": "Weather Station BSSID",
+          "friendlyName": "Weather-Station Weather Station BSSID",
           "cSharpName": "WeatherStationBssid"
         },
         {
           "id": "sensor.weather_station_esphome_version",
-          "friendlyName": "Weather Station ESPHome Version",
+          "friendlyName": "Weather-Station Weather Station ESPHome Version",
           "cSharpName": "WeatherStationEsphomeVersion"
         },
         {
           "id": "sensor.weather_station_humidity",
-          "friendlyName": "Weather Station Humidity",
+          "friendlyName": "Weather-Station Weather Station Humidity",
           "cSharpName": "WeatherStationHumidity"
         },
         {
           "id": "sensor.weather_station_ip",
-          "friendlyName": "Weather Station IP",
+          "friendlyName": "Weather-Station Weather Station IP",
           "cSharpName": "WeatherStationIp"
         },
         {
           "id": "sensor.weather_station_ssid",
-          "friendlyName": "Weather Station SSID",
+          "friendlyName": "Weather-Station Weather Station SSID",
           "cSharpName": "WeatherStationSsid"
         }
       ],
@@ -6523,7 +6393,7 @@
         {
           "jsonName": "Areas Of Interest",
           "cSharpName": "AreasOfInterest",
-          "clrType": "System.String"
+          "clrType": "System.Object"
         },
         {
           "jsonName": "Country",
@@ -6978,12 +6848,12 @@
       "entities": [
         {
           "id": "sensor.0x00124b00226650a6_linkquality",
-          "friendlyName": "Snug Switch linkquality",
+          "friendlyName": "Snug Switch Snug Switch linkquality",
           "cSharpName": "_0x00124b00226650a6Linkquality"
         },
         {
           "id": "sensor.0x00124b00226650a6_voltage",
-          "friendlyName": "Snug Switch voltage",
+          "friendlyName": "Snug Switch Snug Switch voltage",
           "cSharpName": "_0x00124b00226650a6Voltage"
         },
         {
@@ -7153,38 +7023,23 @@
         },
         {
           "id": "sensor.basement_stairs_motion_battery",
-          "friendlyName": "Basement Stairs Motion battery",
+          "friendlyName": "Basement Stairs Motion Basement Stairs Motion battery",
           "cSharpName": "BasementStairsMotionBattery"
         },
         {
           "id": "sensor.basement_stairs_motion_linkquality",
-          "friendlyName": "Basement Stairs Motion linkquality",
+          "friendlyName": "Basement Stairs Motion Basement Stairs Motion linkquality",
           "cSharpName": "BasementStairsMotionLinkquality"
         },
         {
           "id": "sensor.basement_stairs_motion_voltage",
-          "friendlyName": "Basement Stairs Motion voltage",
+          "friendlyName": "Basement Stairs Motion Basement Stairs Motion voltage",
           "cSharpName": "BasementStairsMotionVoltage"
-        },
-        {
-          "id": "sensor.basement_thermostat_humidity",
-          "friendlyName": "Basement Thermostat humidity",
-          "cSharpName": "BasementThermostatHumidity"
         },
         {
           "id": "sensor.basement_thermostat_rx",
           "friendlyName": "RX",
           "cSharpName": "BasementThermostatRx"
-        },
-        {
-          "id": "sensor.basement_thermostat_target",
-          "friendlyName": "Basement Thermostat target",
-          "cSharpName": "BasementThermostatTarget"
-        },
-        {
-          "id": "sensor.basement_thermostat_temperature",
-          "friendlyName": "Basement Thermostat temperature",
-          "cSharpName": "BasementThermostatTemperature"
         },
         {
           "id": "sensor.basement_thermostat_tx",
@@ -7193,22 +7048,22 @@
         },
         {
           "id": "sensor.bathroom_door_battery",
-          "friendlyName": "Bathroom Door battery",
+          "friendlyName": "Bathroom Door Bathroom Door battery",
           "cSharpName": "BathroomDoorBattery"
         },
         {
           "id": "sensor.bathroom_door_linkquality",
-          "friendlyName": "Bathroom Door linkquality",
+          "friendlyName": "Bathroom Door Bathroom Door linkquality",
           "cSharpName": "BathroomDoorLinkquality"
         },
         {
           "id": "sensor.bathroom_door_voltage",
-          "friendlyName": "Bathroom Door voltage",
+          "friendlyName": "Bathroom Door Bathroom Door voltage",
           "cSharpName": "BathroomDoorVoltage"
         },
         {
           "id": "sensor.bathroom_humidistat_battery",
-          "friendlyName": "Bathroom Humidistat battery",
+          "friendlyName": "Bathroom Humidistat Bathroom Humidistat battery",
           "cSharpName": "BathroomHumidistatBattery"
         },
         {
@@ -7218,7 +7073,7 @@
         },
         {
           "id": "sensor.bathroom_humidistat_linkquality",
-          "friendlyName": "Bathroom Humidistat linkquality",
+          "friendlyName": "Bathroom Humidistat Bathroom Humidistat linkquality",
           "cSharpName": "BathroomHumidistatLinkquality"
         },
         {
@@ -7328,12 +7183,12 @@
         },
         {
           "id": "sensor.cat_feeder_uptime",
-          "friendlyName": "Cat Feeder Uptime",
+          "friendlyName": "cat-feeder Cat Feeder Uptime",
           "cSharpName": "CatFeederUptime"
         },
         {
           "id": "sensor.cat_feeder_wifi_signal",
-          "friendlyName": "Cat Feeder WiFi Signal",
+          "friendlyName": "cat-feeder Cat Feeder WiFi Signal",
           "cSharpName": "CatFeederWifiSignal"
         },
         {
@@ -7367,11 +7222,6 @@
           "cSharpName": "ClaireiphoneTx"
         },
         {
-          "id": "sensor.claires_apple_watch_battery_state",
-          "friendlyName": "Claire\u2019s Apple Watch battery state",
-          "cSharpName": "ClairesAppleWatchBatteryState"
-        },
-        {
           "id": "sensor.claires_iphone_average_active_pace",
           "friendlyName": "Claire\u2019s iPhone Average Active Pace",
           "cSharpName": "ClairesIphoneAverageActivePace"
@@ -7383,7 +7233,7 @@
         },
         {
           "id": "sensor.claires_iphone_battery_state_2",
-          "friendlyName": "claireiphone battery state",
+          "friendlyName": "claireiphone Battery",
           "cSharpName": "ClairesIphoneBatteryState2"
         },
         {
@@ -7413,7 +7263,7 @@
         },
         {
           "id": "sensor.co2_intensity",
-          "friendlyName": "CO2 signal CO2 intensity",
+          "friendlyName": "Electricity Maps CO2 intensity",
           "cSharpName": "Co2Intensity"
         },
         {
@@ -7493,33 +7343,18 @@
         },
         {
           "id": "sensor.doorbell_uptime",
-          "friendlyName": "Doorbell Uptime",
+          "friendlyName": "Doorbell Doorbell Uptime",
           "cSharpName": "DoorbellUptime"
         },
         {
           "id": "sensor.doorbell_wifi_signal",
-          "friendlyName": "Doorbell WiFi Signal",
+          "friendlyName": "Doorbell Doorbell WiFi Signal",
           "cSharpName": "DoorbellWifiSignal"
-        },
-        {
-          "id": "sensor.downstairs_thermostat_humidity",
-          "friendlyName": "Downstairs Thermostat humidity",
-          "cSharpName": "DownstairsThermostatHumidity"
         },
         {
           "id": "sensor.downstairs_thermostat_rx",
           "friendlyName": "RX",
           "cSharpName": "DownstairsThermostatRx"
-        },
-        {
-          "id": "sensor.downstairs_thermostat_target",
-          "friendlyName": "Downstairs Thermostat target",
-          "cSharpName": "DownstairsThermostatTarget"
-        },
-        {
-          "id": "sensor.downstairs_thermostat_temperature",
-          "friendlyName": "Downstairs Thermostat temperature",
-          "cSharpName": "DownstairsThermostatTemperature"
         },
         {
           "id": "sensor.downstairs_thermostat_tx",
@@ -7568,42 +7403,42 @@
         },
         {
           "id": "sensor.electric_cabinet_door_battery",
-          "friendlyName": "Electric Cabinet Door battery",
+          "friendlyName": "Electric Cabinet Door Electric Cabinet Door battery",
           "cSharpName": "ElectricCabinetDoorBattery"
         },
         {
           "id": "sensor.electric_cabinet_door_linkquality",
-          "friendlyName": "Electric Cabinet Door linkquality",
+          "friendlyName": "Electric Cabinet Door Electric Cabinet Door linkquality",
           "cSharpName": "ElectricCabinetDoorLinkquality"
         },
         {
           "id": "sensor.electric_cabinet_door_voltage",
-          "friendlyName": "Electric Cabinet Door voltage",
+          "friendlyName": "Electric Cabinet Door Electric Cabinet Door voltage",
           "cSharpName": "ElectricCabinetDoorVoltage"
         },
         {
           "id": "sensor.espresense_bedroom_free_memory",
-          "friendlyName": "ESPresense Bedroom Free Mem",
+          "friendlyName": "ESPresense Bedroom ESPresense Bedroom Free Mem",
           "cSharpName": "EspresenseBedroomFreeMemory"
         },
         {
           "id": "sensor.espresense_bedroom_uptime",
-          "friendlyName": "ESPresense Bedroom Uptime",
+          "friendlyName": "ESPresense Bedroom ESPresense Bedroom Uptime",
           "cSharpName": "EspresenseBedroomUptime"
         },
         {
           "id": "sensor.espresense_kitchen_free_memory",
-          "friendlyName": "ESPresense Kitchen Free Mem",
+          "friendlyName": "ESPresense Kitchen ESPresense Kitchen Free Mem",
           "cSharpName": "EspresenseKitchenFreeMemory"
         },
         {
           "id": "sensor.espresense_kitchen_uptime",
-          "friendlyName": "ESPresense Kitchen Uptime",
+          "friendlyName": "ESPresense Kitchen ESPresense Kitchen Uptime",
           "cSharpName": "EspresenseKitchenUptime"
         },
         {
           "id": "sensor.espresense_lounge_free_memory",
-          "friendlyName": "ESPresense Lounge Free Mem",
+          "friendlyName": "ESPresense Lounge ESPresense Lounge Free Mem",
           "cSharpName": "EspresenseLoungeFreeMemory"
         },
         {
@@ -7618,17 +7453,17 @@
         },
         {
           "id": "sensor.espresense_lounge_uptime",
-          "friendlyName": "ESPresense Lounge Uptime",
+          "friendlyName": "ESPresense Lounge ESPresense Lounge Uptime",
           "cSharpName": "EspresenseLoungeUptime"
         },
         {
           "id": "sensor.espresense_snug_free_mem",
-          "friendlyName": "ESPresense Snug Free Mem",
+          "friendlyName": "ESPresense Snug ESPresense Snug Free Mem",
           "cSharpName": "EspresenseSnugFreeMem"
         },
         {
           "id": "sensor.espresense_snug_uptime",
-          "friendlyName": "ESPresense Snug Uptime",
+          "friendlyName": "ESPresense Snug ESPresense Snug Uptime",
           "cSharpName": "EspresenseSnugUptime"
         },
         {
@@ -7658,17 +7493,17 @@
         },
         {
           "id": "sensor.front_door_battery",
-          "friendlyName": "Front Door battery",
+          "friendlyName": "Front Door Front Door battery",
           "cSharpName": "FrontDoorBattery"
         },
         {
           "id": "sensor.front_door_linkquality",
-          "friendlyName": "Front Door linkquality",
+          "friendlyName": "Front Door Front Door linkquality",
           "cSharpName": "FrontDoorLinkquality"
         },
         {
           "id": "sensor.front_door_voltage",
-          "friendlyName": "Front Door voltage",
+          "friendlyName": "Front Door Front Door voltage",
           "cSharpName": "FrontDoorVoltage"
         },
         {
@@ -7708,7 +7543,7 @@
         },
         {
           "id": "sensor.grid_fossil_fuel_percentage",
-          "friendlyName": "CO2 signal Grid fossil fuel percentage",
+          "friendlyName": "Electricity Maps Grid fossil fuel percentage",
           "cSharpName": "GridFossilFuelPercentage"
         },
         {
@@ -7733,7 +7568,7 @@
         },
         {
           "id": "sensor.guest_room_remote_battery",
-          "friendlyName": "Guest Room Remote battery",
+          "friendlyName": "Guest Room Remote Guest Room Remote battery",
           "cSharpName": "GuestRoomRemoteBattery"
         },
         {
@@ -7758,7 +7593,7 @@
         },
         {
           "id": "sensor.hallway_remote_battery",
-          "friendlyName": "Hallway Remote battery",
+          "friendlyName": "Hallway Remote Hallway Remote battery",
           "cSharpName": "HallwayRemoteBattery"
         },
         {
@@ -7898,7 +7733,7 @@
         },
         {
           "id": "sensor.lounge_remote_battery",
-          "friendlyName": "Lounge Remote battery",
+          "friendlyName": "Lounge Remote Lounge Remote battery",
           "cSharpName": "LoungeRemoteBattery"
         },
         {
@@ -8058,12 +7893,12 @@
         },
         {
           "id": "sensor.nspanel_rssi",
-          "friendlyName": "nspanel RSSI",
+          "friendlyName": "nspanel nspanel RSSI",
           "cSharpName": "NspanelRssi"
         },
         {
           "id": "sensor.nspanel_temperature",
-          "friendlyName": "nspanel Temperature",
+          "friendlyName": "nspanel nspanel Temperature",
           "cSharpName": "NspanelTemperature"
         },
         {
@@ -8383,7 +8218,7 @@
         },
         {
           "id": "sensor.snug_switch_battery",
-          "friendlyName": "Snug Switch battery",
+          "friendlyName": "Snug Switch Snug Switch battery",
           "cSharpName": "SnugSwitchBattery"
         },
         {
@@ -8393,7 +8228,7 @@
         },
         {
           "id": "sensor.sonoff_basement_1_signal",
-          "friendlyName": "Sonoff Basement 1 Signal",
+          "friendlyName": "Sonoff-Basement-1 Sonoff Basement 1 Signal",
           "cSharpName": "SonoffBasement1Signal"
         },
         {
@@ -8403,7 +8238,7 @@
         },
         {
           "id": "sensor.sonoff_basement_1_uptime",
-          "friendlyName": "Sonoff Basement 1 Uptime",
+          "friendlyName": "Sonoff-Basement-1 Sonoff Basement 1 Uptime",
           "cSharpName": "SonoffBasement1Uptime"
         },
         {
@@ -8413,7 +8248,7 @@
         },
         {
           "id": "sensor.sonoff_basement_2_signal",
-          "friendlyName": "Sonoff Basement 2 Signal",
+          "friendlyName": "Sonoff-Basement-2 Sonoff Basement 2 Signal",
           "cSharpName": "SonoffBasement2Signal"
         },
         {
@@ -8423,12 +8258,12 @@
         },
         {
           "id": "sensor.sonoff_basement_2_uptime",
-          "friendlyName": "Sonoff Basement 2 Uptime",
+          "friendlyName": "Sonoff-Basement-2 Sonoff Basement 2 Uptime",
           "cSharpName": "SonoffBasement2Uptime"
         },
         {
           "id": "sensor.sonoff_bridge_1_status",
-          "friendlyName": "Sonoff Bridge 1 status",
+          "friendlyName": "Sonoff Bridge 1 Sonoff Bridge 1 status",
           "cSharpName": "SonoffBridge1Status"
         },
         {
@@ -8438,7 +8273,7 @@
         },
         {
           "id": "sensor.sonoff_downstairs_1_signal",
-          "friendlyName": "Sonoff Downstairs 1 Signal",
+          "friendlyName": "Sonoff-Downstairs-1 Sonoff Downstairs 1 Signal",
           "cSharpName": "SonoffDownstairs1Signal"
         },
         {
@@ -8448,7 +8283,7 @@
         },
         {
           "id": "sensor.sonoff_downstairs_1_uptime",
-          "friendlyName": "Sonoff Downstairs 1 Uptime",
+          "friendlyName": "Sonoff-Downstairs-1 Sonoff Downstairs 1 Uptime",
           "cSharpName": "SonoffDownstairs1Uptime"
         },
         {
@@ -8458,7 +8293,7 @@
         },
         {
           "id": "sensor.sonoff_downstairs_2_signal",
-          "friendlyName": "Sonoff Downstairs 2 Signal",
+          "friendlyName": "Sonoff-Downstairs-2 Sonoff Downstairs 2 Signal",
           "cSharpName": "SonoffDownstairs2Signal"
         },
         {
@@ -8468,7 +8303,7 @@
         },
         {
           "id": "sensor.sonoff_downstairs_2_uptime",
-          "friendlyName": "Sonoff Downstairs 2 Uptime",
+          "friendlyName": "Sonoff-Downstairs-2 Sonoff Downstairs 2 Uptime",
           "cSharpName": "SonoffDownstairs2Uptime"
         },
         {
@@ -8478,7 +8313,7 @@
         },
         {
           "id": "sensor.sonoff_outside_1_signal",
-          "friendlyName": "Sonoff Outside 1 Signal",
+          "friendlyName": "Sonoff-Outside-1 Sonoff Outside 1 Signal",
           "cSharpName": "SonoffOutside1Signal"
         },
         {
@@ -8488,7 +8323,7 @@
         },
         {
           "id": "sensor.sonoff_outside_1_uptime",
-          "friendlyName": "Sonoff Outside 1 Uptime",
+          "friendlyName": "Sonoff-Outside-1 Sonoff Outside 1 Uptime",
           "cSharpName": "SonoffOutside1Uptime"
         },
         {
@@ -8498,7 +8333,7 @@
         },
         {
           "id": "sensor.sonoff_upstairs_1_signal",
-          "friendlyName": "Sonoff Upstairs 1 Signal",
+          "friendlyName": "Sonoff-Upstairs-1 Sonoff Upstairs 1 Signal",
           "cSharpName": "SonoffUpstairs1Signal"
         },
         {
@@ -8508,7 +8343,7 @@
         },
         {
           "id": "sensor.sonoff_upstairs_1_uptime",
-          "friendlyName": "Sonoff Upstairs 1 Uptime",
+          "friendlyName": "Sonoff-Upstairs-1 Sonoff Upstairs 1 Uptime",
           "cSharpName": "SonoffUpstairs1Uptime"
         },
         {
@@ -8518,7 +8353,7 @@
         },
         {
           "id": "sensor.sonoff_upstairs_2_signal",
-          "friendlyName": "Sonoff Upstairs 2 Signal",
+          "friendlyName": "Sonoff-Upstairs-2 Sonoff Upstairs 2 Signal",
           "cSharpName": "SonoffUpstairs2Signal"
         },
         {
@@ -8528,7 +8363,7 @@
         },
         {
           "id": "sensor.sonoff_upstairs_2_uptime",
-          "friendlyName": "Sonoff Upstairs 2 Uptime",
+          "friendlyName": "Sonoff-Upstairs-2 Sonoff Upstairs 2 Uptime",
           "cSharpName": "SonoffUpstairs2Uptime"
         },
         {
@@ -8578,27 +8413,27 @@
         },
         {
           "id": "sensor.sump_alarm_uptime",
-          "friendlyName": "Sump Alarm Uptime",
+          "friendlyName": "Sump-Alarm Sump Alarm Uptime",
           "cSharpName": "SumpAlarmUptime"
         },
         {
           "id": "sensor.sump_alarm_wifi_signal",
-          "friendlyName": "Sump Alarm WiFi Signal",
+          "friendlyName": "Sump-Alarm Sump Alarm WiFi Signal",
           "cSharpName": "SumpAlarmWifiSignal"
         },
         {
           "id": "sensor.toilet_door_battery",
-          "friendlyName": "Toilet Door battery",
+          "friendlyName": "Toilet Door Toilet Door battery",
           "cSharpName": "ToiletDoorBattery"
         },
         {
           "id": "sensor.toilet_door_linkquality",
-          "friendlyName": "Toilet Door linkquality",
+          "friendlyName": "Toilet Door Toilet Door linkquality",
           "cSharpName": "ToiletDoorLinkquality"
         },
         {
           "id": "sensor.toilet_door_voltage",
-          "friendlyName": "Toilet Door voltage",
+          "friendlyName": "Toilet Door Toilet Door voltage",
           "cSharpName": "ToiletDoorVoltage"
         },
         {
@@ -8738,12 +8573,12 @@
         },
         {
           "id": "sensor.unifi_dream_machine_kib_s_received",
-          "friendlyName": "UniFi Dream Machine KiB/s received",
+          "friendlyName": "UniFi Dream Machine Download speed",
           "cSharpName": "UnifiDreamMachineKibSReceived"
         },
         {
           "id": "sensor.unifi_dream_machine_kib_s_sent",
-          "friendlyName": "UniFi Dream Machine KiB/s sent",
+          "friendlyName": "UniFi Dream Machine Upload speed",
           "cSharpName": "UnifiDreamMachineKibSSent"
         },
         {
@@ -8757,24 +8592,9 @@
           "cSharpName": "UpstairsAlarmPanelTx"
         },
         {
-          "id": "sensor.upstairs_thermostat_humidity",
-          "friendlyName": "Upstairs Thermostat humidity",
-          "cSharpName": "UpstairsThermostatHumidity"
-        },
-        {
           "id": "sensor.upstairs_thermostat_rx",
           "friendlyName": "RX",
           "cSharpName": "UpstairsThermostatRx"
-        },
-        {
-          "id": "sensor.upstairs_thermostat_target",
-          "friendlyName": "Upstairs Thermostat target",
-          "cSharpName": "UpstairsThermostatTarget"
-        },
-        {
-          "id": "sensor.upstairs_thermostat_temperature",
-          "friendlyName": "Upstairs Thermostat temperature",
-          "cSharpName": "UpstairsThermostatTemperature"
         },
         {
           "id": "sensor.upstairs_thermostat_tx",
@@ -8803,17 +8623,17 @@
         },
         {
           "id": "sensor.weather_station_ambient_light",
-          "friendlyName": "Weather Station Ambient Light",
+          "friendlyName": "Weather-Station Weather Station Ambient Light",
           "cSharpName": "WeatherStationAmbientLight"
         },
         {
           "id": "sensor.weather_station_pressure",
-          "friendlyName": "Weather Station Pressure",
+          "friendlyName": "Weather-Station Weather Station Pressure",
           "cSharpName": "WeatherStationPressure"
         },
         {
           "id": "sensor.weather_station_relative_humidity",
-          "friendlyName": "Weather Station Relative Humidity",
+          "friendlyName": "Weather-Station Weather Station Relative Humidity",
           "cSharpName": "WeatherStationRelativeHumidity"
         },
         {
@@ -8823,7 +8643,7 @@
         },
         {
           "id": "sensor.weather_station_temperature",
-          "friendlyName": "Weather Station Temperature",
+          "friendlyName": "Weather-Station Weather Station Temperature",
           "cSharpName": "WeatherStationTemperature"
         },
         {
@@ -8833,12 +8653,12 @@
         },
         {
           "id": "sensor.weather_station_uptime",
-          "friendlyName": "Weather Station Uptime",
+          "friendlyName": "Weather-Station Weather Station Uptime",
           "cSharpName": "WeatherStationUptime"
         },
         {
           "id": "sensor.weather_station_wifi_signal",
-          "friendlyName": "Weather Station WiFi Signal",
+          "friendlyName": "Weather-Station Weather Station WiFi Signal",
           "cSharpName": "WeatherStationWifiSignal"
         },
         {
@@ -9527,12 +9347,12 @@
         },
         {
           "id": "switch.cat_feeder_restart",
-          "friendlyName": "Cat Feeder Restart",
+          "friendlyName": "cat-feeder Cat Feeder Restart",
           "cSharpName": "CatFeederRestart"
         },
         {
           "id": "switch.coffee_machine",
-          "friendlyName": "Coffee Machine",
+          "friendlyName": "Coffee Machine Coffee Machine",
           "cSharpName": "CoffeeMachine"
         },
         {
@@ -9562,32 +9382,32 @@
         },
         {
           "id": "switch.disable_next_feed",
-          "friendlyName": "Disable Next Feed",
+          "friendlyName": "cat-feeder Disable Next Feed",
           "cSharpName": "DisableNextFeed"
         },
         {
           "id": "switch.dispenser_motor",
-          "friendlyName": "Dispenser Motor",
+          "friendlyName": "cat-feeder Dispenser Motor",
           "cSharpName": "DispenserMotor"
         },
         {
           "id": "switch.display_cabinet_light",
-          "friendlyName": "Display Cabinet Light",
+          "friendlyName": "Display Cabinet Light Display Cabinet Light",
           "cSharpName": "DisplayCabinetLight"
         },
         {
           "id": "switch.doorbell_chime",
-          "friendlyName": "Doorbell Chime",
+          "friendlyName": "Doorbell Doorbell Chime",
           "cSharpName": "DoorbellChime"
         },
         {
           "id": "switch.doorbell_chime_active",
-          "friendlyName": "Doorbell Chime Active",
+          "friendlyName": "Doorbell Doorbell Chime Active",
           "cSharpName": "DoorbellChimeActive"
         },
         {
           "id": "switch.doorbell_restart",
-          "friendlyName": "Doorbell Restart",
+          "friendlyName": "Doorbell Doorbell Restart",
           "cSharpName": "DoorbellRestart"
         },
         {
@@ -9637,162 +9457,162 @@
         },
         {
           "id": "switch.espresense_bedroom_active_scan",
-          "friendlyName": "ESPresense Bedroom Active Scan",
+          "friendlyName": "ESPresense Bedroom ESPresense Bedroom Active Scan",
           "cSharpName": "EspresenseBedroomActiveScan"
         },
         {
           "id": "switch.espresense_bedroom_arduino_ota",
-          "friendlyName": "ESPresense Bedroom Arduino OTA",
+          "friendlyName": "ESPresense Bedroom ESPresense Bedroom Arduino OTA",
           "cSharpName": "EspresenseBedroomArduinoOta"
         },
         {
           "id": "switch.espresense_bedroom_auto_update",
-          "friendlyName": "ESPresense Bedroom Auto Update",
+          "friendlyName": "ESPresense Bedroom ESPresense Bedroom Auto Update",
           "cSharpName": "EspresenseBedroomAutoUpdate"
         },
         {
           "id": "switch.espresense_bedroom_ota_update",
-          "friendlyName": "ESPresense Bedroom OTA Update",
+          "friendlyName": "ESPresense Bedroom ESPresense Bedroom OTA Update",
           "cSharpName": "EspresenseBedroomOtaUpdate"
         },
         {
           "id": "switch.espresense_bedroom_prerelease",
-          "friendlyName": "ESPresense Bedroom Prerelease",
+          "friendlyName": "ESPresense Bedroom ESPresense Bedroom Prerelease",
           "cSharpName": "EspresenseBedroomPrerelease"
         },
         {
           "id": "switch.espresense_bedroom_query",
-          "friendlyName": "ESPresense Bedroom Query",
+          "friendlyName": "ESPresense Bedroom ESPresense Bedroom Query",
           "cSharpName": "EspresenseBedroomQuery"
         },
         {
           "id": "switch.espresense_bedroom_status_led",
-          "friendlyName": "ESPresense Bedroom Status LED",
+          "friendlyName": "ESPresense Bedroom ESPresense Bedroom Status LED",
           "cSharpName": "EspresenseBedroomStatusLed"
         },
         {
           "id": "switch.espresense_drawingroom_active_scan",
-          "friendlyName": "ESPresense DrawingRoom Active Scan",
+          "friendlyName": "ESPresense DrawingRoom ESPresense DrawingRoom Active Scan",
           "cSharpName": "EspresenseDrawingroomActiveScan"
         },
         {
           "id": "switch.espresense_drawingroom_query",
-          "friendlyName": "ESPresense DrawingRoom Query",
+          "friendlyName": "ESPresense DrawingRoom ESPresense DrawingRoom Query",
           "cSharpName": "EspresenseDrawingroomQuery"
         },
         {
           "id": "switch.espresense_kitchen_active_scan",
-          "friendlyName": "ESPresense Kitchen Active Scan",
+          "friendlyName": "ESPresense Kitchen ESPresense Kitchen Active Scan",
           "cSharpName": "EspresenseKitchenActiveScan"
         },
         {
           "id": "switch.espresense_kitchen_arduino_ota",
-          "friendlyName": "ESPresense Kitchen Arduino OTA",
+          "friendlyName": "ESPresense Kitchen ESPresense Kitchen Arduino OTA",
           "cSharpName": "EspresenseKitchenArduinoOta"
         },
         {
           "id": "switch.espresense_kitchen_auto_update",
-          "friendlyName": "ESPresense Kitchen Auto Update",
+          "friendlyName": "ESPresense Kitchen ESPresense Kitchen Auto Update",
           "cSharpName": "EspresenseKitchenAutoUpdate"
         },
         {
           "id": "switch.espresense_kitchen_prerelease",
-          "friendlyName": "ESPresense Kitchen Prerelease",
+          "friendlyName": "ESPresense Kitchen ESPresense Kitchen Prerelease",
           "cSharpName": "EspresenseKitchenPrerelease"
         },
         {
           "id": "switch.espresense_kitchen_query",
-          "friendlyName": "ESPresense Kitchen Query",
+          "friendlyName": "ESPresense Kitchen ESPresense Kitchen Query",
           "cSharpName": "EspresenseKitchenQuery"
         },
         {
           "id": "switch.espresense_kitchen_status_led",
-          "friendlyName": "ESPresense Kitchen Status LED",
+          "friendlyName": "ESPresense Kitchen ESPresense Kitchen Status LED",
           "cSharpName": "EspresenseKitchenStatusLed"
         },
         {
           "id": "switch.espresense_lounge_active_scan",
-          "friendlyName": "ESPresense Lounge Active Scan",
+          "friendlyName": "ESPresense Lounge ESPresense Lounge Active Scan",
           "cSharpName": "EspresenseLoungeActiveScan"
         },
         {
           "id": "switch.espresense_lounge_arduino_ota",
-          "friendlyName": "ESPresense Lounge Arduino OTA",
+          "friendlyName": "ESPresense Lounge ESPresense Lounge Arduino OTA",
           "cSharpName": "EspresenseLoungeArduinoOta"
         },
         {
           "id": "switch.espresense_lounge_auto_update",
-          "friendlyName": "ESPresense Lounge Auto Update",
+          "friendlyName": "ESPresense Lounge ESPresense Lounge Auto Update",
           "cSharpName": "EspresenseLoungeAutoUpdate"
         },
         {
           "id": "switch.espresense_lounge_ota_update",
-          "friendlyName": "ESPresense Lounge OTA Update",
+          "friendlyName": "ESPresense Lounge ESPresense Lounge OTA Update",
           "cSharpName": "EspresenseLoungeOtaUpdate"
         },
         {
           "id": "switch.espresense_lounge_prerelease",
-          "friendlyName": "ESPresense Lounge Prerelease",
+          "friendlyName": "ESPresense Lounge ESPresense Lounge Prerelease",
           "cSharpName": "EspresenseLoungePrerelease"
         },
         {
           "id": "switch.espresense_lounge_query",
-          "friendlyName": "ESPresense Lounge Query",
+          "friendlyName": "ESPresense Lounge ESPresense Lounge Query",
           "cSharpName": "EspresenseLoungeQuery"
         },
         {
           "id": "switch.espresense_lounge_status_led",
-          "friendlyName": "ESPresense Lounge Status LED",
+          "friendlyName": "ESPresense Lounge ESPresense Lounge Status LED",
           "cSharpName": "EspresenseLoungeStatusLed"
         },
         {
           "id": "switch.espresense_snug_active_scan",
-          "friendlyName": "ESPresense Snug Active Scan",
+          "friendlyName": "ESPresense Snug ESPresense Snug Active Scan",
           "cSharpName": "EspresenseSnugActiveScan"
         },
         {
           "id": "switch.espresense_snug_arduino_ota",
-          "friendlyName": "ESPresense Snug Arduino OTA",
+          "friendlyName": "ESPresense Snug ESPresense Snug Arduino OTA",
           "cSharpName": "EspresenseSnugArduinoOta"
         },
         {
           "id": "switch.espresense_snug_auto_update",
-          "friendlyName": "ESPresense Snug Auto Update",
+          "friendlyName": "ESPresense Snug ESPresense Snug Auto Update",
           "cSharpName": "EspresenseSnugAutoUpdate"
         },
         {
           "id": "switch.espresense_snug_prerelease",
-          "friendlyName": "ESPresense Snug Prerelease",
+          "friendlyName": "ESPresense Snug ESPresense Snug Prerelease",
           "cSharpName": "EspresenseSnugPrerelease"
         },
         {
           "id": "switch.espresense_snug_query",
-          "friendlyName": "ESPresense Snug Query",
+          "friendlyName": "ESPresense Snug ESPresense Snug Query",
           "cSharpName": "EspresenseSnugQuery"
         },
         {
           "id": "switch.espresense_snug_status_led",
-          "friendlyName": "ESPresense Snug Status LED",
+          "friendlyName": "ESPresense Snug ESPresense Snug Status LED",
           "cSharpName": "EspresenseSnugStatusLed"
         },
         {
           "id": "switch.espresense_studio_active_scan",
-          "friendlyName": "ESPresense Studio Active Scan",
+          "friendlyName": "studio-bluetooth-proxy ESPresense Studio Active Scan",
           "cSharpName": "EspresenseStudioActiveScan"
         },
         {
           "id": "switch.espresense_studio_query",
-          "friendlyName": "ESPresense Studio Query",
+          "friendlyName": "studio-bluetooth-proxy ESPresense Studio Query",
           "cSharpName": "EspresenseStudioQuery"
         },
         {
           "id": "switch.evening_feed_complete",
-          "friendlyName": "Evening Feed Complete",
+          "friendlyName": "cat-feeder Evening Feed Complete",
           "cSharpName": "EveningFeedComplete"
         },
         {
           "id": "switch.evening_feed_enabled",
-          "friendlyName": "Evening Feed Enabled",
+          "friendlyName": "cat-feeder Evening Feed Enabled",
           "cSharpName": "EveningFeedEnabled"
         },
         {
@@ -9822,7 +9642,7 @@
         },
         {
           "id": "switch.guest_room_bedside_lamp",
-          "friendlyName": "Guest Room Bedside Lamp",
+          "friendlyName": "Guest Room Bedside Lamp Guest Room Bedside Lamp",
           "cSharpName": "GuestRoomBedsideLamp"
         },
         {
@@ -9847,7 +9667,7 @@
         },
         {
           "id": "switch.homeassistant_active",
-          "friendlyName": "homeassistant Active",
+          "friendlyName": "homeassistant",
           "cSharpName": "HomeassistantActive"
         },
         {
@@ -9927,57 +9747,57 @@
         },
         {
           "id": "switch.morning_feed_complete",
-          "friendlyName": "Morning Feed Complete",
+          "friendlyName": "cat-feeder Morning Feed Complete",
           "cSharpName": "MorningFeedComplete"
         },
         {
           "id": "switch.morning_feed_enabled",
-          "friendlyName": "Morning Feed Enabled",
+          "friendlyName": "cat-feeder Morning Feed Enabled",
           "cSharpName": "MorningFeedEnabled"
         },
         {
           "id": "switch.nspanel_confirmation_message",
-          "friendlyName": "nspanel Confirmation Message",
+          "friendlyName": "nspanel nspanel Confirmation Message",
           "cSharpName": "NspanelConfirmationMessage"
         },
         {
           "id": "switch.nspanel_nextion_inited",
-          "friendlyName": "nspanel Nextion inited",
+          "friendlyName": "nspanel nspanel Nextion inited",
           "cSharpName": "NspanelNextionInited"
         },
         {
           "id": "switch.nspanel_notification_sound",
-          "friendlyName": "nspanel Notification sound",
+          "friendlyName": "nspanel nspanel Notification sound",
           "cSharpName": "NspanelNotificationSound"
         },
         {
           "id": "switch.nspanel_notification_unread",
-          "friendlyName": "nspanel Notification unread",
+          "friendlyName": "nspanel nspanel Notification unread",
           "cSharpName": "NspanelNotificationUnread"
         },
         {
           "id": "switch.nspanel_relay_1",
-          "friendlyName": "nspanel Relay 1",
+          "friendlyName": "nspanel nspanel Relay 1",
           "cSharpName": "NspanelRelay1"
         },
         {
           "id": "switch.nspanel_relay_1_local_fallback",
-          "friendlyName": "nspanel Relay 1 Local Fallback",
+          "friendlyName": "nspanel nspanel Relay 1 Local Fallback",
           "cSharpName": "NspanelRelay1LocalFallback"
         },
         {
           "id": "switch.nspanel_relay_2",
-          "friendlyName": "nspanel Relay 2",
+          "friendlyName": "nspanel nspanel Relay 2",
           "cSharpName": "NspanelRelay2"
         },
         {
           "id": "switch.nspanel_relay_2_local_fallback",
-          "friendlyName": "nspanel Relay 2 Local Fallback",
+          "friendlyName": "nspanel nspanel Relay 2 Local Fallback",
           "cSharpName": "NspanelRelay2LocalFallback"
         },
         {
           "id": "switch.nspanel_sleep_modus",
-          "friendlyName": "nspanel Sleep Modus",
+          "friendlyName": "nspanel nspanel Sleep Modus",
           "cSharpName": "NspanelSleepModus"
         },
         {
@@ -10017,42 +9837,42 @@
         },
         {
           "id": "switch.restart_sonoff_basement_1",
-          "friendlyName": "Restart Sonoff Basement 1",
+          "friendlyName": "Sonoff-Basement-1 Restart Sonoff Basement 1",
           "cSharpName": "RestartSonoffBasement1"
         },
         {
           "id": "switch.restart_sonoff_basement_2",
-          "friendlyName": "Restart Sonoff Basement 2",
+          "friendlyName": "Sonoff-Basement-2 Restart Sonoff Basement 2",
           "cSharpName": "RestartSonoffBasement2"
         },
         {
           "id": "switch.restart_sonoff_downstairs_1",
-          "friendlyName": "Restart Sonoff Downstairs 1",
+          "friendlyName": "Sonoff-Downstairs-1 Restart Sonoff Downstairs 1",
           "cSharpName": "RestartSonoffDownstairs1"
         },
         {
           "id": "switch.restart_sonoff_downstairs_2",
-          "friendlyName": "Restart Sonoff Downstairs 2",
+          "friendlyName": "Sonoff-Downstairs-2 Restart Sonoff Downstairs 2",
           "cSharpName": "RestartSonoffDownstairs2"
         },
         {
           "id": "switch.restart_sonoff_outside_1",
-          "friendlyName": "Restart Sonoff Outside 1",
+          "friendlyName": "Sonoff-Outside-1 Restart Sonoff Outside 1",
           "cSharpName": "RestartSonoffOutside1"
         },
         {
           "id": "switch.restart_sonoff_upstairs_1",
-          "friendlyName": "Restart Sonoff Upstairs 1",
+          "friendlyName": "Sonoff-Upstairs-1 Restart Sonoff Upstairs 1",
           "cSharpName": "RestartSonoffUpstairs1"
         },
         {
           "id": "switch.restart_sonoff_upstairs_2",
-          "friendlyName": "Restart Sonoff Upstairs 2",
+          "friendlyName": "Sonoff-Upstairs-2 Restart Sonoff Upstairs 2",
           "cSharpName": "RestartSonoffUpstairs2"
         },
         {
           "id": "switch.restart_weather_station",
-          "friendlyName": "Restart Weather Station",
+          "friendlyName": "Weather-Station Restart Weather Station",
           "cSharpName": "RestartWeatherStation"
         },
         {
@@ -10087,152 +9907,152 @@
         },
         {
           "id": "switch.sonoff_basement_1_basement_hall",
-          "friendlyName": "Sonoff Basement 1 Basement Hall",
+          "friendlyName": "Sonoff-Basement-1 Sonoff Basement 1 Basement Hall",
           "cSharpName": "SonoffBasement1BasementHall"
         },
         {
           "id": "switch.sonoff_basement_1_brewery",
-          "friendlyName": "Sonoff Basement 1 Brewery",
+          "friendlyName": "Sonoff-Basement-1 Sonoff Basement 1 Brewery",
           "cSharpName": "SonoffBasement1Brewery"
         },
         {
           "id": "switch.sonoff_basement_1_toilet",
-          "friendlyName": "Sonoff Basement 1 Toilet",
+          "friendlyName": "Sonoff-Basement-1 Sonoff Basement 1 Toilet",
           "cSharpName": "SonoffBasement1Toilet"
         },
         {
           "id": "switch.sonoff_basement_1_utility_room",
-          "friendlyName": "Sonoff Basement 1 Utility Room",
+          "friendlyName": "Sonoff-Basement-1 Sonoff Basement 1 Utility Room",
           "cSharpName": "SonoffBasement1UtilityRoom"
         },
         {
           "id": "switch.sonoff_basement_2_dining_room",
-          "friendlyName": "Sonoff Basement 2 Dining Room",
+          "friendlyName": "Sonoff-Basement-2 Sonoff Basement 2 Dining Room",
           "cSharpName": "SonoffBasement2DiningRoom"
         },
         {
           "id": "switch.sonoff_basement_2_snug",
-          "friendlyName": "Sonoff Basement 2 Snug",
+          "friendlyName": "Sonoff-Basement-2 Sonoff Basement 2 Snug",
           "cSharpName": "SonoffBasement2Snug"
         },
         {
           "id": "switch.sonoff_basement_2_spare_ch3",
-          "friendlyName": "Sonoff Basement 2 Spare Ch3",
+          "friendlyName": "Sonoff-Basement-2 Sonoff Basement 2 Spare Ch3",
           "cSharpName": "SonoffBasement2SpareCh3"
         },
         {
           "id": "switch.sonoff_basement_2_spare_ch4",
-          "friendlyName": "Sonoff Basement 2 Spare Ch4",
+          "friendlyName": "Sonoff-Basement-2 Sonoff Basement 2 Spare Ch4",
           "cSharpName": "SonoffBasement2SpareCh4"
         },
         {
           "id": "switch.sonoff_downstairs_1_bookshelf_light",
-          "friendlyName": "Sonoff Downstairs 1 Bookshelf Light",
+          "friendlyName": "Sonoff-Downstairs-1 Sonoff Downstairs 1 Bookshelf Light",
           "cSharpName": "SonoffDownstairs1BookshelfLight"
         },
         {
           "id": "switch.sonoff_downstairs_1_extractor_fan",
-          "friendlyName": "Sonoff Downstairs 1 Extractor Fan",
+          "friendlyName": "Sonoff-Downstairs-1 Sonoff Downstairs 1 Extractor Fan",
           "cSharpName": "SonoffDownstairs1ExtractorFan"
         },
         {
           "id": "switch.sonoff_downstairs_1_hallway_light",
-          "friendlyName": "Sonoff Downstairs 1 Hallway Light",
+          "friendlyName": "Sonoff-Downstairs-1 Sonoff Downstairs 1 Hallway Light",
           "cSharpName": "SonoffDownstairs1HallwayLight"
         },
         {
           "id": "switch.sonoff_downstairs_1_lounge_light",
-          "friendlyName": "Sonoff Downstairs 1 Lounge Light",
+          "friendlyName": "Sonoff-Downstairs-1 Sonoff Downstairs 1 Lounge Light",
           "cSharpName": "SonoffDownstairs1LoungeLight"
         },
         {
           "id": "switch.sonoff_downstairs_2_cabinet_light",
-          "friendlyName": "Sonoff Downstairs 2 Cabinet Light",
+          "friendlyName": "Sonoff-Downstairs-2 Sonoff Downstairs 2 Cabinet Light",
           "cSharpName": "SonoffDownstairs2CabinetLight"
         },
         {
           "id": "switch.sonoff_downstairs_2_drawing_room_light",
-          "friendlyName": "Sonoff Downstairs 2 Drawing Room Light",
+          "friendlyName": "Sonoff-Downstairs-2 Sonoff Downstairs 2 Drawing Room Light",
           "cSharpName": "SonoffDownstairs2DrawingRoomLight"
         },
         {
           "id": "switch.sonoff_downstairs_2_kitchen_light",
-          "friendlyName": "Sonoff Downstairs 2 Kitchen Light",
+          "friendlyName": "Sonoff-Downstairs-2 Sonoff Downstairs 2 Kitchen Light",
           "cSharpName": "SonoffDownstairs2KitchenLight"
         },
         {
           "id": "switch.sonoff_downstairs_2_spare_ch1",
-          "friendlyName": "Sonoff Downstairs 2 Spare Ch1",
+          "friendlyName": "Sonoff-Downstairs-2 Sonoff Downstairs 2 Spare Ch1",
           "cSharpName": "SonoffDownstairs2SpareCh1"
         },
         {
           "id": "switch.sonoff_outside_1_back_door",
-          "friendlyName": "Sonoff Outside 1 Back Door",
+          "friendlyName": "Sonoff-Outside-1 Sonoff Outside 1 Back Door",
           "cSharpName": "SonoffOutside1BackDoor"
         },
         {
           "id": "switch.sonoff_outside_1_cellar_door",
-          "friendlyName": "Sonoff Outside 1 Cellar Door",
+          "friendlyName": "Sonoff-Outside-1 Sonoff Outside 1 Cellar Door",
           "cSharpName": "SonoffOutside1CellarDoor"
         },
         {
           "id": "switch.sonoff_outside_1_patio",
-          "friendlyName": "Sonoff Outside 1 Patio",
+          "friendlyName": "Sonoff-Outside-1 Sonoff Outside 1 Patio",
           "cSharpName": "SonoffOutside1Patio"
         },
         {
           "id": "switch.sonoff_outside_1_porch",
-          "friendlyName": "Sonoff Outside 1 Porch",
+          "friendlyName": "Sonoff-Outside-1 Sonoff Outside 1 Porch",
           "cSharpName": "SonoffOutside1Porch"
         },
         {
           "id": "switch.sonoff_upstairs_1_bathroom_fan",
-          "friendlyName": "Sonoff Upstairs 1 Bathroom Fan",
+          "friendlyName": "Sonoff-Upstairs-1 Sonoff Upstairs 1 Bathroom Fan",
           "cSharpName": "SonoffUpstairs1BathroomFan"
         },
         {
           "id": "switch.sonoff_upstairs_1_dressing_room_light",
-          "friendlyName": "Sonoff Upstairs 1 Dressing Room Light",
+          "friendlyName": "Sonoff-Upstairs-1 Sonoff Upstairs 1 Dressing Room Light",
           "cSharpName": "SonoffUpstairs1DressingRoomLight"
         },
         {
           "id": "switch.sonoff_upstairs_1_guest_room_light",
-          "friendlyName": "Sonoff Upstairs 1 Guest Room Light",
+          "friendlyName": "Sonoff-Upstairs-1 Sonoff Upstairs 1 Guest Room Light",
           "cSharpName": "SonoffUpstairs1GuestRoomLight"
         },
         {
           "id": "switch.sonoff_upstairs_1_landing_light",
-          "friendlyName": "Sonoff Upstairs 1 Landing Light",
+          "friendlyName": "Sonoff-Upstairs-1 Sonoff Upstairs 1 Landing Light",
           "cSharpName": "SonoffUpstairs1LandingLight"
         },
         {
           "id": "switch.sonoff_upstairs_2_bathroom_light",
-          "friendlyName": "Sonoff Upstairs 2 Bathroom Light",
+          "friendlyName": "Sonoff-Upstairs-2 Sonoff Upstairs 2 Bathroom Light",
           "cSharpName": "SonoffUpstairs2BathroomLight"
         },
         {
           "id": "switch.sonoff_upstairs_2_bedroom_light",
-          "friendlyName": "Sonoff Upstairs 2 Bedroom Light",
+          "friendlyName": "Sonoff-Upstairs-2 Sonoff Upstairs 2 Bedroom Light",
           "cSharpName": "SonoffUpstairs2BedroomLight"
         },
         {
           "id": "switch.sonoff_upstairs_2_mirror_light",
-          "friendlyName": "Sonoff Upstairs 2 Mirror Light",
+          "friendlyName": "Sonoff-Upstairs-2 Sonoff Upstairs 2 Mirror Light",
           "cSharpName": "SonoffUpstairs2MirrorLight"
         },
         {
           "id": "switch.sonoff_upstairs_2_studio_light",
-          "friendlyName": "Sonoff Upstairs 2 Studio Light",
+          "friendlyName": "Sonoff-Upstairs-2 Sonoff Upstairs 2 Studio Light",
           "cSharpName": "SonoffUpstairs2StudioLight"
         },
         {
           "id": "switch.sump_alarm_reset",
-          "friendlyName": "Sump Alarm Reset",
+          "friendlyName": "Sump-Alarm Sump Alarm Reset",
           "cSharpName": "SumpAlarmReset"
         },
         {
           "id": "switch.sump_alarm_restart",
-          "friendlyName": "Sump Alarm Restart",
+          "friendlyName": "Sump-Alarm Sump Alarm Restart",
           "cSharpName": "SumpAlarmRestart"
         },
         {
@@ -10386,12 +10206,12 @@
         },
         {
           "id": "update.cat_feed_v2_firmware",
-          "friendlyName": "cat-feed-v2 Firmware",
+          "friendlyName": "Firmware",
           "cSharpName": "CatFeedV2Firmware"
         },
         {
           "id": "update.cat_feeder_firmware",
-          "friendlyName": "cat-feeder Firmware",
+          "friendlyName": "Firmware",
           "cSharpName": "CatFeederFirmware"
         },
         {
@@ -10401,7 +10221,7 @@
         },
         {
           "id": "update.doorbell_firmware",
-          "friendlyName": "doorbell Firmware",
+          "friendlyName": "Doorbell Firmware",
           "cSharpName": "DoorbellFirmware"
         },
         {
@@ -10511,37 +10331,37 @@
         },
         {
           "id": "update.sonoff_basement_1_firmware",
-          "friendlyName": "sonoff-basement-1 Firmware",
+          "friendlyName": "Sonoff-Basement-1 Firmware",
           "cSharpName": "SonoffBasement1Firmware"
         },
         {
           "id": "update.sonoff_basement_2_firmware",
-          "friendlyName": "sonoff-basement-2 Firmware",
+          "friendlyName": "Sonoff-Basement-2 Firmware",
           "cSharpName": "SonoffBasement2Firmware"
         },
         {
           "id": "update.sonoff_downstairs_1_firmware",
-          "friendlyName": "sonoff-downstairs-1 Firmware",
+          "friendlyName": "Sonoff-Downstairs-1 Firmware",
           "cSharpName": "SonoffDownstairs1Firmware"
         },
         {
           "id": "update.sonoff_downstairs_2_firmware",
-          "friendlyName": "sonoff-downstairs-2 Firmware",
+          "friendlyName": "Sonoff-Downstairs-2 Firmware",
           "cSharpName": "SonoffDownstairs2Firmware"
         },
         {
           "id": "update.sonoff_outside_1_firmware",
-          "friendlyName": "sonoff-outside-1 Firmware",
+          "friendlyName": "Sonoff-Outside-1 Firmware",
           "cSharpName": "SonoffOutside1Firmware"
         },
         {
           "id": "update.sonoff_upstairs_1_firmware",
-          "friendlyName": "sonoff-upstairs-1 Firmware",
+          "friendlyName": "Sonoff-Upstairs-1 Firmware",
           "cSharpName": "SonoffUpstairs1Firmware"
         },
         {
           "id": "update.sonoff_upstairs_2_firmware",
-          "friendlyName": "sonoff-upstairs-2 Firmware",
+          "friendlyName": "Sonoff-Upstairs-2 Firmware",
           "cSharpName": "SonoffUpstairs2Firmware"
         },
         {
@@ -10556,7 +10376,7 @@
         },
         {
           "id": "update.sump_alarm_firmware",
-          "friendlyName": "sump-alarm Firmware",
+          "friendlyName": "Sump-Alarm Firmware",
           "cSharpName": "SumpAlarmFirmware"
         },
         {
@@ -10596,7 +10416,7 @@
         },
         {
           "id": "update.weather_station_firmware",
-          "friendlyName": "weather-station Firmware",
+          "friendlyName": "Weather-Station Firmware",
           "cSharpName": "WeatherStationFirmware"
         },
         {
