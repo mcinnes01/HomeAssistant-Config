@@ -180,7 +180,6 @@
       milliseconds: 0
   - service: notify.alexa_media
     data:
-    
       message: Welcome home Andy
       title: Andy is home
       target: media_player.all_speakers
@@ -995,3 +994,50 @@
       calendar_entity: calendar.home_andisoft_gmail_com
       weather_entity: weather.met_office_heaton_chapel_daily
       zone_entity: zone.home
+- id: '1690477886669'
+  alias: Carbon Monoxide Detected
+  description: ''
+  trigger:
+  - type: carbon_monoxide
+    platform: device
+    device_id: 0c2573947bd6deea46d939a3047ce2fd
+    entity_id: dbc4367f2c6d3c9233ac6dfce510c209
+    domain: sensor
+    above: 0
+  - type: unsafe
+    platform: device
+    device_id: 0c2573947bd6deea46d939a3047ce2fd
+    entity_id: dbef73995127a0829d9790ee389b3d88
+    domain: binary_sensor
+  condition: []
+  action:
+  - service: notify.alexa_media
+    data:
+      message: Emergency! Carbon Monoxide detected in the bedroom.
+      title: Emergency Carbon Dioxide
+      target: media_player.all_speakers
+      data:
+        type: announce
+        method: all
+  mode: single
+- id: '1690477986993'
+  alias: Replace Carbon Monoxide Batteries
+  description: ''
+  trigger:
+  - type: battery_level
+    platform: device
+    device_id: 0c2573947bd6deea46d939a3047ce2fd
+    entity_id: 3b09f2b298025bc88679672f50b15c9b
+    domain: sensor
+    below: 20
+  condition: []
+  action:
+  - service: notify.alexa_media
+    data:
+      data:
+        type: announce
+        method: all
+      message: Replace Carbon Monoxide Batteries
+      target: media_player.all_speakers
+      title: Replace Carbon Monoxide Batteries
+  mode: single
