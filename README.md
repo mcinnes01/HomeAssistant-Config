@@ -1,48 +1,19 @@
-# lovelace-dwains-theme
+# Home Assistant Config
 
-<a href="https://www.buymeacoffee.com/FAkYvrx" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/white_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+Work in progress
 
-<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QQ5LBNQWLW2ZQ&source=url"><img src="https://www.paypalobjects.com/en_US/NL/i/btn/btn_donateCC_LG.gif" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button"></a>
+## Light control
+Most lights are now migrated under Netdaemon, currently they have there own individual logic per light. The aim is to write a more generic LightApp implementation that I can pass parameters in such as the light entity, an array of motion triggers, time thresholds etc.
 
-[![dwains-theme_01](https://user-images.githubusercontent.com/3868853/73613069-43326600-45f2-11ea-99a5-8f058530d72e.jpg)](https://dwainscheeren.github.io/lovelace-dwains-theme/)
-[![dwains-theme_02](https://user-images.githubusercontent.com/3868853/73613071-4594c000-45f2-11ea-852e-7a2eae5c1dec.jpg)](https://youtu.be/Wdh0q8K3JSk)
-![Tablet-desktop-mobile_02](https://user-images.githubusercontent.com/3868853/78458829-ab65fc80-76b4-11ea-9198-d67dc58e8003.jpg)
-![Tablet-desktop-mobile_03](https://user-images.githubusercontent.com/3868853/78458831-ac972980-76b4-11ea-8c07-9e6457011c48.jpg)
-![Tablet-desktop-mobile_04](https://user-images.githubusercontent.com/3868853/78458832-ac972980-76b4-11ea-8f46-cf57f7272dd6.jpg)
-![Tablet-desktop-mobile_05](https://user-images.githubusercontent.com/3868853/78458833-ad2fc000-76b4-11ea-8ebb-4f44b2bf43ba.jpg)
-![Tablet-desktop-mobile_06](https://user-images.githubusercontent.com/3868853/78458834-ad2fc000-76b4-11ea-8cd1-424e9901f34e.jpg)
-![Tablet-desktop-mobile_07](https://user-images.githubusercontent.com/3868853/78458836-ad2fc000-76b4-11ea-91e9-30e7d1c236bb.jpg)
-![Tablet-desktop-mobile_08](https://user-images.githubusercontent.com/3868853/78458837-adc85680-76b4-11ea-85df-69a641763767.jpg)
+A few lights are still using entity controller in HA, these need removing.
 
+## Switches
+Currently some of the zigbee switches I'm using are using blueprints in HA, this is convenient for now, but ideally these need to move in to ND.
 
-# Dwains Lovelace Theme
+## Climate
+I have three Nest learning thermostats, these really suck, especially the lack of an API for hot water control. I need to rewrite the code I had via the old homekit addons that allowed me to do this, but I can redo this in ND for the time being. However it looks like the old works with nest will be switched off later this year, so not sure how long that will work for. Despite being a very simple API google have not added partity in their new SDM API, although in fairness neither did Nest on their public API. Possibly a reason to replace them, also the connectivity with thread to heat link is patchy at best and this can result in hot water schedules being missed. A better option would bo to go to my original idea which heatmiser.
 
-Hello, I am Dwain. I've been using Home Assistant for over a year now. At the end of summer 2019 I thought, "Why hasn't anybody made a theme yet that builds itself automatically by providing only minimum configuration info?" 
+The shed UFH is running on Meross and I've setup the local mode. Sadly this has recently stopped working in that in is not being provided via homekit any more. Something to investigate.
 
-I own a web development company, and I want to give something back to the Home Assistant community. So I decided to build this theme and release it to the public. The result: Dwains Lovelace Theme.
-
-**Want to request a new feature request?**
-
-[Open an issue on GitHub](https://github.com/dwainscheeren/lovelace-dwains-theme/issues/new) with the title starting with  `FR`  or  `Feature Request`.
-
-
-**Support**
-
-You can use the [thread on the Home Assistant community](https://community.home-assistant.io/t/dwains-theme-an-auto-generating-lovelace-ui-theme/168593) to ask any questions you have. 
-
-Or join me on Discord [Discord Server Home Assistant Addicts](https://discord.gg/7yt64uX).
-
-I manage this server together with @jimz011 you can also check out his theme [Homekit Infused (HKI)](https://community.home-assistant.io/t/homekit-infused-hki-v1-0-beta-updated-28-01-2020/117086?u=dwains). 
-
-**YouTube Channel**
-
-If you like my content, then please do subscribe to my [Home Assistant YouTube channel](https://www.youtube.com/channel/UCb2GBaLC4d0rVn9pZbYbQ9A) I will start posting some more videos there soon.
-
-**Like what you see?**
-
-If you appreciate what I have developed, then please consider buying me a coffe or beer: [Buy me a coffee/beer](https://www.buymeacoffee.com/FAkYvrx) or [donate to my PayPal account](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QQ5LBNQWLW2ZQ&source=urldonate).
-You can also reply to [this HA thread](https://community.home-assistant.io/t/dwains-theme-an-auto-generating-lovelace-ui-theme/168593) and let everyone know how happy you are with this theme! :laughing:
-
-Greetings,
-
-Dwain
+## Tracking
+People tracking is done using the HA companion, I also have some tile devices. The companion is pretty good as long as it's running in the background, especially on the iPhone. IPhone update frequency is patchy at best sadly and Tile is worse still. Using the iCloud integration to get the apple watch tracking and battery too.
