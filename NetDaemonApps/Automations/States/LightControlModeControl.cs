@@ -118,12 +118,12 @@ public class LightControlModeController
                     break;
                 case Trigger.OutOfBed:
                 case Trigger.Day:
-                    _logger.LogDebug("Set state to Motion, triggered by {Trigger}.", new { Trigger = trigger.ToString(), Entity = LightControlMode });
+                    _logger.LogDebug("Set state to Motion, triggered by {Trigger}.", trigger.ToString(), new { Entity = LightControlMode });
                     LightControlMode?.SelectOption(LightControlModeOptions.Motion);
                     break;
                 case Trigger.Manual:
                     _logger.LogDebug("Manually set state to {State}, triggered by {Trigger}.",
-                        new { State = LightControlMode?.State, Trigger = trigger.ToString(), Entity = LightControlMode });
+                        LightControlMode?.State, trigger.ToString(), new { Entity = LightControlMode });
                     break;
                 default:
                     _logger.LogDebug("Default Light Control Mode motion.", new { Entity = LightControlMode });

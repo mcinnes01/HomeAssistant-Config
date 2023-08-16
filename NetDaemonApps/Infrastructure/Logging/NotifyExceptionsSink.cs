@@ -12,7 +12,7 @@ class NotifyExceptionsSink : ILogEventSink
     {
         _provider = provider;
     }
-    
+
     public void Emit(LogEvent logEvent)
     {
         var connection = _provider.GetService<IHomeAssistantConnection>();

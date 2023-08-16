@@ -115,19 +115,19 @@ public class BedStateController
             || AndyInBed.IsDetected() && LocationMode!.IsOption(LocationModeOptions.OneAway)
             || ClaireInBed.IsDetected() && LocationMode!.IsOption(LocationModeOptions.OneAway))
             {
-                _logger.LogDebug("Set state to in Bed, {Action}.", new { Action = WhoMadeAction(), Entity = InBed });
+                _logger.LogDebug("Set state to in Bed, {Action}.", WhoMadeAction(), new { Entity = InBed });
                 _entities.InputBoolean.InBed.TurnOn();
             }
             else if ((andyBedStateChanged || claireBedStateChanged)
                 && (!AndyInBed.IsDetected() || !ClaireInBed.IsDetected()))
             {
-                _logger.LogDebug("Set state to out of Bed, {Action}.", new { Action = WhoMadeAction(), Entity = InBed });
+                _logger.LogDebug("Set state to out of Bed, {Action}.", WhoMadeAction(), new { Entity = InBed });
                 // TODO use alexa questions on a backoff retry to check if you are actually up and not just going for a wee
                 InBed!.TurnOff();
             }
             else if (manualBedStateChanged)
             {
-                _logger.LogDebug("Manual inBed: {State}, change occurred", new { State = InBed!.State, Entity = InBed });
+                _logger.LogDebug("Manual inBed: {State}, change occurred", InBed!.State, new { Entity = InBed });
             }
 
             Reset();
