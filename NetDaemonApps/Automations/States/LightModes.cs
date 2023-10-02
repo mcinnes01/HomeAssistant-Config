@@ -7,21 +7,16 @@ public class LightModes
 {
     private readonly ILogger<LightModes> _logger;
     private readonly Entities _entities;
-    private readonly IScheduler _scheduler;
-    private readonly ILightingStates _lightingStates;
     private readonly LightEntity[] _bedroomLights;
     private readonly LightEntity[] _brightLightsNoRoomControl;
     private readonly LightEntity[] _loungeLights;
     private readonly LightEntity[] _insideNoRoomControlNotBasement;
 
 
-    public LightModes(IHaContext ha, ILogger<LightModes> logger,
-        IScheduler scheduler, ILightingStates lightingStates)
+    public LightModes(IHaContext ha, ILogger<LightModes> logger)
     {
         _logger = logger;
         _entities = new Entities(ha);
-        _scheduler = scheduler;
-        _lightingStates = lightingStates;
 
         _insideNoRoomControlNotBasement = new LightEntity[]
         {

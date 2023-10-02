@@ -4,94 +4,130 @@
         "battery": 73,
         "contact": true,
         "tamper": false,
-        "battery_low": false
+        "battery_low": false,
+        "linkquality": 24
     },
     "0x00124b0022fd01fd": {
         "contact": false,
         "tamper": false,
         "battery_low": false,
         "voltage": 3100,
-        "battery": 100
+        "battery": 100,
+        "linkquality": 54
     },
     "0x00124b0023b85ca5": {
         "voltage": 2900,
         "battery": 81,
         "occupancy": false,
         "tamper": false,
-        "battery_low": false
+        "battery_low": false,
+        "linkquality": 18
     },
     "0x00124b0022ff39ad": {
         "contact": false,
         "tamper": false,
         "battery_low": false,
         "voltage": 2800,
-        "battery": 20
+        "battery": 20,
+        "linkquality": 18
     },
     "0x04cd15fffe78d9aa": {
-        "battery": 100,
+        "battery": 45,
         "update": {
-            "state": "idle"
+            "state": "idle",
+            "installed_version": 65572,
+            "latest_version": 581
         },
-        "update_available": false
+        "update_available": false,
+        "linkquality": 15
     },
     "0x84b4dbfffe96ed52": {
         "update": {
-            "state": "idle"
+            "state": "idle",
+            "installed_version": 587765297,
+            "latest_version": 587765297
         },
         "update_available": false,
-        "state": "OFF",
-        "power_on_behavior": "previous"
+        "state": "ON",
+        "power_on_behavior": "previous",
+        "linkquality": 54
     },
     "0xf082c0fffe7dd100": {
-        "battery": 87,
+        "battery": 90,
         "update": {
-            "state": "available"
+            "state": "idle",
+            "installed_version": 604241926,
+            "latest_version": 604241926
         },
-        "update_available": true
+        "update_available": false,
+        "linkquality": 48
     },
     "0xf082c0fffe3d9a0f": {
-        "battery": 47,
+        "battery": 14,
         "update": {
-            "state": "available"
+            "state": "idle",
+            "installed_version": 604241926,
+            "latest_version": 604241926
         },
-        "update_available": true
+        "update_available": false,
+        "linkquality": 54
     },
     "0xa4c138dff6d5bb59": {
-        "temperature": 22.57,
-        "humidity": 70.34,
-        "battery": 20,
-        "voltage": 2600
+        "temperature": 19.22,
+        "humidity": 72.27,
+        "battery": 16,
+        "voltage": 2500,
+        "linkquality": 15
     },
     "0x70ac08fffefb73fa": {
         "state": "OFF",
         "update": {
-            "state": "available"
+            "state": "idle",
+            "installed_version": 587765297,
+            "latest_version": 587765297
         },
-        "update_available": true
+        "update_available": false,
+        "linkquality": 54
     },
     "0x385b44fffee655af": {
         "state": "OFF",
         "update": {
-            "state": "available"
+            "state": "idle",
+            "installed_version": 587765297,
+            "latest_version": 587765297
         },
-        "update_available": true
+        "update_available": false,
+        "linkquality": 54
     },
     "0x00124b0022ff0377": {
         "contact": true,
         "tamper": false,
         "battery_low": false,
         "voltage": 3200,
-        "battery": 100
+        "battery": 100,
+        "linkquality": 81
     },
     "0x00124b0022ff6b10": {
         "contact": true,
         "tamper": false,
         "battery_low": false,
-        "voltage": 3100,
-        "battery": 100
+        "voltage": 2900,
+        "battery": 83,
+        "linkquality": 54
     },
     "0x00124b00226650a6": {
         "voltage": 4200,
         "battery": 100
+    },
+    "0x54ef4410008bae59": {
+        "color_mode": "color_temp",
+        "linkquality": 54,
+        "state": "OFF",
+        "color_temp": 190,
+        "color": {
+            "x": 0.3382,
+            "y": 0.3459
+        },
+        "brightness": 254
     }
 }

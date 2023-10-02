@@ -52,7 +52,8 @@ public class BedroomModeController
         // Set to normal if time is day
         TimeOfDay?.StateChanges()
         .Where(t => t.New.IsOption(TimeOfDayOptions.Day)
-        && Constants.HouseOccupied.Contains(LocationMode.AsOption<LocationModeOptions>()))
+        && Constants.HouseOccupied.Contains(LocationMode.AsOption<LocationModeOptions>())
+        && (InBed.IsOff() || TimeOnly.FromDateTime(DateTime.Now) >= Constants.DAYTIME))
         .Throttle(TimeSpan.FromMinutes(1))
         .Subscribe(_ => Handle(Trigger.TimeOfDayDay));
 

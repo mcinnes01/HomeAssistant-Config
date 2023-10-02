@@ -13,9 +13,6 @@ public class BrightnessController
     SunEntity? Sun;
     InputBooleanEntity? IsEnabled;
     bool sensorFault;
-    string? lastState;
-    DateTime? TimeInState;
-
 
     public BrightnessController(IHaContext context, ILogger<BrightnessController> logger)
     {
@@ -29,23 +26,21 @@ public class BrightnessController
         TimeOfDay = _entities.InputSelect.TimeOfDay;
         Sun = _entities.Sun.Sun;
         IsEnabled = _entities.InputBoolean.BrightnessControlEnabled;
-        TimeInState = Brightness.EntityState?.LastChanged;
 
         // Lux sensor goes out of range or loses connection
         IlluminanceSensor?.StateChanges()
-            .Where(i => i.New == null || i.New.IsUnavailable() || i.New.IsUnknown())
+            .Where(i => i.IsFaulted())
             .Throttle(TimeSpan.FromMinutes(5))
             .Subscribe(i =>
             {
                 _logger.LogWarning("Fault on the illuminance sensor.", new { Entity = Brightness });
-                lastState = i.Old?.State?.ToString();
                 sensorFault = true;
                 Handle(BrightnessTrigger.LuxFault);
             });
 
         // Lux sensor threshold change
         IlluminanceSensor?.StateAllChangesWithCurrent()
-        .Where(e => !sensorFault && MapBrightness(e.Old) != MapBrightness(e.New))
+        .Where(i => !i.IsFaulted() && MapBrightness(i.Old) != MapBrightness(i.New))
         .Select(e => (Lux: e.New?.State, Option: MapBrightness(e.New)))
         .Subscribe(e =>
         {
@@ -121,14 +116,13 @@ public class BrightnessController
         }
     }
 
-    BrightnessOptions MapBrightness(NumericEntityState<HomeAssistantGenerated.NumericSensorAttributes>? entityState) =>
+    BrightnessOptions MapBrightness(NumericEntityState<NumericSensorAttributes>? entityState) =>
     entityState?.State switch
     {
         <= Constants.DARK_THRESHOLD => BrightnessOptions.Dark,
         > Constants.DARK_THRESHOLD and < Constants.BRIGHT_THRESHOLD => BrightnessOptions.Dim,
         >= Constants.BRIGHT_THRESHOLD => BrightnessOptions.Bright,
-        null => Sun!.Attributes?.Elevation > 2 ? BrightnessOptions.Bright : BrightnessOptions.Dim,
-        _ => Sun!.Attributes?.Elevation > 2 ? BrightnessOptions.Bright : BrightnessOptions.Dim,
+        _ => BrightnessOptions.Dark
     };
 
     BrightnessTrigger GetTransition(BrightnessOptions to) => to switch

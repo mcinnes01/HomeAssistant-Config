@@ -111,7 +111,6 @@ kitchen:
     - group.kitchen_lights
     - group.kitchen_motion_sensors
     - light.extractor_fan
-    - light.cabinet
     - group.media_kitchen_echo_show
 
 patio:

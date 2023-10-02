@@ -1,9 +1,6 @@
 feed_cats:
   alias: Feed Cats
   sequence:
-  - service: switch.turn_on
-    target:
-      entity_id: switch.dispenser_motor
   - service: notify.alexa_media
     data:
       target: media_player.all_speakers
@@ -12,14 +9,11 @@ feed_cats:
         type: announce
         method: all
       title: Cat's dinner time
-  - delay:
-      hours: 0
-      minutes: 1
-      seconds: 20
-      milliseconds: 0
-  - service: switch.turn_off
+  - service: number.set_value
+    data:
+      value: '3'
     target:
-      entity_id: switch.dispenser_motor
+      entity_id: number.rojeco_pet_feeder_feed
   mode: single
   icon: hass:cat
 light_effect_continuous:

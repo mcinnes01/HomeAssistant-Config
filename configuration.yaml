@@ -27,6 +27,9 @@ cloud:
 config:
 counter:
 energy:
+# frontend:
+#   extra_module_url:
+#     - /local/card-mod.js
 group: !include groups.yaml
 history:
 input_boolean:
@@ -101,11 +104,6 @@ notify:
 # Camera
 stream:
 ffmpeg:
-
-# Neato
-neato:
-  client_id: !secret neato_clientid
-  client_secret: !secret neato_secret
 
 # Alarm control panel
 alarm_control_panel:
@@ -220,11 +218,6 @@ yeelight:
 #- platform: uptimerobot
 # api_key: !secret uptime_key
 template: !include templates.yaml
-
-withings:
-  client_id: !secret withings_clientid
-  client_secret: !secret withings_secret
-  use_webhook: true
 
 entity_controller: !include entity_controller.yaml
 
