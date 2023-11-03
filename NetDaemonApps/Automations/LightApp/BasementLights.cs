@@ -161,12 +161,14 @@ public class BasementLights
                 && _entities.BinarySensor.SnugOccupancy.IsOff();
         })
         .WhenStateIsFor(s => s.IsOff()
+            && _entities.BinarySensor.SnugMotion.IsOff()
+            && _entities.BinarySensor.SnugOccupancy.IsOff()
             && _entities.InputSelect.LightControlMode.IsNotOption(LightControlModeOptions.Manual)
             && _entities.InputSelect.SnugMode.IsOption(SnugModeOptions.Normal)
             && (!_entities.Light.Snug.IsOff()
              || !_entities.Light.SnugFloorLamp.IsOff()
              || !_entities.Light.SnugLedStrip.IsOff()),
-            TimeSpan.FromMinutes(2), _scheduler)
+            TimeSpan.FromMinutes(1), _scheduler)
         .Subscribe(e =>
         {
             var lightMode = _entities.InputSelect.LightControlMode.AsOption<LightControlModeOptions>();

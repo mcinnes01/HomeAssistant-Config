@@ -378,6 +378,11 @@
           "cSharpName": "AtHome"
         },
         {
+          "id": "binary_sensor.backups_stale",
+          "friendlyName": "Backups Stale",
+          "cSharpName": "BackupsStale"
+        },
+        {
           "id": "binary_sensor.basement_hall_camera_detections_motion",
           "friendlyName": "Basement Hall Camera Detections: Motion",
           "cSharpName": "BasementHallCameraDetectionsMotion"
@@ -2208,6 +2213,11 @@
           "cSharpName": "_74278bdaB64445208f0c720eaf059935095650951"
         },
         {
+          "id": "device_tracker.750c_ble",
+          "friendlyName": "750C-BLE",
+          "cSharpName": "_750cBle"
+        },
+        {
           "id": "device_tracker.9d410000_35d6_f4dd_ba60_e7bd8dc491c0_27118_7912_69ee",
           "friendlyName": null,
           "cSharpName": "_9d41000035d6F4ddBa60E7bd8dc491c027118791269ee"
@@ -2301,6 +2311,11 @@
           "id": "device_tracker.ben_s_s23_ultra",
           "friendlyName": "Ben-s-S23-Ultra",
           "cSharpName": "BenSS23Ultra"
+        },
+        {
+          "id": "device_tracker.blinghelmet",
+          "friendlyName": "BlingHelmet",
+          "cSharpName": "Blinghelmet"
         },
         {
           "id": "device_tracker.body_scales",
@@ -2623,6 +2638,21 @@
           "cSharpName": "JabraElite45h"
         },
         {
+          "id": "device_tracker.jabra_elite_85h",
+          "friendlyName": "Jabra Elite 85h",
+          "cSharpName": "JabraElite85h"
+        },
+        {
+          "id": "device_tracker.jabra_elite_active",
+          "friendlyName": "Jabra Elite Active",
+          "cSharpName": "JabraEliteActive"
+        },
+        {
+          "id": "device_tracker.jbl_tune6",
+          "friendlyName": "JBL TUNE6",
+          "cSharpName": "JblTune6"
+        },
+        {
           "id": "device_tracker.kalibrate_ddmm8",
           "friendlyName": "KALIBRATE-dDMm8",
           "cSharpName": "KalibrateDdmm8"
@@ -2673,6 +2703,11 @@
           "cSharpName": "LeHeadset"
         },
         {
+          "id": "device_tracker.le_wf_1000xm4",
+          "friendlyName": "LE_WF-1000XM4",
+          "cSharpName": "LeWf1000xm4"
+        },
+        {
           "id": "device_tracker.le_wf_c500",
           "friendlyName": "LE_WF-C500",
           "cSharpName": "LeWfC500"
@@ -2706,6 +2741,11 @@
           "id": "device_tracker.lounge_fire_tv",
           "friendlyName": "Lounge Fire TV",
           "cSharpName": "LoungeFireTv"
+        },
+        {
+          "id": "device_tracker.lumosltis",
+          "friendlyName": "LumosLTIS",
+          "cSharpName": "Lumosltis"
         },
         {
           "id": "device_tracker.macmini91",
@@ -2931,6 +2971,11 @@
           "id": "device_tracker.tile",
           "friendlyName": "Tile",
           "cSharpName": "Tile"
+        },
+        {
+          "id": "device_tracker.tozo_t10",
+          "friendlyName": "TOZO-T10",
+          "cSharpName": "TozoT10"
         },
         {
           "id": "device_tracker.tozo_t12",
@@ -3376,6 +3421,11 @@
           "id": "device_tracker.yeelink_light_color1_miio313150241",
           "friendlyName": "yeelink-light-color1_miio313150241",
           "cSharpName": "YeelinkLightColor1Miio313150241"
+        },
+        {
+          "id": "device_tracker.yt",
+          "friendlyName": "YT*",
+          "cSharpName": "Yt"
         }
       ],
       "attributes": [
@@ -6059,6 +6109,11 @@
           "cSharpName": "AndySnoringEpisodeCount"
         },
         {
+          "id": "sensor.backup_state",
+          "friendlyName": "Backup State",
+          "cSharpName": "BackupState"
+        },
+        {
           "id": "sensor.basement_alarm_panel_uptime",
           "friendlyName": "Basement Alarm Panel Uptime",
           "cSharpName": "BasementAlarmPanelUptime"
@@ -6245,12 +6300,12 @@
         },
         {
           "id": "sensor.epson_xp_950_series",
-          "friendlyName": null,
+          "friendlyName": "EPSON XP-950 Series",
           "cSharpName": "EpsonXp950Series"
         },
         {
           "id": "sensor.epson_xp_950_series_uptime",
-          "friendlyName": "Uptime",
+          "friendlyName": "EPSON XP-950 Series Uptime",
           "cSharpName": "EpsonXp950SeriesUptime"
         },
         {
@@ -7803,7 +7858,7 @@
         },
         {
           "id": "sensor.andy_bone_mass",
-          "friendlyName": "Bone mass",
+          "friendlyName": "Andy Bone mass",
           "cSharpName": "AndyBoneMass"
         },
         {
@@ -7833,17 +7888,17 @@
         },
         {
           "id": "sensor.andy_fat_free_mass",
-          "friendlyName": "Fat free mass",
+          "friendlyName": "Andy Fat free mass",
           "cSharpName": "AndyFatFreeMass"
         },
         {
           "id": "sensor.andy_fat_mass",
-          "friendlyName": "Fat mass",
+          "friendlyName": "Andy Fat mass",
           "cSharpName": "AndyFatMass"
         },
         {
           "id": "sensor.andy_fat_ratio",
-          "friendlyName": "Fat ratio",
+          "friendlyName": "Andy Fat ratio",
           "cSharpName": "AndyFatRatio"
         },
         {
@@ -7868,7 +7923,7 @@
         },
         {
           "id": "sensor.andy_hydration",
-          "friendlyName": "Hydration",
+          "friendlyName": "Andy Hydration",
           "cSharpName": "AndyHydration"
         },
         {
@@ -7913,7 +7968,7 @@
         },
         {
           "id": "sensor.andy_muscle_mass",
-          "friendlyName": "Muscle mass",
+          "friendlyName": "Andy Muscle mass",
           "cSharpName": "AndyMuscleMass"
         },
         {
@@ -8743,32 +8798,32 @@
         },
         {
           "id": "sensor.epson_xp_950_series_black_ink",
-          "friendlyName": "Black ink",
+          "friendlyName": "EPSON XP-950 Series Black ink",
           "cSharpName": "EpsonXp950SeriesBlackInk"
         },
         {
           "id": "sensor.epson_xp_950_series_cyan_ink",
-          "friendlyName": "Cyan ink",
+          "friendlyName": "EPSON XP-950 Series Cyan ink",
           "cSharpName": "EpsonXp950SeriesCyanInk"
         },
         {
           "id": "sensor.epson_xp_950_series_light_cyan_ink",
-          "friendlyName": "Light Cyan ink",
+          "friendlyName": "EPSON XP-950 Series Light Cyan ink",
           "cSharpName": "EpsonXp950SeriesLightCyanInk"
         },
         {
           "id": "sensor.epson_xp_950_series_light_magenta_ink",
-          "friendlyName": "Light Magenta ink",
+          "friendlyName": "EPSON XP-950 Series Light Magenta ink",
           "cSharpName": "EpsonXp950SeriesLightMagentaInk"
         },
         {
           "id": "sensor.epson_xp_950_series_magenta_ink",
-          "friendlyName": "Magenta ink",
+          "friendlyName": "EPSON XP-950 Series Magenta ink",
           "cSharpName": "EpsonXp950SeriesMagentaInk"
         },
         {
           "id": "sensor.epson_xp_950_series_yellow_ink",
-          "friendlyName": "Yellow ink",
+          "friendlyName": "EPSON XP-950 Series Yellow ink",
           "cSharpName": "EpsonXp950SeriesYellowInk"
         },
         {
