@@ -7,17 +7,19 @@ public class BasementLights
     private readonly ILogger<BasementLights> _logger;
     private readonly Entities _entities;
 
-    public BasementLights(IHaContext ha, ILogger<BasementLights> logger, IScheduler scheduler)
+    public BasementLights(IHaContext ha, ILogger<BasementLights> logger,
+        IScheduler scheduler)
     {
-        _scheduler = scheduler;
         _logger = logger;
         _entities = new Entities(ha);
+        _scheduler = scheduler;
 
         BasementHallLightOnMovement();
         BasementHallLightOffNoMovement();
-
         DiningRoomLightOnMovement();
         DiningRoomLightOffNoMovement();
+        SnugLightsOnMovement();
+        SnugLightsOffNoMovement();
         UtilityRoomLightOnMovement();
         UtilityRoomLightOffNoMovement();
         ToiletLightOnMovement();
@@ -72,11 +74,10 @@ public class BasementLights
         .Where(e =>
         {
             _logger.LogTrace(@$"Light Mode: {_entities.InputSelect.LightControlMode.State},
-                Dining Room motion: Old: {e.Old?.State} - New: {e.New?.State},
-                Light: {_entities.Light.DiningRoom.State}");
-            return _entities.InputSelect.LightControlMode.IsOption(LightControlModeOptions.Motion)
-            && !(_entities.InputSelect.Brightness.IsOption(BrightnessOptions.Bright)
-            && TimeOnly.FromDateTime(DateTime.Now) < Constants.BACK_IN_SHADOW)
+                Dining room motion: Old: {e.Old?.State} - New: {e.New?.State},
+                Light: {_entities.Light.Snug.State}");
+            return _entities.InputSelect.LightControlMode.IsNotOption(LightControlModeOptions.Sleeping)
+            && _entities.InputSelect.LightControlMode.IsNotOption(LightControlModeOptions.Manual)
             && !e.Old.IsOn()
             && e.New.IsOn()
             && _entities.Light.DiningRoom.IsOff();
@@ -102,6 +103,94 @@ public class BasementLights
         });
     }
 
+    private void SnugLightsOnMovement()
+    {
+        _entities.BinarySensor.SnugMotion.StateAllChangesWithCurrent()
+        .Merge(_entities.BinarySensor.SnugOccupancy.StateAllChangesWithCurrent())
+        .Where(e =>
+        {
+            _logger.LogTrace(@$"Light Mode: {_entities.InputSelect.LightControlMode.State},
+                Snug motion: Old: {e.Old?.State} - New: {e.New?.State},
+                Light: {_entities.Light.Snug.State},
+                Lamp: {_entities.Light.SnugFloorLamp.State},
+                Led Strip: {_entities.Light.SnugLedStrip.State}");
+            return _entities.InputSelect.LightControlMode.IsNotOption(LightControlModeOptions.Sleeping)
+            && _entities.InputSelect.LightControlMode.IsNotOption(LightControlModeOptions.Manual)
+            && _entities.InputSelect.SnugMode.IsOption(SnugModeOptions.Normal)
+            && e.New.IsOn()
+            && _entities.Light.Snug.IsOff()
+            && _entities.Light.SnugFloorLamp.IsOff()
+            && _entities.Light.SnugLedStrip.IsOff();
+        })
+        .Subscribe(e =>
+        {
+            var lightMode = _entities.InputSelect.LightControlMode.AsOption<LightControlModeOptions>();
+            _logger.LogTrace(@$"Light Mode: {lightMode},
+                Brightness: {_entities.InputSelect.Brightness.State},
+                Snug Motion: Old: {e.Old?.State} - New: {e.New?.State},
+                Snug Light: {_entities.Light.Kitchen.State},
+                Snug Floor Lamp: {_entities.Light.BreakfastBarLamp.State},
+                Snug Led Strip: {_entities.Light.SnugLedStrip.State}");
+
+            if (Constants.NormalMotionModes.Contains(lightMode))
+            {
+                _logger.LogDebug("Motion detected, turning Snug Light On.");
+                _entities.Light.Snug.TurnOn();
+            }
+            else if (Constants.LampMotionModes.Contains(lightMode))
+            {
+                _logger.LogDebug("Motion detected, turning Snug Floor Lamp and Led Strip On.");
+                _entities.Light.SnugFloorLamp.TurnOn();
+                _entities.Light.SnugLedStrip.TurnOn();
+            }
+        });
+    }
+
+    private void SnugLightsOffNoMovement()
+    {
+        _entities.BinarySensor.SnugMotion.StateAllChangesWithCurrent()
+        .Merge(_entities.BinarySensor.SnugOccupancy.StateAllChangesWithCurrent())
+        .Where(e => {
+            _logger.LogTrace(@$"Snug combined motion: Old: {e.Old?.State} - New: {e.New?.State},
+                Snug Motion: {_entities.BinarySensor.SnugMotion.State},
+                Snug Occupancy: {_entities.BinarySensor.SnugOccupancy.State},
+                Light: {_entities.Light.Snug.State},
+                Lamp: {_entities.Light.SnugFloorLamp.State},
+                Led Strip: {_entities.Light.SnugLedStrip.State}");
+            return _entities.BinarySensor.SnugMotion.IsOff()
+                && _entities.BinarySensor.SnugOccupancy.IsOff();
+        })
+        .WhenStateIsFor(s => s.IsOff()
+            && _entities.InputSelect.LightControlMode.IsNotOption(LightControlModeOptions.Manual)
+            && _entities.InputSelect.SnugMode.IsOption(SnugModeOptions.Normal)
+            && (!_entities.Light.Snug.IsOff()
+             || !_entities.Light.SnugFloorLamp.IsOff()
+             || !_entities.Light.SnugLedStrip.IsOff()),
+            TimeSpan.FromMinutes(2), _scheduler)
+        .Subscribe(e =>
+        {
+            var lightMode = _entities.InputSelect.LightControlMode.AsOption<LightControlModeOptions>();
+            _logger.LogTrace(@$"Light Mode: {lightMode},
+                Brightness: {_entities.InputSelect.Brightness.State},
+                Snug motion: Old: {e.Old?.State} - New: {e.New?.State},
+                Light: {_entities.Light.Snug.State},
+                Lamp: {_entities.Light.SnugFloorLamp.State},
+                Led Strip: {_entities.Light.SnugLedStrip.State}");
+
+            if (Constants.NormalMotionModes.Contains(lightMode))
+            {
+                _logger.LogDebug("No motion, turning Snug Light Off");
+                _entities.Light.Snug.TurnOff();
+            }
+            else if (Constants.LampMotionModes.Contains(lightMode))
+            {
+                _logger.LogDebug("No motion, turning Snug Floor Lamp and Led Strip Off");
+                _entities.Light.SnugFloorLamp.TurnOff();
+                _entities.Light.SnugLedStrip.TurnOff();
+            }
+        });
+    }
+
     private void UtilityRoomLightOnMovement()
     {
         _entities.BinarySensor.UtilityRoomMotion.StateChanges()
@@ -110,9 +199,8 @@ public class BasementLights
             _logger.LogTrace(@$"Light Mode: {_entities.InputSelect.LightControlMode.State},
                 Utility room motion: Old: {e.Old?.State} - New: {e.New?.State},
                 Light: {_entities.Light.UtilityRoom.State}");
-            return _entities.InputSelect.LightControlMode.IsOption(LightControlModeOptions.Motion)
-            && !(_entities.InputSelect.Brightness.IsOption(BrightnessOptions.Bright)
-            && TimeOnly.FromDateTime(DateTime.Now) < Constants.BACK_IN_SHADOW)
+            return _entities.InputSelect.LightControlMode.IsNotOption(LightControlModeOptions.Sleeping)
+            && _entities.InputSelect.LightControlMode.IsNotOption(LightControlModeOptions.Manual)
             && !e.Old.IsOn()
             && e.New.IsOn()
             && _entities.Light.UtilityRoom.IsOff();

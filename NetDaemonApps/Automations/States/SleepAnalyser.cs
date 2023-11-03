@@ -22,16 +22,16 @@ public class SleepAnalyser
 
     private void ClaireThenAndyInBed()
     {
-        _entities.BinarySensor.WithingsInBedAndy
+        _entities.BinarySensor.AndyInBed
             .StateAllChangesWithCurrent()
             .Where(e =>
             {
                 _logger.LogTrace(@$"Light Mode: {_entities.InputSelect.LightControlMode.State},
-                    Andy In Bed: {_entities.BinarySensor.WithingsInBedAndy.State},
+                    Andy In Bed: {_entities.BinarySensor.AndyInBed.State},
                     Light: {_entities.Light.Bedroom.State},
                     Time: {TimeOnly.FromDateTime(DateTime.Now)} >= {Constants.NIGHT_START}");
                 return e.New.IsOn()
-                && (_entities.BinarySensor.WithingsInBedClaire.IsOn()
+                && (_entities.BinarySensor.ClaireInBed.IsOn()
                 || !_entities.Person.Claire.IsHome())
                 && (TimeOnly.FromDateTime(DateTime.Now) >= Constants.NIGHT_START
                 || TimeOnly.FromDateTime(DateTime.Now) <= Constants.NIGHT_END);
@@ -48,16 +48,16 @@ public class SleepAnalyser
 
     private void AndyThenClaireInBed()
     {
-        _entities.BinarySensor.WithingsInBedClaire
+        _entities.BinarySensor.ClaireInBed
             .StateAllChangesWithCurrent()
             .Where(e =>
             {
                 _logger.LogTrace(@$"Light Mode: {_entities.InputSelect.LightControlMode.State},
-                    Claire In Bed: {_entities.BinarySensor.WithingsInBedClaire.State},
+                    Claire In Bed: {_entities.BinarySensor.ClaireInBed.State},
                     Light: {_entities.Light.Bedroom.State},
                     Time: {TimeOnly.FromDateTime(DateTime.Now)} >= {Constants.NIGHT_START}");
                 return e.New.IsOn()
-                && (_entities.BinarySensor.WithingsInBedAndy.IsOn()
+                && (_entities.BinarySensor.AndyInBed.IsOn()
                 || !_entities.Person.Andy.IsHome())
                 && (TimeOnly.FromDateTime(DateTime.Now) >= Constants.NIGHT_START
                 || TimeOnly.FromDateTime(DateTime.Now) <= Constants.NIGHT_END);
@@ -74,12 +74,12 @@ public class SleepAnalyser
 
     private void ClaireThenAndyOutOfBed()
     {
-        _entities.BinarySensor.WithingsInBedAndy
+        _entities.BinarySensor.AndyInBed
             .StateAllChangesWithCurrent()
             .Where(e =>
             {
                 return !e.New.IsOn()
-                && (!_entities.BinarySensor.WithingsInBedClaire.IsOn()
+                && (!_entities.BinarySensor.ClaireInBed.IsOn()
                 || !_entities.Person.Andy.IsHome())
                 && TimeOnly.FromDateTime(DateTime.Now).IsBetween(Constants.MORNING_START, Constants.MORNING_END);
             })
@@ -95,12 +95,12 @@ public class SleepAnalyser
 
     private void AndyThenClaireOutOfBed()
     {
-        _entities.BinarySensor.WithingsInBedClaire
+        _entities.BinarySensor.ClaireInBed
             .StateAllChangesWithCurrent()
             .Where(e =>
             {
                 return !e.New.IsOn()
-                && (!_entities.BinarySensor.WithingsInBedAndy.IsOn()
+                && (!_entities.BinarySensor.AndyInBed.IsOn()
                 || !_entities.Person.Andy.IsHome())
                 && TimeOnly.FromDateTime(DateTime.Now).IsBetween(Constants.MORNING_START, Constants.MORNING_END);
             })

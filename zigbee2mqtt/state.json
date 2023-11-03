@@ -5,7 +5,7 @@
         "contact": true,
         "tamper": false,
         "battery_low": false,
-        "linkquality": 24
+        "linkquality": 30
     },
     "0x00124b0022fd01fd": {
         "contact": false,
@@ -13,7 +13,7 @@
         "battery_low": false,
         "voltage": 3100,
         "battery": 100,
-        "linkquality": 54
+        "linkquality": 63
     },
     "0x00124b0023b85ca5": {
         "voltage": 2900,
@@ -29,7 +29,7 @@
         "battery_low": false,
         "voltage": 2800,
         "battery": 20,
-        "linkquality": 18
+        "linkquality": 54
     },
     "0x04cd15fffe78d9aa": {
         "battery": 45,
@@ -39,7 +39,7 @@
             "latest_version": 581
         },
         "update_available": false,
-        "linkquality": 15
+        "linkquality": 63
     },
     "0x84b4dbfffe96ed52": {
         "update": {
@@ -48,9 +48,9 @@
             "latest_version": 587765297
         },
         "update_available": false,
-        "state": "ON",
+        "state": "OFF",
         "power_on_behavior": "previous",
-        "linkquality": 54
+        "linkquality": 3
     },
     "0xf082c0fffe7dd100": {
         "battery": 90,
@@ -60,24 +60,24 @@
             "latest_version": 604241926
         },
         "update_available": false,
-        "linkquality": 48
+        "linkquality": 24
     },
     "0xf082c0fffe3d9a0f": {
-        "battery": 14,
+        "battery": 10,
         "update": {
             "state": "idle",
             "installed_version": 604241926,
             "latest_version": 604241926
         },
         "update_available": false,
-        "linkquality": 54
+        "linkquality": 63
     },
     "0xa4c138dff6d5bb59": {
-        "temperature": 19.22,
-        "humidity": 72.27,
-        "battery": 16,
+        "temperature": 15.92,
+        "humidity": 68.47,
+        "battery": 13,
         "voltage": 2500,
-        "linkquality": 15
+        "linkquality": 3
     },
     "0x70ac08fffefb73fa": {
         "state": "OFF",
@@ -87,7 +87,7 @@
             "latest_version": 587765297
         },
         "update_available": false,
-        "linkquality": 54
+        "linkquality": 63
     },
     "0x385b44fffee655af": {
         "state": "OFF",
@@ -97,7 +97,7 @@
             "latest_version": 587765297
         },
         "update_available": false,
-        "linkquality": 54
+        "linkquality": 24
     },
     "0x00124b0022ff0377": {
         "contact": true,
@@ -105,15 +105,15 @@
         "battery_low": false,
         "voltage": 3200,
         "battery": 100,
-        "linkquality": 81
+        "linkquality": 12
     },
     "0x00124b0022ff6b10": {
-        "contact": true,
+        "contact": false,
         "tamper": false,
         "battery_low": false,
         "voltage": 2900,
-        "battery": 83,
-        "linkquality": 54
+        "battery": 82,
+        "linkquality": 36
     },
     "0x00124b00226650a6": {
         "voltage": 4200,
@@ -121,8 +121,8 @@
     },
     "0x54ef4410008bae59": {
         "color_mode": "color_temp",
-        "linkquality": 54,
-        "state": "OFF",
+        "linkquality": 27,
+        "state": "ON",
         "color_temp": 190,
         "color": {
             "x": 0.3382,

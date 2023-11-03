@@ -97,6 +97,11 @@ lounge:
     - group.climate_downstairs
     - group.media_lounge_echo_plus
     - binary_sensor.lounge_motion
+    - binary_sensor.main_sofa_occupancy
+    - binary_sensor.window_sofa_occupancy
+    - binary_sensor.guest_sofa_occupancy
+    - binary_sensor.lounge_occupancy
+    - sensor.lounge_illuminance
 
 drawing_room:
   name: Drawing Room
@@ -138,6 +143,8 @@ snug:
     - binary_sensor.snug_motion
     - media_player.snug_radio
     - group.media_snug_echo_input
+    - binary_sensor.snug_occupancy
+    - sensor.snug_illumenance
 
 dining_room:
   name: Dining Room
@@ -325,7 +332,7 @@ basement_controllers:
   name: Basement Controllers
   entities:
     - entity_controller.basement_hall_light_controller
-#    - entity_controller.dining_room_light_controller
+    #    - entity_controller.dining_room_light_controller
     - entity_controller.snug_floor_lamp_controller
     - entity_controller.snug_light_controller
     - entity_controller.toilet_light_controller

@@ -27,8 +27,8 @@ public class BedStateController
         _entities = new Entities(context);
 
         InBed = _entities.InputBoolean.InBed;
-        AndyInBed = _entities.BinarySensor.WithingsInBedAndy;
-        ClaireInBed = _entities.BinarySensor.WithingsInBedClaire;
+        AndyInBed = _entities.BinarySensor.AndyInBed;
+        ClaireInBed = _entities.BinarySensor.ClaireInBed;
         LocationMode = _entities.InputSelect.LocationMode;
         Andy = _entities.Person.Andy;
         Claire = _entities.Person.Claire;

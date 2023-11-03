@@ -213,6 +213,54 @@ yeelight:
           - TemperatureTransition: [1900, 1000, 80]
           - TemperatureTransition: [1900, 2000, 60]
           - SleepTransition: [1000]
+    - name: "CreepyHorrorExtended"
+      flow_params:
+        count: 0
+        transitions:
+          - TemperatureTransition: [6500, 50, 0]
+          - TemperatureTransition: [6500, 50, 50]
+          - SleepTransition: [3000]
+          - TemperatureTransition: [6500, 50, 0]
+          - TemperatureTransition: [6500, 50, 50]
+          - SleepTransition: [3000]
+          - TemperatureTransition: [6500, 50, 0]
+          - TemperatureTransition: [6500, 50, 50]
+          - TemperatureTransition: [6500, 500, 0]
+          - SleepTransition: [3000]
+          - TemperatureTransition: [6500, 50, 0]
+          - TemperatureTransition: [6500, 50, 50]
+          - SleepTransition: [1000]
+          - TemperatureTransition: [6500, 50, 0]
+          - TemperatureTransition: [6500, 50, 50]
+          - SleepTransition: [1500]
+          - TemperatureTransition: [6500, 50, 0]
+          - TemperatureTransition: [6500, 50, 50]
+          - TemperatureTransition: [6500, 50, 0]
+          - SleepTransition: [2000]
+          - RGBTransition: [0, 0, 0, 50, 80] # Off state
+          - SleepTransition: [500] # Short off duration
+          - RGBTransition: [0, 0, 0, 50, 80] # Off state
+          - SleepTransition: [1500] # Longer off duration
+          - RGBTransition: [0, 0, 0, 50, 80] # Off state
+          - SleepTransition: [1000] # Longer off duration
+          - RGBTransition: [0, 0, 255, 50, 80] # Blue flicker
+          - SleepTransition: [2000] # Extended blue flicker
+    - name: "CreepyHorrorWhite"
+      flow_params:
+        count: 0
+        transitions:
+          - TemperatureTransition: [6500, 50, 0]
+          - TemperatureTransition: [6500, 50, 50]
+          - SleepTransition: [2000] # Dimming effect
+          - TemperatureTransition: [6500, 50, 0]
+          - TemperatureTransition: [6500, 50, 50]
+          - SleepTransition: [2000] # Dimming effect
+          - TemperatureTransition: [6500, 50, 0]
+          - TemperatureTransition: [6500, 50, 50]
+          - TemperatureTransition: [6500, 50, 0]
+          - SleepTransition: [2000]
+          - RGBTransition: [0, 0, 255, 50, 80] # Blue flicker
+          - SleepTransition: [10000]
 
 #binary_sensor:
 #- platform: uptimerobot

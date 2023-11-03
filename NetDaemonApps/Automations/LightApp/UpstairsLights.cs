@@ -46,8 +46,8 @@ public class UpstairsLights
             && _entities.Light.Landing.IsOff()
             && _lightingStates.InMotionMode(true)
             && ((_entities.InputSelect.BedroomMode.IsOption(BedroomModeOptions.Sleeping)
-            && (_entities.BinarySensor.WithingsInBedAndy.IsOff() && _entities.Person.Andy.IsHome())
-            || (_entities.BinarySensor.WithingsInBedClaire.IsOff() && _entities.Person.Claire.IsHome()))
+            && (_entities.BinarySensor.AndyInBed.IsOff() && _entities.Person.Andy.IsHome())
+            || (_entities.BinarySensor.ClaireInBed.IsOff() && _entities.Person.Claire.IsHome()))
             || _entities.InputSelect.BedroomMode.IsNotOption(BedroomModeOptions.Sleeping));
         })
         .Subscribe(_ =>
@@ -88,8 +88,8 @@ public class UpstairsLights
             && _entities.Light.BathroomLights.IsOff()
             && _lightingStates.InMotionMode(true)
             && ((_entities.InputSelect.BedroomMode.IsOption(BedroomModeOptions.Sleeping)
-            && (_entities.BinarySensor.WithingsInBedAndy.IsOff() && _entities.Person.Andy.IsHome())
-            || (_entities.BinarySensor.WithingsInBedClaire.IsOff() && _entities.Person.Claire.IsHome()))
+            && (_entities.BinarySensor.AndyInBed.IsOff() && _entities.Person.Andy.IsHome())
+            || (_entities.BinarySensor.ClaireInBed.IsOff() && _entities.Person.Claire.IsHome()))
             || _entities.InputSelect.BedroomMode.IsNotOption(BedroomModeOptions.Sleeping));
         })
 

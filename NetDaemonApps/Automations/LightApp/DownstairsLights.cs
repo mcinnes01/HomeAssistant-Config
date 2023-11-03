@@ -26,8 +26,25 @@ public class DownstairsLights
         // HallwayLightOffNoMovement();
         // HallwayLampOnMovement();
         HallwayLampAndPorchLightOffWhenNoActivity();
-        LoungeLightsOnMovement();
+
+        // If motion mode (dark and in motion)
+        // Lounge motion or presence and lamps off, turn lounge light on
+        // Main sofa or window sofa presence, turn on lounge corner lamp, turn off lounge light
+        // Guest sofa presence, turn on lounge floor lamp
+        // TV mode,
+
+
+
+
+
+
+
+        LoungeLightOnMovement();
+        LoungeCornerLampOnMovement();
+        LoungeFloorLampOnMovement();
         LoungeLightsOffNoMovement();
+        LoungeCornerLampOffNoMovement();
+        LoungeFloorLampOffNoMovement();
         DrawingRoomLightsOnMovement();
         DrawingRoomLightsOffNoMovement();
         KitchenLightsOnMovement();
@@ -132,15 +149,16 @@ public class DownstairsLights
 #endregion
 
 #region Lounge
-    private void LoungeLightsOnMovement()
+    private void LoungeLightOnMovement()
     {
-        _entities.BinarySensor.LoungeMotion.StateChanges()
+        _entities.BinarySensor.LoungeMotion.StateAllChangesWithCurrent()
+        .Merge(_entities.BinarySensor.LoungeOccupancy.StateAllChangesWithCurrent())
+        .Merge(_entities.BinarySensor.GuestSofaOccupancy.StateAllChangesWithCurrent())
+        .Merge(_entities.BinarySensor.MainSofaOccupancy.StateAllChangesWithCurrent())
+        .Merge(_entities.BinarySensor.WindowSofaOccupancy.StateAllChangesWithCurrent())
         .Where(e =>
         {
-            return !e.Old.IsOn()
-            && e.New.IsOn()
-            && _lightingStates.InMotionMode()
-            && _entities.Light.LoungeLights.IsOff();
+            return e.New.IsOn();
         })
         .Subscribe(e =>
         {
@@ -150,37 +168,40 @@ public class DownstairsLights
                 Lounge Mode: {loungeMode},
                 Brightness: {_entities.InputSelect.Brightness.State},
                 Lounge motion: Old: {e.Old?.State} - New: {e.New?.State},
-                Lounge Corner Lamp: {_entities.Light.LoungeCornerLamp.State},
-                Lounge Floor Lamp: {_entities.Light.LoungeFloorLamp.State},
                 Lounge Light: {_entities.Light.Lounge.State}");
 
             if (Constants.NormalMotionModes.Contains(lightMode)
-                && Constants.LoungeLightModes.Contains(loungeMode))
+                && Constants.LoungeLightModes.Contains(loungeMode)
+                && _entities.Light.Lounge.IsOff()
+                && _lightingStates.InMotionMode())
             {
                 _logger.LogDebug("Motion detected, turning Lounge Light On.");
                 _entities.Light.Lounge.TurnOn();
-                _entities.Light.LoungeCornerLamp.TurnOff();
-                _entities.Light.LoungeFloorLamp.TurnOff();
             }
             else if (Constants.LampMotionModes.Contains(lightMode)
-                && Constants.LoungeLampModes.Contains(loungeMode))
+                && Constants.LoungeLampModes.Contains(loungeMode)
+                && _entities.Light.Lounge.IsOn()
+                && (_entities.BinarySensor.GuestSofaOccupancy.IsDetected()
+                || _entities.BinarySensor.MainSofaOccupancy.IsDetected()
+                || _entities.BinarySensor.WindowSofaOccupancy.IsDetected()))
             {
-                _logger.LogDebug("Motion detected, turning Lounge Lamps On.");
+                _logger.LogDebug("Motion detected but in a lamp mode, turning Lounge Light Off.");
                 _entities.Light.Lounge.TurnOff();
-                _entities.Light.LoungeCornerLamp.TurnOn();
-                _entities.Light.LoungeFloorLamp.TurnOn();
             }
         });
     }
 
-    private void LoungeLightsOffNoMovement()
+     private void LoungeCornerLampOnMovement()
     {
-        _entities.BinarySensor.LoungeMotion
-        .StateAllChangesWithCurrent()
-        .WhenStateIsFor(s => s.IsOff()
-            && !_entities.Light.LoungeLights.IsOff()
-            && _entities.InputSelect.LightControlMode.IsNotOption(LightControlModeOptions.Manual),
-            TimeSpan.FromMinutes(2), _scheduler)
+        _entities.BinarySensor.LoungeMotion.StateAllChangesWithCurrent()
+        .Merge(_entities.BinarySensor.LoungeOccupancy.StateAllChangesWithCurrent())
+        .Merge(_entities.BinarySensor.MainSofaOccupancy.StateAllChangesWithCurrent())
+        .Merge(_entities.BinarySensor.WindowSofaOccupancy.StateAllChangesWithCurrent())
+        .Where(e =>
+        {
+            return e.New.IsOn()
+            && _lightingStates.InMotionMode();
+        })
         .Subscribe(e =>
         {
             var loungeMode = _entities.InputSelect.LoungeMode.AsOption<LoungeModeOptions>();
@@ -189,23 +210,153 @@ public class DownstairsLights
                 Lounge Mode: {loungeMode},
                 Brightness: {_entities.InputSelect.Brightness.State},
                 Lounge motion: Old: {e.Old?.State} - New: {e.New?.State},
-                Lounge Corner Lamp: {_entities.Light.LoungeCornerLamp.State},
-                Lounge Floor Lamp: {_entities.Light.LoungeFloorLamp.State},
-                Lounge Light: {_entities.Light.Lounge.State}");
+                Lounge Corner Lamp: {_entities.Light.LoungeCornerLamp.State}");
 
             if (Constants.NormalMotionModes.Contains(lightMode)
-                && loungeMode != LoungeModeOptions.Reading)
+                && Constants.LoungeLightModes.Contains(loungeMode)
+                && _entities.Light.LoungeCornerLamp.IsOn()
+                && _entities.BinarySensor.LoungeOccupancy.IsDetected()
+                && _entities.BinarySensor.MainSofaOccupancy.IsNotDetected()
+                && _entities.BinarySensor.WindowSofaOccupancy.IsNotDetected())
             {
-                _logger.LogDebug("No motion, turning Lounge Light Off");
-                _entities.Light.Lounge.TurnOff();
+                _logger.LogDebug("Motion detected but not in lamp zone, turning Lounge Corner Lamp Off.");
+                _entities.Light.LoungeCornerLamp.TurnOff();
             }
             else if (Constants.LampMotionModes.Contains(lightMode)
-                && loungeMode != LoungeModeOptions.Television)
+                && Constants.LoungeLampModes.Contains(loungeMode)
+                && _entities.Light.LoungeCornerLamp.IsOff())
             {
-                _logger.LogDebug("No motion, turning Lounge Lamps Off");
-                _entities.Light.LoungeCornerLamp.TurnOff();
+                _logger.LogDebug("Motion detected, turning Lounge Corner Lamp On.");
+                _entities.Light.LoungeCornerLamp.TurnOn();
+            }
+        });
+    }
+
+    private void LoungeFloorLampOnMovement()
+    {
+        _entities.BinarySensor.LoungeMotion.StateAllChangesWithCurrent()
+        .Merge(_entities.BinarySensor.LoungeOccupancy.StateAllChangesWithCurrent())
+        .Merge(_entities.BinarySensor.GuestSofaOccupancy.StateAllChangesWithCurrent())
+        .Where(e =>
+        {
+            return e.New.IsOn()
+            && _lightingStates.InMotionMode();
+        })
+        .Subscribe(e =>
+        {
+            var loungeMode = _entities.InputSelect.LoungeMode.AsOption<LoungeModeOptions>();
+            var lightMode = _entities.InputSelect.LightControlMode.AsOption<LightControlModeOptions>();
+            _logger.LogTrace(@$"Light Mode: {lightMode},
+                Lounge Mode: {loungeMode},
+                Brightness: {_entities.InputSelect.Brightness.State},
+                Lounge motion: Old: {e.Old?.State} - New: {e.New?.State},
+                Lounge Corner Lamp: {_entities.Light.LoungeCornerLamp.State}");
+
+            if (Constants.NormalMotionModes.Contains(lightMode)
+                && Constants.LoungeLightModes.Contains(loungeMode)
+                && _entities.Light.LoungeFloorLamp.IsOn()
+                && _entities.BinarySensor.LoungeOccupancy.IsDetected()
+                && _entities.BinarySensor.GuestSofaOccupancy.IsNotDetected())
+            {
+                _logger.LogDebug("Motion detected but not in lamp zone, turning Lounge Floor Lamp Off.");
                 _entities.Light.LoungeFloorLamp.TurnOff();
             }
+            else if (Constants.LampMotionModes.Contains(lightMode)
+                && Constants.LoungeLampModes.Contains(loungeMode)
+                && _entities.Light.LoungeFloorLamp.IsOff())
+            {
+                _logger.LogDebug("Motion detected, turning Lounge Floor Lamp On.");
+                _entities.Light.LoungeFloorLamp.TurnOn();
+            }
+        });
+    }
+
+    private void LoungeLightsOffNoMovement()
+    {
+        _entities.BinarySensor.LoungeMotion.StateAllChangesWithCurrent()
+        .Merge(_entities.BinarySensor.LoungeOccupancy.StateAllChangesWithCurrent())
+        .WhenStateIsFor(s =>
+        {
+            var loungeMode = _entities.InputSelect.LoungeMode.AsOption<LoungeModeOptions>();
+            var lightMode = _entities.InputSelect.LightControlMode.AsOption<LightControlModeOptions>();
+            _logger.LogTrace(@$"Light Mode: {lightMode},
+                Lounge Mode: {loungeMode},
+                Brightness: {_entities.InputSelect.Brightness.State},
+                Lounge motion: {s?.State},
+                Lounge Light: {_entities.Light.Lounge.State}");
+
+            return s.IsOff()
+            && _entities.BinarySensor.LoungeMotion.IsOff()
+            && _entities.BinarySensor.LoungeOccupancy.IsOff()
+            && _entities.Light.Lounge.IsOn()
+            && _entities.InputSelect.LightControlMode.IsNotOption(LightControlModeOptions.Manual);
+        }, TimeSpan.FromMinutes(2), _scheduler)
+        .Subscribe(e =>
+        {
+            _logger.LogDebug("No motion, turning Lounge Light Off");
+            _entities.Light.Lounge.TurnOff();
+        });
+    }
+
+    private void LoungeFloorLampOffNoMovement()
+    {
+        _entities.BinarySensor.LoungeMotion.StateAllChangesWithCurrent()
+        .Merge(_entities.BinarySensor.LoungeOccupancy.StateAllChangesWithCurrent())
+        .Merge(_entities.BinarySensor.GuestSofaOccupancy.StateAllChangesWithCurrent())
+        .WhenStateIsFor(s =>
+        {
+            var lightMode = _entities.InputSelect.LightControlMode.AsOption<LightControlModeOptions>();
+            var loungeMode = _entities.InputSelect.LoungeMode.AsOption<LoungeModeOptions>();
+            _logger.LogTrace(@$"Light Mode: {lightMode},
+                Lounge Mode: {loungeMode},
+                Brightness: {_entities.InputSelect.Brightness.State},
+                Lounge motion: {s?.State},
+                Lounge Floor Lamp: {_entities.Light.LoungeFloorLamp.State}");
+
+            return s.IsOff()
+            && ((_entities.BinarySensor.LoungeMotion.IsOff()
+            && _entities.BinarySensor.LoungeOccupancy.IsOff())
+            || _entities.BinarySensor.GuestSofaOccupancy.IsOff())
+            && _entities.Light.LoungeFloorLamp.IsOn()
+            && !Constants.LoungeLampModes.Contains(LoungeModeOptions.Television)
+            && Constants.LampMotionModes.Contains(lightMode);
+        }, TimeSpan.FromMinutes(2), _scheduler)
+        .Subscribe(e =>
+        {
+            _logger.LogDebug("No motion, turning Lounge Floor Lamp Off");
+            _entities.Light.LoungeFloorLamp.TurnOff();
+        });
+    }
+
+    private void LoungeCornerLampOffNoMovement()
+    {
+        _entities.BinarySensor.LoungeMotion.StateAllChangesWithCurrent()
+        .Merge(_entities.BinarySensor.LoungeOccupancy.StateAllChangesWithCurrent())
+        .Merge(_entities.BinarySensor.MainSofaOccupancy.StateAllChangesWithCurrent())
+        .Merge(_entities.BinarySensor.WindowSofaOccupancy.StateAllChangesWithCurrent())
+        .WhenStateIsFor(s =>
+        {
+            var lightMode = _entities.InputSelect.LightControlMode.AsOption<LightControlModeOptions>();
+            var loungeMode = _entities.InputSelect.LoungeMode.AsOption<LoungeModeOptions>();
+            _logger.LogTrace(@$"Light Mode: {lightMode},
+                Lounge Mode: {loungeMode},
+                Brightness: {_entities.InputSelect.Brightness.State},
+                Lounge motion: {s?.State},
+                Lounge Corner Lamp: {_entities.Light.LoungeCornerLamp.State}");
+
+            return s.IsOff()
+            && ((_entities.BinarySensor.LoungeMotion.IsOff()
+            && _entities.BinarySensor.LoungeOccupancy.IsOff())
+            || (_entities.BinarySensor.MainSofaOccupancy.IsOff()
+            && _entities.BinarySensor.WindowSofaOccupancy.IsOff()))
+            && _entities.Light.LoungeCornerLamp.IsOn()
+            && !Constants.LoungeLampModes.Contains(LoungeModeOptions.Television)
+            && Constants.LampMotionModes.Contains(lightMode);
+        }, TimeSpan.FromMinutes(2), _scheduler)
+        .Subscribe(e =>
+        {
+            _logger.LogDebug("No motion, turning Lounge Corner Lamp Off");
+            _entities.Light.LoungeCornerLamp.TurnOff();
         });
     }
 #endregion

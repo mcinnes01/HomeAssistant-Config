@@ -988,7 +988,7 @@
   - service: media_player.play_media
     data:
       media_content_type: custom
-      media_content_id: Turn off the screen
+      media_content_id: Turn off your screen
     target:
       device_id: 05fc0ef00cc911eb9bd319798131fa33
   mode: single

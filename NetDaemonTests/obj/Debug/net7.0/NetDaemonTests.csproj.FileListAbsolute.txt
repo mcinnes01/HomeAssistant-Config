@@ -1,6 +1,0 @@
-/usr/share/hassio/homeassistant/NetDaemonTests/bin/Debug/net7.0/CoverletSourceRootsMapping
-/usr/share/hassio/homeassistant/NetDaemonTests/obj/Debug/net7.0/NetDaemonTests.csproj.AssemblyReference.cache
-/usr/share/hassio/homeassistant/NetDaemonTests/obj/Debug/net7.0/NetDaemonTests.GeneratedMSBuildEditorConfig.editorconfig
-/usr/share/hassio/homeassistant/NetDaemonTests/obj/Debug/net7.0/NetDaemonTests.AssemblyInfoInputs.cache
-/usr/share/hassio/homeassistant/NetDaemonTests/obj/Debug/net7.0/NetDaemonTests.AssemblyInfo.cs
-/usr/share/hassio/homeassistant/NetDaemonTests/obj/Debug/net7.0/NetDaemonTests.csproj.CoreCompileInputs.cache

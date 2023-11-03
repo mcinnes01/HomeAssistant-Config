@@ -320,42 +320,42 @@
 #   backoff_max: 600
 #   block_timeout: 900
 
-snug_light_controller:
-  friendly_name: "Snug Light Controller"
-  sensors:
-    - binary_sensor.snug_motion
-  overrides:
-    - input_boolean.snug_light_constrained
-    - light.snug_floor_lamp
-  entities:
-    - light.snug
-  start_time: "sunrise"
-  end_time: "sunset + 02:00:00"
-  delay: 120
-  backoff: true
-  backoff_factor: 1.5
-  backoff_max: 600
-  block_timeout: 900
+# snug_light_controller:
+#   friendly_name: "Snug Light Controller"
+#   sensors:
+#     - binary_sensor.snug_motion
+#   overrides:
+#     - input_boolean.snug_light_constrained
+#     - light.snug_floor_lamp
+#   entities:
+#     - light.snug
+#   start_time: "sunrise"
+#   end_time: "sunset + 02:00:00"
+#   delay: 120
+#   backoff: true
+#   backoff_factor: 1.5
+#   backoff_max: 600
+#   block_timeout: 900
 
-snug_floor_lamp_controller:
-  friendly_name: "Snug Floor Lamp Controller"
-  sensors:
-    - binary_sensor.snug_motion
-  overrides:
-    - input_boolean.snug_floor_lamp_constrained
-    - light.snug
-  entities:
-    - light.snug_floor_lamp
-  state_attributes_ignore:
-    - brightness
-    - color_temp
-  start_time: "sunset + 02:00:00"
-  end_time: "sunrise"
-  delay: 120
-  backoff: true
-  backoff_factor: 1.5
-  backoff_max: 600
-  block_timeout: 900
+# snug_floor_lamp_controller:
+#   friendly_name: "Snug Floor Lamp Controller"
+#   sensors:
+#     - binary_sensor.snug_motion
+#   overrides:
+#     - input_boolean.snug_floor_lamp_constrained
+#     - light.snug
+#   entities:
+#     - light.snug_floor_lamp
+#   state_attributes_ignore:
+#     - brightness
+#     - color_temp
+#   start_time: "sunset + 02:00:00"
+#   end_time: "sunrise"
+#   delay: 120
+#   backoff: true
+#   backoff_factor: 1.5
+#   backoff_max: 600
+#   block_timeout: 900
 
 # basement_hall_light_controller:
 #   friendly_name: "Basement Hall Light Controller"

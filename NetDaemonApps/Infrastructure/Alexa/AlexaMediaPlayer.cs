@@ -31,7 +31,7 @@ public class AlexaMediaPlayer : IAlexa
         _entities  = entities;
         _services  = services;
         _scheduler = scheduler;
-        _devices   = config.Value.Devices;
+        _devices   = config?.Value?.Devices ?? throw new NullReferenceException("AlexaConfig.yaml cannot be empty.");
         _logger    = logger;
 
         _messages.Buffer(TimeSpan.FromMilliseconds(500)).Subscribe(ProcessNotifications);
@@ -151,10 +151,10 @@ public class AlexaMediaPlayer : IAlexa
         if (!HasScreen(entityId))
             return;
 
-        _logger.LogDebug("Alexa {entityId} has screen turning it {action}");
+        _logger.LogDebug($"Alexa {entityId} has screen, turning it {action}");
         for (int i = 0; i < 2; i++)
         {
-            _services.MediaPlayer.PlayMedia(ServiceTarget.FromEntity(entityId), $"turn screen {action}", "custom");
+            _services.MediaPlayer.PlayMedia(ServiceTarget.FromEntity(entityId), $"turn your screen {action}", "custom");
             Thread.Sleep(3000);
         }
     }

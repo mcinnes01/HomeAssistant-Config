@@ -7,17 +7,12 @@ public class BedroomScenes
 {
     private readonly ILogger<BedroomScenes> _logger;
     private readonly Entities _entities;
-    private readonly IScheduler _scheduler;
-    private readonly ILightingStates _lightingStates;
     private readonly IAlexa _alexa;
 
-    public BedroomScenes(IHaContext ha, ILogger<BedroomScenes> logger,
-        IScheduler scheduler, ILightingStates lightingStates, IAlexa alexa)
+    public BedroomScenes(IHaContext ha, ILogger<BedroomScenes> logger, IAlexa alexa)
     {
         _logger = logger;
         _entities = new Entities(ha);
-        _scheduler = scheduler;
-        _lightingStates = lightingStates;
         _alexa = alexa;
 
         _entities.Scene.GetReadyForBed.StateChanges()

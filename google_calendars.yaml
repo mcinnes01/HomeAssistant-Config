@@ -19,3 +19,9 @@
     ignore_availability: true
     name: Holidays in United Kingdom
     track: true
+
+- cal_id: family16258045200702094532@group.calendar.google.com
+  entities:
+  - device_id: family
+    ignore_availability: true
+    name: Family

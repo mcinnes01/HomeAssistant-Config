@@ -10,7 +10,7 @@
     "complete": false
   },
   {
-    "name": "Fix Good Night Automation",
+    "name": "Fix Good Night Auto mation",
     "id": "0aa6d81ff0454580a77af64000a291c5",
     "complete": true
   },
@@ -87,6 +87,6 @@
   {
     "name": "Fix time of day not going to evening",
     "id": "db58733f4ed44312a768aa4cfe75231b",
-    "complete": false
+    "complete": true
   }
 ]

@@ -64,6 +64,11 @@
           "jsonName": "icon",
           "cSharpName": "Icon",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "ready_to_arm_modes",
+          "cSharpName": "ReadyToArmModes",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.String]"
         }
       ]
     },
@@ -363,14 +368,14 @@
       "domain": "binary_sensor",
       "entities": [
         {
+          "id": "binary_sensor.andy_in_bed",
+          "friendlyName": "Andy In bed",
+          "cSharpName": "AndyInBed"
+        },
+        {
           "id": "binary_sensor.at_home",
           "friendlyName": "At Home",
           "cSharpName": "AtHome"
-        },
-        {
-          "id": "binary_sensor.backups_stale",
-          "friendlyName": "Backups Stale",
-          "cSharpName": "BackupsStale"
         },
         {
           "id": "binary_sensor.basement_hall_camera_detections_motion",
@@ -506,6 +511,11 @@
           "id": "binary_sensor.cellar_door",
           "friendlyName": "Cellar Door",
           "cSharpName": "CellarDoor"
+        },
+        {
+          "id": "binary_sensor.claire_in_bed",
+          "friendlyName": "Claire In bed",
+          "cSharpName": "ClaireInBed"
         },
         {
           "id": "binary_sensor.claires_iphone_focus",
@@ -758,6 +768,11 @@
           "cSharpName": "GuestRoomRemoteUpdateAvailable"
         },
         {
+          "id": "binary_sensor.guest_sofa_occupancy",
+          "friendlyName": "Guest Sofa Occupancy",
+          "cSharpName": "GuestSofaOccupancy"
+        },
+        {
           "id": "binary_sensor.hallway_camera_detections_motion",
           "friendlyName": "Hallway Camera Detections: Motion",
           "cSharpName": "HallwayCameraDetectionsMotion"
@@ -973,9 +988,19 @@
           "cSharpName": "LoungeMotion"
         },
         {
+          "id": "binary_sensor.lounge_occupancy",
+          "friendlyName": "Lounge Occupancy",
+          "cSharpName": "LoungeOccupancy"
+        },
+        {
           "id": "binary_sensor.lounge_remote_update_available",
           "friendlyName": "Lounge Remote",
           "cSharpName": "LoungeRemoteUpdateAvailable"
+        },
+        {
+          "id": "binary_sensor.main_sofa_occupancy",
+          "friendlyName": "Main Sofa Occupancy",
+          "cSharpName": "MainSofaOccupancy"
         },
         {
           "id": "binary_sensor.nspanel_left_button",
@@ -1233,6 +1258,11 @@
           "cSharpName": "SnugMotion"
         },
         {
+          "id": "binary_sensor.snug_occupancy",
+          "friendlyName": "Snug Occupancy",
+          "cSharpName": "SnugOccupancy"
+        },
+        {
           "id": "binary_sensor.sonoff_basement_1_basement_hall_button",
           "friendlyName": "Sonoff Basement 1 Basement Hall Button",
           "cSharpName": "SonoffBasement1BasementHallButton"
@@ -1423,6 +1453,11 @@
           "cSharpName": "UdmproHdd1"
         },
         {
+          "id": "binary_sensor.unifi_dream_machine_wan_status",
+          "friendlyName": "UniFi Dream Machine WAN status",
+          "cSharpName": "UnifiDreamMachineWanStatus"
+        },
+        {
           "id": "binary_sensor.updater",
           "friendlyName": "Updater",
           "cSharpName": "Updater"
@@ -1438,14 +1473,9 @@
           "cSharpName": "WifiSmartCoAlarmSafety"
         },
         {
-          "id": "binary_sensor.withings_in_bed_andy",
-          "friendlyName": "Andy In bed",
-          "cSharpName": "WithingsInBedAndy"
-        },
-        {
-          "id": "binary_sensor.withings_in_bed_claire",
-          "friendlyName": "Withings in_bed Claire",
-          "cSharpName": "WithingsInBedClaire"
+          "id": "binary_sensor.window_sofa_occupancy",
+          "friendlyName": "Window Sofa Occupancy",
+          "cSharpName": "WindowSofaOccupancy"
         }
       ],
       "attributes": [
@@ -1715,14 +1745,34 @@
           "cSharpName": "EspresenseBedroomRestart"
         },
         {
+          "id": "button.espresense_kitchen_enroll",
+          "friendlyName": "ESPresense Kitchen Enroll",
+          "cSharpName": "EspresenseKitchenEnroll"
+        },
+        {
           "id": "button.espresense_kitchen_restart",
           "friendlyName": "ESPresense Kitchen Restart",
           "cSharpName": "EspresenseKitchenRestart"
         },
         {
+          "id": "button.espresense_kitchen_update",
+          "friendlyName": "ESPresense Kitchen Update",
+          "cSharpName": "EspresenseKitchenUpdate"
+        },
+        {
+          "id": "button.espresense_lounge_enroll",
+          "friendlyName": "ESPresense Lounge Enroll",
+          "cSharpName": "EspresenseLoungeEnroll"
+        },
+        {
           "id": "button.espresense_lounge_restart",
           "friendlyName": "ESPresense Lounge Restart",
           "cSharpName": "EspresenseLoungeRestart"
+        },
+        {
+          "id": "button.espresense_lounge_update",
+          "friendlyName": "ESPresense Lounge Update",
+          "cSharpName": "EspresenseLoungeUpdate"
         },
         {
           "id": "button.espresense_snug_restart",
@@ -1755,8 +1805,13 @@
           "cSharpName": "HallwayTabletSendToBackground"
         },
         {
+          "id": "button.lounge_fp2_identify",
+          "friendlyName": "Lounge FP2 Identify",
+          "cSharpName": "LoungeFp2Identify"
+        },
+        {
           "id": "button.mark_dismiss_alert",
-          "friendlyName": "Mark Dismiss alert",
+          "friendlyName": "Dismiss alert",
           "cSharpName": "MarkDismissAlert"
         },
         {
@@ -1775,6 +1830,11 @@
           "cSharpName": "SafeModeBoot"
         },
         {
+          "id": "button.shed_identify",
+          "friendlyName": "Shed Identify",
+          "cSharpName": "ShedIdentify"
+        },
+        {
           "id": "button.shelly_shed_lights_reboot",
           "friendlyName": "Shelly Shed Lights Reboot",
           "cSharpName": "ShellyShedLightsReboot"
@@ -1788,6 +1848,26 @@
           "id": "button.shellypro4pm_c8f09e83a72c_reboot",
           "friendlyName": "shellypro4pm-c8f09e83a72c Reboot",
           "cSharpName": "Shellypro4pmC8f09e83a72cReboot"
+        },
+        {
+          "id": "button.snug_fp2_identify",
+          "friendlyName": "Snug FP2 Identify",
+          "cSharpName": "SnugFp2Identify"
+        },
+        {
+          "id": "button.studio_bluetooth_proxy_enroll",
+          "friendlyName": "studio-bluetooth-proxy Enroll",
+          "cSharpName": "StudioBluetoothProxyEnroll"
+        },
+        {
+          "id": "button.studio_bluetooth_proxy_restart",
+          "friendlyName": "studio-bluetooth-proxy Restart",
+          "cSharpName": "StudioBluetoothProxyRestart"
+        },
+        {
+          "id": "button.studio_bluetooth_proxy_update",
+          "friendlyName": "studio-bluetooth-proxy Update",
+          "cSharpName": "StudioBluetoothProxyUpdate"
         }
       ],
       "attributes": [
@@ -1827,9 +1907,19 @@
       "domain": "calendar",
       "entities": [
         {
+          "id": "calendar.andy_workouts",
+          "friendlyName": "Andy Workouts",
+          "cSharpName": "AndyWorkouts"
+        },
+        {
           "id": "calendar.contacts",
           "friendlyName": "Contacts",
           "cSharpName": "Contacts"
+        },
+        {
+          "id": "calendar.family",
+          "friendlyName": "Family",
+          "cSharpName": "Family"
         },
         {
           "id": "calendar.holidays_in_united_kingdom",
@@ -1915,7 +2005,7 @@
         },
         {
           "id": "camera.mark_cleaning_map",
-          "friendlyName": "Mark Cleaning map",
+          "friendlyName": "Cleaning map",
           "cSharpName": "MarkCleaningMap"
         },
         {
@@ -2006,14 +2096,14 @@
       "domain": "climate",
       "entities": [
         {
-          "id": "climate.basement_thermostat",
-          "friendlyName": "Basement Thermostat",
-          "cSharpName": "BasementThermostat"
+          "id": "climate.basement",
+          "friendlyName": "Basement",
+          "cSharpName": "Basement"
         },
         {
-          "id": "climate.downstairs_thermostat",
-          "friendlyName": "Downstairs Thermostat",
-          "cSharpName": "DownstairsThermostat"
+          "id": "climate.downstairs",
+          "friendlyName": "Downstairs",
+          "cSharpName": "Downstairs"
         },
         {
           "id": "climate.shed_thermostat",
@@ -2021,9 +2111,9 @@
           "cSharpName": "ShedThermostat"
         },
         {
-          "id": "climate.upstairs_thermostat",
-          "friendlyName": "Upstairs Thermostat",
-          "cSharpName": "UpstairsThermostat"
+          "id": "climate.upstairs",
+          "friendlyName": "Upstairs",
+          "cSharpName": "Upstairs"
         }
       ],
       "attributes": [
@@ -2173,6 +2263,11 @@
           "cSharpName": "AndysKeys"
         },
         {
+          "id": "device_tracker.apple_pencil",
+          "friendlyName": "Apple Pencil",
+          "cSharpName": "ApplePencil"
+        },
+        {
           "id": "device_tracker.at_1e24",
           "friendlyName": "AT 1E24",
           "cSharpName": "At1e24"
@@ -2214,7 +2309,7 @@
         },
         {
           "id": "device_tracker.brewerypi",
-          "friendlyName": "brewerypi",
+          "friendlyName": "",
           "cSharpName": "Brewerypi"
         },
         {
@@ -2226,6 +2321,11 @@
           "id": "device_tracker.car",
           "friendlyName": "Car",
           "cSharpName": "Car"
+        },
+        {
+          "id": "device_tracker.cb_smartcam",
+          "friendlyName": "CB_SmartCam",
+          "cSharpName": "CbSmartcam"
         },
         {
           "id": "device_tracker.claire_laptop",
@@ -2583,6 +2683,11 @@
           "cSharpName": "LeWh1000xm4"
         },
         {
+          "id": "device_tracker.le_wh_1000xm5",
+          "friendlyName": "LE_WH-1000XM5",
+          "cSharpName": "LeWh1000xm5"
+        },
+        {
           "id": "device_tracker.le_wh_h910n_h_ear",
           "friendlyName": "LE_WH-H910N (h.ear)",
           "cSharpName": "LeWhH910nHEar"
@@ -2616,6 +2721,11 @@
           "id": "device_tracker.motif_a_n_c_le",
           "friendlyName": "MOTIF A.N.C. [LE]",
           "cSharpName": "MotifANCLe"
+        },
+        {
+          "id": "device_tracker.ms_car",
+          "friendlyName": "MS-CAR",
+          "cSharpName": "MsCar"
         },
         {
           "id": "device_tracker.n02rf",
@@ -2686,6 +2796,11 @@
           "id": "device_tracker.presence_sensor_fp2_8d3c",
           "friendlyName": "Presence-Sensor-FP2-8D3C",
           "cSharpName": "PresenceSensorFp28d3c"
+        },
+        {
+          "id": "device_tracker.presence_sensor_fp2_cebc",
+          "friendlyName": "",
+          "cSharpName": "PresenceSensorFp2Cebc"
         },
         {
           "id": "device_tracker.rtl62939",
@@ -2798,6 +2913,11 @@
           "cSharpName": "SqueezeboxDiningRoom"
         },
         {
+          "id": "device_tracker.studio",
+          "friendlyName": "Studio",
+          "cSharpName": "Studio"
+        },
+        {
           "id": "device_tracker.studio_bluetooth_proxy",
           "friendlyName": "studio-bluetooth-proxy",
           "cSharpName": "StudioBluetoothProxy"
@@ -2858,6 +2978,11 @@
           "cSharpName": "Unifi0000001e2f28Default"
         },
         {
+          "id": "device_tracker.unifi_00_00_00_20_70_b6_default",
+          "friendlyName": "",
+          "cSharpName": "Unifi0000002070B6Default"
+        },
+        {
           "id": "device_tracker.unifi_00_00_00_25_0c_02_default",
           "friendlyName": "",
           "cSharpName": "Unifi000000250c02Default"
@@ -2871,6 +2996,11 @@
           "id": "device_tracker.unifi_00_1d_73_06_14_33_default",
           "friendlyName": "",
           "cSharpName": "Unifi001d73061433Default"
+        },
+        {
+          "id": "device_tracker.unifi_00_1d_73_06_38_56_default",
+          "friendlyName": "",
+          "cSharpName": "Unifi001d73063856Default"
         },
         {
           "id": "device_tracker.unifi_00_1d_73_06_4a_29_default",
@@ -2901,6 +3031,16 @@
           "id": "device_tracker.unifi_00_7f_08_04_00_0f_default",
           "friendlyName": "",
           "cSharpName": "Unifi007f0804000fDefault"
+        },
+        {
+          "id": "device_tracker.unifi_04_01_00_00_0f_ac_default",
+          "friendlyName": "",
+          "cSharpName": "Unifi040100000fAcDefault"
+        },
+        {
+          "id": "device_tracker.unifi_0c_e6_95_69_00_0d_default",
+          "friendlyName": "",
+          "cSharpName": "Unifi0cE69569000dDefault"
         },
         {
           "id": "device_tracker.unifi_10_0d_7f_59_b0_9f_default",
@@ -2953,9 +3093,24 @@
           "cSharpName": "Unifi4e5cFd04479dDefault"
         },
         {
+          "id": "device_tracker.unifi_54_08_15_fd_73_7d_default",
+          "friendlyName": "",
+          "cSharpName": "Unifi540815Fd737dDefault"
+        },
+        {
           "id": "device_tracker.unifi_54_2d_32_35_53_32_default",
           "friendlyName": "",
           "cSharpName": "Unifi542d32355332Default"
+        },
+        {
+          "id": "device_tracker.unifi_60_22_32_2d_e9_1f_default",
+          "friendlyName": "",
+          "cSharpName": "Unifi6022322dE91fDefault"
+        },
+        {
+          "id": "device_tracker.unifi_62_22_32_2d_e9_18_default",
+          "friendlyName": "",
+          "cSharpName": "Unifi6222322dE918Default"
         },
         {
           "id": "device_tracker.unifi_62_22_eb_41_b9_e3_default",
@@ -2988,14 +3143,34 @@
           "cSharpName": "Unifi76Ba4785A45eDefault"
         },
         {
+          "id": "device_tracker.unifi_7e_2f_09_65_08_5c_default",
+          "friendlyName": "",
+          "cSharpName": "Unifi7e2f0965085cDefault"
+        },
+        {
+          "id": "device_tracker.unifi_7e_f5_1e_19_06_96_default",
+          "friendlyName": "",
+          "cSharpName": "Unifi7eF51e190696Default"
+        },
+        {
           "id": "device_tracker.unifi_84_94_7a_cc_8a_3e_default",
           "friendlyName": "",
           "cSharpName": "Unifi84947aCc8a3eDefault"
         },
         {
+          "id": "device_tracker.unifi_88_4c_3c_b5_01_00_default",
+          "friendlyName": "",
+          "cSharpName": "Unifi884c3cB50100Default"
+        },
+        {
           "id": "device_tracker.unifi_88_a5_83_bc_32_34_default",
           "friendlyName": "",
           "cSharpName": "Unifi88A583Bc3234Default"
+        },
+        {
+          "id": "device_tracker.unifi_8a_61_91_7c_a1_95_default",
+          "friendlyName": "Pixel-6",
+          "cSharpName": "Unifi8a61917cA195Default"
         },
         {
           "id": "device_tracker.unifi_90_22_34_ef_09_20_default",
@@ -3006,6 +3181,11 @@
           "id": "device_tracker.unifi_9a_6e_66_b1_6a_1b_default",
           "friendlyName": "",
           "cSharpName": "Unifi9a6e66B16a1bDefault"
+        },
+        {
+          "id": "device_tracker.unifi_aa_55_6b_98_ee_f2_default",
+          "friendlyName": "amazon-c67cf2c79",
+          "cSharpName": "UnifiAa556b98EeF2Default"
         },
         {
           "id": "device_tracker.unifi_b6_35_1c_cb_47_a0_default",
@@ -3041,6 +3221,11 @@
           "id": "device_tracker.unifi_c4_3d_c7_ab_3a_a6_default",
           "friendlyName": "",
           "cSharpName": "UnifiC43dC7Ab3aA6Default"
+        },
+        {
+          "id": "device_tracker.unifi_c4_b3_01_d1_21_e1_default",
+          "friendlyName": "tests-Air",
+          "cSharpName": "UnifiC4B301D121E1Default"
         },
         {
           "id": "device_tracker.unifi_c7_ca_84_00_00_00_default",
@@ -3093,6 +3278,11 @@
           "cSharpName": "UnifiF29a4b8141B4Default"
         },
         {
+          "id": "device_tracker.unifi_fa_70_bf_52_ca_c2_default",
+          "friendlyName": "",
+          "cSharpName": "UnifiFa70Bf52CaC2Default"
+        },
+        {
           "id": "device_tracker.upstairs_thermostat",
           "friendlyName": "Upstairs Thermostat",
           "cSharpName": "UpstairsThermostat"
@@ -3126,6 +3316,11 @@
           "id": "device_tracker.watch614",
           "friendlyName": "Watch6,14",
           "cSharpName": "Watch614"
+        },
+        {
+          "id": "device_tracker.watch618",
+          "friendlyName": "Watch6,18",
+          "cSharpName": "Watch618"
         },
         {
           "id": "device_tracker.watch66",
@@ -4734,6 +4929,11 @@
           "cSharpName": "Studio"
         },
         {
+          "id": "light.studio_bluetooth_proxy_led_1",
+          "friendlyName": "studio-bluetooth-proxy LED 1",
+          "cSharpName": "StudioBluetoothProxyLed1"
+        },
+        {
           "id": "light.toilet",
           "friendlyName": "Toilet Light",
           "cSharpName": "Toilet"
@@ -4883,6 +5083,11 @@
         {
           "jsonName": "update_available",
           "cSharpName": "UpdateAvailable",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "effect",
+          "cSharpName": "Effect",
           "clrType": "System.Object"
         }
       ]
@@ -5105,17 +5310,17 @@
         {
           "jsonName": "last_called",
           "cSharpName": "LastCalled",
-          "clrType": "System.Boolean"
+          "clrType": "System.Object"
         },
         {
           "jsonName": "last_called_timestamp",
           "cSharpName": "LastCalledTimestamp",
-          "clrType": "System.Double"
+          "clrType": "System.Object"
         },
         {
           "jsonName": "last_called_summary",
           "cSharpName": "LastCalledSummary",
-          "clrType": "System.String"
+          "clrType": "System.Object"
         },
         {
           "jsonName": "connected_bluetooth",
@@ -5307,6 +5512,11 @@
           "id": "number.rojeco_pet_feeder_feed",
           "friendlyName": "Cat Feeder Feed",
           "cSharpName": "RojecoPetFeederFeed"
+        },
+        {
+          "id": "number.studio_bluetooth_proxy_absorption",
+          "friendlyName": "studio-bluetooth-proxy Absorption",
+          "cSharpName": "StudioBluetoothProxyAbsorption"
         }
       ],
       "attributes": [
@@ -5720,6 +5930,11 @@
           "id": "select.guest_room_bedside_lamp_power_on_behavior",
           "friendlyName": "Guest Room Bedside Lamp Power-on behavior",
           "cSharpName": "GuestRoomBedsideLampPowerOnBehavior"
+        },
+        {
+          "id": "select.shed_temperature_display_units",
+          "friendlyName": "Shed Temperature Display Units",
+          "cSharpName": "ShedTemperatureDisplayUnits"
         }
       ],
       "attributes": [
@@ -5819,9 +6034,34 @@
           "cSharpName": "AndrewSSamsungTv2020UNextTimer"
         },
         {
-          "id": "sensor.backup_state",
-          "friendlyName": "Backup State",
-          "cSharpName": "BackupState"
+          "id": "sensor.andy_breathing_disturbances_intensity",
+          "friendlyName": "Andy Breathing disturbances intensity",
+          "cSharpName": "AndyBreathingDisturbancesIntensity"
+        },
+        {
+          "id": "sensor.andy_last_workout_intensity",
+          "friendlyName": "Andy Last workout intensity",
+          "cSharpName": "AndyLastWorkoutIntensity"
+        },
+        {
+          "id": "sensor.andy_last_workout_type",
+          "friendlyName": "Andy Last workout type",
+          "cSharpName": "AndyLastWorkoutType"
+        },
+        {
+          "id": "sensor.andy_snoring",
+          "friendlyName": "Andy Snoring",
+          "cSharpName": "AndySnoring"
+        },
+        {
+          "id": "sensor.andy_snoring_episode_count",
+          "friendlyName": "Andy Snoring episode count",
+          "cSharpName": "AndySnoringEpisodeCount"
+        },
+        {
+          "id": "sensor.basement_alarm_panel_uptime",
+          "friendlyName": "Basement Alarm Panel Uptime",
+          "cSharpName": "BasementAlarmPanelUptime"
         },
         {
           "id": "sensor.basement_hall_camera_infrared_mode",
@@ -5882,6 +6122,21 @@
           "id": "sensor.cat_feeder_uptime_2",
           "friendlyName": "cat-feeder Uptime",
           "cSharpName": "CatFeederUptime2"
+        },
+        {
+          "id": "sensor.claire_breathing_disturbances_intensity",
+          "friendlyName": "Claire Breathing disturbances intensity",
+          "cSharpName": "ClaireBreathingDisturbancesIntensity"
+        },
+        {
+          "id": "sensor.claire_snoring",
+          "friendlyName": "Claire Snoring",
+          "cSharpName": "ClaireSnoring"
+        },
+        {
+          "id": "sensor.claire_snoring_episode_count",
+          "friendlyName": "Claire Snoring episode count",
+          "cSharpName": "ClaireSnoringEpisodeCount"
         },
         {
           "id": "sensor.claires_iphone_activity",
@@ -6687,6 +6942,11 @@
           "id": "sensor.udmpro_uptime_2",
           "friendlyName": "UDMPRO Uptime",
           "cSharpName": "UdmproUptime2"
+        },
+        {
+          "id": "sensor.unifi_dream_machine_external_ip",
+          "friendlyName": "UniFi Dream Machine External IP",
+          "cSharpName": "UnifiDreamMachineExternalIp"
         },
         {
           "id": "sensor.utility_room_echo_dot_next_alarm",
@@ -7517,6 +7777,101 @@
           "cSharpName": "AndrewsMiniTx2"
         },
         {
+          "id": "sensor.andy_active_calories_burnt_today",
+          "friendlyName": "Andy Active calories burnt today",
+          "cSharpName": "AndyActiveCaloriesBurntToday"
+        },
+        {
+          "id": "sensor.andy_active_time_today",
+          "friendlyName": "Andy Active time today",
+          "cSharpName": "AndyActiveTimeToday"
+        },
+        {
+          "id": "sensor.andy_average_heart_rate",
+          "friendlyName": "Andy Average heart rate",
+          "cSharpName": "AndyAverageHeartRate"
+        },
+        {
+          "id": "sensor.andy_average_respiratory_rate",
+          "friendlyName": "Andy Average respiratory rate",
+          "cSharpName": "AndyAverageRespiratoryRate"
+        },
+        {
+          "id": "sensor.andy_body_temperature",
+          "friendlyName": "Body temperature",
+          "cSharpName": "AndyBodyTemperature"
+        },
+        {
+          "id": "sensor.andy_bone_mass",
+          "friendlyName": "Bone mass",
+          "cSharpName": "AndyBoneMass"
+        },
+        {
+          "id": "sensor.andy_calories_burnt_last_workout",
+          "friendlyName": "Andy Calories burnt last workout",
+          "cSharpName": "AndyCaloriesBurntLastWorkout"
+        },
+        {
+          "id": "sensor.andy_deep_sleep",
+          "friendlyName": "Andy Deep sleep",
+          "cSharpName": "AndyDeepSleep"
+        },
+        {
+          "id": "sensor.andy_diastolic_blood_pressure",
+          "friendlyName": "Diastolic blood pressure",
+          "cSharpName": "AndyDiastolicBloodPressure"
+        },
+        {
+          "id": "sensor.andy_distance_travelled_last_workout",
+          "friendlyName": "Andy Distance travelled last workout",
+          "cSharpName": "AndyDistanceTravelledLastWorkout"
+        },
+        {
+          "id": "sensor.andy_distance_travelled_today",
+          "friendlyName": "Andy Distance travelled today",
+          "cSharpName": "AndyDistanceTravelledToday"
+        },
+        {
+          "id": "sensor.andy_fat_free_mass",
+          "friendlyName": "Fat free mass",
+          "cSharpName": "AndyFatFreeMass"
+        },
+        {
+          "id": "sensor.andy_fat_mass",
+          "friendlyName": "Fat mass",
+          "cSharpName": "AndyFatMass"
+        },
+        {
+          "id": "sensor.andy_fat_ratio",
+          "friendlyName": "Fat ratio",
+          "cSharpName": "AndyFatRatio"
+        },
+        {
+          "id": "sensor.andy_floors_climbed_last_workout",
+          "friendlyName": "Andy Floors climbed last workout",
+          "cSharpName": "AndyFloorsClimbedLastWorkout"
+        },
+        {
+          "id": "sensor.andy_floors_climbed_today",
+          "friendlyName": "Andy Floors climbed today",
+          "cSharpName": "AndyFloorsClimbedToday"
+        },
+        {
+          "id": "sensor.andy_heart_pulse",
+          "friendlyName": "Heart pulse",
+          "cSharpName": "AndyHeartPulse"
+        },
+        {
+          "id": "sensor.andy_height",
+          "friendlyName": "Height",
+          "cSharpName": "AndyHeight"
+        },
+        {
+          "id": "sensor.andy_hydration",
+          "friendlyName": "Hydration",
+          "cSharpName": "AndyHydration"
+        },
+        {
           "id": "sensor.andy_laptop_rx",
           "friendlyName": "Andy Laptop RX",
           "cSharpName": "AndyLaptopRx"
@@ -7527,6 +7882,61 @@
           "cSharpName": "AndyLaptopTx"
         },
         {
+          "id": "sensor.andy_last_workout_duration",
+          "friendlyName": "Andy Last workout duration",
+          "cSharpName": "AndyLastWorkoutDuration"
+        },
+        {
+          "id": "sensor.andy_light_sleep",
+          "friendlyName": "Andy Light sleep",
+          "cSharpName": "AndyLightSleep"
+        },
+        {
+          "id": "sensor.andy_maximum_heart_rate",
+          "friendlyName": "Andy Maximum heart rate",
+          "cSharpName": "AndyMaximumHeartRate"
+        },
+        {
+          "id": "sensor.andy_maximum_respiratory_rate",
+          "friendlyName": "Andy Maximum respiratory rate",
+          "cSharpName": "AndyMaximumRespiratoryRate"
+        },
+        {
+          "id": "sensor.andy_minimum_heart_rate",
+          "friendlyName": "Andy Minimum heart rate",
+          "cSharpName": "AndyMinimumHeartRate"
+        },
+        {
+          "id": "sensor.andy_minimum_respiratory_rate",
+          "friendlyName": "Andy Minimum respiratory rate",
+          "cSharpName": "AndyMinimumRespiratoryRate"
+        },
+        {
+          "id": "sensor.andy_muscle_mass",
+          "friendlyName": "Muscle mass",
+          "cSharpName": "AndyMuscleMass"
+        },
+        {
+          "id": "sensor.andy_pause_during_last_workout",
+          "friendlyName": "Andy Pause during last workout",
+          "cSharpName": "AndyPauseDuringLastWorkout"
+        },
+        {
+          "id": "sensor.andy_pulse_wave_velocity",
+          "friendlyName": "Pulse wave velocity",
+          "cSharpName": "AndyPulseWaveVelocity"
+        },
+        {
+          "id": "sensor.andy_rem_sleep",
+          "friendlyName": "Andy REM sleep",
+          "cSharpName": "AndyRemSleep"
+        },
+        {
+          "id": "sensor.andy_skin_temperature",
+          "friendlyName": "Skin temperature",
+          "cSharpName": "AndySkinTemperature"
+        },
+        {
           "id": "sensor.andy_sleep_analyser_rx",
           "friendlyName": "Andy Sleep Analyser RX",
           "cSharpName": "AndySleepAnalyserRx"
@@ -7535,6 +7945,71 @@
           "id": "sensor.andy_sleep_analyser_tx",
           "friendlyName": "Andy Sleep Analyser TX",
           "cSharpName": "AndySleepAnalyserTx"
+        },
+        {
+          "id": "sensor.andy_sleep_score",
+          "friendlyName": "Andy Sleep score",
+          "cSharpName": "AndySleepScore"
+        },
+        {
+          "id": "sensor.andy_spo2",
+          "friendlyName": "SpO2",
+          "cSharpName": "AndySpo2"
+        },
+        {
+          "id": "sensor.andy_step_goal",
+          "friendlyName": "Andy Step goal",
+          "cSharpName": "AndyStepGoal"
+        },
+        {
+          "id": "sensor.andy_steps_today",
+          "friendlyName": "Andy Steps today",
+          "cSharpName": "AndyStepsToday"
+        },
+        {
+          "id": "sensor.andy_systolic_blood_pressure",
+          "friendlyName": "Systolic blood pressure",
+          "cSharpName": "AndySystolicBloodPressure"
+        },
+        {
+          "id": "sensor.andy_temperature",
+          "friendlyName": "Temperature",
+          "cSharpName": "AndyTemperature"
+        },
+        {
+          "id": "sensor.andy_time_to_sleep",
+          "friendlyName": "Andy Time to sleep",
+          "cSharpName": "AndyTimeToSleep"
+        },
+        {
+          "id": "sensor.andy_time_to_wakeup",
+          "friendlyName": "Andy Time to wakeup",
+          "cSharpName": "AndyTimeToWakeup"
+        },
+        {
+          "id": "sensor.andy_total_calories_burnt_today",
+          "friendlyName": "Andy Total calories burnt today",
+          "cSharpName": "AndyTotalCaloriesBurntToday"
+        },
+        {
+          "id": "sensor.andy_wakeup_count",
+          "friendlyName": "Andy Wakeup count",
+          "cSharpName": "AndyWakeupCount"
+        },
+        {
+          "id": "sensor.andy_wakeup_time",
+          "friendlyName": "Andy Wakeup time",
+          "cSharpName": "AndyWakeupTime"
+        },
+        {
+          "id": "sensor.andy_weight",
+          "friendlyName": "Andy Weight",
+          "cSharpName": "AndyWeight"
+        },
+        {
+          "id": "sensor.andy_weight_goal",
+          "friendlyName": "Andy Weight goal",
+          "cSharpName": "AndyWeightGoal"
         },
         {
           "id": "sensor.basement_alarm_panel_rx",
@@ -7572,6 +8047,11 @@
           "cSharpName": "BasementHallCameraTx"
         },
         {
+          "id": "sensor.basement_humidity",
+          "friendlyName": "Basement Humidity",
+          "cSharpName": "BasementHumidity"
+        },
+        {
           "id": "sensor.basement_stairs_motion_battery",
           "friendlyName": "Basement Stairs Motion Battery",
           "cSharpName": "BasementStairsMotionBattery"
@@ -7585,6 +8065,11 @@
           "id": "sensor.basement_stairs_motion_voltage",
           "friendlyName": "Basement Stairs Motion Voltage",
           "cSharpName": "BasementStairsMotionVoltage"
+        },
+        {
+          "id": "sensor.basement_temperature",
+          "friendlyName": "Basement Temperature",
+          "cSharpName": "BasementTemperature"
         },
         {
           "id": "sensor.basement_thermostat_rx",
@@ -7673,12 +8158,12 @@
         },
         {
           "id": "sensor.ben_s_s23_ultra_rx",
-          "friendlyName": "RX",
+          "friendlyName": "Ben-s-S23-Ultra RX",
           "cSharpName": "BenSS23UltraRx"
         },
         {
           "id": "sensor.ben_s_s23_ultra_tx",
-          "friendlyName": "TX",
+          "friendlyName": "Ben-s-S23-Ultra TX",
           "cSharpName": "BenSS23UltraTx"
         },
         {
@@ -7782,6 +8267,66 @@
           "cSharpName": "CatFeederTx"
         },
         {
+          "id": "sensor.claire_average_heart_rate",
+          "friendlyName": "Claire Average heart rate",
+          "cSharpName": "ClaireAverageHeartRate"
+        },
+        {
+          "id": "sensor.claire_average_respiratory_rate",
+          "friendlyName": "Claire Average respiratory rate",
+          "cSharpName": "ClaireAverageRespiratoryRate"
+        },
+        {
+          "id": "sensor.claire_body_temperature",
+          "friendlyName": "Body temperature",
+          "cSharpName": "ClaireBodyTemperature"
+        },
+        {
+          "id": "sensor.claire_bone_mass",
+          "friendlyName": "Bone mass",
+          "cSharpName": "ClaireBoneMass"
+        },
+        {
+          "id": "sensor.claire_deep_sleep",
+          "friendlyName": "Claire Deep sleep",
+          "cSharpName": "ClaireDeepSleep"
+        },
+        {
+          "id": "sensor.claire_diastolic_blood_pressure",
+          "friendlyName": "Diastolic blood pressure",
+          "cSharpName": "ClaireDiastolicBloodPressure"
+        },
+        {
+          "id": "sensor.claire_fat_free_mass",
+          "friendlyName": "Fat free mass",
+          "cSharpName": "ClaireFatFreeMass"
+        },
+        {
+          "id": "sensor.claire_fat_mass",
+          "friendlyName": "Fat mass",
+          "cSharpName": "ClaireFatMass"
+        },
+        {
+          "id": "sensor.claire_fat_ratio",
+          "friendlyName": "Fat ratio",
+          "cSharpName": "ClaireFatRatio"
+        },
+        {
+          "id": "sensor.claire_heart_pulse",
+          "friendlyName": "Heart pulse",
+          "cSharpName": "ClaireHeartPulse"
+        },
+        {
+          "id": "sensor.claire_height",
+          "friendlyName": "Height",
+          "cSharpName": "ClaireHeight"
+        },
+        {
+          "id": "sensor.claire_hydration",
+          "friendlyName": "Hydration",
+          "cSharpName": "ClaireHydration"
+        },
+        {
           "id": "sensor.claire_laptop_rx",
           "friendlyName": "Claire-Laptop RX",
           "cSharpName": "ClaireLaptopRx"
@@ -7792,6 +8337,51 @@
           "cSharpName": "ClaireLaptopTx"
         },
         {
+          "id": "sensor.claire_light_sleep",
+          "friendlyName": "Claire Light sleep",
+          "cSharpName": "ClaireLightSleep"
+        },
+        {
+          "id": "sensor.claire_maximum_heart_rate",
+          "friendlyName": "Claire Maximum heart rate",
+          "cSharpName": "ClaireMaximumHeartRate"
+        },
+        {
+          "id": "sensor.claire_maximum_respiratory_rate",
+          "friendlyName": "Claire Maximum respiratory rate",
+          "cSharpName": "ClaireMaximumRespiratoryRate"
+        },
+        {
+          "id": "sensor.claire_minimum_heart_rate",
+          "friendlyName": "Claire Minimum heart rate",
+          "cSharpName": "ClaireMinimumHeartRate"
+        },
+        {
+          "id": "sensor.claire_minimum_respiratory_rate",
+          "friendlyName": "Claire Minimum respiratory rate",
+          "cSharpName": "ClaireMinimumRespiratoryRate"
+        },
+        {
+          "id": "sensor.claire_muscle_mass",
+          "friendlyName": "Muscle mass",
+          "cSharpName": "ClaireMuscleMass"
+        },
+        {
+          "id": "sensor.claire_pulse_wave_velocity",
+          "friendlyName": "Pulse wave velocity",
+          "cSharpName": "ClairePulseWaveVelocity"
+        },
+        {
+          "id": "sensor.claire_rem_sleep",
+          "friendlyName": "Claire REM sleep",
+          "cSharpName": "ClaireRemSleep"
+        },
+        {
+          "id": "sensor.claire_skin_temperature",
+          "friendlyName": "Skin temperature",
+          "cSharpName": "ClaireSkinTemperature"
+        },
+        {
           "id": "sensor.claire_sleep_analyzer_rx",
           "friendlyName": "Claire Sleep Analyzer RX",
           "cSharpName": "ClaireSleepAnalyzerRx"
@@ -7800,6 +8390,51 @@
           "id": "sensor.claire_sleep_analyzer_tx",
           "friendlyName": "Claire Sleep Analyzer TX",
           "cSharpName": "ClaireSleepAnalyzerTx"
+        },
+        {
+          "id": "sensor.claire_sleep_score",
+          "friendlyName": "Claire Sleep score",
+          "cSharpName": "ClaireSleepScore"
+        },
+        {
+          "id": "sensor.claire_spo2",
+          "friendlyName": "SpO2",
+          "cSharpName": "ClaireSpo2"
+        },
+        {
+          "id": "sensor.claire_systolic_blood_pressure",
+          "friendlyName": "Systolic blood pressure",
+          "cSharpName": "ClaireSystolicBloodPressure"
+        },
+        {
+          "id": "sensor.claire_temperature",
+          "friendlyName": "Temperature",
+          "cSharpName": "ClaireTemperature"
+        },
+        {
+          "id": "sensor.claire_time_to_sleep",
+          "friendlyName": "Claire Time to sleep",
+          "cSharpName": "ClaireTimeToSleep"
+        },
+        {
+          "id": "sensor.claire_time_to_wakeup",
+          "friendlyName": "Claire Time to wakeup",
+          "cSharpName": "ClaireTimeToWakeup"
+        },
+        {
+          "id": "sensor.claire_wakeup_count",
+          "friendlyName": "Claire Wakeup count",
+          "cSharpName": "ClaireWakeupCount"
+        },
+        {
+          "id": "sensor.claire_wakeup_time",
+          "friendlyName": "Claire Wakeup time",
+          "cSharpName": "ClaireWakeupTime"
+        },
+        {
+          "id": "sensor.claire_weight",
+          "friendlyName": "Weight",
+          "cSharpName": "ClaireWeight"
         },
         {
           "id": "sensor.claireiphone_battery",
@@ -8000,6 +8635,16 @@
           "id": "sensor.doorbell_wifi_signal",
           "friendlyName": "Doorbell WiFi Signal",
           "cSharpName": "DoorbellWifiSignal"
+        },
+        {
+          "id": "sensor.downstairs_humidity",
+          "friendlyName": "Downstairs Humidity",
+          "cSharpName": "DownstairsHumidity"
+        },
+        {
+          "id": "sensor.downstairs_temperature",
+          "friendlyName": "Downstairs Temperature",
+          "cSharpName": "DownstairsTemperature"
         },
         {
           "id": "sensor.downstairs_thermostat_rx",
@@ -8253,13 +8898,23 @@
         },
         {
           "id": "sensor.galaxy_a20e_rx",
-          "friendlyName": "RX",
+          "friendlyName": "Galaxy-A20e RX",
           "cSharpName": "GalaxyA20eRx"
         },
         {
+          "id": "sensor.galaxy_a20e_rx_2",
+          "friendlyName": "RX",
+          "cSharpName": "GalaxyA20eRx2"
+        },
+        {
           "id": "sensor.galaxy_a20e_tx",
-          "friendlyName": "TX",
+          "friendlyName": "Galaxy-A20e TX",
           "cSharpName": "GalaxyA20eTx"
+        },
+        {
+          "id": "sensor.galaxy_a20e_tx_2",
+          "friendlyName": "TX",
+          "cSharpName": "GalaxyA20eTx2"
         },
         {
           "id": "sensor.garden_sockets_current",
@@ -8458,12 +9113,12 @@
         },
         {
           "id": "sensor.huawei_p30_pro_839be50799_rx",
-          "friendlyName": "RX",
+          "friendlyName": "HUAWEI_P30_Pro-839be50799 RX",
           "cSharpName": "HuaweiP30Pro839be50799Rx"
         },
         {
           "id": "sensor.huawei_p30_pro_839be50799_tx",
-          "friendlyName": "TX",
+          "friendlyName": "HUAWEI_P30_Pro-839be50799 TX",
           "cSharpName": "HuaweiP30Pro839be50799Tx"
         },
         {
@@ -8607,6 +9262,11 @@
           "cSharpName": "LoungeFireTvTx"
         },
         {
+          "id": "sensor.lounge_illuminance",
+          "friendlyName": "Lounge Illuminance",
+          "cSharpName": "LoungeIlluminance"
+        },
+        {
           "id": "sensor.lounge_remote_battery",
           "friendlyName": "Lounge Remote Battery",
           "cSharpName": "LoungeRemoteBattery"
@@ -8638,7 +9298,7 @@
         },
         {
           "id": "sensor.mark_battery",
-          "friendlyName": "Mark Battery",
+          "friendlyName": "Battery",
           "cSharpName": "MarkBattery"
         },
         {
@@ -8883,13 +9543,23 @@
         },
         {
           "id": "sensor.oneplus5t_rx",
-          "friendlyName": "RX",
+          "friendlyName": "OnePlus5T RX",
           "cSharpName": "Oneplus5tRx"
         },
         {
           "id": "sensor.oneplus5t_tx",
-          "friendlyName": "TX",
+          "friendlyName": "OnePlus5T TX",
           "cSharpName": "Oneplus5tTx"
+        },
+        {
+          "id": "sensor.pam_s_a32_rx",
+          "friendlyName": "RX",
+          "cSharpName": "PamSA32Rx"
+        },
+        {
+          "id": "sensor.pam_s_a32_tx",
+          "friendlyName": "TX",
+          "cSharpName": "PamSA32Tx"
         },
         {
           "id": "sensor.patio_camera_disk_write_rate",
@@ -8980,6 +9650,16 @@
           "id": "sensor.presence_sensor_fp2_8d3c_tx",
           "friendlyName": "Presence-Sensor-FP2-8D3C TX",
           "cSharpName": "PresenceSensorFp28d3cTx"
+        },
+        {
+          "id": "sensor.presence_sensor_fp2_cebc_rx",
+          "friendlyName": "Presence-Sensor-FP2-CEBC RX",
+          "cSharpName": "PresenceSensorFp2CebcRx"
+        },
+        {
+          "id": "sensor.presence_sensor_fp2_cebc_tx",
+          "friendlyName": "Presence-Sensor-FP2-CEBC TX",
+          "cSharpName": "PresenceSensorFp2CebcTx"
         },
         {
           "id": "sensor.rojeco_pet_feeder_last_amount",
@@ -9227,9 +9907,79 @@
           "cSharpName": "Rx52"
         },
         {
+          "id": "sensor.rx_53",
+          "friendlyName": "RX",
+          "cSharpName": "Rx53"
+        },
+        {
+          "id": "sensor.rx_54",
+          "friendlyName": "RX",
+          "cSharpName": "Rx54"
+        },
+        {
+          "id": "sensor.rx_55",
+          "friendlyName": "RX",
+          "cSharpName": "Rx55"
+        },
+        {
+          "id": "sensor.rx_56",
+          "friendlyName": "RX",
+          "cSharpName": "Rx56"
+        },
+        {
+          "id": "sensor.rx_57",
+          "friendlyName": "RX",
+          "cSharpName": "Rx57"
+        },
+        {
+          "id": "sensor.rx_58",
+          "friendlyName": "RX",
+          "cSharpName": "Rx58"
+        },
+        {
+          "id": "sensor.rx_59",
+          "friendlyName": "RX",
+          "cSharpName": "Rx59"
+        },
+        {
           "id": "sensor.rx_6",
           "friendlyName": "RX",
           "cSharpName": "Rx6"
+        },
+        {
+          "id": "sensor.rx_60",
+          "friendlyName": "RX",
+          "cSharpName": "Rx60"
+        },
+        {
+          "id": "sensor.rx_61",
+          "friendlyName": "RX",
+          "cSharpName": "Rx61"
+        },
+        {
+          "id": "sensor.rx_62",
+          "friendlyName": "RX",
+          "cSharpName": "Rx62"
+        },
+        {
+          "id": "sensor.rx_63",
+          "friendlyName": "RX",
+          "cSharpName": "Rx63"
+        },
+        {
+          "id": "sensor.rx_64",
+          "friendlyName": "RX",
+          "cSharpName": "Rx64"
+        },
+        {
+          "id": "sensor.rx_65",
+          "friendlyName": "RX",
+          "cSharpName": "Rx65"
+        },
+        {
+          "id": "sensor.rx_66",
+          "friendlyName": "RX",
+          "cSharpName": "Rx66"
         },
         {
           "id": "sensor.rx_7",
@@ -9287,6 +10037,11 @@
           "cSharpName": "ShedCurrent"
         },
         {
+          "id": "sensor.shed_current_temperature",
+          "friendlyName": "Shed Current Temperature",
+          "cSharpName": "ShedCurrentTemperature"
+        },
+        {
           "id": "sensor.shed_device_temperature",
           "friendlyName": "Shed device temperature",
           "cSharpName": "ShedDeviceTemperature"
@@ -9305,6 +10060,11 @@
           "id": "sensor.shed_energy",
           "friendlyName": "Shed energy",
           "cSharpName": "ShedEnergy"
+        },
+        {
+          "id": "sensor.shed_floor_temperature",
+          "friendlyName": "Shed Floor Temperature",
+          "cSharpName": "ShedFloorTemperature"
         },
         {
           "id": "sensor.shed_frequency",
@@ -9373,12 +10133,12 @@
         },
         {
           "id": "sensor.sm_r860_rx",
-          "friendlyName": "RX",
+          "friendlyName": "SM-R860 RX",
           "cSharpName": "SmR860Rx"
         },
         {
           "id": "sensor.sm_r860_tx",
-          "friendlyName": "TX",
+          "friendlyName": "SM-R860 TX",
           "cSharpName": "SmR860Tx"
         },
         {
@@ -9390,6 +10150,11 @@
           "id": "sensor.smart_series_7000_47ae_time",
           "friendlyName": "Time",
           "cSharpName": "SmartSeries700047aeTime"
+        },
+        {
+          "id": "sensor.snug_illumenance",
+          "friendlyName": "Snug Illuminance",
+          "cSharpName": "SnugIllumenance"
         },
         {
           "id": "sensor.snug_led_strip_linkquality",
@@ -9552,14 +10317,24 @@
           "cSharpName": "SqueezeboxDiningRoomTx"
         },
         {
+          "id": "sensor.studio_bluetooth_proxy_free_mem",
+          "friendlyName": "studio-bluetooth-proxy Free Mem",
+          "cSharpName": "StudioBluetoothProxyFreeMem"
+        },
+        {
           "id": "sensor.studio_bluetooth_proxy_rx",
-          "friendlyName": "RX",
+          "friendlyName": "studio-bluetooth-proxy RX",
           "cSharpName": "StudioBluetoothProxyRx"
         },
         {
           "id": "sensor.studio_bluetooth_proxy_tx",
-          "friendlyName": "TX",
+          "friendlyName": "studio-bluetooth-proxy TX",
           "cSharpName": "StudioBluetoothProxyTx"
+        },
+        {
+          "id": "sensor.studio_bluetooth_proxy_uptime_2",
+          "friendlyName": "studio-bluetooth-proxy Uptime",
+          "cSharpName": "StudioBluetoothProxyUptime2"
         },
         {
           "id": "sensor.sump_alarm_rx",
@@ -9837,9 +10612,79 @@
           "cSharpName": "Tx52"
         },
         {
+          "id": "sensor.tx_53",
+          "friendlyName": "TX",
+          "cSharpName": "Tx53"
+        },
+        {
+          "id": "sensor.tx_54",
+          "friendlyName": "TX",
+          "cSharpName": "Tx54"
+        },
+        {
+          "id": "sensor.tx_55",
+          "friendlyName": "TX",
+          "cSharpName": "Tx55"
+        },
+        {
+          "id": "sensor.tx_56",
+          "friendlyName": "TX",
+          "cSharpName": "Tx56"
+        },
+        {
+          "id": "sensor.tx_57",
+          "friendlyName": "TX",
+          "cSharpName": "Tx57"
+        },
+        {
+          "id": "sensor.tx_58",
+          "friendlyName": "TX",
+          "cSharpName": "Tx58"
+        },
+        {
+          "id": "sensor.tx_59",
+          "friendlyName": "TX",
+          "cSharpName": "Tx59"
+        },
+        {
           "id": "sensor.tx_6",
           "friendlyName": "TX",
           "cSharpName": "Tx6"
+        },
+        {
+          "id": "sensor.tx_60",
+          "friendlyName": "TX",
+          "cSharpName": "Tx60"
+        },
+        {
+          "id": "sensor.tx_61",
+          "friendlyName": "TX",
+          "cSharpName": "Tx61"
+        },
+        {
+          "id": "sensor.tx_62",
+          "friendlyName": "TX",
+          "cSharpName": "Tx62"
+        },
+        {
+          "id": "sensor.tx_63",
+          "friendlyName": "TX",
+          "cSharpName": "Tx63"
+        },
+        {
+          "id": "sensor.tx_64",
+          "friendlyName": "TX",
+          "cSharpName": "Tx64"
+        },
+        {
+          "id": "sensor.tx_65",
+          "friendlyName": "TX",
+          "cSharpName": "Tx65"
+        },
+        {
+          "id": "sensor.tx_66",
+          "friendlyName": "TX",
+          "cSharpName": "Tx66"
         },
         {
           "id": "sensor.tx_7",
@@ -9932,6 +10777,16 @@
           "cSharpName": "UpstairsAlarmPanelTx"
         },
         {
+          "id": "sensor.upstairs_humidity",
+          "friendlyName": "Upstairs Humidity",
+          "cSharpName": "UpstairsHumidity"
+        },
+        {
+          "id": "sensor.upstairs_temperature",
+          "friendlyName": "Upstairs Temperature",
+          "cSharpName": "UpstairsTemperature"
+        },
+        {
           "id": "sensor.upstairs_thermostat_rx",
           "friendlyName": "Upstairs Thermostat RX",
           "cSharpName": "UpstairsThermostatRx"
@@ -10010,151 +10865,6 @@
           "id": "sensor.wifi_smart_co_alarm_carbon_monoxide",
           "friendlyName": "WIFI smart CO alarm Carbon monoxide",
           "cSharpName": "WifiSmartCoAlarmCarbonMonoxide"
-        },
-        {
-          "id": "sensor.withings_body_temperature_c_andy",
-          "friendlyName": "Andy Body temperature",
-          "cSharpName": "WithingsBodyTemperatureCAndy"
-        },
-        {
-          "id": "sensor.withings_body_temperature_c_claire",
-          "friendlyName": "Withings body_temperature_c Claire",
-          "cSharpName": "WithingsBodyTemperatureCClaire"
-        },
-        {
-          "id": "sensor.withings_bone_mass_kg_andy",
-          "friendlyName": "Andy Bone mass",
-          "cSharpName": "WithingsBoneMassKgAndy"
-        },
-        {
-          "id": "sensor.withings_bone_mass_kg_claire",
-          "friendlyName": "Withings bone_mass_kg Claire",
-          "cSharpName": "WithingsBoneMassKgClaire"
-        },
-        {
-          "id": "sensor.withings_diastolic_blood_pressure_mmhg_andy",
-          "friendlyName": "Andy Diastolic blood pressure",
-          "cSharpName": "WithingsDiastolicBloodPressureMmhgAndy"
-        },
-        {
-          "id": "sensor.withings_diastolic_blood_pressure_mmhg_claire",
-          "friendlyName": "Withings diastolic_blood_pressure_mmhg Claire",
-          "cSharpName": "WithingsDiastolicBloodPressureMmhgClaire"
-        },
-        {
-          "id": "sensor.withings_fat_free_mass_kg_andy",
-          "friendlyName": "Andy Fat free mass",
-          "cSharpName": "WithingsFatFreeMassKgAndy"
-        },
-        {
-          "id": "sensor.withings_fat_free_mass_kg_claire",
-          "friendlyName": "Withings fat_free_mass_kg Claire",
-          "cSharpName": "WithingsFatFreeMassKgClaire"
-        },
-        {
-          "id": "sensor.withings_fat_mass_kg_andy",
-          "friendlyName": "Andy Fat mass",
-          "cSharpName": "WithingsFatMassKgAndy"
-        },
-        {
-          "id": "sensor.withings_fat_mass_kg_claire",
-          "friendlyName": "Withings fat_mass_kg Claire",
-          "cSharpName": "WithingsFatMassKgClaire"
-        },
-        {
-          "id": "sensor.withings_fat_ratio_pct_andy",
-          "friendlyName": "Andy Fat ratio",
-          "cSharpName": "WithingsFatRatioPctAndy"
-        },
-        {
-          "id": "sensor.withings_fat_ratio_pct_claire",
-          "friendlyName": "Withings fat_ratio_pct Claire",
-          "cSharpName": "WithingsFatRatioPctClaire"
-        },
-        {
-          "id": "sensor.withings_heart_pulse_bpm_andy",
-          "friendlyName": "Andy Heart pulse",
-          "cSharpName": "WithingsHeartPulseBpmAndy"
-        },
-        {
-          "id": "sensor.withings_heart_pulse_bpm_claire",
-          "friendlyName": "Withings heart_pulse_bpm Claire",
-          "cSharpName": "WithingsHeartPulseBpmClaire"
-        },
-        {
-          "id": "sensor.withings_muscle_mass_kg_andy",
-          "friendlyName": "Andy Muscle mass",
-          "cSharpName": "WithingsMuscleMassKgAndy"
-        },
-        {
-          "id": "sensor.withings_muscle_mass_kg_claire",
-          "friendlyName": "Withings muscle_mass_kg Claire",
-          "cSharpName": "WithingsMuscleMassKgClaire"
-        },
-        {
-          "id": "sensor.withings_pulse_wave_velocity_andy",
-          "friendlyName": "Andy Pulse wave velocity",
-          "cSharpName": "WithingsPulseWaveVelocityAndy"
-        },
-        {
-          "id": "sensor.withings_pulse_wave_velocity_claire",
-          "friendlyName": "Withings pulse_wave_velocity Claire",
-          "cSharpName": "WithingsPulseWaveVelocityClaire"
-        },
-        {
-          "id": "sensor.withings_skin_temperature_c_andy",
-          "friendlyName": "Andy Skin temperature",
-          "cSharpName": "WithingsSkinTemperatureCAndy"
-        },
-        {
-          "id": "sensor.withings_skin_temperature_c_claire",
-          "friendlyName": "Withings skin_temperature_c Claire",
-          "cSharpName": "WithingsSkinTemperatureCClaire"
-        },
-        {
-          "id": "sensor.withings_sleep_wakeup_duration_seconds_claire",
-          "friendlyName": "Withings sleep_wakeup_duration_seconds Claire",
-          "cSharpName": "WithingsSleepWakeupDurationSecondsClaire"
-        },
-        {
-          "id": "sensor.withings_spo2_pct_andy",
-          "friendlyName": "Andy SpO2",
-          "cSharpName": "WithingsSpo2PctAndy"
-        },
-        {
-          "id": "sensor.withings_spo2_pct_claire",
-          "friendlyName": "Withings spo2_pct Claire",
-          "cSharpName": "WithingsSpo2PctClaire"
-        },
-        {
-          "id": "sensor.withings_systolic_blood_pressure_mmhg_andy",
-          "friendlyName": "Andy Systolic blood pressure",
-          "cSharpName": "WithingsSystolicBloodPressureMmhgAndy"
-        },
-        {
-          "id": "sensor.withings_systolic_blood_pressure_mmhg_claire",
-          "friendlyName": "Withings systolic_blood_pressure_mmhg Claire",
-          "cSharpName": "WithingsSystolicBloodPressureMmhgClaire"
-        },
-        {
-          "id": "sensor.withings_temperature_c_andy",
-          "friendlyName": "Andy Temperature",
-          "cSharpName": "WithingsTemperatureCAndy"
-        },
-        {
-          "id": "sensor.withings_temperature_c_claire",
-          "friendlyName": "Withings temperature_c Claire",
-          "cSharpName": "WithingsTemperatureCClaire"
-        },
-        {
-          "id": "sensor.withings_weight_kg_andy",
-          "friendlyName": "Andy Weight",
-          "cSharpName": "WithingsWeightKgAndy"
-        },
-        {
-          "id": "sensor.withings_weight_kg_claire",
-          "friendlyName": "Withings weight_kg Claire",
-          "cSharpName": "WithingsWeightKgClaire"
         },
         {
           "id": "sensor.wlan0_rx",
@@ -10238,12 +10948,12 @@
         },
         {
           "id": "sensor.yeelink_light_color1_miio313150241_rx",
-          "friendlyName": "RX",
+          "friendlyName": "yeelink-light-color1_miio313150241 RX",
           "cSharpName": "YeelinkLightColor1Miio313150241Rx"
         },
         {
           "id": "sensor.yeelink_light_color1_miio313150241_tx",
-          "friendlyName": "TX",
+          "friendlyName": "yeelink-light-color1_miio313150241 TX",
           "cSharpName": "YeelinkLightColor1Miio313150241Tx"
         }
       ],
@@ -11111,11 +11821,6 @@
           "cSharpName": "EspresenseSnugStatusLed"
         },
         {
-          "id": "switch.espresense_studio_active_scan",
-          "friendlyName": "studio-bluetooth-proxy Active Scan",
-          "cSharpName": "EspresenseStudioActiveScan"
-        },
-        {
           "id": "switch.espresense_studio_query",
           "friendlyName": "studio-bluetooth-proxy Query",
           "cSharpName": "EspresenseStudioQuery"
@@ -11247,7 +11952,7 @@
         },
         {
           "id": "switch.mark_schedule",
-          "friendlyName": "Mark Schedule",
+          "friendlyName": "Schedule",
           "cSharpName": "MarkSchedule"
         },
         {
@@ -11519,6 +12224,26 @@
           "id": "switch.sonoff_upstairs_2_studio_light",
           "friendlyName": "Sonoff Upstairs 2 Studio Light",
           "cSharpName": "SonoffUpstairs2StudioLight"
+        },
+        {
+          "id": "switch.studio_bluetooth_proxy_active_scan",
+          "friendlyName": "studio-bluetooth-proxy Active Scan",
+          "cSharpName": "StudioBluetoothProxyActiveScan"
+        },
+        {
+          "id": "switch.studio_bluetooth_proxy_arduino_ota",
+          "friendlyName": "studio-bluetooth-proxy Arduino OTA",
+          "cSharpName": "StudioBluetoothProxyArduinoOta"
+        },
+        {
+          "id": "switch.studio_bluetooth_proxy_auto_update",
+          "friendlyName": "studio-bluetooth-proxy Auto Update",
+          "cSharpName": "StudioBluetoothProxyAutoUpdate"
+        },
+        {
+          "id": "switch.studio_bluetooth_proxy_prerelease",
+          "friendlyName": "studio-bluetooth-proxy Prerelease",
+          "cSharpName": "StudioBluetoothProxyPrerelease"
         },
         {
           "id": "switch.sump_alarm_reset",
@@ -11798,6 +12523,11 @@
           "id": "update.netdaemon_v3_1_net_7_update",
           "friendlyName": "NetDaemon V3.1 (.NET 7) Update",
           "cSharpName": "NetdaemonV31Net7Update"
+        },
+        {
+          "id": "update.netdaemon_v4_alpha_net_8_update",
+          "friendlyName": "NetDaemon V4-alpha (.NET 8) Update",
+          "cSharpName": "NetdaemonV4AlphaNet8Update"
         },
         {
           "id": "update.nginx_proxy_manager_update",
@@ -12190,7 +12920,7 @@
       "entities": [
         {
           "id": "vacuum.mark",
-          "friendlyName": "Mark",
+          "friendlyName": null,
           "cSharpName": "Mark"
         }
       ],
@@ -12356,6 +13086,11 @@
           "jsonName": "friendly_name",
           "cSharpName": "FriendlyName",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "supported_features",
+          "cSharpName": "SupportedFeatures",
+          "clrType": "System.Double"
         }
       ]
     },
@@ -12403,6 +13138,135 @@
           "jsonName": "friendly_name",
           "cSharpName": "FriendlyName",
           "clrType": "System.String"
+        }
+      ]
+    },
+    {
+      "domain": "event",
+      "entities": [
+        {
+          "id": "event.octopus_energy_electricity_22j0181544_1610019557951_current_day_rates",
+          "friendlyName": "Electricity 22J0181544 1610019557951 Current Day Rates",
+          "cSharpName": "OctopusEnergyElectricity22j01815441610019557951CurrentDayRates"
+        },
+        {
+          "id": "event.octopus_energy_electricity_22j0181544_1610019557951_next_day_rates",
+          "friendlyName": "Electricity 22J0181544 1610019557951 Next Day Rates",
+          "cSharpName": "OctopusEnergyElectricity22j01815441610019557951NextDayRates"
+        },
+        {
+          "id": "event.octopus_energy_electricity_22j0181544_1610019557951_previous_consumption_override_rates",
+          "friendlyName": "Electricity 22J0181544 1610019557951 Previous Consumption Override Rates",
+          "cSharpName": "OctopusEnergyElectricity22j01815441610019557951PreviousConsumptionOverrideRates"
+        },
+        {
+          "id": "event.octopus_energy_electricity_22j0181544_1610019557951_previous_consumption_rates",
+          "friendlyName": "Electricity 22J0181544 1610019557951 Previous Consumption Rates",
+          "cSharpName": "OctopusEnergyElectricity22j01815441610019557951PreviousConsumptionRates"
+        },
+        {
+          "id": "event.octopus_energy_electricity_22j0181544_1610019557951_previous_day_rates",
+          "friendlyName": "Electricity 22J0181544 1610019557951 Previous Day Rates",
+          "cSharpName": "OctopusEnergyElectricity22j01815441610019557951PreviousDayRates"
+        },
+        {
+          "id": "event.octopus_energy_gas_e6e09476682323_1590806503_current_day_rates",
+          "friendlyName": "Gas E6E09476682323 1590806503 Current Day Rates",
+          "cSharpName": "OctopusEnergyGasE6e094766823231590806503CurrentDayRates"
+        },
+        {
+          "id": "event.octopus_energy_gas_e6e09476682323_1590806503_next_day_rates",
+          "friendlyName": "Gas E6E09476682323 1590806503 Next Day Rates",
+          "cSharpName": "OctopusEnergyGasE6e094766823231590806503NextDayRates"
+        },
+        {
+          "id": "event.octopus_energy_gas_e6e09476682323_1590806503_previous_consumption_override_rates",
+          "friendlyName": "Gas E6E09476682323 1590806503 Previous Consumption Override Rates",
+          "cSharpName": "OctopusEnergyGasE6e094766823231590806503PreviousConsumptionOverrideRates"
+        },
+        {
+          "id": "event.octopus_energy_gas_e6e09476682323_1590806503_previous_consumption_rates",
+          "friendlyName": "Gas E6E09476682323 1590806503 Previous Consumption Rates",
+          "cSharpName": "OctopusEnergyGasE6e094766823231590806503PreviousConsumptionRates"
+        },
+        {
+          "id": "event.octopus_energy_gas_e6e09476682323_1590806503_previous_day_rates",
+          "friendlyName": "Gas E6E09476682323 1590806503 Previous Day Rates",
+          "cSharpName": "OctopusEnergyGasE6e094766823231590806503PreviousDayRates"
+        }
+      ],
+      "attributes": [
+        {
+          "jsonName": "event_types",
+          "cSharpName": "EventTypes",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.String]"
+        },
+        {
+          "jsonName": "event_type",
+          "cSharpName": "EventType",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "rates",
+          "cSharpName": "Rates",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.Object]"
+        },
+        {
+          "jsonName": "mpan",
+          "cSharpName": "Mpan",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "serial_number",
+          "cSharpName": "SerialNumber",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "tariff_code",
+          "cSharpName": "TariffCode",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "friendly_name",
+          "cSharpName": "FriendlyName",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "mprn",
+          "cSharpName": "Mprn",
+          "clrType": "System.String"
+        }
+      ]
+    },
+    {
+      "domain": "todo",
+      "entities": [
+        {
+          "id": "todo.home_automation_tasks",
+          "friendlyName": "Home automation tasks",
+          "cSharpName": "HomeAutomationTasks"
+        },
+        {
+          "id": "todo.shopping_list",
+          "friendlyName": "Shopping List",
+          "cSharpName": "ShoppingList"
+        }
+      ],
+      "attributes": [
+        {
+          "jsonName": "icon",
+          "cSharpName": "Icon",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "friendly_name",
+          "cSharpName": "FriendlyName",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "supported_features",
+          "cSharpName": "SupportedFeatures",
+          "clrType": "System.Double"
         }
       ]
     }
