@@ -15,4 +15,4 @@ publish:
 gbp: generate build publish
 
 update:
-	dotnet tool update -g NetDaemon.HassModel.CodeGen --prerelease
+	dotnet tool update -g NetDaemon.HassModel.CodeGen

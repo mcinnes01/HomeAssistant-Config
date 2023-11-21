@@ -25,130 +25,130 @@ public class BackDoorLightControl
     private void ShedCameraPersonDetected()
     {
         _entities.BinarySensor.ShedCameraPersonDetected
-            .StateChanges()
-            .Where(e =>
-            {
-                _logger.LogTrace(@$"Brightness: {_entities.InputSelect.Brightness.State},
-                    Person Detection: Old: {e.Old?.State} - New: {e.New?.State},
-                    Shed Light: {_entities.Light.Shed.State}");
-                return _entities.InputSelect.Brightness.IsOption(BrightnessOptions.Dark)
-                && e.New.IsDetected()
-                && _entities.Light.Shed.IsOff() && _entities.Light.FenceLights.IsOff();
-            })
-            .Subscribe(_ =>
-            {
-                _logger.LogDebug("Person detected in the garden");
-                _entities.Light.Shed.TurnOn();
+        .StateChanges()
+        .Where(e =>
+        {
+            _logger.LogTrace(@$"Brightness: {_entities.InputSelect.Brightness.State},
+                Person Detection: Old: {e.Old?.State} - New: {e.New?.State},
+                Shed Light: {_entities.Light.Shed.State}");
+            return _entities.InputSelect.Brightness.IsOption(BrightnessOptions.Dark)
+            && e.New.IsDetected()
+            && _entities.Light.Shed.IsOff() && _entities.Light.FenceLights.IsOff();
+        })
+        .Subscribe(_ =>
+        {
+            _logger.LogDebug("Person detected in the garden");
+            _entities.Light.Shed.TurnOn();
 
-                if (_entities.InputSelect.LightControlMode.IsOption(LightControlModeOptions.Sleeping))
-                {
-                    _logger.LogDebug("Intruder detected in the garden whilst you are sleeping");
-                    //_tts.Speak("media_player.all_speakers", "Alert! There is an intruder in the back garden.", "alexa");
-                }
-            });
+            if (_entities.InputSelect.LightControlMode.IsOption(LightControlModeOptions.Sleeping))
+            {
+                _logger.LogDebug("Intruder detected in the garden whilst you are sleeping");
+                //_tts.Speak("media_player.all_speakers", "Alert! There is an intruder in the back garden.", "alexa");
+            }
+        });
     }
 
     private void ShedCameraCarDetected()
     {
         _entities.BinarySensor.ShedCameraVehicleDetected
-            .StateChanges()
-            .Where(e =>
-            {
-                _logger.LogTrace(@$"Brightness: {_entities.InputSelect.Brightness.State},
-                    Vehicle Detection: Old: {e.Old?.State} - New: {e.New?.State},
-                    Shed Light: {_entities.Light.Shed.State},
-                    Fence Lights: {_entities.Light.FenceLights.State}");
-                return _entities.InputSelect.Brightness.IsOption(BrightnessOptions.Dark)
-                && e.New.IsDetected()
-                && _entities.Light.Shed.IsOff() && _entities.Light.FenceLights.IsOff();
-            })
-            .Subscribe(_ =>
-            {
-                _logger.LogDebug("Car detected in the garden");
-                _entities.Light.Shed.TurnOn();
-                _entities.Light.FenceLights.TurnOn();
-            });
+        .StateChanges()
+        .Where(e =>
+        {
+            _logger.LogTrace(@$"Brightness: {_entities.InputSelect.Brightness.State},
+                Vehicle Detection: Old: {e.Old?.State} - New: {e.New?.State},
+                Shed Light: {_entities.Light.Shed.State},
+                Fence Lights: {_entities.Light.FenceLights.State}");
+            return _entities.InputSelect.Brightness.IsOption(BrightnessOptions.Dark)
+            && e.New.IsDetected()
+            && _entities.Light.Shed.IsOff() && _entities.Light.FenceLights.IsOff();
+        })
+        .Subscribe(_ =>
+        {
+            _logger.LogDebug("Car detected in the garden");
+            _entities.Light.Shed.TurnOn();
+            _entities.Light.FenceLights.TurnOn();
+        });
     }
 
     private void PatioCameraPersonDetected()
     {
         _entities.BinarySensor.PatioCameraPersonDetected
-            .StateChanges()
-            .Where(e =>
-            {
-                _logger.LogTrace(@$"Brightness: {_entities.InputSelect.Brightness.State},
-                    Person Detection: Old: {e.Old?.State} - New: {e.New?.State},
-                    Back Door Light: {_entities.Light.BackDoor.State},
-                    Decking Wall Light: {_entities.Light.DeckingWall.State}");
-                return _entities.InputSelect.Brightness.IsOption(BrightnessOptions.Dark)
-                && e.New.IsDetected()
-                && _entities.Light.Patio.IsOff()
-                && _entities.Light.BackDoor.IsOff()
-                && _entities.Light.DeckingWall.IsOff();
-            })
-            .Subscribe(_ =>
-            {
-                _logger.LogDebug("Person detected in the garden");
-                _entities.Light.BackDoor.TurnOn();
-                _entities.Light.DeckingWall.TurnOn();
+        .StateChanges()
+        .Where(e =>
+        {
+            _logger.LogTrace(@$"Brightness: {_entities.InputSelect.Brightness.State},
+                Person Detection: Old: {e.Old?.State} - New: {e.New?.State},
+                Back Door Light: {_entities.Light.BackDoor.State},
+                Decking Wall Light: {_entities.Light.DeckingWall.State}");
+            return _entities.InputSelect.Brightness.IsOption(BrightnessOptions.Dark)
+            && e.New.IsDetected()
+            && _entities.Light.Patio.IsOff()
+            && _entities.Light.BackDoor.IsOff()
+            && _entities.Light.DeckingWall.IsOff();
+        })
+        .Subscribe(_ =>
+        {
+            _logger.LogDebug("Person detected in the garden");
+            _entities.Light.BackDoor.TurnOn();
+            _entities.Light.DeckingWall.TurnOn();
 
-                if (_entities.InputSelect.LightControlMode.IsOption(LightControlModeOptions.Sleeping))
-                {
-                    _logger.LogDebug("Intruder detected in the garden whilst you are sleeping");
-                    //_tts.Speak("media_player.all_speakers", "Alert! There is an intruder in the back garden.", "alexa");
-                }
-            });
+            if (_entities.InputSelect.LightControlMode.IsOption(LightControlModeOptions.Sleeping))
+            {
+                _logger.LogDebug("Intruder detected in the garden whilst you are sleeping");
+                //_tts.Speak("media_player.all_speakers", "Alert! There is an intruder in the back garden.", "alexa");
+            }
+        });
     }
 
     private void PatioCameraCarDetected()
     {
         _entities.BinarySensor.PatioCameraVehicleDetected
-            .StateChanges()
-            .Where(e =>
-            {
-                _logger.LogTrace(@$"Brightness: {_entities.InputSelect.Brightness.State},
-                    Vehicle Detection: Old: {e.Old?.State} - New: {e.New?.State},
-                    Patio Light: {_entities.Light.Patio.State},
-                    Back Door Light: {_entities.Light.BackDoor.State},
-                    Decking Wall Light: {_entities.Light.DeckingWall.State}");
-                return _entities.InputSelect.Brightness.IsOption(BrightnessOptions.Dark)
-                && e.New.IsDetected()
-                && _entities.Light.Patio.IsOff()
-                && _entities.Light.BackDoor.IsOff()
-                && _entities.Light.DeckingWall.IsOff();
-            })
-            .Subscribe(_ =>
-            {
-                _logger.LogDebug("Car detected in the garden");
-                _entities.Light.BackDoor.TurnOn();
-                _entities.Light.DeckingWall.TurnOn();
-                _entities.Light.Patio.TurnOn();
-            });
+        .StateChanges()
+        .Where(e =>
+        {
+            _logger.LogTrace(@$"Brightness: {_entities.InputSelect.Brightness.State},
+                Vehicle Detection: Old: {e.Old?.State} - New: {e.New?.State},
+                Patio Light: {_entities.Light.Patio.State},
+                Back Door Light: {_entities.Light.BackDoor.State},
+                Decking Wall Light: {_entities.Light.DeckingWall.State}");
+            return _entities.InputSelect.Brightness.IsOption(BrightnessOptions.Dark)
+            && e.New.IsDetected()
+            && _entities.Light.Patio.IsOff()
+            && _entities.Light.BackDoor.IsOff()
+            && _entities.Light.DeckingWall.IsOff();
+        })
+        .Subscribe(_ =>
+        {
+            _logger.LogDebug("Car detected in the garden");
+            _entities.Light.BackDoor.TurnOn();
+            _entities.Light.DeckingWall.TurnOn();
+            _entities.Light.Patio.TurnOn();
+        });
     }
 
     private void PatioDoorIsOpened()
     {
         _entities.BinarySensor.PatioDoor
-            .StateChanges()
-            .Where(e =>
-            {
-                _logger.LogTrace(@$"Brightness: {_entities.InputSelect.Brightness.State},
-                    Patio Door: Old: {e.Old?.State} - New: {e.New?.State},
-                    Patio Light: {_entities.Light.Patio.State},
-                    Back Door Light: {_entities.Light.BackDoor.State},
-                    Decking Wall Light: {_entities.Light.DeckingWall.State}");
-                return _entities.InputSelect.Brightness.IsOption(BrightnessOptions.Dark)
-                && e.New.IsOpen()
-                && _entities.Light.Patio.IsOff()
-                && _entities.Light.BackDoor.IsOff()
-                && _entities.Light.DeckingWall.IsOff();
-            })
-            .Subscribe(_ =>
-            {
-                _logger.LogDebug("Patio door is open");
-                _entities.Light.BackDoor.TurnOn();
-                _entities.Light.DeckingWall.TurnOn();
-            });
+        .StateChanges()
+        .Where(e =>
+        {
+            _logger.LogTrace(@$"Brightness: {_entities.InputSelect.Brightness.State},
+                Patio Door: Old: {e.Old?.State} - New: {e.New?.State},
+                Patio Light: {_entities.Light.Patio.State},
+                Back Door Light: {_entities.Light.BackDoor.State},
+                Decking Wall Light: {_entities.Light.DeckingWall.State}");
+            return _entities.InputSelect.Brightness.IsOption(BrightnessOptions.Dark)
+            && e.New.IsOpen()
+            && _entities.Light.Patio.IsOff()
+            && _entities.Light.BackDoor.IsOff()
+            && _entities.Light.DeckingWall.IsOff();
+        })
+        .Subscribe(_ =>
+        {
+            _logger.LogDebug("Patio door is open");
+            _entities.Light.BackDoor.TurnOn();
+            _entities.Light.DeckingWall.TurnOn();
+        });
     }
 
     private void PatioNoMotionAndDoorClosed()

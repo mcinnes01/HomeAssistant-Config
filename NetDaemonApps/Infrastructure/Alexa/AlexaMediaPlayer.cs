@@ -40,22 +40,22 @@ public class AlexaMediaPlayer : IAlexa
     private string RandomVoice => _voices[Random.Shared.Next(0, _voices.Count - 1)];
 
     public void Announce(Config config) =>
-        QueueNotification(config, "announce");
+        QueueNotification(config, NotificationType.Announce);
 
     public void Announce(string mediaPlayer, string message) =>
-        QueueNotification(new Config { Entity = mediaPlayer, Message = message }, "announce");
+        QueueNotification(new Config { Entity = mediaPlayer, Message = message }, NotificationType.Announce);
 
     public void TextToSpeech(Config config) =>
-        QueueNotification(config, "tts");
+        QueueNotification(config, NotificationType.Tts);
 
     public void TextToSpeech(string mediaPlayer, string message) =>
-        QueueNotification(new Config { Entity = mediaPlayer, Message = message }, "tts");
+        QueueNotification(new Config { Entity = mediaPlayer, Message = message }, NotificationType.Tts);
 
     public void TurnScreenOn(string entityId) =>
-        SetScreen(entityId, "on");
+        SetScreen(entityId, ScreenState.On);
 
     public void TurnScreenOff(string entityId) =>
-        SetScreen(entityId, "off");
+        SetScreen(entityId, ScreenState.Off);
 
     private string FormatMessage(string message, string voice, bool whisper)
     {
@@ -124,7 +124,7 @@ public class AlexaMediaPlayer : IAlexa
 
     private void QueueNotification(Config cfg, string type)
     {
-        cfg.NotifyType = type;
+        cfg.NotifyType = type.ToString();
         _messages.OnNext(cfg);
     }
 
@@ -175,6 +175,6 @@ public class AlexaMediaPlayer : IAlexa
 
         public string Entity { get; set; } = "";
         public string Message { get; set; } = "";
-        public string NotifyType { get; set; } = "tts";
+        public string NotifyType { get; set; } = NotificationType.Tts;
     }
 }

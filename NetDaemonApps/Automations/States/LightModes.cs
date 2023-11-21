@@ -18,8 +18,8 @@ public class LightModes
         _logger = logger;
         _entities = new Entities(ha);
 
-        _insideNoRoomControlNotBasement = new LightEntity[]
-        {
+        _insideNoRoomControlNotBasement =
+        [
             _entities.Light.Bathroom,
             _entities.Light.Mirror,
             _entities.Light.DrawingRoom,
@@ -32,27 +32,27 @@ public class LightModes
             _entities.Light.BreakfastBarLamp,
             _entities.Light.Landing,
             _entities.Light.Studio
-        };
+        ];
 
-        _bedroomLights = new LightEntity[]
-        {
+        _bedroomLights =
+        [
             _entities.Light.Bedroom,
             _entities.Light.BedsideLamp
-        };
+        ];
 
-        _brightLightsNoRoomControl = new LightEntity[]
-        {
+        _brightLightsNoRoomControl =
+        [
             _entities.Light.Bathroom,
             _entities.Light.Hallway,
             _entities.Light.DrawingRoom,
             _entities.Light.Kitchen
-        };
+        ];
 
-        _loungeLights = new LightEntity[]
-        {
+        _loungeLights =
+        [
             _entities.Light.Lounge,
             _entities.Light.LoungeCornerLamp
-        };
+        ];
 
         BrightnessChanged();
         LightControlModeChanged();

@@ -42,7 +42,7 @@
   {
     "name": "Welcome home when door opens",
     "id": "aa2e4e2829904151b15e25209ab2b738",
-    "complete": false
+    "complete": true
   },
   {
     "name": "Loft light automation",

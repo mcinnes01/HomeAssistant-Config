@@ -20,61 +20,61 @@ public static class Constants
     public static TimeOnly CLEANING_STARTTIME = new TimeOnly(9, 30);
     public static TimeOnly CLEANING_ENDTIME = new TimeOnly(11, 30);
     public const DayOfWeek CLEANING_DAY = DayOfWeek.Friday;
-    public static DayOfWeek[] WeekdayNightDays = new DayOfWeek[]
-    {
+    public static DayOfWeek[] WeekdayNightDays =
+    [
         DayOfWeek.Sunday,
         DayOfWeek.Monday,
         DayOfWeek.Tuesday,
         DayOfWeek.Wednesday,
         DayOfWeek.Thursday,
-    };
-    public static DayOfWeek[] WeekendNightDays = new DayOfWeek[]
-    {
+    ];
+    public static DayOfWeek[] WeekendNightDays =
+    [
         DayOfWeek.Friday,
         DayOfWeek.Saturday,
-    };
+    ];
 
-    public static LoungeModeOptions[] LoungeLightModes = new[]
-    {
+    public static LoungeModeOptions[] LoungeLightModes =
+    [
         LoungeModeOptions.Normal,
         LoungeModeOptions.Reading
-    };
+    ];
 
-    public static LoungeModeOptions[] LoungeLampModes = new[]
-    {
+    public static LoungeModeOptions[] LoungeLampModes =
+    [
         LoungeModeOptions.Television
-    };
+    ];
 
-    public static LightControlModeOptions[] MotionModes = new[]
-    {
+    public static LightControlModeOptions[] MotionModes =
+    [
         LightControlModeOptions.Cleaning,
         LightControlModeOptions.Motion,
         LightControlModeOptions.Relaxing
-    };
+    ];
 
-    public static LightControlModeOptions[] NormalMotionModes = new[]
-    {
+    public static LightControlModeOptions[] NormalMotionModes =
+    [
         LightControlModeOptions.Cleaning,
         LightControlModeOptions.Motion
-    };
+    ];
 
-    public static LightControlModeOptions[] LampMotionModes = new[]
-    {
+    public static LightControlModeOptions[] LampMotionModes =
+    [
         LightControlModeOptions.Motion,
         LightControlModeOptions.Relaxing
-    };
+    ];
 
-    public static BedroomModeOptions[] BedroomMotionModes = new[]
-    {
+    public static BedroomModeOptions[] BedroomMotionModes =
+    [
         BedroomModeOptions.Normal,
         BedroomModeOptions.Relaxing
-    };
+    ];
 
-    public static LocationModeOptions[] HouseOccupied = new[]
-    {
+    public static LocationModeOptions[] HouseOccupied =
+    [
         LocationModeOptions.Home,
         LocationModeOptions.OneAway,
         LocationModeOptions.HouseSitter,
         LocationModeOptions.Guest
-    };
+    ];
 }
