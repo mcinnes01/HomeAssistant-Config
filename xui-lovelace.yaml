@@ -89,8 +89,8 @@ views:
         title: Hall
         show_header_toggle: true
         entities:
-          - light.porch
-          - light.hallway
+          - light.porch_light
+          - light.hallway_light
           - light.hallway_lamp
       - id: 5da46ea1e2f0490b96ed5fb1081c4201  # Automatically created id
         type: entities
@@ -108,7 +108,7 @@ views:
             name: Feed cats
             icon: mdi:cat
           - entity: light.breakfast_bar_lamp
-          - entity: light.back_door
+          - entity: light.back_door_light
       - id: 9dcab691b15247e9b9c53e4acb140eda  # Automatically created id
         type: history-graph
         title: downstairs temperature
@@ -132,14 +132,14 @@ views:
         show_header_toggle: true
         entities:
           - climate.basement
-          - light.basement_hall
-          - light.basement_stairs
-          - light.snug
-          - light.snug_floor_lamp
-          - light.dining_room
-          - light.toilet
-          - light.utility_room
-          - light.brewery
+          - light.basement_hall_light
+          - light.basement_stairs_light
+          - light.snug_light
+          - light.snug_lamp
+          - light.dining_room_light
+          - light.toilet_light
+          - light.utility_room_light
+          - light.store_light
           - binary_sensor.basement_hall_motion
           - binary_sensor.basement_stairs_motion
           - binary_sensor.snug_motion
@@ -197,13 +197,13 @@ views:
         title: Hall
         show_header_toggle: true
         entities:
-          - light.porch
+          - light.porch_light
       - id: b05fdfd97e5d4a71a54c3f3d1519ce7b  # Automatically created id
         type: entities
         title: Lounge
         show_header_toggle: true
         entities:
-          - light.lounge
+          - light.lounge_light
           - light.lounge_lamps
           - binary_sensor.lounge_motion
       - id: 01c76cb51b914a5c8e4cf48197f2a38f  # Automatically created id
@@ -211,8 +211,8 @@ views:
         title: Drawing Room
         show_header_toggle: true
         entities:
-          - light.drawing_room
-          - light.bookshelf
+          - light.drawing_room_light
+          - light.bookshelf_light
       - id: 363c10a8f2ab44f98f162f19a20cad13  # Automatically created id
         type: entities
         title: Kitchen
@@ -222,7 +222,7 @@ views:
             name: Feed cats
             icon: mdi:cat
           - entity: light.breakfast_bar_lamp
-          - entity: light.back_door
+          - entity: light.back_door_light
       - id: 2be1c13cdc344eb19a3e58c0846b783d  # Automatically created id
         type: history-graph
         title: downstairs temperature
@@ -253,29 +253,30 @@ views:
         title: Utility room
         show_header_toggle: true
         entities:
-          - light.utility_room
+          - light.utility_room_light
           - motion.utility_room_motion
       - id: 8d28993b809147b292564c803ac12f87  # Automatically created id
         type: entities
         title: Dining room
         show_header_toggle: true
         entities:
-          - light.dining_room
+          - light.dining_room_light
           - binary_sensor.dining_room_motion
       - id: 875634ee6e82496d95af09e29c2613ce  # Automatically created id
         type: entities
         title: Snug
         show_header_toggle: true
         entities:
-          - light.snug_floor_lamp
-          - light.snug
+          - light.snug_lamp
+          - light.snug_light
+          - light.snug_led_strip
       - id: 66b7e8b57f7146ab997a61f94414027f  # Automatically created id
         type: entities
         title: Basement Hall
         show_header_toggle: true
         entities:
-          - light.basement_hall
-          - light.basement_stairs
+          - light.basement_hall_light
+          - light.basement_stairs_light
           - motion.basement_hall_motion
           - motion.basement_stairs_motion
       - id: a57567239173469c93560fc0e0cb13e6  # Automatically created id

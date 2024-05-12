@@ -13,6 +13,8 @@
       friendly_name: Lounge Mode
       state: Television
     light.lounge_floor_lamp:
+      min_color_temp_kelvin: 1700
+      max_color_temp_kelvin: 6535
       min_mireds: 153
       max_mireds: 588
       effect_list:
@@ -40,31 +42,47 @@
       - Twitter
       - Home
       - Candle Flicker
+      - Tea Time
       - Slow Temp
       - Stop
+      - Lightning
+      - Flicker
+      - Flicker2
+      - FlickerScare
+      - FlickerWarm
+      - FlickerWarmScare
+      - Self_Alarm
+      - Fire Flicker
+      - CreepyHorrorExtended
+      - CreepyHorrorWhite
       supported_color_modes:
       - color_temp
       - hs
       - rgb
       color_mode: color_temp
-      brightness: 255
-      color_temp: 250
+      brightness: 204
+      color_temp_kelvin: 3703
+      color_temp: 270
       hs_color:
-      - 26.812
-      - 34.87
+      - 26.994
+      - 40.533
       rgb_color:
       - 255
-      - 205
-      - 166
+      - 198
+      - 151
       xy_color:
-      - 0.421
-      - 0.364
+      - 0.44
+      - 0.371
+      effect:
       flowing: false
       music_mode: false
+      icon: mdi:floor-lamp-outline
       friendly_name: Lounge Floor Lamp
       supported_features: 44
       state: 'on'
-    light.lounge_corner_lamp:
+    light.lounge_lamp:
+      min_color_temp_kelvin: 1700
+      max_color_temp_kelvin: 6535
       min_mireds: 153
       max_mireds: 588
       effect_list:
@@ -92,48 +110,49 @@
       - Twitter
       - Home
       - Candle Flicker
+      - Tea Time
       - Slow Temp
       - Stop
+      - Lightning
+      - Flicker
+      - Flicker2
+      - FlickerScare
+      - FlickerWarm
+      - FlickerWarmScare
+      - Self_Alarm
+      - Fire Flicker
+      - CreepyHorrorExtended
+      - CreepyHorrorWhite
       supported_color_modes:
       - color_temp
       - hs
       - rgb
       color_mode: color_temp
-      brightness: 255
-      color_temp: 294
+      brightness: 204
+      color_temp_kelvin: 3703
+      color_temp: 270
       hs_color:
-      - 27.277
-      - 46.969
+      - 26.994
+      - 40.533
       rgb_color:
       - 255
-      - 189
-      - 135
+      - 198
+      - 151
       xy_color:
-      - 0.462
-      - 0.375
+      - 0.44
+      - 0.371
+      effect:
       flowing: false
       music_mode: false
-      friendly_name: Lounge Corner Lamp
+      icon: mdi:lamp
+      friendly_name: Lounge Lamp
       supported_features: 44
       state: 'on'
     switch.lounge_tv:
       friendly_name: Lounge TV
       state: 'on'
-    light.lounge:
-      supported_color_modes:
-      - onoff
-      friendly_name: Lounge Light
-      supported_features: 0
-      icon: mdi:ceiling-light
-      state: 'off'
-    automation.lounge_light_constrained:
-      last_triggered: '2022-01-08T15:41:53.926336+00:00'
-      mode: single
-      current: 0
-      id: 7370bd68e87044beacd6a72f5028ad5a
-      friendly_name: Lounge Light Constrained
-      state: 'on'
   icon: hass:television-classic
+  metadata: {}
 - id: '1593602714878'
   name: Watch Movie
   entities:
@@ -146,7 +165,7 @@
       icon: mdi:projector
       friendly_name: Snug Mode
       state: Normal
-    light.snug_floor_lamp:
+    light.snug_lamp:
       min_mireds: 153
       max_mireds: 588
       effect_list:
@@ -198,7 +217,7 @@
       - 0.136
       - 0.04
       state: 'on'
-    light.snug:
+    light.snug_light:
       supported_color_modes:
       - onoff
       icon: mdi:light-recessed
@@ -260,11 +279,11 @@
       entity_id:
       - light.breakfast_bar_lamp
       - light.lounge_floor_lamp
-      - light.lounge_corner_lamp
-      - light.hall_lamp
-      - light.bedside_lamp
-      - light.basement_stairs
-      - light.snug_floor_lamp
+      - light.lounge_lamp
+      - light.hallway_lamp
+      - light.bedroom_lamp
+      - light.basement_stairs_light
+      - light.snug_lamp
       friendly_name: Yeelights
       icon: mdi:lightbulb-group
       supported_features: 63
@@ -324,11 +343,11 @@
       entity_id:
       - light.breakfast_bar_lamp
       - light.lounge_floor_lamp
-      - light.lounge_corner_lamp
-      - light.hall_lamp
-      - light.bedside_lamp
-      - light.basement_stairs
-      - light.snug_floor_lamp
+      - light.lounge_lamp
+      - light.hallway_lamp
+      - light.bedroom_lamp
+      - light.basement_stairs_light
+      - light.snug_lamp
       friendly_name: Yeelights
       icon: mdi:lightbulb-group
       supported_features: 63
@@ -410,14 +429,14 @@
 - id: '1604358522437'
   name: Get Ready For Bed
   entities:
-    light.bedroom:
+    light.bedroom_light:
       supported_color_modes:
       - onoff
       icon: mdi:globe-light
       friendly_name: Bedroom Light
       supported_features: 0
       state: 'off'
-    light.bedside_lamp:
+    light.bedroom_lamp:
       min_mireds: 153
       max_mireds: 588
       effect_list:
@@ -483,9 +502,9 @@
   metadata:
     input_select.bedroom_mode:
       entity_only: true
-    light.bedside_lamp:
+    light.bedroom_lamp:
       entity_only: false
-    light.bedroom:
+    light.bedroom_light:
       entity_only: true
 - id: '1604359643659'
   name: Get Up
@@ -495,7 +514,7 @@
       icon: mdi:bed
       friendly_name: In Bed
       state: 'off'
-    light.bedside_lamp:
+    light.bedroom_lamp:
       min_color_temp_kelvin: 1700
       max_color_temp_kelvin: 6535
       min_mireds: 153
@@ -560,14 +579,16 @@
   metadata:
     input_boolean.in_bed:
       entity_only: true
-    light.bedroom:
+    light.bedroom_light:
       entity_only: true
     input_select.bedroom_mode:
       entity_only: true
 - id: '1605288983801'
   name: Lounge Normal
   entities:
-    light.lounge_corner_lamp:
+    light.lounge_lamp:
+      min_color_temp_kelvin: 1700
+      max_color_temp_kelvin: 6535
       min_mireds: 153
       max_mireds: 588
       effect_list:
@@ -595,23 +616,36 @@
       - Twitter
       - Home
       - Candle Flicker
+      - Tea Time
       - Slow Temp
       - Stop
+      - Lightning
+      - Flicker
+      - Flicker2
+      - FlickerScare
+      - FlickerWarm
+      - FlickerWarmScare
+      - Self_Alarm
+      - Fire Flicker
+      - CreepyHorrorExtended
+      - CreepyHorrorWhite
       supported_color_modes:
       - color_temp
       - hs
       - rgb
+      color_mode:
+      brightness:
+      color_temp_kelvin:
+      color_temp:
+      hs_color:
+      rgb_color:
+      xy_color:
+      effect:
       flowing: false
       music_mode: false
-      friendly_name: Lounge Corner Lamp
+      icon: mdi:lamp
+      friendly_name: Lounge Lamp
       supported_features: 44
-      state: 'off'
-    light.lounge:
-      supported_color_modes:
-      - onoff
-      friendly_name: Lounge Light
-      supported_features: 0
-      icon: mdi:ceiling-light
       state: 'off'
     input_select.lounge_mode:
       options:
@@ -628,6 +662,8 @@
       friendly_name: Lounge TV
       state: 'off'
     light.lounge_floor_lamp:
+      min_color_temp_kelvin: 1700
+      max_color_temp_kelvin: 6535
       min_mireds: 153
       max_mireds: 588
       effect_list:
@@ -655,29 +691,43 @@
       - Twitter
       - Home
       - Candle Flicker
+      - Tea Time
       - Slow Temp
       - Stop
+      - Lightning
+      - Flicker
+      - Flicker2
+      - FlickerScare
+      - FlickerWarm
+      - FlickerWarmScare
+      - Self_Alarm
+      - Fire Flicker
+      - CreepyHorrorExtended
+      - CreepyHorrorWhite
       supported_color_modes:
       - color_temp
       - hs
       - rgb
+      color_mode:
+      brightness:
+      color_temp_kelvin:
+      color_temp:
+      hs_color:
+      rgb_color:
+      xy_color:
+      effect:
       flowing: false
       music_mode: false
+      icon: mdi:floor-lamp-outline
       friendly_name: Lounge Floor Lamp
       supported_features: 44
       state: 'off'
-    automation.lounge_light_constrained:
-      last_triggered: '2022-01-08T16:03:37.371471+00:00'
-      mode: single
-      current: 0
-      id: 7370bd68e87044beacd6a72f5028ad5a
-      friendly_name: Lounge Light Constrained
-      state: 'off'
   icon: mdi:sofa
+  metadata: {}
 - id: '1605351014819'
   name: Lights Up
   entities:
-    light.snug_floor_lamp:
+    light.snug_lamp:
       min_mireds: 153
       max_mireds: 588
       effect_list:
@@ -717,7 +767,7 @@
       friendly_name: Snug Floor Lamp
       supported_features: 44
       state: 'off'
-    light.snug:
+    light.snug_light:
       supported_color_modes:
       - onoff
       icon: mdi:light-recessed
@@ -744,23 +794,33 @@
       icon: hass:shower-head
       friendly_name: in_shower
       state: 'on'
-    light.bathroom:
+    light.bathroom_light:
       supported_color_modes:
       - onoff
+      color_mode: onoff
       icon: mdi:light-recessed
       friendly_name: Bathroom Light
       supported_features: 0
-      color_mode: onoff
       state: 'on'
-    fan.bathroom:
+    input_select.bathroom_mode:
+      options:
+      - Bright
+      - Normal
+      - Relaxing
+      - Showering
+      editable: true
+      icon: mdi:shower
+      friendly_name: Bathroom Mode
+      state: Showering
+    fan.bathroom_fan:
       friendly_name: Bathroom Fan
       supported_features: 0
       state: 'on'
   icon: hass:shower-head
   metadata:
-    light.bathroom:
+    light.bathroom_light:
       entity_only: true
-    fan.bathroom:
+    input_select.bathroom_mode:
       entity_only: true
 - id: '1605716301658'
   name: Bathroom Normal
@@ -773,22 +833,35 @@
     light.bathroom_lights:
       supported_color_modes:
       - onoff
+      color_mode:
       entity_id:
-      - light.bathroom
-      - light.mirror
+      - light.bathroom_light
+      - light.mirror_light
       icon: mdi:lightbulb-group
       friendly_name: Bathroom Lights
       supported_features: 0
       state: 'off'
-    fan.bathroom:
+    fan.bathroom_fan:
       friendly_name: Bathroom Fan
       supported_features: 0
       state: 'off'
+    input_select.bathroom_mode:
+      options:
+      - Bright
+      - Normal
+      - Relaxing
+      - Showering
+      editable: true
+      icon: mdi:shower
+      friendly_name: Bathroom Mode
+      state: Normal
   icon: hass:shower
   metadata:
     light.bathroom_lights:
       entity_only: true
-    fan.bathroom:
+    fan.bathroom_fan:
+      entity_only: true
+    input_select.bathroom_mode:
       entity_only: true
 - id: '1645051325679'
   name: Cleaning
@@ -797,14 +870,14 @@
 - id: '1664644106310'
   name: Pre Movie
   entities:
-    light.snug:
+    light.snug_light:
       supported_color_modes:
       - onoff
       icon: mdi:light-recessed
       friendly_name: Snug Light
       supported_features: 0
       state: 'off'
-    light.snug_floor_lamp:
+    light.snug_lamp:
       min_mireds: 153
       max_mireds: 588
       effect_list:
@@ -864,9 +937,9 @@
       state: 'on'
   icon: mdi:video-vintage
   metadata:
-    light.snug:
+    light.snug_light:
       entity_only: true
-    light.snug_floor_lamp:
+    light.snug_lamp:
       entity_only: true
     input_boolean.snug_light_constrained:
       entity_only: true
@@ -922,16 +995,52 @@
       entity_only: true
 - id: '1687294177262'
   name: Sleeping
-  entities: {}
+  entities:
+    input_select.bedroom_mode:
+      options:
+      - Normal
+      - Relaxing
+      - Sleeping
+      - Bright
+      editable: true
+      icon: hass:bed
+      friendly_name: Bedroom Mode
+      state: Sleeping
   icon: mdi:weather-night
-  metadata: {}
+  metadata:
+    input_select.bedroom_mode:
+      entity_only: true
 - id: '1687294268704'
   name: Waking
-  entities: {}
+  entities:
+    input_select.bedroom_mode:
+      options:
+      - Normal
+      - Relaxing
+      - Sleeping
+      - Bright
+      editable: true
+      icon: hass:bed
+      friendly_name: Bedroom Mode
+      state: Relaxing
   icon: mdi:weather-sunset-up
-  metadata: {}
+  metadata:
+    input_select.bedroom_mode:
+      entity_only: true
 - id: '1687294354909'
   name: Awake
-  entities: {}
+  entities:
+    input_select.bedroom_mode:
+      options:
+      - Normal
+      - Relaxing
+      - Sleeping
+      - Bright
+      editable: true
+      icon: hass:bed
+      friendly_name: Bedroom Mode
+      state: Normal
   icon: mdi:sun-clock-outline
-  metadata: {}
+  metadata:
+    input_select.bedroom_mode:
+      entity_only: true

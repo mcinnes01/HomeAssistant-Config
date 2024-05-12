@@ -20,45 +20,46 @@ public class LightModes
 
         _insideNoRoomControlNotBasement =
         [
-            _entities.Light.Bathroom,
-            _entities.Light.Mirror,
-            _entities.Light.DrawingRoom,
-            _entities.Light.Bookshelf,
-            _entities.Light.DressingRoom,
-            _entities.Light.GuestRoom,
-            _entities.Light.Hallway,
+            _entities.Light.BathroomLight,
+            _entities.Light.MirrorLight,
+            _entities.Light.DrawingRoomLight,
+            _entities.Light.BookshelfLight,
+            _entities.Light.DressingRoomLight,
+            _entities.Light.GuestRoomLight,
+            _entities.Light.HallwayLight,
             _entities.Light.HallwayLamp,
-            _entities.Light.Kitchen,
+            _entities.Light.KitchenLight,
             _entities.Light.BreakfastBarLamp,
-            _entities.Light.Landing,
-            _entities.Light.Studio
+            _entities.Light.LandingLight,
+            _entities.Light.StudioLight
         ];
 
         _bedroomLights =
         [
-            _entities.Light.Bedroom,
-            _entities.Light.BedsideLamp
+            _entities.Light.BedroomLight,
+            _entities.Light.BedroomLamp
         ];
 
         _brightLightsNoRoomControl =
         [
-            _entities.Light.Bathroom,
-            _entities.Light.Hallway,
-            _entities.Light.DrawingRoom,
-            _entities.Light.Kitchen
+            _entities.Light.BathroomLight,
+            _entities.Light.HallwayLight,
+            _entities.Light.DrawingRoomLight,
+            _entities.Light.KitchenLight
         ];
 
         _loungeLights =
         [
-            _entities.Light.Lounge,
-            _entities.Light.LoungeCornerLamp
+            _entities.Light.LoungeLight,
+            _entities.Light.LoungeLamp,
+            _entities.Light.LoungeFloorLamp
         ];
 
         BrightnessChanged();
         LightControlModeChanged();
     }
 
-    private void  BrightnessChanged()
+    private void BrightnessChanged()
     {
         _entities.InputSelect.Brightness.StateAllChangesWithCurrent()
         .Where(e =>
@@ -118,17 +119,17 @@ public class LightModes
                     if (!Constants.BedroomMotionModes.Contains(_entities.InputSelect.BedroomMode.AsOption<BedroomModeOptions>()))
                     {
                         _logger.LogDebug($"Old: {oldMode} to New: {newMode} Bedroom not in a motion mode, turning off Bedroom light.");
-                        _entities.Light.Bedroom.TurnOff();
+                        _entities.Light.BedroomLight.TurnOff();
                     }
                     if (_entities.InputSelect.LoungeMode.IsNotOption(LoungeModeOptions.Reading))
                     {
                         _logger.LogDebug($"Old: {oldMode} to New: {newMode} Lounge not in a motion mode, turning off Lounge light.");
-                        _entities.Light.Lounge.TurnOff();
+                        _entities.Light.LoungeLight.TurnOff();
                     }
                     if (_entities.InputSelect.SnugMode.IsNotOption(SnugModeOptions.Movie))
                     {
                         _logger.LogDebug($"Old: {oldMode} to New: {newMode} Snug not in a Movie mode, turning off Snug light.");
-                        _entities.Light.Snug.TurnOff();
+                        _entities.Light.SnugLight.TurnOff();
                     }
                     break;
                 case (LightControlModeOptions.Cleaning, LightControlModeOptions.Sleeping):

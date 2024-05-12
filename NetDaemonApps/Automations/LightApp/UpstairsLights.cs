@@ -9,6 +9,15 @@ public class UpstairsLights
     private readonly ILogger<UpstairsLights> _logger;
     private readonly Entities _entities;
     private readonly ILightingStates _lightingStates;
+    private IDisposable _bathroomOccupancyDisposable;
+    private bool _bathroomWaspInABox = false;
+    private bool OutOfBed => 
+        _entities.InputSelect.BedroomMode.IsNotOption(BedroomModeOptions.Sleeping) ||
+        _entities.InputSelect.BedroomMode.IsOption(BedroomModeOptions.Sleeping) &&
+        _entities.InputSelect.LocationMode.IsOption(LocationModeOptions.Home) &&
+        (_entities.BinarySensor.AndyInBed.IsOff() || _entities.BinarySensor.ClaireInBed.IsOff()) ||
+        (_entities.InputSelect.LocationMode.IsOption(LocationModeOptions.OneAway) &&
+        _entities.BinarySensor.AndyInBed.IsOff() && _entities.BinarySensor.ClaireInBed.IsOff());
 
     public UpstairsLights(IHaContext ha, ILogger<UpstairsLights> logger, ILightingStates lightingStates, IScheduler scheduler)
     {
@@ -19,14 +28,14 @@ public class UpstairsLights
 
         LandingLightOnMovement();
         LandingLightOffNoMovement();
-        BathroomLightsOnMovement();
-        BathroomLightsOffNoMovement();
+        //BathroomLightsOnMovement();
+        //BathroomLightsOffNoMovement();
         BedroomLightsOnMovement();
         BedroomLightsOffNoMovement();
-        GuestRoomLightOnMovement();
-        GuestRoomLightOffNoMovement();
-        StudioLightOnMovement();
-        StudioLightOffNoMovement();
+        // GuestRoomLightOnMovement();
+        // GuestRoomLightOffNoMovement();
+        //StudioLightOnMovement();
+        //StudioLightOffNoMovement();
         DressingRoomLightOnMovement();
         DressingRoomLightOffNoMovement();
     }
@@ -39,11 +48,11 @@ public class UpstairsLights
         {
             _logger.LogTrace(@$"Light Mode: {_entities.InputSelect.LightControlMode.State},
                 Landing motion: Old: {e.Old?.State} - New: {e.New?.State},
-                Light: {_entities.Light.Landing.State}");
+                Light: {_entities.Light.LandingLight.State}");
             return _entities.InputSelect.LightControlMode.IsNotOption(LightControlModeOptions.Manual)
             && !e.Old.IsOn()
             && e.New.IsOn()
-            && _entities.Light.Landing.IsOff()
+            && _entities.Light.LandingLight.IsOff()
             && _lightingStates.InMotionMode(true)
             && ((_entities.InputSelect.BedroomMode.IsOption(BedroomModeOptions.Sleeping)
             && (_entities.BinarySensor.AndyInBed.IsOff() && _entities.Person.Andy.IsHome())
@@ -53,7 +62,7 @@ public class UpstairsLights
         .Subscribe(_ =>
         {
             _logger.LogDebug("Motion detected, turning Landing Light on");
-            _entities.Light.Landing.TurnOn();
+            _entities.Light.LandingLight.TurnOn();
         });
     }
 
@@ -61,13 +70,13 @@ public class UpstairsLights
     {
         _entities.BinarySensor.LandingMotion.StateAllChangesWithCurrent()
         .WhenStateIsFor(s => s.IsOff()
-            && _entities.Light.Landing.IsOn()
+            && _entities.Light.LandingLight.IsOn()
             && _entities.InputSelect.LightControlMode.IsNotOption(LightControlModeOptions.Manual),
             TimeSpan.FromMinutes(2), _scheduler)
         .Subscribe(_ =>
         {
             _logger.LogDebug("No motion, turning Landing Light off");
-            _entities.Light.Landing.TurnOff();
+            _entities.Light.LandingLight.TurnOff();
         });
     }
 #endregion
@@ -76,23 +85,19 @@ public class UpstairsLights
     private void BathroomLightsOnMovement()
     {
         _entities.BinarySensor.BathroomMotion.StateChanges()
+        .Merge(_entities.BinarySensor.BathroomDoor.StateChanges())
         .Where(e =>
         {
             _logger.LogTrace(@$"Light Mode: {_entities.InputSelect.LightControlMode.State},
                 Bathroom motion: Old: {e.Old?.State} - New: {e.New?.State},
-                Light: {_entities.Light.Landing.State},
-                Mirror: {_entities.Light.Mirror.State}");
+                Light: {_entities.Light.LandingLight.State},
+                Mirror: {_entities.Light.MirrorLight.State}");
             return _entities.InputSelect.LightControlMode.IsNotOption(LightControlModeOptions.Manual)
-            && !e.Old.IsOn()
             && e.New.IsOn()
             && _entities.Light.BathroomLights.IsOff()
             && _lightingStates.InMotionMode(true)
-            && ((_entities.InputSelect.BedroomMode.IsOption(BedroomModeOptions.Sleeping)
-            && (_entities.BinarySensor.AndyInBed.IsOff() && _entities.Person.Andy.IsHome())
-            || (_entities.BinarySensor.ClaireInBed.IsOff() && _entities.Person.Claire.IsHome()))
-            || _entities.InputSelect.BedroomMode.IsNotOption(BedroomModeOptions.Sleeping));
+            && OutOfBed;
         })
-
         .Subscribe(e =>
         {
             var bathroomMode = _entities.InputSelect.BathroomMode.AsOption<BathroomModeOptions>();
@@ -101,24 +106,88 @@ public class UpstairsLights
                 Bathroom Mode: {bathroomMode},
                 Brightness: {_entities.InputSelect.Brightness.State},
                 Bathroom motion: Old: {e.Old?.State} - New: {e.New?.State},
-                Mirror Light: {_entities.Light.Mirror.State},
-                Bathroom Light: {_entities.Light.Bathroom.State}");
+                Mirror Light: {_entities.Light.MirrorLight.State},
+                Bathroom Light: {_entities.Light.BathroomLight.State}");
+
+            
 
             if (Constants.NormalMotionModes.Contains(lightMode)
                 && BathroomModeOptions.Relaxing != bathroomMode
-                && !_entities.Light.Bathroom.IsOn())
+                && !_entities.Light.BathroomLight.IsOn())
             {
                 _logger.LogDebug("Motion detected, turning Bathroom Light On.");
-                _entities.Light.Bathroom.TurnOn();
+                _entities.Light.BathroomLight.TurnOn();
             }
             if ((LightControlModeOptions.Relaxing == lightMode
                 || LightControlModeOptions.Sleeping == lightMode)
-                && !_entities.Light.Mirror.IsOn())
+                && !_entities.Light.MirrorLight.IsOn())
             {
                 _logger.LogDebug("Motion detected, turning Mirror Lght On.");
-                _entities.Light.Mirror.TurnOn();
+                _entities.Light.MirrorLight.TurnOn();
             }
         });
+    }
+
+    private void CheckBathroomWaspInBox()
+    {
+        _bathroomOccupancyDisposable?.Dispose(); // Dispose previous subscription, if any
+
+        var motionSensor = _entities.BinarySensor.BathroomMotion.State;
+        var doorSensor = _entities.BinarySensor.BathroomDoor.State;
+
+        if (_entities.BinarySensor.BathroomDoor.IsOpen() || _entities.BinarySensor.BathroomMotion.IsDetected())
+        {
+            _bathroomOccupancyDisposable = _entities.BinarySensor.BathroomDoor.StateAllChangesWithCurrent()
+                .Buffer(TimeSpan.FromMinutes(2))
+                .Where(buffer => buffer.Any(s => s.New.IsCleared()))
+                .Subscribe(_ =>
+                {
+                    if (!_bathroomWaspInABox)
+                    {
+                        _logger.LogDebug("No door movement within 2 minutes, turning Bathroom Light on.");
+                        _entities.Light.BathroomLight.TurnOn();
+
+                        // Turn off light after 2 minutes of no door movement or being opened
+                        _scheduler.Schedule(TimeSpan.FromMinutes(2), () =>
+                        {
+                            _entities.Light.BathroomLight.TurnOff();
+                        });
+                    }
+                });
+
+            _bathroomWaspInABox = false; // Reset wasp in box flag
+        }
+        else if (_entities.BinarySensor.BathroomDoor.IsClosed())
+        {
+            _bathroomOccupancyDisposable?.Dispose(); // Cancel previous wasp-in-box logic
+
+            _bathroomOccupancyDisposable = _entities.BinarySensor.BathroomMotion.StateAllChangesWithCurrent()
+                .Buffer(TimeSpan.FromMinutes(2))
+                .Where(buffer => buffer.All(s => s.New.IsCleared()))
+                .Subscribe(_ =>
+                {
+                    _logger.LogDebug("No motion after door closed, turning Bathroom Light off");
+                    _entities.Light.BathroomLight.TurnOff();
+                });
+
+            _bathroomWaspInABox = true; // Set flag for potential wasp in the box
+        }
+    }
+
+    private void BathroomWaspInABox()
+    {
+        _bathroomOccupancyDisposable?.Dispose();
+        _bathroomOccupancyDisposable = _entities.BinarySensor.BathroomMotion.StateAllChangesWithCurrent()
+            .Buffer(TimeSpan.FromMinutes(2))
+            .Where(buffer => buffer.All(s => s.Entity.EntityId == "binary_sensor.bathroom_motion" 
+                && s.New.IsCleared())
+                && _entities.BinarySensor.BathroomDoor.IsOpen()
+                && _entities.Light.BathroomLight.IsOn())
+            .Subscribe(_ =>
+            {
+                _logger.LogDebug("Wasp in a box scenario detected, keeping Bathroom Light on.");
+                _entities.Light.BathroomLight.TurnOn();
+            });
     }
 
     private void BathroomLightsOffNoMovement()
@@ -133,18 +202,18 @@ public class UpstairsLights
             _logger.LogTrace(@$"
                 Brightness: {_entities.InputSelect.Brightness.State},
                 Bathroom motion: Old: {e.Old?.State} - New: {e.New?.State},
-                Mirror Light: {_entities.Light.Mirror.State},
-                Bathroom Light: {_entities.Light.Bathroom.State}");
+                Mirror Light: {_entities.Light.MirrorLight.State},
+                Bathroom Light: {_entities.Light.BathroomLight.State}");
 
-            if (!_entities.Light.Bathroom.IsOff())
+            if (!_entities.Light.BathroomLight.IsOff())
             {
                 _logger.LogDebug("No motion, turning Batroom Light Off");
-                _entities.Light.Bathroom.TurnOff();
+                _entities.Light.BathroomLight.TurnOff();
             }
-            if (!_entities.Light.Mirror.IsOff())
+            if (!_entities.Light.MirrorLight.IsOff())
             {
                 _logger.LogDebug("No motion, turning Mirror Light Off");
-                _entities.Light.Mirror.TurnOff();
+                _entities.Light.MirrorLight.TurnOff();
             }
         });
     }
@@ -170,22 +239,22 @@ public class UpstairsLights
                 Bedroom Mode: {bedroomMode},
                 Brightness: {_entities.InputSelect.Brightness.State},
                 Bedroom motion: Old: {e.Old?.State} - New: {e.New?.State},
-                Bedside Lamp: {_entities.Light.BedsideLamp.State},
-                Bedroom Light: {_entities.Light.Bedroom.State}");
+                Bedside Lamp: {_entities.Light.BedroomLamp.State},
+                Bedroom Light: {_entities.Light.BedroomLight.State}");
 
             if (Constants.NormalMotionModes.Contains(lightMode)
                 && BedroomModeOptions.Normal == bedroomMode
-                && !_entities.Light.Bedroom.IsOn())
+                && !_entities.Light.BedroomLight.IsOn())
             {
                 _logger.LogDebug("Motion detected, turning Bedroom Light On.");
-                _entities.Light.Bedroom.TurnOn();
+                _entities.Light.BedroomLight.TurnOn();
             }
             if ((LightControlModeOptions.Relaxing == lightMode
                 || LightControlModeOptions.Sleeping == lightMode)
-                && !_entities.Light.BedsideLamp.IsOn())
+                && !_entities.Light.BedroomLamp.IsOn())
             {
                 _logger.LogDebug("Motion detected, turning Bedside Lamp On.");
-                _entities.Light.BedsideLamp.TurnOn();
+                _entities.Light.BedroomLamp.TurnOn();
             }
         });
     }
@@ -205,22 +274,22 @@ public class UpstairsLights
                 Bedroom Mode: {bedroomMode},
                 Brightness: {_entities.InputSelect.Brightness.State},
                 Bedroom motion: Old: {e.Old?.State} - New: {e.New?.State},
-                Bedside Lamp: {_entities.Light.BedsideLamp.State},
-                Bedroom Light: {_entities.Light.Bedroom.State}");
+                Bedside Lamp: {_entities.Light.BedroomLamp.State},
+                Bedroom Light: {_entities.Light.BedroomLight.State}");
 
             if (lightMode != LightControlModeOptions.Manual)
             {
                 if (bedroomMode != BedroomModeOptions.Bright
-                    && !_entities.Light.Bedroom.IsOff())
+                    && !_entities.Light.BedroomLight.IsOff())
                 {
                     _logger.LogDebug("No motion, turning Bedroom Light Off");
-                    _entities.Light.Bedroom.TurnOff();
+                    _entities.Light.BedroomLight.TurnOff();
                 }
                 if (bedroomMode != BedroomModeOptions.Relaxing
-                    && !_entities.Light.BedsideLamp.IsOff())
+                    && !_entities.Light.BedroomLamp.IsOff())
                 {
                     _logger.LogDebug("No motion, turning Bedside Lamp Off");
-                    _entities.Light.BedsideLamp.TurnOff();
+                    _entities.Light.BedroomLamp.TurnOff();
                 }
             }
         });
@@ -235,17 +304,17 @@ public class UpstairsLights
         {
             _logger.LogTrace(@$"Light Mode: {_entities.InputSelect.LightControlMode.State},
                 Guest Room motion: Old: {e.Old?.State} - New: {e.New?.State},
-                Light: {_entities.Light.GuestRoom.State}");
+                Light: {_entities.Light.GuestRoomLight.State}");
             return _entities.InputSelect.LightControlMode.IsNotOption(LightControlModeOptions.Manual)
             && !e.Old.IsOn()
             && e.New.IsOn()
-            && _entities.Light.GuestRoom.IsOff()
+            && _entities.Light.GuestRoomLight.IsOff()
             && _lightingStates.InMotionMode();
         })
         .Subscribe(_ =>
         {
             _logger.LogDebug("Motion detected, turning Guest Room Light on");
-            _entities.Light.GuestRoom.TurnOn();
+            _entities.Light.GuestRoomLight.TurnOn();
         });
     }
 
@@ -253,13 +322,13 @@ public class UpstairsLights
     {
         _entities.BinarySensor.GuestRoomMotion.StateAllChangesWithCurrent()
         .WhenStateIsFor(s => s.IsOff()
-            && _entities.Light.GuestRoom.IsOn()
+            && _entities.Light.GuestRoomLight.IsOn()
             && _entities.InputSelect.LightControlMode.IsNotOption(LightControlModeOptions.Manual),
             TimeSpan.FromMinutes(2), _scheduler)
         .Subscribe(_ =>
         {
             _logger.LogDebug("No motion, turning Guest Room Light off");
-            _entities.Light.GuestRoom.TurnOff();
+            _entities.Light.GuestRoomLight.TurnOff();
         });
     }
 #endregion
@@ -272,17 +341,17 @@ public class UpstairsLights
         {
             _logger.LogTrace(@$"Light Mode: {_entities.InputSelect.LightControlMode.State},
                 Studio motion: Old: {e.Old?.State} - New: {e.New?.State},
-                Light: {_entities.Light.Studio.State}");
+                Light: {_entities.Light.StudioLight.State}");
             return _entities.InputSelect.LightControlMode.IsNotOption(LightControlModeOptions.Manual)
             && !e.Old.IsOn()
             && e.New.IsOn()
-            && _entities.Light.Studio.IsOff()
+            && _entities.Light.StudioLight.IsOff()
             && _lightingStates.InMotionMode();
         })
         .Subscribe(_ =>
         {
             _logger.LogDebug("Motion detected, turning Studio Light on");
-            _entities.Light.Studio.TurnOn();
+            _entities.Light.StudioLight.TurnOn();
         });
     }
 
@@ -290,13 +359,13 @@ public class UpstairsLights
     {
         _entities.BinarySensor.StudioMotion.StateAllChangesWithCurrent()
         .WhenStateIsFor(s => s.IsOff()
-            && _entities.Light.Studio.IsOn()
+            && _entities.Light.StudioLight.IsOn()
             && _entities.InputSelect.LightControlMode.IsNotOption(LightControlModeOptions.Manual),
             TimeSpan.FromMinutes(2), _scheduler)
         .Subscribe(_ =>
         {
             _logger.LogDebug("No motion, turning Studio Light off");
-            _entities.Light.Studio.TurnOff();
+            _entities.Light.StudioLight.TurnOff();
         });
     }
 #endregion
@@ -309,17 +378,17 @@ public class UpstairsLights
         {
             _logger.LogTrace(@$"Light Mode: {_entities.InputSelect.LightControlMode.State},
                 Dressing Room motion: Old: {e.Old?.State} - New: {e.New?.State},
-                Light: {_entities.Light.DressingRoom.State}");
+                Light: {_entities.Light.DressingRoomLight.State}");
             return _entities.InputSelect.LightControlMode.IsNotOption(LightControlModeOptions.Manual)
             && !e.Old.IsOn()
             && e.New.IsOn()
-            && _entities.Light.DressingRoom.IsOff()
+            && _entities.Light.DressingRoomLight.IsOff()
             && _lightingStates.InMotionMode();
         })
         .Subscribe(_ =>
         {
             _logger.LogDebug("Motion detected, turning Dressing Room Light on");
-            _entities.Light.DressingRoom.TurnOn();
+            _entities.Light.DressingRoomLight.TurnOn();
         });
     }
 
@@ -327,13 +396,13 @@ public class UpstairsLights
     {
         _entities.BinarySensor.DressingRoomMotion.StateAllChangesWithCurrent()
         .WhenStateIsFor(s => s.IsOff()
-            && _entities.Light.DressingRoom.IsOn()
+            && _entities.Light.DressingRoomLight.IsOn()
             && _entities.InputSelect.LightControlMode.IsNotOption(LightControlModeOptions.Manual),
             TimeSpan.FromMinutes(2), _scheduler)
         .Subscribe(_ =>
         {
             _logger.LogDebug("No motion, turning Dressing Room Light off");
-            _entities.Light.DressingRoom.TurnOff();
+            _entities.Light.DressingRoomLight.TurnOff();
         });
     }
 #endregion

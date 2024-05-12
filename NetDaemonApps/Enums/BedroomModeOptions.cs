@@ -5,5 +5,6 @@ public enum BedroomModeOptions
     Bright,
     Normal,
     Relaxing,
-    Sleeping
+    Sleeping,
+    Manual
 }

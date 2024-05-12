@@ -7,6 +7,7 @@ global using System.Reactive.Concurrency;
 global using System.Text.Json;
 global using System.Text.Json.Serialization;
 global using System.Threading;
+global using System.Threading.Tasks;
 global using Microsoft.Extensions.Logging;
 global using NetDaemon.AppModel;
 global using NetDaemon.HassModel;

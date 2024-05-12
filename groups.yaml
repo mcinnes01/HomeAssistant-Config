@@ -40,20 +40,20 @@ landing:
   name: Landing
   entities:
     - group.media_landing_tablet
-    - light.landing
+    - light.landing_light
     - binary_sensor.landing_motion
 
 bathroom:
   name: Bathroom
   entities:
     - group.bathroom_lights
-    - light.bathroom_fan
+    - fan.bathroom_fan
     - binary_sensor.bathroom_motion
 
 studio:
   name: Studio
   entities:
-    - light.studio
+    - light.studio_light
     - binary_sensor.studio_motion
 
 bedroom:
@@ -67,14 +67,14 @@ bedroom:
 guest_bedroom:
   name: Guest Room
   entities:
-    - light.guest_room
+    - light.guest_room_light
     - binary_sensor.guest_room_motion
 
 dressing_room:
   name: Dressing room
   entities:
     - group.media_dressing_room_echo_dot
-    - light.dressing_room
+    - light.dressing_room_light
     - binary_sensor.dressing_room_motion
 
 hallway:
@@ -87,7 +87,7 @@ hallway:
 porch:
   name: Porch
   entities:
-    - light.porch
+    - light.porch_light
     - group.esp_doorbell
 
 lounge:
@@ -115,7 +115,7 @@ kitchen:
   entities:
     - group.kitchen_lights
     - group.kitchen_motion_sensors
-    - light.extractor_fan
+    - fan.extractor_fan
     - group.media_kitchen_echo_show
 
 patio:
@@ -134,7 +134,7 @@ basement_hall:
 electric_cabinet:
   name: Electric cabinet
   entities:
-    - light.basement_hall
+    - light.basement_hall_light
 
 snug:
   name: Snug
@@ -149,7 +149,7 @@ snug:
 dining_room:
   name: Dining Room
   entities:
-    - light.dining_room
+    - light.dining_room_light
     - binary_sensor.dining_room_motion
     - media_player.utility_radio #needs renaming
     - group.media_dining_room_echo_input
@@ -157,14 +157,14 @@ dining_room:
 utility_room:
   name: Utility Room
   entities:
-    - light.utility_room
+    - light.utility_room_light
     - binary_sensor.utility_room_motion
     - group.media_utility_room_echo_dot
 
 toilet:
   name: Toilet
   entities:
-    - light.toilet
+    - light.toilet_light
     - binary_sensor.toilet_motion
 
 # Media Players
@@ -319,290 +319,6 @@ esp_doorbell:
     - switch.doorbell_chime
     - switch.doorbell_chime_active
     - switch.doorbell_restart
-
-# Entity Controllers
-entity_controllers:
-  name: Entity Controllers
-  entities:
-    - group.basement_controllers
-    - group.downstairs_controllers
-    - group.upstairs_controllers
-
-basement_controllers:
-  name: Basement Controllers
-  entities:
-    - entity_controller.basement_hall_light_controller
-    #    - entity_controller.dining_room_light_controller
-    - entity_controller.snug_floor_lamp_controller
-    - entity_controller.snug_light_controller
-    - entity_controller.toilet_light_controller
-    - entity_controller.utility_room_light_controller
-
-downstairs_controllers:
-  name: Downstairs Controllers
-  entities:
-    - entity_controller.back_door_light_controller
-    - entity_controller.lounge_floor_lamp_controller
-    - entity_controller.drawing_room_light_controller
-    - entity_controller.hallway_lamp_controller
-    - entity_controller.hallway_light_controller
-    - entity_controller.breakfast_bar_lamp_controller
-    - entity_controller.kitchen_light_controller
-    - entity_controller.lounge_corner_lamp_controller
-    - entity_controller.lounge_light_controller
-
-upstairs_controllers:
-  name: Upstairs Controllers
-  entities:
-    - entity_controller.bathroom_light_controller
-    # - entity_controller.bedside_lamp_controller
-    # - entity_controller.bedroom_light_controller
-    - entity_controller.dressing_room_light_controller
-    - entity_controller.guest_room_light_controller
-    - entity_controller.landing_light_controller
-    - entity_controller.mirror_light_controller
-    - entity_controller.studio_light_controller
-
-basement_hall_controllers:
-  name: Basement Hall Controllers
-  entities:
-    - entity_controller.basement_hall_light_controller
-
-# dining_room_controllers:
-#   name: Dining Room Controllers
-#   entities:
-#     - entity_controller.dining_room_light_controller
-
-snug_controllers:
-  name: Snug Controllers
-  entities:
-    - entity_controller.snug_floor_lamp_controller
-    - entity_controller.snug_light_controller
-
-toilet_controllers:
-  name: Toilet Controllers
-  entities:
-    - entity_controller.toilet_light_controller
-
-utility_controllers:
-  name: Utility Controllers
-  entities:
-    - entity_controller.utility_room_light_controller
-
-hallway_controllers:
-  name: Hallway Controllers
-  entities:
-    - entity_controller.hallway_lamp_controller
-    - entity_controller.hallway_light_controller
-
-lounge_controllers:
-  name: Lounge Controllers
-  entities:
-    - entity_controller.lounge_corner_lamp_controller
-    - entity_controller.lounge_light_controller
-    - entity_controller.lounge_floor_lamp_controller
-
-drawing_room_controllers:
-  name: Drawing Room Controllers
-  entities:
-    - entity_controller.drawing_room_light_controller
-    - entity_controller.bookshelf_light_controller
-
-kitchen_controllers:
-  name: Kitchen Controllers
-  entities:
-    - entity_controller.breakfast_bar_lamp_controller
-    - entity_controller.kitchen_light_controller
-
-landing_controllers:
-  name: Landing Controllers
-  entities:
-    - entity_controller.landing_light_controller
-
-studio_controllers:
-  name: Studio Controllers
-  entities:
-    - entity_controller.studio_light_controller
-
-bathroom_controllers:
-  name: Bathroom Controllers
-  entities:
-    - entity_controller.bathroom_light_controller
-    - entity_controller.mirror_light_controller
-
-# bedroom_controllers:
-#   name: Bedroom Controllers
-#   entities:
-#     - entity_controller.bedside_lamp_controller
-#     - entity_controller.bedroom_light_controller
-
-guest_room_controllers:
-  name: Guest Room Controllers
-  entities:
-    - entity_controller.guest_room_light_controller
-
-dressing_room_controllers:
-  name: Dressing Room Controllers
-  entities:
-    - entity_controller.dressing_room_light_controller
-
-entity_overrides:
-  name: Entity Overrides
-  entities:
-    - group.basement_overrides
-    - group.downstairs_overrides
-    - group.upstairs_overrides
-
-basement_overrides:
-  name: Basement Overrides
-  entities:
-    - input_boolean.basement_hall_light_constrained
-    - input_boolean.brewery_light_constrained
-    - input_boolean.dining_room_light_constrained
-    - input_boolean.snug_floor_lamp_constrained
-    - input_boolean.snug_light_constrained
-    - input_boolean.toilet_light_constrained
-    - input_boolean.utility_room_light_constrained
-
-downstairs_overrides:
-  name: Downstairs Overrides
-  entities:
-    - input_boolean.lounge_floor_lamp_constrained
-    - input_boolean.drawing_room_light_constrained
-    - input_boolean.hallway_lamp_constrained
-    - input_boolean.hallway_light_constrained
-    - input_boolean.breakfast_bar_lamp_constrained
-    - input_boolean.kitchen_light_constrained
-    - input_boolean.lounge_corner_lamp_constrained
-    - input_boolean.lounge_light_constrained
-
-upstairs_overrides:
-  name: Upstairs Overrides
-  entities:
-    - input_boolean.bathroom_light_constrained
-    - input_boolean.bedside_lamp_constrained
-    - input_boolean.bedroom_light_constrained
-    - input_boolean.dressing_room_light_constrained
-    - input_boolean.guest_room_light_constrained
-    - input_boolean.landing_light_constrained
-    - input_boolean.mirror_light_constrained
-    - input_boolean.studio_light_constrained
-
-basement_hall_overrides:
-  name: Basement Hall Overrides
-  entities:
-    - input_boolean.basement_hall_light_constrained
-
-dining_room_overrides:
-  name: Dining Room Overrides
-  entities:
-    - input_boolean.dining_room_light_constrained
-
-snug_overrides:
-  name: Snug Overrides
-  entities:
-    - input_boolean.snug_floor_lamp_constrained
-    - input_boolean.snug_light_constrained
-
-toilet_overrides:
-  name: Toilet Overrides
-  entities:
-    - input_boolean.toilet_light_constrained
-
-utility_overrides:
-  name: Utility Overrides
-  entities:
-    - input_boolean.utility_room_light_constrained
-
-hallway_overrides:
-  name: Hallway Overrides
-  entities:
-    - input_boolean.hallway_lamp_constrained
-    - input_boolean.hallway_light_constrained
-
-lounge_overrides:
-  name: Lounge Overrides
-  entities:
-    - input_boolean.lounge_corner_lamp_constrained
-    - input_boolean.lounge_light_constrained
-    - input_boolean.lounge_floor_lamp_constrained
-
-drawing_room_overrides:
-  name: Drawing Room Overrides
-  entities:
-    - input_boolean.drawing_room_light_constrained
-#    - input_boolean.bookshelf_light_constrained
-
-kitchen_overrides:
-  name: Kitchen Overrides
-  entities:
-    - input_boolean.breakfast_bar_lamp_constrained
-    - input_boolean.kitchen_light_constrained
-
-landing_overrides:
-  name: Landing Overrides
-  entities:
-    - input_boolean.landing_light_constrained
-
-studio_overrides:
-  name: Studio Overrides
-  entities:
-    - input_boolean.studio_light_constrained
-
-bathroom_overrides:
-  name: Bathroom Overrides
-  entities:
-    - input_boolean.bathroom_light_constrained
-    - input_boolean.mirror_light_constrained
-
-bedroom_overrides:
-  name: Bedroom Overrides
-  entities:
-    - input_boolean.bedside_lamp_constrained
-    - input_boolean.bedroom_light_constrained
-
-guest_room_overrides:
-  name: Guest Room Overrides
-  entities:
-    - input_boolean.guest_room_light_constrained
-
-dressing_room_overrides:
-  name: Dressing Room Overrides
-  entities:
-    - input_boolean.dressing_room_light_constrained
-
-day_overrides:
-  name: Day Overrides
-  entities:
-    - group.downstairs_overrides
-    - group.upstairs_overrides
-
-evening_overrides:
-  name: Evening Overrides
-  entities:
-    - input_boolean.snug_light_constrained
-    - input_boolean.hallway_light_constrained
-    - input_boolean.kitchen_light_constrained
-    - input_boolean.lounge_light_constrained
-    - input_boolean.bathroom_light_constrained
-    - input_boolean.bedroom_light_constrained
-
-night_overrides:
-  name: Night Overrides
-  entities:
-    - group.downstairs_overrides
-    - input_boolean.studio_light_constrained
-    - input_boolean.bathroom_light_constrained
-    - input_boolean.bedside_lamp_constrained
-    - input_boolean.bedroom_light_constrained
-    - input_boolean.guest_room_light_constrained
-    - input_boolean.dressing_room_light_constrained
-    - input_boolean.brewery_light_constrained
-    - input_boolean.utility_room_light_constrained
-    - input_boolean.dining_room_light_constrained
-    - input_boolean.snug_floor_lamp_constrained
-    - input_boolean.snug_light_constrained
-    - input_boolean.basement_hall_light_constrained
 
 # Locations
 person_locations:

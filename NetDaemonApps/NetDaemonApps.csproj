@@ -7,33 +7,37 @@
 		<LangVersion>12.0</LangVersion>
 	</PropertyGroup>
 	<ItemGroup>
-		<None Update="$(MSBuildProjectDir)appsettings.Development.json">
+		<None Update="Automations/AlexaConfig.yaml">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-			<CopyToPublishDirectory>Never</CopyToPublishDirectory>
+			<CopyToPublishDirectory>Always</CopyToPublishDirectory>
 		</None>
-		<None Update="$(MSBuildProjectDir)appsettings.json">
+        <None Update="appsettings.json">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</None>
-		<None Update="$(MSBuildProjectDir)**\*.yaml">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-		</None>
-		<None Update="Automations\AlexaConfig.yaml">
-		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</None>
-	</ItemGroup>
+			<CopyToPublishDirectory>Always</CopyToPublishDirectory>
+        </None>
+        <None Include="Automations/**/*.yaml">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+            <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+        </None>
+    </ItemGroup>
+    <ItemGroup>
+        <None Remove=".gitignore" />
+        <None Remove="Makefile" />
+        <None Remove="Dockerfile" />
+        <None Remove="README.md" />
+    </ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="NetDaemon.AppModel" Version="23.46.1" />
-		<PackageReference Include="NetDaemon.Extensions.Mqtt" Version="23.46.1" />
-		<PackageReference Include="NetDaemon.Runtime" Version="23.46.1" />
-		<PackageReference Include="NetDaemon.HassModel" Version="23.46.1" />
-		<PackageReference Include="NetDaemon.Client" Version="23.46.1" />
-		<PackageReference Include="NetDaemon.Extensions.Scheduling" Version="23.46.1" />
-		<PackageReference Include="NetDaemon.Extensions.Logging" Version="23.46.1" />
-		<PackageReference Include="NetDaemon.Extensions.Tts" Version="23.46.1" />
+		<PackageReference Include="NetDaemon.AppModel" Version="24.16.0" />
+		<PackageReference Include="NetDaemon.Extensions.Mqtt" Version="24.16.0" />
+		<PackageReference Include="NetDaemon.Runtime" Version="24.16.0" />
+		<PackageReference Include="NetDaemon.HassModel" Version="24.16.0" />
+		<PackageReference Include="NetDaemon.Client" Version="24.16.0" />
+		<PackageReference Include="NetDaemon.Extensions.Scheduling" Version="24.16.0" />
+		<PackageReference Include="NetDaemon.Extensions.Logging" Version="24.16.0" />
+		<PackageReference Include="NetDaemon.Extensions.Tts" Version="24.16.0" />
 		<PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
-		<PackageReference Include="Serilog.AspNetCore" Version="8.0.0" />
-		<PackageReference Include="stateless" Version="5.14.0" />
+		<PackageReference Include="Serilog.AspNetCore" Version="8.0.1" />
+		<PackageReference Include="stateless" Version="5.15.0" />
 		<PackageReference Include="System.Reactive" Version="6.0.0" />
 		<PackageReference Include="CacheManager.Core" Version="1.2.0" />
 		<PackageReference Include="CacheManager.Microsoft.Extensions.Configuration" Version="1.2.0" />

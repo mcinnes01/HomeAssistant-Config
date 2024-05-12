@@ -45,23 +45,10 @@ input_select:
 logbook:
 logger:
   default: critical
-map:
-  entities:
-    - device_tracker.claires_iphone
-    - device_tracker.pixel_6_2
-  hours_to_show: 72
-  dark_mode: true
 media_source:
 mobile_app:
 my:
 person:
-proximity:
-  home:
-    devices:
-      - person.andy
-      - person.claire
-    tolerance: 10
-    unit_of_measurement: mi
 prometheus:
 scene: !include scenes.yaml
 schedule:

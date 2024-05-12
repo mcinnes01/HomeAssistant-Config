@@ -64,10 +64,11 @@ sensor:
     name: Weather Station WiFi Signal
     update_interval: 60s
 
-  - platform: bme280
+  - platform: bme280_i2c
     temperature:
       name: "Weather Station Temperature"
       id: bme280_temperature
+      oversampling: 16x
     pressure:
       name: "Weather Station Pressure"
       id: bme280_pressure

@@ -1,6 +1,4 @@
-﻿
-namespace NetDaemonApps.Extensions;
-
+﻿namespace NetDaemonApps.Extensions;
 
 public static class ClimateExtensions
 {

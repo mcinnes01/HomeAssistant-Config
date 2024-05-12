@@ -7,8 +7,8 @@ public class BedroomModeController
     IEntities _entities;
     InputSelectEntity? BedroomMode;
     InputSelectEntity? LocationMode;
-    InputBooleanEntity? InBed;
     InputSelectEntity? TimeOfDay;
+    InputBooleanEntity? InBed;
     InputBooleanEntity? IsEnabled;
 
     // Controls the Lighting Control Mode Input Select which is used to manage global lighting controls
@@ -22,13 +22,17 @@ public class BedroomModeController
 
         BedroomMode = _entities.InputSelect.BedroomMode;
         LocationMode = _entities.InputSelect.LocationMode;
-        InBed = _entities.InputBoolean.InBed;
         TimeOfDay = _entities.InputSelect.TimeOfDay;
+        InBed = _entities.InputBoolean.InBed;
         IsEnabled = _entities.InputBoolean.BedroomModeControlEnabled;
 
         // Got in bed
         InBed?.StateChanges()
         .Where(b => b.New.IsOn()
+        && TimeOfDay.IsNotOption(TimeOfDayOptions.Day) 
+        && TimeOfDay.IsNotOption(TimeOfDayOptions.Afternoon)
+        && (TimeOnly.FromDateTime(DateTime.Now) > Constants.NIGHT_START
+         || TimeOnly.FromDateTime(DateTime.Now) < Constants.MORNING_START)
         && Constants.HouseOccupied.Contains(LocationMode.AsOption<LocationModeOptions>()))
         // TODO This needs to ask if you want to transition to sleeping and retry with backoff
         .Throttle(TimeSpan.FromMinutes(10))

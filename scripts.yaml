@@ -16,37 +16,6 @@ feed_cats:
       entity_id: number.rojeco_pet_feeder_feed
   mode: single
   icon: hass:cat
-light_effect_continuous:
-  alias: Light Effect Continuous
-  sequence:
-  - service: light.turn_on
-    data_template:
-      entity_id: '{{entity}}'
-  - delay: 00:00:02
-  - service: light.turn_on
-    data_template:
-      entity_id: '{{entity}}'
-      effect: '{{effect}}'
-light_effect_timed:
-  alias: Light Effect Timed
-  sequence:
-  - service: light.turn_on
-    data_template:
-      entity_id: '{{entity}}'
-  - delay: 00:00:02
-  - service: light.turn_on
-    data_template:
-      entity_id: '{{entity}}'
-      effect: '{{effect}}'
-  - delay: 00:00:{{ delay_secs | int }}
-  - service: light.turn_on
-    data_template:
-      entity_id: '{{entity}}'
-      effect: Stop
-  - delay: 00:00:02
-  - service: light.turn_off
-    data_template:
-      entity_id: '{{entity}}'
 notify_alexa_everywhere:
   alias: Notify Alexa Everywhere
   sequence:
@@ -58,18 +27,6 @@ notify_alexa_everywhere:
       data:
         type: announce
         method: all
-notify_pushbullet:
-  alias: Notify Pushbullet
-  sequence:
-  - service: notify.pushbullet
-    data:
-      title: '{{title}}'
-      message: '{{message}}'
-      data:
-        file_url: '{{picture_url}}'
-      target:
-      - email/mcinnes01@gmail.com
-      - device/AndyPhone
 notify_all:
   alias: Notify All
   sequence:
@@ -87,33 +44,6 @@ notify_all:
     type: notify
     message: '{{message}}'
     title: '{{title}}'
-  mode: single
-doorbell_alexa:
-  alias: Doorbell Alexa
-  sequence:
-  - service: media_player.play_media
-    data:
-      media_content_id: amzn_sfx_doorbell_chime_01 in downstairs group
-      media_content_type: sound
-    target:
-      entity_id: media_player.bedroom_echo_show
-  mode: single
-  icon: hass:bell
-entity_controller_reset:
-  alias: Entity Controller Reset
-  sequence:
-  - service: light.turn_off
-    target:
-      entity_id: light.all_lights
-  - service: entity_controller.clear_block
-    data:
-      entity_id: group.entity_controllers
-  - service: input_boolean.turn_on
-    target:
-      entity_id: group.entity_overrides
-  - service: input_boolean.turn_off
-    target:
-      entity_id: group.entity_overrides
   mode: single
 room_controller_reset:
   alias: Room Controller Reset

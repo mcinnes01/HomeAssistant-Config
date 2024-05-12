@@ -23,5 +23,14 @@ public static class ServiceProviderExtensions
     //    return service;
     //}
 
+    public static IServiceCollection SetupDependencies(this IServiceCollection serviceCollection)
+        => serviceCollection
+           .AddTransient<IEntities, Entities>()
+           .AddTransient<IServices, Services>()
+        //    .AddTransient<IAlexa, Alexa>()
+        //    .AddSingleton<IVoiceProvider, VoiceProvider>()
+        //    .AddScoped<People>()
+           .AddSingleton<IServiceProvider>(sp => sp);
+
 }
 

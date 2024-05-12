@@ -1,4 +1,6 @@
-﻿namespace NetDaemonApps.Extensions;
+﻿using System.Linq;
+
+namespace NetDaemonApps.Extensions;
 
 public static class EntityExtensions
 {
@@ -13,7 +15,6 @@ public static class EntityExtensions
         where TAttributes : class
         where TEntity : Entity<TEntity, EntityState<TAttributes>, TAttributes>
     => entity.StateChanges().Where(c => c.New?.IsOff() ?? false).Subscribe(action);
-
 
     public static bool IsUnknown(this EntityState? entityState)
         => string.Equals(entityState?.State, "unknown", StringComparison.OrdinalIgnoreCase);
@@ -50,5 +51,11 @@ public static class EntityExtensions
 
     public static string? Domain(this Entity? entity)
         => entity?.EntityId.Split('.')[0];
-}
 
+    public static bool BoolState(this Entity? entity)
+    {
+        var boolTypes = new[] { "light", "switch", "scene", "input_boolean", "binary_sensor", "automation" };
+        return boolTypes.ToList().Contains(entity?.Domain() ?? "") && entity?.State != null
+            ? entity?.State == "on" : false;
+    }
+}

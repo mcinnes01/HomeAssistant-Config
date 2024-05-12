@@ -2,7 +2,9 @@ namespace Enums;
 
 public enum SnugModeOptions
 {
-    Chill,
+    Manual,
     Movie,
-    Normal
+    Normal,
+    Relaxing,
+    Sleeping
 }

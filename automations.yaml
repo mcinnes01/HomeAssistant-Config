@@ -466,9 +466,6 @@
     to: Television
   condition: []
   action:
-  - service: script.room_controller_reset
-    data:
-      room: Lounge
   - service: input_boolean.turn_on
     target:
       entity_id:
@@ -477,7 +474,7 @@
   - service: light.turn_off
     target:
       entity_id:
-      - light.lounge
+      - light.lounge_light
     data: {}
   - service: yeelight.set_color_temp_scene
     data:
@@ -485,7 +482,7 @@
       brightness: 80
     target:
       entity_id:
-      - light.lounge_corner_lamp
+      - light.lounge_lamp
       - light.lounge_floor_lamp
   - service: switch.turn_on
     data: {}
@@ -536,7 +533,7 @@
   - event: sunset
     platform: sun
   action:
-  - entity_id: light.porch
+  - entity_id: light.porch_light
     service: light.turn_on
 - id: '1579518409890'
   alias: Turn Off Porch Light at 11pm
@@ -544,7 +541,7 @@
   - at: '22:30:00'
     platform: time
   action:
-  - entity_id: light.porch
+  - entity_id: light.porch_light
     service: light.turn_off
 - alias: Snug Scene Normal
   id: '1624997862387'
@@ -577,11 +574,11 @@
   - service: light.turn_off
     target:
       entity_id:
-      - light.snug
-      - light.basement_hall
+      - light.snug_light
+      - light.basement_hall_light
   - service: light.turn_on
     target:
-      entity_id: light.snug_floor_lamp
+      entity_id: light.snug_lamp
     data:
       rgb_color: 70,70,255
       brightness: 184
@@ -596,8 +593,6 @@
     platform: device
     type: turned_on
   action:
-  - service: script.notify_all
-    data: {}
   - service: notify.alexa_media
     data:
       title: Sump Alarm Triggered
@@ -607,52 +602,6 @@
       data:
         type: announce
         method: all
-- id: '1628676340481'
-  alias: Snug Switch Actions
-  description: ''
-  use_blueprint:
-    path: mcinnes01/zigbee2mqtt-snzb-01.yaml
-    input:
-      switch: sensor.snug_switch_action
-      single_press:
-      - choose:
-        - conditions:
-          - condition: state
-            entity_id: light.snug_floor_lamp
-            state: 'on'
-          sequence:
-          - service: light.turn_off
-            target:
-              entity_id: light.snug_floor_lamp
-        - conditions:
-          - condition: state
-            entity_id: light.snug
-            state: 'on'
-          sequence:
-          - service: light.turn_off
-            target:
-              entity_id: light.snug
-        - conditions:
-          - condition: state
-            entity_id: light.snug_lights
-            state: 'off'
-          sequence:
-          - service: light.turn_on
-            target:
-              entity_id: light.snug
-        default: []
-      double_press:
-      - service: light.turn_off
-        target:
-          entity_id: light.snug
-      - service: homeassistant.turn_on
-        target:
-          entity_id:
-          - light.snug_floor_lamp
-      long_press:
-      - service: automation.trigger
-        target:
-          entity_id: automation.snug_scene_watch_movie
 - id: '1631053304503'
   alias: Send snapshot when person is in the garden - Andy iPhone
   description: ''
@@ -792,56 +741,6 @@
       notification_title: Person outside
       notification_message: '{{ motion_sensor_name }} detected a person!'
       override_sensor: binary_sensor.patio_door
-- id: '1671115380432'
-  alias: Hallway Remote Actions
-  description: ''
-  use_blueprint:
-    path: EPMatt/ikea_e1743.yaml
-    input:
-      integration: Zigbee2MQTT
-      controller_device: 58709344f9c7b9f27d636aa393492456
-      controller_entity: sensor.hallway_remote_action
-      helper_last_controller_event: input_text.hallway_remote_last_state
-      action_button_up_short:
-      - service: light.turn_on
-        data: {}
-        target:
-          entity_id: light.hallway
-      action_button_up_long:
-      - device_id: 3f19fc07f1a211ea95ad67c149799e5f
-        domain: light
-        entity_id: light.hallway_lamp
-        type: brightness_increase
-      action_button_up_release: []
-      action_button_up_double:
-      - service: light.turn_on
-        data:
-          transition: 5
-          color_temp: 318
-          brightness: 255
-        target:
-          area_id: 2b51c17994054ee58ffcce8036f37129
-      action_button_down_short:
-      - service: light.turn_off
-        data: {}
-        target:
-          entity_id: light.hallway
-      action_button_down_long:
-      - device_id: 3f19fc07f1a211ea95ad67c149799e5f
-        domain: light
-        entity_id: light.hallway_lamp
-        type: brightness_decrease
-      action_button_down_double:
-      - service: light.turn_off
-        data:
-          transition: 5
-        target:
-          area_id: 2b51c17994054ee58ffcce8036f37129
-      button_up_long_loop: true
-      button_down_long_loop: true
-      button_up_double_press: true
-      button_down_double_press: true
-      helper_debounce_delay: 100
 - id: '1671115791416'
   alias: Guest Room Remote Actions
   description: ''
@@ -853,101 +752,45 @@
       helper_last_controller_event: input_text.guest_room_remote_last_state
       action_button_up_short:
       - service: light.turn_on
+        target:
+          entity_id:
+          - light.guest_room_lamp
+        data: {}
+      action_button_up_long:
+      - service: media_player.volume_up
+        metadata: {}
         data: {}
         target:
-          entity_id: light.guest_room
-      action_button_up_long: []
+          entity_id: media_player.guest_room_echo_show
       action_button_down_short:
       - service: light.turn_off
         data: {}
         target:
-          entity_id: light.guest_room
+          entity_id: light.guest_room_light
+      - service: light.turn_off
+        target:
+          entity_id:
+          - light.guest_room_lamp
+        data: {}
+      - service: media_player.play_media
+        data:
+          media_content_type: custom
+          media_content_id: Turn off your screen
+        target:
+          entity_id: media_player.guest_room_echo_show
       action_button_up_double:
-      - type: turn_on
-        device_id: 4875dd3867ce4b5e2dcfe16c535a8f86
-        entity_id: ed424323a4fc290e0be09dec3a44bc67
-        domain: switch
-      action_button_down_double:
-      - type: turn_off
-        device_id: 4875dd3867ce4b5e2dcfe16c535a8f86
-        entity_id: ed424323a4fc290e0be09dec3a44bc67
-        domain: switch
-- id: '1671116345592'
-  alias: Lounge Remote States
-  description: ''
-  use_blueprint:
-    path: EPMatt/ikea_e2001_e2002.yaml
-    input:
-      integration: Zigbee2MQTT
-      controller_entity: sensor.lounge_remote_action
-      helper_last_controller_event: input_text.lounge_remote_last_state
-      action_button_up_short:
       - service: light.turn_on
         data: {}
         target:
-          entity_id: light.lounge
-      action_button_down_short:
-      - service: light.turn_off
+          entity_id: light.guest_room_light
+      action_button_down_double: []
+      action_button_down_long:
+      - service: media_player.volume_down
+        metadata: {}
         data: {}
         target:
-          entity_id: light.lounge
-      action_button_down_long:
-      - device_id: 3f1a1e3af1a211eaa96f69882de0e925
-        domain: light
-        entity_id: light.lounge_corner_lamp
-        type: brightness_decrease
-      action_button_down_double:
-      - service: light.turn_off
-        data:
-          transition: 5
-        target:
-          entity_id: light.lounge
-      - type: turn_off
-        device_id: 3f1a1e3af1a211eaa96f69882de0e925
-        entity_id: light.lounge_corner_lamp
-        domain: light
-      action_button_left_short:
-      - type: turn_off
-        device_id: 3c021b0651dca44229fdfd8c740d7386
-        entity_id: switch.lounge_tv
-        domain: switch
-      action_button_right_short:
-      - type: turn_on
-        device_id: 3c021b0651dca44229fdfd8c740d7386
-        entity_id: switch.lounge_tv
-        domain: switch
-      action_button_left_double:
-      - service: scene.turn_on
-        target:
-          entity_id: scene.lounge_normal
-        metadata: {}
-      action_button_right_double:
-      - service: scene.turn_on
-        target:
-          entity_id: scene.watch_tv
-        metadata: {}
-      action_button_up_long:
-      - type: turn_on
-        device_id: 3f1a1e3af1a211eaa96f69882de0e925
-        entity_id: light.lounge_corner_lamp
-        domain: light
-      - device_id: 3f1a1e3af1a211eaa96f69882de0e925
-        domain: light
-        entity_id: light.lounge_corner_lamp
-        type: brightness_increase
-      action_button_up_double:
-      - type: toggle
-        device_id: 7adccebddf55340af0635228d988dd88
-        entity_id: switch.christmas_tree
-        domain: switch
-      button_up_double_press: true
-      button_right_double_press: true
-      button_left_double_press: true
-      button_down_double_press: true
-      button_down_long_loop: true
-      button_up_long_loop: true
-      button_right_long_loop: true
-      button_left_long_loop: true
+          entity_id: media_player.guest_room_echo_show
+      button_down_long_max_loop_repeats: 500
 - id: '1674657037158'
   alias: NSPanel Configuration
   description: ''
@@ -962,9 +805,9 @@
       indoortemp: sensor.downstairs_thermostat_temperature
       humidity: sensor.downstairs_thermostat_humidity
       climate: climate.downstairs
-      left_button_entity: light.back_door
+      left_button_entity: light.back_door_light
       left_button_name: Back door
-      right_button_entity: light.patio
+      right_button_entity: light.patio_light
       right_button_name: Patio
       button_page01_label: Control Modes
       button_page02_label: Scenes
@@ -1104,3 +947,903 @@
     entity_id: 08cd8ac6455d81d899fc5008d5cb249a
     domain: light
   mode: single
+- id: '1701115009986'
+  description: ''
+  trigger:
+  - type: opened
+    platform: device
+    device_id: 6f8559d1aa9eaadba986f9582dd59e42
+    entity_id: 3a08a1fe45e2ee31b4990437f809aa5c
+    domain: binary_sensor
+  condition:
+  - condition: state
+    entity_id: input_select.brightness
+    state:
+    - Dim
+    - Dark
+  action:
+  - type: turn_on
+    device_id: 0310dc65362a7761574235ef385900ed
+    entity_id: 5ef6609d7bee0398fa0100f1d52c0f6e
+    domain: light
+  mode: single
+- id: '1702144702162'
+  alias: Morning When Sunrise
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunrise
+    offset: 0
+  condition: []
+  action:
+  - service: input_select.select_option
+    target:
+      entity_id: input_select.time_of_day
+    data:
+      option: Morning
+  mode: single
+- id: '1702145032588'
+  alias: Sunset TimeOfDay Evening
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: 0
+  - platform: time
+    at: '18:00:00'
+  condition:
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: input_select.time_of_day
+      state: Evening
+  action:
+  - service: input_select.select_option
+    target:
+      entity_id: input_select.time_of_day
+    data:
+      option: Evening
+  mode: single
+- id: '1702145565515'
+  alias: Set TimeOfDay To Night
+  description: ''
+  trigger:
+  - platform: time
+    at: 02:00:00
+  - platform: state
+    entity_id:
+    - binary_sensor.in_bed
+    for:
+      hours: 0
+      minutes: 30
+      seconds: 0
+  condition:
+  - condition: or
+    conditions:
+    - condition: time
+      after: '21:00:00'
+    - condition: time
+      before: 02:01:00
+  action:
+  - service: input_select.select_option
+    target:
+      entity_id: input_select.time_of_day
+    data:
+      option: Night
+  mode: single
+- id: '1702145807178'
+  alias: Set TimeOfDay To Day
+  description: ''
+  trigger:
+  - platform: time
+    at: '10:30:00'
+  - platform: state
+    entity_id:
+    - binary_sensor.andy_in_bed
+    - binary_sensor.claire_in_bed
+    to: 'off'
+  condition:
+  - condition: and
+    conditions:
+    - condition: not
+      conditions:
+      - condition: state
+        entity_id: input_select.time_of_day
+        state: Day
+    - condition: time
+      after: 06:00:00
+      before: '12:00:00'
+  action:
+  - service: input_select.select_option
+    target:
+      entity_id: input_select.time_of_day
+    data:
+      option: Day
+  mode: single
+- id: '1702146102248'
+  alias: Set TimeOfDay To Afternoon
+  description: ''
+  trigger:
+  - platform: time
+    at: '12:01:00'
+  condition: []
+  action:
+  - service: input_select.select_option
+    target:
+      entity_id: input_select.time_of_day
+    data:
+      option: Afternoon
+  mode: single
+- id: '1705132035494'
+  alias: Ensure bed Socket on when sleeping
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - input_select.bedroom_mode
+    to: Sleeping
+  action:
+  - service: switch.turn_on
+    metadata: {}
+    data: {}
+    target:
+      entity_id: switch.bed_socket
+  mode: single
+- id: '1708902994480'
+  alias: Basement hall light off so turn on
+  description: ''
+  trigger:
+  - platform: device
+    type: turned_off
+    device_id: af83e8ef3369449dbdf87db03c8e46b8
+    entity_id: da1dbfd3de8b3365ab11d05675ab0ebc
+    domain: light
+  condition: []
+  action:
+  - delay:
+      hours: 0
+      minutes: 1
+      seconds: 0
+      milliseconds: 0
+  - type: turn_on
+    device_id: af83e8ef3369449dbdf87db03c8e46b8
+    entity_id: da1dbfd3de8b3365ab11d05675ab0ebc
+    domain: light
+  mode: single
+- id: '1709056643855'
+  alias: Turn on extractor fan
+  description: ''
+  trigger:
+  - type: pm25
+    platform: device
+    device_id: 7c997ccb1bc8fd71717b511229494490
+    entity_id: b91255e7f0c832496c13e82d8816c48a
+    domain: sensor
+    above: 40
+  - type: humidity
+    platform: device
+    device_id: 7c997ccb1bc8fd71717b511229494490
+    entity_id: cca0856fa881c95a112155145f3c1856
+    domain: sensor
+    above: 80
+  condition: []
+  action:
+  - type: turn_on
+    device_id: 53fee161c82e36216a2588d4db48d14e
+    entity_id: 298e9c49e7a82bf1806662b428b52632
+    domain: fan
+  mode: single
+- id: '1709056785566'
+  alias: 'Turn off extractor '
+  description: ''
+  trigger:
+  - type: humidity
+    platform: device
+    device_id: 7c997ccb1bc8fd71717b511229494490
+    entity_id: cca0856fa881c95a112155145f3c1856
+    domain: sensor
+    below: 80
+  - type: pm25
+    platform: device
+    device_id: 7c997ccb1bc8fd71717b511229494490
+    entity_id: b91255e7f0c832496c13e82d8816c48a
+    domain: sensor
+    below: 40
+  condition:
+  - type: is_humidity
+    condition: device
+    device_id: 7c997ccb1bc8fd71717b511229494490
+    entity_id: cca0856fa881c95a112155145f3c1856
+    domain: sensor
+    below: 80
+  - type: is_pm25
+    condition: device
+    device_id: 7c997ccb1bc8fd71717b511229494490
+    entity_id: b91255e7f0c832496c13e82d8816c48a
+    domain: sensor
+    below: 40
+  action:
+  - type: turn_off
+    device_id: 53fee161c82e36216a2588d4db48d14e
+    entity_id: 298e9c49e7a82bf1806662b428b52632
+    domain: fan
+  mode: single
+- id: '1709132585047'
+  alias: Turn on Bathroom Fan
+  description: ''
+  trigger:
+  - type: humidity
+    platform: device
+    device_id: 8edd0ff47793be99d073bb320cf6df1d
+    entity_id: fb7ba3be02e5c168029e24bbbc432f78
+    domain: sensor
+    above: 75
+  condition: []
+  action:
+  - service: scene.turn_on
+    metadata: {}
+    target:
+      entity_id: scene.showering
+  mode: single
+- id: '1709132689233'
+  alias: Turn off bathroom fan
+  description: ''
+  trigger:
+  - type: humidity
+    platform: device
+    device_id: 8edd0ff47793be99d073bb320cf6df1d
+    entity_id: fb7ba3be02e5c168029e24bbbc432f78
+    domain: sensor
+    below: 75
+  condition: []
+  action:
+  - service: scene.turn_on
+    metadata: {}
+    target:
+      entity_id: scene.bathroom_normal
+  mode: single
+- id: '1709381408849'
+  alias: Lounge Switch
+  description: ''
+  use_blueprint:
+    path: damru/ikea-rodret_E2201_ZHA-Z2M_control-anything.yaml
+    input:
+      remote_name: Lounge Switch
+      on_press_action:
+      - service: light.turn_on
+        data: {}
+        target:
+          entity_id: light.lounge_light
+      off_press_action:
+      - service: light.turn_off
+        target:
+          entity_id:
+          - light.lounge_light
+        data: {}
+      on_double_press: true
+      on_double_press_action:
+      - service: scene.turn_on
+        metadata: {}
+        target:
+          entity_id: scene.watch_tv
+      off_double_press: true
+      off_double_press_action:
+      - service: scene.turn_on
+        metadata: {}
+        target:
+          entity_id: scene.lounge_normal
+      on_hold_action:
+      - service: media_player.volume_up
+        metadata: {}
+        data: {}
+        target:
+          entity_id: media_player.lounge_echo_plus
+      off_hold_action:
+      - service: media_player.volume_down
+        metadata: {}
+        data: {}
+        target:
+          entity_id: media_player.lounge_echo_plus
+      helper_hold_delay: 750
+      helper_max_loops: 10
+- id: '1709381681373'
+  alias: Drawing Room Switch
+  description: ''
+  use_blueprint:
+    path: damru/ikea-rodret_E2201_ZHA-Z2M_control-anything.yaml
+    input:
+      remote_name: Drawing Room Switch
+      on_press_action:
+      - service: light.turn_on
+        metadata: {}
+        data: {}
+        target:
+          entity_id: light.drawing_room_light
+      off_press_action:
+      - service: light.turn_off
+        data: {}
+        target:
+          entity_id: light.drawing_room_light
+      on_hold_action:
+      - service: media_player.volume_up
+        metadata: {}
+        data: {}
+        target:
+          entity_id: media_player.drawing_room_echo_dot
+      off_hold_action:
+      - service: media_player.volume_down
+        metadata: {}
+        data: {}
+        target:
+          entity_id: media_player.drawing_room_echo_dot
+      on_double_press: true
+      on_double_press_action:
+      - service: light.turn_on
+        metadata: {}
+        data: {}
+        target:
+          entity_id:
+          - light.bookshelf_light
+          - light.display_cabinet_light
+      off_double_press_action:
+      - service: light.turn_off
+        target:
+          entity_id:
+          - light.bookshelf_light
+          - light.display_cabinet_light
+        data: {}
+      off_double_press: true
+      helper_hold_delay: 750
+      helper_max_loops: 10
+- id: '1709382599995'
+  alias: Snug Switch
+  description: ''
+  use_blueprint:
+    path: damru/ikea-rodret_E2201_ZHA-Z2M_control-anything.yaml
+    input:
+      remote_name: Snug Switch
+      on_press_action:
+      - service: light.turn_on
+        metadata: {}
+        data: {}
+        target:
+          entity_id: light.snug_light
+      off_press_action:
+      - service: light.turn_off
+        data: {}
+        target:
+          entity_id: light.snug_light
+      on_hold_action:
+      - service: media_player.volume_up
+        metadata: {}
+        data: {}
+        target:
+          entity_id: media_player.snug_echo_show
+      off_hold_action:
+      - service: media_player.volume_down
+        target:
+          entity_id:
+          - media_player.snug_echo_show
+        data: {}
+      on_double_press: true
+      off_double_press: true
+      on_double_press_action:
+      - service: scene.turn_on
+        metadata: {}
+        target:
+          entity_id: scene.watch_movie
+      off_double_press_action:
+      - service: scene.turn_on
+        metadata: {}
+        target:
+          entity_id: scene.lights_up
+      helper_hold_delay: 750
+      helper_max_loops: 10
+- id: '1709382680972'
+  alias: Dining Room Switch
+  description: ''
+  use_blueprint:
+    path: damru/ikea-rodret_E2201_ZHA-Z2M_control-anything.yaml
+    input:
+      remote_name: Dining Room Switch
+      on_press_action:
+      - service: light.turn_on
+        metadata: {}
+        data: {}
+        target:
+          entity_id: light.dining_room_light
+      off_press_action:
+      - service: light.turn_off
+        data: {}
+        target:
+          entity_id: light.dining_room_light
+      on_hold_action:
+      - service: media_player.volume_up
+        metadata: {}
+        data: {}
+        target:
+          entity_id: media_player.dining_room_echo_input
+      off_hold_action:
+      - service: media_player.volume_down
+        data: {}
+        target:
+          entity_id: media_player.dining_room_echo_input
+      on_double_press: false
+      off_double_press: false
+      on_double_press_action: []
+      off_double_press_action: []
+      helper_hold_delay: 750
+      helper_max_loops: 10
+- id: '1709382833657'
+  alias: Utility Room Switch
+  description: ''
+  use_blueprint:
+    path: damru/ikea-rodret_E2201_ZHA-Z2M_control-anything.yaml
+    input:
+      remote_name: Utility Room Switch
+      on_press_action:
+      - service: light.turn_on
+        data: {}
+        target:
+          entity_id: light.utility_room_light
+      off_press_action:
+      - service: light.turn_off
+        data: {}
+        target:
+          entity_id: light.utility_room_light
+      on_hold_action:
+      - service: media_player.volume_up
+        metadata: {}
+        data: {}
+        target:
+          entity_id: media_player.dressing_room_echo_dot
+      off_hold_action:
+      - service: media_player.volume_down
+        data: {}
+        target:
+          entity_id: media_player.dressing_room_echo_dot
+      on_double_press: true
+      off_double_press: true
+      on_double_press_action:
+      - service: light.turn_on
+        target:
+          entity_id:
+          - light.cellar_door_light
+        data: {}
+      off_double_press_action:
+      - service: light.turn_off
+        target:
+          entity_id:
+          - light.cellar_door_light
+        data: {}
+      helper_hold_delay: 750
+      helper_max_loops: 10
+- id: '1709382900054'
+  alias: Toilet Switch
+  description: ''
+  use_blueprint:
+    path: damru/ikea-rodret_E2201_ZHA-Z2M_control-anything.yaml
+    input:
+      remote_name: Toilet Switch
+      on_press_action:
+      - service: light.turn_on
+        data: {}
+        target:
+          entity_id: light.toilet_light
+      off_press_action:
+      - service: light.turn_off
+        target:
+          entity_id:
+          - light.toilet_light
+        data: {}
+      on_hold_action: []
+      off_hold_action: []
+      on_double_press: false
+      off_double_press: false
+      on_double_press_action: []
+      off_double_press_action: []
+      helper_hold_delay: 250
+      helper_max_loops: 10
+- id: '1709382933875'
+  alias: Store Switch
+  description: ''
+  use_blueprint:
+    path: damru/ikea-rodret_E2201_ZHA-Z2M_control-anything.yaml
+    input:
+      remote_name: Store Switch
+      on_press_action:
+      - service: light.turn_on
+        data: {}
+        target:
+          entity_id: light.store_light
+      off_press_action:
+      - service: light.turn_off
+        data: {}
+        target:
+          entity_id: light.store_light
+      on_hold_action: []
+      off_hold_action: []
+      on_double_press: false
+      off_double_press: false
+      on_double_press_action: []
+      off_double_press_action: []
+      helper_hold_delay: 250
+      helper_max_loops: 10
+- id: '1709383049799'
+  alias: Bedroom Switch
+  description: ''
+  use_blueprint:
+    path: damru/ikea-rodret_E2201_ZHA-Z2M_control-anything.yaml
+    input:
+      remote_name: Bedroom Switch
+      on_press_action:
+      - service: light.turn_on
+        metadata: {}
+        data: {}
+        target:
+          entity_id: light.bedroom_light
+      - service: light.turn_off
+        data:
+          transition: 3
+        target:
+          entity_id: light.bedroom_lamp
+      off_press_action:
+      - service: light.turn_off
+        data: {}
+        target:
+          entity_id: light.bedroom_light
+      on_hold_action:
+      - service: media_player.volume_up
+        metadata: {}
+        data: {}
+        target:
+          entity_id: media_player.bedroom_echo_show
+      off_hold_action:
+      - service: media_player.volume_down
+        data: {}
+        target:
+          entity_id: media_player.bedroom_echo_show
+      on_double_press: true
+      off_double_press: true
+      on_double_press_action:
+      - service: scene.turn_on
+        metadata: {}
+        target:
+          entity_id: scene.get_up
+      off_double_press_action:
+      - service: scene.turn_on
+        metadata: {}
+        target:
+          entity_id: scene.get_ready_for_bed
+      helper_hold_delay: 750
+      helper_max_loops: 10
+- id: '1709383207462'
+  alias: Guest Room Switch
+  description: ''
+  use_blueprint:
+    path: damru/ikea-rodret_E2201_ZHA-Z2M_control-anything.yaml
+    input:
+      remote_name: Guest Room Switch
+      on_press_action:
+      - service: light.turn_on
+        metadata: {}
+        data: {}
+        target:
+          entity_id: light.guest_room_light
+      - service: light.turn_off
+        target:
+          entity_id:
+          - light.guest_room_lamp
+        data: {}
+      off_press_action:
+      - service: light.turn_off
+        target:
+          entity_id:
+          - light.guest_room_light
+        data: {}
+      on_hold_action:
+      - service: media_player.volume_up
+        metadata: {}
+        data: {}
+        target:
+          entity_id: media_player.guest_room_echo_show
+      off_hold_action:
+      - service: media_player.volume_down
+        data: {}
+        target:
+          entity_id: media_player.guest_room_echo_show
+      on_double_press: true
+      off_double_press: true
+      on_double_press_action:
+      - service: light.turn_on
+        metadata: {}
+        data: {}
+        target:
+          entity_id: light.guest_room_lamp
+      - service: light.turn_off
+        target:
+          entity_id:
+          - light.guest_room_light
+        data: {}
+      off_double_press_action:
+      - service: light.turn_off
+        target:
+          entity_id:
+          - light.guest_room_lamp
+        data: {}
+      helper_hold_delay: 750
+      helper_max_loops: 10
+- id: '1709383316606'
+  alias: Dressing Room Switch
+  description: ''
+  use_blueprint:
+    path: damru/ikea-rodret_E2201_ZHA-Z2M_control-anything.yaml
+    input:
+      remote_name: Dressing Room Switch
+      on_press_action:
+      - service: light.turn_on
+        metadata: {}
+        data: {}
+        target:
+          entity_id: light.dressing_room_light
+      off_press_action:
+      - service: light.turn_off
+        target:
+          entity_id:
+          - light.dressing_room_light
+        data: {}
+      on_hold_action:
+      - service: media_player.volume_up
+        metadata: {}
+        data: {}
+        target:
+          entity_id: media_player.bedroom_echo_spot
+      off_hold_action:
+      - service: media_player.volume_down
+        data: {}
+        target:
+          entity_id: media_player.bedroom_echo_spot
+      on_double_press: false
+      off_double_press: false
+      on_double_press_action: []
+      off_double_press_action: []
+      helper_hold_delay: 250
+      helper_max_loops: 10
+- id: '1709384428713'
+  alias: Bathroom Switch
+  description: ''
+  use_blueprint:
+    path: damru/ikea-rodret_E2201_ZHA-Z2M_control-anything.yaml
+    input:
+      remote_name: Bathroom Switch
+      on_press_action:
+      - service: light.turn_on
+        metadata: {}
+        data: {}
+        target:
+          entity_id: light.bathroom_light
+      off_press_action:
+      - service: light.turn_off
+        data: {}
+        target:
+          entity_id: light.bathroom_light
+      on_hold_action:
+      - service: scene.turn_on
+        metadata: {}
+        target:
+          entity_id: scene.showering
+      off_hold_action:
+      - service: scene.turn_on
+        metadata: {}
+        target:
+          entity_id: scene.bathroom_normal
+      on_double_press: true
+      off_double_press: true
+      on_double_press_action:
+      - service: light.turn_on
+        data: {}
+        target:
+          entity_id: light.mirror_light
+      off_double_press_action:
+      - service: light.turn_off
+        target:
+          entity_id:
+          - light.mirror_light
+        data: {}
+      helper_hold_delay: 1000
+      helper_max_loops: 1
+- id: '1709384557675'
+  alias: Studio Switch
+  description: ''
+  use_blueprint:
+    path: damru/ikea-rodret_E2201_ZHA-Z2M_control-anything.yaml
+    input:
+      remote_name: Studio Switch
+      on_press_action:
+      - service: light.turn_on
+        metadata: {}
+        data: {}
+        target:
+          entity_id: light.studio_light
+      off_press_action:
+      - service: light.turn_off
+        data: {}
+        target:
+          entity_id: light.studio_light
+      on_hold_action:
+      - service: media_player.volume_up
+        metadata: {}
+        data: {}
+        target:
+          entity_id: media_player.studio_echo_dot
+      off_hold_action:
+      - service: media_player.volume_down
+        data: {}
+        target:
+          entity_id: media_player.studio_echo_dot
+      on_double_press: true
+      off_double_press: true
+      on_double_press_action:
+      - service: switch.turn_on
+        target:
+          entity_id: switch.studio_lamp
+        data: {}
+      off_double_press_action:
+      - service: switch.turn_off
+        target:
+          entity_id:
+          - switch.studio_lamp
+        data: {}
+      helper_hold_delay: 750
+      helper_max_loops: 10
+- id: '1710587394031'
+  alias: Kitchen Switch
+  description: ''
+  use_blueprint:
+    path: EPMatt/ikea_e2001_e2002.yaml
+    input:
+      integration: Zigbee2MQTT
+      controller_entity: sensor.kitchen_switch_action
+      helper_last_controller_event: input_text.kitchen_switch_state
+      action_button_up_short:
+      - service: light.turn_on
+        metadata: {}
+        data: {}
+        target:
+          entity_id: light.kitchen_light
+      action_button_down_short:
+      - service: light.turn_off
+        metadata: {}
+        data: {}
+        target:
+          entity_id: light.kitchen_light
+      action_button_up_double:
+      - service: light.turn_on
+        metadata: {}
+        data:
+          transition: 2
+          rgb_color:
+          - 255
+          - 255
+          - 255
+        target:
+          entity_id: light.breakfast_bar_lamp
+      action_button_down_double:
+      - service: light.turn_off
+        metadata: {}
+        data: {}
+        target:
+          entity_id: light.breakfast_bar_lamp
+      action_button_left_short:
+      - service: light.turn_on
+        metadata: {}
+        data: {}
+        target:
+          entity_id:
+          - light.fence_lights
+          - light.shed_light
+          - light.back_door_light
+      action_button_right_short:
+      - service: light.turn_off
+        metadata: {}
+        data: {}
+        target:
+          entity_id:
+          - light.fence_lights
+          - light.shed_light
+          - light.back_door_light
+      action_button_up_long:
+      - service: light.turn_on
+        metadata: {}
+        data: {}
+- id: '1714152051507'
+  alias: Hallway Lamp On At Sunset
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: '-1'
+  condition:
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: input_select.location_mode
+      state: Home
+    - condition: state
+      entity_id: input_select.location_mode
+      state: OneAway
+    - condition: state
+      entity_id: input_select.location_mode
+      state: Guests
+    - condition: state
+      entity_id: input_select.location_mode
+      state: HouseSitter
+  action:
+  - type: turn_on
+    device_id: 3f19fc07f1a211ea95ad67c149799e5f
+    entity_id: 69604199395a225aac9e6fe69de4d16b
+    domain: light
+  mode: single
+- id: '1714831180233'
+  alias: Bedside Remote Actions
+  description: ''
+  use_blueprint:
+    path: EPMatt/ikea_e1743.yaml
+    input:
+      integration: Zigbee2MQTT
+      controller_device: 58709344f9c7b9f27d636aa393492456
+      controller_entity: sensor.0xf082c0fffe3d9a0f_action
+      helper_last_controller_event: input_text.bedside_remote_last_state
+      action_button_up_short:
+      - service: light.turn_on
+        data:
+          rgb_color:
+          - 255
+          - 255
+          - 255
+        target:
+          entity_id: light.bedroom_lamp
+      action_button_up_long:
+      - service: media_player.volume_up
+        metadata: {}
+        data: {}
+        target:
+          entity_id: media_player.bedroom_echo_show
+      action_button_up_release: []
+      action_button_up_double:
+      - service: light.turn_on
+        data:
+          transition: 5
+          color_temp: 318
+          brightness: 255
+        target:
+          entity_id: light.bedroom_light
+      action_button_down_short:
+      - service: light.turn_off
+        data: {}
+        target:
+          area_id: 704af1f2a4304506b399f87bbb27af1f
+      - service: media_player.play_media
+        data:
+          media_content_type: custom
+          media_content_id: Turn off your screen
+        target:
+          entity_id: media_player.bedroom_echo_show
+      action_button_down_long:
+      - service: media_player.volume_down
+        metadata: {}
+        data: {}
+        target:
+          entity_id: media_player.bedroom_echo_show
+      action_button_down_double:
+      - service: media_player.play_media
+        data:
+          media_content_type: custom
+          media_content_id: stop alarm
+        target:
+          entity_id: media_player.bedroom_echo_show
+      button_up_long_loop: true
+      button_down_long_loop: true
+      button_up_double_press: true
+      button_down_double_press: true
+      helper_debounce_delay: 100

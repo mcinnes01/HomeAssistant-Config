@@ -1,3 +1,4 @@
+using System.IO;
 using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -10,6 +11,8 @@ using NetDaemonApps.Infrastructure.State;
 
 try
 {
+    Environment.CurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+
     var host = Host.CreateDefaultBuilder(args)
         .UseNetDaemonAppSettings()
         .UseNetDaemonDefaultLogging()
@@ -23,7 +26,8 @@ try
                 .AddAppsFromAssembly(Assembly.GetExecutingAssembly())
                 .AddNetDaemonStateManager()
                 .AddNetDaemonScheduler()
-                .AddGeneratedCode();
+                .AddGeneratedCode()
+                .SetupDependencies();
             services.AddSingleton<INotificationService, NotificationService>();
             services.AddTransient<ILightingStates, LightingStates>();
         })
@@ -32,6 +36,11 @@ try
     // Configure Logbook helper extension
     var services = host.Services.GetService<IServices>();
     LogbookHelper.Configure(services?.Logbook);
+
+    string[] files = Directory.GetFiles(Environment.CurrentDirectory, "*", SearchOption.AllDirectories);
+    foreach (string file in files) {
+        Console.WriteLine(file);
+    }
 
     await host
       .RunAsync()

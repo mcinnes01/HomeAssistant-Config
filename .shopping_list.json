@@ -37,7 +37,7 @@
   {
     "name": "Electric cabinet door open",
     "id": "fa7203b0bccd4f238d0eddc7dcc9cc97",
-    "complete": false
+    "complete": true
   },
   {
     "name": "Welcome home when door opens",
@@ -82,7 +82,7 @@
   {
     "name": "Fix time of day going to day at night",
     "id": "06d9a7521caa4d829a8b112402cf4182",
-    "complete": false
+    "complete": true
   },
   {
     "name": "Fix time of day not going to evening",

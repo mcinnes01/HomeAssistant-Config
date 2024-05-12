@@ -28,7 +28,7 @@ public class SleepAnalyser
             {
                 _logger.LogTrace(@$"Light Mode: {_entities.InputSelect.LightControlMode.State},
                     Andy In Bed: {_entities.BinarySensor.AndyInBed.State},
-                    Light: {_entities.Light.Bedroom.State},
+                    Light: {_entities.Light.BedroomLight.State},
                     Time: {TimeOnly.FromDateTime(DateTime.Now)} >= {Constants.NIGHT_START}");
                 return e.New.IsOn()
                 && (_entities.BinarySensor.ClaireInBed.IsOn()
@@ -54,7 +54,7 @@ public class SleepAnalyser
             {
                 _logger.LogTrace(@$"Light Mode: {_entities.InputSelect.LightControlMode.State},
                     Claire In Bed: {_entities.BinarySensor.ClaireInBed.State},
-                    Light: {_entities.Light.Bedroom.State},
+                    Light: {_entities.Light.BedroomLight.State},
                     Time: {TimeOnly.FromDateTime(DateTime.Now)} >= {Constants.NIGHT_START}");
                 return e.New.IsOn()
                 && (_entities.BinarySensor.AndyInBed.IsOn()
