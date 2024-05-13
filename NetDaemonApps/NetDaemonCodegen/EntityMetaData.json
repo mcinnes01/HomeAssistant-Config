@@ -2869,7 +2869,7 @@
         {
           "jsonName": "action",
           "cSharpName": "Action",
-          "clrType": "System.String"
+          "clrType": "System.Object"
         },
         {
           "jsonName": "battery",
@@ -3518,6 +3518,11 @@
           "cSharpName": "ElkBbl6"
         },
         {
+          "id": "device_tracker.elk_bl_0_elk_bl_0",
+          "friendlyName": "ELK_BL 0 ELK_BL 0",
+          "cSharpName": "ElkBl0ElkBl0"
+        },
+        {
           "id": "device_tracker.eml_l09_11_cloudclone",
           "friendlyName": "EML-L09%11%CloudClone EML-L09%11%CloudClone",
           "cSharpName": "EmlL0911Cloudclone"
@@ -3586,6 +3591,11 @@
           "id": "device_tracker.instinct_solar",
           "friendlyName": "Instinct Solar Instinct Solar",
           "cSharpName": "InstinctSolar"
+        },
+        {
+          "id": "device_tracker.ion_200_rt_ion_200_rt",
+          "friendlyName": "Ion 200 RT Ion 200 RT",
+          "cSharpName": "Ion200RtIon200Rt"
         },
         {
           "id": "device_tracker.ipad116",
@@ -14971,6 +14981,121 @@
         {
           "jsonName": "com.paypal.android.p2pmobile_1660956105_post_time",
           "cSharpName": "Com_paypal_android_p2pmobile1660956105PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.appInfo_com.android.systemui_2131952516",
+          "cSharpName": "Android_appInfoCom_android_systemui2131952516",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.bigText_com.android.systemui_2131952516",
+          "cSharpName": "Android_bigTextCom_android_systemui2131952516",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.infoText_com.android.systemui_2131952516",
+          "cSharpName": "Android_infoTextCom_android_systemui2131952516",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon_com.android.systemui_2131952516",
+          "cSharpName": "Android_largeIconCom_android_systemui2131952516",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.progressIndeterminate_com.android.systemui_2131952516",
+          "cSharpName": "Android_progressIndeterminateCom_android_systemui2131952516",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.progressMax_com.android.systemui_2131952516",
+          "cSharpName": "Android_progressMaxCom_android_systemui2131952516",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progress_com.android.systemui_2131952516",
+          "cSharpName": "Android_progressCom_android_systemui2131952516",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.reduced.images_com.android.systemui_2131952516",
+          "cSharpName": "Android_reduced_imagesCom_android_systemui2131952516",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.remoteInputHistory_com.android.systemui_2131952516",
+          "cSharpName": "Android_remoteInputHistoryCom_android_systemui2131952516",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.showChronometer_com.android.systemui_2131952516",
+          "cSharpName": "Android_showChronometerCom_android_systemui2131952516",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_com.android.systemui_2131952516",
+          "cSharpName": "Android_showWhenCom_android_systemui2131952516",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.subText_com.android.systemui_2131952516",
+          "cSharpName": "Android_subTextCom_android_systemui2131952516",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.substName_com.android.systemui_2131952516",
+          "cSharpName": "Android_substNameCom_android_systemui2131952516",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.template_com.android.systemui_2131952516",
+          "cSharpName": "Android_templateCom_android_systemui2131952516",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_com.android.systemui_2131952516",
+          "cSharpName": "Android_textCom_android_systemui2131952516",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_com.android.systemui_2131952516",
+          "cSharpName": "Android_titleCom_android_systemui2131952516",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "androidx.core.app.extra.COMPAT_TEMPLATE_com.android.systemui_2131952516",
+          "cSharpName": "Androidx_core_app_extra_COMPATTEMPLATECom_android_systemui2131952516",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.android.systemui_2131952516_category",
+          "cSharpName": "Com_android_systemui2131952516Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.android.systemui_2131952516_channel_id",
+          "cSharpName": "Com_android_systemui2131952516ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.android.systemui_2131952516_group_id",
+          "cSharpName": "Com_android_systemui2131952516GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.android.systemui_2131952516_is_clearable",
+          "cSharpName": "Com_android_systemui2131952516IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.android.systemui_2131952516_is_ongoing",
+          "cSharpName": "Com_android_systemui2131952516IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.android.systemui_2131952516_post_time",
+          "cSharpName": "Com_android_systemui2131952516PostTime",
           "clrType": "System.Double"
         }
       ]
