@@ -102,3 +102,71 @@ alarm_triggered:
       media_content_type: sound
   mode: single
   icon: mdi:shield-home
+yeelight_dimmer:
+  alias: Yeelight Dimmer Up
+  mode: single
+  icon: mdi:lightbulb-on-50
+  fields:
+    entitiy_id:
+      name: entitiy_id
+      description: The entity ID of your bulb
+      example: light.your_light
+      required: true
+    button_state:
+      name: button_state
+      description: The entity ID of the input_text helper for your button state
+      example: input_text.your_button_state
+      required: true
+  sequence:
+  - variables:
+      counter: 0
+  - repeat:
+      while:
+      - condition: template
+        value_template: '{{ counter < 10 and ''brightness_move_up'' in states(button_state)
+          }}'
+      sequence:
+      - service: light.turn_on
+        metadata: {}
+        data:
+          brightness_step_pct: 10
+        target:
+          entity_id: '{{ entity_id }}'
+      - delay:
+          seconds: 1
+      - variables:
+          counter: '{{ counter + 1 }}'
+yeelight_dimmer_down:
+  alias: Yeelight Dimmer Down
+  mode: single
+  icon: mdi:lightbulb-on-50
+  fields:
+    entitiy_id:
+      name: entitiy_id
+      description: The entity ID of your bulb
+      example: light.your_light
+      required: true
+    button_state:
+      name: button_state
+      description: The entity ID of the input_text helper for your button state
+      example: input_text.your_button_state
+      required: true
+  sequence:
+  - variables:
+      counter: 0
+  - repeat:
+      while:
+      - condition: template
+        value_template: '{{ counter < 10 and ''brightness_move_down'' in states(button_state)
+          }}'
+      sequence:
+      - service: light.turn_on
+        metadata: {}
+        data:
+          brightness_step_pct: -10
+        target:
+          entity_id: '{{ entity_id }}'
+      - delay:
+          seconds: 1
+      - variables:
+          counter: '{{ counter + 1 }}'

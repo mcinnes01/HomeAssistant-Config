@@ -1716,7 +1716,9 @@
         metadata: {}
         data: {}
         target:
-          entity_id: light.kitchen_light
+          entity_id:
+          - light.kitchen_light
+          - light.breakfast_bar_lamp
       action_button_up_double:
       - service: light.turn_on
         metadata: {}
@@ -1735,15 +1737,6 @@
         target:
           entity_id: light.breakfast_bar_lamp
       action_button_left_short:
-      - service: light.turn_on
-        metadata: {}
-        data: {}
-        target:
-          entity_id:
-          - light.fence_lights
-          - light.shed_light
-          - light.back_door_light
-      action_button_right_short:
       - service: light.turn_off
         metadata: {}
         data: {}
@@ -1752,10 +1745,89 @@
           - light.fence_lights
           - light.shed_light
           - light.back_door_light
-      action_button_up_long:
+      action_button_right_short:
       - service: light.turn_on
         metadata: {}
         data: {}
+        target:
+          entity_id:
+          - light.fence_lights
+          - light.shed_light
+          - light.back_door_light
+      action_button_up_long:
+      - service: script.turn_on
+        data:
+          variables:
+            entity_id: light.breakfast_bar_lamp
+            button_state: input_text.kitchen_switch_state
+        target:
+          entity_id: script.yeelight_dimmer_up
+        enabled: true
+      action_button_left_long:
+      - service: media_player.volume_down
+        metadata: {}
+        data: {}
+        target:
+          entity_id: media_player.kitchen_echo_show
+      action_button_right_long:
+      - service: media_player.volume_up
+        target:
+          entity_id:
+          - media_player.kitchen_echo_show
+        data: {}
+      action_button_left_double:
+      - service: light.turn_off
+        metadata: {}
+        data: {}
+        target:
+          entity_id: light.patio_light
+      action_button_right_double:
+      - service: light.turn_on
+        metadata: {}
+        data: {}
+        target:
+          entity_id: light.patio_light
+      button_left_long_loop: true
+      button_left_long_max_loop_repeats: 3
+      button_right_long_loop: true
+      button_right_long_max_loop_repeats: 3
+      button_up_long_loop: true
+      button_down_long_loop: true
+      button_up_long_max_loop_repeats: 2
+      button_down_long_max_loop_repeats: 2
+      button_left_double_press: true
+      button_right_double_press: true
+      button_up_double_press: true
+      button_down_double_press: true
+      action_button_down_long:
+      - service: script.turn_on
+        data:
+          variables:
+            entity_id: light.breakfast_bar_lamp
+            button_state: input_text.kitchen_switch_state
+        target:
+          entity_id: script.yeelight_dimmer_down
+        enabled: true
+      helper_double_press_delay: 500
+      helper_debounce_delay: 0
+      action_button_up_release:
+      - service: script.turn_off
+        data:
+          variables:
+            entity_id: light.breakfast_bar_lamp
+            button_state: input_text.kitchen_switch_state
+        target:
+          entity_id: script.yeelight_dimmer_up
+        enabled: true
+      action_button_down_release:
+      - service: script.turn_off
+        data:
+          variables:
+            entity_id: light.breakfast_bar_lamp
+            button_state: input_text.kitchen_switch_state
+        target:
+          entity_id: script.yeelight_dimmer_down
+        enabled: true
 - id: '1714152051507'
   alias: Hallway Lamp On At Sunset
   description: ''
@@ -1847,3 +1919,66 @@
       button_up_double_press: true
       button_down_double_press: true
       helper_debounce_delay: 100
+- id: '1716398629637'
+  alias: Keep Basement Hall On
+  description: ''
+  trigger:
+  - platform: device
+    type: turned_off
+    device_id: af83e8ef3369449dbdf87db03c8e46b8
+    entity_id: 4b4e36d21185742999e4737fa9799698
+    domain: switch
+  condition: []
+  action:
+  - delay:
+      hours: 0
+      minutes: 1
+      seconds: 0
+      milliseconds: 0
+  - type: turn_on
+    device_id: af83e8ef3369449dbdf87db03c8e46b8
+    entity_id: 4b4e36d21185742999e4737fa9799698
+    domain: switch
+  mode: single
+- id: '1716398696678'
+  alias: Keep Hallway Light On
+  description: ''
+  trigger:
+  - platform: device
+    type: turned_off
+    device_id: 53fee161c82e36216a2588d4db48d14e
+    entity_id: 238b38c8ff5e0feae04bd525730beb6a
+    domain: switch
+  condition: []
+  action:
+  - delay:
+      hours: 0
+      minutes: 1
+      seconds: 0
+      milliseconds: 0
+  - type: turn_on
+    device_id: 53fee161c82e36216a2588d4db48d14e
+    entity_id: 238b38c8ff5e0feae04bd525730beb6a
+    domain: switch
+  mode: single
+- id: '1716399388502'
+  alias: Keep Cabinet Light On
+  description: ''
+  trigger:
+  - platform: device
+    type: turned_off
+    device_id: 64d07acdf42b5cdc381518c91beffdc9
+    entity_id: 96092ec45fbc60be3b1c297a9fde0e75
+    domain: light
+  condition: []
+  action:
+  - delay:
+      hours: 0
+      minutes: 1
+      seconds: 0
+      milliseconds: 0
+  - type: turn_on
+    device_id: 64d07acdf42b5cdc381518c91beffdc9
+    entity_id: 96092ec45fbc60be3b1c297a9fde0e75
+    domain: light
+  mode: single

@@ -26,8 +26,7 @@ try
                 .AddAppsFromAssembly(Assembly.GetExecutingAssembly())
                 .AddNetDaemonStateManager()
                 .AddNetDaemonScheduler()
-                .AddGeneratedCode()
-                .SetupDependencies();
+                .AddGeneratedCode();
             services.AddSingleton<INotificationService, NotificationService>();
             services.AddTransient<ILightingStates, LightingStates>();
         })
