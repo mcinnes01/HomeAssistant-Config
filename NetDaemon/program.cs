@@ -8,22 +8,32 @@ try
 {
     Environment.CurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
 
-    await Host.CreateDefaultBuilder(args)
-              .UseNetDaemonAppSettings()
-              .UseCustomLogging()
-              .UseNetDaemonRuntime()
-              .UseNetDaemonTextToSpeech()
-              .UseNetDaemonMqttEntityManagement()
-              .ConfigureServices((context, services) =>
-                  services
-                      .AddAppsFromAssembly(Assembly.GetExecutingAssembly())
-                      .AddNetDaemonStateManager()
-                      .AddNetDaemonScheduler()
-                      .SetupDependencies()
-              )
-              .Build()
-              .RunAsync()
-              .ConfigureAwait(false);
+    var builder = Host.CreateDefaultBuilder(args);
+    builder.UseNetDaemonAppSettings();
+    builder.UseCustomLogging();
+    builder.UseNetDaemonRuntime();
+    builder.UseNetDaemonTextToSpeech();
+
+    var services = builder.Services.BuildServiceProvider();
+    var mqttServiceBefore = services.GetService<IMqttEntityManager>();
+    Console.WriteLine(mqttServiceBefore != null ? "IMqttEntityManager is registered." : "IMqttEntityManager is NOT registered.");
+
+    builder.UseNetDaemonMqttEntityManagement();
+
+    services = builder.Services.BuildServiceProvider();
+    var mqttServiceAfter = services.GetService<IMqttEntityManager>();
+    Console.WriteLine(mqttServiceAfter != null ? "IMqttEntityManager is registered." : "IMqttEntityManager is NOT registered.");
+
+    builder.ConfigureServices((context, services) =>
+        services
+            .AddAppsFromAssembly(Assembly.GetExecutingAssembly())
+            .AddNetDaemonStateManager()
+            .AddNetDaemonScheduler()
+            .SetupDependencies()
+    );
+
+    var app = builder.Build();
+    await app.RunAsync().ConfigureAwait(false);
 }
 catch (Exception e)
 {
