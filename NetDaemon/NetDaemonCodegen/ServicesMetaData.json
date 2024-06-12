@@ -925,1607 +925,6 @@
       }
     }
   },
-  "button": {
-    "press": {
-      "name": "Press",
-      "description": "Press the button entity.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "button"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "scene": {
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads the scenes from the YAML-configuration.",
-      "fields": {}
-    },
-    "apply": {
-      "name": "Apply",
-      "description": "Activates a scene with configuration.",
-      "fields": {
-        "entities": {
-          "required": true,
-          "example": "light.kitchen: \u0022on\u0022\nlight.ceiling:\n  state: \u0022on\u0022\n  brightness: 80\n",
-          "selector": {
-            "object": null
-          },
-          "name": "Entities state",
-          "description": "List of entities and their target state."
-        },
-        "transition": {
-          "selector": {
-            "number": {
-              "min": 0,
-              "max": 300,
-              "unit_of_measurement": "seconds"
-            }
-          },
-          "name": "Transition",
-          "description": "Time it takes the devices to transition into the states defined in the scene."
-        }
-      }
-    },
-    "create": {
-      "name": "Create",
-      "description": "Creates a new scene.",
-      "fields": {
-        "scene_id": {
-          "required": true,
-          "example": "all_lights",
-          "selector": {
-            "text": null
-          },
-          "name": "Scene entity ID",
-          "description": "The entity ID of the new scene."
-        },
-        "entities": {
-          "advanced": true,
-          "example": "light.tv_back_light: \u0022on\u0022\nlight.ceiling:\n  state: \u0022on\u0022\n  brightness: 200\n",
-          "selector": {
-            "object": null
-          },
-          "name": "Entities state",
-          "description": "List of entities and their target state. If your entities are already in the target state right now, use \u0060snapshot_entities\u0060 instead."
-        },
-        "snapshot_entities": {
-          "example": "- light.ceiling\n- light.kitchen\n",
-          "selector": {
-            "entity": {
-              "multiple": true
-            }
-          },
-          "name": "Snapshot entities",
-          "description": "List of entities to be included in the snapshot. By taking a snapshot, you record the current state of those entities. If you do not want to use the current state of all your entities for this scene, you can combine the \u0060snapshot_entities\u0060 with \u0060entities\u0060."
-        }
-      }
-    },
-    "delete": {
-      "name": "Delete",
-      "description": "Deletes a dynamically created scene.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "integration": "homeassistant",
-            "domain": [
-              "scene"
-            ]
-          }
-        ]
-      }
-    },
-    "turn_on": {
-      "name": "Activate",
-      "description": "Activates a scene.",
-      "fields": {
-        "transition": {
-          "selector": {
-            "number": {
-              "min": 0,
-              "max": 300,
-              "unit_of_measurement": "seconds"
-            }
-          },
-          "name": "Transition",
-          "description": "Time it takes the devices to transition into the states defined in the scene."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "scene"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "logbook": {
-    "log": {
-      "name": "Log",
-      "description": "Creates a custom entry in the logbook.",
-      "fields": {
-        "name": {
-          "required": true,
-          "example": "Kitchen",
-          "selector": {
-            "text": null
-          },
-          "name": "Name",
-          "description": "Custom name for an entity, can be referenced using an \u0060entity_id\u0060."
-        },
-        "message": {
-          "required": true,
-          "example": "is being used",
-          "selector": {
-            "text": null
-          },
-          "name": "Message",
-          "description": "Message of the logbook entry."
-        },
-        "entity_id": {
-          "selector": {
-            "entity": null
-          },
-          "name": "Entity ID",
-          "description": "Entity to reference in the logbook entry."
-        },
-        "domain": {
-          "example": "light",
-          "selector": {
-            "text": null
-          },
-          "name": "Domain",
-          "description": "Determines which icon is used in the logbook entry. The icon illustrates the integration domain related to this logbook entry."
-        }
-      }
-    }
-  },
-  "group": {
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads group configuration, entities, and notify services from YAML-configuration.",
-      "fields": {}
-    },
-    "set": {
-      "name": "Set",
-      "description": "Creates/Updates a user group.",
-      "fields": {
-        "object_id": {
-          "required": true,
-          "example": "test_group",
-          "selector": {
-            "text": null
-          },
-          "name": "Object ID",
-          "description": "Object ID of this group. This object ID is used as part of the entity ID. Entity ID format: [domain].[object_id]."
-        },
-        "name": {
-          "example": "My test group",
-          "selector": {
-            "text": null
-          },
-          "name": "Name",
-          "description": "Name of the group."
-        },
-        "icon": {
-          "example": "mdi:camera",
-          "selector": {
-            "icon": null
-          },
-          "name": "Icon",
-          "description": "Name of the icon for the group."
-        },
-        "entities": {
-          "example": "domain.entity_id1, domain.entity_id2",
-          "selector": {
-            "entity": {
-              "multiple": true
-            }
-          },
-          "name": "Entities",
-          "description": "List of all members in the group. Cannot be used in combination with \u0060Add entities\u0060 or \u0060Remove entities\u0060."
-        },
-        "add_entities": {
-          "example": "domain.entity_id1, domain.entity_id2",
-          "selector": {
-            "entity": {
-              "multiple": true
-            }
-          },
-          "name": "Add entities",
-          "description": "List of members to be added to the group. Cannot be used in combination with \u0060Entities\u0060 or \u0060Remove entities\u0060."
-        },
-        "remove_entities": {
-          "example": "domain.entity_id1, domain.entity_id2",
-          "selector": {
-            "entity": {
-              "multiple": true
-            }
-          },
-          "name": "Remove entities",
-          "description": "List of members to be removed from a group. Cannot be used in combination with \u0060Entities\u0060 or \u0060Add entities\u0060."
-        },
-        "all": {
-          "selector": {
-            "boolean": null
-          },
-          "name": "All",
-          "description": "Enable this option if the group should only be used when all entities are in state \u0060on\u0060."
-        }
-      }
-    },
-    "remove": {
-      "name": "Remove",
-      "description": "Removes a group.",
-      "fields": {
-        "object_id": {
-          "required": true,
-          "example": "test_group",
-          "selector": {
-            "object": null
-          },
-          "name": "Object ID",
-          "description": "Object ID of this group. This object ID is used as part of the entity ID. Entity ID format: [domain].[object_id]."
-        }
-      }
-    }
-  },
-  "light": {
-    "turn_on": {
-      "name": "Turn on",
-      "description": "Turn on one or more lights and adjust properties of the light, even when they are turned on already.",
-      "fields": {
-        "transition": {
-          "filter": {
-            "supported_features": [
-              32
-            ]
-          },
-          "selector": {
-            "number": {
-              "min": 0,
-              "max": 300,
-              "unit_of_measurement": "seconds"
-            }
-          },
-          "name": "Transition",
-          "description": "Duration it takes to get to next state."
-        },
-        "rgb_color": {
-          "filter": {
-            "attribute": {
-              "supported_color_modes": [
-                "hs",
-                "xy",
-                "rgb",
-                "rgbw",
-                "rgbww"
-              ]
-            }
-          },
-          "selector": {
-            "color_rgb": null
-          },
-          "name": "Color",
-          "description": "The color in RGB format. A list of three integers between 0 and 255 representing the values of red, green, and blue."
-        },
-        "rgbw_color": {
-          "filter": {
-            "attribute": {
-              "supported_color_modes": [
-                "hs",
-                "xy",
-                "rgb",
-                "rgbw",
-                "rgbww"
-              ]
-            }
-          },
-          "advanced": true,
-          "example": "[255, 100, 100, 50]",
-          "selector": {
-            "object": null
-          },
-          "name": "RGBW-color",
-          "description": "The color in RGBW format. A list of four integers between 0 and 255 representing the values of red, green, blue, and white."
-        },
-        "rgbww_color": {
-          "filter": {
-            "attribute": {
-              "supported_color_modes": [
-                "hs",
-                "xy",
-                "rgb",
-                "rgbw",
-                "rgbww"
-              ]
-            }
-          },
-          "advanced": true,
-          "example": "[255, 100, 100, 50, 70]",
-          "selector": {
-            "object": null
-          },
-          "name": "RGBWW-color",
-          "description": "The color in RGBWW format. A list of five integers between 0 and 255 representing the values of red, green, blue, cold white, and warm white."
-        },
-        "color_name": {
-          "filter": {
-            "attribute": {
-              "supported_color_modes": [
-                "hs",
-                "xy",
-                "rgb",
-                "rgbw",
-                "rgbww"
-              ]
-            }
-          },
-          "advanced": true,
-          "selector": {
-            "select": {
-              "translation_key": "color_name",
-              "options": [
-                "homeassistant",
-                "aliceblue",
-                "antiquewhite",
-                "aqua",
-                "aquamarine",
-                "azure",
-                "beige",
-                "bisque",
-                "blanchedalmond",
-                "blue",
-                "blueviolet",
-                "brown",
-                "burlywood",
-                "cadetblue",
-                "chartreuse",
-                "chocolate",
-                "coral",
-                "cornflowerblue",
-                "cornsilk",
-                "crimson",
-                "cyan",
-                "darkblue",
-                "darkcyan",
-                "darkgoldenrod",
-                "darkgray",
-                "darkgreen",
-                "darkgrey",
-                "darkkhaki",
-                "darkmagenta",
-                "darkolivegreen",
-                "darkorange",
-                "darkorchid",
-                "darkred",
-                "darksalmon",
-                "darkseagreen",
-                "darkslateblue",
-                "darkslategray",
-                "darkslategrey",
-                "darkturquoise",
-                "darkviolet",
-                "deeppink",
-                "deepskyblue",
-                "dimgray",
-                "dimgrey",
-                "dodgerblue",
-                "firebrick",
-                "floralwhite",
-                "forestgreen",
-                "fuchsia",
-                "gainsboro",
-                "ghostwhite",
-                "gold",
-                "goldenrod",
-                "gray",
-                "green",
-                "greenyellow",
-                "grey",
-                "honeydew",
-                "hotpink",
-                "indianred",
-                "indigo",
-                "ivory",
-                "khaki",
-                "lavender",
-                "lavenderblush",
-                "lawngreen",
-                "lemonchiffon",
-                "lightblue",
-                "lightcoral",
-                "lightcyan",
-                "lightgoldenrodyellow",
-                "lightgray",
-                "lightgreen",
-                "lightgrey",
-                "lightpink",
-                "lightsalmon",
-                "lightseagreen",
-                "lightskyblue",
-                "lightslategray",
-                "lightslategrey",
-                "lightsteelblue",
-                "lightyellow",
-                "lime",
-                "limegreen",
-                "linen",
-                "magenta",
-                "maroon",
-                "mediumaquamarine",
-                "mediumblue",
-                "mediumorchid",
-                "mediumpurple",
-                "mediumseagreen",
-                "mediumslateblue",
-                "mediumspringgreen",
-                "mediumturquoise",
-                "mediumvioletred",
-                "midnightblue",
-                "mintcream",
-                "mistyrose",
-                "moccasin",
-                "navajowhite",
-                "navy",
-                "navyblue",
-                "oldlace",
-                "olive",
-                "olivedrab",
-                "orange",
-                "orangered",
-                "orchid",
-                "palegoldenrod",
-                "palegreen",
-                "paleturquoise",
-                "palevioletred",
-                "papayawhip",
-                "peachpuff",
-                "peru",
-                "pink",
-                "plum",
-                "powderblue",
-                "purple",
-                "red",
-                "rosybrown",
-                "royalblue",
-                "saddlebrown",
-                "salmon",
-                "sandybrown",
-                "seagreen",
-                "seashell",
-                "sienna",
-                "silver",
-                "skyblue",
-                "slateblue",
-                "slategray",
-                "slategrey",
-                "snow",
-                "springgreen",
-                "steelblue",
-                "tan",
-                "teal",
-                "thistle",
-                "tomato",
-                "turquoise",
-                "violet",
-                "wheat",
-                "white",
-                "whitesmoke",
-                "yellow",
-                "yellowgreen"
-              ]
-            }
-          },
-          "name": "Color name",
-          "description": "A human-readable color name."
-        },
-        "hs_color": {
-          "filter": {
-            "attribute": {
-              "supported_color_modes": [
-                "hs",
-                "xy",
-                "rgb",
-                "rgbw",
-                "rgbww"
-              ]
-            }
-          },
-          "advanced": true,
-          "example": "[300, 70]",
-          "selector": {
-            "object": null
-          },
-          "name": "Hue/Sat color",
-          "description": "Color in hue/sat format. A list of two integers. Hue is 0-360 and Sat is 0-100."
-        },
-        "xy_color": {
-          "filter": {
-            "attribute": {
-              "supported_color_modes": [
-                "hs",
-                "xy",
-                "rgb",
-                "rgbw",
-                "rgbww"
-              ]
-            }
-          },
-          "advanced": true,
-          "example": "[0.52, 0.43]",
-          "selector": {
-            "object": null
-          },
-          "name": "XY-color",
-          "description": "Color in XY-format. A list of two decimal numbers between 0 and 1."
-        },
-        "color_temp": {
-          "filter": {
-            "attribute": {
-              "supported_color_modes": [
-                "color_temp",
-                "hs",
-                "xy",
-                "rgb",
-                "rgbw",
-                "rgbww"
-              ]
-            }
-          },
-          "selector": {
-            "color_temp": {
-              "unit": "mired",
-              "min": 153,
-              "max": 500
-            }
-          },
-          "name": "Color temperature",
-          "description": "Color temperature in mireds."
-        },
-        "kelvin": {
-          "filter": {
-            "attribute": {
-              "supported_color_modes": [
-                "color_temp",
-                "hs",
-                "xy",
-                "rgb",
-                "rgbw",
-                "rgbww"
-              ]
-            }
-          },
-          "advanced": true,
-          "selector": {
-            "color_temp": {
-              "unit": "kelvin",
-              "min": 2000,
-              "max": 6500
-            }
-          },
-          "name": "Color temperature",
-          "description": "Color temperature in Kelvin."
-        },
-        "brightness": {
-          "filter": {
-            "attribute": {
-              "supported_color_modes": [
-                "brightness",
-                "color_temp",
-                "hs",
-                "xy",
-                "rgb",
-                "rgbw",
-                "rgbww"
-              ]
-            }
-          },
-          "advanced": true,
-          "selector": {
-            "number": {
-              "min": 0,
-              "max": 255
-            }
-          },
-          "name": "Brightness value",
-          "description": "Number indicating brightness, where 0 turns the light off, 1 is the minimum brightness, and 255 is the maximum brightness."
-        },
-        "brightness_pct": {
-          "filter": {
-            "attribute": {
-              "supported_color_modes": [
-                "brightness",
-                "color_temp",
-                "hs",
-                "xy",
-                "rgb",
-                "rgbw",
-                "rgbww"
-              ]
-            }
-          },
-          "selector": {
-            "number": {
-              "min": 0,
-              "max": 100,
-              "unit_of_measurement": "%"
-            }
-          },
-          "name": "Brightness",
-          "description": "Number indicating the percentage of full brightness, where 0 turns the light off, 1 is the minimum brightness, and 100 is the maximum brightness."
-        },
-        "brightness_step": {
-          "filter": {
-            "attribute": {
-              "supported_color_modes": [
-                "brightness",
-                "color_temp",
-                "hs",
-                "xy",
-                "rgb",
-                "rgbw",
-                "rgbww"
-              ]
-            }
-          },
-          "advanced": true,
-          "selector": {
-            "number": {
-              "min": -225,
-              "max": 255
-            }
-          },
-          "name": "Brightness step value",
-          "description": "Change brightness by an amount."
-        },
-        "brightness_step_pct": {
-          "filter": {
-            "attribute": {
-              "supported_color_modes": [
-                "brightness",
-                "color_temp",
-                "hs",
-                "xy",
-                "rgb",
-                "rgbw",
-                "rgbww"
-              ]
-            }
-          },
-          "selector": {
-            "number": {
-              "min": -100,
-              "max": 100,
-              "unit_of_measurement": "%"
-            }
-          },
-          "name": "Brightness step",
-          "description": "Change brightness by a percentage."
-        },
-        "white": {
-          "filter": {
-            "attribute": {
-              "supported_color_modes": [
-                "white"
-              ]
-            }
-          },
-          "advanced": true,
-          "selector": {
-            "constant": {
-              "value": true,
-              "label": "Enabled"
-            }
-          },
-          "name": "White",
-          "description": "Set the light to white mode."
-        },
-        "profile": {
-          "advanced": true,
-          "example": "relax",
-          "selector": {
-            "text": null
-          },
-          "name": "Profile",
-          "description": "Name of a light profile to use."
-        },
-        "flash": {
-          "filter": {
-            "supported_features": [
-              8
-            ]
-          },
-          "advanced": true,
-          "selector": {
-            "select": {
-              "options": [
-                {
-                  "label": "Long",
-                  "value": "long"
-                },
-                {
-                  "label": "Short",
-                  "value": "short"
-                }
-              ]
-            }
-          },
-          "name": "Flash",
-          "description": "Tell light to flash, can be either value short or long."
-        },
-        "effect": {
-          "filter": {
-            "supported_features": [
-              4
-            ]
-          },
-          "selector": {
-            "text": null
-          },
-          "name": "Effect",
-          "description": "Light effect."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "light"
-            ]
-          }
-        ]
-      }
-    },
-    "turn_off": {
-      "name": "Turn off",
-      "description": "Turn off one or more lights.",
-      "fields": {
-        "transition": {
-          "filter": {
-            "supported_features": [
-              32
-            ]
-          },
-          "selector": {
-            "number": {
-              "min": 0,
-              "max": 300,
-              "unit_of_measurement": "seconds"
-            }
-          },
-          "name": "Transition",
-          "description": "Duration it takes to get to next state."
-        },
-        "flash": {
-          "filter": {
-            "supported_features": [
-              8
-            ]
-          },
-          "advanced": true,
-          "selector": {
-            "select": {
-              "options": [
-                {
-                  "label": "Long",
-                  "value": "long"
-                },
-                {
-                  "label": "Short",
-                  "value": "short"
-                }
-              ]
-            }
-          },
-          "name": "Flash",
-          "description": "Tell light to flash, can be either value short or long."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "light"
-            ]
-          }
-        ]
-      }
-    },
-    "toggle": {
-      "name": "Toggle",
-      "description": "Toggles one or more lights, from on to off, or, off to on, based on their current state.",
-      "fields": {
-        "transition": {
-          "filter": {
-            "supported_features": [
-              32
-            ]
-          },
-          "selector": {
-            "number": {
-              "min": 0,
-              "max": 300,
-              "unit_of_measurement": "seconds"
-            }
-          },
-          "name": "Transition",
-          "description": "Duration it takes to get to next state."
-        },
-        "rgb_color": {
-          "filter": {
-            "attribute": {
-              "supported_color_modes": [
-                "hs",
-                "xy",
-                "rgb",
-                "rgbw",
-                "rgbww"
-              ]
-            }
-          },
-          "advanced": true,
-          "example": "[255, 100, 100]",
-          "selector": {
-            "color_rgb": null
-          },
-          "name": "Color",
-          "description": "The color in RGB format. A list of three integers between 0 and 255 representing the values of red, green, and blue."
-        },
-        "color_name": {
-          "filter": {
-            "attribute": {
-              "supported_color_modes": [
-                "hs",
-                "xy",
-                "rgb",
-                "rgbw",
-                "rgbww"
-              ]
-            }
-          },
-          "advanced": true,
-          "selector": {
-            "select": {
-              "translation_key": "color_name",
-              "options": [
-                "homeassistant",
-                "aliceblue",
-                "antiquewhite",
-                "aqua",
-                "aquamarine",
-                "azure",
-                "beige",
-                "bisque",
-                "blanchedalmond",
-                "blue",
-                "blueviolet",
-                "brown",
-                "burlywood",
-                "cadetblue",
-                "chartreuse",
-                "chocolate",
-                "coral",
-                "cornflowerblue",
-                "cornsilk",
-                "crimson",
-                "cyan",
-                "darkblue",
-                "darkcyan",
-                "darkgoldenrod",
-                "darkgray",
-                "darkgreen",
-                "darkgrey",
-                "darkkhaki",
-                "darkmagenta",
-                "darkolivegreen",
-                "darkorange",
-                "darkorchid",
-                "darkred",
-                "darksalmon",
-                "darkseagreen",
-                "darkslateblue",
-                "darkslategray",
-                "darkslategrey",
-                "darkturquoise",
-                "darkviolet",
-                "deeppink",
-                "deepskyblue",
-                "dimgray",
-                "dimgrey",
-                "dodgerblue",
-                "firebrick",
-                "floralwhite",
-                "forestgreen",
-                "fuchsia",
-                "gainsboro",
-                "ghostwhite",
-                "gold",
-                "goldenrod",
-                "gray",
-                "green",
-                "greenyellow",
-                "grey",
-                "honeydew",
-                "hotpink",
-                "indianred",
-                "indigo",
-                "ivory",
-                "khaki",
-                "lavender",
-                "lavenderblush",
-                "lawngreen",
-                "lemonchiffon",
-                "lightblue",
-                "lightcoral",
-                "lightcyan",
-                "lightgoldenrodyellow",
-                "lightgray",
-                "lightgreen",
-                "lightgrey",
-                "lightpink",
-                "lightsalmon",
-                "lightseagreen",
-                "lightskyblue",
-                "lightslategray",
-                "lightslategrey",
-                "lightsteelblue",
-                "lightyellow",
-                "lime",
-                "limegreen",
-                "linen",
-                "magenta",
-                "maroon",
-                "mediumaquamarine",
-                "mediumblue",
-                "mediumorchid",
-                "mediumpurple",
-                "mediumseagreen",
-                "mediumslateblue",
-                "mediumspringgreen",
-                "mediumturquoise",
-                "mediumvioletred",
-                "midnightblue",
-                "mintcream",
-                "mistyrose",
-                "moccasin",
-                "navajowhite",
-                "navy",
-                "navyblue",
-                "oldlace",
-                "olive",
-                "olivedrab",
-                "orange",
-                "orangered",
-                "orchid",
-                "palegoldenrod",
-                "palegreen",
-                "paleturquoise",
-                "palevioletred",
-                "papayawhip",
-                "peachpuff",
-                "peru",
-                "pink",
-                "plum",
-                "powderblue",
-                "purple",
-                "red",
-                "rosybrown",
-                "royalblue",
-                "saddlebrown",
-                "salmon",
-                "sandybrown",
-                "seagreen",
-                "seashell",
-                "sienna",
-                "silver",
-                "skyblue",
-                "slateblue",
-                "slategray",
-                "slategrey",
-                "snow",
-                "springgreen",
-                "steelblue",
-                "tan",
-                "teal",
-                "thistle",
-                "tomato",
-                "turquoise",
-                "violet",
-                "wheat",
-                "white",
-                "whitesmoke",
-                "yellow",
-                "yellowgreen"
-              ]
-            }
-          },
-          "name": "Color name",
-          "description": "A human-readable color name."
-        },
-        "hs_color": {
-          "filter": {
-            "attribute": {
-              "supported_color_modes": [
-                "hs",
-                "xy",
-                "rgb",
-                "rgbw",
-                "rgbww"
-              ]
-            }
-          },
-          "advanced": true,
-          "example": "[300, 70]",
-          "selector": {
-            "object": null
-          },
-          "name": "Hue/Sat color",
-          "description": "Color in hue/sat format. A list of two integers. Hue is 0-360 and Sat is 0-100."
-        },
-        "xy_color": {
-          "filter": {
-            "attribute": {
-              "supported_color_modes": [
-                "hs",
-                "xy",
-                "rgb",
-                "rgbw",
-                "rgbww"
-              ]
-            }
-          },
-          "advanced": true,
-          "example": "[0.52, 0.43]",
-          "selector": {
-            "object": null
-          },
-          "name": "XY-color",
-          "description": "Color in XY-format. A list of two decimal numbers between 0 and 1."
-        },
-        "color_temp": {
-          "filter": {
-            "attribute": {
-              "supported_color_modes": [
-                "color_temp",
-                "hs",
-                "xy",
-                "rgb",
-                "rgbw",
-                "rgbww"
-              ]
-            }
-          },
-          "advanced": true,
-          "selector": {
-            "color_temp": null
-          },
-          "name": "Color temperature",
-          "description": "Color temperature in mireds."
-        },
-        "kelvin": {
-          "filter": {
-            "attribute": {
-              "supported_color_modes": [
-                "color_temp",
-                "hs",
-                "xy",
-                "rgb",
-                "rgbw",
-                "rgbww"
-              ]
-            }
-          },
-          "advanced": true,
-          "selector": {
-            "color_temp": {
-              "unit": "kelvin",
-              "min": 2000,
-              "max": 6500
-            }
-          },
-          "name": "Color temperature",
-          "description": "Color temperature in Kelvin."
-        },
-        "brightness": {
-          "filter": {
-            "attribute": {
-              "supported_color_modes": [
-                "brightness",
-                "color_temp",
-                "hs",
-                "xy",
-                "rgb",
-                "rgbw",
-                "rgbww"
-              ]
-            }
-          },
-          "advanced": true,
-          "selector": {
-            "number": {
-              "min": 0,
-              "max": 255
-            }
-          },
-          "name": "Brightness value",
-          "description": "Number indicating brightness, where 0 turns the light off, 1 is the minimum brightness, and 255 is the maximum brightness."
-        },
-        "brightness_pct": {
-          "filter": {
-            "attribute": {
-              "supported_color_modes": [
-                "brightness",
-                "color_temp",
-                "hs",
-                "xy",
-                "rgb",
-                "rgbw",
-                "rgbww"
-              ]
-            }
-          },
-          "selector": {
-            "number": {
-              "min": 0,
-              "max": 100,
-              "unit_of_measurement": "%"
-            }
-          },
-          "name": "Brightness",
-          "description": "Number indicating the percentage of full brightness, where 0 turns the light off, 1 is the minimum brightness, and 100 is the maximum brightness."
-        },
-        "white": {
-          "filter": {
-            "attribute": {
-              "supported_color_modes": [
-                "white"
-              ]
-            }
-          },
-          "advanced": true,
-          "selector": {
-            "constant": {
-              "value": true,
-              "label": "Enabled"
-            }
-          },
-          "name": "White",
-          "description": "Set the light to white mode."
-        },
-        "profile": {
-          "advanced": true,
-          "example": "relax",
-          "selector": {
-            "text": null
-          },
-          "name": "Profile",
-          "description": "Name of a light profile to use."
-        },
-        "flash": {
-          "filter": {
-            "supported_features": [
-              8
-            ]
-          },
-          "advanced": true,
-          "selector": {
-            "select": {
-              "options": [
-                {
-                  "label": "Long",
-                  "value": "long"
-                },
-                {
-                  "label": "Short",
-                  "value": "short"
-                }
-              ]
-            }
-          },
-          "name": "Flash",
-          "description": "Tell light to flash, can be either value short or long."
-        },
-        "effect": {
-          "filter": {
-            "supported_features": [
-              4
-            ]
-          },
-          "selector": {
-            "text": null
-          },
-          "name": "Effect",
-          "description": "Light effect."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "light"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "zone": {
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads zones from the YAML-configuration.",
-      "fields": {}
-    }
-  },
-  "input_button": {
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads helpers from the YAML-configuration.",
-      "fields": {}
-    },
-    "press": {
-      "name": "Press",
-      "description": "Mimics the physical button press on the device.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "input_button"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "input_select": {
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads helpers from the YAML-configuration.",
-      "fields": {}
-    },
-    "select_first": {
-      "name": "First",
-      "description": "Selects the first option.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "input_select"
-            ]
-          }
-        ]
-      }
-    },
-    "select_last": {
-      "name": "Last",
-      "description": "Selects the last option.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "input_select"
-            ]
-          }
-        ]
-      }
-    },
-    "select_next": {
-      "name": "Next",
-      "description": "Select the next option.",
-      "fields": {
-        "cycle": {
-          "default": true,
-          "selector": {
-            "boolean": null
-          },
-          "name": "Cycle",
-          "description": "If the option should cycle from the last to the first option on the list."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "input_select"
-            ]
-          }
-        ]
-      }
-    },
-    "select_option": {
-      "name": "Select",
-      "description": "Selects an option.",
-      "fields": {
-        "option": {
-          "required": true,
-          "example": "\u0022Item A\u0022",
-          "selector": {
-            "text": null
-          },
-          "name": "Option",
-          "description": "Option to be selected."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "input_select"
-            ]
-          }
-        ]
-      }
-    },
-    "select_previous": {
-      "name": "Previous",
-      "description": "Selects the previous option.",
-      "fields": {
-        "cycle": {
-          "default": true,
-          "selector": {
-            "boolean": null
-          },
-          "name": "Cycle",
-          "description": "If the option should cycle from the last to the first option on the list."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "input_select"
-            ]
-          }
-        ]
-      }
-    },
-    "set_options": {
-      "name": "Set options",
-      "description": "Sets the options.",
-      "fields": {
-        "options": {
-          "required": true,
-          "example": "[\u0022Item A\u0022, \u0022Item B\u0022, \u0022Item C\u0022]",
-          "selector": {
-            "object": null
-          },
-          "name": "Options",
-          "description": "List of options."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "input_select"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "input_boolean": {
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads helpers from the YAML-configuration.",
-      "fields": {}
-    },
-    "turn_on": {
-      "name": "Turn on",
-      "description": "Turns on the helper.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "input_boolean"
-            ]
-          }
-        ]
-      }
-    },
-    "turn_off": {
-      "name": "Turn off",
-      "description": "Turns off the helper.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "input_boolean"
-            ]
-          }
-        ]
-      }
-    },
-    "toggle": {
-      "name": "Toggle",
-      "description": "Toggles the helper on/off.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "input_boolean"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "input_number": {
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads helpers from the YAML-configuration.",
-      "fields": {}
-    },
-    "set_value": {
-      "name": "Set",
-      "description": "Sets the value.",
-      "fields": {
-        "value": {
-          "required": true,
-          "selector": {
-            "number": {
-              "min": 0,
-              "max": 9223372036854775807,
-              "step": 0.001,
-              "mode": "box"
-            }
-          },
-          "name": "Value",
-          "description": "The target value."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "input_number"
-            ]
-          }
-        ]
-      }
-    },
-    "increment": {
-      "name": "Increment",
-      "description": "Increments the value by 1 step.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "input_number"
-            ]
-          }
-        ]
-      }
-    },
-    "decrement": {
-      "name": "Decrement",
-      "description": "Decrements the current value by 1 step.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "input_number"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "timer": {
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads timers from the YAML-configuration.",
-      "fields": {}
-    },
-    "start": {
-      "name": "Start",
-      "description": "Starts a timer.",
-      "fields": {
-        "duration": {
-          "example": "00:01:00 or 60",
-          "selector": {
-            "text": null
-          },
-          "name": "Duration",
-          "description": "Duration the timer requires to finish. [optional]."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "timer"
-            ]
-          }
-        ]
-      }
-    },
-    "pause": {
-      "name": "Pause",
-      "description": "Pauses a timer.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "timer"
-            ]
-          }
-        ]
-      }
-    },
-    "cancel": {
-      "name": "Cancel",
-      "description": "Cancels a timer.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "timer"
-            ]
-          }
-        ]
-      }
-    },
-    "finish": {
-      "name": "Finish",
-      "description": "Finishes a timer.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "timer"
-            ]
-          }
-        ]
-      }
-    },
-    "change": {
-      "name": "Change",
-      "description": "Changes a timer.",
-      "fields": {
-        "duration": {
-          "default": 0,
-          "required": true,
-          "example": "00:01:00, 60 or -60",
-          "selector": {
-            "text": null
-          },
-          "name": "Duration",
-          "description": "Duration to add or subtract to the running timer."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "timer"
-            ]
-          }
-        ]
-      }
-    }
-  },
   "calendar": {
     "create_event": {
       "name": "Create event",
@@ -2697,6 +1096,537 @@
       "fields": {}
     }
   },
+  "scene": {
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads the scenes from the YAML-configuration.",
+      "fields": {}
+    },
+    "apply": {
+      "name": "Apply",
+      "description": "Activates a scene with configuration.",
+      "fields": {
+        "entities": {
+          "required": true,
+          "example": "light.kitchen: \u0022on\u0022\nlight.ceiling:\n  state: \u0022on\u0022\n  brightness: 80\n",
+          "selector": {
+            "object": null
+          },
+          "name": "Entities state",
+          "description": "List of entities and their target state."
+        },
+        "transition": {
+          "selector": {
+            "number": {
+              "min": 0,
+              "max": 300,
+              "unit_of_measurement": "seconds"
+            }
+          },
+          "name": "Transition",
+          "description": "Time it takes the devices to transition into the states defined in the scene."
+        }
+      }
+    },
+    "create": {
+      "name": "Create",
+      "description": "Creates a new scene.",
+      "fields": {
+        "scene_id": {
+          "required": true,
+          "example": "all_lights",
+          "selector": {
+            "text": null
+          },
+          "name": "Scene entity ID",
+          "description": "The entity ID of the new scene."
+        },
+        "entities": {
+          "advanced": true,
+          "example": "light.tv_back_light: \u0022on\u0022\nlight.ceiling:\n  state: \u0022on\u0022\n  brightness: 200\n",
+          "selector": {
+            "object": null
+          },
+          "name": "Entities state",
+          "description": "List of entities and their target state. If your entities are already in the target state right now, use \u0060snapshot_entities\u0060 instead."
+        },
+        "snapshot_entities": {
+          "example": "- light.ceiling\n- light.kitchen\n",
+          "selector": {
+            "entity": {
+              "multiple": true
+            }
+          },
+          "name": "Snapshot entities",
+          "description": "List of entities to be included in the snapshot. By taking a snapshot, you record the current state of those entities. If you do not want to use the current state of all your entities for this scene, you can combine the \u0060snapshot_entities\u0060 with \u0060entities\u0060."
+        }
+      }
+    },
+    "delete": {
+      "name": "Delete",
+      "description": "Deletes a dynamically created scene.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "integration": "homeassistant",
+            "domain": [
+              "scene"
+            ]
+          }
+        ]
+      }
+    },
+    "turn_on": {
+      "name": "Activate",
+      "description": "Activates a scene.",
+      "fields": {
+        "transition": {
+          "selector": {
+            "number": {
+              "min": 0,
+              "max": 300,
+              "unit_of_measurement": "seconds"
+            }
+          },
+          "name": "Transition",
+          "description": "Time it takes the devices to transition into the states defined in the scene."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "scene"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "button": {
+    "press": {
+      "name": "Press",
+      "description": "Press the button entity.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "button"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "logbook": {
+    "log": {
+      "name": "Log",
+      "description": "Creates a custom entry in the logbook.",
+      "fields": {
+        "name": {
+          "required": true,
+          "example": "Kitchen",
+          "selector": {
+            "text": null
+          },
+          "name": "Name",
+          "description": "Custom name for an entity, can be referenced using an \u0060entity_id\u0060."
+        },
+        "message": {
+          "required": true,
+          "example": "is being used",
+          "selector": {
+            "text": null
+          },
+          "name": "Message",
+          "description": "Message of the logbook entry."
+        },
+        "entity_id": {
+          "selector": {
+            "entity": null
+          },
+          "name": "Entity ID",
+          "description": "Entity to reference in the logbook entry."
+        },
+        "domain": {
+          "example": "light",
+          "selector": {
+            "text": null
+          },
+          "name": "Domain",
+          "description": "Determines which icon is used in the logbook entry. The icon illustrates the integration domain related to this logbook entry."
+        }
+      }
+    }
+  },
+  "zone": {
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads zones from the YAML-configuration.",
+      "fields": {}
+    }
+  },
+  "input_select": {
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads helpers from the YAML-configuration.",
+      "fields": {}
+    },
+    "select_first": {
+      "name": "First",
+      "description": "Selects the first option.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "input_select"
+            ]
+          }
+        ]
+      }
+    },
+    "select_last": {
+      "name": "Last",
+      "description": "Selects the last option.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "input_select"
+            ]
+          }
+        ]
+      }
+    },
+    "select_next": {
+      "name": "Next",
+      "description": "Select the next option.",
+      "fields": {
+        "cycle": {
+          "default": true,
+          "selector": {
+            "boolean": null
+          },
+          "name": "Cycle",
+          "description": "If the option should cycle from the last to the first option on the list."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "input_select"
+            ]
+          }
+        ]
+      }
+    },
+    "select_option": {
+      "name": "Select",
+      "description": "Selects an option.",
+      "fields": {
+        "option": {
+          "required": true,
+          "example": "\u0022Item A\u0022",
+          "selector": {
+            "text": null
+          },
+          "name": "Option",
+          "description": "Option to be selected."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "input_select"
+            ]
+          }
+        ]
+      }
+    },
+    "select_previous": {
+      "name": "Previous",
+      "description": "Selects the previous option.",
+      "fields": {
+        "cycle": {
+          "default": true,
+          "selector": {
+            "boolean": null
+          },
+          "name": "Cycle",
+          "description": "If the option should cycle from the last to the first option on the list."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "input_select"
+            ]
+          }
+        ]
+      }
+    },
+    "set_options": {
+      "name": "Set options",
+      "description": "Sets the options.",
+      "fields": {
+        "options": {
+          "required": true,
+          "example": "[\u0022Item A\u0022, \u0022Item B\u0022, \u0022Item C\u0022]",
+          "selector": {
+            "object": null
+          },
+          "name": "Options",
+          "description": "List of options."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "input_select"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "timer": {
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads timers from the YAML-configuration.",
+      "fields": {}
+    },
+    "start": {
+      "name": "Start",
+      "description": "Starts a timer.",
+      "fields": {
+        "duration": {
+          "example": "00:01:00 or 60",
+          "selector": {
+            "text": null
+          },
+          "name": "Duration",
+          "description": "Duration the timer requires to finish. [optional]."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "timer"
+            ]
+          }
+        ]
+      }
+    },
+    "pause": {
+      "name": "Pause",
+      "description": "Pauses a timer.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "timer"
+            ]
+          }
+        ]
+      }
+    },
+    "cancel": {
+      "name": "Cancel",
+      "description": "Cancels a timer.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "timer"
+            ]
+          }
+        ]
+      }
+    },
+    "finish": {
+      "name": "Finish",
+      "description": "Finishes a timer.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "timer"
+            ]
+          }
+        ]
+      }
+    },
+    "change": {
+      "name": "Change",
+      "description": "Changes a timer.",
+      "fields": {
+        "duration": {
+          "default": 0,
+          "required": true,
+          "example": "00:01:00, 60 or -60",
+          "selector": {
+            "text": null
+          },
+          "name": "Duration",
+          "description": "Duration to add or subtract to the running timer."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "timer"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "input_boolean": {
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads helpers from the YAML-configuration.",
+      "fields": {}
+    },
+    "turn_on": {
+      "name": "Turn on",
+      "description": "Turns on the helper.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "input_boolean"
+            ]
+          }
+        ]
+      }
+    },
+    "turn_off": {
+      "name": "Turn off",
+      "description": "Turns off the helper.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "input_boolean"
+            ]
+          }
+        ]
+      }
+    },
+    "toggle": {
+      "name": "Toggle",
+      "description": "Toggles the helper on/off.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "input_boolean"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "input_button": {
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads helpers from the YAML-configuration.",
+      "fields": {}
+    },
+    "press": {
+      "name": "Press",
+      "description": "Mimics the physical button press on the device.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "input_button"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "input_number": {
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads helpers from the YAML-configuration.",
+      "fields": {}
+    },
+    "set_value": {
+      "name": "Set",
+      "description": "Sets the value.",
+      "fields": {
+        "value": {
+          "required": true,
+          "selector": {
+            "number": {
+              "min": 0,
+              "max": 9223372036854775807,
+              "step": 0.001,
+              "mode": "box"
+            }
+          },
+          "name": "Value",
+          "description": "The target value."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "input_number"
+            ]
+          }
+        ]
+      }
+    },
+    "increment": {
+      "name": "Increment",
+      "description": "Increments the value by 1 step.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "input_number"
+            ]
+          }
+        ]
+      }
+    },
+    "decrement": {
+      "name": "Decrement",
+      "description": "Decrements the current value by 1 step.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "input_number"
+            ]
+          }
+        ]
+      }
+    }
+  },
   "device_tracker": {
     "see": {
       "name": "See",
@@ -2779,6 +1709,19 @@
           },
           "name": "Message",
           "description": "Your notification message."
+        },
+        "title": {
+          "required": false,
+          "selector": {
+            "text": null
+          },
+          "filter": {
+            "supported_features": [
+              1
+            ]
+          },
+          "name": "Title",
+          "description": "Title for your notification message."
         }
       },
       "target": {
@@ -3908,72 +2851,6 @@
       }
     }
   },
-  "conversation": {
-    "process": {
-      "name": "Process",
-      "description": "Launches a conversation from a transcribed text.",
-      "fields": {
-        "text": {
-          "example": "Turn all lights on",
-          "required": true,
-          "selector": {
-            "text": null
-          },
-          "name": "Text",
-          "description": "Transcribed text input."
-        },
-        "language": {
-          "example": "NL",
-          "selector": {
-            "text": null
-          },
-          "name": "Language",
-          "description": "Language of text. Defaults to server language."
-        },
-        "agent_id": {
-          "example": "homeassistant",
-          "selector": {
-            "conversation_agent": null
-          },
-          "name": "Agent",
-          "description": "Conversation agent to process your request. The conversation agent is the brains of your assistant. It processes the incoming text commands."
-        },
-        "conversation_id": {
-          "example": "my_conversation_1",
-          "selector": {
-            "text": null
-          },
-          "name": "Conversation ID",
-          "description": "ID of the conversation, to be able to continue a previous conversation"
-        }
-      },
-      "response": {
-        "optional": true
-      }
-    },
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads the intent configuration.",
-      "fields": {
-        "language": {
-          "example": "NL",
-          "selector": {
-            "text": null
-          },
-          "name": "Language",
-          "description": "Language to clear cached intents for. Defaults to server language."
-        },
-        "agent_id": {
-          "example": "homeassistant",
-          "selector": {
-            "conversation_agent": null
-          },
-          "name": "Agent",
-          "description": "Conversation agent to reload."
-        }
-      }
-    }
-  },
   "alarm_control_panel": {
     "alarm_disarm": {
       "name": "Disarm",
@@ -4155,82 +3032,1183 @@
       }
     }
   },
-  "counter": {
-    "increment": {
-      "name": "Increment",
-      "description": "Increments a counter.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "counter"
-            ]
-          }
-        ]
-      }
+  "group": {
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads group configuration, entities, and notify services from YAML-configuration.",
+      "fields": {}
     },
-    "decrement": {
-      "name": "Decrement",
-      "description": "Decrements a counter.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "counter"
-            ]
-          }
-        ]
-      }
-    },
-    "reset": {
-      "name": "Reset",
-      "description": "Resets a counter.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "counter"
-            ]
-          }
-        ]
-      }
-    },
-    "set_value": {
+    "set": {
       "name": "Set",
-      "description": "Sets the counter value.",
+      "description": "Creates/Updates a user group.",
       "fields": {
-        "value": {
+        "object_id": {
           "required": true,
+          "example": "test_group",
+          "selector": {
+            "text": null
+          },
+          "name": "Object ID",
+          "description": "Object ID of this group. This object ID is used as part of the entity ID. Entity ID format: [domain].[object_id]."
+        },
+        "name": {
+          "example": "My test group",
+          "selector": {
+            "text": null
+          },
+          "name": "Name",
+          "description": "Name of the group."
+        },
+        "icon": {
+          "example": "mdi:camera",
+          "selector": {
+            "icon": null
+          },
+          "name": "Icon",
+          "description": "Name of the icon for the group."
+        },
+        "entities": {
+          "example": "domain.entity_id1, domain.entity_id2",
+          "selector": {
+            "entity": {
+              "multiple": true
+            }
+          },
+          "name": "Entities",
+          "description": "List of all members in the group. Cannot be used in combination with \u0060Add entities\u0060 or \u0060Remove entities\u0060."
+        },
+        "add_entities": {
+          "example": "domain.entity_id1, domain.entity_id2",
+          "selector": {
+            "entity": {
+              "multiple": true
+            }
+          },
+          "name": "Add entities",
+          "description": "List of members to be added to the group. Cannot be used in combination with \u0060Entities\u0060 or \u0060Remove entities\u0060."
+        },
+        "remove_entities": {
+          "example": "domain.entity_id1, domain.entity_id2",
+          "selector": {
+            "entity": {
+              "multiple": true
+            }
+          },
+          "name": "Remove entities",
+          "description": "List of members to be removed from a group. Cannot be used in combination with \u0060Entities\u0060 or \u0060Add entities\u0060."
+        },
+        "all": {
+          "selector": {
+            "boolean": null
+          },
+          "name": "All",
+          "description": "Enable this option if the group should only be used when all entities are in state \u0060on\u0060."
+        }
+      }
+    },
+    "remove": {
+      "name": "Remove",
+      "description": "Removes a group.",
+      "fields": {
+        "object_id": {
+          "required": true,
+          "example": "test_group",
+          "selector": {
+            "object": null
+          },
+          "name": "Object ID",
+          "description": "Object ID of this group. This object ID is used as part of the entity ID. Entity ID format: [domain].[object_id]."
+        }
+      }
+    }
+  },
+  "light": {
+    "turn_on": {
+      "name": "Turn on",
+      "description": "Turn on one or more lights and adjust properties of the light, even when they are turned on already.",
+      "fields": {
+        "transition": {
+          "filter": {
+            "supported_features": [
+              32
+            ]
+          },
           "selector": {
             "number": {
               "min": 0,
-              "max": 9223372036854775807,
-              "mode": "box"
+              "max": 300,
+              "unit_of_measurement": "seconds"
             }
           },
-          "name": "Value",
-          "description": "The new counter value the entity should be set to."
+          "name": "Transition",
+          "description": "Duration it takes to get to next state."
+        },
+        "rgb_color": {
+          "filter": {
+            "attribute": {
+              "supported_color_modes": [
+                "hs",
+                "xy",
+                "rgb",
+                "rgbw",
+                "rgbww"
+              ]
+            }
+          },
+          "example": "[255, 100, 100]",
+          "selector": {
+            "color_rgb": null
+          },
+          "name": "Color",
+          "description": "The color in RGB format. A list of three integers between 0 and 255 representing the values of red, green, and blue."
+        },
+        "rgbw_color": {
+          "filter": {
+            "attribute": {
+              "supported_color_modes": [
+                "hs",
+                "xy",
+                "rgb",
+                "rgbw",
+                "rgbww"
+              ]
+            }
+          },
+          "advanced": true,
+          "example": "[255, 100, 100, 50]",
+          "selector": {
+            "object": null
+          },
+          "name": "RGBW-color",
+          "description": "The color in RGBW format. A list of four integers between 0 and 255 representing the values of red, green, blue, and white."
+        },
+        "rgbww_color": {
+          "filter": {
+            "attribute": {
+              "supported_color_modes": [
+                "hs",
+                "xy",
+                "rgb",
+                "rgbw",
+                "rgbww"
+              ]
+            }
+          },
+          "advanced": true,
+          "example": "[255, 100, 100, 50, 70]",
+          "selector": {
+            "object": null
+          },
+          "name": "RGBWW-color",
+          "description": "The color in RGBWW format. A list of five integers between 0 and 255 representing the values of red, green, blue, cold white, and warm white."
+        },
+        "color_name": {
+          "filter": {
+            "attribute": {
+              "supported_color_modes": [
+                "hs",
+                "xy",
+                "rgb",
+                "rgbw",
+                "rgbww"
+              ]
+            }
+          },
+          "advanced": true,
+          "selector": {
+            "select": {
+              "translation_key": "color_name",
+              "options": [
+                "homeassistant",
+                "aliceblue",
+                "antiquewhite",
+                "aqua",
+                "aquamarine",
+                "azure",
+                "beige",
+                "bisque",
+                "blanchedalmond",
+                "blue",
+                "blueviolet",
+                "brown",
+                "burlywood",
+                "cadetblue",
+                "chartreuse",
+                "chocolate",
+                "coral",
+                "cornflowerblue",
+                "cornsilk",
+                "crimson",
+                "cyan",
+                "darkblue",
+                "darkcyan",
+                "darkgoldenrod",
+                "darkgray",
+                "darkgreen",
+                "darkgrey",
+                "darkkhaki",
+                "darkmagenta",
+                "darkolivegreen",
+                "darkorange",
+                "darkorchid",
+                "darkred",
+                "darksalmon",
+                "darkseagreen",
+                "darkslateblue",
+                "darkslategray",
+                "darkslategrey",
+                "darkturquoise",
+                "darkviolet",
+                "deeppink",
+                "deepskyblue",
+                "dimgray",
+                "dimgrey",
+                "dodgerblue",
+                "firebrick",
+                "floralwhite",
+                "forestgreen",
+                "fuchsia",
+                "gainsboro",
+                "ghostwhite",
+                "gold",
+                "goldenrod",
+                "gray",
+                "green",
+                "greenyellow",
+                "grey",
+                "honeydew",
+                "hotpink",
+                "indianred",
+                "indigo",
+                "ivory",
+                "khaki",
+                "lavender",
+                "lavenderblush",
+                "lawngreen",
+                "lemonchiffon",
+                "lightblue",
+                "lightcoral",
+                "lightcyan",
+                "lightgoldenrodyellow",
+                "lightgray",
+                "lightgreen",
+                "lightgrey",
+                "lightpink",
+                "lightsalmon",
+                "lightseagreen",
+                "lightskyblue",
+                "lightslategray",
+                "lightslategrey",
+                "lightsteelblue",
+                "lightyellow",
+                "lime",
+                "limegreen",
+                "linen",
+                "magenta",
+                "maroon",
+                "mediumaquamarine",
+                "mediumblue",
+                "mediumorchid",
+                "mediumpurple",
+                "mediumseagreen",
+                "mediumslateblue",
+                "mediumspringgreen",
+                "mediumturquoise",
+                "mediumvioletred",
+                "midnightblue",
+                "mintcream",
+                "mistyrose",
+                "moccasin",
+                "navajowhite",
+                "navy",
+                "navyblue",
+                "oldlace",
+                "olive",
+                "olivedrab",
+                "orange",
+                "orangered",
+                "orchid",
+                "palegoldenrod",
+                "palegreen",
+                "paleturquoise",
+                "palevioletred",
+                "papayawhip",
+                "peachpuff",
+                "peru",
+                "pink",
+                "plum",
+                "powderblue",
+                "purple",
+                "red",
+                "rosybrown",
+                "royalblue",
+                "saddlebrown",
+                "salmon",
+                "sandybrown",
+                "seagreen",
+                "seashell",
+                "sienna",
+                "silver",
+                "skyblue",
+                "slateblue",
+                "slategray",
+                "slategrey",
+                "snow",
+                "springgreen",
+                "steelblue",
+                "tan",
+                "teal",
+                "thistle",
+                "tomato",
+                "turquoise",
+                "violet",
+                "wheat",
+                "white",
+                "whitesmoke",
+                "yellow",
+                "yellowgreen"
+              ]
+            }
+          },
+          "name": "Color name",
+          "description": "A human-readable color name."
+        },
+        "hs_color": {
+          "filter": {
+            "attribute": {
+              "supported_color_modes": [
+                "hs",
+                "xy",
+                "rgb",
+                "rgbw",
+                "rgbww"
+              ]
+            }
+          },
+          "advanced": true,
+          "example": "[300, 70]",
+          "selector": {
+            "object": null
+          },
+          "name": "Hue/Sat color",
+          "description": "Color in hue/sat format. A list of two integers. Hue is 0-360 and Sat is 0-100."
+        },
+        "xy_color": {
+          "filter": {
+            "attribute": {
+              "supported_color_modes": [
+                "hs",
+                "xy",
+                "rgb",
+                "rgbw",
+                "rgbww"
+              ]
+            }
+          },
+          "advanced": true,
+          "example": "[0.52, 0.43]",
+          "selector": {
+            "object": null
+          },
+          "name": "XY-color",
+          "description": "Color in XY-format. A list of two decimal numbers between 0 and 1."
+        },
+        "color_temp": {
+          "filter": {
+            "attribute": {
+              "supported_color_modes": [
+                "color_temp",
+                "hs",
+                "xy",
+                "rgb",
+                "rgbw",
+                "rgbww"
+              ]
+            }
+          },
+          "advanced": true,
+          "selector": {
+            "color_temp": {
+              "unit": "mired",
+              "min": 153,
+              "max": 500
+            }
+          },
+          "name": "Color temperature",
+          "description": "Color temperature in mireds."
+        },
+        "kelvin": {
+          "filter": {
+            "attribute": {
+              "supported_color_modes": [
+                "color_temp",
+                "hs",
+                "xy",
+                "rgb",
+                "rgbw",
+                "rgbww"
+              ]
+            }
+          },
+          "selector": {
+            "color_temp": {
+              "unit": "kelvin",
+              "min": 2000,
+              "max": 6500
+            }
+          },
+          "name": "Color temperature",
+          "description": "Color temperature in Kelvin."
+        },
+        "brightness": {
+          "filter": {
+            "attribute": {
+              "supported_color_modes": [
+                "brightness",
+                "color_temp",
+                "hs",
+                "xy",
+                "rgb",
+                "rgbw",
+                "rgbww"
+              ]
+            }
+          },
+          "advanced": true,
+          "selector": {
+            "number": {
+              "min": 0,
+              "max": 255
+            }
+          },
+          "name": "Brightness value",
+          "description": "Number indicating brightness, where 0 turns the light off, 1 is the minimum brightness, and 255 is the maximum brightness."
+        },
+        "brightness_pct": {
+          "filter": {
+            "attribute": {
+              "supported_color_modes": [
+                "brightness",
+                "color_temp",
+                "hs",
+                "xy",
+                "rgb",
+                "rgbw",
+                "rgbww"
+              ]
+            }
+          },
+          "selector": {
+            "number": {
+              "min": 0,
+              "max": 100,
+              "unit_of_measurement": "%"
+            }
+          },
+          "name": "Brightness",
+          "description": "Number indicating the percentage of full brightness, where 0 turns the light off, 1 is the minimum brightness, and 100 is the maximum brightness."
+        },
+        "brightness_step": {
+          "filter": {
+            "attribute": {
+              "supported_color_modes": [
+                "brightness",
+                "color_temp",
+                "hs",
+                "xy",
+                "rgb",
+                "rgbw",
+                "rgbww"
+              ]
+            }
+          },
+          "advanced": true,
+          "selector": {
+            "number": {
+              "min": -225,
+              "max": 255
+            }
+          },
+          "name": "Brightness step value",
+          "description": "Change brightness by an amount."
+        },
+        "brightness_step_pct": {
+          "filter": {
+            "attribute": {
+              "supported_color_modes": [
+                "brightness",
+                "color_temp",
+                "hs",
+                "xy",
+                "rgb",
+                "rgbw",
+                "rgbww"
+              ]
+            }
+          },
+          "selector": {
+            "number": {
+              "min": -100,
+              "max": 100,
+              "unit_of_measurement": "%"
+            }
+          },
+          "name": "Brightness step",
+          "description": "Change brightness by a percentage."
+        },
+        "white": {
+          "filter": {
+            "attribute": {
+              "supported_color_modes": [
+                "white"
+              ]
+            }
+          },
+          "advanced": true,
+          "selector": {
+            "constant": {
+              "value": true,
+              "label": "Enabled"
+            }
+          },
+          "name": "White",
+          "description": "Set the light to white mode."
+        },
+        "profile": {
+          "advanced": true,
+          "example": "relax",
+          "selector": {
+            "text": null
+          },
+          "name": "Profile",
+          "description": "Name of a light profile to use."
+        },
+        "flash": {
+          "filter": {
+            "supported_features": [
+              8
+            ]
+          },
+          "advanced": true,
+          "selector": {
+            "select": {
+              "options": [
+                {
+                  "label": "Long",
+                  "value": "long"
+                },
+                {
+                  "label": "Short",
+                  "value": "short"
+                }
+              ]
+            }
+          },
+          "name": "Flash",
+          "description": "Tell light to flash, can be either value short or long."
+        },
+        "effect": {
+          "filter": {
+            "supported_features": [
+              4
+            ]
+          },
+          "selector": {
+            "text": null
+          },
+          "name": "Effect",
+          "description": "Light effect."
         }
       },
       "target": {
         "entity": [
           {
             "domain": [
-              "counter"
+              "light"
+            ]
+          }
+        ]
+      }
+    },
+    "turn_off": {
+      "name": "Turn off",
+      "description": "Turn off one or more lights.",
+      "fields": {
+        "transition": {
+          "filter": {
+            "supported_features": [
+              32
+            ]
+          },
+          "selector": {
+            "number": {
+              "min": 0,
+              "max": 300,
+              "unit_of_measurement": "seconds"
+            }
+          },
+          "name": "Transition",
+          "description": "Duration it takes to get to next state."
+        },
+        "flash": {
+          "filter": {
+            "supported_features": [
+              8
+            ]
+          },
+          "advanced": true,
+          "selector": {
+            "select": {
+              "options": [
+                {
+                  "label": "Long",
+                  "value": "long"
+                },
+                {
+                  "label": "Short",
+                  "value": "short"
+                }
+              ]
+            }
+          },
+          "name": "Flash",
+          "description": "Tell light to flash, can be either value short or long."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "light"
+            ]
+          }
+        ]
+      }
+    },
+    "toggle": {
+      "name": "Toggle",
+      "description": "Toggles one or more lights, from on to off, or, off to on, based on their current state.",
+      "fields": {
+        "transition": {
+          "filter": {
+            "supported_features": [
+              32
+            ]
+          },
+          "selector": {
+            "number": {
+              "min": 0,
+              "max": 300,
+              "unit_of_measurement": "seconds"
+            }
+          },
+          "name": "Transition",
+          "description": "Duration it takes to get to next state."
+        },
+        "rgb_color": {
+          "filter": {
+            "attribute": {
+              "supported_color_modes": [
+                "hs",
+                "xy",
+                "rgb",
+                "rgbw",
+                "rgbww"
+              ]
+            }
+          },
+          "example": "[255, 100, 100]",
+          "selector": {
+            "color_rgb": null
+          },
+          "name": "Color",
+          "description": "The color in RGB format. A list of three integers between 0 and 255 representing the values of red, green, and blue."
+        },
+        "rgbw_color": {
+          "filter": {
+            "attribute": {
+              "supported_color_modes": [
+                "hs",
+                "xy",
+                "rgb",
+                "rgbw",
+                "rgbww"
+              ]
+            }
+          },
+          "advanced": true,
+          "example": "[255, 100, 100, 50]",
+          "selector": {
+            "object": null
+          },
+          "name": "RGBW-color",
+          "description": "The color in RGBW format. A list of four integers between 0 and 255 representing the values of red, green, blue, and white."
+        },
+        "rgbww_color": {
+          "filter": {
+            "attribute": {
+              "supported_color_modes": [
+                "hs",
+                "xy",
+                "rgb",
+                "rgbw",
+                "rgbww"
+              ]
+            }
+          },
+          "advanced": true,
+          "example": "[255, 100, 100, 50, 70]",
+          "selector": {
+            "object": null
+          },
+          "name": "RGBWW-color",
+          "description": "The color in RGBWW format. A list of five integers between 0 and 255 representing the values of red, green, blue, cold white, and warm white."
+        },
+        "color_name": {
+          "filter": {
+            "attribute": {
+              "supported_color_modes": [
+                "hs",
+                "xy",
+                "rgb",
+                "rgbw",
+                "rgbww"
+              ]
+            }
+          },
+          "advanced": true,
+          "selector": {
+            "select": {
+              "translation_key": "color_name",
+              "options": [
+                "homeassistant",
+                "aliceblue",
+                "antiquewhite",
+                "aqua",
+                "aquamarine",
+                "azure",
+                "beige",
+                "bisque",
+                "blanchedalmond",
+                "blue",
+                "blueviolet",
+                "brown",
+                "burlywood",
+                "cadetblue",
+                "chartreuse",
+                "chocolate",
+                "coral",
+                "cornflowerblue",
+                "cornsilk",
+                "crimson",
+                "cyan",
+                "darkblue",
+                "darkcyan",
+                "darkgoldenrod",
+                "darkgray",
+                "darkgreen",
+                "darkgrey",
+                "darkkhaki",
+                "darkmagenta",
+                "darkolivegreen",
+                "darkorange",
+                "darkorchid",
+                "darkred",
+                "darksalmon",
+                "darkseagreen",
+                "darkslateblue",
+                "darkslategray",
+                "darkslategrey",
+                "darkturquoise",
+                "darkviolet",
+                "deeppink",
+                "deepskyblue",
+                "dimgray",
+                "dimgrey",
+                "dodgerblue",
+                "firebrick",
+                "floralwhite",
+                "forestgreen",
+                "fuchsia",
+                "gainsboro",
+                "ghostwhite",
+                "gold",
+                "goldenrod",
+                "gray",
+                "green",
+                "greenyellow",
+                "grey",
+                "honeydew",
+                "hotpink",
+                "indianred",
+                "indigo",
+                "ivory",
+                "khaki",
+                "lavender",
+                "lavenderblush",
+                "lawngreen",
+                "lemonchiffon",
+                "lightblue",
+                "lightcoral",
+                "lightcyan",
+                "lightgoldenrodyellow",
+                "lightgray",
+                "lightgreen",
+                "lightgrey",
+                "lightpink",
+                "lightsalmon",
+                "lightseagreen",
+                "lightskyblue",
+                "lightslategray",
+                "lightslategrey",
+                "lightsteelblue",
+                "lightyellow",
+                "lime",
+                "limegreen",
+                "linen",
+                "magenta",
+                "maroon",
+                "mediumaquamarine",
+                "mediumblue",
+                "mediumorchid",
+                "mediumpurple",
+                "mediumseagreen",
+                "mediumslateblue",
+                "mediumspringgreen",
+                "mediumturquoise",
+                "mediumvioletred",
+                "midnightblue",
+                "mintcream",
+                "mistyrose",
+                "moccasin",
+                "navajowhite",
+                "navy",
+                "navyblue",
+                "oldlace",
+                "olive",
+                "olivedrab",
+                "orange",
+                "orangered",
+                "orchid",
+                "palegoldenrod",
+                "palegreen",
+                "paleturquoise",
+                "palevioletred",
+                "papayawhip",
+                "peachpuff",
+                "peru",
+                "pink",
+                "plum",
+                "powderblue",
+                "purple",
+                "red",
+                "rosybrown",
+                "royalblue",
+                "saddlebrown",
+                "salmon",
+                "sandybrown",
+                "seagreen",
+                "seashell",
+                "sienna",
+                "silver",
+                "skyblue",
+                "slateblue",
+                "slategray",
+                "slategrey",
+                "snow",
+                "springgreen",
+                "steelblue",
+                "tan",
+                "teal",
+                "thistle",
+                "tomato",
+                "turquoise",
+                "violet",
+                "wheat",
+                "white",
+                "whitesmoke",
+                "yellow",
+                "yellowgreen"
+              ]
+            }
+          },
+          "name": "Color name",
+          "description": "A human-readable color name."
+        },
+        "hs_color": {
+          "filter": {
+            "attribute": {
+              "supported_color_modes": [
+                "hs",
+                "xy",
+                "rgb",
+                "rgbw",
+                "rgbww"
+              ]
+            }
+          },
+          "advanced": true,
+          "example": "[300, 70]",
+          "selector": {
+            "object": null
+          },
+          "name": "Hue/Sat color",
+          "description": "Color in hue/sat format. A list of two integers. Hue is 0-360 and Sat is 0-100."
+        },
+        "xy_color": {
+          "filter": {
+            "attribute": {
+              "supported_color_modes": [
+                "hs",
+                "xy",
+                "rgb",
+                "rgbw",
+                "rgbww"
+              ]
+            }
+          },
+          "advanced": true,
+          "example": "[0.52, 0.43]",
+          "selector": {
+            "object": null
+          },
+          "name": "XY-color",
+          "description": "Color in XY-format. A list of two decimal numbers between 0 and 1."
+        },
+        "color_temp": {
+          "filter": {
+            "attribute": {
+              "supported_color_modes": [
+                "color_temp",
+                "hs",
+                "xy",
+                "rgb",
+                "rgbw",
+                "rgbww"
+              ]
+            }
+          },
+          "advanced": true,
+          "selector": {
+            "color_temp": {
+              "unit": "mired",
+              "min": 153,
+              "max": 500
+            }
+          },
+          "name": "Color temperature",
+          "description": "Color temperature in mireds."
+        },
+        "kelvin": {
+          "filter": {
+            "attribute": {
+              "supported_color_modes": [
+                "color_temp",
+                "hs",
+                "xy",
+                "rgb",
+                "rgbw",
+                "rgbww"
+              ]
+            }
+          },
+          "selector": {
+            "color_temp": {
+              "unit": "kelvin",
+              "min": 2000,
+              "max": 6500
+            }
+          },
+          "name": "Color temperature",
+          "description": "Color temperature in Kelvin."
+        },
+        "brightness": {
+          "filter": {
+            "attribute": {
+              "supported_color_modes": [
+                "brightness",
+                "color_temp",
+                "hs",
+                "xy",
+                "rgb",
+                "rgbw",
+                "rgbww"
+              ]
+            }
+          },
+          "advanced": true,
+          "selector": {
+            "number": {
+              "min": 0,
+              "max": 255
+            }
+          },
+          "name": "Brightness value",
+          "description": "Number indicating brightness, where 0 turns the light off, 1 is the minimum brightness, and 255 is the maximum brightness."
+        },
+        "brightness_pct": {
+          "filter": {
+            "attribute": {
+              "supported_color_modes": [
+                "brightness",
+                "color_temp",
+                "hs",
+                "xy",
+                "rgb",
+                "rgbw",
+                "rgbww"
+              ]
+            }
+          },
+          "selector": {
+            "number": {
+              "min": 0,
+              "max": 100,
+              "unit_of_measurement": "%"
+            }
+          },
+          "name": "Brightness",
+          "description": "Number indicating the percentage of full brightness, where 0 turns the light off, 1 is the minimum brightness, and 100 is the maximum brightness."
+        },
+        "white": {
+          "filter": {
+            "attribute": {
+              "supported_color_modes": [
+                "white"
+              ]
+            }
+          },
+          "advanced": true,
+          "selector": {
+            "constant": {
+              "value": true,
+              "label": "Enabled"
+            }
+          },
+          "name": "White",
+          "description": "Set the light to white mode."
+        },
+        "profile": {
+          "advanced": true,
+          "example": "relax",
+          "selector": {
+            "text": null
+          },
+          "name": "Profile",
+          "description": "Name of a light profile to use."
+        },
+        "flash": {
+          "filter": {
+            "supported_features": [
+              8
+            ]
+          },
+          "advanced": true,
+          "selector": {
+            "select": {
+              "options": [
+                {
+                  "label": "Long",
+                  "value": "long"
+                },
+                {
+                  "label": "Short",
+                  "value": "short"
+                }
+              ]
+            }
+          },
+          "name": "Flash",
+          "description": "Tell light to flash, can be either value short or long."
+        },
+        "effect": {
+          "filter": {
+            "supported_features": [
+              4
+            ]
+          },
+          "selector": {
+            "text": null
+          },
+          "name": "Effect",
+          "description": "Light effect."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "light"
             ]
           }
         ]
       }
     }
   },
-  "template": {
+  "conversation": {
+    "process": {
+      "name": "Process",
+      "description": "Launches a conversation from a transcribed text.",
+      "fields": {
+        "text": {
+          "example": "Turn all lights on",
+          "required": true,
+          "selector": {
+            "text": null
+          },
+          "name": "Text",
+          "description": "Transcribed text input."
+        },
+        "language": {
+          "example": "NL",
+          "selector": {
+            "text": null
+          },
+          "name": "Language",
+          "description": "Language of text. Defaults to server language."
+        },
+        "agent_id": {
+          "example": "homeassistant",
+          "selector": {
+            "conversation_agent": null
+          },
+          "name": "Agent",
+          "description": "Conversation agent to process your request. The conversation agent is the brains of your assistant. It processes the incoming text commands."
+        },
+        "conversation_id": {
+          "example": "my_conversation_1",
+          "selector": {
+            "text": null
+          },
+          "name": "Conversation ID",
+          "description": "ID of the conversation, to be able to continue a previous conversation"
+        }
+      },
+      "response": {
+        "optional": true
+      }
+    },
     "reload": {
       "name": "Reload",
-      "description": "Reloads template entities from the YAML-configuration.",
-      "fields": {}
+      "description": "Reloads the intent configuration.",
+      "fields": {
+        "language": {
+          "example": "NL",
+          "selector": {
+            "text": null
+          },
+          "name": "Language",
+          "description": "Language to clear cached intents for. Defaults to server language."
+        },
+        "agent_id": {
+          "example": "homeassistant",
+          "selector": {
+            "conversation_agent": null
+          },
+          "name": "Agent",
+          "description": "Conversation agent to reload."
+        }
+      }
     }
   },
   "script": {
@@ -4387,38 +4365,167 @@
       }
     }
   },
-  "schedule": {
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads schedules from the YAML-configuration.",
+  "octopus_energy": {
+    "purge_invalid_external_statistic_ids": {
+      "name": "Purge invalid external statistics",
+      "description": "Removes external statistics for all meters that don\u0027t have an active tariff",
       "fields": {}
+    },
+    "join_octoplus_saving_session_event": {
+      "name": "Join Octoplus saving session event",
+      "description": "Joins a given Octoplus saving session event.",
+      "fields": {
+        "event_code": {
+          "name": "Event code",
+          "description": "The code of the event that is to be joined.",
+          "selector": {
+            "text": null
+          }
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "integration": "octopus_energy",
+            "domain": [
+              "event"
+            ]
+          }
+        ]
+      }
+    },
+    "refresh_previous_consumption_data": {
+      "name": "Refresh previous consumption data",
+      "description": "Refreshes the previous consumption data for a given entity from a given date.",
+      "fields": {
+        "start_date": {
+          "name": "Date",
+          "description": "The date the data should be loaded from.",
+          "required": true,
+          "selector": {
+            "date": null
+          }
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "integration": "octopus_energy",
+            "domain": [
+              "sensor"
+            ]
+          }
+        ]
+      }
+    },
+    "spin_wheel_of_fortune": {
+      "name": "Spin wheel of fortune",
+      "description": "Spins the wheel of fortune for a given energy type",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "integration": "octopus_energy",
+            "domain": [
+              "sensor"
+            ]
+          }
+        ]
+      }
+    },
+    "redeem_octoplus_points_into_account_credit": {
+      "name": "Redeem octoplus points into account credit",
+      "description": "Redeems a given number of octoplus points into account credit",
+      "fields": {
+        "points_to_redeem": {
+          "name": "Points to redeem",
+          "description": "The number of points to redeem",
+          "selector": {
+            "number": {
+              "min": 8,
+              "step": 1,
+              "mode": "box"
+            }
+          }
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "integration": "octopus_energy",
+            "domain": [
+              "sensor"
+            ]
+          }
+        ]
+      }
     }
   },
-  "input_text": {
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads helpers from the YAML-configuration.",
-      "fields": {}
+  "counter": {
+    "increment": {
+      "name": "Increment",
+      "description": "Increments a counter.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "counter"
+            ]
+          }
+        ]
+      }
+    },
+    "decrement": {
+      "name": "Decrement",
+      "description": "Decrements a counter.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "counter"
+            ]
+          }
+        ]
+      }
+    },
+    "reset": {
+      "name": "Reset",
+      "description": "Resets a counter.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "counter"
+            ]
+          }
+        ]
+      }
     },
     "set_value": {
       "name": "Set",
-      "description": "Sets the value.",
+      "description": "Sets the counter value.",
       "fields": {
         "value": {
           "required": true,
-          "example": "This is an example text",
           "selector": {
-            "text": null
+            "number": {
+              "min": 0,
+              "max": 9223372036854775807,
+              "mode": "box"
+            }
           },
           "name": "Value",
-          "description": "The target value."
+          "description": "The new counter value the entity should be set to."
         }
       },
       "target": {
         "entity": [
           {
             "domain": [
-              "input_text"
+              "counter"
             ]
           }
         ]
@@ -4476,6 +4583,37 @@
           {
             "domain": [
               "input_datetime"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "input_text": {
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads helpers from the YAML-configuration.",
+      "fields": {}
+    },
+    "set_value": {
+      "name": "Set",
+      "description": "Sets the value.",
+      "fields": {
+        "value": {
+          "required": true,
+          "example": "This is an example text",
+          "selector": {
+            "text": null
+          },
+          "name": "Value",
+          "description": "The target value."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "input_text"
             ]
           }
         ]
@@ -4571,6 +4709,38 @@
           "description": "Whether to sort in reverse (descending) order."
         }
       }
+    }
+  },
+  "localtuya": {
+    "reload": {
+      "name": "",
+      "description": "Reload localtuya and reconnect to all devices.",
+      "fields": {}
+    },
+    "set_dp": {
+      "name": "",
+      "description": "Change the value of a datapoint (DP)",
+      "fields": {
+        "device_id": {
+          "description": "Device ID of device to change datapoint value for",
+          "example": "11100118278aab4de001"
+        },
+        "dp": {
+          "description": "Datapoint index",
+          "example": 1
+        },
+        "value": {
+          "description": "New value to set",
+          "example": false
+        }
+      }
+    }
+  },
+  "schedule": {
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads schedules from the YAML-configuration.",
+      "fields": {}
     }
   },
   "climate": {
@@ -5085,915 +5255,6 @@
       }
     }
   },
-  "lock": {
-    "unlock": {
-      "name": "Unlock",
-      "description": "Unlocks a lock.",
-      "fields": {
-        "code": {
-          "example": 1234,
-          "selector": {
-            "text": null
-          },
-          "name": "Code",
-          "description": "Code used to unlock the lock."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "lock"
-            ]
-          }
-        ]
-      }
-    },
-    "lock": {
-      "name": "Lock",
-      "description": "Locks a lock.",
-      "fields": {
-        "code": {
-          "example": 1234,
-          "selector": {
-            "text": null
-          },
-          "name": "Code",
-          "description": "Code used to lock the lock."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "lock"
-            ]
-          }
-        ]
-      }
-    },
-    "open": {
-      "name": "Open",
-      "description": "Opens a lock.",
-      "fields": {
-        "code": {
-          "example": 1234,
-          "selector": {
-            "text": null
-          },
-          "name": "Code",
-          "description": "Code used to open the lock."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "lock"
-            ],
-            "supported_features": [
-              1
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "switch": {
-    "turn_off": {
-      "name": "Turn off",
-      "description": "Turns a switch off.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "switch"
-            ]
-          }
-        ]
-      }
-    },
-    "turn_on": {
-      "name": "Turn on",
-      "description": "Turns a switch on.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "switch"
-            ]
-          }
-        ]
-      }
-    },
-    "toggle": {
-      "name": "Toggle",
-      "description": "Toggles a switch on/off.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "switch"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "mqtt": {
-    "publish": {
-      "name": "Publish",
-      "description": "Publishes a message to an MQTT topic.",
-      "fields": {
-        "topic": {
-          "required": true,
-          "example": "/homeassistant/hello",
-          "selector": {
-            "text": null
-          },
-          "name": "Topic",
-          "description": "Topic to publish to."
-        },
-        "payload": {
-          "example": "This is great",
-          "selector": {
-            "text": null
-          },
-          "name": "Payload",
-          "description": "The payload to publish."
-        },
-        "payload_template": {
-          "advanced": true,
-          "example": "{{ states(\u0027sensor.temperature\u0027) }}",
-          "selector": {
-            "template": null
-          },
-          "name": "Payload template",
-          "description": "Template to render as a payload value. If a payload is provided, the template is ignored."
-        },
-        "qos": {
-          "advanced": true,
-          "default": 0,
-          "selector": {
-            "select": {
-              "options": [
-                "0",
-                "1",
-                "2"
-              ]
-            }
-          },
-          "name": "QoS",
-          "description": "Quality of Service to use. 0: At most once. 1: At least once. 2: Exactly once."
-        },
-        "retain": {
-          "default": false,
-          "selector": {
-            "boolean": null
-          },
-          "name": "Retain",
-          "description": "If the message should have the retain flag set. If set, the broker stores the most recent message on a topic."
-        }
-      }
-    },
-    "dump": {
-      "name": "Export",
-      "description": "Writes all messages on a specific topic into the \u0060mqtt_dump.txt\u0060 file in your configuration folder.",
-      "fields": {
-        "topic": {
-          "example": "OpenZWave/#",
-          "selector": {
-            "text": null
-          },
-          "name": "Topic",
-          "description": "Topic to listen to."
-        },
-        "duration": {
-          "default": 5,
-          "selector": {
-            "number": {
-              "min": 1,
-              "max": 300,
-              "unit_of_measurement": "seconds"
-            }
-          },
-          "name": "Duration",
-          "description": "How long we should listen for messages in seconds."
-        }
-      }
-    },
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads MQTT entities from the YAML-configuration.",
-      "fields": {}
-    }
-  },
-  "localtuya": {
-    "reload": {
-      "name": "",
-      "description": "Reload localtuya and reconnect to all devices.",
-      "fields": {}
-    },
-    "set_dp": {
-      "name": "",
-      "description": "Change the value of a datapoint (DP)",
-      "fields": {
-        "device_id": {
-          "description": "Device ID of device to change datapoint value for",
-          "example": "11100118278aab4de001"
-        },
-        "dp": {
-          "description": "Datapoint index",
-          "example": 1
-        },
-        "value": {
-          "description": "New value to set",
-          "example": false
-        }
-      }
-    }
-  },
-  "netdaemon": {
-    "register_service": {
-      "name": "",
-      "description": "Register a new service for netdaemon, used by the daemon and not to be used by users",
-      "fields": {
-        "service": {
-          "description": "The name of the service to register"
-        },
-        "class": {
-          "description": "The class that implements the service call"
-        },
-        "method": {
-          "description": "The method to call"
-        }
-      }
-    },
-    "reload_apps": {
-      "name": "",
-      "description": "",
-      "fields": {}
-    },
-    "entity_create": {
-      "name": "",
-      "description": "Create an entity",
-      "fields": {
-        "entity_id": {
-          "description": "The entity ID of the entity",
-          "example": "sensor.awesome"
-        },
-        "state": {
-          "description": "The state of the entity",
-          "example": "Lorem ipsum"
-        },
-        "icon": {
-          "description": "The icon for the entity",
-          "example": "mdi:rocket-launch-outline"
-        },
-        "unit": {
-          "description": "The unit of measurement for the entity"
-        },
-        "options": {
-          "description": "List of options for a select entity"
-        },
-        "attributes": {
-          "description": "The attributes of the entity"
-        }
-      }
-    },
-    "entity_update": {
-      "name": "",
-      "description": "Update an entity",
-      "fields": {
-        "entity_id": {
-          "description": "The entity ID of the entity",
-          "example": "sensor.awesome"
-        },
-        "state": {
-          "description": "The state of the entity",
-          "example": "Lorem ipsum"
-        },
-        "icon": {
-          "description": "The icon for the entity",
-          "example": "mdi:rocket-launch-outline"
-        },
-        "unit": {
-          "description": "The unit of measurement for the entity"
-        },
-        "options": {
-          "description": "List of options for a select entity"
-        },
-        "attributes": {
-          "description": "The attributes of the entity"
-        }
-      }
-    },
-    "entity_remove": {
-      "name": "",
-      "description": "Remove an entity",
-      "fields": {
-        "entity_id": {
-          "description": "The entity ID of the entity",
-          "example": "sensor.awesome"
-        }
-      }
-    }
-  },
-  "select": {
-    "select_first": {
-      "name": "First",
-      "description": "Selects the first option.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "select"
-            ]
-          }
-        ]
-      }
-    },
-    "select_last": {
-      "name": "Last",
-      "description": "Selects the last option.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "select"
-            ]
-          }
-        ]
-      }
-    },
-    "select_next": {
-      "name": "Next",
-      "description": "Selects the next option.",
-      "fields": {
-        "cycle": {
-          "default": true,
-          "selector": {
-            "boolean": null
-          },
-          "name": "Cycle",
-          "description": "If the option should cycle from the last to the first."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "select"
-            ]
-          }
-        ]
-      }
-    },
-    "select_option": {
-      "name": "Select",
-      "description": "Selects an option.",
-      "fields": {
-        "option": {
-          "required": true,
-          "example": "\u0022Item A\u0022",
-          "selector": {
-            "text": null
-          },
-          "name": "Option",
-          "description": "Option to be selected."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "select"
-            ]
-          }
-        ]
-      }
-    },
-    "select_previous": {
-      "name": "Previous",
-      "description": "Selects the previous option.",
-      "fields": {
-        "cycle": {
-          "default": true,
-          "selector": {
-            "boolean": null
-          },
-          "name": "Cycle",
-          "description": "If the option should cycle from the first to the last."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "select"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "octopus_energy": {
-    "purge_invalid_external_statistic_ids": {
-      "name": "Purge invalid external statistics",
-      "description": "Removes external statistics for all meters that don\u0027t have an active tariff",
-      "fields": {}
-    },
-    "join_octoplus_saving_session_event": {
-      "name": "Join Octoplus saving session event",
-      "description": "Joins a given Octoplus saving session event.",
-      "fields": {
-        "event_code": {
-          "name": "Event code",
-          "description": "The code of the event that is to be joined.",
-          "selector": {
-            "text": null
-          }
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "integration": "octopus_energy",
-            "domain": [
-              "event"
-            ]
-          }
-        ]
-      }
-    },
-    "refresh_previous_consumption_data": {
-      "name": "Refresh previous consumption data",
-      "description": "Refreshes the previous consumption data for a given entity from a given date.",
-      "fields": {
-        "start_date": {
-          "name": "Date",
-          "description": "The date the data should be loaded from.",
-          "required": true,
-          "selector": {
-            "date": null
-          }
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "integration": "octopus_energy",
-            "domain": [
-              "sensor"
-            ]
-          }
-        ]
-      }
-    },
-    "spin_wheel_of_fortune": {
-      "name": "Spin wheel of fortune",
-      "description": "Spins the wheel of fortune for a given energy type",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "integration": "octopus_energy",
-            "domain": [
-              "sensor"
-            ]
-          }
-        ]
-      }
-    },
-    "redeem_octoplus_points_into_account_credit": {
-      "name": "Redeem octoplus points into account credit",
-      "description": "Redeems a given number of octoplus points into account credit",
-      "fields": {
-        "points_to_redeem": {
-          "name": "Points to redeem",
-          "description": "The number of points to redeem",
-          "selector": {
-            "number": {
-              "min": 8,
-              "step": 1,
-              "mode": "box"
-            }
-          }
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "integration": "octopus_energy",
-            "domain": [
-              "sensor"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "weather": {
-    "get_forecast": {
-      "name": "Get forecast",
-      "description": "Get weather forecast.",
-      "fields": {
-        "type": {
-          "required": true,
-          "selector": {
-            "select": {
-              "options": [
-                "daily",
-                "hourly",
-                "twice_daily"
-              ],
-              "translation_key": "forecast_type"
-            }
-          },
-          "name": "Forecast type",
-          "description": "Forecast type: daily, hourly or twice daily."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "weather"
-            ],
-            "supported_features": [
-              1,
-              2,
-              4
-            ]
-          }
-        ]
-      },
-      "response": {
-        "optional": false
-      }
-    },
-    "get_forecasts": {
-      "name": "Get forecasts",
-      "description": "Get weather forecasts.",
-      "fields": {
-        "type": {
-          "required": true,
-          "selector": {
-            "select": {
-              "options": [
-                "daily",
-                "hourly",
-                "twice_daily"
-              ],
-              "translation_key": "forecast_type"
-            }
-          },
-          "name": "Forecast type",
-          "description": "Forecast type: daily, hourly or twice daily."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "weather"
-            ],
-            "supported_features": [
-              1,
-              2,
-              4
-            ]
-          }
-        ]
-      },
-      "response": {
-        "optional": false
-      }
-    }
-  },
-  "adguard": {
-    "add_url": {
-      "name": "Add URL",
-      "description": "Add a new filter subscription to AdGuard Home.",
-      "fields": {
-        "name": {
-          "required": true,
-          "example": "Example",
-          "selector": {
-            "text": null
-          },
-          "name": "Name",
-          "description": "The name of the filter subscription."
-        },
-        "url": {
-          "required": true,
-          "example": "https://www.example.com/filter/1.txt",
-          "selector": {
-            "text": null
-          },
-          "name": "URL",
-          "description": "The filter URL to subscribe to, containing the filter rules."
-        }
-      }
-    },
-    "remove_url": {
-      "name": "Remove URL",
-      "description": "Removes a filter subscription from AdGuard Home.",
-      "fields": {
-        "url": {
-          "required": true,
-          "example": "https://www.example.com/filter/1.txt",
-          "selector": {
-            "text": null
-          },
-          "name": "URL",
-          "description": "The filter subscription URL to remove."
-        }
-      }
-    },
-    "enable_url": {
-      "name": "Enable URL",
-      "description": "Enables a filter subscription in AdGuard Home.",
-      "fields": {
-        "url": {
-          "required": true,
-          "example": "https://www.example.com/filter/1.txt",
-          "selector": {
-            "text": null
-          },
-          "name": "URL",
-          "description": "The filter subscription URL to enable."
-        }
-      }
-    },
-    "disable_url": {
-      "name": "Disable URL",
-      "description": "Disables a filter subscription in AdGuard Home.",
-      "fields": {
-        "url": {
-          "required": true,
-          "example": "https://www.example.com/filter/1.txt",
-          "selector": {
-            "text": null
-          },
-          "name": "URL",
-          "description": "The filter subscription URL to disable."
-        }
-      }
-    },
-    "refresh": {
-      "name": "Refresh",
-      "description": "Refresh all filter subscriptions in AdGuard Home.",
-      "fields": {
-        "force": {
-          "default": false,
-          "selector": {
-            "boolean": null
-          },
-          "name": "Force",
-          "description": "Force update (bypasses AdGuard Home throttling). \u0022true\u0022 to force, or \u0022false\u0022 to omit for a regular refresh."
-        }
-      }
-    }
-  },
-  "todo": {
-    "add_item": {
-      "name": "Add to-do list item",
-      "description": "Add a new to-do list item.",
-      "fields": {
-        "item": {
-          "required": true,
-          "example": "Submit income tax return",
-          "selector": {
-            "text": null
-          },
-          "name": "Item name",
-          "description": "The name that represents the to-do item."
-        },
-        "due_date": {
-          "filter": {
-            "supported_features": [
-              16
-            ]
-          },
-          "example": "2023-11-17",
-          "selector": {
-            "date": null
-          },
-          "name": "Due date",
-          "description": "The date the to-do item is expected to be completed."
-        },
-        "due_datetime": {
-          "filter": {
-            "supported_features": [
-              32
-            ]
-          },
-          "example": "2023-11-17 13:30:00",
-          "selector": {
-            "datetime": null
-          },
-          "name": "Due date and time",
-          "description": "The date and time the to-do item is expected to be completed."
-        },
-        "description": {
-          "filter": {
-            "supported_features": [
-              64
-            ]
-          },
-          "example": "A more complete description of the to-do item than that provided by the summary.",
-          "selector": {
-            "text": null
-          },
-          "name": "Description",
-          "description": "A more complete description of the to-do item than provided by the item name."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "todo"
-            ],
-            "supported_features": [
-              1
-            ]
-          }
-        ]
-      }
-    },
-    "update_item": {
-      "name": "Update to-do list item",
-      "description": "Update an existing to-do list item based on its name.",
-      "fields": {
-        "item": {
-          "required": true,
-          "example": "Submit income tax return",
-          "selector": {
-            "text": null
-          },
-          "name": "Item name",
-          "description": "The name for the to-do list item."
-        },
-        "rename": {
-          "example": "Something else",
-          "selector": {
-            "text": null
-          },
-          "name": "Rename item",
-          "description": "The new name of the to-do item"
-        },
-        "status": {
-          "example": "needs_action",
-          "selector": {
-            "select": {
-              "translation_key": "status",
-              "options": [
-                "needs_action",
-                "completed"
-              ]
-            }
-          },
-          "name": "Set status",
-          "description": "A status or confirmation of the to-do item."
-        },
-        "due_date": {
-          "filter": {
-            "supported_features": [
-              16
-            ]
-          },
-          "example": "2023-11-17",
-          "selector": {
-            "date": null
-          },
-          "name": "Due date",
-          "description": "The date the to-do item is expected to be completed."
-        },
-        "due_datetime": {
-          "filter": {
-            "supported_features": [
-              32
-            ]
-          },
-          "example": "2023-11-17 13:30:00",
-          "selector": {
-            "datetime": null
-          },
-          "name": "Due date and time",
-          "description": "The date and time the to-do item is expected to be completed."
-        },
-        "description": {
-          "filter": {
-            "supported_features": [
-              64
-            ]
-          },
-          "example": "A more complete description of the to-do item than that provided by the summary.",
-          "selector": {
-            "text": null
-          },
-          "name": "Description",
-          "description": "A more complete description of the to-do item than provided by the item name."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "todo"
-            ],
-            "supported_features": [
-              4
-            ]
-          }
-        ]
-      }
-    },
-    "remove_item": {
-      "name": "Remove a to-do list item",
-      "description": "Remove an existing to-do list item by its name.",
-      "fields": {
-        "item": {
-          "required": true,
-          "selector": {
-            "text": null
-          },
-          "name": "Item name",
-          "description": "The name for the to-do list items."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "todo"
-            ],
-            "supported_features": [
-              2
-            ]
-          }
-        ]
-      }
-    },
-    "get_items": {
-      "name": "Get to-do list items",
-      "description": "Get items on a to-do list.",
-      "fields": {
-        "status": {
-          "example": "needs_action",
-          "default": "needs_action",
-          "selector": {
-            "select": {
-              "translation_key": "status",
-              "options": [
-                "needs_action",
-                "completed"
-              ],
-              "multiple": true
-            }
-          },
-          "name": "Status",
-          "description": "Only return to-do items with the specified statuses. Returns not completed actions by default."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "todo"
-            ]
-          }
-        ]
-      },
-      "response": {
-        "optional": false
-      }
-    },
-    "remove_completed_items": {
-      "name": "Remove all completed to-do list items",
-      "description": "Remove all to-do list items that have been completed.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "todo"
-            ],
-            "supported_features": [
-              2
-            ]
-          }
-        ]
-      }
-    }
-  },
   "fan": {
     "turn_on": {
       "name": "Turn on",
@@ -6239,6 +5500,550 @@
             ],
             "supported_features": [
               8
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "lock": {
+    "unlock": {
+      "name": "Unlock",
+      "description": "Unlocks a lock.",
+      "fields": {
+        "code": {
+          "example": 1234,
+          "selector": {
+            "text": null
+          },
+          "name": "Code",
+          "description": "Code used to unlock the lock."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "lock"
+            ]
+          }
+        ]
+      }
+    },
+    "lock": {
+      "name": "Lock",
+      "description": "Locks a lock.",
+      "fields": {
+        "code": {
+          "example": 1234,
+          "selector": {
+            "text": null
+          },
+          "name": "Code",
+          "description": "Code used to lock the lock."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "lock"
+            ]
+          }
+        ]
+      }
+    },
+    "open": {
+      "name": "Open",
+      "description": "Opens a lock.",
+      "fields": {
+        "code": {
+          "example": 1234,
+          "selector": {
+            "text": null
+          },
+          "name": "Code",
+          "description": "Code used to open the lock."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "lock"
+            ],
+            "supported_features": [
+              1
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "switch": {
+    "turn_off": {
+      "name": "Turn off",
+      "description": "Turns a switch off.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "switch"
+            ]
+          }
+        ]
+      }
+    },
+    "turn_on": {
+      "name": "Turn on",
+      "description": "Turns a switch on.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "switch"
+            ]
+          }
+        ]
+      }
+    },
+    "toggle": {
+      "name": "Toggle",
+      "description": "Toggles a switch on/off.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "switch"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "netdaemon": {
+    "register_service": {
+      "name": "",
+      "description": "Register a new service for netdaemon, used by the daemon and not to be used by users",
+      "fields": {
+        "service": {
+          "description": "The name of the service to register"
+        },
+        "class": {
+          "description": "The class that implements the service call"
+        },
+        "method": {
+          "description": "The method to call"
+        }
+      }
+    },
+    "reload_apps": {
+      "name": "",
+      "description": "",
+      "fields": {}
+    },
+    "entity_create": {
+      "name": "",
+      "description": "Create an entity",
+      "fields": {
+        "entity_id": {
+          "description": "The entity ID of the entity",
+          "example": "sensor.awesome"
+        },
+        "state": {
+          "description": "The state of the entity",
+          "example": "Lorem ipsum"
+        },
+        "icon": {
+          "description": "The icon for the entity",
+          "example": "mdi:rocket-launch-outline"
+        },
+        "unit": {
+          "description": "The unit of measurement for the entity"
+        },
+        "options": {
+          "description": "List of options for a select entity"
+        },
+        "attributes": {
+          "description": "The attributes of the entity"
+        }
+      }
+    },
+    "entity_update": {
+      "name": "",
+      "description": "Update an entity",
+      "fields": {
+        "entity_id": {
+          "description": "The entity ID of the entity",
+          "example": "sensor.awesome"
+        },
+        "state": {
+          "description": "The state of the entity",
+          "example": "Lorem ipsum"
+        },
+        "icon": {
+          "description": "The icon for the entity",
+          "example": "mdi:rocket-launch-outline"
+        },
+        "unit": {
+          "description": "The unit of measurement for the entity"
+        },
+        "options": {
+          "description": "List of options for a select entity"
+        },
+        "attributes": {
+          "description": "The attributes of the entity"
+        }
+      }
+    },
+    "entity_remove": {
+      "name": "",
+      "description": "Remove an entity",
+      "fields": {
+        "entity_id": {
+          "description": "The entity ID of the entity",
+          "example": "sensor.awesome"
+        }
+      }
+    }
+  },
+  "select": {
+    "select_first": {
+      "name": "First",
+      "description": "Selects the first option.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "select"
+            ]
+          }
+        ]
+      }
+    },
+    "select_last": {
+      "name": "Last",
+      "description": "Selects the last option.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "select"
+            ]
+          }
+        ]
+      }
+    },
+    "select_next": {
+      "name": "Next",
+      "description": "Selects the next option.",
+      "fields": {
+        "cycle": {
+          "default": true,
+          "selector": {
+            "boolean": null
+          },
+          "name": "Cycle",
+          "description": "If the option should cycle from the last to the first."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "select"
+            ]
+          }
+        ]
+      }
+    },
+    "select_option": {
+      "name": "Select",
+      "description": "Selects an option.",
+      "fields": {
+        "option": {
+          "required": true,
+          "example": "\u0022Item A\u0022",
+          "selector": {
+            "text": null
+          },
+          "name": "Option",
+          "description": "Option to be selected."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "select"
+            ]
+          }
+        ]
+      }
+    },
+    "select_previous": {
+      "name": "Previous",
+      "description": "Selects the previous option.",
+      "fields": {
+        "cycle": {
+          "default": true,
+          "selector": {
+            "boolean": null
+          },
+          "name": "Cycle",
+          "description": "If the option should cycle from the first to the last."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "select"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "template": {
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads template entities from the YAML-configuration.",
+      "fields": {}
+    }
+  },
+  "todo": {
+    "add_item": {
+      "name": "Add to-do list item",
+      "description": "Add a new to-do list item.",
+      "fields": {
+        "item": {
+          "required": true,
+          "example": "Submit income tax return",
+          "selector": {
+            "text": null
+          },
+          "name": "Item name",
+          "description": "The name that represents the to-do item."
+        },
+        "due_date": {
+          "filter": {
+            "supported_features": [
+              16
+            ]
+          },
+          "example": "2023-11-17",
+          "selector": {
+            "date": null
+          },
+          "name": "Due date",
+          "description": "The date the to-do item is expected to be completed."
+        },
+        "due_datetime": {
+          "filter": {
+            "supported_features": [
+              32
+            ]
+          },
+          "example": "2023-11-17 13:30:00",
+          "selector": {
+            "datetime": null
+          },
+          "name": "Due date and time",
+          "description": "The date and time the to-do item is expected to be completed."
+        },
+        "description": {
+          "filter": {
+            "supported_features": [
+              64
+            ]
+          },
+          "example": "A more complete description of the to-do item than that provided by the summary.",
+          "selector": {
+            "text": null
+          },
+          "name": "Description",
+          "description": "A more complete description of the to-do item than provided by the item name."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "todo"
+            ],
+            "supported_features": [
+              1
+            ]
+          }
+        ]
+      }
+    },
+    "update_item": {
+      "name": "Update to-do list item",
+      "description": "Update an existing to-do list item based on its name.",
+      "fields": {
+        "item": {
+          "required": true,
+          "example": "Submit income tax return",
+          "selector": {
+            "text": null
+          },
+          "name": "Item name",
+          "description": "The name for the to-do list item."
+        },
+        "rename": {
+          "example": "Something else",
+          "selector": {
+            "text": null
+          },
+          "name": "Rename item",
+          "description": "The new name of the to-do item"
+        },
+        "status": {
+          "example": "needs_action",
+          "selector": {
+            "select": {
+              "translation_key": "status",
+              "options": [
+                "needs_action",
+                "completed"
+              ]
+            }
+          },
+          "name": "Set status",
+          "description": "A status or confirmation of the to-do item."
+        },
+        "due_date": {
+          "filter": {
+            "supported_features": [
+              16
+            ]
+          },
+          "example": "2023-11-17",
+          "selector": {
+            "date": null
+          },
+          "name": "Due date",
+          "description": "The date the to-do item is expected to be completed."
+        },
+        "due_datetime": {
+          "filter": {
+            "supported_features": [
+              32
+            ]
+          },
+          "example": "2023-11-17 13:30:00",
+          "selector": {
+            "datetime": null
+          },
+          "name": "Due date and time",
+          "description": "The date and time the to-do item is expected to be completed."
+        },
+        "description": {
+          "filter": {
+            "supported_features": [
+              64
+            ]
+          },
+          "example": "A more complete description of the to-do item than that provided by the summary.",
+          "selector": {
+            "text": null
+          },
+          "name": "Description",
+          "description": "A more complete description of the to-do item than provided by the item name."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "todo"
+            ],
+            "supported_features": [
+              4
+            ]
+          }
+        ]
+      }
+    },
+    "remove_item": {
+      "name": "Remove a to-do list item",
+      "description": "Remove an existing to-do list item by its name.",
+      "fields": {
+        "item": {
+          "required": true,
+          "selector": {
+            "text": null
+          },
+          "name": "Item name",
+          "description": "The name for the to-do list items."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "todo"
+            ],
+            "supported_features": [
+              2
+            ]
+          }
+        ]
+      }
+    },
+    "get_items": {
+      "name": "Get to-do list items",
+      "description": "Get items on a to-do list.",
+      "fields": {
+        "status": {
+          "example": "needs_action",
+          "default": "needs_action",
+          "selector": {
+            "select": {
+              "translation_key": "status",
+              "options": [
+                "needs_action",
+                "completed"
+              ],
+              "multiple": true
+            }
+          },
+          "name": "Status",
+          "description": "Only return to-do items with the specified statuses. Returns not completed actions by default."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "todo"
+            ]
+          }
+        ]
+      },
+      "response": {
+        "optional": false
+      }
+    },
+    "remove_completed_items": {
+      "name": "Remove all completed to-do list items",
+      "description": "Remove all to-do list items that have been completed.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "todo"
+            ],
+            "supported_features": [
+              2
             ]
           }
         ]
@@ -6770,190 +6575,6 @@
       }
     }
   },
-  "fully_kiosk": {
-    "load_url": {
-      "name": "Load URL",
-      "description": "Loads a URL on Fully Kiosk Browser.",
-      "fields": {
-        "url": {
-          "example": "https://home-assistant.io",
-          "required": true,
-          "selector": {
-            "text": null
-          },
-          "name": "URL",
-          "description": "URL to load."
-        }
-      },
-      "target": {
-        "device": [
-          {
-            "integration": "fully_kiosk"
-          }
-        ]
-      }
-    },
-    "start_application": {
-      "name": "Start Application",
-      "description": "Starts an application on the device running Fully Kiosk Browser.",
-      "fields": {
-        "application": {
-          "example": "de.ozerov.fully",
-          "required": true,
-          "selector": {
-            "text": null
-          },
-          "name": "Application",
-          "description": "Package name of the application to start."
-        }
-      },
-      "target": {
-        "device": [
-          {
-            "integration": "fully_kiosk"
-          }
-        ]
-      }
-    },
-    "set_config": {
-      "name": "Set Configuration",
-      "description": "Sets a configuration parameter on Fully Kiosk Browser.",
-      "fields": {
-        "key": {
-          "example": "motionSensitivity",
-          "required": true,
-          "selector": {
-            "text": null
-          },
-          "name": "Key",
-          "description": "Configuration parameter to set."
-        },
-        "value": {
-          "example": "90",
-          "required": true,
-          "selector": {
-            "text": null
-          },
-          "name": "Value",
-          "description": "Value for the configuration parameter."
-        }
-      },
-      "target": {
-        "device": [
-          {
-            "integration": "fully_kiosk"
-          }
-        ]
-      }
-    }
-  },
-  "alarmo": {
-    "arm": {
-      "name": "",
-      "description": "",
-      "fields": {
-        "entity_id": {
-          "example": "alarm_control_panel.alarm",
-          "required": true,
-          "selector": {
-            "entity": {
-              "integration": "alarmo",
-              "domain": "alarm_control_panel"
-            }
-          }
-        },
-        "code": {
-          "example": "1234",
-          "required": false,
-          "selector": {
-            "text": null
-          }
-        },
-        "mode": {
-          "example": "away",
-          "required": false,
-          "default": "away",
-          "selector": {
-            "select": {
-              "translation_key": "arm_mode",
-              "options": [
-                "away",
-                "night",
-                "home",
-                "vacation",
-                "custom"
-              ]
-            }
-          }
-        },
-        "skip_delay": {
-          "example": false,
-          "required": false,
-          "default": false,
-          "selector": {
-            "boolean": null
-          }
-        },
-        "force": {
-          "example": false,
-          "required": false,
-          "default": false,
-          "selector": {
-            "boolean": null
-          }
-        }
-      }
-    },
-    "disarm": {
-      "name": "",
-      "description": "",
-      "fields": {
-        "entity_id": {
-          "example": "alarm_control_panel.alarm",
-          "required": true,
-          "selector": {
-            "entity": {
-              "integration": "alarmo",
-              "domain": "alarm_control_panel"
-            }
-          }
-        },
-        "code": {
-          "example": "1234",
-          "required": false,
-          "selector": {
-            "text": null
-          }
-        }
-      }
-    },
-    "enable_user": {
-      "name": "",
-      "description": "",
-      "fields": {
-        "name": {
-          "example": "Frank",
-          "required": true,
-          "selector": {
-            "text": null
-          }
-        }
-      }
-    },
-    "disable_user": {
-      "name": "",
-      "description": "",
-      "fields": {
-        "name": {
-          "example": "Frank",
-          "required": true,
-          "selector": {
-            "text": null
-          }
-        }
-      }
-    }
-  },
   "remote": {
     "turn_off": {
       "name": "Turn off",
@@ -7176,187 +6797,470 @@
       }
     }
   },
-  "number": {
-    "set_value": {
-      "name": "Set",
-      "description": "Sets the value of a number.",
+  "weather": {
+    "get_forecast": {
+      "name": "Get forecast",
+      "description": "Get weather forecast.",
       "fields": {
-        "value": {
-          "example": 42,
+        "type": {
+          "required": true,
           "selector": {
-            "text": null
+            "select": {
+              "options": [
+                "daily",
+                "hourly",
+                "twice_daily"
+              ],
+              "translation_key": "forecast_type"
+            }
           },
-          "name": "Value",
-          "description": "The target value to set."
+          "name": "Forecast type",
+          "description": "Forecast type: daily, hourly or twice daily."
         }
       },
       "target": {
         "entity": [
           {
             "domain": [
-              "number"
+              "weather"
+            ],
+            "supported_features": [
+              1,
+              2,
+              4
             ]
           }
         ]
+      },
+      "response": {
+        "optional": false
       }
-    }
-  },
-  "text": {
-    "set_value": {
-      "name": "Set value",
-      "description": "Sets the value.",
+    },
+    "get_forecasts": {
+      "name": "Get forecasts",
+      "description": "Get weather forecasts.",
       "fields": {
-        "value": {
+        "type": {
           "required": true,
-          "example": "Hello world!",
           "selector": {
-            "text": null
+            "select": {
+              "options": [
+                "daily",
+                "hourly",
+                "twice_daily"
+              ],
+              "translation_key": "forecast_type"
+            }
           },
-          "name": "Value",
-          "description": "Enter your text."
+          "name": "Forecast type",
+          "description": "Forecast type: daily, hourly or twice daily."
         }
       },
       "target": {
         "entity": [
           {
             "domain": [
-              "text"
+              "weather"
+            ],
+            "supported_features": [
+              1,
+              2,
+              4
             ]
           }
         ]
-      }
-    }
-  },
-  "time": {
-    "set_value": {
-      "name": "Set Time",
-      "description": "Sets the time.",
-      "fields": {
-        "time": {
-          "required": true,
-          "example": "22:15",
-          "selector": {
-            "time": null
-          },
-          "name": "Time",
-          "description": "The time to set."
-        }
       },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "time"
-            ]
-          }
-        ]
+      "response": {
+        "optional": false
       }
     }
   },
-  "squeezebox": {
-    "call_method": {
-      "name": "Call method",
-      "description": "Calls a custom Squeezebox JSONRPC API.",
+  "adguard": {
+    "add_url": {
+      "name": "Add URL",
+      "description": "Add a new filter subscription to AdGuard Home.",
       "fields": {
-        "command": {
+        "name": {
           "required": true,
-          "example": "playlist",
+          "example": "Example",
           "selector": {
             "text": null
           },
-          "name": "Command",
-          "description": "Command to pass to Logitech Media Server (p0 in the CLI documentation)."
+          "name": "Name",
+          "description": "The name of the filter subscription."
         },
-        "parameters": {
-          "example": "[\u0022loadtracks\u0022, \u0022album.titlesearch=Revolver\u0022]",
-          "advanced": true,
+        "url": {
+          "required": true,
+          "example": "https://www.example.com/filter/1.txt",
+          "selector": {
+            "text": null
+          },
+          "name": "URL",
+          "description": "The filter URL to subscribe to, containing the filter rules."
+        }
+      }
+    },
+    "remove_url": {
+      "name": "Remove URL",
+      "description": "Removes a filter subscription from AdGuard Home.",
+      "fields": {
+        "url": {
+          "required": true,
+          "example": "https://www.example.com/filter/1.txt",
+          "selector": {
+            "text": null
+          },
+          "name": "URL",
+          "description": "The filter subscription URL to remove."
+        }
+      }
+    },
+    "enable_url": {
+      "name": "Enable URL",
+      "description": "Enables a filter subscription in AdGuard Home.",
+      "fields": {
+        "url": {
+          "required": true,
+          "example": "https://www.example.com/filter/1.txt",
+          "selector": {
+            "text": null
+          },
+          "name": "URL",
+          "description": "The filter subscription URL to enable."
+        }
+      }
+    },
+    "disable_url": {
+      "name": "Disable URL",
+      "description": "Disables a filter subscription in AdGuard Home.",
+      "fields": {
+        "url": {
+          "required": true,
+          "example": "https://www.example.com/filter/1.txt",
+          "selector": {
+            "text": null
+          },
+          "name": "URL",
+          "description": "The filter subscription URL to disable."
+        }
+      }
+    },
+    "refresh": {
+      "name": "Refresh",
+      "description": "Refresh all filter subscriptions in AdGuard Home.",
+      "fields": {
+        "force": {
+          "default": false,
+          "selector": {
+            "boolean": null
+          },
+          "name": "Force",
+          "description": "Force update (bypasses AdGuard Home throttling). \u0022true\u0022 to force, or \u0022false\u0022 to omit for a regular refresh."
+        }
+      }
+    }
+  },
+  "yeelight": {
+    "set_mode": {
+      "name": "Set mode",
+      "description": "Sets a operation mode.",
+      "fields": {
+        "mode": {
+          "required": true,
+          "selector": {
+            "select": {
+              "options": [
+                "color_flow",
+                "hsv",
+                "last",
+                "moonlight",
+                "normal",
+                "rgb"
+              ],
+              "translation_key": "mode"
+            }
+          },
+          "name": "Mode",
+          "description": "Operation mode."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "integration": "yeelight",
+            "domain": [
+              "light"
+            ]
+          }
+        ]
+      }
+    },
+    "start_flow": {
+      "name": "Start flow",
+      "description": "Start a custom flow, using transitions from https://yeelight.readthedocs.io/en/stable/yeelight.html#flow-objects.",
+      "fields": {
+        "count": {
+          "default": 0,
+          "selector": {
+            "number": {
+              "min": 0,
+              "max": 100
+            }
+          },
+          "name": "Count",
+          "description": "The number of times to run this flow (0 to run forever)."
+        },
+        "action": {
+          "default": "recover",
+          "selector": {
+            "select": {
+              "options": [
+                "off",
+                "recover",
+                "stay"
+              ],
+              "translation_key": "action"
+            }
+          },
+          "name": "Action",
+          "description": "The action to take after the flow stops."
+        },
+        "transitions": {
+          "example": "[{ \u0022TemperatureTransition\u0022: [1900, 1000, 80] }, { \u0022TemperatureTransition\u0022: [1900, 1000, 10] }]",
           "selector": {
             "object": null
           },
-          "name": "Parameters",
-          "description": "Array of additional parameters to pass to Logitech Media Server (p1, ..., pN in the CLI documentation).\n."
+          "name": "Transitions",
+          "description": "Array of transitions, for desired effect. Examples https://yeelight.readthedocs.io/en/stable/flow.html."
         }
       },
       "target": {
         "entity": [
           {
-            "integration": "squeezebox",
+            "integration": "yeelight",
             "domain": [
-              "media_player"
+              "light"
             ]
           }
         ]
       }
     },
-    "call_query": {
-      "name": "Call query",
-      "description": "Calls a custom Squeezebox JSONRPC API. Result will be stored in \u0027query_result\u0027 attribute of the Squeezebox entity.\n.",
+    "set_color_scene": {
+      "name": "Set color scene",
+      "description": "Changes the light to the specified RGB color and brightness. If the light is off, it will be turned on.",
       "fields": {
-        "command": {
-          "required": true,
-          "example": "albums",
+        "rgb_color": {
+          "example": "[255, 100, 100]",
           "selector": {
-            "text": null
+            "color_rgb": null
           },
-          "name": "Command",
-          "description": "Command to pass to Logitech Media Server (p0 in the CLI documentation)."
+          "name": "RGB color",
+          "description": "Color for the light in RGB-format."
         },
-        "parameters": {
-          "example": "[\u00220\u0022, \u002220\u0022, \u0022search:Revolver\u0022]",
-          "advanced": true,
+        "brightness": {
+          "selector": {
+            "number": {
+              "min": 0,
+              "max": 100,
+              "unit_of_measurement": "%"
+            }
+          },
+          "name": "Brightness",
+          "description": "The brightness value to set."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "integration": "yeelight",
+            "domain": [
+              "light"
+            ]
+          }
+        ]
+      }
+    },
+    "set_hsv_scene": {
+      "name": "Set HSV scene",
+      "description": "Changes the light to the specified HSV color and brightness. If the light is off, it will be turned on.",
+      "fields": {
+        "hs_color": {
+          "example": "[300, 70]",
           "selector": {
             "object": null
           },
-          "name": "Parameters",
-          "description": "Array of additional parameters to pass to Logitech Media Server (p1, ..., pN in the CLI documentation).\n."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "integration": "squeezebox",
-            "domain": [
-              "media_player"
-            ]
-          }
-        ]
-      }
-    },
-    "sync": {
-      "name": "Sync",
-      "description": "Adds another player to this player\u0027s sync group. If the other player is already in a sync group, it will leave it.\n.",
-      "fields": {
-        "other_player": {
-          "required": true,
-          "example": "media_player.living_room",
+          "name": "Hue/sat color",
+          "description": "Color for the light in hue/sat format. Hue is 0-359 and Sat is 0-100."
+        },
+        "brightness": {
           "selector": {
-            "text": null
+            "number": {
+              "min": 0,
+              "max": 100,
+              "unit_of_measurement": "%"
+            }
           },
-          "name": "Other player",
-          "description": "Name of the other Squeezebox player to link."
+          "name": "Brightness",
+          "description": "The brightness value to set."
         }
       },
       "target": {
         "entity": [
           {
-            "integration": "squeezebox",
+            "integration": "yeelight",
             "domain": [
-              "media_player"
+              "light"
             ]
           }
         ]
       }
     },
-    "unsync": {
-      "name": "Unsync",
-      "description": "Removes this player from its sync group.",
-      "fields": {},
+    "set_color_temp_scene": {
+      "name": "Set color temperature scene",
+      "description": "Changes the light to the specified color temperature. If the light is off, it will be turned on.",
+      "fields": {
+        "kelvin": {
+          "selector": {
+            "number": {
+              "min": 1700,
+              "max": 6500,
+              "step": 100,
+              "unit_of_measurement": "K"
+            }
+          },
+          "name": "Kelvin",
+          "description": "Color temperature for the light in Kelvin."
+        },
+        "brightness": {
+          "selector": {
+            "number": {
+              "min": 0,
+              "max": 100,
+              "unit_of_measurement": "%"
+            }
+          },
+          "name": "Brightness",
+          "description": "The brightness value to set."
+        }
+      },
       "target": {
         "entity": [
           {
-            "integration": "squeezebox",
+            "integration": "yeelight",
             "domain": [
-              "media_player"
+              "light"
+            ]
+          }
+        ]
+      }
+    },
+    "set_color_flow_scene": {
+      "name": "Set color flow scene",
+      "description": "Starts a color flow. If the light is off, it will be turned on.",
+      "fields": {
+        "count": {
+          "default": 0,
+          "selector": {
+            "number": {
+              "min": 0,
+              "max": 100
+            }
+          },
+          "name": "Count",
+          "description": "The number of times to run this flow (0 to run forever)."
+        },
+        "action": {
+          "default": "recover",
+          "selector": {
+            "select": {
+              "options": [
+                "off",
+                "recover",
+                "stay"
+              ],
+              "translation_key": "action"
+            }
+          },
+          "name": "Action",
+          "description": "The action to take after the flow stops."
+        },
+        "transitions": {
+          "example": "[{ \u0022TemperatureTransition\u0022: [1900, 1000, 80] }, { \u0022TemperatureTransition\u0022: [1900, 1000, 10] }]",
+          "selector": {
+            "object": null
+          },
+          "name": "Transitions",
+          "description": "Array of transitions, for desired effect. Examples https://yeelight.readthedocs.io/en/stable/flow.html."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "integration": "yeelight",
+            "domain": [
+              "light"
+            ]
+          }
+        ]
+      }
+    },
+    "set_auto_delay_off_scene": {
+      "name": "Set auto delay off scene",
+      "description": "Turns the light on to the specified brightness and sets a timer to turn it back off after the given number of minutes. If the light is off, Set a color scene, if light is off, it will be turned on.",
+      "fields": {
+        "minutes": {
+          "selector": {
+            "number": {
+              "min": 1,
+              "max": 60,
+              "unit_of_measurement": "minutes"
+            }
+          },
+          "name": "Minutes",
+          "description": "The time to wait before automatically turning the light off."
+        },
+        "brightness": {
+          "selector": {
+            "number": {
+              "min": 0,
+              "max": 100,
+              "unit_of_measurement": "%"
+            }
+          },
+          "name": "Brightness",
+          "description": "The brightness value to set."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "integration": "yeelight",
+            "domain": [
+              "light"
+            ]
+          }
+        ]
+      }
+    },
+    "set_music_mode": {
+      "name": "Set music mode",
+      "description": "Enables or disables music_mode.",
+      "fields": {
+        "music_mode": {
+          "required": true,
+          "selector": {
+            "boolean": null
+          },
+          "name": "Music mode",
+          "description": "Use true or false to enable / disable music_mode."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "integration": "yeelight",
+            "domain": [
+              "light"
             ]
           }
         ]
@@ -7455,6 +7359,31 @@
           {
             "domain": [
               "humidifier"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "number": {
+    "set_value": {
+      "name": "Set",
+      "description": "Sets the value of a number.",
+      "fields": {
+        "value": {
+          "example": 42,
+          "selector": {
+            "text": null
+          },
+          "name": "Value",
+          "description": "The target value to set."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "number"
             ]
           }
         ]
@@ -7885,6 +7814,204 @@
       }
     }
   },
+  "squeezebox": {
+    "call_method": {
+      "name": "Call method",
+      "description": "Calls a custom Squeezebox JSONRPC API.",
+      "fields": {
+        "command": {
+          "required": true,
+          "example": "playlist",
+          "selector": {
+            "text": null
+          },
+          "name": "Command",
+          "description": "Command to pass to Logitech Media Server (p0 in the CLI documentation)."
+        },
+        "parameters": {
+          "example": "[\u0022loadtracks\u0022, \u0022album.titlesearch=Revolver\u0022]",
+          "advanced": true,
+          "selector": {
+            "object": null
+          },
+          "name": "Parameters",
+          "description": "Array of additional parameters to pass to Logitech Media Server (p1, ..., pN in the CLI documentation).\n."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "integration": "squeezebox",
+            "domain": [
+              "media_player"
+            ]
+          }
+        ]
+      }
+    },
+    "call_query": {
+      "name": "Call query",
+      "description": "Calls a custom Squeezebox JSONRPC API. Result will be stored in \u0027query_result\u0027 attribute of the Squeezebox entity.\n.",
+      "fields": {
+        "command": {
+          "required": true,
+          "example": "albums",
+          "selector": {
+            "text": null
+          },
+          "name": "Command",
+          "description": "Command to pass to Logitech Media Server (p0 in the CLI documentation)."
+        },
+        "parameters": {
+          "example": "[\u00220\u0022, \u002220\u0022, \u0022search:Revolver\u0022]",
+          "advanced": true,
+          "selector": {
+            "object": null
+          },
+          "name": "Parameters",
+          "description": "Array of additional parameters to pass to Logitech Media Server (p1, ..., pN in the CLI documentation).\n."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "integration": "squeezebox",
+            "domain": [
+              "media_player"
+            ]
+          }
+        ]
+      }
+    },
+    "sync": {
+      "name": "Sync",
+      "description": "Adds another player to this player\u0027s sync group. If the other player is already in a sync group, it will leave it.\n.",
+      "fields": {
+        "other_player": {
+          "required": true,
+          "example": "media_player.living_room",
+          "selector": {
+            "text": null
+          },
+          "name": "Other player",
+          "description": "Name of the other Squeezebox player to link."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "integration": "squeezebox",
+            "domain": [
+              "media_player"
+            ]
+          }
+        ]
+      }
+    },
+    "unsync": {
+      "name": "Unsync",
+      "description": "Removes this player from its sync group.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "integration": "squeezebox",
+            "domain": [
+              "media_player"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "mqtt": {
+    "publish": {
+      "name": "Publish",
+      "description": "Publishes a message to an MQTT topic.",
+      "fields": {
+        "topic": {
+          "required": true,
+          "example": "/homeassistant/hello",
+          "selector": {
+            "text": null
+          },
+          "name": "Topic",
+          "description": "Topic to publish to."
+        },
+        "payload": {
+          "example": "This is great",
+          "selector": {
+            "text": null
+          },
+          "name": "Payload",
+          "description": "The payload to publish."
+        },
+        "payload_template": {
+          "advanced": true,
+          "example": "{{ states(\u0027sensor.temperature\u0027) }}",
+          "selector": {
+            "template": null
+          },
+          "name": "Payload template",
+          "description": "Template to render as a payload value. If a payload is provided, the template is ignored."
+        },
+        "qos": {
+          "advanced": true,
+          "default": 0,
+          "selector": {
+            "select": {
+              "options": [
+                "0",
+                "1",
+                "2"
+              ]
+            }
+          },
+          "name": "QoS",
+          "description": "Quality of Service to use. 0: At most once. 1: At least once. 2: Exactly once."
+        },
+        "retain": {
+          "default": false,
+          "selector": {
+            "boolean": null
+          },
+          "name": "Retain",
+          "description": "If the message should have the retain flag set. If set, the broker stores the most recent message on a topic."
+        }
+      }
+    },
+    "dump": {
+      "name": "Export",
+      "description": "Writes all messages on a specific topic into the \u0060mqtt_dump.txt\u0060 file in your configuration folder.",
+      "fields": {
+        "topic": {
+          "example": "OpenZWave/#",
+          "selector": {
+            "text": null
+          },
+          "name": "Topic",
+          "description": "Topic to listen to."
+        },
+        "duration": {
+          "default": 5,
+          "selector": {
+            "number": {
+              "min": 1,
+              "max": 300,
+              "unit_of_measurement": "seconds"
+            }
+          },
+          "name": "Duration",
+          "description": "How long we should listen for messages in seconds."
+        }
+      }
+    },
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads MQTT entities from the YAML-configuration.",
+      "fields": {}
+    }
+  },
   "google": {
     "add_event": {
       "name": "Add event",
@@ -8034,313 +8161,6 @@
             "integration": "google",
             "domain": [
               "calendar"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "yeelight": {
-    "set_mode": {
-      "name": "Set mode",
-      "description": "Sets a operation mode.",
-      "fields": {
-        "mode": {
-          "required": true,
-          "selector": {
-            "select": {
-              "options": [
-                "color_flow",
-                "hsv",
-                "last",
-                "moonlight",
-                "normal",
-                "rgb"
-              ],
-              "translation_key": "mode"
-            }
-          },
-          "name": "Mode",
-          "description": "Operation mode."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "integration": "yeelight",
-            "domain": [
-              "light"
-            ]
-          }
-        ]
-      }
-    },
-    "start_flow": {
-      "name": "Start flow",
-      "description": "Start a custom flow, using transitions from https://yeelight.readthedocs.io/en/stable/yeelight.html#flow-objects.",
-      "fields": {
-        "count": {
-          "default": 0,
-          "selector": {
-            "number": {
-              "min": 0,
-              "max": 100
-            }
-          },
-          "name": "Count",
-          "description": "The number of times to run this flow (0 to run forever)."
-        },
-        "action": {
-          "default": "recover",
-          "selector": {
-            "select": {
-              "options": [
-                "off",
-                "recover",
-                "stay"
-              ],
-              "translation_key": "action"
-            }
-          },
-          "name": "Action",
-          "description": "The action to take after the flow stops."
-        },
-        "transitions": {
-          "example": "[{ \u0022TemperatureTransition\u0022: [1900, 1000, 80] }, { \u0022TemperatureTransition\u0022: [1900, 1000, 10] }]",
-          "selector": {
-            "object": null
-          },
-          "name": "Transitions",
-          "description": "Array of transitions, for desired effect. Examples https://yeelight.readthedocs.io/en/stable/flow.html."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "integration": "yeelight",
-            "domain": [
-              "light"
-            ]
-          }
-        ]
-      }
-    },
-    "set_color_scene": {
-      "name": "Set color scene",
-      "description": "Changes the light to the specified RGB color and brightness. If the light is off, it will be turned on.",
-      "fields": {
-        "rgb_color": {
-          "example": "[255, 100, 100]",
-          "selector": {
-            "color_rgb": null
-          },
-          "name": "RGB color",
-          "description": "Color for the light in RGB-format."
-        },
-        "brightness": {
-          "selector": {
-            "number": {
-              "min": 0,
-              "max": 100,
-              "unit_of_measurement": "%"
-            }
-          },
-          "name": "Brightness",
-          "description": "The brightness value to set."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "integration": "yeelight",
-            "domain": [
-              "light"
-            ]
-          }
-        ]
-      }
-    },
-    "set_hsv_scene": {
-      "name": "Set HSV scene",
-      "description": "Changes the light to the specified HSV color and brightness. If the light is off, it will be turned on.",
-      "fields": {
-        "hs_color": {
-          "example": "[300, 70]",
-          "selector": {
-            "object": null
-          },
-          "name": "Hue/sat color",
-          "description": "Color for the light in hue/sat format. Hue is 0-359 and Sat is 0-100."
-        },
-        "brightness": {
-          "selector": {
-            "number": {
-              "min": 0,
-              "max": 100,
-              "unit_of_measurement": "%"
-            }
-          },
-          "name": "Brightness",
-          "description": "The brightness value to set."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "integration": "yeelight",
-            "domain": [
-              "light"
-            ]
-          }
-        ]
-      }
-    },
-    "set_color_temp_scene": {
-      "name": "Set color temperature scene",
-      "description": "Changes the light to the specified color temperature. If the light is off, it will be turned on.",
-      "fields": {
-        "kelvin": {
-          "selector": {
-            "number": {
-              "min": 1700,
-              "max": 6500,
-              "step": 100,
-              "unit_of_measurement": "K"
-            }
-          },
-          "name": "Kelvin",
-          "description": "Color temperature for the light in Kelvin."
-        },
-        "brightness": {
-          "selector": {
-            "number": {
-              "min": 0,
-              "max": 100,
-              "unit_of_measurement": "%"
-            }
-          },
-          "name": "Brightness",
-          "description": "The brightness value to set."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "integration": "yeelight",
-            "domain": [
-              "light"
-            ]
-          }
-        ]
-      }
-    },
-    "set_color_flow_scene": {
-      "name": "Set color flow scene",
-      "description": "Starts a color flow. If the light is off, it will be turned on.",
-      "fields": {
-        "count": {
-          "default": 0,
-          "selector": {
-            "number": {
-              "min": 0,
-              "max": 100
-            }
-          },
-          "name": "Count",
-          "description": "The number of times to run this flow (0 to run forever)."
-        },
-        "action": {
-          "default": "recover",
-          "selector": {
-            "select": {
-              "options": [
-                "off",
-                "recover",
-                "stay"
-              ],
-              "translation_key": "action"
-            }
-          },
-          "name": "Action",
-          "description": "The action to take after the flow stops."
-        },
-        "transitions": {
-          "example": "[{ \u0022TemperatureTransition\u0022: [1900, 1000, 80] }, { \u0022TemperatureTransition\u0022: [1900, 1000, 10] }]",
-          "selector": {
-            "object": null
-          },
-          "name": "Transitions",
-          "description": "Array of transitions, for desired effect. Examples https://yeelight.readthedocs.io/en/stable/flow.html."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "integration": "yeelight",
-            "domain": [
-              "light"
-            ]
-          }
-        ]
-      }
-    },
-    "set_auto_delay_off_scene": {
-      "name": "Set auto delay off scene",
-      "description": "Turns the light on to the specified brightness and sets a timer to turn it back off after the given number of minutes. If the light is off, Set a color scene, if light is off, it will be turned on.",
-      "fields": {
-        "minutes": {
-          "selector": {
-            "number": {
-              "min": 1,
-              "max": 60,
-              "unit_of_measurement": "minutes"
-            }
-          },
-          "name": "Minutes",
-          "description": "The time to wait before automatically turning the light off."
-        },
-        "brightness": {
-          "selector": {
-            "number": {
-              "min": 0,
-              "max": 100,
-              "unit_of_measurement": "%"
-            }
-          },
-          "name": "Brightness",
-          "description": "The brightness value to set."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "integration": "yeelight",
-            "domain": [
-              "light"
-            ]
-          }
-        ]
-      }
-    },
-    "set_music_mode": {
-      "name": "Set music mode",
-      "description": "Enables or disables music_mode.",
-      "fields": {
-        "music_mode": {
-          "required": true,
-          "selector": {
-            "boolean": null
-          },
-          "name": "Music mode",
-          "description": "Use true or false to enable / disable music_mode."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "integration": "yeelight",
-            "domain": [
-              "light"
             ]
           }
         ]
@@ -8710,6 +8530,190 @@
       }
     }
   },
+  "fully_kiosk": {
+    "load_url": {
+      "name": "Load URL",
+      "description": "Loads a URL on Fully Kiosk Browser.",
+      "fields": {
+        "url": {
+          "example": "https://home-assistant.io",
+          "required": true,
+          "selector": {
+            "text": null
+          },
+          "name": "URL",
+          "description": "URL to load."
+        }
+      },
+      "target": {
+        "device": [
+          {
+            "integration": "fully_kiosk"
+          }
+        ]
+      }
+    },
+    "start_application": {
+      "name": "Start Application",
+      "description": "Starts an application on the device running Fully Kiosk Browser.",
+      "fields": {
+        "application": {
+          "example": "de.ozerov.fully",
+          "required": true,
+          "selector": {
+            "text": null
+          },
+          "name": "Application",
+          "description": "Package name of the application to start."
+        }
+      },
+      "target": {
+        "device": [
+          {
+            "integration": "fully_kiosk"
+          }
+        ]
+      }
+    },
+    "set_config": {
+      "name": "Set Configuration",
+      "description": "Sets a configuration parameter on Fully Kiosk Browser.",
+      "fields": {
+        "key": {
+          "example": "motionSensitivity",
+          "required": true,
+          "selector": {
+            "text": null
+          },
+          "name": "Key",
+          "description": "Configuration parameter to set."
+        },
+        "value": {
+          "example": "90",
+          "required": true,
+          "selector": {
+            "text": null
+          },
+          "name": "Value",
+          "description": "Value for the configuration parameter."
+        }
+      },
+      "target": {
+        "device": [
+          {
+            "integration": "fully_kiosk"
+          }
+        ]
+      }
+    }
+  },
+  "alarmo": {
+    "arm": {
+      "name": "",
+      "description": "",
+      "fields": {
+        "entity_id": {
+          "example": "alarm_control_panel.alarm",
+          "required": true,
+          "selector": {
+            "entity": {
+              "integration": "alarmo",
+              "domain": "alarm_control_panel"
+            }
+          }
+        },
+        "code": {
+          "example": "1234",
+          "required": false,
+          "selector": {
+            "text": null
+          }
+        },
+        "mode": {
+          "example": "away",
+          "required": false,
+          "default": "away",
+          "selector": {
+            "select": {
+              "translation_key": "arm_mode",
+              "options": [
+                "away",
+                "night",
+                "home",
+                "vacation",
+                "custom"
+              ]
+            }
+          }
+        },
+        "skip_delay": {
+          "example": false,
+          "required": false,
+          "default": false,
+          "selector": {
+            "boolean": null
+          }
+        },
+        "force": {
+          "example": false,
+          "required": false,
+          "default": false,
+          "selector": {
+            "boolean": null
+          }
+        }
+      }
+    },
+    "disarm": {
+      "name": "",
+      "description": "",
+      "fields": {
+        "entity_id": {
+          "example": "alarm_control_panel.alarm",
+          "required": true,
+          "selector": {
+            "entity": {
+              "integration": "alarmo",
+              "domain": "alarm_control_panel"
+            }
+          }
+        },
+        "code": {
+          "example": "1234",
+          "required": false,
+          "selector": {
+            "text": null
+          }
+        }
+      }
+    },
+    "enable_user": {
+      "name": "",
+      "description": "",
+      "fields": {
+        "name": {
+          "example": "Frank",
+          "required": true,
+          "selector": {
+            "text": null
+          }
+        }
+      }
+    },
+    "disable_user": {
+      "name": "",
+      "description": "",
+      "fields": {
+        "name": {
+          "example": "Frank",
+          "required": true,
+          "selector": {
+            "text": null
+          }
+        }
+      }
+    }
+  },
   "icloud": {
     "play_sound": {
       "name": "Play sound",
@@ -8829,46 +8833,6 @@
           },
           "name": "Account",
           "description": "Your iCloud account username (email) or account name."
-        }
-      }
-    }
-  },
-  "alexa_media": {
-    "update_last_called": {
-      "name": "Update Last Called Sensor",
-      "description": "Forces update of last_called echo device for each Alexa account.",
-      "fields": {
-        "email": {
-          "description": "List of Alexa accounts to update. If empty, will update all known accounts.",
-          "example": "my_email@alexa.com",
-          "name": "Email address"
-        }
-      }
-    },
-    "clear_history": {
-      "name": "Clear Amazon Voice History",
-      "description": "Clear last entries from Alexa Voice history for each Alexa account.",
-      "fields": {
-        "email": {
-          "description": "Accounts to clear. Empty will clear all.",
-          "example": "my_email@alexa.com",
-          "name": "Email address"
-        },
-        "entries": {
-          "description": "Number of entries to clear from 1 to 50. If empty, clear 50.",
-          "example": 50,
-          "name": "Number of Entries"
-        }
-      }
-    },
-    "force_logout": {
-      "name": "Force Logout",
-      "description": "Force account to logout. Used mainly for debugging.",
-      "fields": {
-        "email": {
-          "description": "Accounts to clear. Empty will clear all.",
-          "example": "my_email@alexa.com",
-          "name": "Email address"
         }
       }
     }
@@ -9052,6 +9016,46 @@
       }
     }
   },
+  "alexa_media": {
+    "update_last_called": {
+      "name": "Update Last Called Sensor",
+      "description": "Forces update of last_called echo device for each Alexa account.",
+      "fields": {
+        "email": {
+          "description": "List of Alexa accounts to update. If empty, will update all known accounts.",
+          "example": "my_email@alexa.com",
+          "name": "Email address"
+        }
+      }
+    },
+    "clear_history": {
+      "name": "Clear Amazon Voice History",
+      "description": "Clear last entries from Alexa Voice history for each Alexa account.",
+      "fields": {
+        "email": {
+          "description": "Accounts to clear. Empty will clear all.",
+          "example": "my_email@alexa.com",
+          "name": "Email address"
+        },
+        "entries": {
+          "description": "Number of entries to clear from 1 to 50. If empty, clear 50.",
+          "example": 50,
+          "name": "Number of Entries"
+        }
+      }
+    },
+    "force_logout": {
+      "name": "Force Logout",
+      "description": "Force account to logout. Used mainly for debugging.",
+      "fields": {
+        "email": {
+          "description": "Accounts to clear. Empty will clear all.",
+          "example": "my_email@alexa.com",
+          "name": "Email address"
+        }
+      }
+    }
+  },
   "automation": {
     "trigger": {
       "name": "Trigger",
@@ -9131,6 +9135,58 @@
       "name": "Reload",
       "description": "Reloads the automation configuration.",
       "fields": {}
+    }
+  },
+  "text": {
+    "set_value": {
+      "name": "Set value",
+      "description": "Sets the value.",
+      "fields": {
+        "value": {
+          "required": true,
+          "example": "Hello world!",
+          "selector": {
+            "text": null
+          },
+          "name": "Value",
+          "description": "Enter your text."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "text"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "time": {
+    "set_value": {
+      "name": "Set Time",
+      "description": "Sets the time.",
+      "fields": {
+        "time": {
+          "required": true,
+          "example": "22:15",
+          "selector": {
+            "time": null
+          },
+          "name": "Time",
+          "description": "The time to set."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "time"
+            ]
+          }
+        ]
+      }
     }
   },
   "unifiprotect": {

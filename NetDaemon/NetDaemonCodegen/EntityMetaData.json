@@ -30,7 +30,7 @@
         },
         {
           "id": "light.basement_stairs_light",
-          "friendlyName": "Basement Stairs Light",
+          "friendlyName": null,
           "cSharpName": "BasementStairsLight"
         },
         {
@@ -267,16 +267,6 @@
           "id": "light.snug_lights",
           "friendlyName": "Snug Lights",
           "cSharpName": "SnugLights"
-        },
-        {
-          "id": "light.sonoff_basement_1_blue_led",
-          "friendlyName": "Sonoff Basement 1 Blue LED",
-          "cSharpName": "SonoffBasement1BlueLed"
-        },
-        {
-          "id": "light.sonoff_basement_2_blue_led",
-          "friendlyName": "Sonoff Basement 2 Blue LED",
-          "cSharpName": "SonoffBasement2BlueLed"
         },
         {
           "id": "light.sonoff_downstairs_1_blue_led",
@@ -1075,6 +1065,11 @@
           "cSharpName": "FeedCats"
         },
         {
+          "id": "automation.guest_room_bedside_switch",
+          "friendlyName": "Guest Room Bedside Switch",
+          "cSharpName": "GuestRoomBedsideSwitch"
+        },
+        {
           "id": "automation.guest_room_remote_actions",
           "friendlyName": "Guest Room Remote Actions",
           "cSharpName": "GuestRoomRemoteActions"
@@ -1115,6 +1110,11 @@
           "cSharpName": "KitchenSwitch"
         },
         {
+          "id": "automation.left_bedside_switch",
+          "friendlyName": "Left Bedside Switch",
+          "cSharpName": "LeftBedsideSwitch"
+        },
+        {
           "id": "automation.loft_hatch_closed",
           "friendlyName": "Loft hatch closed",
           "cSharpName": "LoftHatchClosed"
@@ -1128,6 +1128,11 @@
           "id": "automation.lounge_scene_watch_television_2",
           "friendlyName": "Lounge Scene Watch Television",
           "cSharpName": "LoungeSceneWatchTelevision2"
+        },
+        {
+          "id": "automation.lounge_sofa_switch",
+          "friendlyName": "Lounge Sofa Switch",
+          "cSharpName": "LoungeSofaSwitch"
         },
         {
           "id": "automation.lounge_switch",
@@ -1168,6 +1173,11 @@
           "id": "automation.replace_carbon_monoxide_batteries",
           "friendlyName": "Replace Carbon Monoxide Batteries",
           "cSharpName": "ReplaceCarbonMonoxideBatteries"
+        },
+        {
+          "id": "automation.right_bedside_switch",
+          "friendlyName": "Right Bedside Switch",
+          "cSharpName": "RightBedsideSwitch"
         },
         {
           "id": "automation.send_notification_when_alarm_is_armed_in_away_mode",
@@ -1245,6 +1255,11 @@
           "cSharpName": "ShowerTimerStart"
         },
         {
+          "id": "automation.snug_desk_switch",
+          "friendlyName": "Snug Desk Switch",
+          "cSharpName": "SnugDeskSwitch"
+        },
+        {
           "id": "automation.snug_lights_off_reset_mode",
           "friendlyName": "Snug Lights Off Reset Mode",
           "cSharpName": "SnugLightsOffResetMode"
@@ -1268,6 +1283,11 @@
           "id": "automation.store_switch",
           "friendlyName": "Store Switch",
           "cSharpName": "StoreSwitch"
+        },
+        {
+          "id": "automation.studio_bedside_switch",
+          "friendlyName": "Studio Bedside Switch",
+          "cSharpName": "StudioBedsideSwitch"
         },
         {
           "id": "automation.studio_switch",
@@ -1512,6 +1532,146 @@
           "cSharpName": "BasementHallMotionSensors"
         },
         {
+          "id": "binary_sensor.basement_lights_1_cloud",
+          "friendlyName": "shellypro4pm-34987a68fc0c cloud",
+          "cSharpName": "BasementLights1Cloud"
+        },
+        {
+          "id": "binary_sensor.basement_lights_1_restart_required",
+          "friendlyName": "shellypro4pm-34987a68fc0c restart required",
+          "cSharpName": "BasementLights1RestartRequired"
+        },
+        {
+          "id": "binary_sensor.basement_lights_1_switch_0_overheating",
+          "friendlyName": "Toilet Light overheating",
+          "cSharpName": "BasementLights1Switch0Overheating"
+        },
+        {
+          "id": "binary_sensor.basement_lights_1_switch_0_overpowering",
+          "friendlyName": "Toilet Light overpowering",
+          "cSharpName": "BasementLights1Switch0Overpowering"
+        },
+        {
+          "id": "binary_sensor.basement_lights_1_switch_0_overvoltage",
+          "friendlyName": "Toilet Light overvoltage",
+          "cSharpName": "BasementLights1Switch0Overvoltage"
+        },
+        {
+          "id": "binary_sensor.basement_lights_1_switch_1_overheating",
+          "friendlyName": "Basement Lights 1 switch_1 overheating",
+          "cSharpName": "BasementLights1Switch1Overheating"
+        },
+        {
+          "id": "binary_sensor.basement_lights_1_switch_1_overpowering",
+          "friendlyName": "Basement Lights 1 switch_1 overpowering",
+          "cSharpName": "BasementLights1Switch1Overpowering"
+        },
+        {
+          "id": "binary_sensor.basement_lights_1_switch_1_overvoltage",
+          "friendlyName": "Basement Lights 1 switch_1 overvoltage",
+          "cSharpName": "BasementLights1Switch1Overvoltage"
+        },
+        {
+          "id": "binary_sensor.basement_lights_1_switch_2_overheating",
+          "friendlyName": "Utility Room Light overheating",
+          "cSharpName": "BasementLights1Switch2Overheating"
+        },
+        {
+          "id": "binary_sensor.basement_lights_1_switch_2_overpowering",
+          "friendlyName": "Utility Room Light overpowering",
+          "cSharpName": "BasementLights1Switch2Overpowering"
+        },
+        {
+          "id": "binary_sensor.basement_lights_1_switch_2_overvoltage",
+          "friendlyName": "Utility Room Light overvoltage",
+          "cSharpName": "BasementLights1Switch2Overvoltage"
+        },
+        {
+          "id": "binary_sensor.basement_lights_1_switch_3_overheating",
+          "friendlyName": "Store Light overheating",
+          "cSharpName": "BasementLights1Switch3Overheating"
+        },
+        {
+          "id": "binary_sensor.basement_lights_1_switch_3_overpowering",
+          "friendlyName": "Store Light overpowering",
+          "cSharpName": "BasementLights1Switch3Overpowering"
+        },
+        {
+          "id": "binary_sensor.basement_lights_1_switch_3_overvoltage",
+          "friendlyName": "Store Light overvoltage",
+          "cSharpName": "BasementLights1Switch3Overvoltage"
+        },
+        {
+          "id": "binary_sensor.basement_lights_2_cloud",
+          "friendlyName": "shellypro4pm-34987a68e72c cloud",
+          "cSharpName": "BasementLights2Cloud"
+        },
+        {
+          "id": "binary_sensor.basement_lights_2_restart_required",
+          "friendlyName": "shellypro4pm-34987a68e72c restart required",
+          "cSharpName": "BasementLights2RestartRequired"
+        },
+        {
+          "id": "binary_sensor.basement_lights_2_switch_0_overheating",
+          "friendlyName": "BL2 Unused 3 overheating",
+          "cSharpName": "BasementLights2Switch0Overheating"
+        },
+        {
+          "id": "binary_sensor.basement_lights_2_switch_0_overpowering",
+          "friendlyName": "BL2 Unused 3 overpowering",
+          "cSharpName": "BasementLights2Switch0Overpowering"
+        },
+        {
+          "id": "binary_sensor.basement_lights_2_switch_0_overvoltage",
+          "friendlyName": "BL2 Unused 3 overvoltage",
+          "cSharpName": "BasementLights2Switch0Overvoltage"
+        },
+        {
+          "id": "binary_sensor.basement_lights_2_switch_1_overheating",
+          "friendlyName": "BL2 Unused 4 overheating",
+          "cSharpName": "BasementLights2Switch1Overheating"
+        },
+        {
+          "id": "binary_sensor.basement_lights_2_switch_1_overpowering",
+          "friendlyName": "BL2 Unused 4 overpowering",
+          "cSharpName": "BasementLights2Switch1Overpowering"
+        },
+        {
+          "id": "binary_sensor.basement_lights_2_switch_1_overvoltage",
+          "friendlyName": "BL2 Unused 4 overvoltage",
+          "cSharpName": "BasementLights2Switch1Overvoltage"
+        },
+        {
+          "id": "binary_sensor.basement_lights_2_switch_2_overheating",
+          "friendlyName": "Dining Room Light overheating",
+          "cSharpName": "BasementLights2Switch2Overheating"
+        },
+        {
+          "id": "binary_sensor.basement_lights_2_switch_2_overpowering",
+          "friendlyName": "Dining Room Light overpowering",
+          "cSharpName": "BasementLights2Switch2Overpowering"
+        },
+        {
+          "id": "binary_sensor.basement_lights_2_switch_2_overvoltage",
+          "friendlyName": "Dining Room Light overvoltage",
+          "cSharpName": "BasementLights2Switch2Overvoltage"
+        },
+        {
+          "id": "binary_sensor.basement_lights_2_switch_3_overheating",
+          "friendlyName": "Snug Light overheating",
+          "cSharpName": "BasementLights2Switch3Overheating"
+        },
+        {
+          "id": "binary_sensor.basement_lights_2_switch_3_overpowering",
+          "friendlyName": "Snug Light overpowering",
+          "cSharpName": "BasementLights2Switch3Overpowering"
+        },
+        {
+          "id": "binary_sensor.basement_lights_2_switch_3_overvoltage",
+          "friendlyName": "Snug Light overvoltage",
+          "cSharpName": "BasementLights2Switch3Overvoltage"
+        },
+        {
           "id": "binary_sensor.basement_stairs_motion",
           "friendlyName": "Basement Stairs Motion",
           "cSharpName": "BasementStairsMotion"
@@ -1550,16 +1710,6 @@
           "id": "binary_sensor.bathroom_fan_overvoltage",
           "friendlyName": "Bathroom Fan overvoltage",
           "cSharpName": "BathroomFanOvervoltage"
-        },
-        {
-          "id": "binary_sensor.bathroom_humidistat_battery_low",
-          "friendlyName": "Bathroom Humidistat Battery",
-          "cSharpName": "BathroomHumidistatBatteryLow"
-        },
-        {
-          "id": "binary_sensor.bathroom_humidistat_update_available",
-          "friendlyName": "Bathroom Humidistat",
-          "cSharpName": "BathroomHumidistatUpdateAvailable"
         },
         {
           "id": "binary_sensor.bathroom_light_overheating",
@@ -2947,56 +3097,6 @@
           "cSharpName": "SnugOccupancy"
         },
         {
-          "id": "binary_sensor.sonoff_basement_1_basement_hall_button",
-          "friendlyName": "Sonoff Basement 1 Basement Hall Button",
-          "cSharpName": "SonoffBasement1BasementHallButton"
-        },
-        {
-          "id": "binary_sensor.sonoff_basement_1_brewery_button",
-          "friendlyName": "Sonoff Basement 1 Brewery Button",
-          "cSharpName": "SonoffBasement1BreweryButton"
-        },
-        {
-          "id": "binary_sensor.sonoff_basement_1_status",
-          "friendlyName": "Sonoff Basement 1 Status",
-          "cSharpName": "SonoffBasement1Status"
-        },
-        {
-          "id": "binary_sensor.sonoff_basement_1_toilet_button",
-          "friendlyName": "Sonoff Basement 1 Toilet Button",
-          "cSharpName": "SonoffBasement1ToiletButton"
-        },
-        {
-          "id": "binary_sensor.sonoff_basement_1_utility_room_button",
-          "friendlyName": "Sonoff Basement 1 Utility Room Button",
-          "cSharpName": "SonoffBasement1UtilityRoomButton"
-        },
-        {
-          "id": "binary_sensor.sonoff_basement_2_dining_room_button",
-          "friendlyName": "Sonoff Basement 2 Dining Room Button",
-          "cSharpName": "SonoffBasement2DiningRoomButton"
-        },
-        {
-          "id": "binary_sensor.sonoff_basement_2_snug_button",
-          "friendlyName": "Sonoff Basement 2 Snug Button",
-          "cSharpName": "SonoffBasement2SnugButton"
-        },
-        {
-          "id": "binary_sensor.sonoff_basement_2_spare_ch3_button",
-          "friendlyName": "Sonoff Basement 2 Spare Ch3 Button",
-          "cSharpName": "SonoffBasement2SpareCh3Button"
-        },
-        {
-          "id": "binary_sensor.sonoff_basement_2_spare_ch4_button",
-          "friendlyName": "Sonoff Basement 2 Spare Ch4 Button",
-          "cSharpName": "SonoffBasement2SpareCh4Button"
-        },
-        {
-          "id": "binary_sensor.sonoff_basement_2_status",
-          "friendlyName": "Sonoff Basement 2 Status",
-          "cSharpName": "SonoffBasement2Status"
-        },
-        {
           "id": "binary_sensor.sonoff_bridge_1_button1",
           "friendlyName": "Sonoff Bridge 1 Sonoff Bridge 1 Button1",
           "cSharpName": "SonoffBridge1Button1"
@@ -3507,6 +3607,11 @@
           "jsonName": "event_score",
           "cSharpName": "EventScore",
           "clrType": "System.Double"
+        },
+        {
+          "jsonName": "teleFails",
+          "cSharpName": "TeleFails",
+          "clrType": "System.Double"
         }
       ]
     },
@@ -3522,6 +3627,16 @@
           "id": "button.basement_hall_lights_reboot",
           "friendlyName": "Shelly Basement Hall Lights Reboot",
           "cSharpName": "BasementHallLightsReboot"
+        },
+        {
+          "id": "button.basement_lights_1_reboot",
+          "friendlyName": "Basement Lights 1 Reboot",
+          "cSharpName": "BasementLights1Reboot"
+        },
+        {
+          "id": "button.basement_lights_2_reboot",
+          "friendlyName": "Basement Lights 2 Reboot",
+          "cSharpName": "BasementLights2Reboot"
         },
         {
           "id": "button.bathroom_switch_identify",
@@ -3599,6 +3714,11 @@
           "cSharpName": "EspresenseSnugRestart"
         },
         {
+          "id": "button.guest_room_bedside_switch_identify",
+          "friendlyName": "Guest Room Bedside Switch Identify",
+          "cSharpName": "GuestRoomBedsideSwitchIdentify"
+        },
+        {
           "id": "button.guest_room_fp2_identify",
           "friendlyName": "Guest Room FP2 Identify",
           "cSharpName": "GuestRoomFp2Identify"
@@ -3654,9 +3774,19 @@
           "cSharpName": "KitchenSwitchIdentify"
         },
         {
+          "id": "button.left_bedside_switch_identify",
+          "friendlyName": "Left Bedside Switch Identify",
+          "cSharpName": "LeftBedsideSwitchIdentify"
+        },
+        {
           "id": "button.lounge_fp2_identify",
           "friendlyName": "Lounge FP2 Identify",
           "cSharpName": "LoungeFp2Identify"
+        },
+        {
+          "id": "button.lounge_sofa_switch_identify",
+          "friendlyName": "Lounge Sofa Switch Identify",
+          "cSharpName": "LoungeSofaSwitchIdentify"
         },
         {
           "id": "button.lounge_switch_identify",
@@ -3677,6 +3807,11 @@
           "id": "button.outside_lights_reboot",
           "friendlyName": "Outside Lights Reboot",
           "cSharpName": "OutsideLightsReboot"
+        },
+        {
+          "id": "button.right_bedside_switch_identify",
+          "friendlyName": "Right Bedside Switch Identify",
+          "cSharpName": "RightBedsideSwitchIdentify"
         },
         {
           "id": "button.safe_mode_boot",
@@ -3729,6 +3864,11 @@
           "cSharpName": "ShellyUpstairsSockets3Reboot"
         },
         {
+          "id": "button.snug_desk_switch_identify",
+          "friendlyName": "Snug Desk Switch Identify",
+          "cSharpName": "SnugDeskSwitchIdentify"
+        },
+        {
           "id": "button.snug_fp2_identify",
           "friendlyName": "Snug FP2 Identify",
           "cSharpName": "SnugFp2Identify"
@@ -3742,6 +3882,11 @@
           "id": "button.store_switch_identify",
           "friendlyName": "Store Switch Identify",
           "cSharpName": "StoreSwitchIdentify"
+        },
+        {
+          "id": "button.studio_bedside_switch_identify",
+          "friendlyName": "Studio Bedside Switch Identify",
+          "cSharpName": "StudioBedsideSwitchIdentify"
         },
         {
           "id": "button.studio_bluetooth_proxy_enroll",
@@ -4264,6 +4409,11 @@
           "cSharpName": "Ac"
         },
         {
+          "id": "device_tracker.alubarika_alubarika",
+          "friendlyName": "Alubarika Alubarika",
+          "cSharpName": "AlubarikaAlubarika"
+        },
+        {
           "id": "device_tracker.andrews_iphone_tile",
           "friendlyName": "Andrew\u2019s iPhone",
           "cSharpName": "AndrewsIphoneTile"
@@ -4359,6 +4509,11 @@
           "cSharpName": "BleGarminDrivBleGarminDriv"
         },
         {
+          "id": "device_tracker.ble_garmin_driv_ble_garmin_driv_2",
+          "friendlyName": "BLE_Garmin Driv BLE_Garmin Driv",
+          "cSharpName": "BleGarminDrivBleGarminDriv2"
+        },
+        {
           "id": "device_tracker.blinghelmet",
           "friendlyName": "BlingHelmet BlingHelmet",
           "cSharpName": "Blinghelmet"
@@ -4374,13 +4529,18 @@
           "cSharpName": "CbSmartcam"
         },
         {
+          "id": "device_tracker.ccc3_ccc3",
+          "friendlyName": "CCC3 CCC3",
+          "cSharpName": "Ccc3Ccc3"
+        },
+        {
           "id": "device_tracker.claireiphone_3",
           "friendlyName": "claireiphone",
           "cSharpName": "Claireiphone3"
         },
         {
           "id": "device_tracker.claires_apple_watch",
-          "friendlyName": "Claire\u2019s Apple Watch",
+          "friendlyName": null,
           "cSharpName": "ClairesAppleWatch"
         },
         {
@@ -4454,6 +4614,16 @@
           "cSharpName": "EarfunAir"
         },
         {
+          "id": "device_tracker.ec03_1622_ec03_1622",
+          "friendlyName": "EC03_1622 EC03_1622",
+          "cSharpName": "Ec031622Ec031622"
+        },
+        {
+          "id": "device_tracker.ec03_6450_ec03_6450",
+          "friendlyName": "EC03_6450 EC03_6450",
+          "cSharpName": "Ec036450Ec036450"
+        },
+        {
           "id": "device_tracker.echo_input_263",
           "friendlyName": "Echo Input-263 Echo Input-263",
           "cSharpName": "EchoInput263"
@@ -4514,6 +4684,11 @@
           "cSharpName": "FiidoD3proFiidoD3pro"
         },
         {
+          "id": "device_tracker.fiido_m1pro_fiido_m1pro",
+          "friendlyName": "Fiido_M1Pro Fiido_M1Pro",
+          "cSharpName": "FiidoM1proFiidoM1pro"
+        },
+        {
           "id": "device_tracker.fm_350317173561089_le",
           "friendlyName": "FM_350317173561089_LE FM_350317173561089_LE",
           "cSharpName": "Fm350317173561089Le"
@@ -4537,6 +4712,11 @@
           "id": "device_tracker.galaxy_watch4_x2pv",
           "friendlyName": "Galaxy Watch4 (X2PV) Galaxy Watch4 (X2PV)",
           "cSharpName": "GalaxyWatch4X2pv"
+        },
+        {
+          "id": "device_tracker.gh52_le_gh52_le",
+          "friendlyName": "GH52_LE GH52_LE",
+          "cSharpName": "Gh52LeGh52Le"
         },
         {
           "id": "device_tracker.hauser_andy",
@@ -4779,6 +4959,11 @@
           "cSharpName": "LgToneFp9Le"
         },
         {
+          "id": "device_tracker.lumoshelmet_lumoshelmet",
+          "friendlyName": "LumosHelmet LumosHelmet",
+          "cSharpName": "LumoshelmetLumoshelmet"
+        },
+        {
           "id": "device_tracker.lumosltis",
           "friendlyName": "LumosLTIS LumosLTIS",
           "cSharpName": "Lumosltis"
@@ -4904,14 +5089,34 @@
           "cSharpName": "S56bd949cabb74974cCa91"
         },
         {
+          "id": "device_tracker.se5000_0844965632_se5000_0844965632",
+          "friendlyName": "SE5000-0844965632 SE5000-0844965632",
+          "cSharpName": "Se50000844965632Se50000844965632"
+        },
+        {
+          "id": "device_tracker.se5000_1514088448_se5000_1514088448",
+          "friendlyName": "SE5000-1514088448 SE5000-1514088448",
+          "cSharpName": "Se50001514088448Se50001514088448"
+        },
+        {
           "id": "device_tracker.se5000_1842423296_se5000_1842423296",
           "friendlyName": "SE5000-1842423296 SE5000-1842423296",
           "cSharpName": "Se50001842423296Se50001842423296"
         },
         {
+          "id": "device_tracker.se5000_3097044736_se5000_3097044736",
+          "friendlyName": "SE5000-3097044736 SE5000-3097044736",
+          "cSharpName": "Se50003097044736Se50003097044736"
+        },
+        {
           "id": "device_tracker.se5000_3771410176_se5000_3771410176",
           "friendlyName": "SE5000-3771410176 SE5000-3771410176",
           "cSharpName": "Se50003771410176Se50003771410176"
+        },
+        {
+          "id": "device_tracker.se5000_4216858368_se5000_4216858368",
+          "friendlyName": "SE5000-4216858368 SE5000-4216858368",
+          "cSharpName": "Se50004216858368Se50004216858368"
         },
         {
           "id": "device_tracker.sense",
@@ -4932,6 +5137,11 @@
           "id": "device_tracker.spare_key",
           "friendlyName": "Car Key",
           "cSharpName": "SpareKey"
+        },
+        {
+          "id": "device_tracker.stryd_stryd",
+          "friendlyName": "Stryd Stryd",
+          "cSharpName": "StrydStryd"
         },
         {
           "id": "device_tracker.studio",
@@ -6831,11 +7041,6 @@
           "cSharpName": "BasementHallCameraRecordingMode"
         },
         {
-          "id": "sensor.bathroom_humidistat_update_state",
-          "friendlyName": "Bathroom Humidistat Update state",
-          "cSharpName": "BathroomHumidistatUpdateState"
-        },
-        {
           "id": "sensor.bathroom_switch_action",
           "friendlyName": "Bathroom Switch Action",
           "cSharpName": "BathroomSwitchAction"
@@ -7034,6 +7239,11 @@
           "id": "sensor.green_bin",
           "friendlyName": "Green bin",
           "cSharpName": "GreenBin"
+        },
+        {
+          "id": "sensor.guest_room_bedside_switch_action",
+          "friendlyName": "Guest Room Bedside Switch Action",
+          "cSharpName": "GuestRoomBedsideSwitchAction"
         },
         {
           "id": "sensor.guest_room_echo_show_next_alarm",
@@ -7286,6 +7496,11 @@
           "cSharpName": "LandingTabletNextTimer"
         },
         {
+          "id": "sensor.left_bedside_switch_action",
+          "friendlyName": "Left Bedside Switch Action",
+          "cSharpName": "LeftBedsideSwitchAction"
+        },
+        {
           "id": "sensor.local_ip",
           "friendlyName": "local_ip",
           "cSharpName": "LocalIp"
@@ -7319,6 +7534,11 @@
           "id": "sensor.lounge_fire_tv_next_timer",
           "friendlyName": "Lounge Fire TV next Timer",
           "cSharpName": "LoungeFireTvNextTimer"
+        },
+        {
+          "id": "sensor.lounge_sofa_switch_action",
+          "friendlyName": "Lounge Sofa Switch Action",
+          "cSharpName": "LoungeSofaSwitchAction"
         },
         {
           "id": "sensor.lounge_switch_action",
@@ -7656,6 +7876,11 @@
           "cSharpName": "PixelWatchWifiIpAddress"
         },
         {
+          "id": "sensor.right_bedside_switch_action",
+          "friendlyName": "Right Bedside Switch Action",
+          "cSharpName": "RightBedsideSwitchAction"
+        },
+        {
           "id": "sensor.shed_camera_infrared_mode",
           "friendlyName": "Shed Camera Infrared Mode",
           "cSharpName": "ShedCameraInfraredMode"
@@ -7741,6 +7966,11 @@
           "cSharpName": "SmartSeries700047aeToothbrushState"
         },
         {
+          "id": "sensor.snug_desk_switch_action",
+          "friendlyName": "Snug Desk Switch Action",
+          "cSharpName": "SnugDeskSwitchAction"
+        },
+        {
           "id": "sensor.snug_echo_show_next_alarm",
           "friendlyName": "Snug Echo Show next Alarm",
           "cSharpName": "SnugEchoShowNextAlarm"
@@ -7764,46 +7994,6 @@
           "id": "sensor.snug_switch_action",
           "friendlyName": "Snug Switch Action",
           "cSharpName": "SnugSwitchAction"
-        },
-        {
-          "id": "sensor.sonoff_basement_1_bssid",
-          "friendlyName": "Sonoff Basement 1 BSSID",
-          "cSharpName": "SonoffBasement1Bssid"
-        },
-        {
-          "id": "sensor.sonoff_basement_1_esphome_version",
-          "friendlyName": "Sonoff Basement 1 ESPHome Version",
-          "cSharpName": "SonoffBasement1EsphomeVersion"
-        },
-        {
-          "id": "sensor.sonoff_basement_1_ip",
-          "friendlyName": "Sonoff Basement 1 IP",
-          "cSharpName": "SonoffBasement1Ip"
-        },
-        {
-          "id": "sensor.sonoff_basement_1_ssid",
-          "friendlyName": "Sonoff Basement 1 SSID",
-          "cSharpName": "SonoffBasement1Ssid"
-        },
-        {
-          "id": "sensor.sonoff_basement_2_bssid",
-          "friendlyName": "Sonoff Basement 2 BSSID",
-          "cSharpName": "SonoffBasement2Bssid"
-        },
-        {
-          "id": "sensor.sonoff_basement_2_esphome_version",
-          "friendlyName": "Sonoff Basement 2 ESPHome Version",
-          "cSharpName": "SonoffBasement2EsphomeVersion"
-        },
-        {
-          "id": "sensor.sonoff_basement_2_ip",
-          "friendlyName": "Sonoff Basement 2 IP",
-          "cSharpName": "SonoffBasement2Ip"
-        },
-        {
-          "id": "sensor.sonoff_basement_2_ssid",
-          "friendlyName": "Sonoff Basement 2 SSID",
-          "cSharpName": "SonoffBasement2Ssid"
         },
         {
           "id": "sensor.sonoff_downstairs_1_bssid",
@@ -7849,6 +8039,11 @@
           "id": "sensor.store_switch_action",
           "friendlyName": "Store Switch Action",
           "cSharpName": "StoreSwitchAction"
+        },
+        {
+          "id": "sensor.studio_bedside_switch_action",
+          "friendlyName": "Studio Bedside Switch Action",
+          "cSharpName": "StudioBedsideSwitchAction"
         },
         {
           "id": "sensor.studio_echo_dot_next_alarm",
@@ -8390,7 +8585,7 @@
         {
           "jsonName": "Zones",
           "cSharpName": "Zones",
-          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.String]"
+          "clrType": "System.Object"
         },
         {
           "jsonName": "in_vehicle",
@@ -9044,6 +9239,206 @@
           "cSharpName": "BasementHumidity"
         },
         {
+          "id": "sensor.basement_lights_1_switch_0_current",
+          "friendlyName": "Toilet Light current",
+          "cSharpName": "BasementLights1Switch0Current"
+        },
+        {
+          "id": "sensor.basement_lights_1_switch_0_device_temperature",
+          "friendlyName": "Toilet Light device temperature",
+          "cSharpName": "BasementLights1Switch0DeviceTemperature"
+        },
+        {
+          "id": "sensor.basement_lights_1_switch_0_energy",
+          "friendlyName": "Toilet Light energy",
+          "cSharpName": "BasementLights1Switch0Energy"
+        },
+        {
+          "id": "sensor.basement_lights_1_switch_0_frequency",
+          "friendlyName": "Toilet Light frequency",
+          "cSharpName": "BasementLights1Switch0Frequency"
+        },
+        {
+          "id": "sensor.basement_lights_1_switch_0_power",
+          "friendlyName": "Toilet Light power",
+          "cSharpName": "BasementLights1Switch0Power"
+        },
+        {
+          "id": "sensor.basement_lights_1_switch_0_voltage",
+          "friendlyName": "Toilet Light voltage",
+          "cSharpName": "BasementLights1Switch0Voltage"
+        },
+        {
+          "id": "sensor.basement_lights_1_switch_1_current",
+          "friendlyName": "shellypro4pm-34987a68fc0c switch_1 current",
+          "cSharpName": "BasementLights1Switch1Current"
+        },
+        {
+          "id": "sensor.basement_lights_1_switch_1_device_temperature",
+          "friendlyName": "shellypro4pm-34987a68fc0c switch_1 device temperature",
+          "cSharpName": "BasementLights1Switch1DeviceTemperature"
+        },
+        {
+          "id": "sensor.basement_lights_1_switch_1_energy",
+          "friendlyName": "Basement Lights 1 switch_1 energy",
+          "cSharpName": "BasementLights1Switch1Energy"
+        },
+        {
+          "id": "sensor.basement_lights_1_switch_1_frequency",
+          "friendlyName": "shellypro4pm-34987a68fc0c switch_1 frequency",
+          "cSharpName": "BasementLights1Switch1Frequency"
+        },
+        {
+          "id": "sensor.basement_lights_1_switch_1_power",
+          "friendlyName": "Basement Lights 1 switch_1 power",
+          "cSharpName": "BasementLights1Switch1Power"
+        },
+        {
+          "id": "sensor.basement_lights_1_switch_1_voltage",
+          "friendlyName": "shellypro4pm-34987a68fc0c switch_1 voltage",
+          "cSharpName": "BasementLights1Switch1Voltage"
+        },
+        {
+          "id": "sensor.basement_lights_1_switch_2_current",
+          "friendlyName": "Utility Room Light current",
+          "cSharpName": "BasementLights1Switch2Current"
+        },
+        {
+          "id": "sensor.basement_lights_1_switch_2_device_temperature",
+          "friendlyName": "Utility Room Light device temperature",
+          "cSharpName": "BasementLights1Switch2DeviceTemperature"
+        },
+        {
+          "id": "sensor.basement_lights_1_switch_2_energy",
+          "friendlyName": "Utility Room Light energy",
+          "cSharpName": "BasementLights1Switch2Energy"
+        },
+        {
+          "id": "sensor.basement_lights_1_switch_2_frequency",
+          "friendlyName": "Utility Room Light frequency",
+          "cSharpName": "BasementLights1Switch2Frequency"
+        },
+        {
+          "id": "sensor.basement_lights_1_switch_2_power",
+          "friendlyName": "Utility Room Light power",
+          "cSharpName": "BasementLights1Switch2Power"
+        },
+        {
+          "id": "sensor.basement_lights_1_switch_2_voltage",
+          "friendlyName": "Utility Room Light voltage",
+          "cSharpName": "BasementLights1Switch2Voltage"
+        },
+        {
+          "id": "sensor.basement_lights_1_switch_3_current",
+          "friendlyName": "Store Light current",
+          "cSharpName": "BasementLights1Switch3Current"
+        },
+        {
+          "id": "sensor.basement_lights_1_switch_3_device_temperature",
+          "friendlyName": "Store Light device temperature",
+          "cSharpName": "BasementLights1Switch3DeviceTemperature"
+        },
+        {
+          "id": "sensor.basement_lights_1_switch_3_energy",
+          "friendlyName": "Store Light energy",
+          "cSharpName": "BasementLights1Switch3Energy"
+        },
+        {
+          "id": "sensor.basement_lights_1_switch_3_frequency",
+          "friendlyName": "Store Light frequency",
+          "cSharpName": "BasementLights1Switch3Frequency"
+        },
+        {
+          "id": "sensor.basement_lights_1_switch_3_power",
+          "friendlyName": "Store Light power",
+          "cSharpName": "BasementLights1Switch3Power"
+        },
+        {
+          "id": "sensor.basement_lights_1_switch_3_voltage",
+          "friendlyName": "Store Light voltage",
+          "cSharpName": "BasementLights1Switch3Voltage"
+        },
+        {
+          "id": "sensor.basement_lights_2_switch_0_energy",
+          "friendlyName": "BL2 Unused 3 energy",
+          "cSharpName": "BasementLights2Switch0Energy"
+        },
+        {
+          "id": "sensor.basement_lights_2_switch_0_power",
+          "friendlyName": "BL2 Unused 3 power",
+          "cSharpName": "BasementLights2Switch0Power"
+        },
+        {
+          "id": "sensor.basement_lights_2_switch_1_energy",
+          "friendlyName": "BL2 Unused 4 energy",
+          "cSharpName": "BasementLights2Switch1Energy"
+        },
+        {
+          "id": "sensor.basement_lights_2_switch_1_power",
+          "friendlyName": "BL2 Unused 4 power",
+          "cSharpName": "BasementLights2Switch1Power"
+        },
+        {
+          "id": "sensor.basement_lights_2_switch_2_current",
+          "friendlyName": "Dining Room Light current",
+          "cSharpName": "BasementLights2Switch2Current"
+        },
+        {
+          "id": "sensor.basement_lights_2_switch_2_device_temperature",
+          "friendlyName": "Dining Room Light device temperature",
+          "cSharpName": "BasementLights2Switch2DeviceTemperature"
+        },
+        {
+          "id": "sensor.basement_lights_2_switch_2_energy",
+          "friendlyName": "Dining Room Light energy",
+          "cSharpName": "BasementLights2Switch2Energy"
+        },
+        {
+          "id": "sensor.basement_lights_2_switch_2_frequency",
+          "friendlyName": "Dining Room Light frequency",
+          "cSharpName": "BasementLights2Switch2Frequency"
+        },
+        {
+          "id": "sensor.basement_lights_2_switch_2_power",
+          "friendlyName": "Dining Room Light power",
+          "cSharpName": "BasementLights2Switch2Power"
+        },
+        {
+          "id": "sensor.basement_lights_2_switch_2_voltage",
+          "friendlyName": "Dining Room Light voltage",
+          "cSharpName": "BasementLights2Switch2Voltage"
+        },
+        {
+          "id": "sensor.basement_lights_2_switch_3_current",
+          "friendlyName": "Snug Light current",
+          "cSharpName": "BasementLights2Switch3Current"
+        },
+        {
+          "id": "sensor.basement_lights_2_switch_3_device_temperature",
+          "friendlyName": "Snug Light device temperature",
+          "cSharpName": "BasementLights2Switch3DeviceTemperature"
+        },
+        {
+          "id": "sensor.basement_lights_2_switch_3_energy",
+          "friendlyName": "Snug Light energy",
+          "cSharpName": "BasementLights2Switch3Energy"
+        },
+        {
+          "id": "sensor.basement_lights_2_switch_3_frequency",
+          "friendlyName": "Snug Light frequency",
+          "cSharpName": "BasementLights2Switch3Frequency"
+        },
+        {
+          "id": "sensor.basement_lights_2_switch_3_power",
+          "friendlyName": "Snug Light power",
+          "cSharpName": "BasementLights2Switch3Power"
+        },
+        {
+          "id": "sensor.basement_lights_2_switch_3_voltage",
+          "friendlyName": "Snug Light voltage",
+          "cSharpName": "BasementLights2Switch3Voltage"
+        },
+        {
           "id": "sensor.basement_stairs_motion_battery",
           "friendlyName": "Basement Stairs Motion Battery",
           "cSharpName": "BasementStairsMotionBattery"
@@ -9132,11 +9527,6 @@
           "id": "sensor.bathroom_humidistat_temperature",
           "friendlyName": "Bathroom Humidistat Temperature",
           "cSharpName": "BathroomHumidistatTemperature"
-        },
-        {
-          "id": "sensor.bathroom_humidistat_voltage",
-          "friendlyName": "Bathroom Humidistat Voltage",
-          "cSharpName": "BathroomHumidistatVoltage"
         },
         {
           "id": "sensor.bathroom_light_current",
@@ -9475,7 +9865,7 @@
         },
         {
           "id": "sensor.claires_apple_watch_battery",
-          "friendlyName": "Claire\u2019s Apple Watch Battery",
+          "friendlyName": "Battery",
           "cSharpName": "ClairesAppleWatchBattery"
         },
         {
@@ -9947,6 +10337,11 @@
           "id": "sensor.grid_fossil_fuel_percentage",
           "friendlyName": "Electricity Maps Grid fossil fuel percentage",
           "cSharpName": "GridFossilFuelPercentage"
+        },
+        {
+          "id": "sensor.guest_room_bedside_switch_battery",
+          "friendlyName": "Guest Room Bedside Switch Battery",
+          "cSharpName": "GuestRoomBedsideSwitchBattery"
         },
         {
           "id": "sensor.guest_room_illuminence",
@@ -10759,6 +11154,11 @@
           "cSharpName": "LandingLightVoltage"
         },
         {
+          "id": "sensor.left_bedside_switch_battery",
+          "friendlyName": "Left Bedside Switch Battery",
+          "cSharpName": "LeftBedsideSwitchBattery"
+        },
+        {
           "id": "sensor.loft_hatch_battery",
           "friendlyName": "Loft Hatch battery",
           "cSharpName": "LoftHatchBattery"
@@ -10777,6 +11177,11 @@
           "id": "sensor.lounge_illuminance",
           "friendlyName": "Lounge Illuminance",
           "cSharpName": "LoungeIlluminance"
+        },
+        {
+          "id": "sensor.lounge_sofa_switch_battery",
+          "friendlyName": "Lounge Sofa Switch Battery",
+          "cSharpName": "LoungeSofaSwitchBattery"
         },
         {
           "id": "sensor.lounge_switch_battery",
@@ -11249,6 +11654,11 @@
           "cSharpName": "PorchLightVoltage"
         },
         {
+          "id": "sensor.right_bedside_switch_battery",
+          "friendlyName": "Right Bedside Switch Battery",
+          "cSharpName": "RightBedsideSwitchBattery"
+        },
+        {
           "id": "sensor.rojeco_pet_feeder_last_amount",
           "friendlyName": "Cat Feeder Last amount",
           "cSharpName": "RojecoPetFeederLastAmount"
@@ -11554,6 +11964,11 @@
           "cSharpName": "SmartSeries700047aeTime"
         },
         {
+          "id": "sensor.snug_desk_switch_battery",
+          "friendlyName": "Snug Desk Switch Battery",
+          "cSharpName": "SnugDeskSwitchBattery"
+        },
+        {
           "id": "sensor.snug_illumenance",
           "friendlyName": "Snug Illuminance",
           "cSharpName": "SnugIllumenance"
@@ -11567,26 +11982,6 @@
           "id": "sensor.snug_switch_battery",
           "friendlyName": "Snug Switch Battery",
           "cSharpName": "SnugSwitchBattery"
-        },
-        {
-          "id": "sensor.sonoff_basement_1_signal",
-          "friendlyName": "Sonoff Basement 1 Signal",
-          "cSharpName": "SonoffBasement1Signal"
-        },
-        {
-          "id": "sensor.sonoff_basement_1_uptime",
-          "friendlyName": "Sonoff Basement 1 Uptime",
-          "cSharpName": "SonoffBasement1Uptime"
-        },
-        {
-          "id": "sensor.sonoff_basement_2_signal",
-          "friendlyName": "Sonoff Basement 2 Signal",
-          "cSharpName": "SonoffBasement2Signal"
-        },
-        {
-          "id": "sensor.sonoff_basement_2_uptime",
-          "friendlyName": "Sonoff Basement 2 Uptime",
-          "cSharpName": "SonoffBasement2Uptime"
         },
         {
           "id": "sensor.sonoff_bridge_1_status",
@@ -11632,6 +12027,11 @@
           "id": "sensor.store_switch_battery",
           "friendlyName": "Store Switch Battery",
           "cSharpName": "StoreSwitchBattery"
+        },
+        {
+          "id": "sensor.studio_bedside_switch_battery",
+          "friendlyName": "Studio Bedside Switch Battery",
+          "cSharpName": "StudioBedsideSwitchBattery"
         },
         {
           "id": "sensor.studio_bluetooth_proxy_free_mem",
@@ -13820,6 +14220,46 @@
           "cSharpName": "BasementHallLight"
         },
         {
+          "id": "switch.basement_hall_lights",
+          "friendlyName": "Basement Hall Lights",
+          "cSharpName": "BasementHallLights"
+        },
+        {
+          "id": "switch.basement_lights_1_store",
+          "friendlyName": "Store Light",
+          "cSharpName": "BasementLights1Store"
+        },
+        {
+          "id": "switch.basement_lights_1_toilet",
+          "friendlyName": "Toilet Light",
+          "cSharpName": "BasementLights1Toilet"
+        },
+        {
+          "id": "switch.basement_lights_1_utility_room",
+          "friendlyName": "Utility Room Light",
+          "cSharpName": "BasementLights1UtilityRoom"
+        },
+        {
+          "id": "switch.basement_lights_2_dining_room",
+          "friendlyName": "Dining Room Light",
+          "cSharpName": "BasementLights2DiningRoom"
+        },
+        {
+          "id": "switch.basement_lights_2_snug",
+          "friendlyName": "Snug Light",
+          "cSharpName": "BasementLights2Snug"
+        },
+        {
+          "id": "switch.basement_lights_2_switch_0",
+          "friendlyName": "BL2 Unused 3",
+          "cSharpName": "BasementLights2Switch0"
+        },
+        {
+          "id": "switch.basement_lights_2_switch_1",
+          "friendlyName": "BL2 Unused 4",
+          "cSharpName": "BasementLights2Switch1"
+        },
+        {
           "id": "switch.basement_repeat_switch",
           "friendlyName": "Basement repeat switch",
           "cSharpName": "BasementRepeatSwitch"
@@ -14053,6 +14493,16 @@
           "id": "switch.espresense_lounge_auto_update",
           "friendlyName": "ESPresense Lounge ESPresense Lounge Auto Update",
           "cSharpName": "EspresenseLoungeAutoUpdate"
+        },
+        {
+          "id": "switch.espresense_lounge_espresense_lounge_active_scan",
+          "friendlyName": "ESPresense Lounge ESPresense Lounge Active Scan",
+          "cSharpName": "EspresenseLoungeEspresenseLoungeActiveScan"
+        },
+        {
+          "id": "switch.espresense_lounge_espresense_lounge_status_led",
+          "friendlyName": "ESPresense Lounge ESPresense Lounge Status LED",
+          "cSharpName": "EspresenseLoungeEspresenseLoungeStatusLed"
         },
         {
           "id": "switch.espresense_lounge_ota_update",
@@ -14350,16 +14800,6 @@
           "cSharpName": "PorchLight"
         },
         {
-          "id": "switch.restart_sonoff_basement_1",
-          "friendlyName": "Restart Sonoff Basement 1",
-          "cSharpName": "RestartSonoffBasement1"
-        },
-        {
-          "id": "switch.restart_sonoff_basement_2",
-          "friendlyName": "Restart Sonoff Basement 2",
-          "cSharpName": "RestartSonoffBasement2"
-        },
-        {
           "id": "switch.restart_sonoff_downstairs_1",
           "friendlyName": "Restart Sonoff Downstairs 1",
           "cSharpName": "RestartSonoffDownstairs1"
@@ -14438,46 +14878,6 @@
           "id": "switch.snug_led_strip_audio",
           "friendlyName": "Snug Led Strip Audio",
           "cSharpName": "SnugLedStripAudio"
-        },
-        {
-          "id": "switch.sonoff_basement_1_basement_hall",
-          "friendlyName": "Sonoff Basement 1 Basement Hall",
-          "cSharpName": "SonoffBasement1BasementHall"
-        },
-        {
-          "id": "switch.sonoff_basement_1_brewery",
-          "friendlyName": "Sonoff Basement 1 Brewery",
-          "cSharpName": "SonoffBasement1Brewery"
-        },
-        {
-          "id": "switch.sonoff_basement_1_toilet",
-          "friendlyName": "Sonoff Basement 1 Toilet",
-          "cSharpName": "SonoffBasement1Toilet"
-        },
-        {
-          "id": "switch.sonoff_basement_1_utility_room",
-          "friendlyName": "Sonoff Basement 1 Utility Room",
-          "cSharpName": "SonoffBasement1UtilityRoom"
-        },
-        {
-          "id": "switch.sonoff_basement_2_dining_room",
-          "friendlyName": "Sonoff Basement 2 Dining Room",
-          "cSharpName": "SonoffBasement2DiningRoom"
-        },
-        {
-          "id": "switch.sonoff_basement_2_snug",
-          "friendlyName": "Sonoff Basement 2 Snug",
-          "cSharpName": "SonoffBasement2Snug"
-        },
-        {
-          "id": "switch.sonoff_basement_2_spare_ch3",
-          "friendlyName": "Sonoff Basement 2 Spare Ch3",
-          "cSharpName": "SonoffBasement2SpareCh3"
-        },
-        {
-          "id": "switch.sonoff_basement_2_spare_ch4",
-          "friendlyName": "Sonoff Basement 2 Spare Ch4",
-          "cSharpName": "SonoffBasement2SpareCh4"
         },
         {
           "id": "switch.sonoff_downstairs_1_bookshelf_light",
@@ -14935,11 +15335,6 @@
           "cSharpName": "AdguardHomeUpdate"
         },
         {
-          "id": "update.appdaemon_update",
-          "friendlyName": "AppDaemon Update",
-          "cSharpName": "AppdaemonUpdate"
-        },
-        {
           "id": "update.basement_hall_lights_beta_firmware_update",
           "friendlyName": "Shelly Basement Hall Lights Beta Firmware Update",
           "cSharpName": "BasementHallLightsBetaFirmwareUpdate"
@@ -14950,9 +15345,24 @@
           "cSharpName": "BasementHallLightsFirmwareUpdate"
         },
         {
-          "id": "update.bathroom_humidistat",
-          "friendlyName": "Bathroom Humidistat",
-          "cSharpName": "BathroomHumidistat"
+          "id": "update.basement_lights_1_beta_firmware_update",
+          "friendlyName": "shellypro4pm-34987a68fc0c beta firmware update",
+          "cSharpName": "BasementLights1BetaFirmwareUpdate"
+        },
+        {
+          "id": "update.basement_lights_1_firmware_update",
+          "friendlyName": "Basement Lights 1 firmware update",
+          "cSharpName": "BasementLights1FirmwareUpdate"
+        },
+        {
+          "id": "update.basement_lights_2_beta_firmware_update",
+          "friendlyName": "shellypro4pm-34987a68e72c beta firmware update",
+          "cSharpName": "BasementLights2BetaFirmwareUpdate"
+        },
+        {
+          "id": "update.basement_lights_2_firmware_update",
+          "friendlyName": "Basement Lights 2 firmware update",
+          "cSharpName": "BasementLights2FirmwareUpdate"
         },
         {
           "id": "update.bathroom_switch",
@@ -14963,11 +15373,6 @@
           "id": "update.bedroom_switch",
           "friendlyName": "Bedroom Switch",
           "cSharpName": "BedroomSwitch"
-        },
-        {
-          "id": "update.check_home_assistant_configuration_update",
-          "friendlyName": "Check Home Assistant configuration Update",
-          "cSharpName": "CheckHomeAssistantConfigurationUpdate"
         },
         {
           "id": "update.coffee_machine",
@@ -15010,11 +15415,6 @@
           "cSharpName": "EspresenseCompanionUpdate"
         },
         {
-          "id": "update.file_editor_update",
-          "friendlyName": "File editor Update",
-          "cSharpName": "FileEditorUpdate"
-        },
-        {
           "id": "update.glances_update",
           "friendlyName": "Glances Update",
           "cSharpName": "GlancesUpdate"
@@ -15028,6 +15428,11 @@
           "id": "update.grocy_update",
           "friendlyName": "Grocy Update",
           "cSharpName": "GrocyUpdate"
+        },
+        {
+          "id": "update.guest_room_bedside_switch",
+          "friendlyName": "Guest Room Bedside Switch",
+          "cSharpName": "GuestRoomBedsideSwitch"
         },
         {
           "id": "update.guest_room_lamp",
@@ -15080,6 +15485,16 @@
           "cSharpName": "KitchenSwitch"
         },
         {
+          "id": "update.left_bedside_switch",
+          "friendlyName": "Left Bedside Switch",
+          "cSharpName": "LeftBedsideSwitch"
+        },
+        {
+          "id": "update.lounge_sofa_switch",
+          "friendlyName": "Lounge Sofa Switch",
+          "cSharpName": "LoungeSofaSwitch"
+        },
+        {
           "id": "update.lounge_switch",
           "friendlyName": "Lounge Switch",
           "cSharpName": "LoungeSwitch"
@@ -15130,14 +15545,9 @@
           "cSharpName": "OutsideLightsFirmwareUpdate"
         },
         {
-          "id": "update.portainer_update",
-          "friendlyName": "Portainer Update",
-          "cSharpName": "PortainerUpdate"
-        },
-        {
-          "id": "update.prometheus_update",
-          "friendlyName": "Prometheus Update",
-          "cSharpName": "PrometheusUpdate"
+          "id": "update.right_bedside_switch",
+          "friendlyName": "Right Bedside Switch",
+          "cSharpName": "RightBedsideSwitch"
         },
         {
           "id": "update.samba_share_update",
@@ -15220,6 +15630,11 @@
           "cSharpName": "ShellyUpstairsSockets3FirmwareUpdate"
         },
         {
+          "id": "update.snug_desk_switch",
+          "friendlyName": "Snug Desk Switch",
+          "cSharpName": "SnugDeskSwitch"
+        },
+        {
           "id": "update.snug_led_strip",
           "friendlyName": "Snug Led Strip",
           "cSharpName": "SnugLedStrip"
@@ -15228,16 +15643,6 @@
           "id": "update.snug_switch",
           "friendlyName": "Snug Switch",
           "cSharpName": "SnugSwitch"
-        },
-        {
-          "id": "update.sonoff_basement_1_firmware",
-          "friendlyName": "Sonoff-Basement-1 Firmware",
-          "cSharpName": "SonoffBasement1Firmware"
-        },
-        {
-          "id": "update.sonoff_basement_2_firmware",
-          "friendlyName": "Sonoff-Basement-2 Firmware",
-          "cSharpName": "SonoffBasement2Firmware"
         },
         {
           "id": "update.sonoff_downstairs_1_firmware",
@@ -15253,6 +15658,11 @@
           "id": "update.store_switch",
           "friendlyName": "Store Switch",
           "cSharpName": "StoreSwitch"
+        },
+        {
+          "id": "update.studio_bedside_switch",
+          "friendlyName": "Studio Bedside Switch",
+          "cSharpName": "StudioBedsideSwitch"
         },
         {
           "id": "update.studio_bluetooth_proxy_firmware",
@@ -15288,11 +15698,6 @@
           "id": "update.utility_room_switch",
           "friendlyName": "Utility Room Switch",
           "cSharpName": "UtilityRoomSwitch"
-        },
-        {
-          "id": "update.vscode_remote_update",
-          "friendlyName": "VSCode Remote Update",
-          "cSharpName": "VscodeRemoteUpdate"
         },
         {
           "id": "update.weather_station_firmware",
@@ -15579,6 +15984,33 @@
           "jsonName": "icon",
           "cSharpName": "Icon",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "friendly_name",
+          "cSharpName": "FriendlyName",
+          "clrType": "System.String"
+        }
+      ]
+    },
+    {
+      "domain": "tag",
+      "entities": [
+        {
+          "id": "tag.bf42e064_31a0_46ba_b178_b43a3e535eda",
+          "friendlyName": "Tag bf42e064-31a0-46ba-b178-b43a3e535eda",
+          "cSharpName": "Bf42e06431a046baB178B43a3e535eda"
+        }
+      ],
+      "attributes": [
+        {
+          "jsonName": "tag_id",
+          "cSharpName": "TagId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "last_scanned_by_device_id",
+          "cSharpName": "LastScannedByDeviceId",
+          "clrType": "System.Object"
         },
         {
           "jsonName": "friendly_name",

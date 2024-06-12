@@ -1982,3 +1982,331 @@
     entity_id: 96092ec45fbc60be3b1c297a9fde0e75
     domain: light
   mode: single
+- id: '1717959862918'
+  alias: Left Bedside Switch
+  description: ''
+  use_blueprint:
+    path: damru/ikea-rodret_E2201_ZHA-Z2M_control-anything.yaml
+    input:
+      remote_name: Left Bedside Switch
+      on_press_action:
+      - service: light.turn_on
+        metadata: {}
+        data: {}
+        target:
+          entity_id: light.bedroom_lamp
+      - service: light.turn_off
+        data:
+          transition: 3
+        target:
+          entity_id: light.bedroom_light
+      off_press_action:
+      - service: light.turn_off
+        data: {}
+        target:
+          entity_id:
+          - light.bedroom_lamp
+          - light.bedroom_light
+      on_hold_action:
+      - service: media_player.volume_up
+        metadata: {}
+        data: {}
+        target:
+          entity_id: media_player.bedroom_echo_show
+      off_hold_action:
+      - service: media_player.volume_down
+        data: {}
+        target:
+          entity_id: media_player.bedroom_echo_show
+      on_double_press: true
+      off_double_press: true
+      on_double_press_action:
+      - service: light.turn_on
+        metadata: {}
+        data: {}
+        target:
+          entity_id: light.bedroom_light
+      - service: light.turn_off
+        metadata: {}
+        data: {}
+        target:
+          entity_id: light.bedroom_lamp
+      off_double_press_action:
+      - service: scene.turn_on
+        metadata: {}
+        target:
+          entity_id: scene.lighting_night
+      helper_hold_delay: 750
+      helper_max_loops: 10
+- id: '1717960070703'
+  alias: Right Bedside Switch
+  description: ''
+  use_blueprint:
+    path: damru/ikea-rodret_E2201_ZHA-Z2M_control-anything.yaml
+    input:
+      remote_name: Right Bedside Switch
+      on_press_action:
+      - service: light.turn_on
+        metadata: {}
+        data: {}
+        target:
+          entity_id: light.bedroom_lamp
+      - service: light.turn_off
+        data:
+          transition: 3
+        target:
+          entity_id: light.bedroom_light
+      off_press_action:
+      - service: light.turn_off
+        data: {}
+        target:
+          entity_id:
+          - light.bedroom_lamp
+          - light.bedroom_light
+      on_hold_action:
+      - service: media_player.volume_up
+        metadata: {}
+        data: {}
+        target:
+          entity_id: media_player.bedroom_echo_show
+      off_hold_action:
+      - service: media_player.volume_down
+        data: {}
+        target:
+          entity_id: media_player.bedroom_echo_show
+      on_double_press: true
+      off_double_press: true
+      on_double_press_action:
+      - service: light.turn_on
+        metadata: {}
+        data: {}
+        target:
+          entity_id: light.bedroom_light
+      - service: light.turn_off
+        metadata: {}
+        data: {}
+        target:
+          entity_id: light.bedroom_lamp
+      off_double_press_action:
+      - service: scene.turn_on
+        metadata: {}
+        target:
+          entity_id: scene.lighting_night
+      helper_hold_delay: 750
+      helper_max_loops: 10
+- id: '1717961103174'
+  alias: Studio Bedside Switch
+  description: ''
+  use_blueprint:
+    path: damru/ikea-rodret_E2201_ZHA-Z2M_control-anything.yaml
+    input:
+      remote_name: Studio Bedside Switch
+      on_press_action:
+      - service: light.turn_off
+        data:
+          transition: 3
+        target:
+          entity_id: light.studio_light
+      - service: switch.turn_on
+        metadata: {}
+        data: {}
+        target:
+          entity_id: switch.studio_lamp
+      off_press_action:
+      - service: light.turn_off
+        data: {}
+        target:
+          entity_id: light.studio_light
+      - service: switch.turn_off
+        metadata: {}
+        data: {}
+        target:
+          entity_id: switch.studio_lamp
+      on_hold_action:
+      - service: media_player.volume_up
+        metadata: {}
+        data: {}
+        target:
+          entity_id: media_player.studio_echo_dot
+      off_hold_action:
+      - service: media_player.volume_down
+        data: {}
+        target:
+          entity_id: media_player.studio_echo_dot
+      on_double_press: true
+      off_double_press: true
+      on_double_press_action:
+      - service: light.turn_on
+        metadata: {}
+        data: {}
+        target:
+          entity_id: light.studio_light
+      - service: switch.turn_off
+        target:
+          entity_id:
+          - switch.studio_lamp
+        data: {}
+      off_double_press_action:
+      - service: switch.toggle
+        metadata: {}
+        data: {}
+        target:
+          entity_id: switch.hifi_socket
+      helper_hold_delay: 750
+      helper_max_loops: 10
+- id: '1717961638399'
+  alias: Snug Desk Switch
+  description: ''
+  use_blueprint:
+    path: damru/ikea-rodret_E2201_ZHA-Z2M_control-anything.yaml
+    input:
+      remote_name: Snug Desk Switch
+      on_press_action:
+      - service: light.turn_on
+        metadata: {}
+        data: {}
+        target:
+          entity_id: light.snug_light
+      - service: light.turn_off
+        metadata: {}
+        data: {}
+        target:
+          entity_id:
+          - light.snug_lamp
+          - light.snug_led_strip
+      off_press_action:
+      - service: light.turn_off
+        data: {}
+        target:
+          entity_id:
+          - light.snug_light
+          - light.snug_lamp
+          - light.snug_led_strip
+      on_hold_action:
+      - service: media_player.volume_up
+        metadata: {}
+        data: {}
+        target:
+          entity_id: media_player.snug_echo_show
+      off_hold_action:
+      - service: media_player.volume_down
+        data: {}
+        target:
+          entity_id: media_player.snug_echo_show
+      on_double_press: true
+      off_double_press: true
+      on_double_press_action:
+      - service: light.turn_on
+        metadata: {}
+        data: {}
+        target:
+          entity_id:
+          - light.snug_lamp
+          - light.snug_led_strip
+      - service: light.turn_off
+        data:
+          transition: 3
+        target:
+          entity_id: light.snug_light
+      off_double_press_action:
+      - service: scene.turn_on
+        metadata: {}
+        target:
+          entity_id: scene.watch_movie
+      helper_hold_delay: 750
+      helper_max_loops: 10
+- id: '1717962211259'
+  alias: Guest Room Bedside Switch
+  description: ''
+  use_blueprint:
+    path: damru/ikea-rodret_E2201_ZHA-Z2M_control-anything.yaml
+    input:
+      remote_name: Guest Room Bedside Switch
+      on_press_action:
+      - service: light.turn_off
+        data:
+          transition: 3
+        target:
+          entity_id: light.guest_room_light
+      - service: light.turn_on
+        target:
+          entity_id: light.guest_room_lamp
+        data: {}
+      off_press_action:
+      - service: light.turn_off
+        data: {}
+        target:
+          entity_id:
+          - light.guest_room_lamp
+          - light.guest_room_light
+      on_hold_action:
+      - service: media_player.volume_up
+        metadata: {}
+        data: {}
+        target:
+          entity_id: media_player.guest_room_echo_show
+      off_hold_action:
+      - service: media_player.volume_down
+        data: {}
+        target:
+          entity_id: media_player.guest_room_echo_show
+      on_double_press: true
+      off_double_press: true
+      on_double_press_action:
+      - service: light.turn_on
+        metadata: {}
+        data: {}
+        target:
+          entity_id: light.guest_room_light
+      - service: light.turn_off
+        metadata: {}
+        data: {}
+        target:
+          entity_id: light.guest_room_lamp
+      off_double_press_action: []
+      helper_hold_delay: 750
+      helper_max_loops: 10
+- id: '1717962305271'
+  alias: Lounge Sofa Switch
+  description: ''
+  use_blueprint:
+    path: damru/ikea-rodret_E2201_ZHA-Z2M_control-anything.yaml
+    input:
+      remote_name: Lounge Sofa Switch
+      on_press_action:
+      - service: light.turn_on
+        data: {}
+        target:
+          entity_id: light.lounge_light
+      off_press_action:
+      - service: light.turn_off
+        target:
+          entity_id:
+          - light.lounge_light
+        data: {}
+      on_double_press: true
+      on_double_press_action:
+      - service: scene.turn_on
+        metadata: {}
+        target:
+          entity_id: scene.watch_tv
+      off_double_press: true
+      off_double_press_action:
+      - service: scene.turn_on
+        metadata: {}
+        target:
+          entity_id: scene.lounge_normal
+      on_hold_action:
+      - service: media_player.volume_up
+        metadata: {}
+        data: {}
+        target:
+          entity_id: media_player.lounge_echo_plus
+      off_hold_action:
+      - service: media_player.volume_down
+        metadata: {}
+        data: {}
+        target:
+          entity_id: media_player.lounge_echo_plus
+      helper_hold_delay: 750
+      helper_max_loops: 10
