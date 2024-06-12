@@ -28,7 +28,7 @@ Manager
 
     public bool Debug { get; }
     public bool IsBedroom { get; set; }
-    public bool IsMasterBedroom => _entityName.Equals("bedroom");
+    public bool IsMasterBedroom => _entityName?.Equals("bedroom") ?? false;
     public bool IsAnyControlEntityOn => AllControlEntities.Any(e => e.IsOn());
     private bool AllControlEntitiesAreOff => AllControlEntities.All(e => e.IsOff());
     public bool IsNightLight { get; set; }
