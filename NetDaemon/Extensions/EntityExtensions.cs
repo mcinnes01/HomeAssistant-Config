@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace NetDaemon.Extensions;
+﻿namespace NetDaemon.Extensions;
 
 public static class EntityExtensions
 {

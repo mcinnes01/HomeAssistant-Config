@@ -1,8 +1,5 @@
 using System.Reactive.Subjects;
 using System.Text.Json;
-using Moq;
-using NetDaemon.HassModel;
-using NetDaemon.HassModel.Entities;
 
 namespace NetDaemonTests.Helpers;
 
@@ -25,6 +22,16 @@ public class HaContextMockImpl : IHaContext
 
     public virtual void SendEvent(string eventType, object? data = null)
     { }
+
+    public Task<JsonElement?> CallServiceWithResponseAsync(string domain, string service, ServiceTarget? target = null, object? data = null)
+    {
+        throw new NotImplementedException();
+    }
+
+    public EntityRegistration? GetEntityRegistration(string entityId)
+    {
+        throw new NotImplementedException();
+    }
 
     public IObservable<Event> Events => EventsSubject;
 }

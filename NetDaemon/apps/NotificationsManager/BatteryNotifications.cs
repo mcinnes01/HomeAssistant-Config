@@ -1,3 +1,5 @@
+using NetDaemon.Helpers.Notifications;
+
 namespace NetDaemon.apps.NotificationsManager;
 
 [NetDaemonApp]

@@ -1,4 +1,4 @@
-namespace NetDaemon.States;
+namespace NetDaemon.apps.States;
 
 [NetDaemonApp]
 public class LightControlModeController
@@ -94,7 +94,7 @@ public class LightControlModeController
     {
         if (IsEnabled.IsOn())
         {
-            switch(trigger)
+            switch (trigger)
             {
                 case Trigger.Unoccupied:
                     _logger.LogDebug("House unoccupied, set Light Control Mode to Manual.", new { Entity = LightControlMode });

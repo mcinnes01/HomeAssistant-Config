@@ -1,30 +1,29 @@
 ﻿using Humanizer;
 using Humanizer.Localisation;
-using NetDaemon.apps.NotificationsManager;
-using NetDaemon.Helpers;
+using NetDaemon.Helpers.Notifications;
 
-namespace NetDaemon.NotificationManager;
+namespace NetDaemon.apps.NotificationsManager.Appliances;
 
 public class ApplianceNotification : IApplianceNotification
 {
     private readonly InputBooleanEntity _acknowledge;
 
-    private readonly string                         _appliance;
+    private readonly string _appliance;
     private readonly Dictionary<string, CycleState> _cycleStates;
-    private readonly SensorEntity                   _remainingTime;
-    private readonly IScheduler                     _scheduler;
-    private readonly ILogger<NotificationsManager>  _logger;
-    private readonly SensorEntity                   _status;
+    private readonly SensorEntity _remainingTime;
+    private readonly IScheduler _scheduler;
+    private readonly ILogger<NotificationsManager> _logger;
+    private readonly SensorEntity _status;
 
     public ApplianceNotification(IScheduler scheduler, IApplianceNotificationConfig config, ILogger<NotificationsManager> logger)
     {
-        _scheduler     = scheduler;
-        _logger   = logger;
-        _appliance     = config.Name;
-        _status        = config.Status;
+        _scheduler = scheduler;
+        _logger = logger;
+        _appliance = config.Name;
+        _status = config.Status;
         _remainingTime = config.RemainingTime;
-        _acknowledge   = config.Acknowledge;
-        _cycleStates   = config.CycleStates;
+        _acknowledge = config.Acknowledge;
+        _cycleStates = config.CycleStates;
     }
 
     public CycleState CycleState => _status.State != null ? _cycleStates[_status.State.ToLower()] : CycleState.Unknown;
@@ -61,19 +60,19 @@ public class ApplianceNotification : IApplianceNotification
             >= 60 when lastPrompt.TotalMinutes <= PromptInterval1 => null,
             >= 30 when lastPrompt.TotalMinutes <= PromptInterval2 => null,
             >= 10 when lastPrompt.TotalMinutes <= PromptInterval3 => null,
-            _                                                     => CreateNotification($"The {_appliance} will be done in {TimeRemaining.Humanize(minUnit: TimeUnit.Minute)}", Alexa.NotificationType.Announcement)
+            _ => CreateNotification($"The {_appliance} will be done in {TimeRemaining.Humanize(minUnit: TimeUnit.Minute)}", Alexa.NotificationType.Announcement)
         };
     }
 
     private Notification? GetReadyNotification(TimeSpan lastPrompt)
     {
-        var entityStateLastChanged = (_scheduler.Now.LocalDateTime - _remainingTime.EntityState?.LastChanged) ?? TimeSpan.MaxValue;
-        if (_acknowledge.IsOff() && entityStateLastChanged.TotalMinutes  <= PromptInterval1) 
+        var entityStateLastChanged = _scheduler.Now.LocalDateTime - _remainingTime.EntityState?.LastChanged ?? TimeSpan.MaxValue;
+        if (_acknowledge.IsOff() && entityStateLastChanged.TotalMinutes <= PromptInterval1)
             return CreateNotification($"The {_appliance} just finished", Alexa.NotificationType.Announcement);
 
         if (_acknowledge.IsOff() && lastPrompt.TotalMinutes > PromptInterval1)
             return CreateNotification($"The {_appliance} finished {TimeFinished.Humanize(minUnit: TimeUnit.Minute)} ago. Has it been unloaded?", Alexa.NotificationType.Prompt);
-        
+
         if (_acknowledge.IsOn() && lastPrompt.TotalMinutes >= AcknowledgeInterval)
             return CreateNotification($"The {_appliance} is ready", Alexa.NotificationType.Announcement);
 
@@ -89,7 +88,7 @@ public class ApplianceNotification : IApplianceNotification
             Type = type
         };
     }
-    
+
     public Notification? HandleResponse(PromptResponseType? responseType)
     {
         if (responseType == null) return null;
@@ -97,7 +96,7 @@ public class ApplianceNotification : IApplianceNotification
         var notification = new Notification
         {
             EventId = EventId,
-            Type    = Alexa.NotificationType.Tts
+            Type = Alexa.NotificationType.Tts
         };
 
         switch (responseType)

@@ -3,8 +3,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Reactive.Testing;
-using NetDaemon.HassModel;
-using NetDaemonApps.Infrastructure.State;
 
 namespace NetDaemonTests.Helpers;
 
@@ -20,8 +18,8 @@ public class TestContext : IServiceProvider
         _serviceCollection.AddSingleton<TestScheduler>();
         _serviceCollection.AddTransient<IScheduler>(s => s.GetRequiredService<TestScheduler>());
         _serviceCollection.AddTransient(typeof(ILogger<>), typeof(NullLogger<>));
-        _serviceCollection.AddSingleton<INotificationService, NotificationService>();
-        _serviceCollection.AddTransient<ILightingStates, LightingStates>();
+        //_serviceCollection.AddSingleton<INotificationService, NotificationService>();
+        //_serviceCollection.AddTransient<ILightingStates, LightingStates>();
         _serviceProvider = _serviceCollection.BuildServiceProvider();
     }
 

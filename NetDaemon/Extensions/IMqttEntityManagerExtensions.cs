@@ -1,5 +1,4 @@
 ﻿using NetDaemon.Extensions.MqttEntityManager;
-using System.Threading.Tasks;
 
 namespace NetDaemon.Extensions;
 

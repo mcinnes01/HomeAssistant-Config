@@ -1,4 +1,4 @@
-namespace NetDaemon.LightApp;
+namespace NetDaemon.apps.LightApp;
 
 public class ManagerConfig
 {

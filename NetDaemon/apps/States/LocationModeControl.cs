@@ -1,4 +1,4 @@
-namespace NetDaemon.States;
+namespace NetDaemon.apps.States;
 
 [NetDaemonApp]
 public class LocationModeController
@@ -102,8 +102,8 @@ public class LocationModeController
                 _logger.LogDebug("House set to Away, {Action}.", WhoMadeAction(), new { Entity = LocationMode });
                 LocationMode?.SelectOption(LocationModeOptions.Away);
             }
-            else if ((Andy.IsHome() && !Claire.IsHome())
-                || (!Andy.IsHome() && Claire.IsHome()))
+            else if (Andy.IsHome() && !Claire.IsHome()
+                || !Andy.IsHome() && Claire.IsHome())
             {
                 _logger.LogDebug("House set to OneAway, {WhoMadeAction}.", WhoMadeAction(), new { Entity = LocationMode });
                 LocationMode?.SelectOption(LocationModeOptions.OneAway);

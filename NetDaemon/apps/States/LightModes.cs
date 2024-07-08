@@ -1,6 +1,4 @@
-using NetDaemon.Infrastructure.State;
-
-namespace NetDaemon.States;
+namespace NetDaemon.apps.States;
 
 [NetDaemonApp]
 public class LightModes

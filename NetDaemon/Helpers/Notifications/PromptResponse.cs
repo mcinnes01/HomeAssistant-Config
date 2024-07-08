@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace NetDaemon.Notifications.Helpers;
+﻿namespace NetDaemon.Helpers.Notifications;
 
 public record PromptResponse
 {

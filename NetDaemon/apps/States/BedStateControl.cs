@@ -1,4 +1,4 @@
-namespace NetDaemon.States;
+namespace NetDaemon.apps.States;
 
 [NetDaemonApp]
 public class BedStateController
@@ -36,7 +36,8 @@ public class BedStateController
 
         InBed?.StateChanges()
         .Throttle(TimeSpan.FromMinutes(1)) // Debounce any loop behaviour
-        .Subscribe(_ => {
+        .Subscribe(_ =>
+        {
             manualBedStateChanged = true;
             Handle();
         });

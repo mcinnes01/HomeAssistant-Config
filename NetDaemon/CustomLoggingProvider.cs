@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Hosting;
 using Serilog;
 
-namespace HomeAssistantGenerated.Logging;
+namespace NetDaemon;
 
 public static class CustomLoggingProvider
 {

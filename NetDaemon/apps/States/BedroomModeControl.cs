@@ -1,4 +1,4 @@
-namespace NetDaemon.States;
+namespace NetDaemon.apps.States;
 
 [NetDaemonApp]
 public class BedroomModeController
@@ -29,7 +29,7 @@ public class BedroomModeController
         // Got in bed
         InBed?.StateChanges()
         .Where(b => b.New.IsOn()
-        && TimeOfDay.IsNotOption(TimeOfDayOptions.Day) 
+        && TimeOfDay.IsNotOption(TimeOfDayOptions.Day)
         && TimeOfDay.IsNotOption(TimeOfDayOptions.Afternoon)
         && (TimeOnly.FromDateTime(DateTime.Now) > Constants.NIGHT_START
          || TimeOnly.FromDateTime(DateTime.Now) < Constants.MORNING_START)
@@ -78,7 +78,7 @@ public class BedroomModeController
             .Where(s => s.New.IsOn())
             .Subscribe(_ =>
             {
-                _logger.LogDebug("Bedroom mode control has been enabled.", new { Enity = BedroomMode});
+                _logger.LogDebug("Bedroom mode control has been enabled.", new { Enity = BedroomMode });
                 Handle();
             });
 

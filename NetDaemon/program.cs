@@ -1,10 +1,9 @@
 using System.Reflection;
-using HomeAssistantGenerated.Logging;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using NetDaemon.Extensions.MqttEntityManager;
 using NetDaemon.Runtime;
-using HomeAssistantGenerated;
+using NetDaemon;
 
 try
 {

@@ -1,4 +1,4 @@
-﻿namespace NetDaemon.PersonState
+﻿namespace NetDaemon.Extensions
 {
 
     public static class PersonStateExtensions

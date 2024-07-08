@@ -1,7 +1,6 @@
-﻿using NetDaemon;
-using NetDaemon.apps.NotificationsManager;
+﻿using NetDaemon.Helpers.Notifications;
 
-namespace NetDaemon.NotificationManager;
+namespace NetDaemon.apps.NotificationsManager.Appliances;
 
 public interface IApplianceNotification
 {

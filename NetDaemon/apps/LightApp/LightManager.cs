@@ -1,33 +1,32 @@
 using System.Reactive.Disposables;
-using Extensions;
 using NetDaemon.Extensions.MqttEntityManager;
 
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 
-namespace NetDaemon.LightApp;
+namespace NetDaemon.apps.LightApp;
 
 public class LightManager : Room
 {
     #region Properties
-    private readonly List<string>           _onStates = ["on", "playing"];
-    private          string                 _entityName;
-    private          string                 _roomModeSelect;
-    private          string                 _enabledSwitch;
-    private          IMqttEntityManager     _entityManager;
-    private          int                    _guardTimeout;
-    private          IHaContext             _haContext;
-    private          ILogger<Manager>       _logger;
-    private          string                 _ndUserId;
-    private          bool                   _overrideActive;
-    private          IScheduler             _scheduler;
-    private          Services               _services;
-    private          Entities               _entities;
-    private          InputSelectEntity      _locationMode;
-    private          InputSelectEntity      _lightControlMode;
-    private          IDisposable            _overrideSchedule = Disposable.Empty;
+    private readonly List<string> _onStates = ["on", "playing"];
+    private string _entityName;
+    private string _roomModeSelect;
+    private string _enabledSwitch;
+    private IMqttEntityManager _entityManager;
+    private int _guardTimeout;
+    private IHaContext _haContext;
+    private ILogger<Manager> _logger;
+    private string _ndUserId;
+    private bool _overrideActive;
+    private IScheduler _scheduler;
+    private Services _services;
+    private Entities _entities;
+    private InputSelectEntity _locationMode;
+    private InputSelectEntity _lightControlMode;
+    private IDisposable _overrideSchedule = Disposable.Empty;
     private bool AllLightEntitiesAreOff => AllLightEntities.All(e => e.IsOff());
     private IEnumerable<LightEntity> AllLightEntities => LightEntities.Union(LampEntities).Union(NightLightEntities).Union(MonitorEntities).ToList();
-    private bool IsTooBright => LuxEntity != null && ( LuxLimitEntity != null ? LuxEntity.State >= LuxLimitEntity.State : LuxEntity.State >= LuxLimit );
+    private bool IsTooBright => LuxEntity != null && (LuxLimitEntity != null ? LuxEntity.State >= LuxLimitEntity.State : LuxEntity.State >= LuxLimit);
     private bool IsOccupied => PresenceEntities.Union(KeepAliveEntities).Any(entity => entity.IsOn() || _onStates.Contains(entity.State!));
     private bool IsNightMode => IsBedroom ? RoomMode!.IsSleeping() : _lightControlMode.IsSleeping();
     public bool IsMasterBedroom => _entityName?.Equals("bedroom") ?? false;
@@ -43,18 +42,18 @@ public class LightManager : Room
     public async Task Init(ILogger<Manager> logger, string ndUserId,
     IScheduler scheduler, IHaContext haContext, IMqttEntityManager entityManager, int guardTimeout)
     {
-        _logger        = logger;
-        _ndUserId      = ndUserId;
-        _scheduler     = scheduler;
-        _haContext     = haContext;
+        _logger = logger;
+        _ndUserId = ndUserId;
+        _scheduler = scheduler;
+        _haContext = haContext;
         _entityManager = entityManager;
-        _entityName    = Name.ToLower().Replace("_", " ");
+        _entityName = Name.ToLower().Replace("_", " ");
         _roomModeSelect = RoomMode?.EntityId ?? $"input_select.{Name.ToLower()}_mode";
         _enabledSwitch = $"switch.light_manager_{Name.ToLower()}";
-        _guardTimeout  = guardTimeout;
-        _services      = new Services(haContext);
-        _entities      = new Entities(haContext);
-        _locationMode  = _entities.InputSelect.LocationMode;
+        _guardTimeout = guardTimeout;
+        _services = new Services(haContext);
+        _entities = new Entities(haContext);
+        _locationMode = _entities.InputSelect.LocationMode;
         _lightControlMode = _entities.InputSelect.LightControlMode;
         _logger.LogInformation("Setup {room}", _entityName);
         await SetupRoomModeSelect();
@@ -72,10 +71,10 @@ public class LightManager : Room
     private bool IsNdUserOrHa(StateChange stateChange)
     {
         var state = stateChange.New?.Context?.UserId == null || stateChange.New?.Context?.UserId == _ndUserId;
-        _logger.LogDebug("{entity} turned {action} {by} using user {user}", 
-            stateChange.Entity.EntityId, 
+        _logger.LogDebug("{entity} turned {action} {by} using user {user}",
+            stateChange.Entity.EntityId,
             stateChange.Entity.State,
-            state ? "manually" : "automatically", 
+            state ? "manually" : "automatically",
             stateChange.New?.Context?.UserId);
         return state;
     }
@@ -117,7 +116,7 @@ public class LightManager : Room
     {
         _logger.LogDebug("{room} Setup Enabled Switch", _entityName);
 
-        if (_haContext.Entity(_enabledSwitch).State == null 
+        if (_haContext.Entity(_enabledSwitch).State == null
         || string.Equals(_haContext.Entity(_enabledSwitch).State, "unavailable", StringComparison.InvariantCultureIgnoreCase))
         {
             await _entityManager.CreateAsync(_enabledSwitch, new EntityCreationOptions(Name: $"Light Manager {_entityName}", DeviceClass: "switch", Persist: true));
@@ -128,7 +127,7 @@ public class LightManager : Room
 
         if (_enabledSwitch != "switch.light_manager_testroom")
         {
-            (await _entityManager.PrepareCommandSubscriptionAsync(_enabledSwitch) ).SubscribeAsync(async s =>
+            (await _entityManager.PrepareCommandSubscriptionAsync(_enabledSwitch)).SubscribeAsync(async s =>
                 {
                     _logger.LogDebug("{room} Changing Enabled Switch", _entityName);
                     await _entityManager.SetStateAsync(_enabledSwitch, s);
@@ -145,7 +144,7 @@ public class LightManager : Room
 
         _logger.LogDebug("{room} Setup Room Mode Select", _entityName);
 
-        if (_haContext.Entity(_roomModeSelect).State == null 
+        if (_haContext.Entity(_roomModeSelect).State == null
             || string.Equals(_haContext.Entity(_roomModeSelect).State, "unavailable", StringComparison.InvariantCultureIgnoreCase))
         {
             // Create the input_select entity
@@ -154,7 +153,7 @@ public class LightManager : Room
             RoomMode = new InputSelectEntity(_haContext, _roomModeSelect);
 
             // Set the options for the input_select entity
-            if(IsBedroom)
+            if (IsBedroom)
                 RoomMode.SetOptions(EnumExtensions.ToList<BedroomModeOptions>());
             else
                 RoomMode.SetOptions(EnumExtensions.ToList<RoomModeOptions>());
@@ -170,7 +169,7 @@ public class LightManager : Room
         if (_roomModeSelect != "input_select.testroom_mode")
         {
             // This creates a subscription just to output the state of the entity
-            (await _entityManager.PrepareCommandSubscriptionAsync(RoomMode.EntityId) ).SubscribeAsync(async s =>
+            (await _entityManager.PrepareCommandSubscriptionAsync(RoomMode.EntityId)).SubscribeAsync(async s =>
                 {
                     _logger.LogDebug("{room} Changing Bedroom Mode", RoomMode.EntityId);
                     await _entityManager.SetStateAsync(RoomMode.EntityId, s);
@@ -457,14 +456,14 @@ public class LightManager : Room
         var attributes = new
         {
             OverrideActive = _overrideActive,
-            TurningOff     = showTurningOff ? ( _scheduler.Now + DynamicTimeout ).ToString() : "Unknown",
+            TurningOff = showTurningOff ? (_scheduler.Now + DynamicTimeout).ToString() : "Unknown",
             DynamicTimeout,
             IsOccupied,
             IsTooBright,
             ConditionEntityStateMet = ConditionEntity?.EntityId == null ? "N/A" : ConditionEntityStateNotMet.ToString(),
-            ConditionEntity         = ConditionEntity?.EntityId ?? "N/A",
-            ConditionEntityState    = ConditionEntityState ?? "N/A",
-            LastUpdated             = DateTime.Now.ToString("G")
+            ConditionEntity = ConditionEntity?.EntityId ?? "N/A",
+            ConditionEntityState = ConditionEntityState ?? "N/A",
+            LastUpdated = DateTime.Now.ToString("G")
         };
         Tasks.Add(_entityManager.SetAttributesAsync(_enabledSwitch, attributes));
         _logger.LogTrace("{room} Attributes updated to {attr}", _entityName, attributes);

@@ -1,4 +1,4 @@
-﻿namespace NetDaemon.Notifications.Helpers;
+﻿namespace NetDaemon.Helpers.Notifications;
 
 public class VoiceProvider : IVoiceProvider
 {

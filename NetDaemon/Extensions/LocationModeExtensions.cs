@@ -1,4 +1,4 @@
-namespace Extensions;
+namespace NetDaemon.Extensions;
 
 public static class LocationModeExtensions
 {

@@ -1,4 +1,4 @@
-namespace NetDaemon;
+namespace NetDaemon.apps.NotificationsManager.Appliances;
 
 public enum CycleState
 {

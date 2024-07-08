@@ -1,6 +1,4 @@
 using NetDaemonTests.Helpers;
-using NetDaemonApps.Automations.States;
-using Microsoft.Extensions.Logging;
 
 namespace NetDaemonTests.Automations.States
 {
