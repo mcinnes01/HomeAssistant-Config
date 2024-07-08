@@ -1,0 +1,48 @@
+2024-07-08 23:06:31.916 +01:00 [INF] Starting NetDaemon runtime version 24.27.1.
+2024-07-08 23:06:31.963 +01:00 [DBG] MQTT connected: "Success"
+2024-07-08 23:06:32.018 +01:00 [DBG] Connecting to Home Assistant websocket on "ws://supervisor/core/websocket"
+2024-07-08 23:06:32.222 +01:00 [INF] Successfully connected to Home Assistant
+2024-07-08 23:06:32.345 +01:00 [INF] Initializing RegistryCache
+2024-07-08 23:06:32.546 +01:00 [DBG] Loading applications from folder /config/netdaemonout
+2024-07-08 23:06:32.623 +01:00 [WRN] The configuration for NetDaemon.Notifications.Helpers.AlexaConfig is not found. Please add config.
+2024-07-08 23:06:32.655 +01:00 [INF] Successfully loaded app daemonapp.apps.NotificationsManager.BatteryNotifications
+2024-07-08 23:06:32.681 +01:00 [INF] Starting light manager configuration for 2 rooms
+2024-07-08 23:06:32.683 +01:00 [INF] Configuring light manager for Lounge
+2024-07-08 23:06:32.696 +01:00 [INF] Setup lounge
+2024-07-08 23:06:32.698 +01:00 [DBG] lounge Setup Room Mode Select
+2024-07-08 23:06:32.703 +01:00 [INF] Configuring message subscription
+2024-07-08 23:06:32.706 +01:00 [DBG] lounge Setup Enabled Switch
+2024-07-08 23:06:32.719 +01:00 [DBG] lounge Subscribed to Presence On Events
+2024-07-08 23:06:32.733 +01:00 [DBG] lounge Subscribed to Presence Off Events
+2024-07-08 23:06:32.736 +01:00 [DBG] lounge Subscribed to Attribute Override Events
+2024-07-08 23:06:32.738 +01:00 [DBG] lounge Subscribed to Manual Turn On Override Events
+2024-07-08 23:06:32.739 +01:00 [DBG] lounge Subscribed to Manual Turn Off Override Events
+2024-07-08 23:06:32.740 +01:00 [DBG] lounge Subscribed to House Mode Changed Events
+2024-07-08 23:06:32.740 +01:00 [DBG] lounge Subscribed to Watchdog Schedule
+2024-07-08 23:06:32.741 +01:00 [INF] Configuring light manager for Hallway
+2024-07-08 23:06:32.741 +01:00 [INF] Setup hallway
+2024-07-08 23:06:32.741 +01:00 [DBG] hallway Setup Room Mode Select
+2024-07-08 23:06:32.759 +01:00 [DBG] hallway Setup Enabled Switch
+2024-07-08 23:06:32.760 +01:00 [DBG] hallway Subscribed to Presence On Events
+2024-07-08 23:06:32.768 +01:00 [DBG] hallway Subscribed to Presence Off Events
+2024-07-08 23:06:32.769 +01:00 [DBG] hallway Subscribed to Attribute Override Events
+2024-07-08 23:06:32.769 +01:00 [DBG] hallway Subscribed to Manual Turn On Override Events
+2024-07-08 23:06:32.770 +01:00 [DBG] hallway Subscribed to Manual Turn Off Override Events
+2024-07-08 23:06:32.770 +01:00 [DBG] hallway Subscribed to House Mode Changed Events
+2024-07-08 23:06:32.770 +01:00 [DBG] hallway Subscribed to Watchdog Schedule
+2024-07-08 23:06:32.776 +01:00 [INF] Successfully loaded app LightApp.Manager
+2024-07-08 23:06:32.781 +01:00 [INF] Finished loading applications: Enabled 0, Disabled 0, Running 2, Error 0
+2024-07-08 23:09:44.844 +01:00 [DBG] Received entity_registry_updated: Updating RegistryCache
+2024-07-08 23:10:00.009 +01:00 [DBG] hallway Watchdog turning off entities
+2024-07-08 23:10:00.013 +01:00 [INF] hallway Turn Off by Turned off by Watchdog (hallway)
+2024-07-08 23:10:00.014 +01:00 [DBG] hallway Turning Off light.hallway_light 
+2024-07-08 23:10:00.020 +01:00 [DBG] lounge Watchdog turning off entities
+2024-07-08 23:10:00.021 +01:00 [INF] lounge Cant turn off - Occupied
+2024-07-08 23:10:00.028 +01:00 [DBG] hallway Turning Off light.hallway_lamp 
+2024-07-08 23:14:44.844 +01:00 [DBG] Received entity_registry_updated: Updating RegistryCache
+2024-07-08 23:15:00.002 +01:00 [DBG] hallway Watchdog turning off entities
+2024-07-08 23:15:00.002 +01:00 [INF] hallway Turn Off by Turned off by Watchdog (hallway)
+2024-07-08 23:15:00.002 +01:00 [DBG] hallway Turning Off light.hallway_light 
+2024-07-08 23:15:00.003 +01:00 [DBG] hallway Turning Off light.hallway_lamp 
+2024-07-08 23:15:00.002 +01:00 [DBG] lounge Watchdog turning off entities
+2024-07-08 23:15:00.004 +01:00 [INF] lounge Cant turn off - Occupied

@@ -1,6 +1,6 @@
 using NetDaemon.Extensions.MqttEntityManager;
 
-namespace LightApp;
+namespace NetDaemon.LightApp;
 
 //[Focus]
 [NetDaemonApp]

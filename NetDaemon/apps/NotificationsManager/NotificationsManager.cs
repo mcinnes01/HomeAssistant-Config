@@ -1,29 +1,28 @@
 ﻿using NetDaemon.NotificationManager;
-using NetDaemon.Helpers;
 
-namespace NetDaemon;
+namespace NetDaemon.apps.NotificationsManager;
 
 //[NetDaemonApp]
 //[Focus]
 public class NotificationsManager
 {
-    private readonly IAlexa                        _alexa;
-    private readonly IEntities                     _entities;
-    private readonly IServices                     _services;
-    private readonly IHaContext                    _haContext;
+    private readonly IAlexa _alexa;
+    private readonly IEntities _entities;
+    private readonly IServices _services;
+    private readonly IHaContext _haContext;
     private readonly IDictionary<string, DateTime> _lastPrompt = new Dictionary<string, DateTime>();
-    private readonly IScheduler                    _scheduler;
+    private readonly IScheduler _scheduler;
     private readonly ILogger<NotificationsManager> _logger;
 
     public NotificationsManager(IHaContext haContext, IEntities entities, IServices services, IAlexa alexa, IScheduler scheduler, ILogger<NotificationsManager> logger, IApplianceFactory applianceFactory)
     {
-        _haContext    = haContext;
-        _entities     = entities;
+        _haContext = haContext;
+        _entities = entities;
         _services = services;
-        _alexa        = alexa;
-        _scheduler    = scheduler;
-        _logger       = logger;
-        
+        _alexa = alexa;
+        _scheduler = scheduler;
+        _logger = logger;
+
         var appliances = applianceFactory.CreateAppliances(["Dishwasher", "Washer", "Dryer"]);
         foreach (var appliance in appliances) SubscribeAppliance(appliance);
 
@@ -60,7 +59,7 @@ public class NotificationsManager
             }
         });
     }
-    
+
     private void SubscribeMotion(BinarySensorEntity motionSensor, IApplianceNotification applianceNotification, MediaPlayerEntity mediaPlayer)
     {
         motionSensor.StateChanges()

@@ -1,6 +1,6 @@
 ﻿using Humanizer;
 using Humanizer.Localisation;
-using NetDaemon;
+using NetDaemon.apps.NotificationsManager;
 using NetDaemon.Helpers;
 
 namespace NetDaemon.NotificationManager;

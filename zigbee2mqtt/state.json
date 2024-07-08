@@ -53,8 +53,8 @@
         "linkquality": 33
     },
     "0xa4c138dff6d5bb59": {
-        "temperature": 20.72,
-        "humidity": 55.36,
+        "temperature": 20.83,
+        "humidity": 55.16,
         "battery": 5,
         "voltage": 2500,
         "linkquality": 36
@@ -119,8 +119,8 @@
     },
     "0x30fb10fffedd1d44": {
         "temperature": 21,
-        "humidity": 60,
-        "voc_index": 231,
+        "humidity": 61,
+        "voc_index": 227,
         "linkquality": 33,
         "pm25": 2,
         "update": {
@@ -252,7 +252,7 @@
         "update_available": false
     },
     "0x8c6fb9fffe45557d": {
-        "battery": 64,
+        "battery": 60,
         "linkquality": 45,
         "update": {
             "state": "idle",

@@ -1,6 +1,4 @@
-using NetDaemon.Helpers;
-
-namespace daemonapp.apps.NotificationsManager;
+namespace NetDaemon.apps.NotificationsManager;
 
 [NetDaemonApp]
 //[Focus]
@@ -45,7 +43,7 @@ public class BatteryNotifications(IEntities entities, IServices services, IHaCon
         var deviceNames = new List<string>();
         foreach (var config in _config)
         {
-            var totalHours = ( DateTime.Now - config.BatteryLevel.EntityState.LastUpdated.Value ).TotalHours;
+            var totalHours = (DateTime.Now - config.BatteryLevel.EntityState.LastUpdated.Value).TotalHours;
             if (totalHours < 12)
             {
                 ForceUpdate(config.MobileApp);
@@ -62,7 +60,7 @@ public class BatteryNotifications(IEntities entities, IServices services, IHaCon
 
     private void SendNotifications()
     {
-        var deviceNamesFromBatteryCheck     = CheckBatteryLevel();
+        var deviceNamesFromBatteryCheck = CheckBatteryLevel();
         var deviceNamesFromLastUpdatedCheck = CheckLastUpdated().Except(deviceNamesFromBatteryCheck).ToList();
 
         if (deviceNamesFromBatteryCheck.Count != 0)

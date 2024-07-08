@@ -1,4 +1,5 @@
 ﻿using NetDaemon;
+using NetDaemon.apps.NotificationsManager;
 
 namespace NetDaemon.NotificationManager;
 

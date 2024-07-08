@@ -1,4 +1,4 @@
-namespace daemonapp.apps.NotificationsManager;
+namespace NetDaemon.apps.NotificationsManager;
 
 public class BatteryNotificationsConfig(NumericSensorEntity batteryLevel, SensorEntity batteryState, string mobileApp)
 {

@@ -1,6 +1,4 @@
-﻿using NetDaemon.Helpers;
-
-namespace NetDaemon.NotificationManager;
+﻿namespace NetDaemon.apps.NotificationsManager;
 
 public class Notification
 {

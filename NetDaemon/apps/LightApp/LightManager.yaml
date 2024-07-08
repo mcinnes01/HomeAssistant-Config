@@ -1,4 +1,4 @@
-LightApp.ManagerConfig:
+NetDaemon.LightApp.ManagerConfig:
   NdUserId: bedd08e6590f474fb2654c55703cf589
   GuardTimeout: 300
   MinDuration: "0.00:03:00"
