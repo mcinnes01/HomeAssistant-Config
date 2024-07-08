@@ -1,69 +1,98 @@
-LightManagerV2.ManagerConfig:
+LightApp.ManagerConfig:
   NdUserId: bedd08e6590f474fb2654c55703cf589
   GuardTimeout: 300
   MinDuration: "0.00:03:00"
   MaxDuration: "0.00:15:00"
-  LightControlMode: input_select.light_control_mode
-  LocationMode: input_select.location_mode
-  RandomSwitchEntity: alarm_control_panel.alarmo
   Rooms:
-    - Name: Guest_Room
-      IsBedroom: true
-      Timeout: 300
-      OverrideTimeout: 1800
-      PresenceEntities:
-        - binary_sensor.guest_room_motion
-        - input_boolean.test_trigger
-      ControlEntities:
-        - light.guest_room_light
-      SupressionEntities:
-        - light.guest_room_lamp
-      SwitchEntities:
-        - switch.guest_room_switch
-      NightTimeEntity: input_select.guest_room_mode
-      NightTimeEntityStates:
-        - Night
-        - Sleeping
-      LuxlimitEntity: input_number.dim_lux
-      LuxEntity: sensor.weather_station_ambient_light
-      debug: true
-    - Name: Landing
-      Timeout: 120
-      OverrideTimeout: 1800
-      IsNightLight: true
-      PresenceEntities:
-        - binary_sensor.landing_motion
-      ControlEntities:
-        - light.landing_light
-      SwitchEntities:
-        - switch.landing_switch
-      debug: true
-    - Name: Studio
-      Timeout: 120
-      OverrideTimeout: 1800
-      IsNightLight: true
-      PresenceEntities:
-        - binary_sensor.studio_motion
-      ControlEntities:
-        - light.studio_light
-      SwitchEntities:
-        - switch.studio_switch
-      debug: true
-    - Name: Bathroom
-      Timeout: 180
-      OverrideTimeout: 1800
-      IsNightLight: true
-      PresenceEntities:
-        - binary_sensor.bathroom_motion
-      ControlEntities:
-        - light.bathroom_light
-      SwitchEntities:
-        - switch.bathroom_switch
-      KeepAliveEntities:
-        - scene.showering
-      SupressionEntities:
-        - light.mirror_light
-      debug: true
+    # - Name: Guest_Room
+    #   IsBedroom: true
+    #   Timeout: 300
+    #   OverrideTimeout: 1800
+    #   PresenceEntities:
+    #     - binary_sensor.guest_room_motion
+    #     - input_boolean.guest_room_occupancy
+    #   LightEntities:
+    #     - light.guest_room_light
+    #   LampEntities:
+    #     - light.guest_room_lamp
+    #   SupressionEntities:
+    #     - light.guest_room_lamp
+    #   SwitchEntities:
+    #     - switch.guest_room_switch
+    #   NightTimeEntity: input_select.guest_room_mode
+    #   NightTimeEntityStates:
+    #     - Night
+    #     - Sleeping
+    #   Luxlimit: 30
+    #   LuxEntity: sensor.guest_room_illuminence
+    # - Name: Dressing_Room
+    #   Timeout: 300
+    #   OverrideTimeout: 1800
+    #   IsNightLight: true
+    #   PresenceEntities:
+    #     - binary_sensor.dressing_room_motion
+    #   LightEntities:
+    #     - light.dressing_room_light
+    #   SwitchEntities:
+    #     - switch.dressing_room_switch
+    # - Name: Bedroom
+    #   IsBedroom: true
+    #   Timeout: 300
+    #   OverrideTimeout: 1800
+    #   PresenceEntities:
+    #     - binary_sensor.bedroom_motion
+    #   LightEntities:
+    #     - light.bedroom_light
+    #   LampEntities:
+    #     - light.bedroom_lamp
+    #   SupressionEntities:
+    #     - light.bedroom_lamp
+    #   SwitchEntities:
+    #     - switch.bedroom_switch
+    #   NightTimeEntity: input_select.bedroom_mode
+    #   NightTimeEntityStates:
+    #     - Night
+    #     - Sleeping
+    #   LuxlimitEntity: input_number.dim_lux
+    #   LuxEntity: sensor.weather_station_ambient_light
+    # - Name: Landing
+    #   Timeout: 120
+    #   OverrideTimeout: 1800
+    #   IsNightLight: true
+    #   PresenceEntities:
+    #     - binary_sensor.landing_motion
+    #   LightEntities:
+    #     - light.landing_light
+    #   SwitchEntities:
+    #     - switch.landing_switch
+    # - Name: Bathroom
+    #   Timeout: 180
+    #   OverrideTimeout: 1800
+    #   IsNightLight: true
+    #   PresenceEntities:
+    #     - binary_sensor.bathroom_motion
+    #   LightEntities:
+    #     - light.bathroom_light
+    #   LampEntities:
+    #     - light.mirror_light
+    #   SwitchEntities:
+    #     - switch.bathroom_switch
+    #   KeepAliveEntities:
+    #     - scene.showering
+    #   SupressionEntities:
+    #     - light.mirror_light
+    # - Name: Studio
+    #   Timeout: 120
+    #   OverrideTimeout: 1800
+    #   IsNightLight: true
+    #   PresenceEntities:
+    #     - binary_sensor.studio_motion
+    #   LightEntities:
+    #     - light.studio_light
+    #   LampEntities:
+    #     - switch.studio_lamp
+    #   SwitchEntities:
+    #     - switch.studio_switch
     - Name: Lounge
       Timeout: 300
       OverrideTimeout: 1800
@@ -73,8 +102,11 @@ LightManagerV2.ManagerConfig:
         - binary_sensor.guest_sofa_occupancy
         - binary_sensor.main_sofa_occupancy
         - binary_sensor.window_sofa_occupancy
-      ControlEntities:
+      LightEntities:
         - light.lounge_light
+      LampEntities:
+        - light.lounge_floor_lamp
+        - light.lounge_lamp
       SupressionEntities:
         - light.lounge_floor_lamp
         - light.lounge_lamp
@@ -85,13 +117,59 @@ LightManagerV2.ManagerConfig:
       SwitchEntities:
         - switch.lounge_switch
       LuxEntity: sensor.lounge_illuminance
-      debug: true
+      Luxlimit: 30
+    - Name: Hallway
+      Timeout: 120
+      OverrideTimeout: 1800
+      IsNightLight: true
+      PresenceEntities:
+        - binary_sensor.hallway_motion
+        - binary_sensor.hallway_camera_person_detected
+        - binary_sensor.front_door
+      KeepAliveEntities:
+        - binary_sensor.front_door
+      SupressionEntities:
+        - switch
+      LightEntities:
+        - light.hallway_light
+      LampEntities:
+        - light.hallway_lamp
+      SwitchEntities:
+        - switch.hallway_light_switch
+    # - Name: Drawing_Room
+    #   Timeout: 120
+    #   OverrideTimeout: 1800
+    #   IsNightLight: true
+    #   PresenceEntities:
+    #     - binary_sensor.drawing_room_motion
+    #   LightEntities:
+    #     - light.drawing_room_light
+    #   LampEntities:
+    #     - light.drawing_room_ligh
+    #     - light.bookshelf_light
+    #     - light.display_cabinet_light
+    #   SwitchEntities:
+    #     - switch.drawing_room_switch
+    # - Name: Kitchen
+    #   Timeout: 120
+    #   OverrideTimeout: 1800
+    #   IsNightLight: true
+    #   PresenceEntities:
+    #     - binary_sensor.kitchen_motion
+    #     - binary_sensor.kitchen_camera_person_detected
+    #     - binary_sensor.kitchen_door
+    #   LightEntities:
+    #     - light.kitchen_light
+    #   LampEntities:
+    #     - light.breakfast_bar_light
+    #   SwitchEntities:
+    #     - switch.kitchen_switch
 
     # - Name: Dining
     #   PresenceEntities:
     #     - binary_sensor.dining_motion
     #     - binary_sensor.dining
-    #   ControlEntities:
+    #   LightEntities:
     #     - light.dining
     #     - light.dining_wall
     #   MonitorEntities:
@@ -110,42 +188,34 @@ LightManagerV2.ManagerConfig:
     #   NightTimeEntityStates:
     #     - night
     #     - sleeping
-    #   NightControlEntities:
+    #   NightLightEntities:
     #     - light.dining_1
     #   CircadianSwitchEntity: switch.adaptive_lighting_dining
-    #   RandomStates:
-    #     - armed_home
-    #     - armed_away
-    #   # debug: true
 
     # - Name: Christmas
     #   PresenceEntities:
     #     - binary_sensor.lounge_motion
     #     - binary_sensor.lounge
-    #   ControlEntities:
+    #   LightEntities:
     #     - switch.plug_2
     #   Timeout: 900
-    #   # debug: true
 
     # - Name: Landing
     #   PresenceEntities:
     #     - binary_sensor.landing_motion
     #     - binary_sensor.landing
-    #   ControlEntities:
+    #   LightEntities:
     #     - light.landing
     #   NightTimeEntity: input_select.house_mode
     #   NightTimeEntityStates:
     #     - night
     #     - sleeping
-    #   NightControlEntities:
+    #   NightLightEntities:
     #     - light.landing_7
     #   Timeout: 90
     #   LuxEntity: sensor.landing_lux
     #   LuxlimitEntity: input_number.landing_lux_limit
     #   CircadianSwitchEntity: switch.adaptive_lighting_landing
-    #   RandomStates:
-    #     - armed_away
-    #   # debug: true
 
     # - Name: Porch
     #   PresenceEntities:
@@ -153,12 +223,11 @@ LightManagerV2.ManagerConfig:
     #     - binary_sensor.niemand_front_door_motion
     #   KeepAliveEntities:
     #     - binary_sensor.front_door
-    #   ControlEntities:
+    #   LightEntities:
     #     - light.porch
     #   Timeout: 90
     #   ConditionEntity: sun.sun
     #   ConditionEntityState: below_horizon
-    #   # debug: true
 
     # - Name: Backdoor
     #   PresenceEntities:
@@ -167,18 +236,17 @@ LightManagerV2.ManagerConfig:
     #     - binary_sensor.niemand_garage_motion_2
     #   KeepAliveEntities:
     #     - binary_sensor.back_door
-    #   ControlEntities:
+    #   LightEntities:
     #     - light.backdoor
     #   Timeout: 90
     #   ConditionEntity: sun.sun
     #   ConditionEntityState: below_horizon
-    #   # debug: true
 
     # - Name: Drive
     #   PresenceEntities:
     #     - binary_sensor.niemand_drive_motion
     #     - binary_sensor.niemand_drive_motion_2
-    #   ControlEntities:
+    #   LightEntities:
     #     - light.lounge
     #   Timeout: 300
     #   ConditionEntity: alarm_control_panel.alarmo
@@ -189,7 +257,7 @@ LightManagerV2.ManagerConfig:
     #   PresenceEntities:
     #     - binary_sensor.niemand_garden_motion
     #     - binary_sensor.niemand_garden_motion_2
-    #   ControlEntities:
+    #   LightEntities:
     #     - light.dining
     #     - light.dining_wall
     #   Timeout: 300
@@ -201,21 +269,20 @@ LightManagerV2.ManagerConfig:
     #   PresenceEntities:
     #     - binary_sensor.niemand_garage_motion
     #     - binary_sensor.niemand_garage_motion_2
-    #   ControlEntities:
+    #   LightEntities:
     #     - light.utility
     #     - light.kitchen
     #   Timeout: 300
     #   ConditionEntity: alarm_control_panel.alarmo
     #   ConditionEntityState: armed_night
     #   Watchdog: false
-    #   #debug: true
 
     # - Name: Aaron
     #   Timeout: 300
     #   NightTimeout: 90
     #   PresenceEntities:
     #     - binary_sensor.aaron_motion
-    #   ControlEntities:
+    #   LightEntities:
     #     - light.aaron
     #     - light.aaron_main
     #   MonitorEntities:
@@ -229,7 +296,7 @@ LightManagerV2.ManagerConfig:
     #   NightTimeEntityStates:
     #     - night
     #     - sleeping
-    #   NightControlEntities:
+    #   NightLightEntities:
     #     - light.aaron_4
     #   CircadianSwitchEntity: switch.adaptive_lighting_aaron
     #   RandomStates:
@@ -240,7 +307,7 @@ LightManagerV2.ManagerConfig:
     #   NightTimeout: 600
     #   PresenceEntities:
     #     - binary_sensor.jayden_motion
-    #   ControlEntities:
+    #   LightEntities:
     #     - light.jayden
     #   MonitorEntities:
     #     - light.jayden_1
@@ -253,7 +320,7 @@ LightManagerV2.ManagerConfig:
     #   NightTimeEntityStates:
     #     - night
     #     - sleeping
-    #   NightControlEntities:
+    #   NightLightEntities:
     #     - light.jayden_1
     #   CircadianSwitchEntity: switch.adaptive_lighting_jayden
     #   RandomStates:
@@ -265,31 +332,27 @@ LightManagerV2.ManagerConfig:
     #     - binary_sensor.landing_motion
     #     - binary_sensor.hallway
     #     - binary_sensor.entrance_motion
-    #   ControlEntities:
+    #   LightEntities:
     #     - light.hallway
     #     - light.entrance
     #   NightTimeEntity: input_select.house_mode
     #   NightTimeEntityStates:
     #     - night
     #     - sleeping
-    #   NightControlEntities:
+    #   NightLightEntities:
     #     - light.landing_7
     #   LuxlimitEntity: input_number.hallway_lux_limit
     #   LuxEntity: sensor.entrance_lux
     #   CircadianSwitchEntity: switch.adaptive_lighting_hallway
-    #   RandomStates:
-    #     - armed_home
-    #     - armed_away
-    #   # debug: true
 
     # - Name: Entrance
     #   Timeout: 300
     #   PresenceEntities:
     #     - binary_sensor.entrance_motion
-    #   ControlEntities:
+    #   LightEntities:
     #     - light.hallway
     #     - light.entrance
-    #   NightControlEntities:
+    #   NightLightEntities:
     #     - light.hallway
     #     - light.entrance
     #   LuxlimitEntity: input_number.entrance_lux_limit
@@ -299,17 +362,13 @@ LightManagerV2.ManagerConfig:
     #   NightTimeEntityStates:
     #     - night
     #     - sleeping
-    #   RandomStates:
-    #     - armed_home
-    #     - armed_away
-    #   # debug: true
 
     # - Name: Master
     #   Timeout: 300
     #   NightTimeout: 90
     #   PresenceEntities:
     #     - binary_sensor.master_motion
-    #   ControlEntities:
+    #   LightEntities:
     #     - light.master
     #   MonitorEntities:
     #     - light.master_1
@@ -323,7 +382,7 @@ LightManagerV2.ManagerConfig:
     #   NightTimeEntityStates:
     #     - night
     #     - sleeping
-    #   NightControlEntities:
+    #   NightLightEntities:
     #     - light.master_5
     #   CircadianSwitchEntity: switch.adaptive_lighting_master
     #   RandomStates:
@@ -335,7 +394,7 @@ LightManagerV2.ManagerConfig:
     #   PresenceEntities:
     #     - binary_sensor.lounge_motion
     #     - binary_sensor.lounge
-    #   ControlEntities:
+    #   LightEntities:
     #     - light.lounge
     #   MonitorEntities:
     #     - light.lounge_front
@@ -349,22 +408,18 @@ LightManagerV2.ManagerConfig:
     #   NightTimeEntityStates:
     #     - night
     #     - sleeping
-    #   NightControlEntities:
+    #   NightLightEntities:
     #     - light.floor
     #   CircadianSwitchEntity: switch.adaptive_lighting_floor
-    #   RandomStates:
-    #     - armed_home
-    #     - armed_away
-    #   # debug: true 
 
     # - Name: Playroom
     #   Timeout: 300
     #   PresenceEntities:
     #     - binary_sensor.playroom_motion
-    #   ControlEntities:
+    #   LightEntities:
     #     - light.playroom
     #     - light.playroom_main
-    #   NightControlEntities:
+    #   NightLightEntities:
     #     - light.playroom_4
     #   NightTimeEntity: input_select.house_mode
     #   NightTimeEntityStates:
@@ -373,18 +428,15 @@ LightManagerV2.ManagerConfig:
     #   LuxEntity: sensor.playroom_lux
     #   LuxlimitEntity: input_number.playroom_lux_limit
     #   CircadianSwitchEntity: switch.adaptive_lighting_playroom
-    #   RandomStates:
-    #     - armed_away
-    #   # debug: true
 
     # - Name: Kitchen
     #   Timeout: 300
     #   PresenceEntities:
     #     - binary_sensor.kitchen_motion
     #     - binary_sensor.kitchen
-    #   ControlEntities:
+    #   LightEntities:
     #     - light.kitchen
-    #   NightControlEntities:
+    #   NightLightEntities:
     #     - light.kitchen
     #   MonitorEntities:
     #     - light.kitchen_1
@@ -400,18 +452,14 @@ LightManagerV2.ManagerConfig:
     #   NightTimeEntityStates:
     #     - night
     #     - sleeping
-    #   RandomStates:
-    #     - armed_home
-    #     - armed_away
-    #   # debug: true
 
     # - Name: Toilet
     #   Timeout: 300
     #   PresenceEntities:
     #     - binary_sensor.toilet_motion
-    #   ControlEntities:
+    #   LightEntities:
     #     - light.toilet
-    #   NightControlEntities:
+    #   NightLightEntities:
     #     - light.toilet
     #   LuxEntity: sensor.toilet_lux
     #   luxLimitEntity: input_number.toilet_lux_limit
@@ -420,13 +468,12 @@ LightManagerV2.ManagerConfig:
     #   NightTimeEntityStates:
     #     - night
     #     - sleeping
-    #   # debug: true
 
     # - Name: Utility
     #   Timeout: 300
     #   PresenceEntities:
     #     - binary_sensor.utility_motion
-    #   ControlEntities:
+    #   LightEntities:
     #     - light.utility
     #     - light.utilitycupboard
     #   MonitorEntities:
@@ -440,10 +487,6 @@ LightManagerV2.ManagerConfig:
     #   NightTimeEntityStates:
     #     - night
     #     - sleeping
-    #   NightControlEntities:
+    #   NightLightEntities:
     #     - light.utility_1
     #     - light.utilitycupboard
-    #   RandomStates:
-    #     - armed_home
-    #     - armed_away
-    #   # debug: true

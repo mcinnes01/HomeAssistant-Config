@@ -8,6 +8,7 @@ substitutions:
 
 esphome:
   name: ${sonoff_name}
+  friendly_name: ${sonoff_desc}
   on_boot:
     priority: -100
     then:
@@ -18,16 +19,17 @@ esp8266:
   board: esp01_1m
   restore_from_flash: true
 
-# Enable logging
-logger:
-
 # Enable Home Assistant API
 api:
   encryption:
     key: "8Hr1XKT8oFmITz4qLN4K9namym0MuCLduYxf36T+dzc="
 
+# Enable logging
+logger:
+
 ota:
-  password: "44c781e46ed8f4d03206e96e5728528f"
+  - platform: esphome
+    password: "44c781e46ed8f4d03206e96e5728528f"
 
 wifi:
   ssid: !secret wifi_ssid

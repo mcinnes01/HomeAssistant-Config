@@ -2310,3 +2310,23 @@
           entity_id: media_player.lounge_echo_plus
       helper_hold_delay: 750
       helper_max_loops: 10
+- id: '1719939650314'
+  alias: Reload Alexa Media Player after HA starts
+  description: ''
+  trigger:
+  - platform: homeassistant
+    event: start
+  condition: []
+  action:
+  - delay:
+      hours: 0
+      minutes: 1
+      seconds: 0
+      milliseconds: 0
+  - alias: Reload Alexa Media Player integration
+    service: homeassistant.reload_config_entry
+    data: {}
+    target:
+      entity_id: media_player.bedroom
+    enabled: true
+  mode: single

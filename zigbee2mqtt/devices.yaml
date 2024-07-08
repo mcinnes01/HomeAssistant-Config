@@ -10,8 +10,6 @@
   friendly_name: Bathroom Door
 '0x00124b0023b85ca5':
   friendly_name: Basement Stairs Motion
-'0x04cd15fffe78d9aa':
-  friendly_name: Kitchen Switch
 '0x84b4dbfffe96ed52':
   friendly_name: Coffee Machine
 '0xf082c0fffe7dd100':
@@ -43,15 +41,31 @@
   friendly_name: Store Switch
 '0x8c6fb9fffe38646c':
   friendly_name: Studio Switch
-'0x8c6fb9fffe454fe9':
-  friendly_name: Guest Room Switch
-'0x8c6fb9fffe45557d':
-  friendly_name: Dressing Room Switch
-'0x8c6fb9fffe45558c':
-  friendly_name: Bathroom Switch
 '0x8c6fb9fffe455335':
   friendly_name: Bedroom Switch
 '0x048727fffeabad86':
   friendly_name: Bathroom Humidistat
 '0xf082c0fffe3d9a0f':
   friendly_name: Bedside Switch
+'0x04cd15fffe78d9aa':
+  friendly_name: Kitchen Switch
+'0x8c6fb9fffe45557d':
+  friendly_name: Dressing Room Switch
+'0xecf64cfffe1e65a2':
+  friendly_name: Right Bedside Switch
+'0xecf64cfffe285d17':
+  friendly_name: Studio Bedside Switch
+'0x8c6fb9fffe454fe9':
+  friendly_name: Guest Room Switch
+'0x8c6fb9fffe45558c':
+  friendly_name: Bathroom Switch
+'0xecf64cfffe1e5962':
+  friendly_name: Left Bedside Switch
+'0xecf64cfffe2843c5':
+  friendly_name: Snug Desk Switch
+'0xecf64cfffe28b1e3':
+  friendly_name: Guest Room Bedside Switch
+'0xecf64cfffe1e4752':
+  friendly_name: Lounge Sofa Switch
+'0x001c550020164c95':
+  friendly_name: '0x001c550020164c95'

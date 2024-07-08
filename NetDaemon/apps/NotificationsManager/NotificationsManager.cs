@@ -3,7 +3,7 @@ using NetDaemon.Helpers;
 
 namespace NetDaemon;
 
-[NetDaemonApp]
+//[NetDaemonApp]
 //[Focus]
 public class NotificationsManager
 {

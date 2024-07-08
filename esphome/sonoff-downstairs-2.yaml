@@ -8,6 +8,7 @@ substitutions:
 
 esphome:
   name: ${sonoff_name}
+  friendly_name: ${sonoff_desc}
   on_boot:
     priority: -100
     then:
@@ -27,7 +28,8 @@ api:
     key: "NDNYNV0yIrDrQuQcm5EiyXKyvKQ6BTNJfnQiybsESw4="
 
 ota:
-  password: "c4cb01df11ef62977ac54a4d06ca9e81"
+  - platform: esphome
+    password: "c4cb01df11ef62977ac54a4d06ca9e81"
 
 wifi:
   ssid: !secret wifi_ssid

@@ -1,16 +1,23 @@
 esphome:
   name: sump-alarm
-  platform: ESP32
+  friendly_name: Sump Alarm
+
+esp32:
   board: esp32dev
+  framework:
+    type: arduino
 
 # Enable logging
 logger:
 
 # Enable Home Assistant API
 api:
+  encryption:
+    key: "Ycm9djg4AjEe4LN+mfVTEc4riB6oBriNT6PKbrHhW8w="
 
 ota:
-  password: "45d8b8ff115c5da66c5cbba9832c4d88"
+  - platform: esphome
+    password: "45d8b8ff115c5da66c5cbba9832c4d88"
 
 wifi:
   ssid: !secret wifi_ssid

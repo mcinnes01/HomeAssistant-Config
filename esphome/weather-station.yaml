@@ -1,16 +1,23 @@
 esphome:
   name: weather-station
-  platform: ESP32
+  friendly_name: Weather Station
+
+esp32:
   board: esp32dev
+  framework:
+    type: arduino
 
 # Enable logging
 logger:
 
 # Enable Home Assistant API
 api:
+  encryption:
+    key: "b040CPtz82z1yUmj3ozxff/5k90DGF3dRz4NPnHIssI="
 
 ota:
-  password: "fbc394d33335d950f1da0b97b9842b99"
+  - platform: esphome
+    password: "fbc394d33335d950f1da0b97b9842b99"
 
 wifi:
   ssid: !secret wifi_ssid

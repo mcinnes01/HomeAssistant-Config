@@ -1,5 +1,6 @@
 esphome:
   name: doorbell
+  friendly_name: Doorbell
 
 esp8266:
   board: esp12e
@@ -13,8 +14,8 @@ api:
     key: "1/fwx9gjKj/lxh2eF1+XbOXBZ8mNi2kgzNR5yttUXu8="
 
 ota:
-  password: "14ba9b6a16cb78914f0306db655f1042"
-  id: my_ota
+  - platform: esphome
+    password: "14ba9b6a16cb78914f0306db655f1042"
 
 wifi:
   ssid: !secret wifi_ssid
@@ -25,7 +26,7 @@ wifi:
     ssid: "Doorbell Fallback Hotspot"
     password: "VUvfYz288Pm0"
 
-captive_portal:
+captive_portal:   
 
 # Sync time with Home Assistant.
 time:

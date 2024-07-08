@@ -10,7 +10,8 @@ dev:
 	dotnet publish -c Development -o out
 
 publish:
-	rm -rf ../netdaemon-out
+	sudo chown -R holly:holly ../netdaemonout/
+	rm -rf ../netdaemonout
 	cp -R out/ ../netdaemonout/
 	rm -rf out
 
