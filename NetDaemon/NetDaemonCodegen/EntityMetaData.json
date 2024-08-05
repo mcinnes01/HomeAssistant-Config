@@ -557,7 +557,7 @@
         },
         {
           "id": "media_player.dining_room_radio",
-          "friendlyName": "Dining Room Radi",
+          "friendlyName": null,
           "cSharpName": "DiningRoomRadio"
         },
         {
@@ -976,7 +976,7 @@
         },
         {
           "id": "automation.automation_46",
-          "friendlyName": "automation 43",
+          "friendlyName": "automation 40",
           "cSharpName": "Automation46"
         },
         {
@@ -986,7 +986,7 @@
         },
         {
           "id": "automation.basement_hall_light_off_so_turn_on",
-          "friendlyName": "Basement hall light off so turn on",
+          "friendlyName": "Keep Basement Hall On",
           "cSharpName": "BasementHallLightOffSoTurnOn"
         },
         {
@@ -1105,11 +1105,6 @@
           "cSharpName": "HallwayLampOnAtSunset"
         },
         {
-          "id": "automation.keep_basement_hall_on",
-          "friendlyName": "Keep Basement Hall On",
-          "cSharpName": "KeepBasementHallOn"
-        },
-        {
           "id": "automation.keep_cabinet_light_on",
           "friendlyName": "Keep Cabinet Light On",
           "cSharpName": "KeepCabinetLightOn"
@@ -1170,6 +1165,11 @@
           "cSharpName": "MorningWhenSunrise"
         },
         {
+          "id": "automation.new_automation",
+          "friendlyName": "New Automation",
+          "cSharpName": "NewAutomation"
+        },
+        {
           "id": "automation.nspanel_configuration",
           "friendlyName": "NSPanel Configuration",
           "cSharpName": "NspanelConfiguration"
@@ -1183,11 +1183,6 @@
           "id": "automation.patio_person_motion_event_snapshot_claire_iphone",
           "friendlyName": "Patio person motion event snapshot - Claire iPhone",
           "cSharpName": "PatioPersonMotionEventSnapshotClaireIphone"
-        },
-        {
-          "id": "automation.person_in_the_garden",
-          "friendlyName": "Person in the garden",
-          "cSharpName": "PersonInTheGarden"
         },
         {
           "id": "automation.reload_alexa_media_player_after_ha_starts",
@@ -1238,16 +1233,6 @@
           "id": "automation.send_notification_when_alarm_triggered_2",
           "friendlyName": "Send notification when alarm triggered",
           "cSharpName": "SendNotificationWhenAlarmTriggered2"
-        },
-        {
-          "id": "automation.send_snapshot_when_person_is_in_the_garden_andy_iphone",
-          "friendlyName": "Send snapshot when person is in the garden - Andy iPhone",
-          "cSharpName": "SendSnapshotWhenPersonIsInTheGardenAndyIphone"
-        },
-        {
-          "id": "automation.send_snapshot_when_person_is_in_the_garden_claire_iphone",
-          "friendlyName": "Send snapshot when person is in the garden - Claire iPhone",
-          "cSharpName": "SendSnapshotWhenPersonIsInTheGardenClaireIphone"
         },
         {
           "id": "automation.set_cat_feeder_varaibles_on_restart",
@@ -1522,6 +1507,11 @@
           "cSharpName": "BasementHallCameraStatusLightOn"
         },
         {
+          "id": "binary_sensor.basement_hall_light_overcurrent",
+          "friendlyName": "Basement Hall Light overcurrent",
+          "cSharpName": "BasementHallLightOvercurrent"
+        },
+        {
           "id": "binary_sensor.basement_hall_light_overheating",
           "friendlyName": "Basement Hall Light overheating",
           "cSharpName": "BasementHallLightOverheating"
@@ -1722,6 +1712,11 @@
           "cSharpName": "BathroomDoorBatteryLow"
         },
         {
+          "id": "binary_sensor.bathroom_fan_overcurrent",
+          "friendlyName": "Bathroom Fan overcurrent",
+          "cSharpName": "BathroomFanOvercurrent"
+        },
+        {
           "id": "binary_sensor.bathroom_fan_overheating",
           "friendlyName": "Bathroom Fan overheating",
           "cSharpName": "BathroomFanOverheating"
@@ -1735,6 +1730,11 @@
           "id": "binary_sensor.bathroom_fan_overvoltage",
           "friendlyName": "Bathroom Fan overvoltage",
           "cSharpName": "BathroomFanOvervoltage"
+        },
+        {
+          "id": "binary_sensor.bathroom_light_overcurrent",
+          "friendlyName": "Bathroom Light overcurrent",
+          "cSharpName": "BathroomLightOvercurrent"
         },
         {
           "id": "binary_sensor.bathroom_light_overheating",
@@ -1757,6 +1757,11 @@
           "cSharpName": "BathroomMotion"
         },
         {
+          "id": "binary_sensor.bed_socket_overcurrent",
+          "friendlyName": "Bed Socket overcurrent",
+          "cSharpName": "BedSocketOvercurrent"
+        },
+        {
           "id": "binary_sensor.bed_socket_overheating",
           "friendlyName": "Bed Socket overheating",
           "cSharpName": "BedSocketOverheating"
@@ -1770,6 +1775,11 @@
           "id": "binary_sensor.bed_socket_overvoltage",
           "friendlyName": "Bed Socket overvoltage",
           "cSharpName": "BedSocketOvervoltage"
+        },
+        {
+          "id": "binary_sensor.bedroom_light_overcurrent",
+          "friendlyName": "Bedroom Light overcurrent",
+          "cSharpName": "BedroomLightOvercurrent"
         },
         {
           "id": "binary_sensor.bedroom_light_overheating",
@@ -1792,9 +1802,24 @@
           "cSharpName": "BedroomMotion"
         },
         {
+          "id": "binary_sensor.bl2_unused_3_overcurrent",
+          "friendlyName": "BL2 Unused 3 overcurrent",
+          "cSharpName": "Bl2Unused3Overcurrent"
+        },
+        {
+          "id": "binary_sensor.bl2_unused_4_overcurrent",
+          "friendlyName": "BL2 Unused 4 overcurrent",
+          "cSharpName": "Bl2Unused4Overcurrent"
+        },
+        {
           "id": "binary_sensor.brewery_light_input",
           "friendlyName": "Brewery Light Input",
           "cSharpName": "BreweryLightInput"
+        },
+        {
+          "id": "binary_sensor.brewery_light_overcurrent",
+          "friendlyName": "Brewery Light overcurrent",
+          "cSharpName": "BreweryLightOvercurrent"
         },
         {
           "id": "binary_sensor.brewery_light_overheating",
@@ -1857,6 +1882,11 @@
           "cSharpName": "ColdFrameInput"
         },
         {
+          "id": "binary_sensor.cold_frame_overcurrent",
+          "friendlyName": "Cold Frame overcurrent",
+          "cSharpName": "ColdFrameOvercurrent"
+        },
+        {
           "id": "binary_sensor.cold_frame_overheating",
           "friendlyName": "Cold Frame overheating",
           "cSharpName": "ColdFrameOverheating"
@@ -1875,6 +1905,11 @@
           "id": "binary_sensor.decking_socket_input",
           "friendlyName": "Decking Socket Input",
           "cSharpName": "DeckingSocketInput"
+        },
+        {
+          "id": "binary_sensor.decking_socket_overcurrent",
+          "friendlyName": "Decking Socket overcurrent",
+          "cSharpName": "DeckingSocketOvercurrent"
         },
         {
           "id": "binary_sensor.decking_socket_overheating",
@@ -1897,6 +1932,11 @@
           "cSharpName": "DeckingWallLightInput"
         },
         {
+          "id": "binary_sensor.decking_wall_light_overcurrent",
+          "friendlyName": "Decking Wall Light overcurrent",
+          "cSharpName": "DeckingWallLightOvercurrent"
+        },
+        {
           "id": "binary_sensor.decking_wall_light_overheating",
           "friendlyName": "Decking Wall Light overheating",
           "cSharpName": "DeckingWallLightOverheating"
@@ -1910,6 +1950,11 @@
           "id": "binary_sensor.decking_wall_light_overvoltage",
           "friendlyName": "Decking Wall Light overvoltage",
           "cSharpName": "DeckingWallLightOvervoltage"
+        },
+        {
+          "id": "binary_sensor.dining_room_light_overcurrent",
+          "friendlyName": "Dining Room Light overcurrent",
+          "cSharpName": "DiningRoomLightOvercurrent"
         },
         {
           "id": "binary_sensor.dining_room_motion",
@@ -1930,6 +1975,11 @@
           "id": "binary_sensor.drawing_room_motion",
           "friendlyName": "Drawing Room Motion",
           "cSharpName": "DrawingRoomMotion"
+        },
+        {
+          "id": "binary_sensor.dressing_room_light_overcurrent",
+          "friendlyName": "Dressing Room Light overcurrent",
+          "cSharpName": "DressingRoomLightOvercurrent"
         },
         {
           "id": "binary_sensor.dressing_room_light_overheating",
@@ -1960,6 +2010,11 @@
           "id": "binary_sensor.electric_cabinet_door_contact",
           "friendlyName": "Electric Cabinet Door Door",
           "cSharpName": "ElectricCabinetDoorContact"
+        },
+        {
+          "id": "binary_sensor.electric_cabinet_light_overcurrent",
+          "friendlyName": "Electric Cabinet Light overcurrent",
+          "cSharpName": "ElectricCabinetLightOvercurrent"
         },
         {
           "id": "binary_sensor.electric_cabinet_light_overheating",
@@ -2017,6 +2072,11 @@
           "cSharpName": "FenceLightsInput"
         },
         {
+          "id": "binary_sensor.fence_lights_overcurrent",
+          "friendlyName": "Fence Lights overcurrent",
+          "cSharpName": "FenceLightsOvercurrent"
+        },
+        {
           "id": "binary_sensor.fence_lights_overheating",
           "friendlyName": "Fence Lights overheating",
           "cSharpName": "FenceLightsOverheating"
@@ -2047,6 +2107,11 @@
           "cSharpName": "GardenSocketsInput"
         },
         {
+          "id": "binary_sensor.garden_sockets_overcurrent",
+          "friendlyName": "Garden Sockets overcurrent",
+          "cSharpName": "GardenSocketsOvercurrent"
+        },
+        {
           "id": "binary_sensor.garden_sockets_overheating",
           "friendlyName": "Garden Sockets overheating",
           "cSharpName": "GardenSocketsOverheating"
@@ -2067,6 +2132,11 @@
           "cSharpName": "GateSocketInput"
         },
         {
+          "id": "binary_sensor.gate_socket_overcurrent",
+          "friendlyName": "Gate Socket overcurrent",
+          "cSharpName": "GateSocketOvercurrent"
+        },
+        {
           "id": "binary_sensor.gate_socket_overheating",
           "friendlyName": "Gate Socket overheating",
           "cSharpName": "GateSocketOverheating"
@@ -2085,6 +2155,11 @@
           "id": "binary_sensor.guest_room_bed_occupancy",
           "friendlyName": "Guest Room Bed Occupancy",
           "cSharpName": "GuestRoomBedOccupancy"
+        },
+        {
+          "id": "binary_sensor.guest_room_light_overcurrent",
+          "friendlyName": "Guest Room Light overcurrent",
+          "cSharpName": "GuestRoomLightOvercurrent"
         },
         {
           "id": "binary_sensor.guest_room_light_overheating",
@@ -2210,6 +2285,11 @@
           "id": "binary_sensor.hallway_tablet_plugged_in",
           "friendlyName": "Hallway Tablet Plugged in",
           "cSharpName": "HallwayTabletPluggedIn"
+        },
+        {
+          "id": "binary_sensor.hifi_socket_overcurrent",
+          "friendlyName": "Hifi Socket overcurrent",
+          "cSharpName": "HifiSocketOvercurrent"
         },
         {
           "id": "binary_sensor.hifi_socket_overheating",
@@ -2417,6 +2497,11 @@
           "cSharpName": "MainSofaOccupancy"
         },
         {
+          "id": "binary_sensor.mirror_light_overcurrent",
+          "friendlyName": "Mirror Light overcurrent",
+          "cSharpName": "MirrorLightOvercurrent"
+        },
+        {
           "id": "binary_sensor.mirror_light_overheating",
           "friendlyName": "Mirror Light overheating",
           "cSharpName": "MirrorLightOverheating"
@@ -2430,6 +2515,11 @@
           "id": "binary_sensor.mirror_light_overvoltage",
           "friendlyName": "Mirror Light overvoltage",
           "cSharpName": "MirrorLightOvervoltage"
+        },
+        {
+          "id": "binary_sensor.mixing_desk_overcurrent",
+          "friendlyName": "Mixing Desk overcurrent",
+          "cSharpName": "MixingDeskOvercurrent"
         },
         {
           "id": "binary_sensor.mixing_desk_overheating",
@@ -2927,6 +3017,11 @@
           "cSharpName": "ShedLightInput"
         },
         {
+          "id": "binary_sensor.shed_light_overcurrent",
+          "friendlyName": "Shed Light overcurrent",
+          "cSharpName": "ShedLightOvercurrent"
+        },
+        {
           "id": "binary_sensor.shed_light_overheating",
           "friendlyName": "Shed Light overheating",
           "cSharpName": "ShedLightOverheating"
@@ -2947,9 +3042,19 @@
           "cSharpName": "ShedMotion"
         },
         {
+          "id": "binary_sensor.shelly_hallway_light_switch_0_overcurrent",
+          "friendlyName": "Shelly Hallway Light switch_0 overcurrent",
+          "cSharpName": "ShellyHallwayLightSwitch0Overcurrent"
+        },
+        {
           "id": "binary_sensor.shelly_landing_light_cloud",
           "friendlyName": "Shelly Landing Light cloud",
           "cSharpName": "ShellyLandingLightCloud"
+        },
+        {
+          "id": "binary_sensor.shelly_landing_light_switch_0_overcurrent",
+          "friendlyName": "Shelly Landing Light switch_0 overcurrent",
+          "cSharpName": "ShellyLandingLightSwitch0Overcurrent"
         },
         {
           "id": "binary_sensor.shelly_landing_light_switch_0_overheating",
@@ -3052,94 +3157,39 @@
           "cSharpName": "ShellyUpstairsSocket4Input3Input"
         },
         {
-          "id": "binary_sensor.shelly_upstairs_sockets_3_cloud",
-          "friendlyName": "shellypro4pm-34987a68ff10 cloud",
-          "cSharpName": "ShellyUpstairsSockets3Cloud"
+          "id": "binary_sensor.shellypro4pm_34987a68fc0c_switch_1_overcurrent",
+          "friendlyName": "shellypro4pm-34987a68fc0c switch_1 overcurrent",
+          "cSharpName": "Shellypro4pm34987a68fc0cSwitch1Overcurrent"
         },
         {
-          "id": "binary_sensor.shelly_upstairs_sockets_3_input_0_input",
-          "friendlyName": "shellypro4pm-34987a68ff10 input_0 input",
-          "cSharpName": "ShellyUpstairsSockets3Input0Input"
+          "id": "binary_sensor.shellypro4pm_34987a691128_switch_0_overcurrent",
+          "friendlyName": "shellypro4pm-34987a691128 switch_0 overcurrent",
+          "cSharpName": "Shellypro4pm34987a691128Switch0Overcurrent"
         },
         {
-          "id": "binary_sensor.shelly_upstairs_sockets_3_input_1_input",
-          "friendlyName": "shellypro4pm-34987a68ff10 input_1 input",
-          "cSharpName": "ShellyUpstairsSockets3Input1Input"
+          "id": "binary_sensor.shellypro4pm_34987a691128_switch_1_overcurrent",
+          "friendlyName": "shellypro4pm-34987a691128 switch_1 overcurrent",
+          "cSharpName": "Shellypro4pm34987a691128Switch1Overcurrent"
         },
         {
-          "id": "binary_sensor.shelly_upstairs_sockets_3_input_2_input",
-          "friendlyName": "shellypro4pm-34987a68ff10 input_2 input",
-          "cSharpName": "ShellyUpstairsSockets3Input2Input"
+          "id": "binary_sensor.shellypro4pm_34987a691128_switch_2_overcurrent",
+          "friendlyName": "shellypro4pm-34987a691128 switch_2 overcurrent",
+          "cSharpName": "Shellypro4pm34987a691128Switch2Overcurrent"
         },
         {
-          "id": "binary_sensor.shelly_upstairs_sockets_3_input_3_input",
-          "friendlyName": "shellypro4pm-34987a68ff10 input_3 input",
-          "cSharpName": "ShellyUpstairsSockets3Input3Input"
-        },
-        {
-          "id": "binary_sensor.shelly_upstairs_sockets_3_switch_0_overheating",
-          "friendlyName": "Shelly Upstairs Sockets 3 switch_0 overheating",
-          "cSharpName": "ShellyUpstairsSockets3Switch0Overheating"
-        },
-        {
-          "id": "binary_sensor.shelly_upstairs_sockets_3_switch_0_overpowering",
-          "friendlyName": "Shelly Upstairs Sockets 3 switch_0 overpowering",
-          "cSharpName": "ShellyUpstairsSockets3Switch0Overpowering"
-        },
-        {
-          "id": "binary_sensor.shelly_upstairs_sockets_3_switch_0_overvoltage",
-          "friendlyName": "Shelly Upstairs Sockets 3 switch_0 overvoltage",
-          "cSharpName": "ShellyUpstairsSockets3Switch0Overvoltage"
-        },
-        {
-          "id": "binary_sensor.shelly_upstairs_sockets_3_switch_1_overheating",
-          "friendlyName": "Shelly Upstairs Sockets 3 switch_1 overheating",
-          "cSharpName": "ShellyUpstairsSockets3Switch1Overheating"
-        },
-        {
-          "id": "binary_sensor.shelly_upstairs_sockets_3_switch_1_overpowering",
-          "friendlyName": "Shelly Upstairs Sockets 3 switch_1 overpowering",
-          "cSharpName": "ShellyUpstairsSockets3Switch1Overpowering"
-        },
-        {
-          "id": "binary_sensor.shelly_upstairs_sockets_3_switch_1_overvoltage",
-          "friendlyName": "Shelly Upstairs Sockets 3 switch_1 overvoltage",
-          "cSharpName": "ShellyUpstairsSockets3Switch1Overvoltage"
-        },
-        {
-          "id": "binary_sensor.shelly_upstairs_sockets_3_switch_2_overheating",
-          "friendlyName": "Shelly Upstairs Sockets 3 switch_2 overheating",
-          "cSharpName": "ShellyUpstairsSockets3Switch2Overheating"
-        },
-        {
-          "id": "binary_sensor.shelly_upstairs_sockets_3_switch_2_overpowering",
-          "friendlyName": "Shelly Upstairs Sockets 3 switch_2 overpowering",
-          "cSharpName": "ShellyUpstairsSockets3Switch2Overpowering"
-        },
-        {
-          "id": "binary_sensor.shelly_upstairs_sockets_3_switch_2_overvoltage",
-          "friendlyName": "Shelly Upstairs Sockets 3 switch_2 overvoltage",
-          "cSharpName": "ShellyUpstairsSockets3Switch2Overvoltage"
-        },
-        {
-          "id": "binary_sensor.shelly_upstairs_sockets_3_switch_3_overheating",
-          "friendlyName": "Shelly Upstairs Sockets 3 switch_3 overheating",
-          "cSharpName": "ShellyUpstairsSockets3Switch3Overheating"
-        },
-        {
-          "id": "binary_sensor.shelly_upstairs_sockets_3_switch_3_overpowering",
-          "friendlyName": "Shelly Upstairs Sockets 3 switch_3 overpowering",
-          "cSharpName": "ShellyUpstairsSockets3Switch3Overpowering"
-        },
-        {
-          "id": "binary_sensor.shelly_upstairs_sockets_3_switch_3_overvoltage",
-          "friendlyName": "Shelly Upstairs Sockets 3 switch_3 overvoltage",
-          "cSharpName": "ShellyUpstairsSockets3Switch3Overvoltage"
+          "id": "binary_sensor.shellypro4pm_34987a691128_switch_3_overcurrent",
+          "friendlyName": "shellypro4pm-34987a691128 switch_3 overcurrent",
+          "cSharpName": "Shellypro4pm34987a691128Switch3Overcurrent"
         },
         {
           "id": "binary_sensor.snug_led_strip_update_available",
           "friendlyName": "Snug Led Strip",
           "cSharpName": "SnugLedStripUpdateAvailable"
+        },
+        {
+          "id": "binary_sensor.snug_light_overcurrent",
+          "friendlyName": "Snug Light overcurrent",
+          "cSharpName": "SnugLightOvercurrent"
         },
         {
           "id": "binary_sensor.snug_motion",
@@ -3207,6 +3257,16 @@
           "cSharpName": "SonoffDownstairs2Status"
         },
         {
+          "id": "binary_sensor.store_light_overcurrent",
+          "friendlyName": "Store Light overcurrent",
+          "cSharpName": "StoreLightOvercurrent"
+        },
+        {
+          "id": "binary_sensor.studio_lamp_overcurrent",
+          "friendlyName": "Studio Lamp overcurrent",
+          "cSharpName": "StudioLampOvercurrent"
+        },
+        {
           "id": "binary_sensor.studio_lamp_overheating",
           "friendlyName": "Studio Lamp overheating",
           "cSharpName": "StudioLampOverheating"
@@ -3220,6 +3280,11 @@
           "id": "binary_sensor.studio_lamp_overvoltage",
           "friendlyName": "Studio Lamp overvoltage",
           "cSharpName": "StudioLampOvervoltage"
+        },
+        {
+          "id": "binary_sensor.studio_light_overcurrent",
+          "friendlyName": "Studio Light overcurrent",
+          "cSharpName": "StudioLightOvercurrent"
         },
         {
           "id": "binary_sensor.studio_light_overheating",
@@ -3257,6 +3322,11 @@
           "cSharpName": "ToiletDoorBatteryLow"
         },
         {
+          "id": "binary_sensor.toilet_light_overcurrent",
+          "friendlyName": "Toilet Light overcurrent",
+          "cSharpName": "ToiletLightOvercurrent"
+        },
+        {
           "id": "binary_sensor.toilet_motion",
           "friendlyName": "Toilet Motion",
           "cSharpName": "ToiletMotion"
@@ -3275,6 +3345,16 @@
           "id": "binary_sensor.updater",
           "friendlyName": "Updater",
           "cSharpName": "Updater"
+        },
+        {
+          "id": "binary_sensor.upstairs_spare_light_overcurrent",
+          "friendlyName": "Upstairs Spare Light overcurrent",
+          "cSharpName": "UpstairsSpareLightOvercurrent"
+        },
+        {
+          "id": "binary_sensor.utility_room_light_overcurrent",
+          "friendlyName": "Utility Room Light overcurrent",
+          "cSharpName": "UtilityRoomLightOvercurrent"
         },
         {
           "id": "binary_sensor.utility_room_motion",
@@ -3849,6 +3929,11 @@
           "cSharpName": "LoungeSwitchIdentify"
         },
         {
+          "id": "button.mark_dismiss_alert",
+          "friendlyName": "Mark Dismiss alert",
+          "cSharpName": "MarkDismissAlert"
+        },
+        {
           "id": "button.nspanel_restart",
           "friendlyName": "nspanel Restart",
           "cSharpName": "NspanelRestart"
@@ -3912,11 +3997,6 @@
           "id": "button.shelly_upstairs_socket_4_reboot",
           "friendlyName": "Shelly Upstairs Sockets 4 Reboot",
           "cSharpName": "ShellyUpstairsSocket4Reboot"
-        },
-        {
-          "id": "button.shelly_upstairs_sockets_3_reboot",
-          "friendlyName": "Shelly Upstairs Sockets 3 Reboot",
-          "cSharpName": "ShellyUpstairsSockets3Reboot"
         },
         {
           "id": "button.snug_desk_switch_identify",
@@ -4178,6 +4258,11 @@
           "cSharpName": "KitchenCameraMediumResolutionChannelInsecure"
         },
         {
+          "id": "camera.mark_cleaning_map",
+          "friendlyName": "Mark Cleaning map",
+          "cSharpName": "MarkCleaningMap"
+        },
+        {
           "id": "camera.patio_camera_medium_resolution_channel",
           "friendlyName": "Patio Camera Medium resolution channel",
           "cSharpName": "PatioCameraMediumResolutionChannel"
@@ -4248,6 +4333,11 @@
           "jsonName": "supported_features",
           "cSharpName": "SupportedFeatures",
           "clrType": "System.Double"
+        },
+        {
+          "jsonName": "generated_at",
+          "cSharpName": "GeneratedAt",
+          "clrType": "System.String"
         }
       ]
     },
@@ -4357,6 +4447,11 @@
           "jsonName": "friendly_name",
           "cSharpName": "FriendlyName",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "supported_features",
+          "cSharpName": "SupportedFeatures",
+          "clrType": "System.Double"
         }
       ]
     },
@@ -4374,9 +4469,19 @@
           "cSharpName": "_050590"
         },
         {
+          "id": "device_tracker.09742den_09742den",
+          "friendlyName": "09742DEN 09742DEN",
+          "cSharpName": "_09742den09742den"
+        },
+        {
           "id": "device_tracker.10079d74_8ee8_48e9_8a1f_e565c9fb7324_100_1",
           "friendlyName": null,
           "cSharpName": "_10079d748ee848e98a1fE565c9fb73241001"
+        },
+        {
+          "id": "device_tracker.19635deh_19635deh",
+          "friendlyName": "19635DEH 19635DEH",
+          "cSharpName": "_19635deh19635deh"
         },
         {
           "id": "device_tracker.1phy00002p1p",
@@ -4397,6 +4502,11 @@
           "id": "device_tracker.49768dmi",
           "friendlyName": "49768DMI 49768DMI",
           "cSharpName": "_49768dmi"
+        },
+        {
+          "id": "device_tracker.4phy0000784p_4phy0000784p",
+          "friendlyName": "4PHY0000784P 4PHY0000784P",
+          "cSharpName": "_4phy0000784p4phy0000784p"
         },
         {
           "id": "device_tracker.57439_193_57439_193",
@@ -4479,6 +4589,11 @@
           "cSharpName": "Ac"
         },
         {
+          "id": "device_tracker.ak300_13044_ak300_13044",
+          "friendlyName": "AK300_13044 AK300_13044",
+          "cSharpName": "Ak30013044Ak30013044"
+        },
+        {
           "id": "device_tracker.alubarika_alubarika",
           "friendlyName": "Alubarika Alubarika",
           "cSharpName": "AlubarikaAlubarika"
@@ -4544,6 +4659,11 @@
           "cSharpName": "BiggerfiveVigor2BiggerfiveVigor2"
         },
         {
+          "id": "device_tracker.black_s_jbl_f_black_s_jbl_f",
+          "friendlyName": "black\u0027s JBL F black\u0027s JBL F",
+          "cSharpName": "BlackSJblFBlackSJblF"
+        },
+        {
           "id": "device_tracker.ble_dezl_lgv",
           "friendlyName": "BLE_d\u0113zl LGV # BLE_d\u0113zl LGV #",
           "cSharpName": "BleDezlLgv"
@@ -4584,6 +4704,16 @@
           "cSharpName": "BleDezlLgv70BleDezlLgv70"
         },
         {
+          "id": "device_tracker.ble_dezl_lgv70_ble_dezl_lgv70_2",
+          "friendlyName": "BLE_d\u0113zl LGV70 BLE_d\u0113zl LGV70",
+          "cSharpName": "BleDezlLgv70BleDezlLgv702"
+        },
+        {
+          "id": "device_tracker.ble_dezl_lgv70_ble_dezl_lgv70_3",
+          "friendlyName": "BLE_d\u0113zl LGV70 BLE_d\u0113zl LGV70",
+          "cSharpName": "BleDezlLgv70BleDezlLgv703"
+        },
+        {
           "id": "device_tracker.ble_dri",
           "friendlyName": "BLE_Dri BLE_Dri",
           "cSharpName": "BleDri"
@@ -4617,6 +4747,26 @@
           "id": "device_tracker.ble_garmin_driv_ble_garmin_driv_4",
           "friendlyName": "BLE_Garmin Driv BLE_Garmin Driv",
           "cSharpName": "BleGarminDrivBleGarminDriv4"
+        },
+        {
+          "id": "device_tracker.ble_garmin_driv_ble_garmin_driv_5",
+          "friendlyName": "BLE_Garmin Driv BLE_Garmin Driv",
+          "cSharpName": "BleGarminDrivBleGarminDriv5"
+        },
+        {
+          "id": "device_tracker.ble_garmin_driv_ble_garmin_driv_6",
+          "friendlyName": "BLE_Garmin Driv BLE_Garmin Driv",
+          "cSharpName": "BleGarminDrivBleGarminDriv6"
+        },
+        {
+          "id": "device_tracker.ble_garmin_driv_ble_garmin_driv_7",
+          "friendlyName": "BLE_Garmin Driv BLE_Garmin Driv",
+          "cSharpName": "BleGarminDrivBleGarminDriv7"
+        },
+        {
+          "id": "device_tracker.ble_joe_s_nav_ble_joe_s_nav",
+          "friendlyName": "BLE_Joe\u0060s Nav BLE_Joe\u0060s Nav",
+          "cSharpName": "BleJoeSNavBleJoeSNav"
         },
         {
           "id": "device_tracker.ble_wills_dezl_ble_wills_dezl",
@@ -4679,9 +4829,19 @@
           "cSharpName": "DellMouse"
         },
         {
+          "id": "device_tracker.drive_hd_drive_hd",
+          "friendlyName": "Drive HD Drive HD",
+          "cSharpName": "DriveHdDriveHd"
+        },
+        {
           "id": "device_tracker.du1_a276",
           "friendlyName": "DU1:A276 DU1:A276",
           "cSharpName": "Du1A276"
+        },
+        {
+          "id": "device_tracker.dut_1411_dut_1411",
+          "friendlyName": "DUT:1411 DUT:1411",
+          "cSharpName": "Dut1411Dut1411"
         },
         {
           "id": "device_tracker.dut_a748_dut_a748",
@@ -4785,12 +4945,12 @@
         },
         {
           "id": "device_tracker.epic_air_sport_anc_ble",
-          "friendlyName": "Epic Air Sport ANC-BLE Epic Air Sport ANC-BLE",
+          "friendlyName": "Epic Air Sport ANC-BLE",
           "cSharpName": "EpicAirSportAncBle"
         },
         {
           "id": "device_tracker.epic_air_sport_anc_ble_2",
-          "friendlyName": "Epic Air Sport ANC_BLE",
+          "friendlyName": "Epic Air Sport ANC_BLE Epic Air Sport ANC-BLE",
           "cSharpName": "EpicAirSportAncBle2"
         },
         {
@@ -4812,6 +4972,11 @@
           "id": "device_tracker.fm_350317173561089_le",
           "friendlyName": "FM_350317173561089_LE FM_350317173561089_LE",
           "cSharpName": "Fm350317173561089Le"
+        },
+        {
+          "id": "device_tracker.fm252008_fm252008",
+          "friendlyName": "FM252008 FM252008",
+          "cSharpName": "Fm252008Fm252008"
         },
         {
           "id": "device_tracker.fmm230_2344637_le_fmm230_2344637_le",
@@ -4857,6 +5022,11 @@
           "id": "device_tracker.hrmpro_555136_hrmpro_555136",
           "friendlyName": "HRMPro\u002B:555136 HRMPro\u002B:555136",
           "cSharpName": "Hrmpro555136Hrmpro555136"
+        },
+        {
+          "id": "device_tracker.id205l_id205l",
+          "friendlyName": "ID205L ID205L",
+          "cSharpName": "Id205lId205l"
         },
         {
           "id": "device_tracker.id216",
@@ -5009,6 +5179,21 @@
           "cSharpName": "LairdBl600LairdBl600"
         },
         {
+          "id": "device_tracker.ldl_1406934_92cde1c9_ldl_1406934_92cde1c9",
+          "friendlyName": "LDL-1406934-92CDE1C9 LDL-1406934-92CDE1C9",
+          "cSharpName": "Ldl140693492cde1c9Ldl140693492cde1c9"
+        },
+        {
+          "id": "device_tracker.ldl_1406934_bac5e290_ldl_1406934_bac5e290",
+          "friendlyName": "LDL-1406934-BAC5E290 LDL-1406934-BAC5E290",
+          "cSharpName": "Ldl1406934Bac5e290Ldl1406934Bac5e290"
+        },
+        {
+          "id": "device_tracker.ldl_1406934_bac5e2a9_ldl_1406934_bac5e2a9",
+          "friendlyName": "LDL-1406934-BAC5E2A9 LDL-1406934-BAC5E2A9",
+          "cSharpName": "Ldl1406934Bac5e2a9Ldl1406934Bac5e2a9"
+        },
+        {
           "id": "device_tracker.le_device_le_device",
           "friendlyName": "LE-Device LE-Device",
           "cSharpName": "LeDeviceLeDevice"
@@ -5032,6 +5217,11 @@
           "id": "device_tracker.le_minor_iii_le_minor_iii",
           "friendlyName": "LE-MINOR III LE-MINOR III",
           "cSharpName": "LeMinorIiiLeMinorIii"
+        },
+        {
+          "id": "device_tracker.le_neil_s_eq_le_neil_s_eq",
+          "friendlyName": "LE-Neil\u0027s EQ LE-Neil\u0027s EQ",
+          "cSharpName": "LeNeilSEqLeNeilSEq"
         },
         {
           "id": "device_tracker.le_philips_taa6606_le_philips_taa6606",
@@ -5129,6 +5319,16 @@
           "cSharpName": "MichaelSGalaxyA41"
         },
         {
+          "id": "device_tracker.miscooter1398_miscooter1398",
+          "friendlyName": "MIScooter1398 MIScooter1398",
+          "cSharpName": "Miscooter1398Miscooter1398"
+        },
+        {
+          "id": "device_tracker.miscooter2859_miscooter2859",
+          "friendlyName": "MIScooter2859 MIScooter2859",
+          "cSharpName": "Miscooter2859Miscooter2859"
+        },
+        {
           "id": "device_tracker.motif_a_n_c_le",
           "friendlyName": "MOTIF A.N.C. [LE] MOTIF A.N.C. [LE]",
           "cSharpName": "MotifANCLe"
@@ -5142,6 +5342,11 @@
           "id": "device_tracker.n02rf",
           "friendlyName": "N02RF N02RF",
           "cSharpName": "N02rf"
+        },
+        {
+          "id": "device_tracker.niu_6261_niu_6261",
+          "friendlyName": "NIU_6261 NIU_6261",
+          "cSharpName": "Niu6261Niu6261"
         },
         {
           "id": "device_tracker.oneplus_nord2_lg",
@@ -5214,6 +5419,11 @@
           "cSharpName": "RoleswhoopRoleswhoop"
         },
         {
+          "id": "device_tracker.rtl46409_rtl46409",
+          "friendlyName": "RTL46409 RTL46409",
+          "cSharpName": "Rtl46409Rtl46409"
+        },
+        {
           "id": "device_tracker.rtl62939",
           "friendlyName": "RTL62939 RTL62939",
           "cSharpName": "Rtl62939"
@@ -5224,6 +5434,11 @@
           "cSharpName": "Rtl93666Rtl93666"
         },
         {
+          "id": "device_tracker.rtl99567_rtl99567",
+          "friendlyName": "RTL99567 RTL99567",
+          "cSharpName": "Rtl99567Rtl99567"
+        },
+        {
           "id": "device_tracker.s424d3be485e872ccc_483c",
           "friendlyName": null,
           "cSharpName": "S424d3be485e872ccc483c"
@@ -5232,6 +5447,11 @@
           "id": "device_tracker.s56bd949cabb74974c_ca91",
           "friendlyName": null,
           "cSharpName": "S56bd949cabb74974cCa91"
+        },
+        {
+          "id": "device_tracker.se5000_0638724352_se5000_0638724352",
+          "friendlyName": "SE5000-0638724352 SE5000-0638724352",
+          "cSharpName": "Se50000638724352Se50000638724352"
         },
         {
           "id": "device_tracker.se5000_0763242496_se5000_0763242496",
@@ -5247,6 +5467,11 @@
           "id": "device_tracker.se5000_1054287616_se5000_1054287616",
           "friendlyName": "SE5000-1054287616 SE5000-1054287616",
           "cSharpName": "Se50001054287616Se50001054287616"
+        },
+        {
+          "id": "device_tracker.se5000_1489053184_se5000_1489053184",
+          "friendlyName": "SE5000-1489053184 SE5000-1489053184",
+          "cSharpName": "Se50001489053184Se50001489053184"
         },
         {
           "id": "device_tracker.se5000_1514088448_se5000_1514088448",
@@ -5279,9 +5504,24 @@
           "cSharpName": "Se50003254068736Se50003254068736"
         },
         {
+          "id": "device_tracker.se5000_3287099392_se5000_3287099392",
+          "friendlyName": "SE5000-3287099392 SE5000-3287099392",
+          "cSharpName": "Se50003287099392Se50003287099392"
+        },
+        {
+          "id": "device_tracker.se5000_3519096576_se5000_3519096576",
+          "friendlyName": "SE5000-3519096576 SE5000-3519096576",
+          "cSharpName": "Se50003519096576Se50003519096576"
+        },
+        {
           "id": "device_tracker.se5000_3771410176_se5000_3771410176",
           "friendlyName": "SE5000-3771410176 SE5000-3771410176",
           "cSharpName": "Se50003771410176Se50003771410176"
+        },
+        {
+          "id": "device_tracker.se5000_4192872192_se5000_4192872192",
+          "friendlyName": "SE5000-4192872192 SE5000-4192872192",
+          "cSharpName": "Se50004192872192Se50004192872192"
         },
         {
           "id": "device_tracker.se5000_4216858368_se5000_4216858368",
@@ -5307,6 +5547,11 @@
           "id": "device_tracker.spare_key",
           "friendlyName": "Car Key",
           "cSharpName": "SpareKey"
+        },
+        {
+          "id": "device_tracker.spd_ble0818319_spd_ble0818319",
+          "friendlyName": "SPD-BLE0818319 SPD-BLE0818319",
+          "cSharpName": "SpdBle0818319SpdBle0818319"
         },
         {
           "id": "device_tracker.stryd_stryd",
@@ -5347,6 +5592,11 @@
           "id": "device_tracker.tozo_t6_tozo_t6",
           "friendlyName": "TOZO-T6 TOZO-T6",
           "cSharpName": "TozoT6TozoT6"
+        },
+        {
+          "id": "device_tracker.tozo_tonal_dots_tozo_tonal_dots",
+          "friendlyName": "TOZO Tonal Dots TOZO Tonal Dots",
+          "cSharpName": "TozoTonalDotsTozoTonalDots"
         },
         {
           "id": "device_tracker.ultrapvt",
@@ -5394,14 +5644,34 @@
           "cSharpName": "Whoop4a0806058Whoop4a0806058"
         },
         {
+          "id": "device_tracker.whoop_4c0383345_whoop_4c0383345",
+          "friendlyName": "WHOOP 4C0383345 WHOOP 4C0383345",
+          "cSharpName": "Whoop4c0383345Whoop4c0383345"
+        },
+        {
           "id": "device_tracker.whoop_4c0407694",
           "friendlyName": "WHOOP 4C0407694 WHOOP 4C0407694",
           "cSharpName": "Whoop4c0407694"
         },
         {
+          "id": "device_tracker.whoop_4c0449700_whoop_4c0449700",
+          "friendlyName": "WHOOP 4C0449700 WHOOP 4C0449700",
+          "cSharpName": "Whoop4c0449700Whoop4c0449700"
+        },
+        {
           "id": "device_tracker.whoop_4c0735605",
           "friendlyName": "WHOOP 4C0735605 WHOOP 4C0735605",
           "cSharpName": "Whoop4c0735605"
+        },
+        {
+          "id": "device_tracker.wllink_6e9c_wllink_6e9c",
+          "friendlyName": "WLLINK-6E9C WLLINK-6E9C",
+          "cSharpName": "Wllink6e9cWllink6e9c"
+        },
+        {
+          "id": "device_tracker.wsbc025093546s_wsbc025093546s",
+          "friendlyName": "WSBC025093546S WSBC025093546S",
+          "cSharpName": "Wsbc025093546sWsbc025093546s"
         },
         {
           "id": "device_tracker.xp_pp_04e35a",
@@ -5412,6 +5682,11 @@
           "id": "device_tracker.yccu_00100310001bbf_yccu_00100310001bbf",
           "friendlyName": "YCCU_00100310001BBF YCCU_00100310001BBF",
           "cSharpName": "Yccu00100310001bbfYccu00100310001bbf"
+        },
+        {
+          "id": "device_tracker.yccu_001003100025af_yccu_001003100025af",
+          "friendlyName": "YCCU_001003100025AF YCCU_001003100025AF",
+          "cSharpName": "Yccu001003100025afYccu001003100025af"
         },
         {
           "id": "device_tracker.yt",
@@ -5706,6 +5981,16 @@
           "jsonName": "mprn",
           "cSharpName": "Mprn",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "restored",
+          "cSharpName": "Restored",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "supported_features",
+          "cSharpName": "SupportedFeatures",
+          "clrType": "System.Double"
         }
       ]
     },
@@ -6002,14 +6287,44 @@
           "cSharpName": "LoungeLightAutomation"
         },
         {
-          "id": "input_boolean.netdaemon_daemonapp_apps_notifications_manager_battery_notifications",
-          "friendlyName": "netdaemon_daemonapp_apps_notifications_manager_battery_notifications",
-          "cSharpName": "NetdaemonDaemonappAppsNotificationsManagerBatteryNotifications"
+          "id": "input_boolean.netdaemon_net_daemon_apps_light_app_manager",
+          "friendlyName": "netdaemon_net_daemon_apps_light_app_manager",
+          "cSharpName": "NetdaemonNetDaemonAppsLightAppManager"
         },
         {
-          "id": "input_boolean.netdaemon_light_app_manager",
-          "friendlyName": "netdaemon_light_app_manager",
-          "cSharpName": "NetdaemonLightAppManager"
+          "id": "input_boolean.netdaemon_net_daemon_apps_notifications_manager_battery_notifications",
+          "friendlyName": "netdaemon_net_daemon_apps_notifications_manager_battery_notifications",
+          "cSharpName": "NetdaemonNetDaemonAppsNotificationsManagerBatteryNotifications"
+        },
+        {
+          "id": "input_boolean.netdaemon_net_daemon_apps_states_bed_state_controller",
+          "friendlyName": "netdaemon_net_daemon_apps_states_bed_state_controller",
+          "cSharpName": "NetdaemonNetDaemonAppsStatesBedStateController"
+        },
+        {
+          "id": "input_boolean.netdaemon_net_daemon_apps_states_bedroom_mode_controller",
+          "friendlyName": "netdaemon_net_daemon_apps_states_bedroom_mode_controller",
+          "cSharpName": "NetdaemonNetDaemonAppsStatesBedroomModeController"
+        },
+        {
+          "id": "input_boolean.netdaemon_net_daemon_apps_states_brightness_controller",
+          "friendlyName": "netdaemon_net_daemon_apps_states_brightness_controller",
+          "cSharpName": "NetdaemonNetDaemonAppsStatesBrightnessController"
+        },
+        {
+          "id": "input_boolean.netdaemon_net_daemon_apps_states_light_control_mode_controller",
+          "friendlyName": "netdaemon_net_daemon_apps_states_light_control_mode_controller",
+          "cSharpName": "NetdaemonNetDaemonAppsStatesLightControlModeController"
+        },
+        {
+          "id": "input_boolean.netdaemon_net_daemon_apps_states_light_modes",
+          "friendlyName": "netdaemon_net_daemon_apps_states_light_modes",
+          "cSharpName": "NetdaemonNetDaemonAppsStatesLightModes"
+        },
+        {
+          "id": "input_boolean.netdaemon_net_daemon_apps_states_location_mode_controller",
+          "friendlyName": "netdaemon_net_daemon_apps_states_location_mode_controller",
+          "cSharpName": "NetdaemonNetDaemonAppsStatesLocationModeController"
         },
         {
           "id": "input_boolean.reload_netdaemon",
@@ -8076,11 +8391,6 @@
           "cSharpName": "ShellyShedSocketsUptime"
         },
         {
-          "id": "sensor.shelly_upstairs_sockets_3_uptime",
-          "friendlyName": "shellypro4pm-34987a68ff10 uptime",
-          "cSharpName": "ShellyUpstairsSockets3Uptime"
-        },
-        {
           "id": "sensor.smart_series_7000_47ae_mode",
           "friendlyName": "Mode",
           "cSharpName": "SmartSeries700047aeMode"
@@ -9006,6 +9316,11 @@
           "jsonName": "1ca92e23-f087-4df7-b9a2-fd4b716a4bf6_36_0",
           "cSharpName": "_1ca92e23f0874df7b9a2fd4b716a4bf6360",
           "clrType": "System.Double"
+        },
+        {
+          "jsonName": "1ca92e23-f087-4df7-b9a2-fd4b716a4bf6_347_0",
+          "cSharpName": "_1ca92e23f0874df7b9a2fd4b716a4bf63470",
+          "clrType": "System.Double"
         }
       ]
     },
@@ -9332,6 +9647,11 @@
           "id": "sensor.backdoor_light_energy",
           "friendlyName": "Backdoor Light Energy",
           "cSharpName": "BackdoorLightEnergy"
+        },
+        {
+          "id": "sensor.backdoor_light_energy_cost",
+          "friendlyName": null,
+          "cSharpName": "BackdoorLightEnergyCost"
         },
         {
           "id": "sensor.backdoor_light_frequency",
@@ -11374,6 +11694,11 @@
           "cSharpName": "LoungeTvVolume"
         },
         {
+          "id": "sensor.mark_battery",
+          "friendlyName": "Mark Battery",
+          "cSharpName": "MarkBattery"
+        },
+        {
           "id": "sensor.mfc_j5910dw_black_ink_remaining",
           "friendlyName": "Black ink remaining",
           "cSharpName": "MfcJ5910dwBlackInkRemaining"
@@ -12017,126 +12342,6 @@
           "id": "sensor.shelly_upstairs_socket_4_rssi",
           "friendlyName": "Shelly Upstairs Sockets 4 rssi",
           "cSharpName": "ShellyUpstairsSocket4Rssi"
-        },
-        {
-          "id": "sensor.shelly_upstairs_sockets_3_switch_0_current",
-          "friendlyName": "shellypro4pm-34987a68ff10 switch_0 current",
-          "cSharpName": "ShellyUpstairsSockets3Switch0Current"
-        },
-        {
-          "id": "sensor.shelly_upstairs_sockets_3_switch_0_device_temperature",
-          "friendlyName": "shellypro4pm-34987a68ff10 switch_0 device temperature",
-          "cSharpName": "ShellyUpstairsSockets3Switch0DeviceTemperature"
-        },
-        {
-          "id": "sensor.shelly_upstairs_sockets_3_switch_0_energy",
-          "friendlyName": "Shelly Upstairs Sockets 3 switch_0 energy",
-          "cSharpName": "ShellyUpstairsSockets3Switch0Energy"
-        },
-        {
-          "id": "sensor.shelly_upstairs_sockets_3_switch_0_frequency",
-          "friendlyName": "shellypro4pm-34987a68ff10 switch_0 frequency",
-          "cSharpName": "ShellyUpstairsSockets3Switch0Frequency"
-        },
-        {
-          "id": "sensor.shelly_upstairs_sockets_3_switch_0_power",
-          "friendlyName": "Shelly Upstairs Sockets 3 switch_0 power",
-          "cSharpName": "ShellyUpstairsSockets3Switch0Power"
-        },
-        {
-          "id": "sensor.shelly_upstairs_sockets_3_switch_0_voltage",
-          "friendlyName": "shellypro4pm-34987a68ff10 switch_0 voltage",
-          "cSharpName": "ShellyUpstairsSockets3Switch0Voltage"
-        },
-        {
-          "id": "sensor.shelly_upstairs_sockets_3_switch_1_current",
-          "friendlyName": "shellypro4pm-34987a68ff10 switch_1 current",
-          "cSharpName": "ShellyUpstairsSockets3Switch1Current"
-        },
-        {
-          "id": "sensor.shelly_upstairs_sockets_3_switch_1_device_temperature",
-          "friendlyName": "shellypro4pm-34987a68ff10 switch_1 device temperature",
-          "cSharpName": "ShellyUpstairsSockets3Switch1DeviceTemperature"
-        },
-        {
-          "id": "sensor.shelly_upstairs_sockets_3_switch_1_energy",
-          "friendlyName": "Shelly Upstairs Sockets 3 switch_1 energy",
-          "cSharpName": "ShellyUpstairsSockets3Switch1Energy"
-        },
-        {
-          "id": "sensor.shelly_upstairs_sockets_3_switch_1_frequency",
-          "friendlyName": "shellypro4pm-34987a68ff10 switch_1 frequency",
-          "cSharpName": "ShellyUpstairsSockets3Switch1Frequency"
-        },
-        {
-          "id": "sensor.shelly_upstairs_sockets_3_switch_1_power",
-          "friendlyName": "Shelly Upstairs Sockets 3 switch_1 power",
-          "cSharpName": "ShellyUpstairsSockets3Switch1Power"
-        },
-        {
-          "id": "sensor.shelly_upstairs_sockets_3_switch_1_voltage",
-          "friendlyName": "shellypro4pm-34987a68ff10 switch_1 voltage",
-          "cSharpName": "ShellyUpstairsSockets3Switch1Voltage"
-        },
-        {
-          "id": "sensor.shelly_upstairs_sockets_3_switch_2_current",
-          "friendlyName": "shellypro4pm-34987a68ff10 switch_2 current",
-          "cSharpName": "ShellyUpstairsSockets3Switch2Current"
-        },
-        {
-          "id": "sensor.shelly_upstairs_sockets_3_switch_2_device_temperature",
-          "friendlyName": "shellypro4pm-34987a68ff10 switch_2 device temperature",
-          "cSharpName": "ShellyUpstairsSockets3Switch2DeviceTemperature"
-        },
-        {
-          "id": "sensor.shelly_upstairs_sockets_3_switch_2_energy",
-          "friendlyName": "Shelly Upstairs Sockets 3 switch_2 energy",
-          "cSharpName": "ShellyUpstairsSockets3Switch2Energy"
-        },
-        {
-          "id": "sensor.shelly_upstairs_sockets_3_switch_2_frequency",
-          "friendlyName": "shellypro4pm-34987a68ff10 switch_2 frequency",
-          "cSharpName": "ShellyUpstairsSockets3Switch2Frequency"
-        },
-        {
-          "id": "sensor.shelly_upstairs_sockets_3_switch_2_power",
-          "friendlyName": "Shelly Upstairs Sockets 3 switch_2 power",
-          "cSharpName": "ShellyUpstairsSockets3Switch2Power"
-        },
-        {
-          "id": "sensor.shelly_upstairs_sockets_3_switch_2_voltage",
-          "friendlyName": "shellypro4pm-34987a68ff10 switch_2 voltage",
-          "cSharpName": "ShellyUpstairsSockets3Switch2Voltage"
-        },
-        {
-          "id": "sensor.shelly_upstairs_sockets_3_switch_3_current",
-          "friendlyName": "shellypro4pm-34987a68ff10 switch_3 current",
-          "cSharpName": "ShellyUpstairsSockets3Switch3Current"
-        },
-        {
-          "id": "sensor.shelly_upstairs_sockets_3_switch_3_device_temperature",
-          "friendlyName": "shellypro4pm-34987a68ff10 switch_3 device temperature",
-          "cSharpName": "ShellyUpstairsSockets3Switch3DeviceTemperature"
-        },
-        {
-          "id": "sensor.shelly_upstairs_sockets_3_switch_3_energy",
-          "friendlyName": "Shelly Upstairs Sockets 3 switch_3 energy",
-          "cSharpName": "ShellyUpstairsSockets3Switch3Energy"
-        },
-        {
-          "id": "sensor.shelly_upstairs_sockets_3_switch_3_frequency",
-          "friendlyName": "shellypro4pm-34987a68ff10 switch_3 frequency",
-          "cSharpName": "ShellyUpstairsSockets3Switch3Frequency"
-        },
-        {
-          "id": "sensor.shelly_upstairs_sockets_3_switch_3_power",
-          "friendlyName": "Shelly Upstairs Sockets 3 switch_3 power",
-          "cSharpName": "ShellyUpstairsSockets3Switch3Power"
-        },
-        {
-          "id": "sensor.shelly_upstairs_sockets_3_switch_3_voltage",
-          "friendlyName": "shellypro4pm-34987a68ff10 switch_3 voltage",
-          "cSharpName": "ShellyUpstairsSockets3Switch3Voltage"
         },
         {
           "id": "sensor.smart_series_7000_47ae_signal_strength",
@@ -14324,6 +14529,826 @@
           "jsonName": "com.thetileapp.tile_12_post_time",
           "cSharpName": "Com_thetileapp_tile12PostTime",
           "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.appInfo_bbc.mobile.news.uk_1029",
+          "cSharpName": "Android_appInfoBbc_mobile_news_uk1029",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.appInfo_bbc.mobile.news.uk_1030",
+          "cSharpName": "Android_appInfoBbc_mobile_news_uk1030",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.appInfo_bbc.mobile.news.uk_2147483647",
+          "cSharpName": "Android_appInfoBbc_mobile_news_uk2147483647",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.appInfo_com.microsoft.office.outlook_1",
+          "cSharpName": "Android_appInfoCom_microsoft_office_outlook1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.appInfo_com.microsoft.office.outlook_2",
+          "cSharpName": "Android_appInfoCom_microsoft_office_outlook2",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.appInfo_io.homeassistant.companion.android_595157400",
+          "cSharpName": "Android_appInfoIo_homeassistant_companion_android595157400",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.bigText_bbc.mobile.news.uk_1029",
+          "cSharpName": "Android_bigTextBbc_mobile_news_uk1029",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.bigText_bbc.mobile.news.uk_1030",
+          "cSharpName": "Android_bigTextBbc_mobile_news_uk1030",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.bigText_com.microsoft.office.outlook_1",
+          "cSharpName": "Android_bigTextCom_microsoft_office_outlook1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.bigText_com.microsoft.office.outlook_2",
+          "cSharpName": "Android_bigTextCom_microsoft_office_outlook2",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.bigText_io.homeassistant.companion.android_595157400",
+          "cSharpName": "Android_bigTextIo_homeassistant_companion_android595157400",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.infoText_bbc.mobile.news.uk_1029",
+          "cSharpName": "Android_infoTextBbc_mobile_news_uk1029",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.infoText_bbc.mobile.news.uk_1030",
+          "cSharpName": "Android_infoTextBbc_mobile_news_uk1030",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.infoText_com.microsoft.office.outlook_1",
+          "cSharpName": "Android_infoTextCom_microsoft_office_outlook1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.infoText_com.microsoft.office.outlook_2",
+          "cSharpName": "Android_infoTextCom_microsoft_office_outlook2",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.infoText_io.homeassistant.companion.android_595157400",
+          "cSharpName": "Android_infoTextIo_homeassistant_companion_android595157400",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon_bbc.mobile.news.uk_1029",
+          "cSharpName": "Android_largeIconBbc_mobile_news_uk1029",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon_bbc.mobile.news.uk_1030",
+          "cSharpName": "Android_largeIconBbc_mobile_news_uk1030",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon_com.microsoft.office.outlook_1",
+          "cSharpName": "Android_largeIconCom_microsoft_office_outlook1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon_com.microsoft.office.outlook_2",
+          "cSharpName": "Android_largeIconCom_microsoft_office_outlook2",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon_io.homeassistant.companion.android_595157400",
+          "cSharpName": "Android_largeIconIo_homeassistant_companion_android595157400",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.progressIndeterminate_bbc.mobile.news.uk_1029",
+          "cSharpName": "Android_progressIndeterminateBbc_mobile_news_uk1029",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.progressIndeterminate_bbc.mobile.news.uk_1030",
+          "cSharpName": "Android_progressIndeterminateBbc_mobile_news_uk1030",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.progressIndeterminate_com.microsoft.office.outlook_1",
+          "cSharpName": "Android_progressIndeterminateCom_microsoft_office_outlook1",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.progressIndeterminate_com.microsoft.office.outlook_2",
+          "cSharpName": "Android_progressIndeterminateCom_microsoft_office_outlook2",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.progressIndeterminate_io.homeassistant.companion.android_595157400",
+          "cSharpName": "Android_progressIndeterminateIo_homeassistant_companion_android595157400",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.progressMax_bbc.mobile.news.uk_1029",
+          "cSharpName": "Android_progressMaxBbc_mobile_news_uk1029",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progressMax_bbc.mobile.news.uk_1030",
+          "cSharpName": "Android_progressMaxBbc_mobile_news_uk1030",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progressMax_com.microsoft.office.outlook_1",
+          "cSharpName": "Android_progressMaxCom_microsoft_office_outlook1",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progressMax_com.microsoft.office.outlook_2",
+          "cSharpName": "Android_progressMaxCom_microsoft_office_outlook2",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progressMax_io.homeassistant.companion.android_595157400",
+          "cSharpName": "Android_progressMaxIo_homeassistant_companion_android595157400",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progress_bbc.mobile.news.uk_1029",
+          "cSharpName": "Android_progressBbc_mobile_news_uk1029",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progress_bbc.mobile.news.uk_1030",
+          "cSharpName": "Android_progressBbc_mobile_news_uk1030",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progress_com.microsoft.office.outlook_1",
+          "cSharpName": "Android_progressCom_microsoft_office_outlook1",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progress_com.microsoft.office.outlook_2",
+          "cSharpName": "Android_progressCom_microsoft_office_outlook2",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progress_io.homeassistant.companion.android_595157400",
+          "cSharpName": "Android_progressIo_homeassistant_companion_android595157400",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.reduced.images_bbc.mobile.news.uk_1029",
+          "cSharpName": "Android_reduced_imagesBbc_mobile_news_uk1029",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.reduced.images_bbc.mobile.news.uk_1030",
+          "cSharpName": "Android_reduced_imagesBbc_mobile_news_uk1030",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.reduced.images_bbc.mobile.news.uk_2147483647",
+          "cSharpName": "Android_reduced_imagesBbc_mobile_news_uk2147483647",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.reduced.images_com.microsoft.office.outlook_1",
+          "cSharpName": "Android_reduced_imagesCom_microsoft_office_outlook1",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.reduced.images_com.microsoft.office.outlook_2",
+          "cSharpName": "Android_reduced_imagesCom_microsoft_office_outlook2",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.reduced.images_io.homeassistant.companion.android_595157400",
+          "cSharpName": "Android_reduced_imagesIo_homeassistant_companion_android595157400",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.remoteInputHistory_bbc.mobile.news.uk_1029",
+          "cSharpName": "Android_remoteInputHistoryBbc_mobile_news_uk1029",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.remoteInputHistory_bbc.mobile.news.uk_1030",
+          "cSharpName": "Android_remoteInputHistoryBbc_mobile_news_uk1030",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.remoteInputHistory_com.microsoft.office.outlook_1",
+          "cSharpName": "Android_remoteInputHistoryCom_microsoft_office_outlook1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.remoteInputHistory_com.microsoft.office.outlook_2",
+          "cSharpName": "Android_remoteInputHistoryCom_microsoft_office_outlook2",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.remoteInputHistory_io.homeassistant.companion.android_595157400",
+          "cSharpName": "Android_remoteInputHistoryIo_homeassistant_companion_android595157400",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.showChronometer_bbc.mobile.news.uk_1029",
+          "cSharpName": "Android_showChronometerBbc_mobile_news_uk1029",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showChronometer_bbc.mobile.news.uk_1030",
+          "cSharpName": "Android_showChronometerBbc_mobile_news_uk1030",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showChronometer_com.microsoft.office.outlook_1",
+          "cSharpName": "Android_showChronometerCom_microsoft_office_outlook1",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showChronometer_com.microsoft.office.outlook_2",
+          "cSharpName": "Android_showChronometerCom_microsoft_office_outlook2",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showChronometer_io.homeassistant.companion.android_595157400",
+          "cSharpName": "Android_showChronometerIo_homeassistant_companion_android595157400",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_bbc.mobile.news.uk_1029",
+          "cSharpName": "Android_showWhenBbc_mobile_news_uk1029",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_bbc.mobile.news.uk_1030",
+          "cSharpName": "Android_showWhenBbc_mobile_news_uk1030",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_com.microsoft.office.outlook_1",
+          "cSharpName": "Android_showWhenCom_microsoft_office_outlook1",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_com.microsoft.office.outlook_2",
+          "cSharpName": "Android_showWhenCom_microsoft_office_outlook2",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_io.homeassistant.companion.android_595157400",
+          "cSharpName": "Android_showWhenIo_homeassistant_companion_android595157400",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.subText_bbc.mobile.news.uk_1029",
+          "cSharpName": "Android_subTextBbc_mobile_news_uk1029",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.subText_bbc.mobile.news.uk_1030",
+          "cSharpName": "Android_subTextBbc_mobile_news_uk1030",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.subText_com.microsoft.office.outlook_1",
+          "cSharpName": "Android_subTextCom_microsoft_office_outlook1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.subText_com.microsoft.office.outlook_2",
+          "cSharpName": "Android_subTextCom_microsoft_office_outlook2",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.subText_io.homeassistant.companion.android_595157400",
+          "cSharpName": "Android_subTextIo_homeassistant_companion_android595157400",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.template_bbc.mobile.news.uk_1029",
+          "cSharpName": "Android_templateBbc_mobile_news_uk1029",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.template_bbc.mobile.news.uk_1030",
+          "cSharpName": "Android_templateBbc_mobile_news_uk1030",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.template_com.microsoft.office.outlook_1",
+          "cSharpName": "Android_templateCom_microsoft_office_outlook1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.template_com.microsoft.office.outlook_2",
+          "cSharpName": "Android_templateCom_microsoft_office_outlook2",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.template_io.homeassistant.companion.android_595157400",
+          "cSharpName": "Android_templateIo_homeassistant_companion_android595157400",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_bbc.mobile.news.uk_1029",
+          "cSharpName": "Android_textBbc_mobile_news_uk1029",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_bbc.mobile.news.uk_1030",
+          "cSharpName": "Android_textBbc_mobile_news_uk1030",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_com.microsoft.office.outlook_1",
+          "cSharpName": "Android_textCom_microsoft_office_outlook1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_com.microsoft.office.outlook_2",
+          "cSharpName": "Android_textCom_microsoft_office_outlook2",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_io.homeassistant.companion.android_595157400",
+          "cSharpName": "Android_textIo_homeassistant_companion_android595157400",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title.big_com.microsoft.office.outlook_1",
+          "cSharpName": "Android_title_bigCom_microsoft_office_outlook1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title.big_com.microsoft.office.outlook_2",
+          "cSharpName": "Android_title_bigCom_microsoft_office_outlook2",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_bbc.mobile.news.uk_1029",
+          "cSharpName": "Android_titleBbc_mobile_news_uk1029",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_bbc.mobile.news.uk_1030",
+          "cSharpName": "Android_titleBbc_mobile_news_uk1030",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_com.microsoft.office.outlook_1",
+          "cSharpName": "Android_titleCom_microsoft_office_outlook1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_com.microsoft.office.outlook_2",
+          "cSharpName": "Android_titleCom_microsoft_office_outlook2",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_io.homeassistant.companion.android_595157400",
+          "cSharpName": "Android_titleIo_homeassistant_companion_android595157400",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "androidx.core.app.extra.COMPAT_TEMPLATE_bbc.mobile.news.uk_1029",
+          "cSharpName": "Androidx_core_app_extra_COMPATTEMPLATEBbc_mobile_news_uk1029",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "androidx.core.app.extra.COMPAT_TEMPLATE_bbc.mobile.news.uk_1030",
+          "cSharpName": "Androidx_core_app_extra_COMPATTEMPLATEBbc_mobile_news_uk1030",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "androidx.core.app.extra.COMPAT_TEMPLATE_com.microsoft.office.outlook_1",
+          "cSharpName": "Androidx_core_app_extra_COMPATTEMPLATECom_microsoft_office_outlook1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "androidx.core.app.extra.COMPAT_TEMPLATE_com.microsoft.office.outlook_2",
+          "cSharpName": "Androidx_core_app_extra_COMPATTEMPLATECom_microsoft_office_outlook2",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "androidx.core.app.extra.COMPAT_TEMPLATE_io.homeassistant.companion.android_595157400",
+          "cSharpName": "Androidx_core_app_extra_COMPATTEMPLATEIo_homeassistant_companion_android595157400",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_1029_category",
+          "cSharpName": "Bbc_mobile_news_uk1029Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_1029_channel_id",
+          "cSharpName": "Bbc_mobile_news_uk1029ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_1029_group_id",
+          "cSharpName": "Bbc_mobile_news_uk1029GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_1029_is_clearable",
+          "cSharpName": "Bbc_mobile_news_uk1029IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_1029_is_ongoing",
+          "cSharpName": "Bbc_mobile_news_uk1029IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_1029_post_time",
+          "cSharpName": "Bbc_mobile_news_uk1029PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_1030_category",
+          "cSharpName": "Bbc_mobile_news_uk1030Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_1030_channel_id",
+          "cSharpName": "Bbc_mobile_news_uk1030ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_1030_group_id",
+          "cSharpName": "Bbc_mobile_news_uk1030GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_1030_is_clearable",
+          "cSharpName": "Bbc_mobile_news_uk1030IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_1030_is_ongoing",
+          "cSharpName": "Bbc_mobile_news_uk1030IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_1030_post_time",
+          "cSharpName": "Bbc_mobile_news_uk1030PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_2147483647_category",
+          "cSharpName": "Bbc_mobile_news_uk2147483647Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_2147483647_channel_id",
+          "cSharpName": "Bbc_mobile_news_uk2147483647ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_2147483647_group_id",
+          "cSharpName": "Bbc_mobile_news_uk2147483647GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_2147483647_is_clearable",
+          "cSharpName": "Bbc_mobile_news_uk2147483647IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_2147483647_is_ongoing",
+          "cSharpName": "Bbc_mobile_news_uk2147483647IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_2147483647_post_time",
+          "cSharpName": "Bbc_mobile_news_uk2147483647PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "com.microsoft.office.outlook_1_category",
+          "cSharpName": "Com_microsoft_office_outlook1Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.microsoft.office.outlook_1_channel_id",
+          "cSharpName": "Com_microsoft_office_outlook1ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.microsoft.office.outlook_1_group_id",
+          "cSharpName": "Com_microsoft_office_outlook1GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.microsoft.office.outlook_1_is_clearable",
+          "cSharpName": "Com_microsoft_office_outlook1IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.microsoft.office.outlook_1_is_ongoing",
+          "cSharpName": "Com_microsoft_office_outlook1IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.microsoft.office.outlook_1_post_time",
+          "cSharpName": "Com_microsoft_office_outlook1PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "com.microsoft.office.outlook_2_category",
+          "cSharpName": "Com_microsoft_office_outlook2Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.microsoft.office.outlook_2_channel_id",
+          "cSharpName": "Com_microsoft_office_outlook2ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.microsoft.office.outlook_2_group_id",
+          "cSharpName": "Com_microsoft_office_outlook2GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.microsoft.office.outlook_2_is_clearable",
+          "cSharpName": "Com_microsoft_office_outlook2IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.microsoft.office.outlook_2_is_ongoing",
+          "cSharpName": "Com_microsoft_office_outlook2IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.microsoft.office.outlook_2_post_time",
+          "cSharpName": "Com_microsoft_office_outlook2PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_595157400_category",
+          "cSharpName": "Io_homeassistant_companion_android595157400Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_595157400_channel_id",
+          "cSharpName": "Io_homeassistant_companion_android595157400ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_595157400_group_id",
+          "cSharpName": "Io_homeassistant_companion_android595157400GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_595157400_is_clearable",
+          "cSharpName": "Io_homeassistant_companion_android595157400IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_595157400_is_ongoing",
+          "cSharpName": "Io_homeassistant_companion_android595157400IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_595157400_post_time",
+          "cSharpName": "Io_homeassistant_companion_android595157400PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.appInfo_bbc.mobile.news.uk_1031",
+          "cSharpName": "Android_appInfoBbc_mobile_news_uk1031",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.appInfo_bbc.mobile.news.uk_1032",
+          "cSharpName": "Android_appInfoBbc_mobile_news_uk1032",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.bigText_bbc.mobile.news.uk_1031",
+          "cSharpName": "Android_bigTextBbc_mobile_news_uk1031",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.bigText_bbc.mobile.news.uk_1032",
+          "cSharpName": "Android_bigTextBbc_mobile_news_uk1032",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.infoText_bbc.mobile.news.uk_1031",
+          "cSharpName": "Android_infoTextBbc_mobile_news_uk1031",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.infoText_bbc.mobile.news.uk_1032",
+          "cSharpName": "Android_infoTextBbc_mobile_news_uk1032",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon_bbc.mobile.news.uk_1031",
+          "cSharpName": "Android_largeIconBbc_mobile_news_uk1031",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon_bbc.mobile.news.uk_1032",
+          "cSharpName": "Android_largeIconBbc_mobile_news_uk1032",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.progressIndeterminate_bbc.mobile.news.uk_1031",
+          "cSharpName": "Android_progressIndeterminateBbc_mobile_news_uk1031",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.progressIndeterminate_bbc.mobile.news.uk_1032",
+          "cSharpName": "Android_progressIndeterminateBbc_mobile_news_uk1032",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.progressMax_bbc.mobile.news.uk_1031",
+          "cSharpName": "Android_progressMaxBbc_mobile_news_uk1031",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progressMax_bbc.mobile.news.uk_1032",
+          "cSharpName": "Android_progressMaxBbc_mobile_news_uk1032",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progress_bbc.mobile.news.uk_1031",
+          "cSharpName": "Android_progressBbc_mobile_news_uk1031",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progress_bbc.mobile.news.uk_1032",
+          "cSharpName": "Android_progressBbc_mobile_news_uk1032",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.reduced.images_bbc.mobile.news.uk_1031",
+          "cSharpName": "Android_reduced_imagesBbc_mobile_news_uk1031",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.reduced.images_bbc.mobile.news.uk_1032",
+          "cSharpName": "Android_reduced_imagesBbc_mobile_news_uk1032",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.remoteInputHistory_bbc.mobile.news.uk_1031",
+          "cSharpName": "Android_remoteInputHistoryBbc_mobile_news_uk1031",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.remoteInputHistory_bbc.mobile.news.uk_1032",
+          "cSharpName": "Android_remoteInputHistoryBbc_mobile_news_uk1032",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.showChronometer_bbc.mobile.news.uk_1031",
+          "cSharpName": "Android_showChronometerBbc_mobile_news_uk1031",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showChronometer_bbc.mobile.news.uk_1032",
+          "cSharpName": "Android_showChronometerBbc_mobile_news_uk1032",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_bbc.mobile.news.uk_1031",
+          "cSharpName": "Android_showWhenBbc_mobile_news_uk1031",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_bbc.mobile.news.uk_1032",
+          "cSharpName": "Android_showWhenBbc_mobile_news_uk1032",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.subText_bbc.mobile.news.uk_1031",
+          "cSharpName": "Android_subTextBbc_mobile_news_uk1031",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.subText_bbc.mobile.news.uk_1032",
+          "cSharpName": "Android_subTextBbc_mobile_news_uk1032",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.template_bbc.mobile.news.uk_1031",
+          "cSharpName": "Android_templateBbc_mobile_news_uk1031",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.template_bbc.mobile.news.uk_1032",
+          "cSharpName": "Android_templateBbc_mobile_news_uk1032",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_bbc.mobile.news.uk_1031",
+          "cSharpName": "Android_textBbc_mobile_news_uk1031",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_bbc.mobile.news.uk_1032",
+          "cSharpName": "Android_textBbc_mobile_news_uk1032",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_bbc.mobile.news.uk_1031",
+          "cSharpName": "Android_titleBbc_mobile_news_uk1031",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_bbc.mobile.news.uk_1032",
+          "cSharpName": "Android_titleBbc_mobile_news_uk1032",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "androidx.core.app.extra.COMPAT_TEMPLATE_bbc.mobile.news.uk_1031",
+          "cSharpName": "Androidx_core_app_extra_COMPATTEMPLATEBbc_mobile_news_uk1031",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "androidx.core.app.extra.COMPAT_TEMPLATE_bbc.mobile.news.uk_1032",
+          "cSharpName": "Androidx_core_app_extra_COMPATTEMPLATEBbc_mobile_news_uk1032",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_1031_category",
+          "cSharpName": "Bbc_mobile_news_uk1031Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_1031_channel_id",
+          "cSharpName": "Bbc_mobile_news_uk1031ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_1031_group_id",
+          "cSharpName": "Bbc_mobile_news_uk1031GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_1031_is_clearable",
+          "cSharpName": "Bbc_mobile_news_uk1031IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_1031_is_ongoing",
+          "cSharpName": "Bbc_mobile_news_uk1031IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_1031_post_time",
+          "cSharpName": "Bbc_mobile_news_uk1031PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_1032_category",
+          "cSharpName": "Bbc_mobile_news_uk1032Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_1032_channel_id",
+          "cSharpName": "Bbc_mobile_news_uk1032ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_1032_group_id",
+          "cSharpName": "Bbc_mobile_news_uk1032GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_1032_is_clearable",
+          "cSharpName": "Bbc_mobile_news_uk1032IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_1032_is_ongoing",
+          "cSharpName": "Bbc_mobile_news_uk1032IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_1032_post_time",
+          "cSharpName": "Bbc_mobile_news_uk1032PostTime",
+          "clrType": "System.Double"
         }
       ]
     },
@@ -14440,6 +15465,11 @@
           "cSharpName": "AdguardSafeSearch"
         },
         {
+          "id": "switch.all_speakers_do_not_disturb_switch",
+          "friendlyName": "All Speakers do not disturb switch",
+          "cSharpName": "AllSpeakersDoNotDisturbSwitch"
+        },
+        {
           "id": "switch.all_speakers_repeat_switch",
           "friendlyName": "All Speakers repeat switch",
           "cSharpName": "AllSpeakersRepeatSwitch"
@@ -14448,6 +15478,31 @@
           "id": "switch.all_speakers_shuffle_switch",
           "friendlyName": "All Speakers shuffle switch",
           "cSharpName": "AllSpeakersShuffleSwitch"
+        },
+        {
+          "id": "switch.andrew_s_echo_buds_do_not_disturb_switch",
+          "friendlyName": "Andrew\u0027s Echo Buds do not disturb switch",
+          "cSharpName": "AndrewSEchoBudsDoNotDisturbSwitch"
+        },
+        {
+          "id": "switch.andrew_s_echo_buds_do_not_disturb_switch_2",
+          "friendlyName": "Andrew\u0027s Echo Buds do not disturb switch",
+          "cSharpName": "AndrewSEchoBudsDoNotDisturbSwitch2"
+        },
+        {
+          "id": "switch.andrew_s_echo_buds_do_not_disturb_switch_3",
+          "friendlyName": "Andrew\u0027s Echo Buds do not disturb switch",
+          "cSharpName": "AndrewSEchoBudsDoNotDisturbSwitch3"
+        },
+        {
+          "id": "switch.andrew_s_echo_buds_do_not_disturb_switch_4",
+          "friendlyName": "Andrew\u0027s Echo Buds do not disturb switch",
+          "cSharpName": "AndrewSEchoBudsDoNotDisturbSwitch4"
+        },
+        {
+          "id": "switch.andrew_s_samsung_tv_2020_u_do_not_disturb_switch",
+          "friendlyName": "Andrew\u0027s Samsung TV 2020-U do not disturb switch",
+          "cSharpName": "AndrewSSamsungTv2020UDoNotDisturbSwitch"
         },
         {
           "id": "switch.andrew_s_samsung_tv_2020_u_repeat_switch",
@@ -14463,6 +15518,11 @@
           "id": "switch.backdoor_light",
           "friendlyName": "Backdoor Light",
           "cSharpName": "BackdoorLight"
+        },
+        {
+          "id": "switch.basement_do_not_disturb_switch",
+          "friendlyName": "Basement do not disturb switch",
+          "cSharpName": "BasementDoNotDisturbSwitch"
         },
         {
           "id": "switch.basement_hall_light",
@@ -14535,6 +15595,11 @@
           "cSharpName": "BedSocket"
         },
         {
+          "id": "switch.bedroom_echo_show_do_not_disturb_switch",
+          "friendlyName": "Bedroom Echo Show do not disturb switch",
+          "cSharpName": "BedroomEchoShowDoNotDisturbSwitch"
+        },
+        {
           "id": "switch.bedroom_echo_show_repeat_switch",
           "friendlyName": "Bedroom Echo Show repeat switch",
           "cSharpName": "BedroomEchoShowRepeatSwitch"
@@ -14570,6 +15635,11 @@
           "cSharpName": "DeckingSocket"
         },
         {
+          "id": "switch.dining_room_echo_input_do_not_disturb_switch",
+          "friendlyName": "Dining Room Echo Input do not disturb switch",
+          "cSharpName": "DiningRoomEchoInputDoNotDisturbSwitch"
+        },
+        {
           "id": "switch.dining_room_echo_input_repeat_switch",
           "friendlyName": "Dining Room Echo Input repeat switch",
           "cSharpName": "DiningRoomEchoInputRepeatSwitch"
@@ -14600,6 +15670,11 @@
           "cSharpName": "DoorbellRestart"
         },
         {
+          "id": "switch.downstairs_do_not_disturb_switch",
+          "friendlyName": "Downstairs do not disturb switch",
+          "cSharpName": "DownstairsDoNotDisturbSwitch"
+        },
+        {
           "id": "switch.downstairs_repeat_switch",
           "friendlyName": "Downstairs repeat switch",
           "cSharpName": "DownstairsRepeatSwitch"
@@ -14610,6 +15685,11 @@
           "cSharpName": "DownstairsShuffleSwitch"
         },
         {
+          "id": "switch.drawing_room_echo_dot_do_not_disturb_switch",
+          "friendlyName": "Drawing Room Echo Dot do not disturb switch",
+          "cSharpName": "DrawingRoomEchoDotDoNotDisturbSwitch"
+        },
+        {
           "id": "switch.drawing_room_echo_dot_repeat_switch",
           "friendlyName": "Drawing Room Echo Dot repeat switch",
           "cSharpName": "DrawingRoomEchoDotRepeatSwitch"
@@ -14618,6 +15698,11 @@
           "id": "switch.drawing_room_echo_dot_shuffle_switch",
           "friendlyName": "Drawing Room Echo Dot shuffle switch",
           "cSharpName": "DrawingRoomEchoDotShuffleSwitch"
+        },
+        {
+          "id": "switch.dressing_room_echo_spot_do_not_disturb_switch",
+          "friendlyName": "Dressing Room Echo Spot do not disturb switch",
+          "cSharpName": "DressingRoomEchoSpotDoNotDisturbSwitch"
         },
         {
           "id": "switch.dressing_room_echo_spot_repeat_switch",
@@ -14780,6 +15865,11 @@
           "cSharpName": "EspresenseStudioQuery"
         },
         {
+          "id": "switch.garden_do_not_disturb_switch",
+          "friendlyName": "Garden do not disturb switch",
+          "cSharpName": "GardenDoNotDisturbSwitch"
+        },
+        {
           "id": "switch.garden_repeat_switch",
           "friendlyName": "Garden repeat switch",
           "cSharpName": "GardenRepeatSwitch"
@@ -14800,6 +15890,11 @@
           "cSharpName": "GateSocket"
         },
         {
+          "id": "switch.guest_room_echo_show_do_not_disturb_switch",
+          "friendlyName": "Guest Room Echo Show do not disturb switch",
+          "cSharpName": "GuestRoomEchoShowDoNotDisturbSwitch"
+        },
+        {
           "id": "switch.guest_room_echo_show_repeat_switch",
           "friendlyName": "Guest Room Echo Show repeat switch",
           "cSharpName": "GuestRoomEchoShowRepeatSwitch"
@@ -14813,6 +15908,11 @@
           "id": "switch.guest_room_lamp",
           "friendlyName": "Guest Room Lamp",
           "cSharpName": "GuestRoomLamp"
+        },
+        {
+          "id": "switch.hall_tablet_do_not_disturb_switch",
+          "friendlyName": "Hall Tablet do not disturb switch",
+          "cSharpName": "HallTabletDoNotDisturbSwitch"
         },
         {
           "id": "switch.hallway_light",
@@ -14855,6 +15955,11 @@
           "cSharpName": "HomeassistantActive"
         },
         {
+          "id": "switch.kitchen_echo_show_do_not_disturb_switch",
+          "friendlyName": "Kitchen Echo Show do not disturb switch",
+          "cSharpName": "KitchenEchoShowDoNotDisturbSwitch"
+        },
+        {
           "id": "switch.kitchen_echo_show_repeat_switch",
           "friendlyName": "Kitchen Echo Show repeat switch",
           "cSharpName": "KitchenEchoShowRepeatSwitch"
@@ -14863,6 +15968,16 @@
           "id": "switch.kitchen_echo_show_shuffle_switch",
           "friendlyName": "Kitchen Echo Show shuffle switch",
           "cSharpName": "KitchenEchoShowShuffleSwitch"
+        },
+        {
+          "id": "switch.landing_tablet_do_not_disturb_switch",
+          "friendlyName": "Landing Tablet do not disturb switch",
+          "cSharpName": "LandingTabletDoNotDisturbSwitch"
+        },
+        {
+          "id": "switch.light_manager_basement_hall",
+          "friendlyName": "Light Manager basement hall",
+          "cSharpName": "LightManagerBasementHall"
         },
         {
           "id": "switch.light_manager_bathroom",
@@ -14915,6 +16030,16 @@
           "cSharpName": "LightManagerStudio"
         },
         {
+          "id": "switch.light_manager_toilet",
+          "friendlyName": "Light Manager toilet",
+          "cSharpName": "LightManagerToilet"
+        },
+        {
+          "id": "switch.lounge_echo_plus_do_not_disturb_switch",
+          "friendlyName": "Lounge Echo Plus do not disturb switch",
+          "cSharpName": "LoungeEchoPlusDoNotDisturbSwitch"
+        },
+        {
           "id": "switch.lounge_echo_plus_repeat_switch",
           "friendlyName": "Lounge Echo Plus repeat switch",
           "cSharpName": "LoungeEchoPlusRepeatSwitch"
@@ -14925,9 +16050,19 @@
           "cSharpName": "LoungeEchoPlusShuffleSwitch"
         },
         {
+          "id": "switch.lounge_fire_tv_do_not_disturb_switch",
+          "friendlyName": "Lounge Fire TV do not disturb switch",
+          "cSharpName": "LoungeFireTvDoNotDisturbSwitch"
+        },
+        {
           "id": "switch.lounge_tv",
           "friendlyName": "Lounge TV",
           "cSharpName": "LoungeTv"
+        },
+        {
+          "id": "switch.mark_schedule",
+          "friendlyName": "Mark Schedule",
+          "cSharpName": "MarkSchedule"
         },
         {
           "id": "switch.mirror_light",
@@ -14990,6 +16125,11 @@
           "cSharpName": "NspanelUpdateTftDisplay"
         },
         {
+          "id": "switch.offices_do_not_disturb_switch",
+          "friendlyName": "Offices do not disturb switch",
+          "cSharpName": "OfficesDoNotDisturbSwitch"
+        },
+        {
           "id": "switch.offices_repeat_switch",
           "friendlyName": "Offices repeat switch",
           "cSharpName": "OfficesRepeatSwitch"
@@ -14998,6 +16138,11 @@
           "id": "switch.offices_shuffle_switch",
           "friendlyName": "Offices shuffle switch",
           "cSharpName": "OfficesShuffleSwitch"
+        },
+        {
+          "id": "switch.patio_do_not_disturb_switch",
+          "friendlyName": "Patio do not disturb switch",
+          "cSharpName": "PatioDoNotDisturbSwitch"
         },
         {
           "id": "switch.patio_light",
@@ -15040,6 +16185,11 @@
           "cSharpName": "RojecoPetFeederSlowFeed"
         },
         {
+          "id": "switch.shed_echo_input_do_not_disturb_switch",
+          "friendlyName": "Shed Echo Input do not disturb switch",
+          "cSharpName": "ShedEchoInputDoNotDisturbSwitch"
+        },
+        {
           "id": "switch.shed_echo_input_repeat_switch",
           "friendlyName": "Shed Echo Input repeat switch",
           "cSharpName": "ShedEchoInputRepeatSwitch"
@@ -15055,24 +16205,9 @@
           "cSharpName": "ShellyLandingLightSwitch"
         },
         {
-          "id": "switch.shelly_upstairs_sockets_3_switch_0",
-          "friendlyName": "Shelly Upstairs Sockets 3 switch_0",
-          "cSharpName": "ShellyUpstairsSockets3Switch0"
-        },
-        {
-          "id": "switch.shelly_upstairs_sockets_3_switch_1",
-          "friendlyName": "Shelly Upstairs Sockets 3 switch_1",
-          "cSharpName": "ShellyUpstairsSockets3Switch1"
-        },
-        {
-          "id": "switch.shelly_upstairs_sockets_3_switch_2",
-          "friendlyName": "Shelly Upstairs Sockets 3 switch_2",
-          "cSharpName": "ShellyUpstairsSockets3Switch2"
-        },
-        {
-          "id": "switch.shelly_upstairs_sockets_3_switch_3",
-          "friendlyName": "Shelly Upstairs Sockets 3 switch_3",
-          "cSharpName": "ShellyUpstairsSockets3Switch3"
+          "id": "switch.snug_echo_show_do_not_disturb_switch",
+          "friendlyName": "Snug Echo Show do not disturb switch",
+          "cSharpName": "SnugEchoShowDoNotDisturbSwitch"
         },
         {
           "id": "switch.snug_echo_show_repeat_switch",
@@ -15083,6 +16218,11 @@
           "id": "switch.snug_echo_show_shuffle_switch",
           "friendlyName": "Snug Echo Show shuffle switch",
           "cSharpName": "SnugEchoShowShuffleSwitch"
+        },
+        {
+          "id": "switch.snug_fire_tv_do_not_disturb_switch",
+          "friendlyName": "Snug Fire TV do not disturb switch",
+          "cSharpName": "SnugFireTvDoNotDisturbSwitch"
         },
         {
           "id": "switch.snug_led_strip_audio",
@@ -15150,6 +16290,11 @@
           "cSharpName": "StudioBluetoothProxyPrerelease"
         },
         {
+          "id": "switch.studio_echo_dot_do_not_disturb_switch",
+          "friendlyName": "Studio Echo Dot do not disturb switch",
+          "cSharpName": "StudioEchoDotDoNotDisturbSwitch"
+        },
+        {
           "id": "switch.studio_echo_dot_repeat_switch",
           "friendlyName": "Studio Echo Dot repeat switch",
           "cSharpName": "StudioEchoDotRepeatSwitch"
@@ -15180,6 +16325,16 @@
           "cSharpName": "SumpAlarmRestart"
         },
         {
+          "id": "switch.this_device_do_not_disturb_switch",
+          "friendlyName": "This Device do not disturb switch",
+          "cSharpName": "ThisDeviceDoNotDisturbSwitch"
+        },
+        {
+          "id": "switch.upstairs_do_not_disturb_switch",
+          "friendlyName": "Upstairs do not disturb switch",
+          "cSharpName": "UpstairsDoNotDisturbSwitch"
+        },
+        {
           "id": "switch.upstairs_repeat_switch",
           "friendlyName": "Upstairs repeat switch",
           "cSharpName": "UpstairsRepeatSwitch"
@@ -15188,6 +16343,11 @@
           "id": "switch.upstairs_shuffle_switch",
           "friendlyName": "Upstairs shuffle switch",
           "cSharpName": "UpstairsShuffleSwitch"
+        },
+        {
+          "id": "switch.utility_room_echo_dot_do_not_disturb_switch",
+          "friendlyName": "Utility Room Echo Dot do not disturb switch",
+          "cSharpName": "UtilityRoomEchoDotDoNotDisturbSwitch"
         },
         {
           "id": "switch.utility_room_echo_dot_repeat_switch",
@@ -15417,6 +16577,16 @@
           "jsonName": "friendly_name",
           "cSharpName": "FriendlyName",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "restored",
+          "cSharpName": "Restored",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "supported_features",
+          "cSharpName": "SupportedFeatures",
+          "clrType": "System.Double"
         }
       ]
     },
@@ -15525,29 +16695,14 @@
           "cSharpName": "AdguardHomeUpdate"
         },
         {
-          "id": "update.basement_hall_lights_beta_firmware_update",
-          "friendlyName": "Shelly Basement Hall Lights Beta Firmware Update",
-          "cSharpName": "BasementHallLightsBetaFirmwareUpdate"
-        },
-        {
           "id": "update.basement_hall_lights_firmware_update",
           "friendlyName": "Shelly Basement Hall Lights firmware update",
           "cSharpName": "BasementHallLightsFirmwareUpdate"
         },
         {
-          "id": "update.basement_lights_1_beta_firmware_update",
-          "friendlyName": "shellypro4pm-34987a68fc0c beta firmware update",
-          "cSharpName": "BasementLights1BetaFirmwareUpdate"
-        },
-        {
           "id": "update.basement_lights_1_firmware_update",
           "friendlyName": "Basement Lights 1 firmware update",
           "cSharpName": "BasementLights1FirmwareUpdate"
-        },
-        {
-          "id": "update.basement_lights_2_beta_firmware_update",
-          "friendlyName": "shellypro4pm-34987a68e72c beta firmware update",
-          "cSharpName": "BasementLights2BetaFirmwareUpdate"
         },
         {
           "id": "update.basement_lights_2_firmware_update",
@@ -15640,11 +16795,6 @@
           "cSharpName": "GuestRoomSwitch"
         },
         {
-          "id": "update.hallway_light_beta_firmware_update",
-          "friendlyName": "Hallway Light Beta Firmware Update",
-          "cSharpName": "HallwayLightBetaFirmwareUpdate"
-        },
-        {
           "id": "update.home_assistant_core_update",
           "friendlyName": "Home Assistant Core Update",
           "cSharpName": "HomeAssistantCoreUpdate"
@@ -15711,7 +16861,7 @@
         },
         {
           "id": "update.music_assistant_update",
-          "friendlyName": "Music Assistant Update",
+          "friendlyName": "Music Assistant Server Update",
           "cSharpName": "MusicAssistantUpdate"
         },
         {
@@ -15728,11 +16878,6 @@
           "id": "update.nspanel_firmware",
           "friendlyName": "Firmware",
           "cSharpName": "NspanelFirmware"
-        },
-        {
-          "id": "update.outside_lights_beta_firmware_update",
-          "friendlyName": "Outside Lights Beta Firmware Update",
-          "cSharpName": "OutsideLightsBetaFirmwareUpdate"
         },
         {
           "id": "update.outside_lights_firmware_update",
@@ -15755,19 +16900,9 @@
           "cSharpName": "ShellyHallwayLightFirmwareUpdate"
         },
         {
-          "id": "update.shelly_landing_light_beta_firmware_update",
-          "friendlyName": "Beta Firware Update",
-          "cSharpName": "ShellyLandingLightBetaFirmwareUpdate"
-        },
-        {
           "id": "update.shelly_landing_light_firmware_update",
           "friendlyName": "Shelly Landing Light firmware update",
           "cSharpName": "ShellyLandingLightFirmwareUpdate"
-        },
-        {
-          "id": "update.shelly_shed_lights_beta_firmware_update",
-          "friendlyName": "Shelly Shed Lights Beta Firmware Update",
-          "cSharpName": "ShellyShedLightsBetaFirmwareUpdate"
         },
         {
           "id": "update.shelly_shed_lights_firmware_update",
@@ -15775,19 +16910,9 @@
           "cSharpName": "ShellyShedLightsFirmwareUpdate"
         },
         {
-          "id": "update.shelly_shed_sockets_beta_firmware_update",
-          "friendlyName": "Shelly Shed Sockets Beta Firmware Update",
-          "cSharpName": "ShellyShedSocketsBetaFirmwareUpdate"
-        },
-        {
           "id": "update.shelly_shed_sockets_firmware_update",
           "friendlyName": "Shelly Shed Sockets firmware update",
           "cSharpName": "ShellyShedSocketsFirmwareUpdate"
-        },
-        {
-          "id": "update.shelly_upstairs_lights_1_beta_firmware_update",
-          "friendlyName": "Shelly Upstairs Lights 1 beta firmware update",
-          "cSharpName": "ShellyUpstairsLights1BetaFirmwareUpdate"
         },
         {
           "id": "update.shelly_upstairs_lights_1_firmware_update",
@@ -15795,34 +16920,14 @@
           "cSharpName": "ShellyUpstairsLights1FirmwareUpdate"
         },
         {
-          "id": "update.shelly_upstairs_lights_2_beta_firmware_update",
-          "friendlyName": "Shelly Upstairs Lights 2 beta firmware update",
-          "cSharpName": "ShellyUpstairsLights2BetaFirmwareUpdate"
-        },
-        {
           "id": "update.shelly_upstairs_lights_2_firmware_update",
           "friendlyName": "Shelly Upstairs Lights 2 firmware update",
           "cSharpName": "ShellyUpstairsLights2FirmwareUpdate"
         },
         {
-          "id": "update.shelly_upstairs_socket_4_beta_firmware_update",
-          "friendlyName": "Shelly Upstairs Sockets 4 beta firmware update",
-          "cSharpName": "ShellyUpstairsSocket4BetaFirmwareUpdate"
-        },
-        {
           "id": "update.shelly_upstairs_socket_4_firmware_update",
           "friendlyName": "Shelly Upstairs Sockets 4 firmware update",
           "cSharpName": "ShellyUpstairsSocket4FirmwareUpdate"
-        },
-        {
-          "id": "update.shelly_upstairs_sockets_3_beta_firmware_update",
-          "friendlyName": "shellypro4pm-34987a68ff10 beta firmware update",
-          "cSharpName": "ShellyUpstairsSockets3BetaFirmwareUpdate"
-        },
-        {
-          "id": "update.shelly_upstairs_sockets_3_firmware_update",
-          "friendlyName": "Shelly Upstairs Sockets 3 firmware update",
-          "cSharpName": "ShellyUpstairsSockets3FirmwareUpdate"
         },
         {
           "id": "update.snug_desk_switch",
@@ -16256,6 +17361,93 @@
         }
       ],
       "attributes": [
+        {
+          "jsonName": "friendly_name",
+          "cSharpName": "FriendlyName",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "supported_features",
+          "cSharpName": "SupportedFeatures",
+          "clrType": "System.Double"
+        }
+      ]
+    },
+    {
+      "domain": "vacuum",
+      "entities": [
+        {
+          "id": "vacuum.mark",
+          "friendlyName": "Mark",
+          "cSharpName": "Mark"
+        }
+      ],
+      "attributes": [
+        {
+          "jsonName": "battery_level",
+          "cSharpName": "BatteryLevel",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "battery_icon",
+          "cSharpName": "BatteryIcon",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "status",
+          "cSharpName": "Status",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "clean_start",
+          "cSharpName": "CleanStart",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "clean_stop",
+          "cSharpName": "CleanStop",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "clean_area",
+          "cSharpName": "CleanArea",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "clean_suspension_count",
+          "cSharpName": "CleanSuspensionCount",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "clean_suspension_time",
+          "cSharpName": "CleanSuspensionTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "clean_pause_time",
+          "cSharpName": "CleanPauseTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "clean_error_time",
+          "cSharpName": "CleanErrorTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "battery_level_at_clean_start",
+          "cSharpName": "BatteryLevelAtCleanStart",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "battery_level_at_clean_end",
+          "cSharpName": "BatteryLevelAtCleanEnd",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "launched_from",
+          "cSharpName": "LaunchedFrom",
+          "clrType": "System.String"
+        },
         {
           "jsonName": "friendly_name",
           "cSharpName": "FriendlyName",

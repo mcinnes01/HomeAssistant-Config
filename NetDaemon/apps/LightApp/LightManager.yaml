@@ -1,7 +1,7 @@
 NetDaemon.apps.LightApp.ManagerConfig:
   NdUserId: bedd08e6590f474fb2654c55703cf589
   GuardTimeout: 300
-  MinDuration: "0.00:03:00"
+  MinDuration: "0.00:01:00"
   MaxDuration: "0.00:15:00"
   Rooms:
     # - Name: Guest_Room
@@ -19,10 +19,6 @@ NetDaemon.apps.LightApp.ManagerConfig:
     #     - light.guest_room_lamp
     #   SwitchEntities:
     #     - switch.guest_room_switch
-    #   NightTimeEntity: input_select.guest_room_mode
-    #   NightTimeEntityStates:
-    #     - Night
-    #     - Sleeping
     #   Luxlimit: 30
     #   LuxEntity: sensor.guest_room_illuminence
     # - Name: Dressing_Room
@@ -49,10 +45,6 @@ NetDaemon.apps.LightApp.ManagerConfig:
     #     - light.bedroom_lamp
     #   SwitchEntities:
     #     - switch.bedroom_switch
-    #   NightTimeEntity: input_select.bedroom_mode
-    #   NightTimeEntityStates:
-    #     - Night
-    #     - Sleeping
     #   LuxlimitEntity: input_number.dim_lux
     #   LuxEntity: sensor.weather_station_ambient_light
     # - Name: Landing
@@ -117,10 +109,10 @@ NetDaemon.apps.LightApp.ManagerConfig:
       SwitchEntities:
         - switch.lounge_switch
       LuxEntity: sensor.lounge_illuminance
-      Luxlimit: 30
+      Luxlimit: 19
     - Name: Hallway
       Timeout: 120
-      OverrideTimeout: 1800
+      OverrideTimeout: 600
       IsNightLight: true
       PresenceEntities:
         - binary_sensor.hallway_motion
@@ -128,8 +120,6 @@ NetDaemon.apps.LightApp.ManagerConfig:
         - binary_sensor.front_door
       KeepAliveEntities:
         - binary_sensor.front_door
-      SupressionEntities:
-        - switch
       LightEntities:
         - light.hallway_light
       LampEntities:
@@ -165,6 +155,25 @@ NetDaemon.apps.LightApp.ManagerConfig:
     #   SwitchEntities:
     #     - switch.kitchen_switch
 
+    - Name: Toilet
+      Timeout: 120
+      OverrideTimeout: 300
+      PresenceEntities:
+        - binary_sensor.toilet_motion
+      LightEntities:
+        - light.lounge_light
+
+    - Name: Basement_Hall
+      Timeout: 120
+      OverrideTimeout: 300
+      PresenceEntities:
+        - binary_sensor.basement_hall_motion
+        - binary_sensor.basement_hall_camera_motion
+        - binary_sensor.basement_stairs_motion
+      LightEntities:
+        - light.basement_hall_light
+      IsNightLight: false
+
     # - Name: Dining
     #   PresenceEntities:
     #     - binary_sensor.dining_motion
@@ -184,10 +193,6 @@ NetDaemon.apps.LightApp.ManagerConfig:
     #   NightTimeout: 90
     #   LuxEntity: sensor.dining_lux
     #   LuxlimitEntity: input_number.dining_lux_limit
-    #   NightTimeEntity: input_select.house_mode
-    #   NightTimeEntityStates:
-    #     - night
-    #     - sleeping
     #   NightLightEntities:
     #     - light.dining_1
     #   CircadianSwitchEntity: switch.adaptive_lighting_dining
@@ -206,10 +211,6 @@ NetDaemon.apps.LightApp.ManagerConfig:
     #     - binary_sensor.landing
     #   LightEntities:
     #     - light.landing
-    #   NightTimeEntity: input_select.house_mode
-    #   NightTimeEntityStates:
-    #     - night
-    #     - sleeping
     #   NightLightEntities:
     #     - light.landing_7
     #   Timeout: 90
@@ -292,10 +293,6 @@ NetDaemon.apps.LightApp.ManagerConfig:
     #     - light.aaron_4
     #   LuxEntity: sensor.aaron_lux
     #   LuxlimitEntity: input_number.aaron_lux_limit
-    #   NightTimeEntity: input_select.house_mode
-    #   NightTimeEntityStates:
-    #     - night
-    #     - sleeping
     #   NightLightEntities:
     #     - light.aaron_4
     #   CircadianSwitchEntity: switch.adaptive_lighting_aaron
@@ -316,10 +313,6 @@ NetDaemon.apps.LightApp.ManagerConfig:
     #     - light.jayden_4
     #   LuxEntity: sensor.jayden_lux
     #   LuxlimitEntity: input_number.jayden_lux_limit
-    #   NightTimeEntity: input_select.house_mode
-    #   NightTimeEntityStates:
-    #     - night
-    #     - sleeping
     #   NightLightEntities:
     #     - light.jayden_1
     #   CircadianSwitchEntity: switch.adaptive_lighting_jayden
@@ -335,10 +328,6 @@ NetDaemon.apps.LightApp.ManagerConfig:
     #   LightEntities:
     #     - light.hallway
     #     - light.entrance
-    #   NightTimeEntity: input_select.house_mode
-    #   NightTimeEntityStates:
-    #     - night
-    #     - sleeping
     #   NightLightEntities:
     #     - light.landing_7
     #   LuxlimitEntity: input_number.hallway_lux_limit
@@ -358,10 +347,6 @@ NetDaemon.apps.LightApp.ManagerConfig:
     #   LuxlimitEntity: input_number.entrance_lux_limit
     #   LuxEntity: sensor.entrance_lux
     #   CircadianSwitchEntity: switch.adaptive_lighting_entrance
-    #   NightTimeEntity: input_select.house_mode
-    #   NightTimeEntityStates:
-    #     - night
-    #     - sleeping
 
     # - Name: Master
     #   Timeout: 300
@@ -378,10 +363,6 @@ NetDaemon.apps.LightApp.ManagerConfig:
     #     - light.master_5
     #   LuxEntity: sensor.master_lux
     #   LuxlimitEntity: input_number.master_lux_limit
-    #   NightTimeEntity: input_select.house_mode
-    #   NightTimeEntityStates:
-    #     - night
-    #     - sleeping
     #   NightLightEntities:
     #     - light.master_5
     #   CircadianSwitchEntity: switch.adaptive_lighting_master
@@ -404,10 +385,6 @@ NetDaemon.apps.LightApp.ManagerConfig:
     #   KeepAliveEntities:
     #     - media_player.lounge
     #     - media_player.lounge_tv
-    #   NightTimeEntity: input_select.house_mode
-    #   NightTimeEntityStates:
-    #     - night
-    #     - sleeping
     #   NightLightEntities:
     #     - light.floor
     #   CircadianSwitchEntity: switch.adaptive_lighting_floor
@@ -421,10 +398,6 @@ NetDaemon.apps.LightApp.ManagerConfig:
     #     - light.playroom_main
     #   NightLightEntities:
     #     - light.playroom_4
-    #   NightTimeEntity: input_select.house_mode
-    #   NightTimeEntityStates:
-    #     - night
-    #     - sleeping
     #   LuxEntity: sensor.playroom_lux
     #   LuxlimitEntity: input_number.playroom_lux_limit
     #   CircadianSwitchEntity: switch.adaptive_lighting_playroom
@@ -448,10 +421,6 @@ NetDaemon.apps.LightApp.ManagerConfig:
     #   LuxEntity: sensor.kitchen_lux
     #   LuxlimitEntity: input_number.kitchen_lux_limit
     #   CircadianSwitchEntity: switch.adaptive_lighting_kitchen
-    #   NightTimeEntity: input_select.house_mode
-    #   NightTimeEntityStates:
-    #     - night
-    #     - sleeping
 
     # - Name: Toilet
     #   Timeout: 300
@@ -464,10 +433,6 @@ NetDaemon.apps.LightApp.ManagerConfig:
     #   LuxEntity: sensor.toilet_lux
     #   luxLimitEntity: input_number.toilet_lux_limit
     #   CircadianSwitchEntity: switch.adaptive_lighting_toilet
-    #   NightTimeEntity: input_select.house_mode
-    #   NightTimeEntityStates:
-    #     - night
-    #     - sleeping
 
     # - Name: Utility
     #   Timeout: 300
@@ -483,10 +448,6 @@ NetDaemon.apps.LightApp.ManagerConfig:
     #   LuxEntity: sensor.utility_lux
     #   LuxLimitEntity: input_number.utility_lux_limit
     #   CircadianSwitchEntity: switch.adaptive_lighting_utility
-    #   NightTimeEntity: input_select.house_mode
-    #   NightTimeEntityStates:
-    #     - night
-    #     - sleeping
     #   NightLightEntities:
     #     - light.utility_1
     #     - light.utilitycupboard

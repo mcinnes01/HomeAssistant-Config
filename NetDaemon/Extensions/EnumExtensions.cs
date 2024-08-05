@@ -110,6 +110,12 @@ public static class EnumExtensions
     public static List<string> ToList<T>() where T : Enum
     => Enum.GetNames(typeof(T)).ToList();
 
+    public static InputSelectSetOptionsParameters ToOptions<T>() where T : Enum => 
+        new InputSelectSetOptionsParameters
+        {
+            Options = string.Join(", ", Enum.GetNames(typeof(T)))
+        };
+
     public static bool IsBright(this EntityState<InputSelectAttributes>? state)
     => state?.IsOption(BedroomModeOptions.Bright) ?? false;
     public static bool IsBright(this InputSelectEntity? entity)

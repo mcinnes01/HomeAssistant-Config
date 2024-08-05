@@ -2,9 +2,9 @@
   "metadata": {
     "format": "zigpy/open-coordinator-backup",
     "version": 1,
-    "source": "zigbee-herdsman@0.50.1",
+    "source": "zigbee-herdsman@0.55.3",
     "internal": {
-      "date": "2024-07-08T19:49:15.149Z",
+      "date": "2024-08-04T22:28:24.451Z",
       "znpVersion": 1
     }
   },
@@ -25,7 +25,7 @@
   "network_key": {
     "key": "01030507090b0d0f00020406080a0c0d",
     "sequence_number": 0,
-    "frame_counter": 12367664
+    "frame_counter": 14852183
   },
   "devices": [
     {
@@ -161,7 +161,7 @@
     {
       "nwk_address": "3366",
       "ieee_address": "8c6fb9fffe4e26f0",
-      "is_child": true,
+      "is_child": false,
       "link_key": {
         "key": "f1220be874b7a4aad0665ad0f67dc516",
         "rx_counter": 0,
@@ -225,7 +225,7 @@
       "link_key": {
         "key": "62af1edebfad4185a8cea2fffbfc7907",
         "rx_counter": 0,
-        "tx_counter": 31
+        "tx_counter": 61
       }
     },
     {
@@ -278,9 +278,9 @@
       "ieee_address": "048727fffeabad86",
       "is_child": false,
       "link_key": {
-        "key": "4d8b8bbeeb098ec02c37aafaba310c0a",
-        "rx_counter": 4101,
-        "tx_counter": 181
+        "key": "9283a23a55bd8600c3bb20f03401a744",
+        "rx_counter": 0,
+        "tx_counter": 0
       }
     },
     {
@@ -289,8 +289,8 @@
       "is_child": false,
       "link_key": {
         "key": "44795eead1453246f8581abbe9c7f827",
-        "rx_counter": 7,
-        "tx_counter": 10
+        "rx_counter": 8,
+        "tx_counter": 20
       }
     },
     {
@@ -309,8 +309,8 @@
       "is_child": false,
       "link_key": {
         "key": "f53a2635d96cb6f8cdb8ec54654df2a9",
-        "rx_counter": 0,
-        "tx_counter": 0
+        "rx_counter": 3,
+        "tx_counter": 10
       }
     },
     {
@@ -339,8 +339,8 @@
       "is_child": false,
       "link_key": {
         "key": "317d68ead14532468d5c2cbbe9c7f827",
-        "rx_counter": 0,
-        "tx_counter": 0
+        "rx_counter": 2,
+        "tx_counter": 10
       }
     },
     {

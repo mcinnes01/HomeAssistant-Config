@@ -85,17 +85,11 @@ public class LightManager : Room
         && (!Equals(e.Old?.Attributes?.Brightness, e.New?.Attributes?.Brightness)
          || !Equals(e.Old?.Attributes?.ColorTemp, e.New?.Attributes?.ColorTemp));
 
-    private bool LightTurnedOffManually(StateChange<LightEntity, EntityState<LightAttributes>> e)
-    {
-        var state = !IsNdUserOrHa(e) && e.Old.IsOn() && e.New.IsOff();
-        return state;
-    }
+    private bool LightTurnedOffManually(StateChange<LightEntity, EntityState<LightAttributes>> e) =>
+        !IsNdUserOrHa(e) && e.Old.IsOn() && e.New.IsOff();
 
-    private bool LightTurnedOnManually(StateChange<LightEntity, EntityState<LightAttributes>> e)
-    {
-        var state = !IsNdUserOrHa(e) && e.Old.IsOff() && e.New.IsOn();
-        return state;
-    }
+    private bool LightTurnedOnManually(StateChange<LightEntity, EntityState<LightAttributes>> e) =>
+        !IsNdUserOrHa(e) && e.Old.IsOff() && e.New.IsOn();
 
     private void ResetOverride()
     {
@@ -154,9 +148,9 @@ public class LightManager : Room
 
             // Set the options for the input_select entity
             if (IsBedroom)
-                RoomMode.SetOptions(EnumExtensions.ToList<BedroomModeOptions>());
+                RoomMode.SetOptions(EnumExtensions.ToOptions<BedroomModeOptions>());
             else
-                RoomMode.SetOptions(EnumExtensions.ToList<RoomModeOptions>());
+                RoomMode.SetOptions(EnumExtensions.ToOptions<RoomModeOptions>());
 
             // Set the default value to "Normal"
             RoomMode.SelectOption(RoomModeOptions.Normal);
@@ -314,11 +308,12 @@ public class LightManager : Room
     private void SubscribePresenceOffEvent()
     {
         _logger.LogDebug("{room} Subscribed to Presence Off Events", _entityName);
-        PresenceEntities
-            .Union(KeepAliveEntities)
+        var entities = PresenceEntities.Union(KeepAliveEntities);
+
+        entities
             .StateChanges()
             .Throttle(_ => Observable.Timer(DynamicTimeout, _scheduler))
-            .Where(e => e.New.IsOff())
+            .Where(e => e.New.IsOff() && entities.All(e => e.IsOff()))
             .Subscribe(e =>
             {
                 _logger.LogInformation("{room} No Motion Timeout '{entity}'", _entityName, e.New?.EntityId);
@@ -334,8 +329,7 @@ public class LightManager : Room
                 WaitAllTasks();
             });
 
-        PresenceEntities
-            .Union(KeepAliveEntities)
+        entities
             .StateChanges()
             .Where(e => e.New.IsOff())
             .Subscribe(e =>

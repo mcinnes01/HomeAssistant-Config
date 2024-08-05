@@ -1,26 +1,18 @@
 - id: alarm_trigger
   alias: Trigger alarm while armed away
   trigger:
-  - device_id: f918e214648f4e25848333fcea985dfe
-    domain: binary_sensor
-    entity_id: binary_sensor.snug_motion
-    platform: device
-    type: motion
-  - device_id: f918e214648f4e25848333fcea985dfe
-    domain: binary_sensor
-    entity_id: binary_sensor.dining_room_motion
-    platform: device
-    type: motion
-  - device_id: f918e214648f4e25848333fcea985dfe
-    domain: binary_sensor
-    entity_id: binary_sensor.utility_room_motion
-    platform: device
-    type: motion
-  - device_id: f918e214648f4e25848333fcea985dfe
-    domain: binary_sensor
-    entity_id: binary_sensor.cellar_door
-    platform: device
-    type: opened
+  - platform: device
+    device_id: 212665b3f569c509043064bb2bf88374
+    domain: device_tracker
+    entity_id: dedcb54e9838456b76766de373504b87
+    type: leaves
+    zone: zone.home
+  - platform: device
+    device_id: 3cf9e880497a947bf86f81e62cdb9fc3
+    domain: device_tracker
+    entity_id: 856d22f7ea78d933842ce936fb263427
+    type: leaves
+    zone: zone.home
   condition:
   - condition: state
     entity_id: alarm_control_panel.alarm
@@ -166,9 +158,9 @@
   description: ''
   trigger:
   - platform: device
-    device_id: 32f46788cec66f0b092024e0cb01e5d6
+    device_id: 212665b3f569c509043064bb2bf88374
     domain: device_tracker
-    entity_id: 74b9dd1b8828b194173e1ce5c5740ac3
+    entity_id: dedcb54e9838456b76766de373504b87
     type: enters
     zone: zone.home
   condition: []
@@ -514,18 +506,20 @@
     entity_id: binary_sensor.doorbell_button
     to: 'on'
   action:
-  - service: notify.phones
+  - action: notify.mobile_app_pixel_6
     data:
-      message: 'Someone at the door '
-      title: Doorbell
-  - service: notify.alexa_media
-    data:
+      message: 'Doorbell '
+  - data:
       message: Ding dong! Someone is at the door!
       title: Doorbell rang
       target: media_player.all_speakers
       data:
         type: announce
         state: all
+    action: notify.alexa_media
+  - action: notify.mobile_app_claireiphone
+    data:
+      message: Doorbell
   mode: single
 - id: '1579518320766'
   alias: Turn On Porch Light when Sun is set
@@ -602,36 +596,6 @@
       data:
         type: announce
         method: all
-- id: '1631053304503'
-  alias: Send snapshot when person is in the garden - Andy iPhone
-  description: ''
-  use_blueprint:
-    path: mcinnes01/send-camera-snapshot-when-event-type-detected.yaml
-    input:
-      notification_message: '{{ motion_sensor_name }} detected movement!'
-      event_object: person
-      motion_sensor: binary_sensor.motion_patio_camera
-      override_sensor: binary_sensor.patio_door
-      camera: camera.patio_camera
-      notify_device: 646468413e957e6fe0d15b0f9624b670
-      is_ios: true
-      notification_title: Someone is in the garden!
-      delay: 1
-- id: '1631053327853'
-  alias: Send snapshot when person is in the garden - Claire iPhone
-  description: ''
-  use_blueprint:
-    path: mcinnes01/send-camera-snapshot-when-event-type-detected.yaml
-    input:
-      notification_message: '{{ motion_sensor_name }} detected movement!'
-      event_object: person
-      motion_sensor: binary_sensor.motion_patio_camera
-      override_sensor: binary_sensor.patio_door
-      camera: camera.patio_camera
-      notify_device: 3cf9e880497a947bf86f81e62cdb9fc3
-      is_ios: true
-      notification_title: Someone is in the garden!
-      delay: 1
 - id: '1631300005347'
   alias: Snug Lights Off Reset Mode
   description: ''
@@ -669,11 +633,16 @@
     path: sbyx/low-battery-level-detection-notification-for-all-battery-sensors.yaml
     input:
       actions:
-      - device_id: 646468413e957e6fe0d15b0f9624b670
+      - device_id: 212665b3f569c509043064bb2bf88374
         domain: mobile_app
         type: notify
-        message: 'Low battery warnings for the following devices: {{sensors}}'
-        title: Low Battery Warning
+        message: 'Low battery found for the following sensors: {{sensors}}'
+        title: Low battery warning
+      - device_id: 3cf9e880497a947bf86f81e62cdb9fc3
+        domain: mobile_app
+        type: notify
+        message: 'Low battery found for the following sensors: {{sensors}}'
+        title: Low battery warning
 - id: '1650023117276'
   alias: Set cat feeder varaibles on restart
   description: ''
@@ -722,25 +691,11 @@
     domain: binary_sensor
   condition: []
   action:
-  - device_id: 32f46788cec66f0b092024e0cb01e5d6
-    domain: mobile_app
-    type: notify
-    message: Door opened
-    title: 'Someone opened a door '
+  - device_id: 4e9fa6ad723069dbba61e2d42fbac1cb
+    domain: alarm_control_panel
+    entity_id: eb9b4716a145ea15841f703e5ae2c0ab
+    type: trigger
   mode: single
-- id: '1662122029793'
-  alias: Person in the garden
-  description: ''
-  use_blueprint:
-    path: mcinnes01/send-camera-snapshot-when-event-type-detected.yaml
-    input:
-      motion_sensor: binary_sensor.patio_camera_motion
-      event_object: person
-      camera: camera.patio_camera_medium
-      notify_device: 32f46788cec66f0b092024e0cb01e5d6
-      notification_title: Person outside
-      notification_message: '{{ motion_sensor_name }} detected a person!'
-      override_sensor: binary_sensor.patio_door
 - id: '1671115791416'
   alias: Guest Room Remote Actions
   description: ''
@@ -831,7 +786,7 @@
   - service: media_player.play_media
     data:
       media_content_type: custom
-      media_content_id: Turn off your screen
+      media_content_id: Turn the screen off
     target:
       device_id: 05fc0ef00cc911eb9bd319798131fa33
   mode: single
@@ -932,9 +887,13 @@
   trigger:
   - platform: device
     type: turned_on
-    device_id: af83e8ef3369449dbdf87db03c8e46b8
-    entity_id: 08cd8ac6455d81d899fc5008d5cb249a
+    device_id: eb9331a7381930ba4800232f8e225dcf
+    entity_id: 17733fd509a298cacae84a0f2b759326
     domain: light
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 0
   condition: []
   action:
   - delay:
@@ -943,8 +902,8 @@
       seconds: 0
       milliseconds: 0
   - type: turn_off
-    device_id: af83e8ef3369449dbdf87db03c8e46b8
-    entity_id: 08cd8ac6455d81d899fc5008d5cb249a
+    device_id: eb9331a7381930ba4800232f8e225dcf
+    entity_id: 17733fd509a298cacae84a0f2b759326
     domain: light
   mode: single
 - id: '1701115009986'
@@ -1090,14 +1049,18 @@
       entity_id: switch.bed_socket
   mode: single
 - id: '1708902994480'
-  alias: Basement hall light off so turn on
+  alias: Keep Basement Hall On
   description: ''
   trigger:
   - platform: device
     type: turned_off
-    device_id: af83e8ef3369449dbdf87db03c8e46b8
-    entity_id: da1dbfd3de8b3365ab11d05675ab0ebc
-    domain: light
+    device_id: eb9331a7381930ba4800232f8e225dcf
+    entity_id: ed5bb7c9923aba60c360d18a01d63498
+    domain: switch
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 0
   condition: []
   action:
   - delay:
@@ -1106,9 +1069,9 @@
       seconds: 0
       milliseconds: 0
   - type: turn_on
-    device_id: af83e8ef3369449dbdf87db03c8e46b8
-    entity_id: da1dbfd3de8b3365ab11d05675ab0ebc
-    domain: light
+    device_id: eb9331a7381930ba4800232f8e225dcf
+    entity_id: ed5bb7c9923aba60c360d18a01d63498
+    domain: switch
   mode: single
 - id: '1709056643855'
   alias: Turn on extractor fan
@@ -1919,27 +1882,6 @@
       button_up_double_press: true
       button_down_double_press: true
       helper_debounce_delay: 100
-- id: '1716398629637'
-  alias: Keep Basement Hall On
-  description: ''
-  trigger:
-  - platform: device
-    type: turned_off
-    device_id: af83e8ef3369449dbdf87db03c8e46b8
-    entity_id: 4b4e36d21185742999e4737fa9799698
-    domain: switch
-  condition: []
-  action:
-  - delay:
-      hours: 0
-      minutes: 1
-      seconds: 0
-      milliseconds: 0
-  - type: turn_on
-    device_id: af83e8ef3369449dbdf87db03c8e46b8
-    entity_id: 4b4e36d21185742999e4737fa9799698
-    domain: switch
-  mode: single
 - id: '1716398696678'
   alias: Keep Hallway Light On
   description: ''
@@ -2329,4 +2271,24 @@
     target:
       entity_id: media_player.bedroom
     enabled: true
+  mode: single
+- id: '1722257720883'
+  alias: New Automation
+  description: ''
+  trigger:
+  - type: turned_on
+    platform: device
+    device_id: 74cbe41b5b5130da8a821ef1c1d36d1d
+    entity_id: 8474a94bfca4c7108833d3f2d2ec4bbc
+    domain: binary_sensor
+  condition: []
+  action:
+  - service: notify.alexa_media
+    data:
+      data:
+        type: announce
+        state: all
+      target: media_player.all_speakers
+      message: Welcome home Claire
+      title: Claire is home
   mode: single

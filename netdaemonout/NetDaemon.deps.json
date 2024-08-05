@@ -12,14 +12,14 @@
           "CacheManager.Microsoft.Extensions.Configuration": "1.2.0",
           "Humanizer.Core": "2.14.1",
           "Microsoft.Extensions.Hosting": "8.0.0",
-          "NetDaemon.AppModel": "24.27.1",
-          "NetDaemon.Client": "24.27.1",
-          "NetDaemon.Extensions.Logging": "24.27.1",
-          "NetDaemon.Extensions.Mqtt": "24.27.1",
-          "NetDaemon.Extensions.Scheduling": "24.27.1",
-          "NetDaemon.Extensions.Tts": "24.27.1",
-          "NetDaemon.HassModel": "24.27.1",
-          "NetDaemon.Runtime": "24.27.1",
+          "NetDaemon.AppModel": "24.28.1",
+          "NetDaemon.Client": "24.28.1",
+          "NetDaemon.Extensions.Logging": "24.28.1",
+          "NetDaemon.Extensions.Mqtt": "24.28.1",
+          "NetDaemon.Extensions.Scheduling": "24.28.1",
+          "NetDaemon.Extensions.Tts": "24.28.1",
+          "NetDaemon.HassModel": "24.28.1",
+          "NetDaemon.Runtime": "24.28.1",
           "Serilog.AspNetCore": "8.0.1",
           "System.Reactive": "6.0.1",
           "Stateless": "5.16.0"
@@ -40,7 +40,7 @@
         "dependencies": {
           "CacheManager.Core": "1.2.0",
           "Microsoft.Extensions.Configuration.Abstractions": "8.0.0",
-          "Microsoft.Extensions.Configuration.Binder": "8.0.1",
+          "Microsoft.Extensions.Configuration.Binder": "8.0.2",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.1"
         },
         "runtime": {
@@ -77,14 +77,14 @@
           "Microsoft.Extensions.Primitives": "8.0.0"
         }
       },
-      "Microsoft.Extensions.Configuration.Binder/8.0.1": {
+      "Microsoft.Extensions.Configuration.Binder/8.0.2": {
         "dependencies": {
           "Microsoft.Extensions.Configuration.Abstractions": "8.0.0"
         },
         "runtime": {
           "lib/net8.0/Microsoft.Extensions.Configuration.Binder.dll": {
             "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.123.58001"
+            "fileVersion": "8.0.724.31311"
           }
         }
       },
@@ -182,7 +182,7 @@
         "dependencies": {
           "Microsoft.Extensions.Configuration": "8.0.0",
           "Microsoft.Extensions.Configuration.Abstractions": "8.0.0",
-          "Microsoft.Extensions.Configuration.Binder": "8.0.1",
+          "Microsoft.Extensions.Configuration.Binder": "8.0.2",
           "Microsoft.Extensions.Configuration.CommandLine": "8.0.0",
           "Microsoft.Extensions.Configuration.EnvironmentVariables": "8.0.0",
           "Microsoft.Extensions.Configuration.FileExtensions": "8.0.0",
@@ -245,7 +245,7 @@
         "dependencies": {
           "Microsoft.Extensions.Configuration": "8.0.0",
           "Microsoft.Extensions.Configuration.Abstractions": "8.0.0",
-          "Microsoft.Extensions.Configuration.Binder": "8.0.1",
+          "Microsoft.Extensions.Configuration.Binder": "8.0.2",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.1",
           "Microsoft.Extensions.Logging": "8.0.0",
           "Microsoft.Extensions.Logging.Abstractions": "8.0.1",
@@ -298,7 +298,7 @@
       "Microsoft.Extensions.Options.ConfigurationExtensions/8.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Configuration.Abstractions": "8.0.0",
-          "Microsoft.Extensions.Configuration.Binder": "8.0.1",
+          "Microsoft.Extensions.Configuration.Binder": "8.0.2",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.1",
           "Microsoft.Extensions.Options": "8.0.0",
           "Microsoft.Extensions.Primitives": "8.0.0"
@@ -324,10 +324,10 @@
           }
         }
       },
-      "NetDaemon.AppModel/24.27.1": {
+      "NetDaemon.AppModel/24.28.1": {
         "dependencies": {
           "Microsoft.Extensions.Configuration": "8.0.0",
-          "Microsoft.Extensions.Configuration.Binder": "8.0.1",
+          "Microsoft.Extensions.Configuration.Binder": "8.0.2",
           "Microsoft.Extensions.Hosting": "8.0.0",
           "Microsoft.Extensions.Http": "8.0.0",
           "Microsoft.Extensions.Logging": "8.0.0",
@@ -339,12 +339,12 @@
         },
         "runtime": {
           "lib/net8.0/NetDaemon.AppModel.dll": {
-            "assemblyVersion": "24.27.1.0",
-            "fileVersion": "24.27.1.0"
+            "assemblyVersion": "24.28.1.0",
+            "fileVersion": "24.28.1.0"
           }
         }
       },
-      "NetDaemon.Client/24.27.1": {
+      "NetDaemon.Client/24.28.1": {
         "dependencies": {
           "Microsoft.Extensions.Http": "8.0.0",
           "Microsoft.Extensions.Logging": "8.0.0",
@@ -355,12 +355,12 @@
         },
         "runtime": {
           "lib/net8.0/NetDaemon.Client.dll": {
-            "assemblyVersion": "24.27.1.0",
-            "fileVersion": "24.27.1.0"
+            "assemblyVersion": "24.28.1.0",
+            "fileVersion": "24.28.1.0"
           }
         }
       },
-      "NetDaemon.Extensions.Logging/24.27.1": {
+      "NetDaemon.Extensions.Logging/24.28.1": {
         "dependencies": {
           "Microsoft.Extensions.Hosting": "8.0.0",
           "Microsoft.Extensions.Logging.Abstractions": "8.0.1",
@@ -369,29 +369,29 @@
         },
         "runtime": {
           "lib/net8.0/NetDaemon.Extensions.Logging.dll": {
-            "assemblyVersion": "24.27.1.0",
-            "fileVersion": "24.27.1.0"
+            "assemblyVersion": "24.28.1.0",
+            "fileVersion": "24.28.1.0"
           }
         }
       },
-      "NetDaemon.Extensions.Mqtt/24.27.1": {
+      "NetDaemon.Extensions.Mqtt/24.28.1": {
         "dependencies": {
           "MQTTnet": "4.3.6.1152",
           "MQTTnet.Extensions.ManagedClient": "4.3.6.1152",
           "Microsoft.Extensions.Configuration": "8.0.0",
-          "Microsoft.Extensions.Configuration.Binder": "8.0.1",
+          "Microsoft.Extensions.Configuration.Binder": "8.0.2",
           "Microsoft.Extensions.Hosting": "8.0.0",
           "Microsoft.Extensions.Logging": "8.0.0",
           "System.Reactive": "6.0.1"
         },
         "runtime": {
           "lib/net8.0/NetDaemon.Extensions.MqttEntityManager.dll": {
-            "assemblyVersion": "24.27.1.0",
-            "fileVersion": "24.27.1.0"
+            "assemblyVersion": "24.28.1.0",
+            "fileVersion": "24.28.1.0"
           }
         }
       },
-      "NetDaemon.Extensions.Scheduling/24.27.1": {
+      "NetDaemon.Extensions.Scheduling/24.28.1": {
         "dependencies": {
           "Cronos": "0.8.4",
           "Microsoft.Extensions.Hosting": "8.0.0",
@@ -400,68 +400,68 @@
         },
         "runtime": {
           "lib/net8.0/NetDaemon.Extensions.Scheduling.dll": {
-            "assemblyVersion": "24.27.1.0",
-            "fileVersion": "24.27.1.0"
+            "assemblyVersion": "24.28.1.0",
+            "fileVersion": "24.28.1.0"
           }
         }
       },
-      "NetDaemon.Extensions.Tts/24.27.1": {
+      "NetDaemon.Extensions.Tts/24.28.1": {
         "dependencies": {
           "Microsoft.Extensions.Hosting": "8.0.0",
           "Microsoft.Extensions.Logging.Abstractions": "8.0.1",
-          "NetDaemon.Client": "24.27.1"
+          "NetDaemon.Client": "24.28.1"
         },
         "runtime": {
           "lib/net8.0/NetDaemon.Extensions.Tts.dll": {
-            "assemblyVersion": "24.27.1.0",
-            "fileVersion": "24.27.1.0"
+            "assemblyVersion": "24.28.1.0",
+            "fileVersion": "24.28.1.0"
           }
         }
       },
-      "NetDaemon.HassModel/24.27.1": {
+      "NetDaemon.HassModel/24.28.1": {
         "dependencies": {
           "Microsoft.Extensions.Hosting": "8.0.0",
-          "NetDaemon.Client": "24.27.1",
+          "NetDaemon.Client": "24.28.1",
           "System.Reactive": "6.0.1"
         },
         "runtime": {
           "lib/net8.0/NetDaemon.HassModel.dll": {
-            "assemblyVersion": "24.27.1.0",
-            "fileVersion": "24.27.1.0"
+            "assemblyVersion": "24.28.1.0",
+            "fileVersion": "24.28.1.0"
           }
         }
       },
-      "NetDaemon.HassModel.Integration/24.27.1": {
+      "NetDaemon.HassModel.Integration/24.28.1": {
         "dependencies": {
-          "NetDaemon.HassModel": "24.27.1",
+          "NetDaemon.HassModel": "24.28.1",
           "System.Reactive": "6.0.1"
         },
         "runtime": {
           "lib/net8.0/NetDaemon.HassModel.Integration.dll": {
-            "assemblyVersion": "24.27.1.0",
-            "fileVersion": "24.27.1.0"
+            "assemblyVersion": "24.28.1.0",
+            "fileVersion": "24.28.1.0"
           }
         }
       },
-      "NetDaemon.Runtime/24.27.1": {
+      "NetDaemon.Runtime/24.28.1": {
         "dependencies": {
           "Microsoft.Extensions.Configuration": "8.0.0",
-          "Microsoft.Extensions.Configuration.Binder": "8.0.1",
+          "Microsoft.Extensions.Configuration.Binder": "8.0.2",
           "Microsoft.Extensions.Hosting": "8.0.0",
           "Microsoft.Extensions.Http": "8.0.0",
           "Microsoft.Extensions.Logging": "8.0.0",
           "Microsoft.Extensions.Logging.Abstractions": "8.0.1",
           "Microsoft.Extensions.Logging.Console": "8.0.0",
-          "NetDaemon.AppModel": "24.27.1",
-          "NetDaemon.Client": "24.27.1",
-          "NetDaemon.HassModel": "24.27.1",
-          "NetDaemon.HassModel.Integration": "24.27.1",
+          "NetDaemon.AppModel": "24.28.1",
+          "NetDaemon.Client": "24.28.1",
+          "NetDaemon.HassModel": "24.28.1",
+          "NetDaemon.HassModel.Integration": "24.28.1",
           "System.Reactive": "6.0.1"
         },
         "runtime": {
           "lib/net8.0/NetDaemon.Runtime.dll": {
-            "assemblyVersion": "24.27.1.0",
-            "fileVersion": "24.27.1.0"
+            "assemblyVersion": "24.28.1.0",
+            "fileVersion": "24.28.1.0"
           }
         }
       },
@@ -533,7 +533,7 @@
       },
       "Serilog.Settings.Configuration/8.0.0": {
         "dependencies": {
-          "Microsoft.Extensions.Configuration.Binder": "8.0.1",
+          "Microsoft.Extensions.Configuration.Binder": "8.0.2",
           "Microsoft.Extensions.DependencyModel": "8.0.0",
           "Serilog": "4.0.0"
         },
@@ -669,12 +669,12 @@
       "path": "microsoft.extensions.configuration.abstractions/8.0.0",
       "hashPath": "microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512"
     },
-    "Microsoft.Extensions.Configuration.Binder/8.0.1": {
+    "Microsoft.Extensions.Configuration.Binder/8.0.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-2UKFJnLiBt7Od6nCnTqP9rTIUNhzmn9Hv1l2FchyKbz8xieB9ULwZTbQZMw+M24Qw3F5dzzH1U9PPleN0LNLOQ==",
-      "path": "microsoft.extensions.configuration.binder/8.0.1",
-      "hashPath": "microsoft.extensions.configuration.binder.8.0.1.nupkg.sha512"
+      "sha512": "sha512-7IQhGK+wjyGrNsPBjJcZwWAr+Wf6D4+TwOptUt77bWtgNkiV8tDEbhFS+dDamtQFZ2X7kWG9m71iZQRj2x3zgQ==",
+      "path": "microsoft.extensions.configuration.binder/8.0.2",
+      "hashPath": "microsoft.extensions.configuration.binder.8.0.2.nupkg.sha512"
     },
     "Microsoft.Extensions.Configuration.CommandLine/8.0.0": {
       "type": "package",
@@ -872,68 +872,68 @@
       "path": "mqttnet.extensions.managedclient/4.3.6.1152",
       "hashPath": "mqttnet.extensions.managedclient.4.3.6.1152.nupkg.sha512"
     },
-    "NetDaemon.AppModel/24.27.1": {
+    "NetDaemon.AppModel/24.28.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-/xLIsRXXxzUI2ft01o5acZ5GW8d9zgK/SQCB3mYyu7KjpPiZdMgw/l8gaW74d/LjsD0w8CKJ9PKKFvfxW9w24g==",
-      "path": "netdaemon.appmodel/24.27.1",
-      "hashPath": "netdaemon.appmodel.24.27.1.nupkg.sha512"
+      "sha512": "sha512-cZewaBgktSNGi5udqfJH7Vf0ZbRyTv3irJ2VNlyPJ+FvBzJUu/78LUCzPaCaY3c5L3Pbju+xMrF4IXHKnSx1Ew==",
+      "path": "netdaemon.appmodel/24.28.1",
+      "hashPath": "netdaemon.appmodel.24.28.1.nupkg.sha512"
     },
-    "NetDaemon.Client/24.27.1": {
+    "NetDaemon.Client/24.28.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-VQJ3yrCikiO/tLK2rcSz9H33OjNxapP9pxyLBAyr3yQrl+imfo10UMFhvYxSd86y8CLquBM5hS4fq2C6z+u+Wg==",
-      "path": "netdaemon.client/24.27.1",
-      "hashPath": "netdaemon.client.24.27.1.nupkg.sha512"
+      "sha512": "sha512-boIBzSNTzegkNiBl1MEYtx7D1k43XK/FmHHC6ElXQo0n7UsLpcOnEtjalQqiC2sDmgw5KZCVPOp8JbNn9R++EA==",
+      "path": "netdaemon.client/24.28.1",
+      "hashPath": "netdaemon.client.24.28.1.nupkg.sha512"
     },
-    "NetDaemon.Extensions.Logging/24.27.1": {
+    "NetDaemon.Extensions.Logging/24.28.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-YD4DnaKhmTrZ8Nau2CC8cjoE+fkCwfpY8Pj4K20jUxqWM7/KtiuUaK8psVbYd/P8CDUbvRL8g8AQS0ARkkT/TQ==",
-      "path": "netdaemon.extensions.logging/24.27.1",
-      "hashPath": "netdaemon.extensions.logging.24.27.1.nupkg.sha512"
+      "sha512": "sha512-riCwTgV1FGxe0YLwTUZHqTvuFZ5S8b8HPaT4v7nuNFakWCbjD95QrOuF3WNnRDVf1esulKs94/khrqio3IAsdw==",
+      "path": "netdaemon.extensions.logging/24.28.1",
+      "hashPath": "netdaemon.extensions.logging.24.28.1.nupkg.sha512"
     },
-    "NetDaemon.Extensions.Mqtt/24.27.1": {
+    "NetDaemon.Extensions.Mqtt/24.28.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-XBFXFWFj9/BxRVBFeBluNnhYye/aryzjNvyFAogTQK2hNucS3O4cfujRx+uxoKhxfywe3x7Jho9EazWYtBUOsA==",
-      "path": "netdaemon.extensions.mqtt/24.27.1",
-      "hashPath": "netdaemon.extensions.mqtt.24.27.1.nupkg.sha512"
+      "sha512": "sha512-rItgRE2v0w6wtd2QELmuxYIaWTDfHQhf7Qwv7iEtLV1y8l3G82WONWOQe0QnOn4vKKVw5Rvvg688YcmV4LokBg==",
+      "path": "netdaemon.extensions.mqtt/24.28.1",
+      "hashPath": "netdaemon.extensions.mqtt.24.28.1.nupkg.sha512"
     },
-    "NetDaemon.Extensions.Scheduling/24.27.1": {
+    "NetDaemon.Extensions.Scheduling/24.28.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-MPkvBGUWPfMefTfYyr6BICTNnTp27ZgTGpP1GxXJ5vKE+0r79aeOvg8d2GMYY19rUtS1uO1qWajJ9JgmiqdJnQ==",
-      "path": "netdaemon.extensions.scheduling/24.27.1",
-      "hashPath": "netdaemon.extensions.scheduling.24.27.1.nupkg.sha512"
+      "sha512": "sha512-UkuvaGLVkn18Jx9FzhOXLAQoniUtHp1fKpCmjy5mqog+IEE3j7w6H1W51+xVyGxv2ETPaqnW2oSj9BZJ1+mQEw==",
+      "path": "netdaemon.extensions.scheduling/24.28.1",
+      "hashPath": "netdaemon.extensions.scheduling.24.28.1.nupkg.sha512"
     },
-    "NetDaemon.Extensions.Tts/24.27.1": {
+    "NetDaemon.Extensions.Tts/24.28.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-uD9pQpMv52r80f4aNQp3gaPf1zLBc1aPZ6bUiBrWWJtf4c/5z8qjtEkv+XXv3Q3YqIyNvZ1QtEkb++chhuEoYw==",
-      "path": "netdaemon.extensions.tts/24.27.1",
-      "hashPath": "netdaemon.extensions.tts.24.27.1.nupkg.sha512"
+      "sha512": "sha512-zq21X36EInpq8j4WRCdhjUSgpGCSNdCm0BqIiA41y1SFzpfvj7PK6naR+VmppNHPygVt8nPJw+qz5dbIvG4fjA==",
+      "path": "netdaemon.extensions.tts/24.28.1",
+      "hashPath": "netdaemon.extensions.tts.24.28.1.nupkg.sha512"
     },
-    "NetDaemon.HassModel/24.27.1": {
+    "NetDaemon.HassModel/24.28.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Kd+0P+T31s7JA2QG9B8NKG88U0XmTcORRszsPGXxv/LclQuGUedvQjEM5WahI01fKfPZmt2uOESfl6DfAc1fxA==",
-      "path": "netdaemon.hassmodel/24.27.1",
-      "hashPath": "netdaemon.hassmodel.24.27.1.nupkg.sha512"
+      "sha512": "sha512-PL4mHqfjJgWmea7hZyHLKZCoR55NMTS/jEnht4DbCG4B7bGsr/w/Cl2Ato7l2M+J+6oAE6EUlPtTiFugr11PfA==",
+      "path": "netdaemon.hassmodel/24.28.1",
+      "hashPath": "netdaemon.hassmodel.24.28.1.nupkg.sha512"
     },
-    "NetDaemon.HassModel.Integration/24.27.1": {
+    "NetDaemon.HassModel.Integration/24.28.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ngdwMsRq92IDoE/wm23kpNWhwbWoU/MqfkiOExb/7ZL6HVJYLDlDb/6V12UmlcRAYhZluygEOghcJG9FtG7p6Q==",
-      "path": "netdaemon.hassmodel.integration/24.27.1",
-      "hashPath": "netdaemon.hassmodel.integration.24.27.1.nupkg.sha512"
+      "sha512": "sha512-kblObOTlEXBnLkd6Ne7xnbTKekYDH+iIoGBHomw0/qFoqRgEsWWGKTwfKXsbcqjWabdLR9wo94ECaqF8SBBuwA==",
+      "path": "netdaemon.hassmodel.integration/24.28.1",
+      "hashPath": "netdaemon.hassmodel.integration.24.28.1.nupkg.sha512"
     },
-    "NetDaemon.Runtime/24.27.1": {
+    "NetDaemon.Runtime/24.28.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-1/ASddVGM/wQFYs1bcPsPlmlzF6irANvaFLQK0sAKejCajMvdf/RloyS+faM7pcF8ShFKIawdu7M1yUNEqef6g==",
-      "path": "netdaemon.runtime/24.27.1",
-      "hashPath": "netdaemon.runtime.24.27.1.nupkg.sha512"
+      "sha512": "sha512-r2oDqg4xuPGm+0aBFNwyRyyxg2HqJK6382MvRmTX7TepiPyHwctNBT2IvTSyjxfw7XBBKbJVj7llhi5+rG1H6w==",
+      "path": "netdaemon.runtime/24.28.1",
+      "hashPath": "netdaemon.runtime.24.28.1.nupkg.sha512"
     },
     "Serilog/4.0.0": {
       "type": "package",
