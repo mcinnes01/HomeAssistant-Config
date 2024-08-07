@@ -316,7 +316,8 @@ public class LightManager : Room
             .Where(e => e.New.IsOff() && entities.All(e => e.IsOff()))
             .Subscribe(e =>
             {
-                _logger.LogInformation("{room} No Motion Timeout '{entity}'", _entityName, e.New?.EntityId);
+                _logger.LogInformation("{room} No Motion Timeout '{entity}' states: {@Entities}",
+                    _entityName, e.New?.EntityId, entities.Select(e => new {e.EntityId, e.State}));
 
                 if (_overrideActive)
                 {

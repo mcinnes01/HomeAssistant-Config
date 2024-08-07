@@ -34,3 +34,4 @@ netdaemon4/
 obj
 bin
 .vs/
+netdaemonout/logs/*.txt

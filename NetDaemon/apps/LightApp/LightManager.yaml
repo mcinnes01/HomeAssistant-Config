@@ -4,87 +4,81 @@ NetDaemon.apps.LightApp.ManagerConfig:
   MinDuration: "0.00:01:00"
   MaxDuration: "0.00:15:00"
   Rooms:
-    # - Name: Guest_Room
-    #   IsBedroom: true
-    #   Timeout: 300
-    #   OverrideTimeout: 1800
-    #   PresenceEntities:
-    #     - binary_sensor.guest_room_motion
-    #     - input_boolean.guest_room_occupancy
-    #   LightEntities:
-    #     - light.guest_room_light
-    #   LampEntities:
-    #     - light.guest_room_lamp
-    #   SupressionEntities:
-    #     - light.guest_room_lamp
-    #   SwitchEntities:
-    #     - switch.guest_room_switch
-    #   Luxlimit: 30
-    #   LuxEntity: sensor.guest_room_illuminence
-    # - Name: Dressing_Room
-    #   Timeout: 300
-    #   OverrideTimeout: 1800
-    #   IsNightLight: true
-    #   PresenceEntities:
-    #     - binary_sensor.dressing_room_motion
-    #   LightEntities:
-    #     - light.dressing_room_light
-    #   SwitchEntities:
-    #     - switch.dressing_room_switch
-    # - Name: Bedroom
-    #   IsBedroom: true
-    #   Timeout: 300
-    #   OverrideTimeout: 1800
-    #   PresenceEntities:
-    #     - binary_sensor.bedroom_motion
-    #   LightEntities:
-    #     - light.bedroom_light
-    #   LampEntities:
-    #     - light.bedroom_lamp
-    #   SupressionEntities:
-    #     - light.bedroom_lamp
-    #   SwitchEntities:
-    #     - switch.bedroom_switch
-    #   LuxlimitEntity: input_number.dim_lux
-    #   LuxEntity: sensor.weather_station_ambient_light
-    # - Name: Landing
-    #   Timeout: 120
-    #   OverrideTimeout: 1800
-    #   IsNightLight: true
-    #   PresenceEntities:
-    #     - binary_sensor.landing_motion
-    #   LightEntities:
-    #     - light.landing_light
-    #   SwitchEntities:
-    #     - switch.landing_switch
-    # - Name: Bathroom
-    #   Timeout: 180
-    #   OverrideTimeout: 1800
-    #   IsNightLight: true
-    #   PresenceEntities:
-    #     - binary_sensor.bathroom_motion
-    #   LightEntities:
-    #     - light.bathroom_light
-    #   LampEntities:
-    #     - light.mirror_light
-    #   SwitchEntities:
-    #     - switch.bathroom_switch
-    #   KeepAliveEntities:
-    #     - scene.showering
-    #   SupressionEntities:
-    #     - light.mirror_light
-    # - Name: Studio
-    #   Timeout: 120
-    #   OverrideTimeout: 1800
-    #   IsNightLight: true
-    #   PresenceEntities:
-    #     - binary_sensor.studio_motion
-    #   LightEntities:
-    #     - light.studio_light
-    #   LampEntities:
-    #     - switch.studio_lamp
-    #   SwitchEntities:
-    #     - switch.studio_switch
+    - Name: Guest_Room
+      IsBedroom: true
+      Timeout: 300
+      OverrideTimeout: 1800
+      PresenceEntities:
+        - binary_sensor.guest_room_motion
+        - input_boolean.guest_room_occupancy
+      LightEntities:
+        - light.guest_room_light
+      LampEntities:
+        - light.guest_room_lamp
+      SupressionEntities:
+        - light.guest_room_lamp
+      Luxlimit: 30
+      LuxEntity: sensor.guest_room_illuminence
+
+    - Name: Dressing_Room
+      Timeout: 300
+      OverrideTimeout: 1800
+      IsNightLight: true
+      PresenceEntities:
+        - binary_sensor.dressing_room_motion
+      LightEntities:
+        - light.dressing_room_light
+  
+    - Name: Bedroom
+      IsBedroom: true
+      Timeout: 300
+      OverrideTimeout: 1800
+      PresenceEntities:
+        - binary_sensor.bedroom_motion
+      LightEntities:
+        - light.bedroom_light
+      LampEntities:
+        - light.bedroom_lamp
+      SupressionEntities:
+        - light.bedroom_lamp
+      LuxlimitEntity: input_number.dim_lux
+      LuxEntity: sensor.weather_station_ambient_light
+
+    - Name: Landing
+      Timeout: 120
+      OverrideTimeout: 1800
+      IsNightLight: true
+      PresenceEntities:
+        - binary_sensor.landing_motion
+      LightEntities:
+        - light.landing_light
+  
+    - Name: Bathroom
+      Timeout: 180
+      OverrideTimeout: 1800
+      IsNightLight: true
+      PresenceEntities:
+        - binary_sensor.bathroom_motion
+      LightEntities:
+        - light.bathroom_light
+      LampEntities:
+        - light.mirror_light
+      KeepAliveEntities:
+        - scene.showering
+      SupressionEntities:
+        - light.mirror_light
+  
+    - Name: Studio
+      Timeout: 120
+      OverrideTimeout: 1800
+      IsNightLight: true
+      PresenceEntities:
+        - binary_sensor.studio_motion
+      LightEntities:
+        - light.studio_light
+      LampEntities:
+        - switch.studio_lamp
+  
     - Name: Lounge
       Timeout: 300
       OverrideTimeout: 1800
@@ -106,10 +100,9 @@ NetDaemon.apps.LightApp.ManagerConfig:
         - scene.watching_tv
       KeepAliveEntities:
         - switch.lounge_tv
-      SwitchEntities:
-        - switch.lounge_switch
       LuxEntity: sensor.lounge_illuminance
-      Luxlimit: 19
+      Luxlimit: 18
+
     - Name: Hallway
       Timeout: 120
       OverrideTimeout: 600
@@ -124,40 +117,48 @@ NetDaemon.apps.LightApp.ManagerConfig:
         - light.hallway_light
       LampEntities:
         - light.hallway_lamp
-      SwitchEntities:
-        - switch.hallway_light_switch
-    # - Name: Drawing_Room
-    #   Timeout: 120
-    #   OverrideTimeout: 1800
-    #   IsNightLight: true
-    #   PresenceEntities:
-    #     - binary_sensor.drawing_room_motion
-    #   LightEntities:
-    #     - light.drawing_room_light
-    #   LampEntities:
-    #     - light.drawing_room_ligh
-    #     - light.bookshelf_light
-    #     - light.display_cabinet_light
-    #   SwitchEntities:
-    #     - switch.drawing_room_switch
-    # - Name: Kitchen
-    #   Timeout: 120
-    #   OverrideTimeout: 1800
-    #   IsNightLight: true
-    #   PresenceEntities:
-    #     - binary_sensor.kitchen_motion
-    #     - binary_sensor.kitchen_camera_person_detected
-    #     - binary_sensor.kitchen_door
-    #   LightEntities:
-    #     - light.kitchen_light
-    #   LampEntities:
-    #     - light.breakfast_bar_light
-    #   SwitchEntities:
-    #     - switch.kitchen_switch
+    
+    - Name: Porch
+      Timeout: 90
+      PresenceEntities:
+        - binary_sensor.front_door
+      KeepAliveEntities:
+        - binary_sensor.front_door
+      LightEntities:
+        - light.porch
+      ConditionEntity: sun.sun
+      ConditionEntityState: below_horizon
+      
+    - Name: Drawing_Room
+      Timeout: 120
+      OverrideTimeout: 1800
+      IsNightLight: true
+      PresenceEntities:
+        - binary_sensor.drawing_room_motion
+      LightEntities:
+        - light.drawing_room_light
+      LampEntities:
+        - light.drawing_room_ligh
+        - light.bookshelf_light
+        - light.display_cabinet_light
+
+    - Name: Kitchen
+      Timeout: 120
+      OverrideTimeout: 1800
+      IsNightLight: true
+      PresenceEntities:
+        - binary_sensor.kitchen_motion
+        - binary_sensor.kitchen_camera_person_detected
+        - binary_sensor.kitchen_door
+      LightEntities:
+        - light.kitchen_light
+      LampEntities:
+        - light.breakfast_bar_light
 
     - Name: Toilet
       Timeout: 120
       OverrideTimeout: 300
+      IsNightLight: true
       PresenceEntities:
         - binary_sensor.toilet_motion
       LightEntities:
@@ -174,29 +175,8 @@ NetDaemon.apps.LightApp.ManagerConfig:
         - light.basement_hall_light
       IsNightLight: false
 
-    # - Name: Dining
-    #   PresenceEntities:
-    #     - binary_sensor.dining_motion
-    #     - binary_sensor.dining
-    #   LightEntities:
-    #     - light.dining
-    #     - light.dining_wall
-    #   MonitorEntities:
-    #     - light.dining_1
-    #     - light.dining_2
-    #     - light.dining_3
-    #     - light.dining_4
-    #     - light.dining_5
-    #     - light.dining_wall_1
-    #     - light.dining_wall_2
-    #   Timeout: 300
-    #   NightTimeout: 90
-    #   LuxEntity: sensor.dining_lux
-    #   LuxlimitEntity: input_number.dining_lux_limit
-    #   NightLightEntities:
-    #     - light.dining_1
-    #   CircadianSwitchEntity: switch.adaptive_lighting_dining
 
+#region
     # - Name: Christmas
     #   PresenceEntities:
     #     - binary_sensor.lounge_motion
@@ -451,3 +431,4 @@ NetDaemon.apps.LightApp.ManagerConfig:
     #   NightLightEntities:
     #     - light.utility_1
     #     - light.utilitycupboard
+    #endregion

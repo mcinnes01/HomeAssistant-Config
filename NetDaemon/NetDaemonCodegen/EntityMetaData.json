@@ -4945,12 +4945,12 @@
         },
         {
           "id": "device_tracker.epic_air_sport_anc_ble",
-          "friendlyName": "Epic Air Sport ANC-BLE",
+          "friendlyName": "Epic Air Sport ANC-BLE Epic Air Sport ANC-BLE",
           "cSharpName": "EpicAirSportAncBle"
         },
         {
           "id": "device_tracker.epic_air_sport_anc_ble_2",
-          "friendlyName": "Epic Air Sport ANC_BLE Epic Air Sport ANC-BLE",
+          "friendlyName": "Epic Air Sport ANC_BLE",
           "cSharpName": "EpicAirSportAncBle2"
         },
         {
@@ -15348,6 +15348,236 @@
         {
           "jsonName": "bbc.mobile.news.uk_1032_post_time",
           "cSharpName": "Bbc_mobile_news_uk1032PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.appInfo_bbc.mobile.news.uk_1002",
+          "cSharpName": "Android_appInfoBbc_mobile_news_uk1002",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.appInfo_bbc.mobile.news.uk_1003",
+          "cSharpName": "Android_appInfoBbc_mobile_news_uk1003",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.bigText_bbc.mobile.news.uk_1002",
+          "cSharpName": "Android_bigTextBbc_mobile_news_uk1002",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.bigText_bbc.mobile.news.uk_1003",
+          "cSharpName": "Android_bigTextBbc_mobile_news_uk1003",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.infoText_bbc.mobile.news.uk_1002",
+          "cSharpName": "Android_infoTextBbc_mobile_news_uk1002",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.infoText_bbc.mobile.news.uk_1003",
+          "cSharpName": "Android_infoTextBbc_mobile_news_uk1003",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon_bbc.mobile.news.uk_1002",
+          "cSharpName": "Android_largeIconBbc_mobile_news_uk1002",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon_bbc.mobile.news.uk_1003",
+          "cSharpName": "Android_largeIconBbc_mobile_news_uk1003",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.progressIndeterminate_bbc.mobile.news.uk_1002",
+          "cSharpName": "Android_progressIndeterminateBbc_mobile_news_uk1002",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.progressIndeterminate_bbc.mobile.news.uk_1003",
+          "cSharpName": "Android_progressIndeterminateBbc_mobile_news_uk1003",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.progressMax_bbc.mobile.news.uk_1002",
+          "cSharpName": "Android_progressMaxBbc_mobile_news_uk1002",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progressMax_bbc.mobile.news.uk_1003",
+          "cSharpName": "Android_progressMaxBbc_mobile_news_uk1003",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progress_bbc.mobile.news.uk_1002",
+          "cSharpName": "Android_progressBbc_mobile_news_uk1002",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progress_bbc.mobile.news.uk_1003",
+          "cSharpName": "Android_progressBbc_mobile_news_uk1003",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.reduced.images_bbc.mobile.news.uk_1002",
+          "cSharpName": "Android_reduced_imagesBbc_mobile_news_uk1002",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.reduced.images_bbc.mobile.news.uk_1003",
+          "cSharpName": "Android_reduced_imagesBbc_mobile_news_uk1003",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.remoteInputHistory_bbc.mobile.news.uk_1002",
+          "cSharpName": "Android_remoteInputHistoryBbc_mobile_news_uk1002",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.remoteInputHistory_bbc.mobile.news.uk_1003",
+          "cSharpName": "Android_remoteInputHistoryBbc_mobile_news_uk1003",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.showChronometer_bbc.mobile.news.uk_1002",
+          "cSharpName": "Android_showChronometerBbc_mobile_news_uk1002",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showChronometer_bbc.mobile.news.uk_1003",
+          "cSharpName": "Android_showChronometerBbc_mobile_news_uk1003",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_bbc.mobile.news.uk_1002",
+          "cSharpName": "Android_showWhenBbc_mobile_news_uk1002",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_bbc.mobile.news.uk_1003",
+          "cSharpName": "Android_showWhenBbc_mobile_news_uk1003",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.subText_bbc.mobile.news.uk_1002",
+          "cSharpName": "Android_subTextBbc_mobile_news_uk1002",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.subText_bbc.mobile.news.uk_1003",
+          "cSharpName": "Android_subTextBbc_mobile_news_uk1003",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.summaryText_com.whatsapp_1",
+          "cSharpName": "Android_summaryTextCom_whatsapp1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.template_bbc.mobile.news.uk_1002",
+          "cSharpName": "Android_templateBbc_mobile_news_uk1002",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.template_bbc.mobile.news.uk_1003",
+          "cSharpName": "Android_templateBbc_mobile_news_uk1003",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.textLines_com.whatsapp_1",
+          "cSharpName": "Android_textLinesCom_whatsapp1",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.String]"
+        },
+        {
+          "jsonName": "android.text_bbc.mobile.news.uk_1002",
+          "cSharpName": "Android_textBbc_mobile_news_uk1002",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_bbc.mobile.news.uk_1003",
+          "cSharpName": "Android_textBbc_mobile_news_uk1003",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_bbc.mobile.news.uk_1002",
+          "cSharpName": "Android_titleBbc_mobile_news_uk1002",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_bbc.mobile.news.uk_1003",
+          "cSharpName": "Android_titleBbc_mobile_news_uk1003",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "androidx.core.app.extra.COMPAT_TEMPLATE_bbc.mobile.news.uk_1002",
+          "cSharpName": "Androidx_core_app_extra_COMPATTEMPLATEBbc_mobile_news_uk1002",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "androidx.core.app.extra.COMPAT_TEMPLATE_bbc.mobile.news.uk_1003",
+          "cSharpName": "Androidx_core_app_extra_COMPATTEMPLATEBbc_mobile_news_uk1003",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_1002_category",
+          "cSharpName": "Bbc_mobile_news_uk1002Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_1002_channel_id",
+          "cSharpName": "Bbc_mobile_news_uk1002ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_1002_group_id",
+          "cSharpName": "Bbc_mobile_news_uk1002GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_1002_is_clearable",
+          "cSharpName": "Bbc_mobile_news_uk1002IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_1002_is_ongoing",
+          "cSharpName": "Bbc_mobile_news_uk1002IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_1002_post_time",
+          "cSharpName": "Bbc_mobile_news_uk1002PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_1003_category",
+          "cSharpName": "Bbc_mobile_news_uk1003Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_1003_channel_id",
+          "cSharpName": "Bbc_mobile_news_uk1003ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_1003_group_id",
+          "cSharpName": "Bbc_mobile_news_uk1003GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_1003_is_clearable",
+          "cSharpName": "Bbc_mobile_news_uk1003IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_1003_is_ongoing",
+          "cSharpName": "Bbc_mobile_news_uk1003IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_1003_post_time",
+          "cSharpName": "Bbc_mobile_news_uk1003PostTime",
           "clrType": "System.Double"
         }
       ]
