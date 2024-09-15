@@ -183,10 +183,10 @@ Manager
             RoomMode = new InputSelectEntity(_haContext, _roomModeSelect);
 
             // Set the options for the input_select entity
-            if(IsBedroom)
-                RoomMode.SetOptions(EnumExtensions.ToList<BedroomModeOptions>());
+            if (IsBedroom)
+                RoomMode.SetOptions(EnumExtensions.ToOptions<BedroomModeOptions>());
             else
-                RoomMode.SetOptions(EnumExtensions.ToList<RoomModeOptions>());
+                RoomMode.SetOptions(EnumExtensions.ToOptions<RoomModeOptions>());
 
             // Set the default value to "Normal"
             RoomMode.SelectOption(RoomModeOptions.Normal);

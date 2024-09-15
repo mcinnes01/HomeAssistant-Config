@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Threading.Tasks;
+using System;
 
 namespace NetDaemonApps.Infrastructure;
 
@@ -12,9 +13,9 @@ public class NotificationService : INotificationService
     Dictionary<string, string[]> Messages 
         => JsonSerializer.Deserialize<Dictionary<string, string[]>>(File.ReadAllText("messages.json"))!;
 
-    public NotificationService(IServiceProvider provider)
+    public NotificationService(IHaContext haContext)
     {
-        this.haContext = provider.GetContext();
+        this.haContext = haContext;
         this.services = new Services(haContext);
         this.entities = new Entities(haContext);        
     }

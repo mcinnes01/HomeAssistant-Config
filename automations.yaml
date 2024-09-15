@@ -1041,12 +1041,13 @@
     entity_id:
     - input_select.bedroom_mode
     to: Sleeping
+    enabled: false
   action:
-  - service: switch.turn_on
-    metadata: {}
+  - metadata: {}
     data: {}
     target:
       entity_id: switch.bed_socket
+    action: switch.turn_on
   mode: single
 - id: '1708902994480'
   alias: Keep Basement Hall On

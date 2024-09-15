@@ -30,15 +30,10 @@ notify_alexa_everywhere:
 notify_all:
   alias: Notify All
   sequence:
-  - service: script.notify_alexa_everywhere
-    data_template:
+  - data_template:
       title: '{{title}}'
       message: '{{message}}'
-  - device_id: 32f46788cec66f0b092024e0cb01e5d6
-    domain: mobile_app
-    type: notify
-    message: '{{message}}'
-    title: '{{title}}'
+    action: script.notify_alexa_everywhere
   - device_id: 3cf9e880497a947bf86f81e62cdb9fc3
     domain: mobile_app
     type: notify

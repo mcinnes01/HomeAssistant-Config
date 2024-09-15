@@ -30,7 +30,7 @@
         },
         {
           "id": "light.basement_stairs_light",
-          "friendlyName": "Basement Stairs Light",
+          "friendlyName": null,
           "cSharpName": "BasementStairsLight"
         },
         {
@@ -557,7 +557,7 @@
         },
         {
           "id": "media_player.dining_room_radio",
-          "friendlyName": null,
+          "friendlyName": "Dining Room Radi",
           "cSharpName": "DiningRoomRadio"
         },
         {
@@ -659,11 +659,6 @@
           "id": "media_player.snug_radio",
           "friendlyName": null,
           "cSharpName": "SnugRadio"
-        },
-        {
-          "id": "media_player.spotify_andrew_mcinnes",
-          "friendlyName": "Spotify Andrew McInnes",
-          "cSharpName": "SpotifyAndrewMcinnes"
         },
         {
           "id": "media_player.studio_echo_dot",
@@ -963,6 +958,11 @@
           "jsonName": "next_state",
           "cSharpName": "NextState",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "previous_state",
+          "cSharpName": "PreviousState",
+          "clrType": "System.Object"
         }
       ]
     },
@@ -3759,6 +3759,26 @@
           "cSharpName": "_0xf082c0fffe3d9a0fIdentify"
         },
         {
+          "id": "button.andy_allocate_all_stat_points",
+          "friendlyName": "Andy Allocate all stat points",
+          "cSharpName": "AndyAllocateAllStatPoints"
+        },
+        {
+          "id": "button.andy_buy_a_health_potion",
+          "friendlyName": "Andy Buy a health potion",
+          "cSharpName": "AndyBuyAHealthPotion"
+        },
+        {
+          "id": "button.andy_revive_from_death",
+          "friendlyName": "Andy Revive from death",
+          "cSharpName": "AndyReviveFromDeath"
+        },
+        {
+          "id": "button.andy_start_my_day",
+          "friendlyName": "Andy Start my day",
+          "cSharpName": "AndyStartMyDay"
+        },
+        {
           "id": "button.basement_hall_lights_reboot",
           "friendlyName": "Shelly Basement Hall Lights Reboot",
           "cSharpName": "BasementHallLightsReboot"
@@ -3930,7 +3950,7 @@
         },
         {
           "id": "button.mark_dismiss_alert",
-          "friendlyName": "Mark Dismiss alert",
+          "friendlyName": "Dismiss alert",
           "cSharpName": "MarkDismissAlert"
         },
         {
@@ -4156,6 +4176,11 @@
           "cSharpName": "AndyWorkouts"
         },
         {
+          "id": "calendar.claire_workouts",
+          "friendlyName": "Claire Workouts",
+          "cSharpName": "ClaireWorkouts"
+        },
+        {
           "id": "calendar.contacts",
           "friendlyName": "Contacts",
           "cSharpName": "Contacts"
@@ -4259,7 +4284,7 @@
         },
         {
           "id": "camera.mark_cleaning_map",
-          "friendlyName": "Mark Cleaning map",
+          "friendlyName": "Cleaning map",
           "cSharpName": "MarkCleaningMap"
         },
         {
@@ -4338,6 +4363,11 @@
           "jsonName": "generated_at",
           "cSharpName": "GeneratedAt",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "restored",
+          "cSharpName": "Restored",
+          "clrType": "System.Boolean"
         }
       ]
     },
@@ -4499,6 +4529,16 @@
           "cSharpName": "_3020aa5ceb68973d973020aa5ceb68973d97"
         },
         {
+          "id": "device_tracker.41088dec_41088dec",
+          "friendlyName": "41088DEC 41088DEC",
+          "cSharpName": "_41088dec41088dec"
+        },
+        {
+          "id": "device_tracker.43542_33",
+          "friendlyName": "43542-33 ",
+          "cSharpName": "_4354233"
+        },
+        {
           "id": "device_tracker.49768dmi",
           "friendlyName": "49768DMI 49768DMI",
           "cSharpName": "_49768dmi"
@@ -4570,7 +4610,7 @@
         },
         {
           "id": "device_tracker.9mhy0000789m",
-          "friendlyName": "9MHY0000789M 9MHY0000789M",
+          "friendlyName": "9MHY0000789M ",
           "cSharpName": "_9mhy0000789m"
         },
         {
@@ -4592,6 +4632,11 @@
           "id": "device_tracker.ak300_13044_ak300_13044",
           "friendlyName": "AK300_13044 AK300_13044",
           "cSharpName": "Ak30013044Ak30013044"
+        },
+        {
+          "id": "device_tracker.ak300_28332_ak300_28332",
+          "friendlyName": "AK300_28332 AK300_28332",
+          "cSharpName": "Ak30028332Ak30028332"
         },
         {
           "id": "device_tracker.alubarika_alubarika",
@@ -4664,9 +4709,19 @@
           "cSharpName": "BlackSJblFBlackSJblF"
         },
         {
+          "id": "device_tracker.ble_camper_333_ble_camper_333",
+          "friendlyName": "BLE_Camper #333 BLE_Camper #333",
+          "cSharpName": "BleCamper333BleCamper333"
+        },
+        {
           "id": "device_tracker.ble_dezl_lgv",
           "friendlyName": "BLE_d\u0113zl LGV # BLE_d\u0113zl LGV #",
           "cSharpName": "BleDezlLgv"
+        },
+        {
+          "id": "device_tracker.ble_dezl_lgv_2",
+          "friendlyName": "BLE_d\u0113zl LGV # ",
+          "cSharpName": "BleDezlLgv2"
         },
         {
           "id": "device_tracker.ble_dezl_lgv_ble_dezl_lgv",
@@ -4675,13 +4730,18 @@
         },
         {
           "id": "device_tracker.ble_dezl_lgv_ble_dezl_lgv_2",
-          "friendlyName": "BLE_d\u0113zl LGV # BLE_d\u0113zl LGV #",
+          "friendlyName": "BLE_d\u0113zl LGV # ",
           "cSharpName": "BleDezlLgvBleDezlLgv2"
         },
         {
           "id": "device_tracker.ble_dezl_lgv_ble_dezl_lgv_3",
           "friendlyName": "BLE_d\u0113zl LGV # BLE_d\u0113zl LGV #",
           "cSharpName": "BleDezlLgvBleDezlLgv3"
+        },
+        {
+          "id": "device_tracker.ble_dezl_lgv_ble_dezl_lgv_4",
+          "friendlyName": "BLE_d\u0113zl LGV # BLE_d\u0113zl LGV #",
+          "cSharpName": "BleDezlLgvBleDezlLgv4"
         },
         {
           "id": "device_tracker.ble_dezl_lgv50_ble_dezl_lgv50",
@@ -4764,9 +4824,24 @@
           "cSharpName": "BleGarminDrivBleGarminDriv7"
         },
         {
+          "id": "device_tracker.ble_garmin_driv_ble_garmin_driv_8",
+          "friendlyName": "BLE_Garmin Driv BLE_Garmin Driv",
+          "cSharpName": "BleGarminDrivBleGarminDriv8"
+        },
+        {
+          "id": "device_tracker.ble_garmin_driv_ble_garmin_driv_9",
+          "friendlyName": "BLE_Garmin Driv BLE_Garmin Driv",
+          "cSharpName": "BleGarminDrivBleGarminDriv9"
+        },
+        {
           "id": "device_tracker.ble_joe_s_nav_ble_joe_s_nav",
           "friendlyName": "BLE_Joe\u0060s Nav BLE_Joe\u0060s Nav",
           "cSharpName": "BleJoeSNavBleJoeSNav"
+        },
+        {
+          "id": "device_tracker.ble_my_garmin_ble_my_garmin",
+          "friendlyName": "BLE_My Garmin BLE_My Garmin",
+          "cSharpName": "BleMyGarminBleMyGarmin"
         },
         {
           "id": "device_tracker.ble_wills_dezl_ble_wills_dezl",
@@ -4775,8 +4850,13 @@
         },
         {
           "id": "device_tracker.blinghelmet",
-          "friendlyName": "BlingHelmet BlingHelmet",
+          "friendlyName": "BlingHelmet ",
           "cSharpName": "Blinghelmet"
+        },
+        {
+          "id": "device_tracker.bottle_design_ea64_le_bottle_design_ea64_le",
+          "friendlyName": "Bottle Design (EA64) LE Bottle Design (EA64) LE",
+          "cSharpName": "BottleDesignEa64LeBottleDesignEa64Le"
         },
         {
           "id": "device_tracker.car",
@@ -4790,7 +4870,7 @@
         },
         {
           "id": "device_tracker.ccc3_ccc3",
-          "friendlyName": "CCC3 CCC3",
+          "friendlyName": "CCC3 ",
           "cSharpName": "Ccc3Ccc3"
         },
         {
@@ -4825,7 +4905,7 @@
         },
         {
           "id": "device_tracker.dell_mouse",
-          "friendlyName": "Dell Mouse Dell Mouse",
+          "friendlyName": "Dell Mouse ",
           "cSharpName": "DellMouse"
         },
         {
@@ -4934,6 +5014,11 @@
           "cSharpName": "ElkBl0ElkBl0"
         },
         {
+          "id": "device_tracker.elk_bl_8_elk_bl_8",
+          "friendlyName": "ELK_BL 8 ELK_BL 8",
+          "cSharpName": "ElkBl8ElkBl8"
+        },
+        {
           "id": "device_tracker.eml_l09_11_cloudclone",
           "friendlyName": "EML-L09%11%CloudClone EML-L09%11%CloudClone",
           "cSharpName": "EmlL0911Cloudclone"
@@ -4985,8 +5070,13 @@
         },
         {
           "id": "device_tracker.freelite",
-          "friendlyName": "FREELITE FREELITE",
+          "friendlyName": "FREELITE ",
           "cSharpName": "Freelite"
+        },
+        {
+          "id": "device_tracker.gaha09752",
+          "friendlyName": "GAHA09752          ",
+          "cSharpName": "Gaha09752"
         },
         {
           "id": "device_tracker.galaxy_watch_active_8f60_le",
@@ -4999,9 +5089,19 @@
           "cSharpName": "GalaxyWatch4X2pv"
         },
         {
+          "id": "device_tracker.gen3_gen3",
+          "friendlyName": "gen3 gen3",
+          "cSharpName": "Gen3Gen3"
+        },
+        {
           "id": "device_tracker.gh52_le_gh52_le",
           "friendlyName": "GH52_LE GH52_LE",
           "cSharpName": "Gh52LeGh52Le"
+        },
+        {
+          "id": "device_tracker.go_3s_3c79kk_go_3s_3c79kk",
+          "friendlyName": "GO 3S 3C79KK GO 3S 3C79KK",
+          "cSharpName": "Go3s3c79kkGo3s3c79kk"
         },
         {
           "id": "device_tracker.go_3s_5rcuyt_go_3s_5rcuyt",
@@ -5019,9 +5119,19 @@
           "cSharpName": "HauserClaire"
         },
         {
+          "id": "device_tracker.hi_pr_2237001603_hi_pr_2237001603",
+          "friendlyName": "HI_PR_2237001603 HI_PR_2237001603",
+          "cSharpName": "HiPr2237001603HiPr2237001603"
+        },
+        {
           "id": "device_tracker.hrmpro_555136_hrmpro_555136",
           "friendlyName": "HRMPro\u002B:555136 HRMPro\u002B:555136",
           "cSharpName": "Hrmpro555136Hrmpro555136"
+        },
+        {
+          "id": "device_tracker.id152_id152",
+          "friendlyName": "ID152 ID152",
+          "cSharpName": "Id152Id152"
         },
         {
           "id": "device_tracker.id205l_id205l",
@@ -5037,6 +5147,11 @@
           "id": "device_tracker.inspire_2",
           "friendlyName": "Inspire 2 Inspire 2",
           "cSharpName": "Inspire2"
+        },
+        {
+          "id": "device_tracker.instinct_2_solar_instinct_2_solar",
+          "friendlyName": "Instinct 2 Solar Instinct 2 Solar",
+          "cSharpName": "Instinct2SolarInstinct2Solar"
         },
         {
           "id": "device_tracker.instinct_solar",
@@ -5120,7 +5235,7 @@
         },
         {
           "id": "device_tracker.jabra",
-          "friendlyName": "Jabra Jabra",
+          "friendlyName": "Jabra ",
           "cSharpName": "Jabra"
         },
         {
@@ -5179,9 +5294,19 @@
           "cSharpName": "LairdBl600LairdBl600"
         },
         {
+          "id": "device_tracker.ldl_1406926_b4b1e104_ldl_1406926_b4b1e104",
+          "friendlyName": "LDL-1406926-B4B1E104 LDL-1406926-B4B1E104",
+          "cSharpName": "Ldl1406926B4b1e104Ldl1406926B4b1e104"
+        },
+        {
           "id": "device_tracker.ldl_1406934_92cde1c9_ldl_1406934_92cde1c9",
           "friendlyName": "LDL-1406934-92CDE1C9 LDL-1406934-92CDE1C9",
           "cSharpName": "Ldl140693492cde1c9Ldl140693492cde1c9"
+        },
+        {
+          "id": "device_tracker.ldl_1406934_bac5e05d_ldl_1406934_bac5e05d",
+          "friendlyName": "LDL-1406934-BAC5E05D LDL-1406934-BAC5E05D",
+          "cSharpName": "Ldl1406934Bac5e05dLdl1406934Bac5e05d"
         },
         {
           "id": "device_tracker.ldl_1406934_bac5e290_ldl_1406934_bac5e290",
@@ -5200,7 +5325,7 @@
         },
         {
           "id": "device_tracker.le_headset",
-          "friendlyName": "LE-Headset LE-Headset",
+          "friendlyName": "LE-Headset ",
           "cSharpName": "LeHeadset"
         },
         {
@@ -5230,12 +5355,12 @@
         },
         {
           "id": "device_tracker.le_philips_tah5205",
-          "friendlyName": "LE-Philips TAH5205 LE-Philips TAH5205",
+          "friendlyName": "LE-Philips TAH5205 ",
           "cSharpName": "LePhilipsTah5205"
         },
         {
           "id": "device_tracker.le_wf_1000xm4",
-          "friendlyName": "LE_WF-1000XM4 LE_WF-1000XM4",
+          "friendlyName": "LE_WF-1000XM4 ",
           "cSharpName": "LeWf1000xm4"
         },
         {
@@ -5245,17 +5370,17 @@
         },
         {
           "id": "device_tracker.le_wf_c500",
-          "friendlyName": "LE_WF-C500 LE_WF-C500",
+          "friendlyName": "LE_WF-C500 ",
           "cSharpName": "LeWfC500"
         },
         {
           "id": "device_tracker.le_wh_1000xm4",
-          "friendlyName": "LE_WH-1000XM4 LE_WH-1000XM4",
+          "friendlyName": "LE_WH-1000XM4 ",
           "cSharpName": "LeWh1000xm4"
         },
         {
           "id": "device_tracker.le_wh_1000xm5",
-          "friendlyName": "LE_WH-1000XM5 LE_WH-1000XM5",
+          "friendlyName": "LE_WH-1000XM5 ",
           "cSharpName": "LeWh1000xm5"
         },
         {
@@ -5265,13 +5390,18 @@
         },
         {
           "id": "device_tracker.le_wh_xb910n",
-          "friendlyName": "LE_WH-XB910N LE_WH-XB910N",
+          "friendlyName": "LE_WH-XB910N ",
           "cSharpName": "LeWhXb910n"
         },
         {
           "id": "device_tracker.le_wi_c100",
           "friendlyName": "LE_WI-C100 LE_WI-C100",
           "cSharpName": "LeWiC100"
+        },
+        {
+          "id": "device_tracker.lg_tone_fp5_le_lg_tone_fp5_le",
+          "friendlyName": "LG-TONE-FP5_LE LG-TONE-FP5_LE",
+          "cSharpName": "LgToneFp5LeLgToneFp5Le"
         },
         {
           "id": "device_tracker.lg_tone_fp9_le",
@@ -5285,12 +5415,12 @@
         },
         {
           "id": "device_tracker.lumosks2_lumosks2",
-          "friendlyName": "LumosKS2 LumosKS2",
+          "friendlyName": "LumosKS2 ",
           "cSharpName": "Lumosks2Lumosks2"
         },
         {
           "id": "device_tracker.lumosltis",
-          "friendlyName": "LumosLTIS LumosLTIS",
+          "friendlyName": "LumosLTIS ",
           "cSharpName": "Lumosltis"
         },
         {
@@ -5305,7 +5435,7 @@
         },
         {
           "id": "device_tracker.mi_mi",
-          "friendlyName": "Mi Mi",
+          "friendlyName": "Mi ",
           "cSharpName": "MiMi"
         },
         {
@@ -5347,6 +5477,11 @@
           "id": "device_tracker.niu_6261_niu_6261",
           "friendlyName": "NIU_6261 NIU_6261",
           "cSharpName": "Niu6261Niu6261"
+        },
+        {
+          "id": "device_tracker.obt15e574_obt15e574",
+          "friendlyName": "OBT15E574 OBT15E574",
+          "cSharpName": "Obt15e574Obt15e574"
         },
         {
           "id": "device_tracker.oneplus_nord2_lg",
@@ -5394,9 +5529,19 @@
           "cSharpName": "PolarH10Ceb3602ePolarH10Ceb3602e"
         },
         {
+          "id": "device_tracker.r_ace_42_r_ace_42",
+          "friendlyName": "R_ACE_42 R_ACE_42",
+          "cSharpName": "RAce42RAce42"
+        },
+        {
           "id": "device_tracker.r_ace_51_r_ace_51",
           "friendlyName": "R_ACE_51 R_ACE_51",
           "cSharpName": "RAce51RAce51"
+        },
+        {
+          "id": "device_tracker.rct715_rct715",
+          "friendlyName": "RCT715 ",
+          "cSharpName": "Rct715Rct715"
         },
         {
           "id": "device_tracker.red_red",
@@ -5455,7 +5600,7 @@
         },
         {
           "id": "device_tracker.se5000_0763242496_se5000_0763242496",
-          "friendlyName": "SE5000-0763242496 SE5000-0763242496",
+          "friendlyName": "SE5000-0763242496 ",
           "cSharpName": "Se50000763242496Se50000763242496"
         },
         {
@@ -5467,6 +5612,11 @@
           "id": "device_tracker.se5000_1054287616_se5000_1054287616",
           "friendlyName": "SE5000-1054287616 SE5000-1054287616",
           "cSharpName": "Se50001054287616Se50001054287616"
+        },
+        {
+          "id": "device_tracker.se5000_1294149888_se5000_1294149888",
+          "friendlyName": "SE5000-1294149888 SE5000-1294149888",
+          "cSharpName": "Se50001294149888Se50001294149888"
         },
         {
           "id": "device_tracker.se5000_1489053184_se5000_1489053184",
@@ -5517,6 +5667,11 @@
           "id": "device_tracker.se5000_3771410176_se5000_3771410176",
           "friendlyName": "SE5000-3771410176 SE5000-3771410176",
           "cSharpName": "Se50003771410176Se50003771410176"
+        },
+        {
+          "id": "device_tracker.se5000_3941410560_se5000_3941410560",
+          "friendlyName": "SE5000-3941410560 SE5000-3941410560",
+          "cSharpName": "Se50003941410560Se50003941410560"
         },
         {
           "id": "device_tracker.se5000_4192872192_se5000_4192872192",
@@ -5599,6 +5754,11 @@
           "cSharpName": "TozoTonalDotsTozoTonalDots"
         },
         {
+          "id": "device_tracker.truefree_truefree",
+          "friendlyName": "TRUEFREE TRUEFREE",
+          "cSharpName": "TruefreeTruefree"
+        },
+        {
           "id": "device_tracker.ultrapvt",
           "friendlyName": "UltraPVT UltraPVT",
           "cSharpName": "Ultrapvt"
@@ -5645,7 +5805,7 @@
         },
         {
           "id": "device_tracker.whoop_4c0383345_whoop_4c0383345",
-          "friendlyName": "WHOOP 4C0383345 WHOOP 4C0383345",
+          "friendlyName": "WHOOP 4C0383345 ",
           "cSharpName": "Whoop4c0383345Whoop4c0383345"
         },
         {
@@ -5664,9 +5824,34 @@
           "cSharpName": "Whoop4c0735605"
         },
         {
+          "id": "device_tracker.whoop_4c0869762_whoop_4c0869762",
+          "friendlyName": "WHOOP 4C0869762 WHOOP 4C0869762",
+          "cSharpName": "Whoop4c0869762Whoop4c0869762"
+        },
+        {
+          "id": "device_tracker.whoop_4c1074310_whoop_4c1074310",
+          "friendlyName": "WHOOP 4C1074310 WHOOP 4C1074310",
+          "cSharpName": "Whoop4c1074310Whoop4c1074310"
+        },
+        {
+          "id": "device_tracker.whoop_4c1275131_whoop_4c1275131",
+          "friendlyName": "WHOOP 4C1275131 WHOOP 4C1275131",
+          "cSharpName": "Whoop4c1275131Whoop4c1275131"
+        },
+        {
+          "id": "device_tracker.whoop_lexi_whoo",
+          "friendlyName": "WHOOP LEXI WHOO ",
+          "cSharpName": "WhoopLexiWhoo"
+        },
+        {
           "id": "device_tracker.wllink_6e9c_wllink_6e9c",
           "friendlyName": "WLLINK-6E9C WLLINK-6E9C",
           "cSharpName": "Wllink6e9cWllink6e9c"
+        },
+        {
+          "id": "device_tracker.wllink_bd7f",
+          "friendlyName": "WLLINK-BD7F ",
+          "cSharpName": "WllinkBd7f"
         },
         {
           "id": "device_tracker.wsbc025093546s_wsbc025093546s",
@@ -5675,7 +5860,7 @@
         },
         {
           "id": "device_tracker.xp_pp_04e35a",
-          "friendlyName": "Claire IPhone Claire IPhone",
+          "friendlyName": "Claire IPhone ",
           "cSharpName": "XpPp04e35a"
         },
         {
@@ -5690,7 +5875,7 @@
         },
         {
           "id": "device_tracker.yt",
-          "friendlyName": "YT* YT*",
+          "friendlyName": "YT* ",
           "cSharpName": "Yt"
         }
       ],
@@ -7461,6 +7646,16 @@
           "cSharpName": "AndyBreathingDisturbancesIntensity"
         },
         {
+          "id": "sensor.andy_class",
+          "friendlyName": "Andy Class",
+          "cSharpName": "AndyClass"
+        },
+        {
+          "id": "sensor.andy_display_name",
+          "friendlyName": "Andy Display name",
+          "cSharpName": "AndyDisplayName"
+        },
+        {
           "id": "sensor.andy_last_workout_intensity",
           "friendlyName": "Andy Last workout intensity",
           "cSharpName": "AndyLastWorkoutIntensity"
@@ -7469,6 +7664,11 @@
           "id": "sensor.andy_last_workout_type",
           "friendlyName": "Andy Last workout type",
           "cSharpName": "AndyLastWorkoutType"
+        },
+        {
+          "id": "sensor.andy_level",
+          "friendlyName": "Andy Level",
+          "cSharpName": "AndyLevel"
         },
         {
           "id": "sensor.andy_snoring",
@@ -7551,6 +7751,16 @@
           "cSharpName": "ClaireBreathingDisturbancesIntensity"
         },
         {
+          "id": "sensor.claire_last_workout_intensity",
+          "friendlyName": "Claire Last workout intensity",
+          "cSharpName": "ClaireLastWorkoutIntensity"
+        },
+        {
+          "id": "sensor.claire_last_workout_type",
+          "friendlyName": "Claire Last workout type",
+          "cSharpName": "ClaireLastWorkoutType"
+        },
+        {
           "id": "sensor.claire_snoring",
           "friendlyName": "Claire Snoring",
           "cSharpName": "ClaireSnoring"
@@ -7559,6 +7769,16 @@
           "id": "sensor.claire_snoring_episode_count",
           "friendlyName": "Claire Snoring episode count",
           "cSharpName": "ClaireSnoringEpisodeCount"
+        },
+        {
+          "id": "sensor.claireiphone_app_version",
+          "friendlyName": "claireiphone App Version",
+          "cSharpName": "ClaireiphoneAppVersion"
+        },
+        {
+          "id": "sensor.claireiphone_location_permission",
+          "friendlyName": "claireiphone Location permission",
+          "cSharpName": "ClaireiphoneLocationPermission"
         },
         {
           "id": "sensor.claireiphone_sim_2",
@@ -7687,12 +7907,12 @@
         },
         {
           "id": "sensor.epson_xp_950_series",
-          "friendlyName": null,
+          "friendlyName": "EPSON XP-950 Series",
           "cSharpName": "EpsonXp950Series"
         },
         {
           "id": "sensor.epson_xp_950_series_uptime",
-          "friendlyName": "Uptime",
+          "friendlyName": "EPSON XP-950 Series Uptime",
           "cSharpName": "EpsonXp950SeriesUptime"
         },
         {
@@ -9321,6 +9541,11 @@
           "jsonName": "1ca92e23-f087-4df7-b9a2-fd4b716a4bf6_347_0",
           "cSharpName": "_1ca92e23f0874df7b9a2fd4b716a4bf63470",
           "clrType": "System.Double"
+        },
+        {
+          "jsonName": "timer",
+          "cSharpName": "Timer",
+          "clrType": "System.Object"
         }
       ]
     },
@@ -9444,6 +9669,11 @@
           "cSharpName": "AndyCaloriesBurntLastWorkout"
         },
         {
+          "id": "sensor.andy_dailies",
+          "friendlyName": "Andy Dailies",
+          "cSharpName": "AndyDailies"
+        },
+        {
           "id": "sensor.andy_deep_sleep",
           "friendlyName": "Andy Deep sleep",
           "cSharpName": "AndyDeepSleep"
@@ -9462,6 +9692,11 @@
           "id": "sensor.andy_distance_travelled_today",
           "friendlyName": "Andy Distance travelled today",
           "cSharpName": "AndyDistanceTravelledToday"
+        },
+        {
+          "id": "sensor.andy_experience",
+          "friendlyName": "Andy Experience",
+          "cSharpName": "AndyExperience"
         },
         {
           "id": "sensor.andy_fat_free_mass",
@@ -9487,6 +9722,21 @@
           "id": "sensor.andy_floors_climbed_today",
           "friendlyName": "Andy Elevation change today",
           "cSharpName": "AndyFloorsClimbedToday"
+        },
+        {
+          "id": "sensor.andy_gold",
+          "friendlyName": "Andy Gold",
+          "cSharpName": "AndyGold"
+        },
+        {
+          "id": "sensor.andy_habits",
+          "friendlyName": "Andy Habits",
+          "cSharpName": "AndyHabits"
+        },
+        {
+          "id": "sensor.andy_health",
+          "friendlyName": "Andy Health",
+          "cSharpName": "AndyHealth"
         },
         {
           "id": "sensor.andy_heart_pulse",
@@ -9519,6 +9769,21 @@
           "cSharpName": "AndyLightSleep"
         },
         {
+          "id": "sensor.andy_mana",
+          "friendlyName": "Andy Mana",
+          "cSharpName": "AndyMana"
+        },
+        {
+          "id": "sensor.andy_max_health",
+          "friendlyName": "Andy Max. health",
+          "cSharpName": "AndyMaxHealth"
+        },
+        {
+          "id": "sensor.andy_max_mana",
+          "friendlyName": "Andy Max. mana",
+          "cSharpName": "AndyMaxMana"
+        },
+        {
           "id": "sensor.andy_maximum_heart_rate",
           "friendlyName": "Andy Maximum heart rate",
           "cSharpName": "AndyMaximumHeartRate"
@@ -9549,6 +9814,11 @@
           "cSharpName": "AndyMuscleMass"
         },
         {
+          "id": "sensor.andy_next_level",
+          "friendlyName": "Andy Next level",
+          "cSharpName": "AndyNextLevel"
+        },
+        {
           "id": "sensor.andy_pause_during_last_workout",
           "friendlyName": "Andy Pause during last workout",
           "cSharpName": "AndyPauseDuringLastWorkout"
@@ -9562,6 +9832,11 @@
           "id": "sensor.andy_rem_sleep",
           "friendlyName": "Andy REM sleep",
           "cSharpName": "AndyRemSleep"
+        },
+        {
+          "id": "sensor.andy_rewards",
+          "friendlyName": "Andy Rewards",
+          "cSharpName": "AndyRewards"
         },
         {
           "id": "sensor.andy_skin_temperature",
@@ -9612,6 +9887,11 @@
           "id": "sensor.andy_time_to_wakeup",
           "friendlyName": "Andy Time to wakeup",
           "cSharpName": "AndyTimeToWakeup"
+        },
+        {
+          "id": "sensor.andy_to_do_s",
+          "friendlyName": "Andy To-Do\u0027s",
+          "cSharpName": "AndyToDoS"
         },
         {
           "id": "sensor.andy_total_calories_burnt_today",
@@ -10199,6 +10479,16 @@
           "cSharpName": "CellarDoorLightVoltage"
         },
         {
+          "id": "sensor.claire_active_calories_burnt_today",
+          "friendlyName": "Claire Active calories burnt today",
+          "cSharpName": "ClaireActiveCaloriesBurntToday"
+        },
+        {
+          "id": "sensor.claire_active_time_today",
+          "friendlyName": "Claire Active time today",
+          "cSharpName": "ClaireActiveTimeToday"
+        },
+        {
           "id": "sensor.claire_average_heart_rate",
           "friendlyName": "Claire Average heart rate",
           "cSharpName": "ClaireAverageHeartRate"
@@ -10215,8 +10505,13 @@
         },
         {
           "id": "sensor.claire_bone_mass",
-          "friendlyName": "Bone mass",
+          "friendlyName": "Claire Bone mass",
           "cSharpName": "ClaireBoneMass"
+        },
+        {
+          "id": "sensor.claire_calories_burnt_last_workout",
+          "friendlyName": "Claire Calories burnt last workout",
+          "cSharpName": "ClaireCaloriesBurntLastWorkout"
         },
         {
           "id": "sensor.claire_deep_sleep",
@@ -10229,18 +10524,38 @@
           "cSharpName": "ClaireDiastolicBloodPressure"
         },
         {
+          "id": "sensor.claire_distance_travelled_last_workout",
+          "friendlyName": "Claire Distance travelled last workout",
+          "cSharpName": "ClaireDistanceTravelledLastWorkout"
+        },
+        {
+          "id": "sensor.claire_distance_travelled_today",
+          "friendlyName": "Claire Distance travelled today",
+          "cSharpName": "ClaireDistanceTravelledToday"
+        },
+        {
+          "id": "sensor.claire_elevation_change_last_workout",
+          "friendlyName": "Claire Elevation change last workout",
+          "cSharpName": "ClaireElevationChangeLastWorkout"
+        },
+        {
+          "id": "sensor.claire_elevation_change_today",
+          "friendlyName": "Claire Elevation change today",
+          "cSharpName": "ClaireElevationChangeToday"
+        },
+        {
           "id": "sensor.claire_fat_free_mass",
-          "friendlyName": "Fat free mass",
+          "friendlyName": "Claire Fat free mass",
           "cSharpName": "ClaireFatFreeMass"
         },
         {
           "id": "sensor.claire_fat_mass",
-          "friendlyName": "Fat mass",
+          "friendlyName": "Claire Fat mass",
           "cSharpName": "ClaireFatMass"
         },
         {
           "id": "sensor.claire_fat_ratio",
-          "friendlyName": "Fat ratio",
+          "friendlyName": "Claire Fat ratio",
           "cSharpName": "ClaireFatRatio"
         },
         {
@@ -10255,8 +10570,13 @@
         },
         {
           "id": "sensor.claire_hydration",
-          "friendlyName": "Hydration",
+          "friendlyName": "Claire Hydration",
           "cSharpName": "ClaireHydration"
+        },
+        {
+          "id": "sensor.claire_last_workout_duration",
+          "friendlyName": "Claire Last workout duration",
+          "cSharpName": "ClaireLastWorkoutDuration"
         },
         {
           "id": "sensor.claire_light_sleep",
@@ -10285,8 +10605,13 @@
         },
         {
           "id": "sensor.claire_muscle_mass",
-          "friendlyName": "Muscle mass",
+          "friendlyName": "Claire Muscle mass",
           "cSharpName": "ClaireMuscleMass"
+        },
+        {
+          "id": "sensor.claire_pause_during_last_workout",
+          "friendlyName": "Claire Pause during last workout",
+          "cSharpName": "ClairePauseDuringLastWorkout"
         },
         {
           "id": "sensor.claire_pulse_wave_velocity",
@@ -10314,6 +10639,11 @@
           "cSharpName": "ClaireSpo2"
         },
         {
+          "id": "sensor.claire_steps_today",
+          "friendlyName": "Claire Steps today",
+          "cSharpName": "ClaireStepsToday"
+        },
+        {
           "id": "sensor.claire_systolic_blood_pressure",
           "friendlyName": "Systolic blood pressure",
           "cSharpName": "ClaireSystolicBloodPressure"
@@ -10334,6 +10664,11 @@
           "cSharpName": "ClaireTimeToWakeup"
         },
         {
+          "id": "sensor.claire_total_calories_burnt_today",
+          "friendlyName": "Claire Total calories burnt today",
+          "cSharpName": "ClaireTotalCaloriesBurntToday"
+        },
+        {
           "id": "sensor.claire_wakeup_count",
           "friendlyName": "Claire Wakeup count",
           "cSharpName": "ClaireWakeupCount"
@@ -10345,13 +10680,18 @@
         },
         {
           "id": "sensor.claire_weight",
-          "friendlyName": "Weight",
+          "friendlyName": "Claire Weight",
           "cSharpName": "ClaireWeight"
         },
         {
           "id": "sensor.claireiphone_battery_2",
           "friendlyName": "claireiphone Battery",
           "cSharpName": "ClaireiphoneBattery2"
+        },
+        {
+          "id": "sensor.claireiphone_watch_battery",
+          "friendlyName": "claireiphone Watch Battery",
+          "cSharpName": "ClaireiphoneWatchBattery"
         },
         {
           "id": "sensor.claires_apple_watch_battery",
@@ -10635,32 +10975,32 @@
         },
         {
           "id": "sensor.epson_xp_950_series_black_ink",
-          "friendlyName": "Black ink",
+          "friendlyName": "EPSON XP-950 Series Black ink",
           "cSharpName": "EpsonXp950SeriesBlackInk"
         },
         {
           "id": "sensor.epson_xp_950_series_cyan_ink",
-          "friendlyName": "Cyan ink",
+          "friendlyName": "EPSON XP-950 Series Cyan ink",
           "cSharpName": "EpsonXp950SeriesCyanInk"
         },
         {
           "id": "sensor.epson_xp_950_series_light_cyan_ink",
-          "friendlyName": "Light Cyan ink",
+          "friendlyName": "EPSON XP-950 Series Light Cyan ink",
           "cSharpName": "EpsonXp950SeriesLightCyanInk"
         },
         {
           "id": "sensor.epson_xp_950_series_light_magenta_ink",
-          "friendlyName": "Light Magenta ink",
+          "friendlyName": "EPSON XP-950 Series Light Magenta ink",
           "cSharpName": "EpsonXp950SeriesLightMagentaInk"
         },
         {
           "id": "sensor.epson_xp_950_series_magenta_ink",
-          "friendlyName": "Magenta ink",
+          "friendlyName": "EPSON XP-950 Series Magenta ink",
           "cSharpName": "EpsonXp950SeriesMagentaInk"
         },
         {
           "id": "sensor.epson_xp_950_series_yellow_ink",
-          "friendlyName": "Yellow ink",
+          "friendlyName": "EPSON XP-950 Series Yellow ink",
           "cSharpName": "EpsonXp950SeriesYellowInk"
         },
         {
@@ -10877,11 +11217,6 @@
           "id": "sensor.guest_room_switch_battery",
           "friendlyName": "Guest Room Switch Battery",
           "cSharpName": "GuestRoomSwitchBattery"
-        },
-        {
-          "id": "sensor.hacs",
-          "friendlyName": "hacs",
-          "cSharpName": "Hacs"
         },
         {
           "id": "sensor.hallway_camera_disk_write_rate",
@@ -11695,7 +12030,7 @@
         },
         {
           "id": "sensor.mark_battery",
-          "friendlyName": "Mark Battery",
+          "friendlyName": "Battery",
           "cSharpName": "MarkBattery"
         },
         {
@@ -15579,6 +15914,61 @@
           "jsonName": "bbc.mobile.news.uk_1003_post_time",
           "cSharpName": "Bbc_mobile_news_uk1003PostTime",
           "clrType": "System.Double"
+        },
+        {
+          "jsonName": "c3c31f0c-a234-4910-9526-5ab6c3b48575",
+          "cSharpName": "C3c31f0ca234491095265ab6c3b48575",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "ed8c563f-58cc-43fe-8ab4-c78455eb9ed2",
+          "cSharpName": "Ed8c563f58cc43fe8ab4c78455eb9ed2",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "65fc9310-12be-4795-8cf1-21431534c665",
+          "cSharpName": "_65fc931012be47958cf121431534c665",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "70c5a42f-8a91-4cc9-aef9-e9e357501b9a",
+          "cSharpName": "_70c5a42f8a914cc9aef9e9e357501b9a",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "1e209eb7-d5be-4432-8fe0-545b9f523c4d",
+          "cSharpName": "_1e209eb7d5be44328fe0545b9f523c4d",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "a68f6e19-084b-4138-b46b-1ddbdb7b192d",
+          "cSharpName": "A68f6e19084b4138b46b1ddbdb7b192d",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "e2ef3727-83ef-4cd0-ae20-1a989b270652",
+          "cSharpName": "E2ef372783ef4cd0ae201a989b270652",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "ca97d32c-3cc2-4c6b-95d0-73f79a9ada1a",
+          "cSharpName": "Ca97d32c3cc24c6b95d073f79a9ada1a",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "2b0d7043-b177-4e50-a7cd-d2cce1e0ffad",
+          "cSharpName": "_2b0d7043b1774e50a7cdd2cce1e0ffad",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "7de97833-f918-433c-b850-520963bbb6ba",
+          "cSharpName": "_7de97833f918433cb850520963bbb6ba",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "49256a1d-e7ef-47d3-bb39-02139d929425",
+          "cSharpName": "_49256a1de7ef47d3bb3902139d929425",
+          "clrType": "System.Object"
         }
       ]
     },
@@ -15695,6 +16085,16 @@
           "cSharpName": "AdguardSafeSearch"
         },
         {
+          "id": "switch.alarmo_card_pre_release",
+          "friendlyName": "Alarmo Card Pre-release",
+          "cSharpName": "AlarmoCardPreRelease"
+        },
+        {
+          "id": "switch.alarmo_pre_release",
+          "friendlyName": "Alarmo Pre-release",
+          "cSharpName": "AlarmoPreRelease"
+        },
+        {
           "id": "switch.all_speakers_do_not_disturb_switch",
           "friendlyName": "All Speakers do not disturb switch",
           "cSharpName": "AllSpeakersDoNotDisturbSwitch"
@@ -15708,6 +16108,11 @@
           "id": "switch.all_speakers_shuffle_switch",
           "friendlyName": "All Speakers shuffle switch",
           "cSharpName": "AllSpeakersShuffleSwitch"
+        },
+        {
+          "id": "switch.analog_clock_pre_release",
+          "friendlyName": "Analog Clock Pre-release",
+          "cSharpName": "AnalogClockPreRelease"
         },
         {
           "id": "switch.andrew_s_echo_buds_do_not_disturb_switch",
@@ -15743,6 +16148,11 @@
           "id": "switch.andrew_s_samsung_tv_2020_u_shuffle_switch",
           "friendlyName": "Andrew\u0027s Samsung TV 2020-U shuffle switch",
           "cSharpName": "AndrewSSamsungTv2020UShuffleSwitch"
+        },
+        {
+          "id": "switch.andy_rest_in_the_inn",
+          "friendlyName": "Andy Rest in the inn",
+          "cSharpName": "AndyRestInTheInn"
         },
         {
           "id": "switch.backdoor_light",
@@ -15843,6 +16253,11 @@
           "id": "switch.bedroom_light",
           "friendlyName": "Bedroom Light",
           "cSharpName": "BedroomLight"
+        },
+        {
+          "id": "switch.better_thermostat_ui_pre_release",
+          "friendlyName": "Better Thermostat UI Pre-release",
+          "cSharpName": "BetterThermostatUiPreRelease"
         },
         {
           "id": "switch.cellar_door",
@@ -16255,6 +16670,11 @@
           "cSharpName": "LightManagerLounge"
         },
         {
+          "id": "switch.light_manager_porch",
+          "friendlyName": "Light Manager porch",
+          "cSharpName": "LightManagerPorch"
+        },
+        {
           "id": "switch.light_manager_studio",
           "friendlyName": "Light Manager studio",
           "cSharpName": "LightManagerStudio"
@@ -16291,8 +16711,23 @@
         },
         {
           "id": "switch.mark_schedule",
-          "friendlyName": "Mark Schedule",
+          "friendlyName": "Schedule",
           "cSharpName": "MarkSchedule"
+        },
+        {
+          "id": "switch.meross_integration_pre_release",
+          "friendlyName": "Meross Integration Pre-release",
+          "cSharpName": "MerossIntegrationPreRelease"
+        },
+        {
+          "id": "switch.meross_lan_pre_release",
+          "friendlyName": "Meross LAN Pre-release",
+          "cSharpName": "MerossLanPreRelease"
+        },
+        {
+          "id": "switch.mini_graph_card_pre_release",
+          "friendlyName": "mini-graph-card Pre-release",
+          "cSharpName": "MiniGraphCardPreRelease"
         },
         {
           "id": "switch.mirror_light",
@@ -16303,6 +16738,11 @@
           "id": "switch.mixing_desk",
           "friendlyName": "Mixing Desk",
           "cSharpName": "MixingDesk"
+        },
+        {
+          "id": "switch.netdaemon_pre_release",
+          "friendlyName": "NetDaemon Pre-release",
+          "cSharpName": "NetdaemonPreRelease"
         },
         {
           "id": "switch.nspanel_confirmation_message",
@@ -16353,6 +16793,11 @@
           "id": "switch.nspanel_update_tft_display",
           "friendlyName": "nspanel Update TFT display",
           "cSharpName": "NspanelUpdateTftDisplay"
+        },
+        {
+          "id": "switch.octopus_energy_pre_release",
+          "friendlyName": "Octopus Energy Pre-release",
+          "cSharpName": "OctopusEnergyPreRelease"
         },
         {
           "id": "switch.offices_do_not_disturb_switch",
@@ -16575,6 +17020,11 @@
           "cSharpName": "UpstairsShuffleSwitch"
         },
         {
+          "id": "switch.uptime_card_pre_release",
+          "friendlyName": "Uptime Card Pre-release",
+          "cSharpName": "UptimeCardPreRelease"
+        },
+        {
           "id": "switch.utility_room_echo_dot_do_not_disturb_switch",
           "friendlyName": "Utility Room Echo Dot do not disturb switch",
           "cSharpName": "UtilityRoomEchoDotDoNotDisturbSwitch"
@@ -16588,6 +17038,21 @@
           "id": "switch.utility_room_echo_dot_shuffle_switch",
           "friendlyName": "Utility Room Echo Dot shuffle switch",
           "cSharpName": "UtilityRoomEchoDotShuffleSwitch"
+        },
+        {
+          "id": "switch.vacuum_card_pre_release",
+          "friendlyName": "Vacuum Card Pre-release",
+          "cSharpName": "VacuumCardPreRelease"
+        },
+        {
+          "id": "switch.wallpanel_pre_release",
+          "friendlyName": "WallPanel Pre-release",
+          "cSharpName": "WallpanelPreRelease"
+        },
+        {
+          "id": "switch.waste_collection_schedule_pre_release",
+          "friendlyName": "Waste Collection Schedule Pre-release",
+          "cSharpName": "WasteCollectionSchedulePreRelease"
         },
         {
           "id": "switch.zigbee2mqtt_bridge_permit_join",
@@ -16861,6 +17326,16 @@
       "domain": "todo",
       "entities": [
         {
+          "id": "todo.andy_dailies",
+          "friendlyName": "Andy Dailies",
+          "cSharpName": "AndyDailies"
+        },
+        {
+          "id": "todo.andy_to_do_s",
+          "friendlyName": "Andy To-Do\u0027s",
+          "cSharpName": "AndyToDoS"
+        },
+        {
           "id": "todo.diy_tasks",
           "friendlyName": "Diy tasks",
           "cSharpName": "DiyTasks"
@@ -16925,6 +17400,46 @@
           "cSharpName": "AdguardHomeUpdate"
         },
         {
+          "id": "update.alarmo_card_update",
+          "friendlyName": "Alarmo Card update",
+          "cSharpName": "AlarmoCardUpdate"
+        },
+        {
+          "id": "update.alarmo_update",
+          "friendlyName": "Alarmo update",
+          "cSharpName": "AlarmoUpdate"
+        },
+        {
+          "id": "update.alexa_media_player_update",
+          "friendlyName": "Alexa Media Player update",
+          "cSharpName": "AlexaMediaPlayerUpdate"
+        },
+        {
+          "id": "update.analog_clock_update",
+          "friendlyName": "Analog Clock update",
+          "cSharpName": "AnalogClockUpdate"
+        },
+        {
+          "id": "update.apexcharts_card_update",
+          "friendlyName": "apexcharts-card update",
+          "cSharpName": "ApexchartsCardUpdate"
+        },
+        {
+          "id": "update.auto_entities_update",
+          "friendlyName": "auto-entities update",
+          "cSharpName": "AutoEntitiesUpdate"
+        },
+        {
+          "id": "update.banner_card_update",
+          "friendlyName": "Banner Card update",
+          "cSharpName": "BannerCardUpdate"
+        },
+        {
+          "id": "update.bar_card_update",
+          "friendlyName": "Bar Card update",
+          "cSharpName": "BarCardUpdate"
+        },
+        {
           "id": "update.basement_hall_lights_firmware_update",
           "friendlyName": "Shelly Basement Hall Lights firmware update",
           "cSharpName": "BasementHallLightsFirmwareUpdate"
@@ -16950,9 +17465,29 @@
           "cSharpName": "BedroomSwitch"
         },
         {
+          "id": "update.better_thermostat_ui_update",
+          "friendlyName": "Better Thermostat UI update",
+          "cSharpName": "BetterThermostatUiUpdate"
+        },
+        {
+          "id": "update.button_card_update",
+          "friendlyName": "button-card update",
+          "cSharpName": "ButtonCardUpdate"
+        },
+        {
+          "id": "update.charger_card_update",
+          "friendlyName": "Charger Card update",
+          "cSharpName": "ChargerCardUpdate"
+        },
+        {
           "id": "update.coffee_machine",
           "friendlyName": "Coffee Machine",
           "cSharpName": "CoffeeMachine"
+        },
+        {
+          "id": "update.decluttering_card_update",
+          "friendlyName": "Decluttering Card update",
+          "cSharpName": "DeclutteringCardUpdate"
         },
         {
           "id": "update.dining_room_switch",
@@ -16990,6 +17525,11 @@
           "cSharpName": "EspresenseCompanionUpdate"
         },
         {
+          "id": "update.garbage_collection_card_update",
+          "friendlyName": "Garbage Collection Card update",
+          "cSharpName": "GarbageCollectionCardUpdate"
+        },
+        {
           "id": "update.glances_update",
           "friendlyName": "Glances Update",
           "cSharpName": "GlancesUpdate"
@@ -17023,6 +17563,16 @@
           "id": "update.guest_room_switch",
           "friendlyName": "Guest Room Switch",
           "cSharpName": "GuestRoomSwitch"
+        },
+        {
+          "id": "update.ha_lovelace_card_waze_travel_time_update",
+          "friendlyName": "HA (Lovelace) Card Waze Travel Time update",
+          "cSharpName": "HaLovelaceCardWazeTravelTimeUpdate"
+        },
+        {
+          "id": "update.hacs_update",
+          "friendlyName": "HACS update",
+          "cSharpName": "HacsUpdate"
         },
         {
           "id": "update.home_assistant_core_update",
@@ -17060,6 +17610,16 @@
           "cSharpName": "LeftBedsideSwitch"
         },
         {
+          "id": "update.light_entity_card_update",
+          "friendlyName": "Light Entity Card update",
+          "cSharpName": "LightEntityCardUpdate"
+        },
+        {
+          "id": "update.local_tuya_update",
+          "friendlyName": "Local Tuya update",
+          "cSharpName": "LocalTuyaUpdate"
+        },
+        {
           "id": "update.lounge_sofa_switch",
           "friendlyName": "Lounge Sofa Switch",
           "cSharpName": "LoungeSofaSwitch"
@@ -17068,6 +17628,16 @@
           "id": "update.lounge_switch",
           "friendlyName": "Lounge Switch",
           "cSharpName": "LoungeSwitch"
+        },
+        {
+          "id": "update.lovelace_card_templater_update",
+          "friendlyName": "Lovelace Card Templater update",
+          "cSharpName": "LovelaceCardTemplaterUpdate"
+        },
+        {
+          "id": "update.lovelace_grocy_chores_card_update",
+          "friendlyName": "Lovelace Grocy Chores Card update",
+          "cSharpName": "LovelaceGrocyChoresCardUpdate"
         },
         {
           "id": "update.mariadb_update",
@@ -17080,9 +17650,29 @@
           "cSharpName": "MatterServerUpdate"
         },
         {
+          "id": "update.meross_integration_update",
+          "friendlyName": "Meross Integration update",
+          "cSharpName": "MerossIntegrationUpdate"
+        },
+        {
+          "id": "update.meross_lan_update",
+          "friendlyName": "Meross LAN update",
+          "cSharpName": "MerossLanUpdate"
+        },
+        {
           "id": "update.meross_local_broker_addon_update",
           "friendlyName": "Meross Local Broker Addon Update",
           "cSharpName": "MerossLocalBrokerAddonUpdate"
+        },
+        {
+          "id": "update.mini_graph_card_update",
+          "friendlyName": "mini-graph-card update",
+          "cSharpName": "MiniGraphCardUpdate"
+        },
+        {
+          "id": "update.mini_media_player_update",
+          "friendlyName": "Mini Media Player update",
+          "cSharpName": "MiniMediaPlayerUpdate"
         },
         {
           "id": "update.mosquitto_broker_update",
@@ -17090,9 +17680,19 @@
           "cSharpName": "MosquittoBrokerUpdate"
         },
         {
+          "id": "update.mushroom_update",
+          "friendlyName": "Mushroom update",
+          "cSharpName": "MushroomUpdate"
+        },
+        {
           "id": "update.music_assistant_update",
           "friendlyName": "Music Assistant Server Update",
           "cSharpName": "MusicAssistantUpdate"
+        },
+        {
+          "id": "update.netdaemon_update",
+          "friendlyName": "NetDaemon update",
+          "cSharpName": "NetdaemonUpdate"
         },
         {
           "id": "update.netdaemon_v4_net_8_update",
@@ -17108,6 +17708,11 @@
           "id": "update.nspanel_firmware",
           "friendlyName": "Firmware",
           "cSharpName": "NspanelFirmware"
+        },
+        {
+          "id": "update.octopus_energy_update",
+          "friendlyName": "Octopus Energy update",
+          "cSharpName": "OctopusEnergyUpdate"
         },
         {
           "id": "update.outside_lights_firmware_update",
@@ -17185,6 +17790,21 @@
           "cSharpName": "SonoffDownstairs2Firmware"
         },
         {
+          "id": "update.spotcast_update",
+          "friendlyName": "Spotcast update",
+          "cSharpName": "SpotcastUpdate"
+        },
+        {
+          "id": "update.spotify_lovelace_card_update",
+          "friendlyName": "Spotify Lovelace Card update",
+          "cSharpName": "SpotifyLovelaceCardUpdate"
+        },
+        {
+          "id": "update.state_switch_update",
+          "friendlyName": "state-switch update",
+          "cSharpName": "StateSwitchUpdate"
+        },
+        {
           "id": "update.store_switch",
           "friendlyName": "Store Switch",
           "cSharpName": "StoreSwitch"
@@ -17225,9 +17845,49 @@
           "cSharpName": "ToiletSwitch"
         },
         {
+          "id": "update.travel_time_card_update",
+          "friendlyName": "Travel Time Card update",
+          "cSharpName": "TravelTimeCardUpdate"
+        },
+        {
+          "id": "update.tuya_local_update",
+          "friendlyName": "Tuya Local update",
+          "cSharpName": "TuyaLocalUpdate"
+        },
+        {
+          "id": "update.uptime_card_update",
+          "friendlyName": "Uptime Card update",
+          "cSharpName": "UptimeCardUpdate"
+        },
+        {
           "id": "update.utility_room_switch",
           "friendlyName": "Utility Room Switch",
           "cSharpName": "UtilityRoomSwitch"
+        },
+        {
+          "id": "update.vacuum_card_update",
+          "friendlyName": "Vacuum Card update",
+          "cSharpName": "VacuumCardUpdate"
+        },
+        {
+          "id": "update.vertical_stack_in_card_update",
+          "friendlyName": "Vertical Stack In Card update",
+          "cSharpName": "VerticalStackInCardUpdate"
+        },
+        {
+          "id": "update.wallpanel_update",
+          "friendlyName": "WallPanel update",
+          "cSharpName": "WallpanelUpdate"
+        },
+        {
+          "id": "update.waste_collection_schedule_update",
+          "friendlyName": "Waste Collection Schedule update",
+          "cSharpName": "WasteCollectionScheduleUpdate"
+        },
+        {
+          "id": "update.weather_card_update",
+          "friendlyName": "Weather Card update",
+          "cSharpName": "WeatherCardUpdate"
         },
         {
           "id": "update.weather_station_firmware",
@@ -17608,7 +18268,7 @@
       "entities": [
         {
           "id": "vacuum.mark",
-          "friendlyName": "Mark",
+          "friendlyName": null,
           "cSharpName": "Mark"
         }
       ],
@@ -17687,6 +18347,11 @@
           "jsonName": "supported_features",
           "cSharpName": "SupportedFeatures",
           "clrType": "System.Double"
+        },
+        {
+          "jsonName": "restored",
+          "cSharpName": "Restored",
+          "clrType": "System.Boolean"
         }
       ]
     }

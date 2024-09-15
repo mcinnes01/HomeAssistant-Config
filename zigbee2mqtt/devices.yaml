@@ -35,10 +35,8 @@
   friendly_name: Dining Room Switch
 '0x8c6fb9fffe455585':
   friendly_name: Toilet Switch
-'0x8c6fb9fffe454fe7':
-  friendly_name: Utility Room Switch
 '0x8c6fb9fffe4e26ea':
-  friendly_name: Store Switch
+  friendly_name: Utility Room Switch
 '0x8c6fb9fffe38646c':
   friendly_name: Studio Switch
 '0x8c6fb9fffe455335':
@@ -55,8 +53,6 @@
   friendly_name: Right Bedside Switch
 '0xecf64cfffe285d17':
   friendly_name: Studio Bedside Switch
-'0x8c6fb9fffe454fe9':
-  friendly_name: Guest Room Switch
 '0x8c6fb9fffe45558c':
   friendly_name: Bathroom Switch
 '0xecf64cfffe1e5962':
@@ -64,8 +60,10 @@
 '0xecf64cfffe2843c5':
   friendly_name: Snug Desk Switch
 '0xecf64cfffe28b1e3':
-  friendly_name: Guest Room Bedside Switch
+  friendly_name: Guest Room Switch
 '0xecf64cfffe1e4752':
   friendly_name: Lounge Sofa Switch
-'0x001c550020164c95':
-  friendly_name: '0x001c550020164c95'
+'0x8c6fb9fffe454fe9':
+  friendly_name: Guest Room Bedside Switch
+'0x8c6fb9fffe454fe7':
+  friendly_name: Store Switch

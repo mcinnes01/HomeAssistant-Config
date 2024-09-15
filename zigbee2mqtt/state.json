@@ -24,7 +24,7 @@
         "linkquality": 33
     },
     "0x00124b0022ff39ad": {
-        "contact": false,
+        "contact": true,
         "tamper": false,
         "battery_low": false,
         "voltage": 2800,
@@ -40,24 +40,24 @@
         "update_available": false,
         "state": "OFF",
         "power_on_behavior": "previous",
-        "linkquality": 36
+        "linkquality": 42
     },
     "0xf082c0fffe7dd100": {
-        "battery": 100,
+        "battery": 90,
         "update": {
             "state": "idle",
             "installed_version": 604241926,
             "latest_version": 604241926
         },
         "update_available": false,
-        "linkquality": 33
+        "linkquality": 30
     },
     "0xa4c138dff6d5bb59": {
-        "temperature": 22.67,
-        "humidity": 55.04,
-        "battery": 26,
+        "temperature": 20.97,
+        "humidity": 57.39,
+        "battery": 22,
         "voltage": 2600,
-        "linkquality": 36
+        "linkquality": 39
     },
     "0x70ac08fffefb73fa": {
         "state": "OFF",
@@ -67,7 +67,7 @@
             "latest_version": 587765297
         },
         "update_available": false,
-        "linkquality": 36,
+        "linkquality": 39,
         "power_on_behavior": "previous"
     },
     "0x385b44fffee655af": {
@@ -78,28 +78,28 @@
             "latest_version": 587765297
         },
         "update_available": false,
-        "linkquality": 36,
+        "linkquality": 42,
         "power_on_behavior": "previous"
     },
     "0x00124b0022ff0377": {
         "contact": true,
         "tamper": false,
         "battery_low": false,
-        "voltage": 3200,
+        "voltage": 3100,
         "battery": 100,
-        "linkquality": 51
+        "linkquality": 72
     },
     "0x00124b0022ff6b10": {
         "contact": true,
         "tamper": false,
         "battery_low": false,
         "voltage": 2900,
-        "battery": 81,
-        "linkquality": 51
+        "battery": 79.5,
+        "linkquality": 123
     },
     "0x54ef4410008bae59": {
         "color_mode": "color_temp",
-        "linkquality": 51,
+        "linkquality": 45,
         "state": "OFF",
         "color_temp": 250,
         "color": {
@@ -118,11 +118,11 @@
         "audio_sensitivity": "medium"
     },
     "0x30fb10fffedd1d44": {
-        "temperature": 22,
-        "humidity": 63,
-        "voc_index": 303,
+        "temperature": 18,
+        "humidity": 73,
+        "voc_index": 129,
         "linkquality": 33,
-        "pm25": 1,
+        "pm25": 3,
         "update": {
             "state": "idle",
             "installed_version": 16777233,
@@ -131,28 +131,28 @@
         "update_available": false
     },
     "0x8c6fb9fffe454fda": {
-        "battery": 59,
+        "battery": 46,
         "update": {
             "state": "idle",
             "installed_version": 16777303,
             "latest_version": 16777303
         },
         "update_available": false,
-        "linkquality": 33
+        "linkquality": 42
     },
     "0x8c6fb9fffe4e26f0": {
-        "battery": 55,
+        "battery": 51,
         "update": {
             "state": "idle",
             "installed_version": 16777303,
             "latest_version": 16777303
         },
         "update_available": false,
-        "linkquality": 51
+        "linkquality": 42
     },
     "0x8c6fb9fffe455582": {
-        "battery": 46,
-        "linkquality": 51,
+        "battery": 44,
+        "linkquality": 48,
         "update": {
             "state": "idle",
             "installed_version": 16777303,
@@ -161,8 +161,8 @@
         "update_available": false
     },
     "0x8c6fb9fffe44b2e6": {
-        "battery": 60,
-        "linkquality": 33,
+        "battery": 57,
+        "linkquality": 48,
         "update": {
             "state": "idle",
             "installed_version": 16777303,
@@ -171,17 +171,7 @@
         "update_available": false
     },
     "0x8c6fb9fffe455585": {
-        "battery": 56,
-        "update": {
-            "state": "idle",
-            "installed_version": 16777303,
-            "latest_version": 16777303
-        },
-        "update_available": false,
-        "linkquality": 30
-    },
-    "0x8c6fb9fffe454fe7": {
-        "battery": 52,
+        "battery": 54,
         "update": {
             "state": "idle",
             "installed_version": 16777303,
@@ -191,18 +181,18 @@
         "linkquality": 33
     },
     "0x8c6fb9fffe4e26ea": {
-        "battery": 60,
+        "battery": 55,
         "update": {
             "state": "idle",
             "installed_version": 16777303,
             "latest_version": 16777303
         },
         "update_available": false,
-        "linkquality": 33
+        "linkquality": 42
     },
     "0x8c6fb9fffe38646c": {
-        "battery": 54,
-        "linkquality": 33,
+        "battery": 46,
+        "linkquality": 30,
         "update": {
             "state": "idle",
             "installed_version": 16777303,
@@ -211,8 +201,8 @@
         "update_available": false
     },
     "0x8c6fb9fffe455335": {
-        "battery": 55,
-        "linkquality": 30,
+        "battery": 53,
+        "linkquality": 48,
         "update": {
             "state": "idle",
             "installed_version": 16777303,
@@ -222,15 +212,15 @@
     },
     "0x048727fffeabad86": {
         "battery": 100,
-        "humidity": 55.6,
-        "temperature": 22.4,
+        "humidity": 63.1,
+        "temperature": 20.8,
         "update": {
             "state": "idle",
             "installed_version": 8448,
             "latest_version": 8448
         },
         "update_available": false,
-        "linkquality": 33
+        "linkquality": 36
     },
     "0xf082c0fffe3d9a0f": {
         "update": {
@@ -239,21 +229,21 @@
             "latest_version": 604241926
         },
         "update_available": false,
-        "linkquality": 33
+        "linkquality": 30
     },
     "0x04cd15fffe78d9aa": {
-        "battery": 69,
-        "linkquality": 33,
+        "battery": 80,
+        "linkquality": 30,
         "update": {
             "state": "idle",
-            "installed_version": 33816593,
-            "latest_version": 33816593
+            "installed_version": 33816598,
+            "latest_version": 33816598
         },
         "update_available": false
     },
     "0x8c6fb9fffe45557d": {
-        "battery": 60,
-        "linkquality": 45,
+        "battery": 58,
+        "linkquality": 33,
         "update": {
             "state": "idle",
             "installed_version": 16777303,
@@ -268,32 +258,22 @@
             "latest_version": 16777303
         },
         "update_available": false,
-        "battery": 79,
-        "linkquality": 33
+        "battery": 60,
+        "linkquality": 42
     },
     "0xecf64cfffe285d17": {
-        "battery": 78,
+        "battery": 64,
         "update": {
             "state": "idle",
             "installed_version": 16777303,
             "latest_version": 16777303
         },
         "update_available": false,
-        "linkquality": 36
-    },
-    "0x8c6fb9fffe454fe9": {
-        "battery": 81,
-        "linkquality": 36,
-        "update": {
-            "state": "idle",
-            "installed_version": 16777303,
-            "latest_version": 16777303
-        },
-        "update_available": false
+        "linkquality": 33
     },
     "0x8c6fb9fffe45558c": {
-        "battery": 70,
-        "linkquality": 27,
+        "battery": 56,
+        "linkquality": 33,
         "update": {
             "state": "idle",
             "installed_version": 16777303,
@@ -302,7 +282,7 @@
         "update_available": false
     },
     "0xecf64cfffe1e5962": {
-        "battery": 70,
+        "battery": 56,
         "linkquality": 33,
         "update": {
             "state": "idle",
@@ -312,18 +292,18 @@
         "update_available": false
     },
     "0xecf64cfffe2843c5": {
-        "battery": 74,
+        "battery": 58,
         "update": {
             "state": "idle",
             "installed_version": 16777303,
             "latest_version": 16777303
         },
         "update_available": false,
-        "linkquality": 51
+        "linkquality": 48
     },
     "0xecf64cfffe28b1e3": {
-        "battery": 74,
-        "linkquality": 33,
+        "battery": 61,
+        "linkquality": 18,
         "update": {
             "state": "idle",
             "installed_version": 16777303,
@@ -332,13 +312,33 @@
         "update_available": false
     },
     "0xecf64cfffe1e4752": {
-        "battery": 58,
+        "battery": 52,
         "update": {
             "state": "idle",
             "installed_version": 16777303,
             "latest_version": 16777303
         },
         "update_available": false,
-        "linkquality": 51
+        "linkquality": 48
+    },
+    "0x8c6fb9fffe454fe9": {
+        "battery": 84,
+        "linkquality": 24,
+        "update": {
+            "state": "idle",
+            "installed_version": 16777303,
+            "latest_version": 16777303
+        },
+        "update_available": false
+    },
+    "0x8c6fb9fffe454fe7": {
+        "battery": 50,
+        "linkquality": 36,
+        "update": {
+            "state": "idle",
+            "installed_version": 16777303,
+            "latest_version": 16777303
+        },
+        "update_available": false
     }
 }

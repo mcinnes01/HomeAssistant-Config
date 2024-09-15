@@ -27,9 +27,6 @@ cloud:
 config:
 counter:
 energy:
-# frontend:
-#   extra_module_url:
-#     - /local/card-mod.js
 group: !include groups.yaml
 history:
 input_boolean:

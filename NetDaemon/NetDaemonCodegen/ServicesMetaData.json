@@ -1,4 +1,57 @@
 {
+  "persistent_notification": {
+    "create": {
+      "name": "Create",
+      "description": "Shows a notification on the notifications panel.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "Please check your configuration.yaml.",
+          "selector": {
+            "text": null
+          },
+          "name": "Message",
+          "description": "Message body of the notification."
+        },
+        "title": {
+          "example": "Test notification",
+          "selector": {
+            "text": null
+          },
+          "name": "Title",
+          "description": "Optional title of the notification."
+        },
+        "notification_id": {
+          "example": 1234,
+          "selector": {
+            "text": null
+          },
+          "name": "Notification ID",
+          "description": "ID of the notification. This new notification will overwrite an existing notification with the same ID."
+        }
+      }
+    },
+    "dismiss": {
+      "name": "Dismiss",
+      "description": "Removes a notification from the notifications panel.",
+      "fields": {
+        "notification_id": {
+          "required": true,
+          "example": 1234,
+          "selector": {
+            "text": null
+          },
+          "name": "Notification ID",
+          "description": "ID of the notification to be removed."
+        }
+      }
+    },
+    "dismiss_all": {
+      "name": "Dismiss all",
+      "description": "Removes all notifications from the notifications panel.",
+      "fields": {}
+    }
+  },
   "homeassistant": {
     "save_persistent_states": {
       "name": "Save persistent states",
@@ -149,59 +202,6 @@
     "reload_all": {
       "name": "Reload all",
       "description": "Reload all YAML configuration that can be reloaded without restarting Home Assistant.",
-      "fields": {}
-    }
-  },
-  "persistent_notification": {
-    "create": {
-      "name": "Create",
-      "description": "Shows a notification on the notifications panel.",
-      "fields": {
-        "message": {
-          "required": true,
-          "example": "Please check your configuration.yaml.",
-          "selector": {
-            "text": null
-          },
-          "name": "Message",
-          "description": "Message body of the notification."
-        },
-        "title": {
-          "example": "Test notification",
-          "selector": {
-            "text": null
-          },
-          "name": "Title",
-          "description": "Optional title of the notification."
-        },
-        "notification_id": {
-          "example": 1234,
-          "selector": {
-            "text": null
-          },
-          "name": "Notification ID",
-          "description": "ID of the notification. This new notification will overwrite an existing notification with the same ID."
-        }
-      }
-    },
-    "dismiss": {
-      "name": "Dismiss",
-      "description": "Removes a notification from the notifications panel.",
-      "fields": {
-        "notification_id": {
-          "required": true,
-          "example": 1234,
-          "selector": {
-            "text": null
-          },
-          "name": "Notification ID",
-          "description": "ID of the notification to be removed."
-        }
-      }
-    },
-    "dismiss_all": {
-      "name": "Dismiss all",
-      "description": "Removes all notifications from the notifications panel.",
       "fields": {}
     }
   },
@@ -1052,6 +1052,47 @@
             ]
           }
         ]
+      }
+    }
+  },
+  "logbook": {
+    "log": {
+      "name": "Log",
+      "description": "Creates a custom entry in the logbook.",
+      "fields": {
+        "name": {
+          "required": true,
+          "example": "Kitchen",
+          "selector": {
+            "text": null
+          },
+          "name": "Name",
+          "description": "Custom name for an entity, can be referenced using an \u0060entity_id\u0060."
+        },
+        "message": {
+          "required": true,
+          "example": "is being used",
+          "selector": {
+            "text": null
+          },
+          "name": "Message",
+          "description": "Message of the logbook entry."
+        },
+        "entity_id": {
+          "selector": {
+            "entity": null
+          },
+          "name": "Entity ID",
+          "description": "Entity to reference in the logbook entry."
+        },
+        "domain": {
+          "example": "light",
+          "selector": {
+            "text": null
+          },
+          "name": "Domain",
+          "description": "Determines which icon is used in the logbook entry. The icon illustrates the integration domain related to this logbook entry."
+        }
       }
     }
   },
@@ -2117,47 +2158,6 @@
       }
     }
   },
-  "logbook": {
-    "log": {
-      "name": "Log",
-      "description": "Creates a custom entry in the logbook.",
-      "fields": {
-        "name": {
-          "required": true,
-          "example": "Kitchen",
-          "selector": {
-            "text": null
-          },
-          "name": "Name",
-          "description": "Custom name for an entity, can be referenced using an \u0060entity_id\u0060."
-        },
-        "message": {
-          "required": true,
-          "example": "is being used",
-          "selector": {
-            "text": null
-          },
-          "name": "Message",
-          "description": "Message of the logbook entry."
-        },
-        "entity_id": {
-          "selector": {
-            "entity": null
-          },
-          "name": "Entity ID",
-          "description": "Entity to reference in the logbook entry."
-        },
-        "domain": {
-          "example": "light",
-          "selector": {
-            "text": null
-          },
-          "name": "Domain",
-          "description": "Determines which icon is used in the logbook entry. The icon illustrates the integration domain related to this logbook entry."
-        }
-      }
-    }
-  },
   "zone": {
     "reload": {
       "name": "Reload",
@@ -2165,21 +2165,112 @@
       "fields": {}
     }
   },
-  "input_button": {
+  "input_number": {
     "reload": {
       "name": "Reload",
       "description": "Reloads helpers from the YAML-configuration.",
       "fields": {}
     },
-    "press": {
-      "name": "Press",
-      "description": "Mimics the physical button press on the device.",
+    "set_value": {
+      "name": "Set",
+      "description": "Sets the value.",
+      "fields": {
+        "value": {
+          "required": true,
+          "selector": {
+            "number": {
+              "min": 0,
+              "max": 9223372036854775807,
+              "step": 0.001,
+              "mode": "box"
+            }
+          },
+          "name": "Value",
+          "description": "The target value."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "input_number"
+            ]
+          }
+        ]
+      }
+    },
+    "increment": {
+      "name": "Increment",
+      "description": "Increments the value by 1 step.",
       "fields": {},
       "target": {
         "entity": [
           {
             "domain": [
-              "input_button"
+              "input_number"
+            ]
+          }
+        ]
+      }
+    },
+    "decrement": {
+      "name": "Decrement",
+      "description": "Decrements the current value by 1 step.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "input_number"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "input_boolean": {
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads helpers from the YAML-configuration.",
+      "fields": {}
+    },
+    "turn_on": {
+      "name": "Turn on",
+      "description": "Turns on the helper.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "input_boolean"
+            ]
+          }
+        ]
+      }
+    },
+    "turn_off": {
+      "name": "Turn off",
+      "description": "Turns off the helper.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "input_boolean"
+            ]
+          }
+        ]
+      }
+    },
+    "toggle": {
+      "name": "Toggle",
+      "description": "Toggles the helper on/off.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "input_boolean"
             ]
           }
         ]
@@ -2414,112 +2505,21 @@
       }
     }
   },
-  "input_boolean": {
+  "input_button": {
     "reload": {
       "name": "Reload",
       "description": "Reloads helpers from the YAML-configuration.",
       "fields": {}
     },
-    "turn_on": {
-      "name": "Turn on",
-      "description": "Turns on the helper.",
+    "press": {
+      "name": "Press",
+      "description": "Mimics the physical button press on the device.",
       "fields": {},
       "target": {
         "entity": [
           {
             "domain": [
-              "input_boolean"
-            ]
-          }
-        ]
-      }
-    },
-    "turn_off": {
-      "name": "Turn off",
-      "description": "Turns off the helper.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "input_boolean"
-            ]
-          }
-        ]
-      }
-    },
-    "toggle": {
-      "name": "Toggle",
-      "description": "Toggles the helper on/off.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "input_boolean"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "input_number": {
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads helpers from the YAML-configuration.",
-      "fields": {}
-    },
-    "set_value": {
-      "name": "Set",
-      "description": "Sets the value.",
-      "fields": {
-        "value": {
-          "required": true,
-          "selector": {
-            "number": {
-              "min": 0,
-              "max": 9223372036854775807,
-              "step": 0.001,
-              "mode": "box"
-            }
-          },
-          "name": "Value",
-          "description": "The target value."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "input_number"
-            ]
-          }
-        ]
-      }
-    },
-    "increment": {
-      "name": "Increment",
-      "description": "Increments the value by 1 step.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "input_number"
-            ]
-          }
-        ]
-      }
-    },
-    "decrement": {
-      "name": "Decrement",
-      "description": "Decrements the current value by 1 step.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "input_number"
+              "input_button"
             ]
           }
         ]
@@ -2592,6 +2592,1160 @@
           },
           "name": "Battery level",
           "description": "Battery level of the device."
+        }
+      }
+    }
+  },
+  "notify": {
+    "send_message": {
+      "name": "Send a notification message",
+      "description": "Sends a notification message.",
+      "fields": {
+        "message": {
+          "required": true,
+          "selector": {
+            "text": null
+          },
+          "name": "Message",
+          "description": "Your notification message."
+        },
+        "title": {
+          "required": false,
+          "selector": {
+            "text": null
+          },
+          "filter": {
+            "supported_features": [
+              1
+            ]
+          },
+          "name": "Title",
+          "description": "Title for your notification message."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "notify"
+            ]
+          }
+        ]
+      }
+    },
+    "persistent_notification": {
+      "name": "Send a persistent notification",
+      "description": "Sends a notification that is visible in the notifications panel.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "The garage door has been open for 10 minutes.",
+          "selector": {
+            "text": null
+          },
+          "name": "Message",
+          "description": "Message body of the notification."
+        },
+        "title": {
+          "example": "Your Garage Door Friend",
+          "selector": {
+            "text": null
+          },
+          "name": "Title",
+          "description": "Title of the notification."
+        },
+        "data": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          },
+          "name": "Data",
+          "description": "Some integrations provide extended functionality. For information on how to use _data_, refer to the integration documentation.."
+        }
+      }
+    },
+    "phones": {
+      "name": "Send a notification with phones",
+      "description": "Sends a notification message using the phones service.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "The garage door has been open for 10 minutes.",
+          "selector": {
+            "text": null
+          }
+        },
+        "title": {
+          "example": "Your Garage Door Friend",
+          "selector": {
+            "text": null
+          }
+        },
+        "target": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        },
+        "data": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        }
+      }
+    },
+    "alexa_media": {
+      "name": "Send a notification with alexa_media",
+      "description": "Sends a notification message using the alexa_media service.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "The garage door has been open for 10 minutes.",
+          "selector": {
+            "text": null
+          }
+        },
+        "title": {
+          "example": "Your Garage Door Friend",
+          "selector": {
+            "text": null
+          }
+        },
+        "target": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        },
+        "data": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        }
+      }
+    },
+    "mobile_app_claireiphone": {
+      "name": "Send a notification via mobile_app_claireiphone",
+      "description": "Sends a notification message using the mobile_app_claireiphone integration.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "The garage door has been open for 10 minutes.",
+          "selector": {
+            "text": null
+          }
+        },
+        "title": {
+          "example": "Your Garage Door Friend",
+          "selector": {
+            "text": null
+          }
+        },
+        "target": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        },
+        "data": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        }
+      }
+    },
+    "mobile_app_pixel_6": {
+      "name": "Send a notification via mobile_app_pixel_6",
+      "description": "Sends a notification message using the mobile_app_pixel_6 integration.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "The garage door has been open for 10 minutes.",
+          "selector": {
+            "text": null
+          }
+        },
+        "title": {
+          "example": "Your Garage Door Friend",
+          "selector": {
+            "text": null
+          }
+        },
+        "target": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        },
+        "data": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        }
+      }
+    },
+    "mobile_app_pixel_watch": {
+      "name": "Send a notification via mobile_app_pixel_watch",
+      "description": "Sends a notification message using the mobile_app_pixel_watch integration.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "The garage door has been open for 10 minutes.",
+          "selector": {
+            "text": null
+          }
+        },
+        "title": {
+          "example": "Your Garage Door Friend",
+          "selector": {
+            "text": null
+          }
+        },
+        "target": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        },
+        "data": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        }
+      }
+    },
+    "notify": {
+      "name": "Send a notification with notify",
+      "description": "Sends a notification message using the notify service.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "The garage door has been open for 10 minutes.",
+          "selector": {
+            "text": null
+          }
+        },
+        "title": {
+          "example": "Your Garage Door Friend",
+          "selector": {
+            "text": null
+          }
+        },
+        "target": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        },
+        "data": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        }
+      }
+    },
+    "alexa_media_hall_tablet": {
+      "name": "Send a notification via alexa_media_hall_tablet",
+      "description": "Sends a notification message using the alexa_media_hall_tablet integration.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "The garage door has been open for 10 minutes.",
+          "selector": {
+            "text": null
+          }
+        },
+        "title": {
+          "example": "Your Garage Door Friend",
+          "selector": {
+            "text": null
+          }
+        },
+        "target": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        },
+        "data": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        }
+      }
+    },
+    "alexa_media_landing_tablet": {
+      "name": "Send a notification via alexa_media_landing_tablet",
+      "description": "Sends a notification message using the alexa_media_landing_tablet integration.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "The garage door has been open for 10 minutes.",
+          "selector": {
+            "text": null
+          }
+        },
+        "title": {
+          "example": "Your Garage Door Friend",
+          "selector": {
+            "text": null
+          }
+        },
+        "target": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        },
+        "data": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        }
+      }
+    },
+    "alexa_media_all_speakers": {
+      "name": "Send a notification via alexa_media_all_speakers",
+      "description": "Sends a notification message using the alexa_media_all_speakers integration.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "The garage door has been open for 10 minutes.",
+          "selector": {
+            "text": null
+          }
+        },
+        "title": {
+          "example": "Your Garage Door Friend",
+          "selector": {
+            "text": null
+          }
+        },
+        "target": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        },
+        "data": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        }
+      }
+    },
+    "alexa_media_kitchen_echo_show": {
+      "name": "Send a notification via alexa_media_kitchen_echo_show",
+      "description": "Sends a notification message using the alexa_media_kitchen_echo_show integration.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "The garage door has been open for 10 minutes.",
+          "selector": {
+            "text": null
+          }
+        },
+        "title": {
+          "example": "Your Garage Door Friend",
+          "selector": {
+            "text": null
+          }
+        },
+        "target": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        },
+        "data": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        }
+      }
+    },
+    "alexa_media_drawing_room_echo_dot": {
+      "name": "Send a notification via alexa_media_drawing_room_echo_dot",
+      "description": "Sends a notification message using the alexa_media_drawing_room_echo_dot integration.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "The garage door has been open for 10 minutes.",
+          "selector": {
+            "text": null
+          }
+        },
+        "title": {
+          "example": "Your Garage Door Friend",
+          "selector": {
+            "text": null
+          }
+        },
+        "target": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        },
+        "data": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        }
+      }
+    },
+    "alexa_media_bedroom_echo_show": {
+      "name": "Send a notification via alexa_media_bedroom_echo_show",
+      "description": "Sends a notification message using the alexa_media_bedroom_echo_show integration.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "The garage door has been open for 10 minutes.",
+          "selector": {
+            "text": null
+          }
+        },
+        "title": {
+          "example": "Your Garage Door Friend",
+          "selector": {
+            "text": null
+          }
+        },
+        "target": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        },
+        "data": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        }
+      }
+    },
+    "alexa_media_guest_room_echo_show": {
+      "name": "Send a notification via alexa_media_guest_room_echo_show",
+      "description": "Sends a notification message using the alexa_media_guest_room_echo_show integration.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "The garage door has been open for 10 minutes.",
+          "selector": {
+            "text": null
+          }
+        },
+        "title": {
+          "example": "Your Garage Door Friend",
+          "selector": {
+            "text": null
+          }
+        },
+        "target": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        },
+        "data": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        }
+      }
+    },
+    "alexa_media_snug_fire_tv": {
+      "name": "Send a notification via alexa_media_snug_fire_tv",
+      "description": "Sends a notification message using the alexa_media_snug_fire_tv integration.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "The garage door has been open for 10 minutes.",
+          "selector": {
+            "text": null
+          }
+        },
+        "title": {
+          "example": "Your Garage Door Friend",
+          "selector": {
+            "text": null
+          }
+        },
+        "target": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        },
+        "data": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        }
+      }
+    },
+    "alexa_media_upstairs": {
+      "name": "Send a notification via alexa_media_upstairs",
+      "description": "Sends a notification message using the alexa_media_upstairs integration.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "The garage door has been open for 10 minutes.",
+          "selector": {
+            "text": null
+          }
+        },
+        "title": {
+          "example": "Your Garage Door Friend",
+          "selector": {
+            "text": null
+          }
+        },
+        "target": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        },
+        "data": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        }
+      }
+    },
+    "alexa_media_downstairs": {
+      "name": "Send a notification via alexa_media_downstairs",
+      "description": "Sends a notification message using the alexa_media_downstairs integration.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "The garage door has been open for 10 minutes.",
+          "selector": {
+            "text": null
+          }
+        },
+        "title": {
+          "example": "Your Garage Door Friend",
+          "selector": {
+            "text": null
+          }
+        },
+        "target": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        },
+        "data": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        }
+      }
+    },
+    "alexa_media_lounge_fire_tv": {
+      "name": "Send a notification via alexa_media_lounge_fire_tv",
+      "description": "Sends a notification message using the alexa_media_lounge_fire_tv integration.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "The garage door has been open for 10 minutes.",
+          "selector": {
+            "text": null
+          }
+        },
+        "title": {
+          "example": "Your Garage Door Friend",
+          "selector": {
+            "text": null
+          }
+        },
+        "target": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        },
+        "data": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        }
+      }
+    },
+    "alexa_media_andrew_s_echo_buds": {
+      "name": "Send a notification via alexa_media_andrew_s_echo_buds",
+      "description": "Sends a notification message using the alexa_media_andrew_s_echo_buds integration.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "The garage door has been open for 10 minutes.",
+          "selector": {
+            "text": null
+          }
+        },
+        "title": {
+          "example": "Your Garage Door Friend",
+          "selector": {
+            "text": null
+          }
+        },
+        "target": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        },
+        "data": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        }
+      }
+    },
+    "alexa_media_andrew_s_echo_buds_2": {
+      "name": "Send a notification via alexa_media_andrew_s_echo_buds_2",
+      "description": "Sends a notification message using the alexa_media_andrew_s_echo_buds_2 integration.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "The garage door has been open for 10 minutes.",
+          "selector": {
+            "text": null
+          }
+        },
+        "title": {
+          "example": "Your Garage Door Friend",
+          "selector": {
+            "text": null
+          }
+        },
+        "target": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        },
+        "data": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        }
+      }
+    },
+    "alexa_media_andrew_s_echo_buds_3": {
+      "name": "Send a notification via alexa_media_andrew_s_echo_buds_3",
+      "description": "Sends a notification message using the alexa_media_andrew_s_echo_buds_3 integration.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "The garage door has been open for 10 minutes.",
+          "selector": {
+            "text": null
+          }
+        },
+        "title": {
+          "example": "Your Garage Door Friend",
+          "selector": {
+            "text": null
+          }
+        },
+        "target": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        },
+        "data": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        }
+      }
+    },
+    "alexa_media_andrew_s_echo_buds_4": {
+      "name": "Send a notification via alexa_media_andrew_s_echo_buds_4",
+      "description": "Sends a notification message using the alexa_media_andrew_s_echo_buds_4 integration.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "The garage door has been open for 10 minutes.",
+          "selector": {
+            "text": null
+          }
+        },
+        "title": {
+          "example": "Your Garage Door Friend",
+          "selector": {
+            "text": null
+          }
+        },
+        "target": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        },
+        "data": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        }
+      }
+    },
+    "alexa_media_dining_room_echo_input": {
+      "name": "Send a notification via alexa_media_dining_room_echo_input",
+      "description": "Sends a notification message using the alexa_media_dining_room_echo_input integration.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "The garage door has been open for 10 minutes.",
+          "selector": {
+            "text": null
+          }
+        },
+        "title": {
+          "example": "Your Garage Door Friend",
+          "selector": {
+            "text": null
+          }
+        },
+        "target": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        },
+        "data": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        }
+      }
+    },
+    "alexa_media_basement": {
+      "name": "Send a notification via alexa_media_basement",
+      "description": "Sends a notification message using the alexa_media_basement integration.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "The garage door has been open for 10 minutes.",
+          "selector": {
+            "text": null
+          }
+        },
+        "title": {
+          "example": "Your Garage Door Friend",
+          "selector": {
+            "text": null
+          }
+        },
+        "target": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        },
+        "data": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        }
+      }
+    },
+    "alexa_media_snug_echo_show": {
+      "name": "Send a notification via alexa_media_snug_echo_show",
+      "description": "Sends a notification message using the alexa_media_snug_echo_show integration.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "The garage door has been open for 10 minutes.",
+          "selector": {
+            "text": null
+          }
+        },
+        "title": {
+          "example": "Your Garage Door Friend",
+          "selector": {
+            "text": null
+          }
+        },
+        "target": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        },
+        "data": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        }
+      }
+    },
+    "alexa_media_shed_echo_input": {
+      "name": "Send a notification via alexa_media_shed_echo_input",
+      "description": "Sends a notification message using the alexa_media_shed_echo_input integration.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "The garage door has been open for 10 minutes.",
+          "selector": {
+            "text": null
+          }
+        },
+        "title": {
+          "example": "Your Garage Door Friend",
+          "selector": {
+            "text": null
+          }
+        },
+        "target": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        },
+        "data": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        }
+      }
+    },
+    "alexa_media_offices": {
+      "name": "Send a notification via alexa_media_offices",
+      "description": "Sends a notification message using the alexa_media_offices integration.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "The garage door has been open for 10 minutes.",
+          "selector": {
+            "text": null
+          }
+        },
+        "title": {
+          "example": "Your Garage Door Friend",
+          "selector": {
+            "text": null
+          }
+        },
+        "target": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        },
+        "data": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        }
+      }
+    },
+    "alexa_media_patio": {
+      "name": "Send a notification via alexa_media_patio",
+      "description": "Sends a notification message using the alexa_media_patio integration.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "The garage door has been open for 10 minutes.",
+          "selector": {
+            "text": null
+          }
+        },
+        "title": {
+          "example": "Your Garage Door Friend",
+          "selector": {
+            "text": null
+          }
+        },
+        "target": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        },
+        "data": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        }
+      }
+    },
+    "alexa_media_garden": {
+      "name": "Send a notification via alexa_media_garden",
+      "description": "Sends a notification message using the alexa_media_garden integration.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "The garage door has been open for 10 minutes.",
+          "selector": {
+            "text": null
+          }
+        },
+        "title": {
+          "example": "Your Garage Door Friend",
+          "selector": {
+            "text": null
+          }
+        },
+        "target": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        },
+        "data": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        }
+      }
+    },
+    "alexa_media_andrew_s_samsung_tv_2020_u": {
+      "name": "Send a notification via alexa_media_andrew_s_samsung_tv_2020_u",
+      "description": "Sends a notification message using the alexa_media_andrew_s_samsung_tv_2020_u integration.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "The garage door has been open for 10 minutes.",
+          "selector": {
+            "text": null
+          }
+        },
+        "title": {
+          "example": "Your Garage Door Friend",
+          "selector": {
+            "text": null
+          }
+        },
+        "target": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        },
+        "data": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        }
+      }
+    },
+    "alexa_media_lounge_echo_plus": {
+      "name": "Send a notification via alexa_media_lounge_echo_plus",
+      "description": "Sends a notification message using the alexa_media_lounge_echo_plus integration.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "The garage door has been open for 10 minutes.",
+          "selector": {
+            "text": null
+          }
+        },
+        "title": {
+          "example": "Your Garage Door Friend",
+          "selector": {
+            "text": null
+          }
+        },
+        "target": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        },
+        "data": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        }
+      }
+    },
+    "alexa_media_dressing_room_echo_spot": {
+      "name": "Send a notification via alexa_media_dressing_room_echo_spot",
+      "description": "Sends a notification message using the alexa_media_dressing_room_echo_spot integration.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "The garage door has been open for 10 minutes.",
+          "selector": {
+            "text": null
+          }
+        },
+        "title": {
+          "example": "Your Garage Door Friend",
+          "selector": {
+            "text": null
+          }
+        },
+        "target": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        },
+        "data": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        }
+      }
+    },
+    "alexa_media_studio_echo_dot": {
+      "name": "Send a notification via alexa_media_studio_echo_dot",
+      "description": "Sends a notification message using the alexa_media_studio_echo_dot integration.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "The garage door has been open for 10 minutes.",
+          "selector": {
+            "text": null
+          }
+        },
+        "title": {
+          "example": "Your Garage Door Friend",
+          "selector": {
+            "text": null
+          }
+        },
+        "target": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        },
+        "data": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        }
+      }
+    },
+    "alexa_media_utility_room_echo_dot": {
+      "name": "Send a notification via alexa_media_utility_room_echo_dot",
+      "description": "Sends a notification message using the alexa_media_utility_room_echo_dot integration.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "The garage door has been open for 10 minutes.",
+          "selector": {
+            "text": null
+          }
+        },
+        "title": {
+          "example": "Your Garage Door Friend",
+          "selector": {
+            "text": null
+          }
+        },
+        "target": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        },
+        "data": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        }
+      }
+    },
+    "alexa_media_this_device": {
+      "name": "Send a notification via alexa_media_this_device",
+      "description": "Sends a notification message using the alexa_media_this_device integration.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "The garage door has been open for 10 minutes.",
+          "selector": {
+            "text": null
+          }
+        },
+        "title": {
+          "example": "Your Garage Door Friend",
+          "selector": {
+            "text": null
+          }
+        },
+        "target": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        },
+        "data": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        }
+      }
+    },
+    "alexa_media_last_called": {
+      "name": "Send a notification via alexa_media_last_called",
+      "description": "Sends a notification message using the alexa_media_last_called integration.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "The garage door has been open for 10 minutes.",
+          "selector": {
+            "text": null
+          }
+        },
+        "title": {
+          "example": "Your Garage Door Friend",
+          "selector": {
+            "text": null
+          }
+        },
+        "target": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        },
+        "data": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
         }
       }
     }
@@ -2843,96 +3997,31 @@
       }
     }
   },
-  "octopus_energy": {
-    "purge_invalid_external_statistic_ids": {
-      "name": "Purge invalid external statistics",
-      "description": "Removes external statistics for all meters that don\u0027t have an active tariff",
+  "input_text": {
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads helpers from the YAML-configuration.",
       "fields": {}
     },
-    "join_octoplus_saving_session_event": {
-      "name": "Join Octoplus saving session event",
-      "description": "Joins a given Octoplus saving session event.",
+    "set_value": {
+      "name": "Set",
+      "description": "Sets the value.",
       "fields": {
-        "event_code": {
-          "name": "Event code",
-          "description": "The code of the event that is to be joined.",
+        "value": {
+          "required": true,
+          "example": "This is an example text",
           "selector": {
             "text": null
-          }
+          },
+          "name": "Value",
+          "description": "The target value."
         }
       },
       "target": {
         "entity": [
           {
-            "integration": "octopus_energy",
             "domain": [
-              "event"
-            ]
-          }
-        ]
-      }
-    },
-    "refresh_previous_consumption_data": {
-      "name": "Refresh previous consumption data",
-      "description": "Refreshes the previous consumption data for a given entity from a given date.",
-      "fields": {
-        "start_date": {
-          "name": "Date",
-          "description": "The date the data should be loaded from.",
-          "required": true,
-          "selector": {
-            "date": null
-          }
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "integration": "octopus_energy",
-            "domain": [
-              "sensor"
-            ]
-          }
-        ]
-      }
-    },
-    "spin_wheel_of_fortune": {
-      "name": "Spin wheel of fortune",
-      "description": "Spins the wheel of fortune for a given energy type",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "integration": "octopus_energy",
-            "domain": [
-              "sensor"
-            ]
-          }
-        ]
-      }
-    },
-    "redeem_octoplus_points_into_account_credit": {
-      "name": "Redeem octoplus points into account credit",
-      "description": "Redeems a given number of octoplus points into account credit",
-      "fields": {
-        "points_to_redeem": {
-          "name": "Points to redeem",
-          "description": "The number of points to redeem",
-          "selector": {
-            "number": {
-              "min": 8,
-              "step": 1,
-              "mode": "box"
-            }
-          }
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "integration": "octopus_energy",
-            "domain": [
-              "sensor"
+              "input_text"
             ]
           }
         ]
@@ -2941,34 +4030,30 @@
   },
   "localtuya": {
     "reload": {
-      "name": "",
+      "name": "Reload",
       "description": "Reload localtuya and reconnect to all devices.",
       "fields": {}
     },
     "set_dp": {
-      "name": "",
+      "name": "Set datapoint",
       "description": "Change the value of a datapoint (DP)",
       "fields": {
         "device_id": {
           "description": "Device ID of device to change datapoint value for",
-          "example": "11100118278aab4de001"
+          "example": "11100118278aab4de001",
+          "name": "Device ID"
         },
         "dp": {
           "description": "Datapoint index",
-          "example": 1
+          "example": 1,
+          "name": "DP"
         },
         "value": {
           "description": "New value to set",
-          "example": false
+          "example": false,
+          "name": "Value"
         }
       }
-    }
-  },
-  "schedule": {
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads schedules from the YAML-configuration.",
-      "fields": {}
     }
   },
   "input_datetime": {
@@ -3022,6 +4107,192 @@
           {
             "domain": [
               "input_datetime"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "netdaemon": {
+    "register_service": {
+      "name": "",
+      "description": "Register a new service for netdaemon, used by the daemon and not to be used by users",
+      "fields": {
+        "service": {
+          "description": "The name of the service to register"
+        },
+        "class": {
+          "description": "The class that implements the service call"
+        },
+        "method": {
+          "description": "The method to call"
+        }
+      }
+    },
+    "reload_apps": {
+      "name": "",
+      "description": "",
+      "fields": {}
+    },
+    "entity_create": {
+      "name": "",
+      "description": "Create an entity",
+      "fields": {
+        "entity_id": {
+          "description": "The entity ID of the entity",
+          "example": "sensor.awesome"
+        },
+        "state": {
+          "description": "The state of the entity",
+          "example": "Lorem ipsum"
+        },
+        "icon": {
+          "description": "The icon for the entity",
+          "example": "mdi:rocket-launch-outline"
+        },
+        "unit": {
+          "description": "The unit of measurement for the entity"
+        },
+        "options": {
+          "description": "List of options for a select entity"
+        },
+        "attributes": {
+          "description": "The attributes of the entity"
+        }
+      }
+    },
+    "entity_update": {
+      "name": "",
+      "description": "Update an entity",
+      "fields": {
+        "entity_id": {
+          "description": "The entity ID of the entity",
+          "example": "sensor.awesome"
+        },
+        "state": {
+          "description": "The state of the entity",
+          "example": "Lorem ipsum"
+        },
+        "icon": {
+          "description": "The icon for the entity",
+          "example": "mdi:rocket-launch-outline"
+        },
+        "unit": {
+          "description": "The unit of measurement for the entity"
+        },
+        "options": {
+          "description": "List of options for a select entity"
+        },
+        "attributes": {
+          "description": "The attributes of the entity"
+        }
+      }
+    },
+    "entity_remove": {
+      "name": "",
+      "description": "Remove an entity",
+      "fields": {
+        "entity_id": {
+          "description": "The entity ID of the entity",
+          "example": "sensor.awesome"
+        }
+      }
+    }
+  },
+  "select": {
+    "select_first": {
+      "name": "First",
+      "description": "Selects the first option.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "select"
+            ]
+          }
+        ]
+      }
+    },
+    "select_last": {
+      "name": "Last",
+      "description": "Selects the last option.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "select"
+            ]
+          }
+        ]
+      }
+    },
+    "select_next": {
+      "name": "Next",
+      "description": "Selects the next option.",
+      "fields": {
+        "cycle": {
+          "default": true,
+          "selector": {
+            "boolean": null
+          },
+          "name": "Cycle",
+          "description": "If the option should cycle from the last to the first."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "select"
+            ]
+          }
+        ]
+      }
+    },
+    "select_option": {
+      "name": "Select",
+      "description": "Selects an option.",
+      "fields": {
+        "option": {
+          "required": true,
+          "example": "\u0022Item A\u0022",
+          "selector": {
+            "text": null
+          },
+          "name": "Option",
+          "description": "Option to be selected."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "select"
+            ]
+          }
+        ]
+      }
+    },
+    "select_previous": {
+      "name": "Previous",
+      "description": "Selects the previous option.",
+      "fields": {
+        "cycle": {
+          "default": true,
+          "selector": {
+            "boolean": null
+          },
+          "name": "Cycle",
+          "description": "If the option should cycle from the first to the last."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "select"
             ]
           }
         ]
@@ -3339,6 +4610,433 @@
             ]
           }
         ]
+      }
+    }
+  },
+  "schedule": {
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads schedules from the YAML-configuration.",
+      "fields": {}
+    }
+  },
+  "octopus_energy": {
+    "purge_invalid_external_statistic_ids": {
+      "name": "Purge invalid external statistics",
+      "description": "Removes external statistics for all meters that don\u0027t have an active tariff",
+      "fields": {}
+    },
+    "join_octoplus_saving_session_event": {
+      "name": "Join Octoplus saving session event",
+      "description": "Joins a given Octoplus saving session event.",
+      "fields": {
+        "event_code": {
+          "name": "Event code",
+          "description": "The code of the event that is to be joined.",
+          "selector": {
+            "text": null
+          }
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "integration": "octopus_energy",
+            "domain": [
+              "event"
+            ]
+          }
+        ]
+      }
+    },
+    "refresh_previous_consumption_data": {
+      "name": "Refresh previous consumption data",
+      "description": "Refreshes the previous consumption data for a given entity from a given date.",
+      "fields": {
+        "start_date": {
+          "name": "Date",
+          "description": "The date the data should be loaded from.",
+          "required": true,
+          "selector": {
+            "date": null
+          }
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "integration": "octopus_energy",
+            "domain": [
+              "sensor"
+            ]
+          }
+        ]
+      }
+    },
+    "spin_wheel_of_fortune": {
+      "name": "Spin wheel of fortune",
+      "description": "Spins the wheel of fortune for a given energy type",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "integration": "octopus_energy",
+            "domain": [
+              "sensor"
+            ]
+          }
+        ]
+      }
+    },
+    "redeem_octoplus_points_into_account_credit": {
+      "name": "Redeem octoplus points into account credit",
+      "description": "Redeems a given number of octoplus points into account credit",
+      "fields": {
+        "points_to_redeem": {
+          "name": "Points to redeem",
+          "description": "The number of points to redeem",
+          "selector": {
+            "number": {
+              "min": 8,
+              "step": 1,
+              "mode": "box"
+            }
+          }
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "integration": "octopus_energy",
+            "domain": [
+              "sensor"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "counter": {
+    "increment": {
+      "name": "Increment",
+      "description": "Increments a counter.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "counter"
+            ]
+          }
+        ]
+      }
+    },
+    "decrement": {
+      "name": "Decrement",
+      "description": "Decrements a counter.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "counter"
+            ]
+          }
+        ]
+      }
+    },
+    "reset": {
+      "name": "Reset",
+      "description": "Resets a counter.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "counter"
+            ]
+          }
+        ]
+      }
+    },
+    "set_value": {
+      "name": "Set",
+      "description": "Sets the counter value.",
+      "fields": {
+        "value": {
+          "required": true,
+          "selector": {
+            "number": {
+              "min": 0,
+              "max": 9223372036854775807,
+              "mode": "box"
+            }
+          },
+          "name": "Value",
+          "description": "The new counter value the entity should be set to."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "counter"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "script": {
+    "feed_cats": {
+      "name": "Feed Cats",
+      "description": "",
+      "fields": {},
+      "response": {
+        "optional": true
+      }
+    },
+    "notify_alexa_everywhere": {
+      "name": "Notify Alexa Everywhere",
+      "description": "",
+      "fields": {},
+      "response": {
+        "optional": true
+      }
+    },
+    "notify_all": {
+      "name": "Notify All",
+      "description": "",
+      "fields": {},
+      "response": {
+        "optional": true
+      }
+    },
+    "room_controller_reset": {
+      "name": "Room Controller Reset",
+      "description": "",
+      "fields": {},
+      "response": {
+        "optional": true
+      }
+    },
+    "new_script": {
+      "name": "activate_alexa_actionable_notification",
+      "description": "Activates an actionable notification on a specific echo device",
+      "fields": {
+        "text": {
+          "description": "The text you would like alexa to speak.",
+          "example": "What would you like the thermostat set to?",
+          "advanced": false,
+          "required": false
+        },
+        "event_id": {
+          "description": "Correlation ID for event responses",
+          "example": "ask_for_temperature",
+          "advanced": false,
+          "required": false
+        },
+        "alexa_device": {
+          "description": "Alexa device you want to trigger",
+          "example": "media_player.bedroom_echo",
+          "advanced": false,
+          "required": false
+        }
+      },
+      "response": {
+        "optional": true
+      }
+    },
+    "alarm_triggered": {
+      "name": "Alarm Triggered",
+      "description": "",
+      "fields": {},
+      "response": {
+        "optional": true
+      }
+    },
+    "yeelight_dimmer": {
+      "name": "Yeelight Dimmer Up",
+      "description": "",
+      "fields": {
+        "entitiy_id": {
+          "name": "entitiy_id",
+          "description": "The entity ID of your bulb",
+          "example": "light.your_light",
+          "required": true,
+          "advanced": false
+        },
+        "button_state": {
+          "name": "button_state",
+          "description": "The entity ID of the input_text helper for your button state",
+          "example": "input_text.your_button_state",
+          "required": true,
+          "advanced": false
+        }
+      },
+      "response": {
+        "optional": true
+      }
+    },
+    "yeelight_dimmer_down": {
+      "name": "Yeelight Dimmer Down",
+      "description": "",
+      "fields": {
+        "entitiy_id": {
+          "name": "entitiy_id",
+          "description": "The entity ID of your bulb",
+          "example": "light.your_light",
+          "required": true,
+          "advanced": false
+        },
+        "button_state": {
+          "name": "button_state",
+          "description": "The entity ID of the input_text helper for your button state",
+          "example": "input_text.your_button_state",
+          "required": true,
+          "advanced": false
+        }
+      },
+      "response": {
+        "optional": true
+      }
+    },
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads all the available scripts.",
+      "fields": {}
+    },
+    "turn_on": {
+      "name": "Turn on",
+      "description": "Runs the sequence of actions defined in a script.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "script"
+            ]
+          }
+        ]
+      }
+    },
+    "turn_off": {
+      "name": "Turn off",
+      "description": "Stops a running script.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "script"
+            ]
+          }
+        ]
+      }
+    },
+    "toggle": {
+      "name": "Toggle",
+      "description": "Toggle a script. Starts it, if isn\u0027t running, stops it otherwise.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "script"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "shopping_list": {
+    "add_item": {
+      "name": "Add item",
+      "description": "Adds an item to the shopping list.",
+      "fields": {
+        "name": {
+          "required": true,
+          "example": "Beer",
+          "selector": {
+            "text": null
+          },
+          "name": "Name",
+          "description": "The name of the item to add."
+        }
+      }
+    },
+    "remove_item": {
+      "name": "Remove item",
+      "description": "Removes the first item with matching name from the shopping list.",
+      "fields": {
+        "name": {
+          "required": true,
+          "example": "Beer",
+          "selector": {
+            "text": null
+          },
+          "name": "Name",
+          "description": "The name of the item to remove."
+        }
+      }
+    },
+    "complete_item": {
+      "name": "Complete item",
+      "description": "Marks the first item with matching name as completed in the shopping list.",
+      "fields": {
+        "name": {
+          "required": true,
+          "example": "Beer",
+          "selector": {
+            "text": null
+          },
+          "name": "Name",
+          "description": "The name of the item to mark as completed (without removing)."
+        }
+      }
+    },
+    "incomplete_item": {
+      "name": "Incomplete item",
+      "description": "Marks the first item with matching name as incomplete in the shopping list.",
+      "fields": {
+        "name": {
+          "example": "Beer",
+          "required": true,
+          "selector": {
+            "text": null
+          },
+          "name": "Name",
+          "description": "The name of the item to mark as incomplete."
+        }
+      }
+    },
+    "complete_all": {
+      "name": "Complete all",
+      "description": "Marks all items as completed in the shopping list (without removing them from the list).",
+      "fields": {}
+    },
+    "incomplete_all": {
+      "name": "Incomplete all",
+      "description": "Marks all items as incomplete in the shopping list.",
+      "fields": {}
+    },
+    "clear_completed_items": {
+      "name": "Clear completed items",
+      "description": "Clears completed items from the shopping list.",
+      "fields": {}
+    },
+    "sort": {
+      "name": "Sort all items",
+      "description": "Sorts all items by name in the shopping list.",
+      "fields": {
+        "reverse": {
+          "default": false,
+          "selector": {
+            "boolean": null
+          },
+          "name": "Sort reverse",
+          "description": "Whether to sort in reverse (descending) order."
+        }
       }
     }
   },
@@ -3896,588 +5594,124 @@
       }
     }
   },
-  "select": {
-    "select_first": {
-      "name": "First",
-      "description": "Selects the first option.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "select"
-            ]
-          }
-        ]
-      }
-    },
-    "select_last": {
-      "name": "Last",
-      "description": "Selects the last option.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "select"
-            ]
-          }
-        ]
-      }
-    },
-    "select_next": {
-      "name": "Next",
-      "description": "Selects the next option.",
-      "fields": {
-        "cycle": {
-          "default": true,
-          "selector": {
-            "boolean": null
-          },
-          "name": "Cycle",
-          "description": "If the option should cycle from the last to the first."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "select"
-            ]
-          }
-        ]
-      }
-    },
-    "select_option": {
-      "name": "Select",
-      "description": "Selects an option.",
-      "fields": {
-        "option": {
-          "required": true,
-          "example": "\u0022Item A\u0022",
-          "selector": {
-            "text": null
-          },
-          "name": "Option",
-          "description": "Option to be selected."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "select"
-            ]
-          }
-        ]
-      }
-    },
-    "select_previous": {
-      "name": "Previous",
-      "description": "Selects the previous option.",
-      "fields": {
-        "cycle": {
-          "default": true,
-          "selector": {
-            "boolean": null
-          },
-          "name": "Cycle",
-          "description": "If the option should cycle from the first to the last."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "select"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "switch": {
-    "turn_off": {
-      "name": "Turn off",
-      "description": "Turns a switch off.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "switch"
-            ]
-          }
-        ]
-      }
-    },
-    "turn_on": {
-      "name": "Turn on",
-      "description": "Turns a switch on.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "switch"
-            ]
-          }
-        ]
-      }
-    },
-    "toggle": {
-      "name": "Toggle",
-      "description": "Toggles a switch on/off.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "switch"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "script": {
-    "feed_cats": {
-      "name": "Feed Cats",
-      "description": "",
-      "fields": {},
-      "response": {
-        "optional": true
-      }
-    },
-    "notify_alexa_everywhere": {
-      "name": "Notify Alexa Everywhere",
-      "description": "",
-      "fields": {},
-      "response": {
-        "optional": true
-      }
-    },
-    "room_controller_reset": {
-      "name": "Room Controller Reset",
-      "description": "",
-      "fields": {},
-      "response": {
-        "optional": true
-      }
-    },
-    "new_script": {
-      "name": "activate_alexa_actionable_notification",
-      "description": "Activates an actionable notification on a specific echo device",
-      "fields": {
-        "text": {
-          "description": "The text you would like alexa to speak.",
-          "example": "What would you like the thermostat set to?",
-          "advanced": false,
-          "required": false
-        },
-        "event_id": {
-          "description": "Correlation ID for event responses",
-          "example": "ask_for_temperature",
-          "advanced": false,
-          "required": false
-        },
-        "alexa_device": {
-          "description": "Alexa device you want to trigger",
-          "example": "media_player.bedroom_echo",
-          "advanced": false,
-          "required": false
-        }
-      },
-      "response": {
-        "optional": true
-      }
-    },
-    "alarm_triggered": {
-      "name": "Alarm Triggered",
-      "description": "",
-      "fields": {},
-      "response": {
-        "optional": true
-      }
-    },
-    "yeelight_dimmer": {
-      "name": "Yeelight Dimmer Up",
-      "description": "",
-      "fields": {
-        "entitiy_id": {
-          "name": "entitiy_id",
-          "description": "The entity ID of your bulb",
-          "example": "light.your_light",
-          "required": true,
-          "advanced": false
-        },
-        "button_state": {
-          "name": "button_state",
-          "description": "The entity ID of the input_text helper for your button state",
-          "example": "input_text.your_button_state",
-          "required": true,
-          "advanced": false
-        }
-      },
-      "response": {
-        "optional": true
-      }
-    },
-    "yeelight_dimmer_down": {
-      "name": "Yeelight Dimmer Down",
-      "description": "",
-      "fields": {
-        "entitiy_id": {
-          "name": "entitiy_id",
-          "description": "The entity ID of your bulb",
-          "example": "light.your_light",
-          "required": true,
-          "advanced": false
-        },
-        "button_state": {
-          "name": "button_state",
-          "description": "The entity ID of the input_text helper for your button state",
-          "example": "input_text.your_button_state",
-          "required": true,
-          "advanced": false
-        }
-      },
-      "response": {
-        "optional": true
-      }
-    },
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads all the available scripts.",
-      "fields": {}
-    },
-    "turn_on": {
-      "name": "Turn on",
-      "description": "Runs the sequence of actions defined in a script.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "script"
-            ]
-          }
-        ]
-      }
-    },
-    "turn_off": {
-      "name": "Turn off",
-      "description": "Stops a running script.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "script"
-            ]
-          }
-        ]
-      }
-    },
-    "toggle": {
-      "name": "Toggle",
-      "description": "Toggle a script. Starts it, if isn\u0027t running, stops it otherwise.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "script"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "shopping_list": {
-    "add_item": {
-      "name": "Add item",
-      "description": "Adds an item to the shopping list.",
-      "fields": {
-        "name": {
-          "required": true,
-          "example": "Beer",
-          "selector": {
-            "text": null
-          },
-          "name": "Name",
-          "description": "The name of the item to add."
-        }
-      }
-    },
-    "remove_item": {
-      "name": "Remove item",
-      "description": "Removes the first item with matching name from the shopping list.",
-      "fields": {
-        "name": {
-          "required": true,
-          "example": "Beer",
-          "selector": {
-            "text": null
-          },
-          "name": "Name",
-          "description": "The name of the item to remove."
-        }
-      }
-    },
-    "complete_item": {
-      "name": "Complete item",
-      "description": "Marks the first item with matching name as completed in the shopping list.",
-      "fields": {
-        "name": {
-          "required": true,
-          "example": "Beer",
-          "selector": {
-            "text": null
-          },
-          "name": "Name",
-          "description": "The name of the item to mark as completed (without removing)."
-        }
-      }
-    },
-    "incomplete_item": {
-      "name": "Incomplete item",
-      "description": "Marks the first item with matching name as incomplete in the shopping list.",
-      "fields": {
-        "name": {
-          "example": "Beer",
-          "required": true,
-          "selector": {
-            "text": null
-          },
-          "name": "Name",
-          "description": "The name of the item to mark as incomplete."
-        }
-      }
-    },
-    "complete_all": {
-      "name": "Complete all",
-      "description": "Marks all items as completed in the shopping list (without removing them from the list).",
-      "fields": {}
-    },
-    "incomplete_all": {
-      "name": "Incomplete all",
-      "description": "Marks all items as incomplete in the shopping list.",
-      "fields": {}
-    },
-    "clear_completed_items": {
-      "name": "Clear completed items",
-      "description": "Clears completed items from the shopping list.",
-      "fields": {}
-    },
-    "sort": {
-      "name": "Sort all items",
-      "description": "Sorts all items by name in the shopping list.",
-      "fields": {
-        "reverse": {
-          "default": false,
-          "selector": {
-            "boolean": null
-          },
-          "name": "Sort reverse",
-          "description": "Whether to sort in reverse (descending) order."
-        }
-      }
-    }
-  },
-  "counter": {
-    "increment": {
-      "name": "Increment",
-      "description": "Increments a counter.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "counter"
-            ]
-          }
-        ]
-      }
-    },
-    "decrement": {
-      "name": "Decrement",
-      "description": "Decrements a counter.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "counter"
-            ]
-          }
-        ]
-      }
-    },
-    "reset": {
-      "name": "Reset",
-      "description": "Resets a counter.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "counter"
-            ]
-          }
-        ]
-      }
-    },
-    "set_value": {
-      "name": "Set",
-      "description": "Sets the counter value.",
-      "fields": {
-        "value": {
-          "required": true,
-          "selector": {
-            "number": {
-              "min": 0,
-              "max": 9223372036854775807,
-              "mode": "box"
-            }
-          },
-          "name": "Value",
-          "description": "The new counter value the entity should be set to."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "counter"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "input_text": {
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads helpers from the YAML-configuration.",
-      "fields": {}
-    },
-    "set_value": {
-      "name": "Set",
-      "description": "Sets the value.",
-      "fields": {
-        "value": {
-          "required": true,
-          "example": "This is an example text",
-          "selector": {
-            "text": null
-          },
-          "name": "Value",
-          "description": "The target value."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "input_text"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "netdaemon": {
-    "register_service": {
-      "name": "",
-      "description": "Register a new service for netdaemon, used by the daemon and not to be used by users",
-      "fields": {
-        "service": {
-          "description": "The name of the service to register"
-        },
-        "class": {
-          "description": "The class that implements the service call"
-        },
-        "method": {
-          "description": "The method to call"
-        }
-      }
-    },
-    "reload_apps": {
-      "name": "",
-      "description": "",
-      "fields": {}
-    },
-    "entity_create": {
-      "name": "",
-      "description": "Create an entity",
-      "fields": {
-        "entity_id": {
-          "description": "The entity ID of the entity",
-          "example": "sensor.awesome"
-        },
-        "state": {
-          "description": "The state of the entity",
-          "example": "Lorem ipsum"
-        },
-        "icon": {
-          "description": "The icon for the entity",
-          "example": "mdi:rocket-launch-outline"
-        },
-        "unit": {
-          "description": "The unit of measurement for the entity"
-        },
-        "options": {
-          "description": "List of options for a select entity"
-        },
-        "attributes": {
-          "description": "The attributes of the entity"
-        }
-      }
-    },
-    "entity_update": {
-      "name": "",
-      "description": "Update an entity",
-      "fields": {
-        "entity_id": {
-          "description": "The entity ID of the entity",
-          "example": "sensor.awesome"
-        },
-        "state": {
-          "description": "The state of the entity",
-          "example": "Lorem ipsum"
-        },
-        "icon": {
-          "description": "The icon for the entity",
-          "example": "mdi:rocket-launch-outline"
-        },
-        "unit": {
-          "description": "The unit of measurement for the entity"
-        },
-        "options": {
-          "description": "List of options for a select entity"
-        },
-        "attributes": {
-          "description": "The attributes of the entity"
-        }
-      }
-    },
-    "entity_remove": {
-      "name": "",
-      "description": "Remove an entity",
-      "fields": {
-        "entity_id": {
-          "description": "The entity ID of the entity",
-          "example": "sensor.awesome"
-        }
-      }
-    }
-  },
   "template": {
     "reload": {
       "name": "Reload",
       "description": "Reloads template entities from the YAML-configuration.",
       "fields": {}
+    }
+  },
+  "unifiprotect": {
+    "add_doorbell_text": {
+      "name": "Add custom doorbell text",
+      "description": "Adds a new custom message for doorbells.",
+      "fields": {
+        "device_id": {
+          "required": true,
+          "selector": {
+            "device": {
+              "integration": "unifiprotect"
+            }
+          },
+          "name": "UniFi Protect NVR",
+          "description": "Any device from the UniFi Protect instance you want to change. In case you have multiple Protect Instances."
+        },
+        "message": {
+          "example": "Come In",
+          "required": true,
+          "selector": {
+            "text": null
+          },
+          "name": "Custom message",
+          "description": "New custom message to add for doorbells. Must be less than 30 characters."
+        }
+      }
+    },
+    "remove_doorbell_text": {
+      "name": "Remove custom doorbell text",
+      "description": "Removes an existing message for doorbells.",
+      "fields": {
+        "device_id": {
+          "required": true,
+          "selector": {
+            "device": {
+              "integration": "unifiprotect"
+            }
+          },
+          "name": "UniFi Protect NVR",
+          "description": "Any device from the UniFi Protect instance you want to change. In case you have multiple Protect Instances."
+        },
+        "message": {
+          "example": "Go Away!",
+          "required": true,
+          "selector": {
+            "text": null
+          },
+          "name": "Custom message",
+          "description": "Existing custom message to remove for doorbells."
+        }
+      }
+    },
+    "set_chime_paired_doorbells": {
+      "name": "Set chime paired doorbells",
+      "description": "Use to set the paired doorbell(s) with a smart chime.",
+      "fields": {
+        "device_id": {
+          "required": true,
+          "selector": {
+            "device": {
+              "integration": "unifiprotect",
+              "entity": {
+                "device_class": "unifiprotect__chime_button"
+              }
+            }
+          },
+          "name": "Chime",
+          "description": "The chimes to link to the doorbells to."
+        },
+        "doorbells": {
+          "example": "binary_sensor.front_doorbell_doorbell",
+          "required": false,
+          "selector": {
+            "target": {
+              "entity": {
+                "integration": "unifiprotect",
+                "domain": "binary_sensor",
+                "device_class": "occupancy"
+              }
+            }
+          },
+          "name": "Doorbells",
+          "description": "The doorbells to link to the chime."
+        }
+      }
+    },
+    "remove_privacy_zone": {
+      "name": "Remove camera privacy zone",
+      "description": "Use to remove a privacy zone from a camera.",
+      "fields": {
+        "device_id": {
+          "required": true,
+          "selector": {
+            "device": {
+              "integration": "unifiprotect",
+              "entity": {
+                "domain": "camera"
+              }
+            }
+          },
+          "name": "Camera",
+          "description": "Camera you want to remove privacy zone from."
+        },
+        "name": {
+          "required": true,
+          "selector": {
+            "text": null
+          },
+          "name": "Privacy Zone Name",
+          "description": "The name of the zone to remove."
+        }
+      }
     }
   },
   "calendar": {
@@ -4608,773 +5842,6 @@
       "name": "Fetch data from all sources.",
       "description": "Fetch data from all sources.",
       "fields": {}
-    }
-  },
-  "todo": {
-    "add_item": {
-      "name": "Add to-do list item",
-      "description": "Add a new to-do list item.",
-      "fields": {
-        "item": {
-          "required": true,
-          "example": "Submit income tax return",
-          "selector": {
-            "text": null
-          },
-          "name": "Item name",
-          "description": "The name that represents the to-do item."
-        },
-        "due_date": {
-          "filter": {
-            "supported_features": [
-              16
-            ]
-          },
-          "example": "2023-11-17",
-          "selector": {
-            "date": null
-          },
-          "name": "Due date",
-          "description": "The date the to-do item is expected to be completed."
-        },
-        "due_datetime": {
-          "filter": {
-            "supported_features": [
-              32
-            ]
-          },
-          "example": "2023-11-17 13:30:00",
-          "selector": {
-            "datetime": null
-          },
-          "name": "Due date and time",
-          "description": "The date and time the to-do item is expected to be completed."
-        },
-        "description": {
-          "filter": {
-            "supported_features": [
-              64
-            ]
-          },
-          "example": "A more complete description of the to-do item than that provided by the summary.",
-          "selector": {
-            "text": null
-          },
-          "name": "Description",
-          "description": "A more complete description of the to-do item than provided by the item name."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "todo"
-            ],
-            "supported_features": [
-              1
-            ]
-          }
-        ]
-      }
-    },
-    "update_item": {
-      "name": "Update to-do list item",
-      "description": "Update an existing to-do list item based on its name.",
-      "fields": {
-        "item": {
-          "required": true,
-          "example": "Submit income tax return",
-          "selector": {
-            "text": null
-          },
-          "name": "Item name",
-          "description": "The name for the to-do list item."
-        },
-        "rename": {
-          "example": "Something else",
-          "selector": {
-            "text": null
-          },
-          "name": "Rename item",
-          "description": "The new name of the to-do item"
-        },
-        "status": {
-          "example": "needs_action",
-          "selector": {
-            "select": {
-              "translation_key": "status",
-              "options": [
-                "needs_action",
-                "completed"
-              ]
-            }
-          },
-          "name": "Set status",
-          "description": "A status or confirmation of the to-do item."
-        },
-        "due_date": {
-          "filter": {
-            "supported_features": [
-              16
-            ]
-          },
-          "example": "2023-11-17",
-          "selector": {
-            "date": null
-          },
-          "name": "Due date",
-          "description": "The date the to-do item is expected to be completed."
-        },
-        "due_datetime": {
-          "filter": {
-            "supported_features": [
-              32
-            ]
-          },
-          "example": "2023-11-17 13:30:00",
-          "selector": {
-            "datetime": null
-          },
-          "name": "Due date and time",
-          "description": "The date and time the to-do item is expected to be completed."
-        },
-        "description": {
-          "filter": {
-            "supported_features": [
-              64
-            ]
-          },
-          "example": "A more complete description of the to-do item than that provided by the summary.",
-          "selector": {
-            "text": null
-          },
-          "name": "Description",
-          "description": "A more complete description of the to-do item than provided by the item name."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "todo"
-            ],
-            "supported_features": [
-              4
-            ]
-          }
-        ]
-      }
-    },
-    "remove_item": {
-      "name": "Remove a to-do list item",
-      "description": "Remove an existing to-do list item by its name.",
-      "fields": {
-        "item": {
-          "required": true,
-          "selector": {
-            "text": null
-          },
-          "name": "Item name",
-          "description": "The name for the to-do list items."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "todo"
-            ],
-            "supported_features": [
-              2
-            ]
-          }
-        ]
-      }
-    },
-    "get_items": {
-      "name": "Get to-do list items",
-      "description": "Get items on a to-do list.",
-      "fields": {
-        "status": {
-          "example": "needs_action",
-          "default": "needs_action",
-          "selector": {
-            "select": {
-              "translation_key": "status",
-              "options": [
-                "needs_action",
-                "completed"
-              ],
-              "multiple": true
-            }
-          },
-          "name": "Status",
-          "description": "Only return to-do items with the specified statuses. Returns not completed actions by default."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "todo"
-            ]
-          }
-        ]
-      },
-      "response": {
-        "optional": false
-      }
-    },
-    "remove_completed_items": {
-      "name": "Remove all completed to-do list items",
-      "description": "Remove all to-do list items that have been completed.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "todo"
-            ],
-            "supported_features": [
-              2
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "weather": {
-    "get_forecasts": {
-      "name": "Get forecasts",
-      "description": "Get weather forecasts.",
-      "fields": {
-        "type": {
-          "required": true,
-          "selector": {
-            "select": {
-              "options": [
-                "daily",
-                "hourly",
-                "twice_daily"
-              ],
-              "translation_key": "forecast_type"
-            }
-          },
-          "name": "Forecast type",
-          "description": "Forecast type: daily, hourly or twice daily."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "weather"
-            ],
-            "supported_features": [
-              1,
-              2,
-              4
-            ]
-          }
-        ]
-      },
-      "response": {
-        "optional": false
-      }
-    }
-  },
-  "text": {
-    "set_value": {
-      "name": "Set value",
-      "description": "Sets the value.",
-      "fields": {
-        "value": {
-          "required": true,
-          "example": "Hello world!",
-          "selector": {
-            "text": null
-          },
-          "name": "Value",
-          "description": "Enter your text."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "text"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "valve": {
-    "open_valve": {
-      "name": "Open",
-      "description": "Opens a valve.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "valve"
-            ],
-            "supported_features": [
-              1
-            ]
-          }
-        ]
-      }
-    },
-    "close_valve": {
-      "name": "Close",
-      "description": "Closes a valve.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "valve"
-            ],
-            "supported_features": [
-              2
-            ]
-          }
-        ]
-      }
-    },
-    "set_valve_position": {
-      "name": "Set position",
-      "description": "Moves a valve to a specific position.",
-      "fields": {
-        "position": {
-          "required": true,
-          "selector": {
-            "number": {
-              "min": 0,
-              "max": 100,
-              "unit_of_measurement": "%"
-            }
-          },
-          "name": "Position",
-          "description": "Target position."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "valve"
-            ],
-            "supported_features": [
-              4
-            ]
-          }
-        ]
-      }
-    },
-    "stop_valve": {
-      "name": "Stop",
-      "description": "Stops the valve movement.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "valve"
-            ],
-            "supported_features": [
-              8
-            ]
-          }
-        ]
-      }
-    },
-    "toggle": {
-      "name": "Toggle",
-      "description": "Toggles a valve open/closed.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "valve"
-            ],
-            "supported_features": [
-              3
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "notify": {
-    "send_message": {
-      "name": "Send a notification message",
-      "description": "Sends a notification message.",
-      "fields": {
-        "message": {
-          "required": true,
-          "selector": {
-            "text": null
-          },
-          "name": "Message",
-          "description": "Your notification message."
-        },
-        "title": {
-          "required": false,
-          "selector": {
-            "text": null
-          },
-          "filter": {
-            "supported_features": [
-              1
-            ]
-          },
-          "name": "Title",
-          "description": "Title for your notification message."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "notify"
-            ]
-          }
-        ]
-      }
-    },
-    "persistent_notification": {
-      "name": "Send a persistent notification",
-      "description": "Sends a notification that is visible in the notifications panel.",
-      "fields": {
-        "message": {
-          "required": true,
-          "example": "The garage door has been open for 10 minutes.",
-          "selector": {
-            "text": null
-          },
-          "name": "Message",
-          "description": "Message body of the notification."
-        },
-        "title": {
-          "example": "Your Garage Door Friend",
-          "selector": {
-            "text": null
-          },
-          "name": "Title",
-          "description": "Title of the notification."
-        },
-        "data": {
-          "example": "platform specific",
-          "selector": {
-            "object": null
-          },
-          "name": "Data",
-          "description": "Some integrations provide extended functionality. For information on how to use _data_, refer to the integration documentation.."
-        }
-      }
-    },
-    "phones": {
-      "name": "Send a notification with phones",
-      "description": "Sends a notification message using the phones service.",
-      "fields": {
-        "message": {
-          "required": true,
-          "example": "The garage door has been open for 10 minutes.",
-          "selector": {
-            "text": null
-          }
-        },
-        "title": {
-          "example": "Your Garage Door Friend",
-          "selector": {
-            "text": null
-          }
-        },
-        "target": {
-          "example": "platform specific",
-          "selector": {
-            "object": null
-          }
-        },
-        "data": {
-          "example": "platform specific",
-          "selector": {
-            "object": null
-          }
-        }
-      }
-    },
-    "alexa_media": {
-      "name": "Send a notification with alexa_media",
-      "description": "Sends a notification message using the alexa_media service.",
-      "fields": {
-        "message": {
-          "required": true,
-          "example": "The garage door has been open for 10 minutes.",
-          "selector": {
-            "text": null
-          }
-        },
-        "title": {
-          "example": "Your Garage Door Friend",
-          "selector": {
-            "text": null
-          }
-        },
-        "target": {
-          "example": "platform specific",
-          "selector": {
-            "object": null
-          }
-        },
-        "data": {
-          "example": "platform specific",
-          "selector": {
-            "object": null
-          }
-        }
-      }
-    },
-    "mobile_app_claireiphone": {
-      "name": "Send a notification via mobile_app_claireiphone",
-      "description": "Sends a notification message using the mobile_app_claireiphone integration.",
-      "fields": {
-        "message": {
-          "required": true,
-          "example": "The garage door has been open for 10 minutes.",
-          "selector": {
-            "text": null
-          }
-        },
-        "title": {
-          "example": "Your Garage Door Friend",
-          "selector": {
-            "text": null
-          }
-        },
-        "target": {
-          "example": "platform specific",
-          "selector": {
-            "object": null
-          }
-        },
-        "data": {
-          "example": "platform specific",
-          "selector": {
-            "object": null
-          }
-        }
-      }
-    },
-    "mobile_app_pixel_6": {
-      "name": "Send a notification via mobile_app_pixel_6",
-      "description": "Sends a notification message using the mobile_app_pixel_6 integration.",
-      "fields": {
-        "message": {
-          "required": true,
-          "example": "The garage door has been open for 10 minutes.",
-          "selector": {
-            "text": null
-          }
-        },
-        "title": {
-          "example": "Your Garage Door Friend",
-          "selector": {
-            "text": null
-          }
-        },
-        "target": {
-          "example": "platform specific",
-          "selector": {
-            "object": null
-          }
-        },
-        "data": {
-          "example": "platform specific",
-          "selector": {
-            "object": null
-          }
-        }
-      }
-    },
-    "mobile_app_pixel_watch": {
-      "name": "Send a notification via mobile_app_pixel_watch",
-      "description": "Sends a notification message using the mobile_app_pixel_watch integration.",
-      "fields": {
-        "message": {
-          "required": true,
-          "example": "The garage door has been open for 10 minutes.",
-          "selector": {
-            "text": null
-          }
-        },
-        "title": {
-          "example": "Your Garage Door Friend",
-          "selector": {
-            "text": null
-          }
-        },
-        "target": {
-          "example": "platform specific",
-          "selector": {
-            "object": null
-          }
-        },
-        "data": {
-          "example": "platform specific",
-          "selector": {
-            "object": null
-          }
-        }
-      }
-    },
-    "notify": {
-      "name": "Send a notification with notify",
-      "description": "Sends a notification message using the notify service.",
-      "fields": {
-        "message": {
-          "required": true,
-          "example": "The garage door has been open for 10 minutes.",
-          "selector": {
-            "text": null
-          }
-        },
-        "title": {
-          "example": "Your Garage Door Friend",
-          "selector": {
-            "text": null
-          }
-        },
-        "target": {
-          "example": "platform specific",
-          "selector": {
-            "object": null
-          }
-        },
-        "data": {
-          "example": "platform specific",
-          "selector": {
-            "object": null
-          }
-        }
-      }
-    }
-  },
-  "unifiprotect": {
-    "add_doorbell_text": {
-      "name": "Add custom doorbell text",
-      "description": "Adds a new custom message for doorbells.",
-      "fields": {
-        "device_id": {
-          "required": true,
-          "selector": {
-            "device": {
-              "integration": "unifiprotect"
-            }
-          },
-          "name": "UniFi Protect NVR",
-          "description": "Any device from the UniFi Protect instance you want to change. In case you have multiple Protect Instances."
-        },
-        "message": {
-          "example": "Come In",
-          "required": true,
-          "selector": {
-            "text": null
-          },
-          "name": "Custom message",
-          "description": "New custom message to add for doorbells. Must be less than 30 characters."
-        }
-      }
-    },
-    "remove_doorbell_text": {
-      "name": "Remove custom doorbell text",
-      "description": "Removes an existing message for doorbells.",
-      "fields": {
-        "device_id": {
-          "required": true,
-          "selector": {
-            "device": {
-              "integration": "unifiprotect"
-            }
-          },
-          "name": "UniFi Protect NVR",
-          "description": "Any device from the UniFi Protect instance you want to change. In case you have multiple Protect Instances."
-        },
-        "message": {
-          "example": "Go Away!",
-          "required": true,
-          "selector": {
-            "text": null
-          },
-          "name": "Custom message",
-          "description": "Existing custom message to remove for doorbells."
-        }
-      }
-    },
-    "set_chime_paired_doorbells": {
-      "name": "Set chime paired doorbells",
-      "description": "Use to set the paired doorbell(s) with a smart chime.",
-      "fields": {
-        "device_id": {
-          "required": true,
-          "selector": {
-            "device": {
-              "integration": "unifiprotect",
-              "entity": {
-                "device_class": "unifiprotect__chime_button"
-              }
-            }
-          },
-          "name": "Chime",
-          "description": "The chimes to link to the doorbells to."
-        },
-        "doorbells": {
-          "example": "binary_sensor.front_doorbell_doorbell",
-          "required": false,
-          "selector": {
-            "target": {
-              "entity": {
-                "integration": "unifiprotect",
-                "domain": "binary_sensor",
-                "device_class": "occupancy"
-              }
-            }
-          },
-          "name": "Doorbells",
-          "description": "The doorbells to link to the chime."
-        }
-      }
-    },
-    "remove_privacy_zone": {
-      "name": "Remove camera privacy zone",
-      "description": "Use to remove a privacy zone from a camera.",
-      "fields": {
-        "device_id": {
-          "required": true,
-          "selector": {
-            "device": {
-              "integration": "unifiprotect",
-              "entity": {
-                "domain": "camera"
-              }
-            }
-          },
-          "name": "Camera",
-          "description": "Camera you want to remove privacy zone from."
-        },
-        "name": {
-          "required": true,
-          "selector": {
-            "text": null
-          },
-          "name": "Privacy Zone Name",
-          "description": "The name of the zone to remove."
-        }
-      }
     }
   },
   "media_player": {
@@ -6124,155 +6591,277 @@
       }
     }
   },
-  "google": {
-    "add_event": {
-      "name": "Add event",
-      "description": "Adds a new calendar event.",
+  "todo": {
+    "add_item": {
+      "name": "Add to-do list item",
+      "description": "Add a new to-do list item.",
       "fields": {
-        "calendar_id": {
+        "item": {
           "required": true,
-          "example": "Your email",
+          "example": "Submit income tax return",
           "selector": {
             "text": null
           },
-          "name": "Calendar ID",
-          "description": "The id of the calendar you want."
+          "name": "Item name",
+          "description": "The name that represents the to-do item."
         },
-        "summary": {
-          "required": true,
-          "example": "Bowling",
-          "selector": {
-            "text": null
+        "due_date": {
+          "filter": {
+            "supported_features": [
+              16
+            ]
           },
-          "name": "Summary",
-          "description": "Acts as the title of the event."
+          "example": "2023-11-17",
+          "selector": {
+            "date": null
+          },
+          "name": "Due date",
+          "description": "The date the to-do item is expected to be completed."
+        },
+        "due_datetime": {
+          "filter": {
+            "supported_features": [
+              32
+            ]
+          },
+          "example": "2023-11-17 13:30:00",
+          "selector": {
+            "datetime": null
+          },
+          "name": "Due date and time",
+          "description": "The date and time the to-do item is expected to be completed."
         },
         "description": {
-          "example": "Birthday bowling",
+          "filter": {
+            "supported_features": [
+              64
+            ]
+          },
+          "example": "A more complete description of the to-do item than that provided by the summary.",
           "selector": {
             "text": null
           },
           "name": "Description",
-          "description": "The description of the event. Optional."
-        },
-        "start_date_time": {
-          "example": "2019-03-22 20:00:00",
-          "selector": {
-            "text": null
-          },
-          "name": "Start time",
-          "description": "The date and time the event should start."
-        },
-        "end_date_time": {
-          "example": "2019-03-22 22:00:00",
-          "selector": {
-            "text": null
-          },
-          "name": "End time",
-          "description": "The date and time the event should end."
-        },
-        "start_date": {
-          "example": "2019-03-10",
-          "selector": {
-            "text": null
-          },
-          "name": "Start date",
-          "description": "The date the whole day event should start."
-        },
-        "end_date": {
-          "example": "2019-03-11",
-          "selector": {
-            "text": null
-          },
-          "name": "End date",
-          "description": "The date the whole day event should end."
-        },
-        "in": {
-          "example": "\u0022days\u0022: 2 or \u0022weeks\u0022: 2",
-          "selector": {
-            "object": null
-          },
-          "name": "In",
-          "description": "Days or weeks that you want to create the event in."
-        }
-      }
-    },
-    "create_event": {
-      "name": "Creates event",
-      "description": "Add a new calendar event.",
-      "fields": {
-        "summary": {
-          "required": true,
-          "example": "Bowling",
-          "selector": {
-            "text": null
-          },
-          "name": "Summary",
-          "description": "Acts as the title of the event."
-        },
-        "description": {
-          "example": "Birthday bowling",
-          "selector": {
-            "text": null
-          },
-          "name": "Description",
-          "description": "The description of the event. Optional."
-        },
-        "start_date_time": {
-          "example": "2022-03-22 20:00:00",
-          "selector": {
-            "text": null
-          },
-          "name": "Start time",
-          "description": "The date and time the event should start."
-        },
-        "end_date_time": {
-          "example": "2022-03-22 22:00:00",
-          "selector": {
-            "text": null
-          },
-          "name": "End time",
-          "description": "The date and time the event should end."
-        },
-        "start_date": {
-          "example": "2022-03-10",
-          "selector": {
-            "text": null
-          },
-          "name": "Start date",
-          "description": "The date the whole day event should start."
-        },
-        "end_date": {
-          "example": "2022-03-11",
-          "selector": {
-            "text": null
-          },
-          "name": "End date",
-          "description": "The date the whole day event should end."
-        },
-        "in": {
-          "example": "\u0022days\u0022: 2 or \u0022weeks\u0022: 2",
-          "selector": {
-            "object": null
-          },
-          "name": "In",
-          "description": "Days or weeks that you want to create the event in."
-        },
-        "location": {
-          "example": "Conference Room - F123, Bldg. 002",
-          "selector": {
-            "text": null
-          },
-          "name": "Location",
-          "description": "The location of the event. Optional."
+          "description": "A more complete description of the to-do item than provided by the item name."
         }
       },
       "target": {
         "entity": [
           {
-            "integration": "google",
             "domain": [
-              "calendar"
+              "todo"
+            ],
+            "supported_features": [
+              1
+            ]
+          }
+        ]
+      }
+    },
+    "update_item": {
+      "name": "Update to-do list item",
+      "description": "Update an existing to-do list item based on its name.",
+      "fields": {
+        "item": {
+          "required": true,
+          "example": "Submit income tax return",
+          "selector": {
+            "text": null
+          },
+          "name": "Item name",
+          "description": "The name for the to-do list item."
+        },
+        "rename": {
+          "example": "Something else",
+          "selector": {
+            "text": null
+          },
+          "name": "Rename item",
+          "description": "The new name of the to-do item"
+        },
+        "status": {
+          "example": "needs_action",
+          "selector": {
+            "select": {
+              "translation_key": "status",
+              "options": [
+                "needs_action",
+                "completed"
+              ]
+            }
+          },
+          "name": "Set status",
+          "description": "A status or confirmation of the to-do item."
+        },
+        "due_date": {
+          "filter": {
+            "supported_features": [
+              16
+            ]
+          },
+          "example": "2023-11-17",
+          "selector": {
+            "date": null
+          },
+          "name": "Due date",
+          "description": "The date the to-do item is expected to be completed."
+        },
+        "due_datetime": {
+          "filter": {
+            "supported_features": [
+              32
+            ]
+          },
+          "example": "2023-11-17 13:30:00",
+          "selector": {
+            "datetime": null
+          },
+          "name": "Due date and time",
+          "description": "The date and time the to-do item is expected to be completed."
+        },
+        "description": {
+          "filter": {
+            "supported_features": [
+              64
+            ]
+          },
+          "example": "A more complete description of the to-do item than that provided by the summary.",
+          "selector": {
+            "text": null
+          },
+          "name": "Description",
+          "description": "A more complete description of the to-do item than provided by the item name."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "todo"
+            ],
+            "supported_features": [
+              4
+            ]
+          }
+        ]
+      }
+    },
+    "remove_item": {
+      "name": "Remove a to-do list item",
+      "description": "Remove an existing to-do list item by its name.",
+      "fields": {
+        "item": {
+          "required": true,
+          "selector": {
+            "text": null
+          },
+          "name": "Item name",
+          "description": "The name for the to-do list items."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "todo"
+            ],
+            "supported_features": [
+              2
+            ]
+          }
+        ]
+      }
+    },
+    "get_items": {
+      "name": "Get to-do list items",
+      "description": "Get items on a to-do list.",
+      "fields": {
+        "status": {
+          "example": "needs_action",
+          "default": "needs_action",
+          "selector": {
+            "select": {
+              "translation_key": "status",
+              "options": [
+                "needs_action",
+                "completed"
+              ],
+              "multiple": true
+            }
+          },
+          "name": "Status",
+          "description": "Only return to-do items with the specified statuses. Returns not completed actions by default."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "todo"
+            ]
+          }
+        ]
+      },
+      "response": {
+        "optional": false
+      }
+    },
+    "remove_completed_items": {
+      "name": "Remove all completed to-do list items",
+      "description": "Remove all to-do list items that have been completed.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "todo"
+            ],
+            "supported_features": [
+              2
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "switch": {
+    "turn_off": {
+      "name": "Turn off",
+      "description": "Turns a switch off.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "switch"
+            ]
+          }
+        ]
+      }
+    },
+    "turn_on": {
+      "name": "Turn on",
+      "description": "Turns a switch on.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "switch"
+            ]
+          }
+        ]
+      }
+    },
+    "toggle": {
+      "name": "Toggle",
+      "description": "Toggles a switch on/off.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "switch"
             ]
           }
         ]
@@ -6364,84 +6953,230 @@
       }
     }
   },
-  "mqtt": {
-    "publish": {
-      "name": "Publish",
-      "description": "Publishes a message to an MQTT topic.",
+  "text": {
+    "set_value": {
+      "name": "Set value",
+      "description": "Sets the value.",
       "fields": {
-        "topic": {
+        "value": {
           "required": true,
-          "example": "/homeassistant/hello",
+          "example": "Hello world!",
           "selector": {
             "text": null
           },
-          "name": "Topic",
-          "description": "Topic to publish to."
-        },
-        "payload": {
+          "name": "Value",
+          "description": "Enter your text."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "text"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "time": {
+    "set_value": {
+      "name": "Set Time",
+      "description": "Sets the time.",
+      "fields": {
+        "time": {
           "required": true,
-          "example": "The temperature is {{ states(\u0027sensor.temperature\u0027) }}",
+          "example": "22:15",
           "selector": {
-            "template": null
+            "time": null
           },
-          "name": "Payload",
-          "description": "The payload to publish."
+          "name": "Time",
+          "description": "The time to set."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "time"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "habitica": {
+    "api_call": {
+      "name": "API name",
+      "description": "Calls Habitica API.",
+      "fields": {
+        "name": {
+          "required": true,
+          "example": "xxxNotAValidNickxxx",
+          "selector": {
+            "text": null
+          },
+          "name": "Name",
+          "description": "Habitica\u0027s username to call for."
         },
-        "qos": {
-          "advanced": true,
-          "default": 0,
+        "path": {
+          "required": true,
+          "example": "[\u0022tasks\u0022, \u0022user\u0022, \u0022post\u0022]",
+          "selector": {
+            "object": null
+          },
+          "name": "Path",
+          "description": "Items from API URL in form of an array with method attached at the end. Consult https://habitica.com/apidoc/. Example uses https://habitica.com/apidoc/#api-Task-CreateUserTasks."
+        },
+        "args": {
+          "example": "{\u0022text\u0022: \u0022Use API from Home Assistant\u0022, \u0022type\u0022: \u0022todo\u0022}",
+          "selector": {
+            "object": null
+          },
+          "name": "Args",
+          "description": "Any additional JSON or URL parameter arguments. See apidoc mentioned for path. Example uses same API endpoint."
+        }
+      }
+    }
+  },
+  "valve": {
+    "open_valve": {
+      "name": "Open",
+      "description": "Opens a valve.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "valve"
+            ],
+            "supported_features": [
+              1
+            ]
+          }
+        ]
+      }
+    },
+    "close_valve": {
+      "name": "Close",
+      "description": "Closes a valve.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "valve"
+            ],
+            "supported_features": [
+              2
+            ]
+          }
+        ]
+      }
+    },
+    "set_valve_position": {
+      "name": "Set position",
+      "description": "Moves a valve to a specific position.",
+      "fields": {
+        "position": {
+          "required": true,
+          "selector": {
+            "number": {
+              "min": 0,
+              "max": 100,
+              "unit_of_measurement": "%"
+            }
+          },
+          "name": "Position",
+          "description": "Target position."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "valve"
+            ],
+            "supported_features": [
+              4
+            ]
+          }
+        ]
+      }
+    },
+    "stop_valve": {
+      "name": "Stop",
+      "description": "Stops the valve movement.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "valve"
+            ],
+            "supported_features": [
+              8
+            ]
+          }
+        ]
+      }
+    },
+    "toggle": {
+      "name": "Toggle",
+      "description": "Toggles a valve open/closed.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "valve"
+            ],
+            "supported_features": [
+              3
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "weather": {
+    "get_forecasts": {
+      "name": "Get forecasts",
+      "description": "Get weather forecasts.",
+      "fields": {
+        "type": {
+          "required": true,
           "selector": {
             "select": {
               "options": [
-                "0",
-                "1",
-                "2"
-              ]
+                "daily",
+                "hourly",
+                "twice_daily"
+              ],
+              "translation_key": "forecast_type"
             }
           },
-          "name": "QoS",
-          "description": "Quality of Service to use. 0: At most once. 1: At least once. 2: Exactly once."
-        },
-        "retain": {
-          "default": false,
-          "selector": {
-            "boolean": null
-          },
-          "name": "Retain",
-          "description": "If the message should have the retain flag set. If set, the broker stores the most recent message on a topic."
+          "name": "Forecast type",
+          "description": "Forecast type: daily, hourly or twice daily."
         }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "weather"
+            ],
+            "supported_features": [
+              1,
+              2,
+              4
+            ]
+          }
+        ]
+      },
+      "response": {
+        "optional": false
       }
-    },
-    "dump": {
-      "name": "Export",
-      "description": "Writes all messages on a specific topic into the \u0060mqtt_dump.txt\u0060 file in your configuration folder.",
-      "fields": {
-        "topic": {
-          "example": "OpenZWave/#",
-          "selector": {
-            "text": null
-          },
-          "name": "Topic",
-          "description": "Topic to listen to."
-        },
-        "duration": {
-          "default": 5,
-          "selector": {
-            "number": {
-              "min": 1,
-              "max": 300,
-              "unit_of_measurement": "seconds"
-            }
-          },
-          "name": "Duration",
-          "description": "How long we should listen for messages in seconds."
-        }
-      }
-    },
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads MQTT entities from the YAML-configuration.",
-      "fields": {}
     }
   },
   "yeelight": {
@@ -6745,6 +7480,173 @@
             "integration": "yeelight",
             "domain": [
               "light"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "camera": {
+    "enable_motion_detection": {
+      "name": "Enable motion detection",
+      "description": "Enables the motion detection.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "camera"
+            ]
+          }
+        ]
+      }
+    },
+    "disable_motion_detection": {
+      "name": "Disable motion detection",
+      "description": "Disables the motion detection.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "camera"
+            ]
+          }
+        ]
+      }
+    },
+    "turn_off": {
+      "name": "Turn off",
+      "description": "Turns off the camera.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "camera"
+            ]
+          }
+        ]
+      }
+    },
+    "turn_on": {
+      "name": "Turn on",
+      "description": "Turns on the camera.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "camera"
+            ]
+          }
+        ]
+      }
+    },
+    "snapshot": {
+      "name": "Take snapshot",
+      "description": "Takes a snapshot from a camera.",
+      "fields": {
+        "filename": {
+          "required": true,
+          "example": "/tmp/snapshot_{{ entity_id.name }}.jpg",
+          "selector": {
+            "text": null
+          },
+          "name": "Filename",
+          "description": "Template of a filename. Variable available is \u0060entity_id\u0060."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "camera"
+            ]
+          }
+        ]
+      }
+    },
+    "play_stream": {
+      "name": "Play stream",
+      "description": "Plays the camera stream on a supported media player.",
+      "fields": {
+        "media_player": {
+          "required": true,
+          "selector": {
+            "entity": {
+              "domain": "media_player"
+            }
+          },
+          "name": "Media player",
+          "description": "Media players to stream to."
+        },
+        "format": {
+          "default": "hls",
+          "selector": {
+            "select": {
+              "options": [
+                "hls"
+              ]
+            }
+          },
+          "name": "Format",
+          "description": "Stream format supported by the media player."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "camera"
+            ]
+          }
+        ]
+      }
+    },
+    "record": {
+      "name": "Record",
+      "description": "Creates a recording of a live camera feed.",
+      "fields": {
+        "filename": {
+          "required": true,
+          "example": "/tmp/snapshot_{{ entity_id.name }}.mp4",
+          "selector": {
+            "text": null
+          },
+          "name": "Filename",
+          "description": "Template of a filename. Variable available is \u0060entity_id\u0060. Must be mp4."
+        },
+        "duration": {
+          "default": 30,
+          "selector": {
+            "number": {
+              "min": 1,
+              "max": 3600,
+              "unit_of_measurement": "seconds"
+            }
+          },
+          "name": "Duration",
+          "description": "Planned duration of the recording. The actual duration may vary."
+        },
+        "lookback": {
+          "default": 0,
+          "selector": {
+            "number": {
+              "min": 0,
+              "max": 300,
+              "unit_of_measurement": "seconds"
+            }
+          },
+          "name": "Lookback",
+          "description": "Planned lookback period to include in the recording (in addition to the duration). Only available if there is currently an active HLS stream. The actual length of the lookback period may vary."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "camera"
             ]
           }
         ]
@@ -7106,294 +8008,491 @@
       }
     }
   },
-  "camera": {
-    "enable_motion_detection": {
-      "name": "Enable motion detection",
-      "description": "Enables the motion detection.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "camera"
-            ]
-          }
-        ]
-      }
-    },
-    "disable_motion_detection": {
-      "name": "Disable motion detection",
-      "description": "Disables the motion detection.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "camera"
-            ]
-          }
-        ]
-      }
-    },
-    "turn_off": {
-      "name": "Turn off",
-      "description": "Turns off the camera.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "camera"
-            ]
-          }
-        ]
-      }
-    },
-    "turn_on": {
-      "name": "Turn on",
-      "description": "Turns on the camera.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "camera"
-            ]
-          }
-        ]
-      }
-    },
-    "snapshot": {
-      "name": "Take snapshot",
-      "description": "Takes a snapshot from a camera.",
+  "google": {
+    "add_event": {
+      "name": "Add event",
+      "description": "Adds a new calendar event.",
       "fields": {
-        "filename": {
+        "calendar_id": {
           "required": true,
-          "example": "/tmp/snapshot_{{ entity_id.name }}.jpg",
+          "example": "Your email",
           "selector": {
             "text": null
           },
-          "name": "Filename",
-          "description": "Template of a filename. Variable available is \u0060entity_id\u0060."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "camera"
-            ]
-          }
-        ]
-      }
-    },
-    "play_stream": {
-      "name": "Play stream",
-      "description": "Plays the camera stream on a supported media player.",
-      "fields": {
-        "media_player": {
-          "required": true,
-          "selector": {
-            "entity": {
-              "domain": "media_player"
-            }
-          },
-          "name": "Media player",
-          "description": "Media players to stream to."
+          "name": "Calendar ID",
+          "description": "The id of the calendar you want."
         },
-        "format": {
-          "default": "hls",
-          "selector": {
-            "select": {
-              "options": [
-                "hls"
-              ]
-            }
-          },
-          "name": "Format",
-          "description": "Stream format supported by the media player."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "camera"
-            ]
-          }
-        ]
-      }
-    },
-    "record": {
-      "name": "Record",
-      "description": "Creates a recording of a live camera feed.",
-      "fields": {
-        "filename": {
+        "summary": {
           "required": true,
-          "example": "/tmp/snapshot_{{ entity_id.name }}.mp4",
+          "example": "Bowling",
           "selector": {
             "text": null
           },
-          "name": "Filename",
-          "description": "Template of a filename. Variable available is \u0060entity_id\u0060. Must be mp4."
+          "name": "Summary",
+          "description": "Acts as the title of the event."
         },
-        "duration": {
-          "default": 30,
+        "description": {
+          "example": "Birthday bowling",
           "selector": {
-            "number": {
-              "min": 1,
-              "max": 3600,
-              "unit_of_measurement": "seconds"
-            }
+            "text": null
           },
-          "name": "Duration",
-          "description": "Planned duration of the recording. The actual duration may vary."
+          "name": "Description",
+          "description": "The description of the event. Optional."
         },
-        "lookback": {
-          "default": 0,
+        "start_date_time": {
+          "example": "2019-03-22 20:00:00",
           "selector": {
-            "number": {
-              "min": 0,
-              "max": 300,
-              "unit_of_measurement": "seconds"
-            }
+            "text": null
           },
-          "name": "Lookback",
-          "description": "Planned lookback period to include in the recording (in addition to the duration). Only available if there is currently an active HLS stream. The actual length of the lookback period may vary."
+          "name": "Start time",
+          "description": "The date and time the event should start."
+        },
+        "end_date_time": {
+          "example": "2019-03-22 22:00:00",
+          "selector": {
+            "text": null
+          },
+          "name": "End time",
+          "description": "The date and time the event should end."
+        },
+        "start_date": {
+          "example": "2019-03-10",
+          "selector": {
+            "text": null
+          },
+          "name": "Start date",
+          "description": "The date the whole day event should start."
+        },
+        "end_date": {
+          "example": "2019-03-11",
+          "selector": {
+            "text": null
+          },
+          "name": "End date",
+          "description": "The date the whole day event should end."
+        },
+        "in": {
+          "example": "\u0022days\u0022: 2 or \u0022weeks\u0022: 2",
+          "selector": {
+            "object": null
+          },
+          "name": "In",
+          "description": "Days or weeks that you want to create the event in."
+        }
+      }
+    },
+    "create_event": {
+      "name": "Creates event",
+      "description": "Add a new calendar event.",
+      "fields": {
+        "summary": {
+          "required": true,
+          "example": "Bowling",
+          "selector": {
+            "text": null
+          },
+          "name": "Summary",
+          "description": "Acts as the title of the event."
+        },
+        "description": {
+          "example": "Birthday bowling",
+          "selector": {
+            "text": null
+          },
+          "name": "Description",
+          "description": "The description of the event. Optional."
+        },
+        "start_date_time": {
+          "example": "2022-03-22 20:00:00",
+          "selector": {
+            "text": null
+          },
+          "name": "Start time",
+          "description": "The date and time the event should start."
+        },
+        "end_date_time": {
+          "example": "2022-03-22 22:00:00",
+          "selector": {
+            "text": null
+          },
+          "name": "End time",
+          "description": "The date and time the event should end."
+        },
+        "start_date": {
+          "example": "2022-03-10",
+          "selector": {
+            "text": null
+          },
+          "name": "Start date",
+          "description": "The date the whole day event should start."
+        },
+        "end_date": {
+          "example": "2022-03-11",
+          "selector": {
+            "text": null
+          },
+          "name": "End date",
+          "description": "The date the whole day event should end."
+        },
+        "in": {
+          "example": "\u0022days\u0022: 2 or \u0022weeks\u0022: 2",
+          "selector": {
+            "object": null
+          },
+          "name": "In",
+          "description": "Days or weeks that you want to create the event in."
+        },
+        "location": {
+          "example": "Conference Room - F123, Bldg. 002",
+          "selector": {
+            "text": null
+          },
+          "name": "Location",
+          "description": "The location of the event. Optional."
         }
       },
       "target": {
         "entity": [
           {
+            "integration": "google",
             "domain": [
-              "camera"
+              "calendar"
             ]
           }
         ]
       }
     }
   },
-  "icloud": {
-    "play_sound": {
-      "name": "Play sound",
-      "description": "Plays sound on an Apple device.",
+  "spotcast": {
+    "start": {
+      "name": "Start Spotcast",
+      "description": "Starts spotify playback on chromecast devices",
       "fields": {
-        "account": {
-          "required": true,
-          "example": "steve@apple.com",
-          "selector": {
-            "text": null
-          },
-          "name": "Account",
-          "description": "Your iCloud account username (email) or account name."
-        },
         "device_name": {
-          "required": true,
-          "example": "stevesiphone",
+          "name": "Device Name",
+          "description": "The friendly name of the chromecast or spotify connect device. First checks spotify device list for name (not used together with entity_id and spotify_device_id).",
+          "example": "Livingroom",
+          "required": false,
           "selector": {
             "text": null
-          },
-          "name": "Device name",
-          "description": "The name of the Apple device to play a sound."
+          }
+        },
+        "spotify_device_id": {
+          "name": "Spotify Device ID",
+          "description": "Advanced users only. The spotify device id (not used together with entity_id or device_name).",
+          "example": "4363634563457346xcyvydgf3qwa",
+          "required": false,
+          "selector": {
+            "text": null
+          }
+        },
+        "entity_id": {
+          "name": "Entity ID",
+          "description": "The entity_id of the chromecast mediaplayer. Friendly name MUST match the spotify connect device name (not used together with device_name and spotify_device_id).",
+          "example": "media_player.vardagsrum",
+          "required": false,
+          "selector": {
+            "entity": {
+              "domain": "media_player",
+              "integration": "cast"
+            }
+          }
+        },
+        "uri": {
+          "name": "URI",
+          "description": "Supported Spotify URI as string. None or empty uri will transfer the current/last playback (see parameter force_playback).",
+          "example": "spotify:playlist:37i9dQZF1DX3yvAYDslnv8",
+          "required": false,
+          "selector": {
+            "text": null
+          }
+        },
+        "category": {
+          "name": "Category",
+          "description": "A category to fetch playlist from. See https://developer.spotify.com/console/get-browse-categories/ for a list of categories",
+          "required": false,
+          "selector": {
+            "text": null
+          }
+        },
+        "country": {
+          "name": "Country",
+          "description": "Country code to use with category. See https://spotipy.readthedocs.io/en/2.19.0/#spotipy.client.Spotify.country_codes for list of available codes",
+          "required": false,
+          "selector": {
+            "text": null
+          }
+        },
+        "limit": {
+          "name": "Limit",
+          "description": "Limit of playlist to fetch in a given category. Default 20",
+          "required": false,
+          "default": 20,
+          "selector": {
+            "number": {
+              "mode": "box",
+              "step": 1,
+              "min": 0,
+              "max": 50
+            }
+          }
+        },
+        "album_name": {
+          "name": "Album Name",
+          "example": "The Dark Side of the Moon",
+          "description": "Filters search results for the provided album name. Don\u0027t include this if you don\u0027t want an album.",
+          "required": false,
+          "selector": {
+            "text": null
+          }
+        },
+        "track_name": {
+          "name": "Track Name",
+          "example": "Money",
+          "description": "Filters search results for the provided track name. Don\u0027t include this if you don\u0027t want a particular track.",
+          "required": false,
+          "selector": {
+            "text": null
+          }
+        },
+        "playlist_name": {
+          "name": "Playlist Name",
+          "example": "Ultimate pink floyd playlist",
+          "description": "Filters search results for the provided playlist name. Don\u0027t include this if you don\u0027t want a playlist.",
+          "required": false,
+          "selector": {
+            "text": null
+          }
+        },
+        "show_name": {
+          "name": "Show Name",
+          "example": "Hollywood Handbook",
+          "description": "Filters search results for the provided podcast show name. Don\u0027t include this if you don\u0027t want a podcast.",
+          "required": false,
+          "selector": {
+            "text": null
+          }
+        },
+        "episode_name": {
+          "name": "Episode Name",
+          "example": "Sarah Sherman, Our Close Friend",
+          "description": "Filters search results for the provided podcast episode name. Don\u0027t include this if you don\u0027t want a podcast.",
+          "required": false,
+          "selector": {
+            "text": null
+          }
+        },
+        "genre_name": {
+          "name": "Genre Name",
+          "example": "post punk",
+          "description": "Filters search results by genre of music",
+          "required": false,
+          "selector": {
+            "text": null
+          }
+        },
+        "audiobook_name": {
+          "name": "Audiobook Name",
+          "example": "Ulysses",
+          "description": "Filters search results for the provided audiobook name. Don\u0027t include this if you don\u0027t want an audiobook.",
+          "required": false,
+          "selector": {
+            "text": null
+          }
+        },
+        "artist_name": {
+          "name": "Artist Name",
+          "example": "pink floyd",
+          "description": "This will filter search results to match the provided artist name. Don\u0027t include this if searching for a playlist or genre. Do include the author\u0027s name if searching for audiobooks.",
+          "required": false,
+          "selector": {
+            "text": null
+          }
+        },
+        "account": {
+          "name": "Account",
+          "description": "Optionally starts Spotify using an alternative account specified in config.",
+          "example": "my_wifes",
+          "required": false,
+          "selector": {
+            "text": null
+          }
+        },
+        "force_playback": {
+          "name": "Force Playback",
+          "description": "In case of transfering playback: If true starts playing the user\u0027s last playback even if nothing is currently playing.",
+          "example": true,
+          "required": false,
+          "default": false,
+          "selector": {
+            "boolean": null
+          }
+        },
+        "random_song": {
+          "name": "Random Song",
+          "description": "Starts the playback at a random position in the playlist or album.",
+          "example": true,
+          "required": false,
+          "default": false,
+          "selector": {
+            "boolean": null
+          }
+        },
+        "repeat": {
+          "name": "Repeat",
+          "description": "Set repeat mode for playback.",
+          "example": "track",
+          "required": false,
+          "default": "off",
+          "selector": {
+            "select": {
+              "options": [
+                "track",
+                "context",
+                "off"
+              ]
+            }
+          }
+        },
+        "shuffle": {
+          "name": "Shuffle",
+          "description": "Set shuffle mode for playback.",
+          "example": true,
+          "required": false,
+          "default": false,
+          "selector": {
+            "boolean": null
+          }
+        },
+        "offset": {
+          "name": "Offset",
+          "description": "Set offset mode for playback. 0 is the first song.",
+          "example": 1,
+          "required": false,
+          "default": 0,
+          "selector": {
+            "number": {
+              "mode": "box",
+              "step": 1,
+              "min": 0,
+              "max": 999999
+            }
+          }
+        },
+        "start_volume": {
+          "name": "Start Volume",
+          "description": "Set the volume for playback in percentage.",
+          "example": 50,
+          "required": false,
+          "selector": {
+            "number": {
+              "mode": "slider",
+              "step": 1,
+              "min": 0,
+              "max": 100
+            }
+          }
+        },
+        "ignore_fully_played": {
+          "name": "Ignore Fully Played",
+          "description": "Set to ignore or not already played episodes in a podcast playlist",
+          "example": true,
+          "required": false,
+          "default": false,
+          "selector": {
+            "boolean": null
+          }
         }
       }
-    },
-    "display_message": {
-      "name": "Display message",
-      "description": "Displays a message on an Apple device.",
+    }
+  },
+  "mqtt": {
+    "publish": {
+      "name": "Publish",
+      "description": "Publishes a message to an MQTT topic.",
       "fields": {
-        "account": {
+        "topic": {
           "required": true,
-          "example": "steve@apple.com",
+          "example": "/homeassistant/hello",
           "selector": {
             "text": null
           },
-          "name": "Account",
-          "description": "Your iCloud account username (email) or account name."
+          "name": "Topic",
+          "description": "Topic to publish to."
         },
-        "device_name": {
+        "payload": {
           "required": true,
-          "example": "stevesiphone",
+          "example": "The temperature is {{ states(\u0027sensor.temperature\u0027) }}",
           "selector": {
-            "text": null
+            "template": null
           },
-          "name": "Device name",
-          "description": "The name of the Apple device to display the message."
+          "name": "Payload",
+          "description": "The payload to publish."
         },
-        "message": {
-          "required": true,
-          "example": "Hey Steve !",
-          "selector": {
-            "text": null
-          },
-          "name": "Message",
-          "description": "The content of your message."
-        },
-        "sound": {
+        "evaluate_payload": {
+          "advanced": true,
+          "default": false,
           "selector": {
             "boolean": null
           },
-          "name": "Sound",
-          "description": "To make a sound when displaying the message."
+          "name": "Evaluate payload",
+          "description": "When \u0060payload\u0060 is a Python bytes literal, evaluate the bytes literal and publish the raw data."
+        },
+        "qos": {
+          "advanced": true,
+          "default": 0,
+          "selector": {
+            "select": {
+              "options": [
+                "0",
+                "1",
+                "2"
+              ]
+            }
+          },
+          "name": "QoS",
+          "description": "Quality of Service to use. 0: At most once. 1: At least once. 2: Exactly once."
+        },
+        "retain": {
+          "default": false,
+          "selector": {
+            "boolean": null
+          },
+          "name": "Retain",
+          "description": "If the message should have the retain flag set. If set, the broker stores the most recent message on a topic."
         }
       }
     },
-    "lost_device": {
-      "name": "Lost device",
-      "description": "Makes an Apple device in lost state.",
+    "dump": {
+      "name": "Export",
+      "description": "Writes all messages on a specific topic into the \u0060mqtt_dump.txt\u0060 file in your configuration folder.",
       "fields": {
-        "account": {
-          "required": true,
-          "example": "steve@apple.com",
+        "topic": {
+          "example": "OpenZWave/#",
           "selector": {
             "text": null
           },
-          "name": "Account",
-          "description": "Your iCloud account username (email) or account name."
+          "name": "Topic",
+          "description": "Topic to listen to."
         },
-        "device_name": {
-          "required": true,
-          "example": "stevesiphone",
+        "duration": {
+          "default": 5,
           "selector": {
-            "text": null
+            "number": {
+              "min": 1,
+              "max": 300,
+              "unit_of_measurement": "seconds"
+            }
           },
-          "name": "Device name",
-          "description": "The name of the Apple device to set lost."
-        },
-        "number": {
-          "required": true,
-          "example": "\u002B33450020100",
-          "selector": {
-            "text": null
-          },
-          "name": "Number",
-          "description": "The phone number to call in lost mode (must contain country code)."
-        },
-        "message": {
-          "required": true,
-          "example": "Call me",
-          "selector": {
-            "text": null
-          },
-          "name": "Message",
-          "description": "The message to display in lost mode."
+          "name": "Duration",
+          "description": "How long we should listen for messages in seconds."
         }
       }
     },
-    "update": {
-      "name": "Update",
-      "description": "Updates iCloud devices.",
-      "fields": {
-        "account": {
-          "required": true,
-          "example": "steve@apple.com",
-          "selector": {
-            "text": null
-          },
-          "name": "Account",
-          "description": "Your iCloud account username (email) or account name."
-        }
-      }
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads MQTT entities from the YAML-configuration.",
+      "fields": {}
     }
   },
   "esphome": {
@@ -7759,6 +8858,129 @@
       }
     }
   },
+  "icloud": {
+    "play_sound": {
+      "name": "Play sound",
+      "description": "Plays sound on an Apple device.",
+      "fields": {
+        "account": {
+          "required": true,
+          "example": "steve@apple.com",
+          "selector": {
+            "text": null
+          },
+          "name": "Account",
+          "description": "Your iCloud account username (email) or account name."
+        },
+        "device_name": {
+          "required": true,
+          "example": "stevesiphone",
+          "selector": {
+            "text": null
+          },
+          "name": "Device name",
+          "description": "The name of the Apple device to play a sound."
+        }
+      }
+    },
+    "display_message": {
+      "name": "Display message",
+      "description": "Displays a message on an Apple device.",
+      "fields": {
+        "account": {
+          "required": true,
+          "example": "steve@apple.com",
+          "selector": {
+            "text": null
+          },
+          "name": "Account",
+          "description": "Your iCloud account username (email) or account name."
+        },
+        "device_name": {
+          "required": true,
+          "example": "stevesiphone",
+          "selector": {
+            "text": null
+          },
+          "name": "Device name",
+          "description": "The name of the Apple device to display the message."
+        },
+        "message": {
+          "required": true,
+          "example": "Hey Steve !",
+          "selector": {
+            "text": null
+          },
+          "name": "Message",
+          "description": "The content of your message."
+        },
+        "sound": {
+          "selector": {
+            "boolean": null
+          },
+          "name": "Sound",
+          "description": "To make a sound when displaying the message."
+        }
+      }
+    },
+    "lost_device": {
+      "name": "Lost device",
+      "description": "Makes an Apple device in lost state.",
+      "fields": {
+        "account": {
+          "required": true,
+          "example": "steve@apple.com",
+          "selector": {
+            "text": null
+          },
+          "name": "Account",
+          "description": "Your iCloud account username (email) or account name."
+        },
+        "device_name": {
+          "required": true,
+          "example": "stevesiphone",
+          "selector": {
+            "text": null
+          },
+          "name": "Device name",
+          "description": "The name of the Apple device to set lost."
+        },
+        "number": {
+          "required": true,
+          "example": "\u002B33450020100",
+          "selector": {
+            "text": null
+          },
+          "name": "Number",
+          "description": "The phone number to call in lost mode (must contain country code)."
+        },
+        "message": {
+          "required": true,
+          "example": "Call me",
+          "selector": {
+            "text": null
+          },
+          "name": "Message",
+          "description": "The message to display in lost mode."
+        }
+      }
+    },
+    "update": {
+      "name": "Update",
+      "description": "Updates iCloud devices.",
+      "fields": {
+        "account": {
+          "required": true,
+          "example": "steve@apple.com",
+          "selector": {
+            "text": null
+          },
+          "name": "Account",
+          "description": "Your iCloud account username (email) or account name."
+        }
+      }
+    }
+  },
   "fully_kiosk": {
     "load_url": {
       "name": "Load URL",
@@ -7943,248 +9165,6 @@
       }
     }
   },
-  "spotcast": {
-    "start": {
-      "name": "Start Spotcast",
-      "description": "Starts spotify playback on chromecast devices",
-      "fields": {
-        "device_name": {
-          "name": "Device Name",
-          "description": "The friendly name of the chromecast or spotify connect device. First checks spotify device list for name (not used together with entity_id and spotify_device_id).",
-          "example": "Livingroom",
-          "required": false,
-          "selector": {
-            "text": null
-          }
-        },
-        "spotify_device_id": {
-          "name": "Spotify Device ID",
-          "description": "Advanced users only. The spotify device id (not used together with entity_id or device_name).",
-          "example": "4363634563457346xcyvydgf3qwa",
-          "required": false,
-          "selector": {
-            "text": null
-          }
-        },
-        "entity_id": {
-          "name": "Entity ID",
-          "description": "The entity_id of the chromecast mediaplayer. Friendly name MUST match the spotify connect device name (not used together with device_name and spotify_device_id).",
-          "example": "media_player.vardagsrum",
-          "required": false,
-          "selector": {
-            "entity": {
-              "domain": "media_player",
-              "integration": "cast"
-            }
-          }
-        },
-        "uri": {
-          "name": "URI",
-          "description": "Supported Spotify URI as string. None or empty uri will transfer the current/last playback (see parameter force_playback).",
-          "example": "spotify:playlist:37i9dQZF1DX3yvAYDslnv8",
-          "required": false,
-          "selector": {
-            "text": null
-          }
-        },
-        "category": {
-          "name": "Category",
-          "description": "A category to fetch playlist from. See https://developer.spotify.com/console/get-browse-categories/ for a list of categories",
-          "required": false,
-          "selector": {
-            "text": null
-          }
-        },
-        "country": {
-          "name": "Country",
-          "description": "Country code to use with category. See https://spotipy.readthedocs.io/en/2.19.0/#spotipy.client.Spotify.country_codes for list of available codes",
-          "required": false,
-          "selector": {
-            "text": null
-          }
-        },
-        "limit": {
-          "name": "Limit",
-          "description": "Limit of playlist to fetch in a given category. Default 20",
-          "required": false,
-          "default": 20,
-          "selector": {
-            "number": {
-              "mode": "box",
-              "step": 1,
-              "min": 0,
-              "max": 50
-            }
-          }
-        },
-        "search": {
-          "name": "Search",
-          "description": "A Search request to the spotify API. Will play the most relevant search result.",
-          "required": false,
-          "selector": {
-            "text": null
-          }
-        },
-        "account": {
-          "name": "Account",
-          "description": "Optionally starts Spotify using an alternative account specified in config.",
-          "example": "my_wifes",
-          "required": false,
-          "selector": {
-            "text": null
-          }
-        },
-        "force_playback": {
-          "name": "Force Playback",
-          "description": "In case of transfering playback: If true starts playing the user\u0027s last playback even if nothing is currently playing.",
-          "example": true,
-          "required": false,
-          "default": false,
-          "selector": {
-            "boolean": null
-          }
-        },
-        "random_song": {
-          "name": "Random Song",
-          "description": "Starts the playback at a random position in the playlist or album.",
-          "example": true,
-          "required": false,
-          "default": false,
-          "selector": {
-            "boolean": null
-          }
-        },
-        "repeat": {
-          "name": "Repeat",
-          "description": "Set repeat mode for playback.",
-          "example": "track",
-          "required": false,
-          "default": "off",
-          "selector": {
-            "select": {
-              "options": [
-                "track",
-                "context",
-                "off"
-              ]
-            }
-          }
-        },
-        "shuffle": {
-          "name": "Shuffle",
-          "description": "Set shuffle mode for playback.",
-          "example": true,
-          "required": false,
-          "default": false,
-          "selector": {
-            "boolean": null
-          }
-        },
-        "offset": {
-          "name": "Offset",
-          "description": "Set offset mode for playback. 0 is the first song.",
-          "example": 1,
-          "required": false,
-          "default": 0,
-          "selector": {
-            "number": {
-              "mode": "box",
-              "step": 1,
-              "min": 0,
-              "max": 999999
-            }
-          }
-        },
-        "start_volume": {
-          "name": "Start Volume",
-          "description": "Set the volume for playback in percentage.",
-          "example": 50,
-          "required": false,
-          "selector": {
-            "number": {
-              "mode": "slider",
-              "step": 1,
-              "min": 0,
-              "max": 100
-            }
-          }
-        },
-        "ignore_fully_played": {
-          "name": "Ignore Fully Played",
-          "description": "Set to ignore or not already played episodes in a podcast playlist",
-          "example": true,
-          "required": false,
-          "default": false,
-          "selector": {
-            "boolean": null
-          }
-        }
-      }
-    }
-  },
-  "neato": {
-    "custom_cleaning": {
-      "name": "Zone cleaning action",
-      "description": "Zone cleaning action specific to Neato Botvacs.",
-      "fields": {
-        "mode": {
-          "default": 2,
-          "selector": {
-            "number": {
-              "min": 1,
-              "max": 2,
-              "mode": "box"
-            }
-          },
-          "name": "Set cleaning mode",
-          "description": "Set the cleaning mode: 1 for eco and 2 for turbo. Defaults to turbo if not set."
-        },
-        "navigation": {
-          "default": 1,
-          "selector": {
-            "number": {
-              "min": 1,
-              "max": 3,
-              "mode": "box"
-            }
-          },
-          "name": "Set navigation mode",
-          "description": "Set the navigation mode: 1 for normal, 2 for extra care, 3 for deep. Defaults to normal if not set."
-        },
-        "category": {
-          "default": 4,
-          "selector": {
-            "number": {
-              "min": 2,
-              "max": 4,
-              "step": 2,
-              "mode": "box"
-            }
-          },
-          "name": "Use cleaning map",
-          "description": "Whether to use a persistent map or not for cleaning (i.e. No go lines): 2 for no map, 4 for map. Default to using map if not set (and fallback to no map if no map is found)."
-        },
-        "zone": {
-          "example": "Kitchen",
-          "selector": {
-            "text": null
-          },
-          "name": "Name of the zone to clean (Only Botvac D7)",
-          "description": "Only supported on the Botvac D7. Name of the zone to clean. Defaults to no zone i.e. complete house cleanup."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "integration": "neato",
-            "domain": [
-              "vacuum"
-            ]
-          }
-        ]
-      }
-    }
-  },
   "automation": {
     "trigger": {
       "name": "Trigger",
@@ -8266,29 +9246,137 @@
       "fields": {}
     }
   },
-  "time": {
-    "set_value": {
-      "name": "Set Time",
-      "description": "Sets the time.",
+  "squeezebox": {
+    "call_method": {
+      "name": "Call method",
+      "description": "Calls a custom Squeezebox JSONRPC API.",
       "fields": {
-        "time": {
+        "command": {
           "required": true,
-          "example": "22:15",
+          "example": "playlist",
           "selector": {
-            "time": null
+            "text": null
           },
-          "name": "Time",
-          "description": "The time to set."
+          "name": "Command",
+          "description": "Command to pass to Lyrion Music Server (p0 in the CLI documentation)."
+        },
+        "parameters": {
+          "example": "[\u0022loadtracks\u0022, \u0022album.titlesearch=Revolver\u0022]",
+          "advanced": true,
+          "selector": {
+            "object": null
+          },
+          "name": "Parameters",
+          "description": "Array of additional parameters to pass to Lyrion Music Server (p1, ..., pN in the CLI documentation).\n."
         }
       },
       "target": {
         "entity": [
           {
+            "integration": "squeezebox",
             "domain": [
-              "time"
+              "media_player"
             ]
           }
         ]
+      }
+    },
+    "call_query": {
+      "name": "Call query",
+      "description": "Calls a custom Squeezebox JSONRPC API. Result will be stored in \u0027query_result\u0027 attribute of the Squeezebox entity.\n.",
+      "fields": {
+        "command": {
+          "required": true,
+          "example": "albums",
+          "selector": {
+            "text": null
+          },
+          "name": "Command",
+          "description": "Command to pass to Lyrion Music Server (p0 in the CLI documentation)."
+        },
+        "parameters": {
+          "example": "[\u00220\u0022, \u002220\u0022, \u0022search:Revolver\u0022]",
+          "advanced": true,
+          "selector": {
+            "object": null
+          },
+          "name": "Parameters",
+          "description": "Array of additional parameters to pass to Lyrion Music Server (p1, ..., pN in the CLI documentation).\n."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "integration": "squeezebox",
+            "domain": [
+              "media_player"
+            ]
+          }
+        ]
+      }
+    },
+    "sync": {
+      "name": "Sync",
+      "description": "Adds another player to this player\u0027s sync group. If the other player is already in a sync group, it will leave it.\n.",
+      "fields": {
+        "other_player": {
+          "required": true,
+          "example": "media_player.living_room",
+          "selector": {
+            "text": null
+          },
+          "name": "Other player",
+          "description": "Name of the other Squeezebox player to link."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "integration": "squeezebox",
+            "domain": [
+              "media_player"
+            ]
+          }
+        ]
+      }
+    },
+    "unsync": {
+      "name": "Unsync",
+      "description": "Removes this player from its sync group.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "integration": "squeezebox",
+            "domain": [
+              "media_player"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "alexa_media": {
+    "update_last_called": {
+      "name": "Update Last Called Sensor",
+      "description": "Forces update of last_called echo device for each Alexa account.",
+      "fields": {
+        "email": {
+          "description": "List of Alexa accounts to update. If empty, will update all known accounts.",
+          "example": "my_email@alexa.com",
+          "name": "Email address"
+        }
+      }
+    },
+    "force_logout": {
+      "name": "Force Logout",
+      "description": "Force account to logout. Used mainly for debugging.",
+      "fields": {
+        "email": {
+          "description": "Accounts to clear. Empty will clear all.",
+          "example": "my_email@alexa.com",
+          "name": "Email address"
+        }
       }
     }
   }

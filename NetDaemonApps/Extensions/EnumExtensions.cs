@@ -44,6 +44,12 @@ public static class EnumExtensions
         string normalized = value.Replace("_", null);
         return Enum.Parse<E>(normalized, true);
     }
+    
+    public static InputSelectSetOptionsParameters ToOptions<T>() where T : Enum => 
+    new InputSelectSetOptionsParameters
+    {
+        Options = string.Join(", ", Enum.GetNames(typeof(T)))
+    };
 
     public static void SelectOption<T>(this InputSelectEntity target, T @option)
         where T : Enum
