@@ -4,6 +4,8 @@ namespace NetDaemonApps.Extensions;
 
 public static class EntityExtensions
 {
+    private static readonly string[] _onStates = ["on", "playing"];
+
     public static IDisposable WhenOn<TEntity, TAttributes>(this Entity<TEntity, EntityState<TAttributes>, TAttributes> entity,
         Action<StateChange<TEntity, EntityState<TAttributes>>> action)
         where TAttributes : class
@@ -56,6 +58,6 @@ public static class EntityExtensions
     {
         var boolTypes = new[] { "light", "switch", "scene", "input_boolean", "binary_sensor", "automation" };
         return boolTypes.ToList().Contains(entity?.Domain() ?? "") && entity?.State != null
-            ? entity?.State == "on" : false;
+            ? _onStates.Contains(entity?.State) : false;
     }
 }

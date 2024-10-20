@@ -165,3 +165,70 @@ yeelight_dimmer_down:
           seconds: 1
       - variables:
           counter: '{{ counter + 1 }}'
+camera_shed_snapshot_ai_notification:
+  alias: Camera - shed - Snapshot, AI & Notification
+  sequence:
+  - metadata: {}
+    data:
+      filename: ./www/snapshots/shed_snapshot1.jpg
+    target:
+      device_id: 74cbe41b5b5130da8a821ef1c1d36d1d
+    enabled: true
+    action: camera.snapshot
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 0
+      milliseconds: 500
+    enabled: true
+  - metadata: {}
+    data:
+      filename: ./www/snapshots/shed_snapshot2.jpg
+    target:
+      device_id: 74cbe41b5b5130da8a821ef1c1d36d1d
+    enabled: true
+    action: camera.snapshot
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 0
+      milliseconds: 500
+    enabled: true
+  - metadata: {}
+    data:
+      filename: ./www/snapshots/shed_snapshot3.jpg
+    target:
+      device_id: 74cbe41b5b5130da8a821ef1c1d36d1d
+    enabled: true
+    action: camera.snapshot
+  - metadata: {}
+    data:
+      prompt: 'Motion has been detected, compare and very briefly describe what you
+        see in the following sequence of images from my shed camera. What do you think
+        caused the motion alarm? If a person or car is present, describe them in detail.
+        Do not describe stationary objects or buildings. If you see no obvious causes
+        of motion, reply with "Camera has detected motion however no obvious motion
+        observed comparing snapshots". Your message needs to be short enough to fit
+        in a phone notification. '
+      image_filename:
+      - ./www/snapshots/shed_snapshot1.jpg
+      - ./www/snapshots/shed_snapshot2.jpg
+      - ./www/snapshots/shed_snapshot3.jpg
+    response_variable: generated_content
+    action: google_generative_ai_conversation.generate_content
+  - if:
+    - condition: template
+      value_template: "{{ generated_content['text'] == ' Camera has detected motion
+        however no obvious motion observed comparing snapshots.' }} \n"
+    then:
+    - stop: ''
+    else:
+    - metadata: {}
+      data:
+        title: shed Motion Detected
+        message: '{{generated_content[''text''] }}'
+        data:
+          image: /local/snapshots/shed_snapshot2.jpg
+      action: notify.mobile_app_pixel_6
+  mode: single
+  description: ''

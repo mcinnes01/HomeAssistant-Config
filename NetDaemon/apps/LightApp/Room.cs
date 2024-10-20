@@ -25,9 +25,9 @@ public abstract class Room
     public bool Watchdog { get; set; } = true;
 
     // Light Settings
-    public int? LuxLimit { get; set; }
+    public bool IgnoreLux { get; set; }
     public NumericSensorEntity? LuxEntity { get; set; }
-    public NumericSensorEntity? LuxLimitEntity { get; set; }
+    public InputNumberEntity? LuxLimitEntity { get; set; }
     public List<LightEntity> LampEntities { get; init; } = [];
     public List<LightEntity> LightEntities { get; init; } = [];
     public List<LightEntity> NightLightEntities { get; init; } = [];

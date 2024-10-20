@@ -2,6 +2,8 @@
 
 public static class EntityExtensions
 {
+    private static readonly string[] _onStates = ["on", "playing"];
+
     public static IDisposable WhenOn<TEntity, TAttributes>(this Entity<TEntity, EntityState<TAttributes>, TAttributes> entity,
         Action<StateChange<TEntity, EntityState<TAttributes>>> action)
         where TAttributes : class
@@ -44,6 +46,12 @@ public static class EntityExtensions
         return null;
     }
 
+    public static string? Name(this EntityState? entityState)
+        => entityState?.EntityId.Split('.')[1];
+
+    public static string? Name(this Entity? entity)
+        => entity?.EntityId.Split('.')[1];
+
     public static string? Domain(this EntityState? entityState)
         => entityState?.EntityId.Split('.')[0];
 
@@ -54,6 +62,6 @@ public static class EntityExtensions
     {
         var boolTypes = new[] { "light", "switch", "scene", "input_boolean", "binary_sensor", "automation" };
         return boolTypes.ToList().Contains(entity?.Domain() ?? "") && entity?.State != null
-            ? entity?.State == "on" : false;
+            ? _onStates.Contains(entity?.State) : false;
     }
 }

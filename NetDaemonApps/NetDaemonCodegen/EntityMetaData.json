@@ -4164,7 +4164,7 @@
         },
         {
           "id": "device_tracker.epic_air_sport_anc_ble",
-          "friendlyName": "Epic Air Sport ANC-BLE Epic Air Sport ANC-BLE",
+          "friendlyName": "Epic Air Sport ANC-BLE ",
           "cSharpName": "EpicAirSportAncBle"
         },
         {
@@ -4409,7 +4409,7 @@
         },
         {
           "id": "device_tracker.jbl_tune660nc_le",
-          "friendlyName": "JBL TUNE660NC-LE JBL TUNE660NC-LE",
+          "friendlyName": "JBL TUNE660NC-LE ",
           "cSharpName": "JblTune660ncLe"
         },
         {
@@ -4424,7 +4424,7 @@
         },
         {
           "id": "device_tracker.laird_bl600_laird_bl600",
-          "friendlyName": "LAIRD BL600 LAIRD BL600",
+          "friendlyName": "LAIRD BL600 ",
           "cSharpName": "LairdBl600LairdBl600"
         },
         {
@@ -4469,7 +4469,7 @@
         },
         {
           "id": "device_tracker.le_m51_le_m51",
-          "friendlyName": "LE-M51 LE-M51",
+          "friendlyName": "LE-M51 ",
           "cSharpName": "LeM51LeM51"
         },
         {
@@ -4529,7 +4529,7 @@
         },
         {
           "id": "device_tracker.le_wi_c100",
-          "friendlyName": "LE_WI-C100 LE_WI-C100",
+          "friendlyName": "LE_WI-C100 ",
           "cSharpName": "LeWiC100"
         },
         {
@@ -4599,7 +4599,7 @@
         },
         {
           "id": "device_tracker.ms_car",
-          "friendlyName": "MS-CAR MS-CAR",
+          "friendlyName": "MS-CAR ",
           "cSharpName": "MsCar"
         },
         {
@@ -4753,6 +4753,11 @@
           "cSharpName": "Se50001294149888Se50001294149888"
         },
         {
+          "id": "device_tracker.se5000_1321281024",
+          "friendlyName": "SE5000-1321281024 ",
+          "cSharpName": "Se50001321281024"
+        },
+        {
           "id": "device_tracker.se5000_1489053184_se5000_1489053184",
           "friendlyName": "SE5000-1489053184 SE5000-1489053184",
           "cSharpName": "Se50001489053184Se50001489053184"
@@ -4814,7 +4819,7 @@
         },
         {
           "id": "device_tracker.se5000_4216858368_se5000_4216858368",
-          "friendlyName": "SE5000-4216858368 SE5000-4216858368",
+          "friendlyName": "SE5000-4216858368 ",
           "cSharpName": "Se50004216858368Se50004216858368"
         },
         {
@@ -6090,7 +6095,7 @@
         },
         {
           "id": "light.basement_stairs_light",
-          "friendlyName": null,
+          "friendlyName": "Basement Stairs Light",
           "cSharpName": "BasementStairsLight"
         },
         {

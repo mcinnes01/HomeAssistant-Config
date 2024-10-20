@@ -1044,3 +1044,17 @@
   metadata:
     input_select.bedroom_mode:
       entity_only: true
+- id: '1726987057429'
+  name: Feed the cats
+  entities:
+    script.feed_cats:
+      last_triggered: '2024-09-22T06:38:28.602887+00:00'
+      mode: single
+      current: 0
+      icon: hass:cat
+      friendly_name: Feed Cats
+      state: 'off'
+  icon: mdi:cat
+  metadata:
+    script.feed_cats:
+      entity_only: true
