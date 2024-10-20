@@ -30,7 +30,7 @@
         },
         {
           "id": "light.basement_stairs_light",
-          "friendlyName": null,
+          "friendlyName": "Basement Stairs Light",
           "cSharpName": "BasementStairsLight"
         },
         {
@@ -557,7 +557,7 @@
         },
         {
           "id": "media_player.dining_room_radio",
-          "friendlyName": "Dining Room Radi",
+          "friendlyName": null,
           "cSharpName": "DiningRoomRadio"
         },
         {
@@ -891,6 +891,11 @@
           "jsonName": "sync_group",
           "cSharpName": "SyncGroup",
           "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.Object]"
+        },
+        {
+          "jsonName": "media_channel",
+          "cSharpName": "MediaChannel",
+          "clrType": "System.String"
         }
       ]
     },
@@ -983,6 +988,11 @@
           "id": "automation.back_door_is_open",
           "friendlyName": "Patio door is open",
           "cSharpName": "BackDoorIsOpen"
+        },
+        {
+          "id": "automation.basement_hall_camera_snapshot_ai_notification_on_motion",
+          "friendlyName": "Basement Hall Camera Snapshot, AI \u0026 Notification on Motion",
+          "cSharpName": "BasementHallCameraSnapshotAiNotificationOnMotion"
         },
         {
           "id": "automation.basement_hall_light_off_so_turn_on",
@@ -1100,6 +1110,11 @@
           "cSharpName": "GuestRoomSwitch"
         },
         {
+          "id": "automation.hallway_camera_snapshot_ai_notification_on_motion",
+          "friendlyName": "Hallway Camera Snapshot, AI \u0026 Notification on Motion",
+          "cSharpName": "HallwayCameraSnapshotAiNotificationOnMotion"
+        },
+        {
           "id": "automation.hallway_lamp_on_at_sunset",
           "friendlyName": "Hallway Lamp On At Sunset",
           "cSharpName": "HallwayLampOnAtSunset"
@@ -1113,6 +1128,11 @@
           "id": "automation.keep_hallway_light_on",
           "friendlyName": "Keep Hallway Light On",
           "cSharpName": "KeepHallwayLightOn"
+        },
+        {
+          "id": "automation.kitchen_camera_snapshot_ai_notification_on_motion",
+          "friendlyName": "Kitchen Camera Snapshot, AI \u0026 Notification on Motion",
+          "cSharpName": "KitchenCameraSnapshotAiNotificationOnMotion"
         },
         {
           "id": "automation.kitchen_motion_event_snapshot",
@@ -1173,6 +1193,11 @@
           "id": "automation.nspanel_configuration",
           "friendlyName": "NSPanel Configuration",
           "cSharpName": "NspanelConfiguration"
+        },
+        {
+          "id": "automation.patio_camera_snapshot_ai_notification_on_motion",
+          "friendlyName": "Patio Camera Snapshot, AI \u0026 Notification on Motion",
+          "cSharpName": "PatioCameraSnapshotAiNotificationOnMotion"
         },
         {
           "id": "automation.patio_motion_detected",
@@ -1253,6 +1278,11 @@
           "id": "automation.set_timeofday_to_night",
           "friendlyName": "Set TimeOfDay To Night",
           "cSharpName": "SetTimeofdayToNight"
+        },
+        {
+          "id": "automation.shed_camera_snapshot_ai_notification_on_motion",
+          "friendlyName": "Shed Camera Snapshot, AI \u0026 Notification on Motion",
+          "cSharpName": "ShedCameraSnapshotAiNotificationOnMotion"
         },
         {
           "id": "automation.shower_timer_finished",
@@ -1420,6 +1450,16 @@
           "id": "binary_sensor.0x8c6fb9fffe454fda_update_available",
           "friendlyName": "Drawing Room Switch",
           "cSharpName": "_0x8c6fb9fffe454fdaUpdateAvailable"
+        },
+        {
+          "id": "binary_sensor.192_168_1_1_library_rescan",
+          "friendlyName": "192.168.1.1 Library rescan",
+          "cSharpName": "_19216811LibraryRescan"
+        },
+        {
+          "id": "binary_sensor.192_168_1_1_needs_restart",
+          "friendlyName": "192.168.1.1 Needs restart",
+          "cSharpName": "_19216811NeedsRestart"
         },
         {
           "id": "binary_sensor.andy_in_bed",
@@ -1863,7 +1903,7 @@
         },
         {
           "id": "binary_sensor.claire_in_bed",
-          "friendlyName": "Claire In bed",
+          "friendlyName": "claire In bed",
           "cSharpName": "ClaireInBed"
         },
         {
@@ -2243,33 +2283,38 @@
         },
         {
           "id": "binary_sensor.hallway_light_cloud",
-          "friendlyName": "Hallway Light Cloud",
+          "friendlyName": "Hallway Light cloud",
           "cSharpName": "HallwayLightCloud"
         },
         {
+          "id": "binary_sensor.hallway_light_overcurrent",
+          "friendlyName": "Hallway Light overcurrent",
+          "cSharpName": "HallwayLightOvercurrent"
+        },
+        {
           "id": "binary_sensor.hallway_light_overheating",
-          "friendlyName": "Hallway Light Overheating",
+          "friendlyName": "Hallway Light overheating",
           "cSharpName": "HallwayLightOverheating"
         },
         {
           "id": "binary_sensor.hallway_light_overpowering",
-          "friendlyName": "Hallway Light Overpowering",
+          "friendlyName": "Hallway Light overpowering",
           "cSharpName": "HallwayLightOverpowering"
         },
         {
           "id": "binary_sensor.hallway_light_overvoltage",
-          "friendlyName": "Hallway Light Overvoltage",
+          "friendlyName": "Hallway Light overvoltage",
           "cSharpName": "HallwayLightOvervoltage"
         },
         {
           "id": "binary_sensor.hallway_light_restart_required",
-          "friendlyName": "Hallway Light Restart Required",
+          "friendlyName": "Hallway Light restart required",
           "cSharpName": "HallwayLightRestartRequired"
         },
         {
-          "id": "binary_sensor.hallway_light_switch",
-          "friendlyName": "Hallway Light Switch",
-          "cSharpName": "HallwayLightSwitch"
+          "id": "binary_sensor.hallway_switch_input",
+          "friendlyName": "Hallway Switch input",
+          "cSharpName": "HallwaySwitchInput"
         },
         {
           "id": "binary_sensor.hallway_tablet_device_admin",
@@ -3042,18 +3087,13 @@
           "cSharpName": "ShedMotion"
         },
         {
-          "id": "binary_sensor.shelly_hallway_light_switch_0_overcurrent",
-          "friendlyName": "Shelly Hallway Light switch_0 overcurrent",
-          "cSharpName": "ShellyHallwayLightSwitch0Overcurrent"
-        },
-        {
           "id": "binary_sensor.shelly_landing_light_cloud",
           "friendlyName": "Shelly Landing Light cloud",
           "cSharpName": "ShellyLandingLightCloud"
         },
         {
           "id": "binary_sensor.shelly_landing_light_switch_0_overcurrent",
-          "friendlyName": "Shelly Landing Light switch_0 overcurrent",
+          "friendlyName": "Shelly Landing Light Switch 0 overcurrent",
           "cSharpName": "ShellyLandingLightSwitch0Overcurrent"
         },
         {
@@ -3088,22 +3128,22 @@
         },
         {
           "id": "binary_sensor.shelly_upstairs_lights_1_input_0_input",
-          "friendlyName": "Shelly Upstairs Lights 1 input_0 input",
+          "friendlyName": "Shelly Upstairs Lights 1 Input 0 input",
           "cSharpName": "ShellyUpstairsLights1Input0Input"
         },
         {
           "id": "binary_sensor.shelly_upstairs_lights_1_input_1_input",
-          "friendlyName": "Shelly Upstairs Lights 1 input_1 input",
+          "friendlyName": "Shelly Upstairs Lights 1 Input 1 input",
           "cSharpName": "ShellyUpstairsLights1Input1Input"
         },
         {
           "id": "binary_sensor.shelly_upstairs_lights_1_input_2_input",
-          "friendlyName": "Shelly Upstairs Lights 1 input_2 input",
+          "friendlyName": "Shelly Upstairs Lights 1 Input 2 input",
           "cSharpName": "ShellyUpstairsLights1Input2Input"
         },
         {
           "id": "binary_sensor.shelly_upstairs_lights_1_input_3_input",
-          "friendlyName": "Shelly Upstairs Lights 1 input_3 input",
+          "friendlyName": "Shelly Upstairs Lights 1 Input 3 input",
           "cSharpName": "ShellyUpstairsLights1Input3Input"
         },
         {
@@ -3113,22 +3153,22 @@
         },
         {
           "id": "binary_sensor.shelly_upstairs_lights_2_input_0_input",
-          "friendlyName": "Shelly Upstairs Lights 2 input_0 input",
+          "friendlyName": "Shelly Upstairs Lights 2 Input 0 input",
           "cSharpName": "ShellyUpstairsLights2Input0Input"
         },
         {
           "id": "binary_sensor.shelly_upstairs_lights_2_input_1_input",
-          "friendlyName": "Shelly Upstairs Lights 2 input_1 input",
+          "friendlyName": "Shelly Upstairs Lights 2 Input 1 input",
           "cSharpName": "ShellyUpstairsLights2Input1Input"
         },
         {
           "id": "binary_sensor.shelly_upstairs_lights_2_input_2_input",
-          "friendlyName": "Shelly Upstairs Lights 2 input_2 input",
+          "friendlyName": "Shelly Upstairs Lights 2 Input 2 input",
           "cSharpName": "ShellyUpstairsLights2Input2Input"
         },
         {
           "id": "binary_sensor.shelly_upstairs_lights_2_input_3_input",
-          "friendlyName": "Shelly Upstairs Lights 2 input_3 input",
+          "friendlyName": "Shelly Upstairs Lights 2 Input 3 input",
           "cSharpName": "ShellyUpstairsLights2Input3Input"
         },
         {
@@ -3138,47 +3178,47 @@
         },
         {
           "id": "binary_sensor.shelly_upstairs_socket_4_input_0_input",
-          "friendlyName": "Shelly Upstairs Sockets 4 input_0 input",
+          "friendlyName": "Shelly Upstairs Sockets 4 Input 0 input",
           "cSharpName": "ShellyUpstairsSocket4Input0Input"
         },
         {
           "id": "binary_sensor.shelly_upstairs_socket_4_input_1_input",
-          "friendlyName": "Shelly Upstairs Sockets 4 input_1 input",
+          "friendlyName": "Shelly Upstairs Sockets 4 Input 1 input",
           "cSharpName": "ShellyUpstairsSocket4Input1Input"
         },
         {
           "id": "binary_sensor.shelly_upstairs_socket_4_input_2_input",
-          "friendlyName": "Shelly Upstairs Sockets 4 input_2 input",
+          "friendlyName": "Shelly Upstairs Sockets 4 Input 2 input",
           "cSharpName": "ShellyUpstairsSocket4Input2Input"
         },
         {
           "id": "binary_sensor.shelly_upstairs_socket_4_input_3_input",
-          "friendlyName": "Shelly Upstairs Sockets 4 input_3 input",
+          "friendlyName": "Shelly Upstairs Sockets 4 Input 3 input",
           "cSharpName": "ShellyUpstairsSocket4Input3Input"
         },
         {
           "id": "binary_sensor.shellypro4pm_34987a68fc0c_switch_1_overcurrent",
-          "friendlyName": "shellypro4pm-34987a68fc0c switch_1 overcurrent",
+          "friendlyName": "shellypro4pm-34987a68fc0c Switch 1 overcurrent",
           "cSharpName": "Shellypro4pm34987a68fc0cSwitch1Overcurrent"
         },
         {
           "id": "binary_sensor.shellypro4pm_34987a691128_switch_0_overcurrent",
-          "friendlyName": "shellypro4pm-34987a691128 switch_0 overcurrent",
+          "friendlyName": "shellypro4pm-34987a691128 Switch 0 overcurrent",
           "cSharpName": "Shellypro4pm34987a691128Switch0Overcurrent"
         },
         {
           "id": "binary_sensor.shellypro4pm_34987a691128_switch_1_overcurrent",
-          "friendlyName": "shellypro4pm-34987a691128 switch_1 overcurrent",
+          "friendlyName": "shellypro4pm-34987a691128 Switch 1 overcurrent",
           "cSharpName": "Shellypro4pm34987a691128Switch1Overcurrent"
         },
         {
           "id": "binary_sensor.shellypro4pm_34987a691128_switch_2_overcurrent",
-          "friendlyName": "shellypro4pm-34987a691128 switch_2 overcurrent",
+          "friendlyName": "shellypro4pm-34987a691128 Switch 2 overcurrent",
           "cSharpName": "Shellypro4pm34987a691128Switch2Overcurrent"
         },
         {
           "id": "binary_sensor.shellypro4pm_34987a691128_switch_3_overcurrent",
-          "friendlyName": "shellypro4pm-34987a691128 switch_3 overcurrent",
+          "friendlyName": "shellypro4pm-34987a691128 Switch 3 overcurrent",
           "cSharpName": "Shellypro4pm34987a691128Switch3Overcurrent"
         },
         {
@@ -3804,6 +3844,11 @@
           "cSharpName": "BedroomSwitchIdentify"
         },
         {
+          "id": "button.brewery_identify",
+          "friendlyName": "Brewery Identify",
+          "cSharpName": "BreweryIdentify"
+        },
+        {
           "id": "button.coffee_machine_identify",
           "friendlyName": "Coffee Machine Identify",
           "cSharpName": "CoffeeMachineIdentify"
@@ -3894,6 +3939,11 @@
           "cSharpName": "GuestRoomSwitchIdentify"
         },
         {
+          "id": "button.hallway_light_reboot",
+          "friendlyName": "Hallway Light Reboot",
+          "cSharpName": "HallwayLightReboot"
+        },
+        {
           "id": "button.hallway_tablet_bring_to_foreground",
           "friendlyName": "Hallway Tablet Bring to foreground",
           "cSharpName": "HallwayTabletBringToForeground"
@@ -3977,16 +4027,6 @@
           "id": "button.safe_mode_boot",
           "friendlyName": "studio-bluetooth-proxy Safe Mode Boot",
           "cSharpName": "SafeModeBoot"
-        },
-        {
-          "id": "button.shed_identify",
-          "friendlyName": "Shed Identify",
-          "cSharpName": "ShedIdentify"
-        },
-        {
-          "id": "button.shelly_hallway_light_reboot",
-          "friendlyName": "Shelly Hallway Light Reboot",
-          "cSharpName": "ShellyHallwayLightReboot"
         },
         {
           "id": "button.shelly_landing_light_reboot",
@@ -4177,7 +4217,7 @@
         },
         {
           "id": "calendar.claire_workouts",
-          "friendlyName": "Claire Workouts",
+          "friendlyName": "claire Workouts",
           "cSharpName": "ClaireWorkouts"
         },
         {
@@ -4380,6 +4420,11 @@
           "cSharpName": "Basement"
         },
         {
+          "id": "climate.brewery_thermostat",
+          "friendlyName": "Brewery Thermostat",
+          "cSharpName": "BreweryThermostat"
+        },
+        {
           "id": "climate.downstairs",
           "friendlyName": "Downstairs",
           "cSharpName": "Downstairs"
@@ -4388,11 +4433,6 @@
           "id": "climate.fermenter",
           "friendlyName": "Fermenter",
           "cSharpName": "Fermenter"
-        },
-        {
-          "id": "climate.shed_thermostat",
-          "friendlyName": "Shed Thermostat",
-          "cSharpName": "ShedThermostat"
         },
         {
           "id": "climate.upstairs",
@@ -4467,6 +4507,11 @@
       "domain": "conversation",
       "entities": [
         {
+          "id": "conversation.google_generative_ai",
+          "friendlyName": "Google Generative AI",
+          "cSharpName": "GoogleGenerativeAi"
+        },
+        {
           "id": "conversation.home_assistant",
           "friendlyName": "Home Assistant",
           "cSharpName": "HomeAssistant"
@@ -4524,19 +4569,9 @@
           "cSharpName": "_20259e"
         },
         {
-          "id": "device_tracker.3020aa5ceb68973d97_3020aa5ceb68973d97",
-          "friendlyName": "3020AA5CEB68973D97 3020AA5CEB68973D97",
-          "cSharpName": "_3020aa5ceb68973d973020aa5ceb68973d97"
-        },
-        {
           "id": "device_tracker.41088dec_41088dec",
           "friendlyName": "41088DEC 41088DEC",
           "cSharpName": "_41088dec41088dec"
-        },
-        {
-          "id": "device_tracker.43542_33",
-          "friendlyName": "43542-33 ",
-          "cSharpName": "_4354233"
         },
         {
           "id": "device_tracker.49768dmi",
@@ -4609,11 +4644,6 @@
           "cSharpName": "_9d41000035d6F4ddBa60E7bd8dc491c06538525776Ff69"
         },
         {
-          "id": "device_tracker.9mhy0000789m",
-          "friendlyName": "9MHY0000789M ",
-          "cSharpName": "_9mhy0000789m"
-        },
-        {
           "id": "device_tracker.ab1530ble",
           "friendlyName": "AB1530BLE AB1530BLE",
           "cSharpName": "Ab1530ble"
@@ -4622,11 +4652,6 @@
           "id": "device_tracker.abax6",
           "friendlyName": "ABAX6 ABAX6",
           "cSharpName": "Abax6"
-        },
-        {
-          "id": "device_tracker.ac",
-          "friendlyName": "AC AC",
-          "cSharpName": "Ac"
         },
         {
           "id": "device_tracker.ak300_13044_ak300_13044",
@@ -4717,21 +4742,6 @@
           "id": "device_tracker.ble_dezl_lgv",
           "friendlyName": "BLE_d\u0113zl LGV # BLE_d\u0113zl LGV #",
           "cSharpName": "BleDezlLgv"
-        },
-        {
-          "id": "device_tracker.ble_dezl_lgv_2",
-          "friendlyName": "BLE_d\u0113zl LGV # ",
-          "cSharpName": "BleDezlLgv2"
-        },
-        {
-          "id": "device_tracker.ble_dezl_lgv_ble_dezl_lgv",
-          "friendlyName": "BLE_d\u0113zl LGV # BLE_d\u0113zl LGV #",
-          "cSharpName": "BleDezlLgvBleDezlLgv"
-        },
-        {
-          "id": "device_tracker.ble_dezl_lgv_ble_dezl_lgv_2",
-          "friendlyName": "BLE_d\u0113zl LGV # ",
-          "cSharpName": "BleDezlLgvBleDezlLgv2"
         },
         {
           "id": "device_tracker.ble_dezl_lgv_ble_dezl_lgv_3",
@@ -4849,11 +4859,6 @@
           "cSharpName": "BleWillsDezlBleWillsDezl"
         },
         {
-          "id": "device_tracker.blinghelmet",
-          "friendlyName": "BlingHelmet ",
-          "cSharpName": "Blinghelmet"
-        },
-        {
           "id": "device_tracker.bottle_design_ea64_le_bottle_design_ea64_le",
           "friendlyName": "Bottle Design (EA64) LE Bottle Design (EA64) LE",
           "cSharpName": "BottleDesignEa64LeBottleDesignEa64Le"
@@ -4869,18 +4874,13 @@
           "cSharpName": "CbSmartcam"
         },
         {
-          "id": "device_tracker.ccc3_ccc3",
-          "friendlyName": "CCC3 ",
-          "cSharpName": "Ccc3Ccc3"
-        },
-        {
           "id": "device_tracker.claireiphone_3",
-          "friendlyName": "claireiphone",
+          "friendlyName": null,
           "cSharpName": "Claireiphone3"
         },
         {
           "id": "device_tracker.claires_apple_watch",
-          "friendlyName": "Claire\u2019s Apple Watch",
+          "friendlyName": null,
           "cSharpName": "ClairesAppleWatch"
         },
         {
@@ -4904,11 +4904,6 @@
           "cSharpName": "CraigSCharg"
         },
         {
-          "id": "device_tracker.dell_mouse",
-          "friendlyName": "Dell Mouse ",
-          "cSharpName": "DellMouse"
-        },
-        {
           "id": "device_tracker.drive_hd_drive_hd",
           "friendlyName": "Drive HD Drive HD",
           "cSharpName": "DriveHdDriveHd"
@@ -4927,11 +4922,6 @@
           "id": "device_tracker.dut_a748_dut_a748",
           "friendlyName": "DUT:A748 DUT:A748",
           "cSharpName": "DutA748DutA748"
-        },
-        {
-          "id": "device_tracker.e1aa0000_e1aa0000",
-          "friendlyName": "E1AA0000           E1AA0000          ",
-          "cSharpName": "E1aa0000E1aa0000"
         },
         {
           "id": "device_tracker.e20a39f4_73f5_4bc4_1864_17d1ad07a962_15106_22352_47d4",
@@ -4964,11 +4954,6 @@
           "cSharpName": "E2c56db5Dffb48d2B060D0f5a71096e000"
         },
         {
-          "id": "device_tracker.earfun_air",
-          "friendlyName": "EarFun Air EarFun Air",
-          "cSharpName": "EarfunAir"
-        },
-        {
           "id": "device_tracker.ec03_1622_ec03_1622",
           "friendlyName": "EC03_1622 EC03_1622",
           "cSharpName": "Ec031622Ec031622"
@@ -4992,11 +4977,6 @@
           "id": "device_tracker.elemnt_roam_de7900_elemnt_roam_de7900",
           "friendlyName": "ELEMNT ROAM DE7900 ELEMNT ROAM DE7900",
           "cSharpName": "ElemntRoamDe7900ElemntRoamDe7900"
-        },
-        {
-          "id": "device_tracker.elk_bbl0_elk_bbl0",
-          "friendlyName": "ELK_BBL0 ELK_BBL0",
-          "cSharpName": "ElkBbl0ElkBbl0"
         },
         {
           "id": "device_tracker.elk_bbl4",
@@ -5027,11 +5007,6 @@
           "id": "device_tracker.eohy00005ceo",
           "friendlyName": "EOHY00005CEO EOHY00005CEO",
           "cSharpName": "Eohy00005ceo"
-        },
-        {
-          "id": "device_tracker.epic_air_sport_anc_ble",
-          "friendlyName": "Epic Air Sport ANC-BLE Epic Air Sport ANC-BLE",
-          "cSharpName": "EpicAirSportAncBle"
         },
         {
           "id": "device_tracker.epic_air_sport_anc_ble_2",
@@ -5069,16 +5044,6 @@
           "cSharpName": "Fmm2302344637LeFmm2302344637Le"
         },
         {
-          "id": "device_tracker.freelite",
-          "friendlyName": "FREELITE ",
-          "cSharpName": "Freelite"
-        },
-        {
-          "id": "device_tracker.gaha09752",
-          "friendlyName": "GAHA09752          ",
-          "cSharpName": "Gaha09752"
-        },
-        {
           "id": "device_tracker.galaxy_watch_active_8f60_le",
           "friendlyName": "Galaxy Watch Active (8F60) LE Galaxy Watch Active (8F60) LE",
           "cSharpName": "GalaxyWatchActive8f60Le"
@@ -5087,6 +5052,16 @@
           "id": "device_tracker.galaxy_watch4_x2pv",
           "friendlyName": "Galaxy Watch4 (X2PV) Galaxy Watch4 (X2PV)",
           "cSharpName": "GalaxyWatch4X2pv"
+        },
+        {
+          "id": "device_tracker.garmin_cbd451f45c8a",
+          "friendlyName": "garmin:cbd451f45c8a",
+          "cSharpName": "GarminCbd451f45c8a"
+        },
+        {
+          "id": "device_tracker.garmin_f8b9821aea87",
+          "friendlyName": "garmin:f8b9821aea87",
+          "cSharpName": "GarminF8b9821aea87"
         },
         {
           "id": "device_tracker.gen3_gen3",
@@ -5132,11 +5107,6 @@
           "id": "device_tracker.id152_id152",
           "friendlyName": "ID152 ID152",
           "cSharpName": "Id152Id152"
-        },
-        {
-          "id": "device_tracker.id205l_id205l",
-          "friendlyName": "ID205L ID205L",
-          "cSharpName": "Id205lId205l"
         },
         {
           "id": "device_tracker.id216",
@@ -5234,11 +5204,6 @@
           "cSharpName": "Iphone93"
         },
         {
-          "id": "device_tracker.jabra",
-          "friendlyName": "Jabra ",
-          "cSharpName": "Jabra"
-        },
-        {
           "id": "device_tracker.jabra_elite_45h",
           "friendlyName": "Jabra Elite 45h Jabra Elite 45h",
           "cSharpName": "JabraElite45h"
@@ -5252,11 +5217,6 @@
           "id": "device_tracker.jabra_elite_active",
           "friendlyName": "Jabra Elite Active Jabra Elite Active",
           "cSharpName": "JabraEliteActive"
-        },
-        {
-          "id": "device_tracker.jabra_evolve2_65",
-          "friendlyName": "Jabra Evolve2 65 Jabra Evolve2 65",
-          "cSharpName": "JabraEvolve265"
         },
         {
           "id": "device_tracker.jbl_charge_5_jbl_charge_5",
@@ -5274,11 +5234,6 @@
           "cSharpName": "JblTune6"
         },
         {
-          "id": "device_tracker.jbl_tune660nc_le",
-          "friendlyName": "JBL TUNE660NC-LE JBL TUNE660NC-LE",
-          "cSharpName": "JblTune660ncLe"
-        },
-        {
           "id": "device_tracker.kane458s_120222073",
           "friendlyName": "KANE458S 120222073 KANE458S 120222073",
           "cSharpName": "Kane458s120222073"
@@ -5287,11 +5242,6 @@
           "id": "device_tracker.keytag",
           "friendlyName": "KeyTag KeyTag",
           "cSharpName": "Keytag"
-        },
-        {
-          "id": "device_tracker.laird_bl600_laird_bl600",
-          "friendlyName": "LAIRD BL600 LAIRD BL600",
-          "cSharpName": "LairdBl600LairdBl600"
         },
         {
           "id": "device_tracker.ldl_1406926_b4b1e104_ldl_1406926_b4b1e104",
@@ -5324,19 +5274,9 @@
           "cSharpName": "LeDeviceLeDevice"
         },
         {
-          "id": "device_tracker.le_headset",
-          "friendlyName": "LE-Headset ",
-          "cSharpName": "LeHeadset"
-        },
-        {
           "id": "device_tracker.le_linkbuds_s_le_linkbuds_s",
           "friendlyName": "LE_LinkBuds S LE_LinkBuds S",
           "cSharpName": "LeLinkbudsSLeLinkbudsS"
-        },
-        {
-          "id": "device_tracker.le_m51_le_m51",
-          "friendlyName": "LE-M51 LE-M51",
-          "cSharpName": "LeM51LeM51"
         },
         {
           "id": "device_tracker.le_minor_iii_le_minor_iii",
@@ -5354,49 +5294,14 @@
           "cSharpName": "LePhilipsTaa6606LePhilipsTaa6606"
         },
         {
-          "id": "device_tracker.le_philips_tah5205",
-          "friendlyName": "LE-Philips TAH5205 ",
-          "cSharpName": "LePhilipsTah5205"
-        },
-        {
-          "id": "device_tracker.le_wf_1000xm4",
-          "friendlyName": "LE_WF-1000XM4 ",
-          "cSharpName": "LeWf1000xm4"
-        },
-        {
           "id": "device_tracker.le_wf_1000xm5",
           "friendlyName": "LE_WF-1000XM5 LE_WF-1000XM5",
           "cSharpName": "LeWf1000xm5"
         },
         {
-          "id": "device_tracker.le_wf_c500",
-          "friendlyName": "LE_WF-C500 ",
-          "cSharpName": "LeWfC500"
-        },
-        {
-          "id": "device_tracker.le_wh_1000xm4",
-          "friendlyName": "LE_WH-1000XM4 ",
-          "cSharpName": "LeWh1000xm4"
-        },
-        {
-          "id": "device_tracker.le_wh_1000xm5",
-          "friendlyName": "LE_WH-1000XM5 ",
-          "cSharpName": "LeWh1000xm5"
-        },
-        {
           "id": "device_tracker.le_wh_h910n_h_ear",
           "friendlyName": "LE_WH-H910N (h.ear) LE_WH-H910N (h.ear)",
           "cSharpName": "LeWhH910nHEar"
-        },
-        {
-          "id": "device_tracker.le_wh_xb910n",
-          "friendlyName": "LE_WH-XB910N ",
-          "cSharpName": "LeWhXb910n"
-        },
-        {
-          "id": "device_tracker.le_wi_c100",
-          "friendlyName": "LE_WI-C100 LE_WI-C100",
-          "cSharpName": "LeWiC100"
         },
         {
           "id": "device_tracker.lg_tone_fp5_le_lg_tone_fp5_le",
@@ -5414,16 +5319,6 @@
           "cSharpName": "LumoshelmetLumoshelmet"
         },
         {
-          "id": "device_tracker.lumosks2_lumosks2",
-          "friendlyName": "LumosKS2 ",
-          "cSharpName": "Lumosks2Lumosks2"
-        },
-        {
-          "id": "device_tracker.lumosltis",
-          "friendlyName": "LumosLTIS ",
-          "cSharpName": "Lumosltis"
-        },
-        {
           "id": "device_tracker.mach_basic_mach_basic",
           "friendlyName": "MACH-BASIC MACH-BASIC",
           "cSharpName": "MachBasicMachBasic"
@@ -5432,11 +5327,6 @@
           "id": "device_tracker.macmini91",
           "friendlyName": "Macmini9,1 Macmini9,1",
           "cSharpName": "Macmini91"
-        },
-        {
-          "id": "device_tracker.mi_mi",
-          "friendlyName": "Mi ",
-          "cSharpName": "MiMi"
         },
         {
           "id": "device_tracker.mi_silent_mouse",
@@ -5464,14 +5354,134 @@
           "cSharpName": "MotifANCLe"
         },
         {
-          "id": "device_tracker.ms_car",
-          "friendlyName": "MS-CAR MS-CAR",
-          "cSharpName": "MsCar"
-        },
-        {
           "id": "device_tracker.n02rf",
           "friendlyName": "N02RF N02RF",
           "cSharpName": "N02rf"
+        },
+        {
+          "id": "device_tracker.name_blinghelmet",
+          "friendlyName": "name:blinghelmet",
+          "cSharpName": "NameBlinghelmet"
+        },
+        {
+          "id": "device_tracker.name_ccc3",
+          "friendlyName": "name:ccc3",
+          "cSharpName": "NameCcc3"
+        },
+        {
+          "id": "device_tracker.name_dell_mouse",
+          "friendlyName": "name:dell-mouse",
+          "cSharpName": "NameDellMouse"
+        },
+        {
+          "id": "device_tracker.name_e1aa0000",
+          "friendlyName": "name:e1aa0000",
+          "cSharpName": "NameE1aa0000"
+        },
+        {
+          "id": "device_tracker.name_edifier_ble",
+          "friendlyName": "name:edifier-ble",
+          "cSharpName": "NameEdifierBle"
+        },
+        {
+          "id": "device_tracker.name_elk_bbl0",
+          "friendlyName": "name:elk_bbl0",
+          "cSharpName": "NameElkBbl0"
+        },
+        {
+          "id": "device_tracker.name_epic_air_sport_anc_ble",
+          "friendlyName": "name:epic-air-sport-anc-ble",
+          "cSharpName": "NameEpicAirSportAncBle"
+        },
+        {
+          "id": "device_tracker.name_freelite",
+          "friendlyName": "name:freelite",
+          "cSharpName": "NameFreelite"
+        },
+        {
+          "id": "device_tracker.name_id205l",
+          "friendlyName": "name:id205l",
+          "cSharpName": "NameId205l"
+        },
+        {
+          "id": "device_tracker.name_jabra",
+          "friendlyName": "name:jabra",
+          "cSharpName": "NameJabra"
+        },
+        {
+          "id": "device_tracker.name_jbl_tune660nc_le",
+          "friendlyName": "name:jbl-tune660nc-le",
+          "cSharpName": "NameJblTune660ncLe"
+        },
+        {
+          "id": "device_tracker.name_le_m51",
+          "friendlyName": "name:le-m51",
+          "cSharpName": "NameLeM51"
+        },
+        {
+          "id": "device_tracker.name_le_wf_1000xm4",
+          "friendlyName": "name:le_wf-1000xm4",
+          "cSharpName": "NameLeWf1000xm4"
+        },
+        {
+          "id": "device_tracker.name_le_wf_c500",
+          "friendlyName": "name:le_wf-c500",
+          "cSharpName": "NameLeWfC500"
+        },
+        {
+          "id": "device_tracker.name_le_wh_1000xm4",
+          "friendlyName": "name:le_wh-1000xm4",
+          "cSharpName": "NameLeWh1000xm4"
+        },
+        {
+          "id": "device_tracker.name_le_wh_1000xm5",
+          "friendlyName": "name:le_wh-1000xm5",
+          "cSharpName": "NameLeWh1000xm5"
+        },
+        {
+          "id": "device_tracker.name_le_wh_xb910n",
+          "friendlyName": "name:le_wh-xb910n",
+          "cSharpName": "NameLeWhXb910n"
+        },
+        {
+          "id": "device_tracker.name_le_wi_c100",
+          "friendlyName": "name:le_wi-c100",
+          "cSharpName": "NameLeWiC100"
+        },
+        {
+          "id": "device_tracker.name_mi",
+          "friendlyName": "name:mi",
+          "cSharpName": "NameMi"
+        },
+        {
+          "id": "device_tracker.name_ms_car",
+          "friendlyName": "name:ms-car",
+          "cSharpName": "NameMsCar"
+        },
+        {
+          "id": "device_tracker.name_mx_vertical",
+          "friendlyName": "name:mx-vertical",
+          "cSharpName": "NameMxVertical"
+        },
+        {
+          "id": "device_tracker.name_pawfit_hciq7cdf",
+          "friendlyName": "name:pawfit-hciq7cdf",
+          "cSharpName": "NamePawfitHciq7cdf"
+        },
+        {
+          "id": "device_tracker.name_rayo_51e0",
+          "friendlyName": "name:rayo_51e0",
+          "cSharpName": "NameRayo51e0"
+        },
+        {
+          "id": "device_tracker.name_ysccu_00000020187859",
+          "friendlyName": "name:ysccu_00000020187859",
+          "cSharpName": "NameYsccu00000020187859"
+        },
+        {
+          "id": "device_tracker.name_yt",
+          "friendlyName": "name:yt",
+          "cSharpName": "NameYt"
         },
         {
           "id": "device_tracker.niu_6261_niu_6261",
@@ -5539,11 +5549,6 @@
           "cSharpName": "RAce51RAce51"
         },
         {
-          "id": "device_tracker.rct715_rct715",
-          "friendlyName": "RCT715 ",
-          "cSharpName": "Rct715Rct715"
-        },
-        {
           "id": "device_tracker.red_red",
           "friendlyName": "RED RED",
           "cSharpName": "RedRed"
@@ -5599,11 +5604,6 @@
           "cSharpName": "Se50000638724352Se50000638724352"
         },
         {
-          "id": "device_tracker.se5000_0763242496_se5000_0763242496",
-          "friendlyName": "SE5000-0763242496 ",
-          "cSharpName": "Se50000763242496Se50000763242496"
-        },
-        {
           "id": "device_tracker.se5000_0844965632_se5000_0844965632",
           "friendlyName": "SE5000-0844965632 SE5000-0844965632",
           "cSharpName": "Se50000844965632Se50000844965632"
@@ -5654,11 +5654,6 @@
           "cSharpName": "Se50003254068736Se50003254068736"
         },
         {
-          "id": "device_tracker.se5000_3287099392_se5000_3287099392",
-          "friendlyName": "SE5000-3287099392 SE5000-3287099392",
-          "cSharpName": "Se50003287099392Se50003287099392"
-        },
-        {
           "id": "device_tracker.se5000_3519096576_se5000_3519096576",
           "friendlyName": "SE5000-3519096576 SE5000-3519096576",
           "cSharpName": "Se50003519096576Se50003519096576"
@@ -5677,11 +5672,6 @@
           "id": "device_tracker.se5000_4192872192_se5000_4192872192",
           "friendlyName": "SE5000-4192872192 SE5000-4192872192",
           "cSharpName": "Se50004192872192Se50004192872192"
-        },
-        {
-          "id": "device_tracker.se5000_4216858368_se5000_4216858368",
-          "friendlyName": "SE5000-4216858368 SE5000-4216858368",
-          "cSharpName": "Se50004216858368Se50004216858368"
         },
         {
           "id": "device_tracker.sense",
@@ -5739,11 +5729,6 @@
           "cSharpName": "TozoT10"
         },
         {
-          "id": "device_tracker.tozo_t12",
-          "friendlyName": "TOZO T12 TOZO T12",
-          "cSharpName": "TozoT12"
-        },
-        {
           "id": "device_tracker.tozo_t6_tozo_t6",
           "friendlyName": "TOZO-T6 TOZO-T6",
           "cSharpName": "TozoT6TozoT6"
@@ -5752,16 +5737,6 @@
           "id": "device_tracker.tozo_tonal_dots_tozo_tonal_dots",
           "friendlyName": "TOZO Tonal Dots TOZO Tonal Dots",
           "cSharpName": "TozoTonalDotsTozoTonalDots"
-        },
-        {
-          "id": "device_tracker.truefree_truefree",
-          "friendlyName": "TRUEFREE TRUEFREE",
-          "cSharpName": "TruefreeTruefree"
-        },
-        {
-          "id": "device_tracker.ultrapvt",
-          "friendlyName": "UltraPVT UltraPVT",
-          "cSharpName": "Ultrapvt"
         },
         {
           "id": "device_tracker.versa_2",
@@ -5804,11 +5779,6 @@
           "cSharpName": "Whoop4a0806058Whoop4a0806058"
         },
         {
-          "id": "device_tracker.whoop_4c0383345_whoop_4c0383345",
-          "friendlyName": "WHOOP 4C0383345 ",
-          "cSharpName": "Whoop4c0383345Whoop4c0383345"
-        },
-        {
           "id": "device_tracker.whoop_4c0407694",
           "friendlyName": "WHOOP 4C0407694 WHOOP 4C0407694",
           "cSharpName": "Whoop4c0407694"
@@ -5839,21 +5809,6 @@
           "cSharpName": "Whoop4c1275131Whoop4c1275131"
         },
         {
-          "id": "device_tracker.whoop_lexi_whoo",
-          "friendlyName": "WHOOP LEXI WHOO ",
-          "cSharpName": "WhoopLexiWhoo"
-        },
-        {
-          "id": "device_tracker.wllink_6e9c_wllink_6e9c",
-          "friendlyName": "WLLINK-6E9C WLLINK-6E9C",
-          "cSharpName": "Wllink6e9cWllink6e9c"
-        },
-        {
-          "id": "device_tracker.wllink_bd7f",
-          "friendlyName": "WLLINK-BD7F ",
-          "cSharpName": "WllinkBd7f"
-        },
-        {
           "id": "device_tracker.wsbc025093546s_wsbc025093546s",
           "friendlyName": "WSBC025093546S WSBC025093546S",
           "cSharpName": "Wsbc025093546sWsbc025093546s"
@@ -5872,11 +5827,6 @@
           "id": "device_tracker.yccu_001003100025af_yccu_001003100025af",
           "friendlyName": "YCCU_001003100025AF YCCU_001003100025AF",
           "cSharpName": "Yccu001003100025afYccu001003100025af"
-        },
-        {
-          "id": "device_tracker.yt",
-          "friendlyName": "YT* ",
-          "cSharpName": "Yt"
         }
       ],
       "attributes": [
@@ -6472,9 +6422,9 @@
           "cSharpName": "LoungeLightAutomation"
         },
         {
-          "id": "input_boolean.netdaemon_net_daemon_apps_light_app_manager",
-          "friendlyName": "netdaemon_net_daemon_apps_light_app_manager",
-          "cSharpName": "NetdaemonNetDaemonAppsLightAppManager"
+          "id": "input_boolean.netdaemon_net_daemon_apps_light_app_lighting",
+          "friendlyName": "netdaemon_net_daemon_apps_light_app_lighting",
+          "cSharpName": "NetdaemonNetDaemonAppsLightAppLighting"
         },
         {
           "id": "input_boolean.netdaemon_net_daemon_apps_notifications_manager_battery_notifications",
@@ -6490,26 +6440,6 @@
           "id": "input_boolean.netdaemon_net_daemon_apps_states_bedroom_mode_controller",
           "friendlyName": "netdaemon_net_daemon_apps_states_bedroom_mode_controller",
           "cSharpName": "NetdaemonNetDaemonAppsStatesBedroomModeController"
-        },
-        {
-          "id": "input_boolean.netdaemon_net_daemon_apps_states_brightness_controller",
-          "friendlyName": "netdaemon_net_daemon_apps_states_brightness_controller",
-          "cSharpName": "NetdaemonNetDaemonAppsStatesBrightnessController"
-        },
-        {
-          "id": "input_boolean.netdaemon_net_daemon_apps_states_light_control_mode_controller",
-          "friendlyName": "netdaemon_net_daemon_apps_states_light_control_mode_controller",
-          "cSharpName": "NetdaemonNetDaemonAppsStatesLightControlModeController"
-        },
-        {
-          "id": "input_boolean.netdaemon_net_daemon_apps_states_light_modes",
-          "friendlyName": "netdaemon_net_daemon_apps_states_light_modes",
-          "cSharpName": "NetdaemonNetDaemonAppsStatesLightModes"
-        },
-        {
-          "id": "input_boolean.netdaemon_net_daemon_apps_states_location_mode_controller",
-          "friendlyName": "netdaemon_net_daemon_apps_states_location_mode_controller",
-          "cSharpName": "NetdaemonNetDaemonAppsStatesLocationModeController"
         },
         {
           "id": "input_boolean.reload_netdaemon",
@@ -6672,6 +6602,21 @@
           "id": "input_number.dim_lux",
           "friendlyName": "Dim Lux",
           "cSharpName": "DimLux"
+        },
+        {
+          "id": "input_number.guest_room_lux",
+          "friendlyName": "Guest Room Lux",
+          "cSharpName": "GuestRoomLux"
+        },
+        {
+          "id": "input_number.lounge_lux",
+          "friendlyName": "Lounge Lux",
+          "cSharpName": "LoungeLux"
+        },
+        {
+          "id": "input_number.snug_lux",
+          "friendlyName": "Snug Lux",
+          "cSharpName": "SnugLux"
         }
       ],
       "attributes": [
@@ -7250,6 +7195,11 @@
           "cSharpName": "Cleaning"
         },
         {
+          "id": "scene.feed_the_cats",
+          "friendlyName": "Feed the cats",
+          "cSharpName": "FeedTheCats"
+        },
+        {
           "id": "scene.get_ready_for_bed",
           "friendlyName": "Get Ready For Bed",
           "cSharpName": "GetReadyForBed"
@@ -7367,6 +7317,11 @@
           "cSharpName": "AlarmTriggered"
         },
         {
+          "id": "script.camera_shed_snapshot_ai_notification",
+          "friendlyName": "Camera - shed - Snapshot, AI \u0026 Notification",
+          "cSharpName": "CameraShedSnapshotAiNotification"
+        },
+        {
           "id": "script.feed_cats",
           "friendlyName": "Feed Cats",
           "cSharpName": "FeedCats"
@@ -7434,6 +7389,11 @@
       "domain": "select",
       "entities": [
         {
+          "id": "select.brewery_temperature_display_units",
+          "friendlyName": "Brewery Temperature Display Units",
+          "cSharpName": "BreweryTemperatureDisplayUnits"
+        },
+        {
           "id": "select.coffee_machine_power_on_behavior_2",
           "friendlyName": "Coffee Machine Power-on behavior",
           "cSharpName": "CoffeeMachinePowerOnBehavior2"
@@ -7447,11 +7407,6 @@
           "id": "select.guest_room_lamp_power_on_behavior",
           "friendlyName": "Guest Room Lamp Power-on behavior",
           "cSharpName": "GuestRoomLampPowerOnBehavior"
-        },
-        {
-          "id": "select.shed_temperature_display_units",
-          "friendlyName": "Shed Temperature Display Units",
-          "cSharpName": "ShedTemperatureDisplayUnits"
         },
         {
           "id": "select.snug_led_strip_audio_effect",
@@ -7606,6 +7561,11 @@
           "cSharpName": "_0xf082c0fffe3d9a0fClick"
         },
         {
+          "id": "sensor.192_168_1_1_last_scan",
+          "friendlyName": "192.168.1.1 Last scan",
+          "cSharpName": "_19216811LastScan"
+        },
+        {
           "id": "sensor.andrew_s_echo_buds_next_reminder",
           "friendlyName": "Andrew\u0027s Echo Buds next Reminder",
           "cSharpName": "AndrewSEchoBudsNextReminder"
@@ -7747,27 +7707,27 @@
         },
         {
           "id": "sensor.claire_breathing_disturbances_intensity",
-          "friendlyName": "Claire Breathing disturbances intensity",
+          "friendlyName": "claire Breathing disturbances intensity",
           "cSharpName": "ClaireBreathingDisturbancesIntensity"
         },
         {
           "id": "sensor.claire_last_workout_intensity",
-          "friendlyName": "Claire Last workout intensity",
+          "friendlyName": "claire Last workout intensity",
           "cSharpName": "ClaireLastWorkoutIntensity"
         },
         {
           "id": "sensor.claire_last_workout_type",
-          "friendlyName": "Claire Last workout type",
+          "friendlyName": "claire Last workout type",
           "cSharpName": "ClaireLastWorkoutType"
         },
         {
           "id": "sensor.claire_snoring",
-          "friendlyName": "Claire Snoring",
+          "friendlyName": "claire Snoring",
           "cSharpName": "ClaireSnoring"
         },
         {
           "id": "sensor.claire_snoring_episode_count",
-          "friendlyName": "Claire Snoring episode count",
+          "friendlyName": "claire Snoring episode count",
           "cSharpName": "ClaireSnoringEpisodeCount"
         },
         {
@@ -7907,13 +7867,28 @@
         },
         {
           "id": "sensor.epson_xp_950_series",
-          "friendlyName": "EPSON XP-950 Series",
+          "friendlyName": null,
           "cSharpName": "EpsonXp950Series"
         },
         {
           "id": "sensor.epson_xp_950_series_uptime",
-          "friendlyName": "EPSON XP-950 Series Uptime",
+          "friendlyName": "Uptime",
           "cSharpName": "EpsonXp950SeriesUptime"
+        },
+        {
+          "id": "sensor.garden_tap_current_device_status",
+          "friendlyName": "Garden Tap Current device status",
+          "cSharpName": "GardenTapCurrentDeviceStatus"
+        },
+        {
+          "id": "sensor.garden_tap_cyclic_quantitative_irrigation",
+          "friendlyName": "Garden Tap Cyclic quantitative irrigation",
+          "cSharpName": "GardenTapCyclicQuantitativeIrrigation"
+        },
+        {
+          "id": "sensor.garden_tap_cyclic_timed_irrigation",
+          "friendlyName": "Garden Tap Cyclic timed irrigation",
+          "cSharpName": "GardenTapCyclicTimedIrrigation"
         },
         {
           "id": "sensor.green_bin",
@@ -7984,11 +7959,6 @@
           "id": "sensor.hallway_camera_recording_mode",
           "friendlyName": "Hallway Camera Recording mode",
           "cSharpName": "HallwayCameraRecordingMode"
-        },
-        {
-          "id": "sensor.hallway_light_uptime",
-          "friendlyName": "Hallway Light Uptime",
-          "cSharpName": "HallwayLightUptime"
         },
         {
           "id": "sensor.hallway_tablet_current_page",
@@ -9200,7 +9170,7 @@
         {
           "jsonName": "location",
           "cSharpName": "Location_1",
-          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.Double]"
+          "clrType": "System.Object"
         },
         {
           "jsonName": "Name",
@@ -9546,6 +9516,81 @@
           "jsonName": "timer",
           "cSharpName": "Timer",
           "clrType": "System.Object"
+        },
+        {
+          "jsonName": "e20a39f4-73f5-4bc4-1864-17d1ad07a962_40400_50805",
+          "cSharpName": "E20a39f473f54bc4186417d1ad07a9624040050805",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "auto_close_when_water_shortage",
+          "cSharpName": "AutoCloseWhenWaterShortage",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "current_device_status",
+          "cSharpName": "CurrentDeviceStatus",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "cyclic_quantitative_irrigation",
+          "cSharpName": "CyclicQuantitativeIrrigation",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "cyclic_timed_irrigation",
+          "cSharpName": "CyclicTimedIrrigation",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "flow",
+          "cSharpName": "Flow",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "info",
+          "cSharpName": "Info",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "serial",
+          "cSharpName": "Serial",
+          "clrType": null
+        },
+        {
+          "jsonName": "state_message",
+          "cSharpName": "StateMessage",
+          "clrType": null
+        },
+        {
+          "jsonName": "state_reason",
+          "cSharpName": "StateReason",
+          "clrType": null
+        },
+        {
+          "jsonName": "command_set",
+          "cSharpName": "CommandSet",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "uri_supported",
+          "cSharpName": "UriSupported",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "e2c56db5-dffb-48d2-b060-d0f5a71096e0_0_0",
+          "cSharpName": "E2c56db5dffb48d2b060d0f5a71096e000",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "1ca92e23-f087-4df7-b9a2-fd4b716a4bf6_1477_0",
+          "cSharpName": "_1ca92e23f0874df7b9a2fd4b716a4bf614770",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "1ca92e23-f087-4df7-b9a2-fd4b716a4bf6_497_0",
+          "cSharpName": "_1ca92e23f0874df7b9a2fd4b716a4bf64970",
+          "clrType": "System.Double"
         }
       ]
     },
@@ -9567,6 +9612,41 @@
           "id": "sensor.10079d74_8ee8_48e9_8a1f_e565c9fb7324_100_1_estimated_distance",
           "friendlyName": "Estimated distance",
           "cSharpName": "_10079d748ee848e98a1fE565c9fb73241001EstimatedDistance"
+        },
+        {
+          "id": "sensor.192_168_1_1_player_count",
+          "friendlyName": "192.168.1.1 Player count",
+          "cSharpName": "_19216811PlayerCount"
+        },
+        {
+          "id": "sensor.192_168_1_1_player_count_off_service",
+          "friendlyName": "192.168.1.1 Player count off service",
+          "cSharpName": "_19216811PlayerCountOffService"
+        },
+        {
+          "id": "sensor.192_168_1_1_total_albums",
+          "friendlyName": "192.168.1.1 Total albums",
+          "cSharpName": "_19216811TotalAlbums"
+        },
+        {
+          "id": "sensor.192_168_1_1_total_artists",
+          "friendlyName": "192.168.1.1 Total artists",
+          "cSharpName": "_19216811TotalArtists"
+        },
+        {
+          "id": "sensor.192_168_1_1_total_duration",
+          "friendlyName": "192.168.1.1 Total duration",
+          "cSharpName": "_19216811TotalDuration"
+        },
+        {
+          "id": "sensor.192_168_1_1_total_genres",
+          "friendlyName": "192.168.1.1 Total genres",
+          "cSharpName": "_19216811TotalGenres"
+        },
+        {
+          "id": "sensor.192_168_1_1_total_songs",
+          "friendlyName": "192.168.1.1 Total songs",
+          "cSharpName": "_19216811TotalSongs"
         },
         {
           "id": "sensor.74278bda_b644_4520_8f0c_720eaf059935_0_23646_c68b_estimated_distance",
@@ -10040,12 +10120,12 @@
         },
         {
           "id": "sensor.basement_lights_1_switch_1_current",
-          "friendlyName": "shellypro4pm-34987a68fc0c switch_1 current",
+          "friendlyName": "shellypro4pm-34987a68fc0c Switch 1 current",
           "cSharpName": "BasementLights1Switch1Current"
         },
         {
           "id": "sensor.basement_lights_1_switch_1_device_temperature",
-          "friendlyName": "shellypro4pm-34987a68fc0c switch_1 device temperature",
+          "friendlyName": "shellypro4pm-34987a68fc0c Switch 1 device temperature",
           "cSharpName": "BasementLights1Switch1DeviceTemperature"
         },
         {
@@ -10055,7 +10135,7 @@
         },
         {
           "id": "sensor.basement_lights_1_switch_1_frequency",
-          "friendlyName": "shellypro4pm-34987a68fc0c switch_1 frequency",
+          "friendlyName": "shellypro4pm-34987a68fc0c Switch 1 frequency",
           "cSharpName": "BasementLights1Switch1Frequency"
         },
         {
@@ -10065,7 +10145,7 @@
         },
         {
           "id": "sensor.basement_lights_1_switch_1_voltage",
-          "friendlyName": "shellypro4pm-34987a68fc0c switch_1 voltage",
+          "friendlyName": "shellypro4pm-34987a68fc0c Switch 1 voltage",
           "cSharpName": "BasementLights1Switch1Voltage"
         },
         {
@@ -10399,6 +10479,16 @@
           "cSharpName": "BedroomSwitchBattery"
         },
         {
+          "id": "sensor.brewery_current_temperature",
+          "friendlyName": "Brewery Current Temperature",
+          "cSharpName": "BreweryCurrentTemperature"
+        },
+        {
+          "id": "sensor.brewery_floor_temperature",
+          "friendlyName": "Brewery Floor Temperature",
+          "cSharpName": "BreweryFloorTemperature"
+        },
+        {
           "id": "sensor.brewery_light_current",
           "friendlyName": "Brewery Light current",
           "cSharpName": "BreweryLightCurrent"
@@ -10480,212 +10570,147 @@
         },
         {
           "id": "sensor.claire_active_calories_burnt_today",
-          "friendlyName": "Claire Active calories burnt today",
+          "friendlyName": "claire Active calories burnt today",
           "cSharpName": "ClaireActiveCaloriesBurntToday"
         },
         {
           "id": "sensor.claire_active_time_today",
-          "friendlyName": "Claire Active time today",
+          "friendlyName": "claire Active time today",
           "cSharpName": "ClaireActiveTimeToday"
         },
         {
           "id": "sensor.claire_average_heart_rate",
-          "friendlyName": "Claire Average heart rate",
+          "friendlyName": "claire Average heart rate",
           "cSharpName": "ClaireAverageHeartRate"
         },
         {
           "id": "sensor.claire_average_respiratory_rate",
-          "friendlyName": "Claire Average respiratory rate",
+          "friendlyName": "claire Average respiratory rate",
           "cSharpName": "ClaireAverageRespiratoryRate"
         },
         {
-          "id": "sensor.claire_body_temperature",
-          "friendlyName": "Body temperature",
-          "cSharpName": "ClaireBodyTemperature"
-        },
-        {
-          "id": "sensor.claire_bone_mass",
-          "friendlyName": "Claire Bone mass",
-          "cSharpName": "ClaireBoneMass"
-        },
-        {
           "id": "sensor.claire_calories_burnt_last_workout",
-          "friendlyName": "Claire Calories burnt last workout",
+          "friendlyName": "claire Calories burnt last workout",
           "cSharpName": "ClaireCaloriesBurntLastWorkout"
         },
         {
           "id": "sensor.claire_deep_sleep",
-          "friendlyName": "Claire Deep sleep",
+          "friendlyName": "claire Deep sleep",
           "cSharpName": "ClaireDeepSleep"
         },
         {
-          "id": "sensor.claire_diastolic_blood_pressure",
-          "friendlyName": "Diastolic blood pressure",
-          "cSharpName": "ClaireDiastolicBloodPressure"
-        },
-        {
           "id": "sensor.claire_distance_travelled_last_workout",
-          "friendlyName": "Claire Distance travelled last workout",
+          "friendlyName": "claire Distance travelled last workout",
           "cSharpName": "ClaireDistanceTravelledLastWorkout"
         },
         {
           "id": "sensor.claire_distance_travelled_today",
-          "friendlyName": "Claire Distance travelled today",
+          "friendlyName": "claire Distance travelled today",
           "cSharpName": "ClaireDistanceTravelledToday"
         },
         {
           "id": "sensor.claire_elevation_change_last_workout",
-          "friendlyName": "Claire Elevation change last workout",
+          "friendlyName": "claire Elevation change last workout",
           "cSharpName": "ClaireElevationChangeLastWorkout"
         },
         {
           "id": "sensor.claire_elevation_change_today",
-          "friendlyName": "Claire Elevation change today",
+          "friendlyName": "claire Elevation change today",
           "cSharpName": "ClaireElevationChangeToday"
         },
         {
-          "id": "sensor.claire_fat_free_mass",
-          "friendlyName": "Claire Fat free mass",
-          "cSharpName": "ClaireFatFreeMass"
-        },
-        {
-          "id": "sensor.claire_fat_mass",
-          "friendlyName": "Claire Fat mass",
-          "cSharpName": "ClaireFatMass"
-        },
-        {
-          "id": "sensor.claire_fat_ratio",
-          "friendlyName": "Claire Fat ratio",
-          "cSharpName": "ClaireFatRatio"
-        },
-        {
-          "id": "sensor.claire_heart_pulse",
-          "friendlyName": "Heart pulse",
-          "cSharpName": "ClaireHeartPulse"
-        },
-        {
-          "id": "sensor.claire_height",
-          "friendlyName": "Height",
-          "cSharpName": "ClaireHeight"
-        },
-        {
-          "id": "sensor.claire_hydration",
-          "friendlyName": "Claire Hydration",
-          "cSharpName": "ClaireHydration"
+          "id": "sensor.claire_intense_activity_today",
+          "friendlyName": "claire Intense activity today",
+          "cSharpName": "ClaireIntenseActivityToday"
         },
         {
           "id": "sensor.claire_last_workout_duration",
-          "friendlyName": "Claire Last workout duration",
+          "friendlyName": "claire Last workout duration",
           "cSharpName": "ClaireLastWorkoutDuration"
         },
         {
           "id": "sensor.claire_light_sleep",
-          "friendlyName": "Claire Light sleep",
+          "friendlyName": "claire Light sleep",
           "cSharpName": "ClaireLightSleep"
         },
         {
           "id": "sensor.claire_maximum_heart_rate",
-          "friendlyName": "Claire Maximum heart rate",
+          "friendlyName": "claire Maximum heart rate",
           "cSharpName": "ClaireMaximumHeartRate"
         },
         {
           "id": "sensor.claire_maximum_respiratory_rate",
-          "friendlyName": "Claire Maximum respiratory rate",
+          "friendlyName": "claire Maximum respiratory rate",
           "cSharpName": "ClaireMaximumRespiratoryRate"
         },
         {
           "id": "sensor.claire_minimum_heart_rate",
-          "friendlyName": "Claire Minimum heart rate",
+          "friendlyName": "claire Minimum heart rate",
           "cSharpName": "ClaireMinimumHeartRate"
         },
         {
           "id": "sensor.claire_minimum_respiratory_rate",
-          "friendlyName": "Claire Minimum respiratory rate",
+          "friendlyName": "claire Minimum respiratory rate",
           "cSharpName": "ClaireMinimumRespiratoryRate"
         },
         {
-          "id": "sensor.claire_muscle_mass",
-          "friendlyName": "Claire Muscle mass",
-          "cSharpName": "ClaireMuscleMass"
+          "id": "sensor.claire_moderate_activity_today",
+          "friendlyName": "claire Moderate activity today",
+          "cSharpName": "ClaireModerateActivityToday"
         },
         {
           "id": "sensor.claire_pause_during_last_workout",
-          "friendlyName": "Claire Pause during last workout",
+          "friendlyName": "claire Pause during last workout",
           "cSharpName": "ClairePauseDuringLastWorkout"
         },
         {
-          "id": "sensor.claire_pulse_wave_velocity",
-          "friendlyName": "Pulse wave velocity",
-          "cSharpName": "ClairePulseWaveVelocity"
-        },
-        {
           "id": "sensor.claire_rem_sleep",
-          "friendlyName": "Claire REM sleep",
+          "friendlyName": "claire REM sleep",
           "cSharpName": "ClaireRemSleep"
         },
         {
-          "id": "sensor.claire_skin_temperature",
-          "friendlyName": "Skin temperature",
-          "cSharpName": "ClaireSkinTemperature"
-        },
-        {
           "id": "sensor.claire_sleep_score",
-          "friendlyName": "Claire Sleep score",
+          "friendlyName": "claire Sleep score",
           "cSharpName": "ClaireSleepScore"
         },
         {
-          "id": "sensor.claire_spo2",
-          "friendlyName": "SpO2",
-          "cSharpName": "ClaireSpo2"
+          "id": "sensor.claire_soft_activity_today",
+          "friendlyName": "claire Soft activity today",
+          "cSharpName": "ClaireSoftActivityToday"
         },
         {
           "id": "sensor.claire_steps_today",
-          "friendlyName": "Claire Steps today",
+          "friendlyName": "claire Steps today",
           "cSharpName": "ClaireStepsToday"
         },
         {
-          "id": "sensor.claire_systolic_blood_pressure",
-          "friendlyName": "Systolic blood pressure",
-          "cSharpName": "ClaireSystolicBloodPressure"
-        },
-        {
-          "id": "sensor.claire_temperature",
-          "friendlyName": "Temperature",
-          "cSharpName": "ClaireTemperature"
-        },
-        {
           "id": "sensor.claire_time_to_sleep",
-          "friendlyName": "Claire Time to sleep",
+          "friendlyName": "claire Time to sleep",
           "cSharpName": "ClaireTimeToSleep"
         },
         {
           "id": "sensor.claire_time_to_wakeup",
-          "friendlyName": "Claire Time to wakeup",
+          "friendlyName": "claire Time to wakeup",
           "cSharpName": "ClaireTimeToWakeup"
         },
         {
           "id": "sensor.claire_total_calories_burnt_today",
-          "friendlyName": "Claire Total calories burnt today",
+          "friendlyName": "claire Total calories burnt today",
           "cSharpName": "ClaireTotalCaloriesBurntToday"
         },
         {
           "id": "sensor.claire_wakeup_count",
-          "friendlyName": "Claire Wakeup count",
+          "friendlyName": "claire Wakeup count",
           "cSharpName": "ClaireWakeupCount"
         },
         {
           "id": "sensor.claire_wakeup_time",
-          "friendlyName": "Claire Wakeup time",
+          "friendlyName": "claire Wakeup time",
           "cSharpName": "ClaireWakeupTime"
         },
         {
-          "id": "sensor.claire_weight",
-          "friendlyName": "Claire Weight",
-          "cSharpName": "ClaireWeight"
-        },
-        {
           "id": "sensor.claireiphone_battery_2",
-          "friendlyName": "claireiphone Battery",
+          "friendlyName": "Battery",
           "cSharpName": "ClaireiphoneBattery2"
         },
         {
@@ -10695,7 +10720,7 @@
         },
         {
           "id": "sensor.claires_apple_watch_battery",
-          "friendlyName": "Claire\u2019s Apple Watch Battery",
+          "friendlyName": "Battery",
           "cSharpName": "ClairesAppleWatchBattery"
         },
         {
@@ -10975,32 +11000,32 @@
         },
         {
           "id": "sensor.epson_xp_950_series_black_ink",
-          "friendlyName": "EPSON XP-950 Series Black ink",
+          "friendlyName": "Black ink",
           "cSharpName": "EpsonXp950SeriesBlackInk"
         },
         {
           "id": "sensor.epson_xp_950_series_cyan_ink",
-          "friendlyName": "EPSON XP-950 Series Cyan ink",
+          "friendlyName": "Cyan ink",
           "cSharpName": "EpsonXp950SeriesCyanInk"
         },
         {
           "id": "sensor.epson_xp_950_series_light_cyan_ink",
-          "friendlyName": "EPSON XP-950 Series Light Cyan ink",
+          "friendlyName": "Light Cyan ink",
           "cSharpName": "EpsonXp950SeriesLightCyanInk"
         },
         {
           "id": "sensor.epson_xp_950_series_light_magenta_ink",
-          "friendlyName": "EPSON XP-950 Series Light Magenta ink",
+          "friendlyName": "Light Magenta ink",
           "cSharpName": "EpsonXp950SeriesLightMagentaInk"
         },
         {
           "id": "sensor.epson_xp_950_series_magenta_ink",
-          "friendlyName": "EPSON XP-950 Series Magenta ink",
+          "friendlyName": "Magenta ink",
           "cSharpName": "EpsonXp950SeriesMagentaInk"
         },
         {
           "id": "sensor.epson_xp_950_series_yellow_ink",
-          "friendlyName": "EPSON XP-950 Series Yellow ink",
+          "friendlyName": "Yellow ink",
           "cSharpName": "EpsonXp950SeriesYellowInk"
         },
         {
@@ -11129,6 +11154,16 @@
           "cSharpName": "GardenSocketsVoltage"
         },
         {
+          "id": "sensor.garden_tap_battery",
+          "friendlyName": "Garden Tap Battery",
+          "cSharpName": "GardenTapBattery"
+        },
+        {
+          "id": "sensor.garden_tap_flow",
+          "friendlyName": "Garden Tap Flow",
+          "cSharpName": "GardenTapFlow"
+        },
+        {
           "id": "sensor.gate_socket_current",
           "friendlyName": "Gate Socket Current",
           "cSharpName": "GateSocketCurrent"
@@ -11235,37 +11270,32 @@
         },
         {
           "id": "sensor.hallway_light_current",
-          "friendlyName": "Hallway Light Current",
+          "friendlyName": "Hallway Light current",
           "cSharpName": "HallwayLightCurrent"
         },
         {
+          "id": "sensor.hallway_light_device_temperature",
+          "friendlyName": "Hallway Light device temperature",
+          "cSharpName": "HallwayLightDeviceTemperature"
+        },
+        {
           "id": "sensor.hallway_light_energy",
-          "friendlyName": "Hallway Light Energy",
+          "friendlyName": "Hallway Light energy",
           "cSharpName": "HallwayLightEnergy"
         },
         {
           "id": "sensor.hallway_light_frequency",
-          "friendlyName": "Hallway Light Frequency",
+          "friendlyName": "Hallway Light frequency",
           "cSharpName": "HallwayLightFrequency"
         },
         {
           "id": "sensor.hallway_light_power",
-          "friendlyName": "Hallway Light Power",
+          "friendlyName": "Hallway Light power",
           "cSharpName": "HallwayLightPower"
         },
         {
-          "id": "sensor.hallway_light_rssi",
-          "friendlyName": "Hallway Light rssi",
-          "cSharpName": "HallwayLightRssi"
-        },
-        {
-          "id": "sensor.hallway_light_temperature",
-          "friendlyName": "Hallway Light Temperature",
-          "cSharpName": "HallwayLightTemperature"
-        },
-        {
           "id": "sensor.hallway_light_voltage",
-          "friendlyName": "Hallway Light Voltage",
+          "friendlyName": "Hallway Light voltage",
           "cSharpName": "HallwayLightVoltage"
         },
         {
@@ -12449,11 +12479,6 @@
           "cSharpName": "PixelWatchDailySteps"
         },
         {
-          "id": "sensor.pixel_watch_heart_rate",
-          "friendlyName": "Pixel Watch Heart rate",
-          "cSharpName": "PixelWatchHeartRate"
-        },
-        {
           "id": "sensor.pixel_watch_light_sensor",
           "friendlyName": "Pixel Watch Light sensor",
           "cSharpName": "PixelWatchLightSensor"
@@ -12544,11 +12569,6 @@
           "cSharpName": "ShedCameraStorageUsed"
         },
         {
-          "id": "sensor.shed_current_temperature",
-          "friendlyName": "Shed Current Temperature",
-          "cSharpName": "ShedCurrentTemperature"
-        },
-        {
           "id": "sensor.shed_door_battery",
           "friendlyName": "Shed Door Battery",
           "cSharpName": "ShedDoorBattery"
@@ -12572,11 +12592,6 @@
           "id": "sensor.shed_energy",
           "friendlyName": "Shed Light energy",
           "cSharpName": "ShedEnergy"
-        },
-        {
-          "id": "sensor.shed_floor_temperature",
-          "friendlyName": "Shed Floor Temperature",
-          "cSharpName": "ShedFloorTemperature"
         },
         {
           "id": "sensor.shed_light_current",
@@ -12630,7 +12645,7 @@
         },
         {
           "id": "sensor.shelly_landing_light_switch_0_device_temperature",
-          "friendlyName": "Shelly Landing Light switch_0 device temperature",
+          "friendlyName": "Shelly Landing Light Switch 0 device temperature",
           "cSharpName": "ShellyLandingLightSwitch0DeviceTemperature"
         },
         {
@@ -15969,6 +15984,1281 @@
           "jsonName": "49256a1d-e7ef-47d3-bb39-02139d929425",
           "cSharpName": "_49256a1de7ef47d3bb3902139d929425",
           "clrType": "System.Object"
+        },
+        {
+          "jsonName": "android.appInfo_bbc.mobile.news.uk_100",
+          "cSharpName": "Android_appInfoBbc_mobile_news_uk100",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.bigText_bbc.mobile.news.uk_100",
+          "cSharpName": "Android_bigTextBbc_mobile_news_uk100",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.infoText_bbc.mobile.news.uk_100",
+          "cSharpName": "Android_infoTextBbc_mobile_news_uk100",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon_bbc.mobile.news.uk_100",
+          "cSharpName": "Android_largeIconBbc_mobile_news_uk100",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.progressIndeterminate_bbc.mobile.news.uk_100",
+          "cSharpName": "Android_progressIndeterminateBbc_mobile_news_uk100",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.progressMax_bbc.mobile.news.uk_100",
+          "cSharpName": "Android_progressMaxBbc_mobile_news_uk100",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progress_bbc.mobile.news.uk_100",
+          "cSharpName": "Android_progressBbc_mobile_news_uk100",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.reduced.images_bbc.mobile.news.uk_100",
+          "cSharpName": "Android_reduced_imagesBbc_mobile_news_uk100",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.remoteInputHistory_bbc.mobile.news.uk_100",
+          "cSharpName": "Android_remoteInputHistoryBbc_mobile_news_uk100",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.showChronometer_bbc.mobile.news.uk_100",
+          "cSharpName": "Android_showChronometerBbc_mobile_news_uk100",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_bbc.mobile.news.uk_100",
+          "cSharpName": "Android_showWhenBbc_mobile_news_uk100",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.subText_bbc.mobile.news.uk_100",
+          "cSharpName": "Android_subTextBbc_mobile_news_uk100",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.template_bbc.mobile.news.uk_100",
+          "cSharpName": "Android_templateBbc_mobile_news_uk100",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_bbc.mobile.news.uk_100",
+          "cSharpName": "Android_textBbc_mobile_news_uk100",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_bbc.mobile.news.uk_100",
+          "cSharpName": "Android_titleBbc_mobile_news_uk100",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "androidx.core.app.extra.COMPAT_TEMPLATE_bbc.mobile.news.uk_100",
+          "cSharpName": "Androidx_core_app_extra_COMPATTEMPLATEBbc_mobile_news_uk100",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_100_category",
+          "cSharpName": "Bbc_mobile_news_uk100Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_100_channel_id",
+          "cSharpName": "Bbc_mobile_news_uk100ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_100_group_id",
+          "cSharpName": "Bbc_mobile_news_uk100GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_100_is_clearable",
+          "cSharpName": "Bbc_mobile_news_uk100IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_100_is_ongoing",
+          "cSharpName": "Bbc_mobile_news_uk100IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "bbc.mobile.news.uk_100_post_time",
+          "cSharpName": "Bbc_mobile_news_uk100PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "auto_close_when_water_shortage",
+          "cSharpName": "AutoCloseWhenWaterShortage",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "current_device_status",
+          "cSharpName": "CurrentDeviceStatus",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "cyclic_quantitative_irrigation",
+          "cSharpName": "CyclicQuantitativeIrrigation",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "cyclic_timed_irrigation",
+          "cSharpName": "CyclicTimedIrrigation",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "flow",
+          "cSharpName": "Flow",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.conversationTitle_com.whatsapp_1",
+          "cSharpName": "Android_conversationTitleCom_whatsapp1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.appInfo_com.google.android.apps.maps_0",
+          "cSharpName": "Android_appInfoCom_google_android_apps_maps0",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.appInfo_io.homeassistant.companion.android_-2014791649",
+          "cSharpName": "Android_appInfoIo_homeassistant_companion_android2014791649",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.appInfo_io.homeassistant.companion.android_-2015647979",
+          "cSharpName": "Android_appInfoIo_homeassistant_companion_android2015647979",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.appInfo_io.homeassistant.companion.android_-2015696111",
+          "cSharpName": "Android_appInfoIo_homeassistant_companion_android2015696111",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.appInfo_io.homeassistant.companion.android_2147483647",
+          "cSharpName": "Android_appInfoIo_homeassistant_companion_android2147483647",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.bigText_com.google.android.apps.maps_0",
+          "cSharpName": "Android_bigTextCom_google_android_apps_maps0",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.infoText_com.google.android.apps.maps_0",
+          "cSharpName": "Android_infoTextCom_google_android_apps_maps0",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.infoText_io.homeassistant.companion.android_-2014791649",
+          "cSharpName": "Android_infoTextIo_homeassistant_companion_android2014791649",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.infoText_io.homeassistant.companion.android_-2015647979",
+          "cSharpName": "Android_infoTextIo_homeassistant_companion_android2015647979",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.infoText_io.homeassistant.companion.android_-2015696111",
+          "cSharpName": "Android_infoTextIo_homeassistant_companion_android2015696111",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon.big_io.homeassistant.companion.android_-2014791649",
+          "cSharpName": "Android_largeIcon_bigIo_homeassistant_companion_android2014791649",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon.big_io.homeassistant.companion.android_-2015647979",
+          "cSharpName": "Android_largeIcon_bigIo_homeassistant_companion_android2015647979",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon.big_io.homeassistant.companion.android_-2015696111",
+          "cSharpName": "Android_largeIcon_bigIo_homeassistant_companion_android2015696111",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon_com.google.android.apps.maps_0",
+          "cSharpName": "Android_largeIconCom_google_android_apps_maps0",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon_io.homeassistant.companion.android_-2014791649",
+          "cSharpName": "Android_largeIconIo_homeassistant_companion_android2014791649",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon_io.homeassistant.companion.android_-2015647979",
+          "cSharpName": "Android_largeIconIo_homeassistant_companion_android2015647979",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon_io.homeassistant.companion.android_-2015696111",
+          "cSharpName": "Android_largeIconIo_homeassistant_companion_android2015696111",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.pictureIcon_io.homeassistant.companion.android_-2014791649",
+          "cSharpName": "Android_pictureIconIo_homeassistant_companion_android2014791649",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.pictureIcon_io.homeassistant.companion.android_-2015647979",
+          "cSharpName": "Android_pictureIconIo_homeassistant_companion_android2015647979",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.pictureIcon_io.homeassistant.companion.android_-2015696111",
+          "cSharpName": "Android_pictureIconIo_homeassistant_companion_android2015696111",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.picture_io.homeassistant.companion.android_-2014791649",
+          "cSharpName": "Android_pictureIo_homeassistant_companion_android2014791649",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.picture_io.homeassistant.companion.android_-2015647979",
+          "cSharpName": "Android_pictureIo_homeassistant_companion_android2015647979",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.picture_io.homeassistant.companion.android_-2015696111",
+          "cSharpName": "Android_pictureIo_homeassistant_companion_android2015696111",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.progressIndeterminate_com.google.android.apps.maps_0",
+          "cSharpName": "Android_progressIndeterminateCom_google_android_apps_maps0",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.progressIndeterminate_io.homeassistant.companion.android_-2014791649",
+          "cSharpName": "Android_progressIndeterminateIo_homeassistant_companion_android2014791649",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.progressIndeterminate_io.homeassistant.companion.android_-2015647979",
+          "cSharpName": "Android_progressIndeterminateIo_homeassistant_companion_android2015647979",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.progressIndeterminate_io.homeassistant.companion.android_-2015696111",
+          "cSharpName": "Android_progressIndeterminateIo_homeassistant_companion_android2015696111",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.progressMax_com.google.android.apps.maps_0",
+          "cSharpName": "Android_progressMaxCom_google_android_apps_maps0",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progressMax_io.homeassistant.companion.android_-2014791649",
+          "cSharpName": "Android_progressMaxIo_homeassistant_companion_android2014791649",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progressMax_io.homeassistant.companion.android_-2015647979",
+          "cSharpName": "Android_progressMaxIo_homeassistant_companion_android2015647979",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progressMax_io.homeassistant.companion.android_-2015696111",
+          "cSharpName": "Android_progressMaxIo_homeassistant_companion_android2015696111",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progress_com.google.android.apps.maps_0",
+          "cSharpName": "Android_progressCom_google_android_apps_maps0",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progress_io.homeassistant.companion.android_-2014791649",
+          "cSharpName": "Android_progressIo_homeassistant_companion_android2014791649",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progress_io.homeassistant.companion.android_-2015647979",
+          "cSharpName": "Android_progressIo_homeassistant_companion_android2015647979",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progress_io.homeassistant.companion.android_-2015696111",
+          "cSharpName": "Android_progressIo_homeassistant_companion_android2015696111",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.reduced.images_com.google.android.apps.maps_0",
+          "cSharpName": "Android_reduced_imagesCom_google_android_apps_maps0",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.reduced.images_io.homeassistant.companion.android_-2014791649",
+          "cSharpName": "Android_reduced_imagesIo_homeassistant_companion_android2014791649",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.reduced.images_io.homeassistant.companion.android_-2015647979",
+          "cSharpName": "Android_reduced_imagesIo_homeassistant_companion_android2015647979",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.reduced.images_io.homeassistant.companion.android_-2015696111",
+          "cSharpName": "Android_reduced_imagesIo_homeassistant_companion_android2015696111",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.reduced.images_io.homeassistant.companion.android_2147483647",
+          "cSharpName": "Android_reduced_imagesIo_homeassistant_companion_android2147483647",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.remoteInputHistory_com.google.android.apps.maps_0",
+          "cSharpName": "Android_remoteInputHistoryCom_google_android_apps_maps0",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.remoteInputHistory_io.homeassistant.companion.android_-2014791649",
+          "cSharpName": "Android_remoteInputHistoryIo_homeassistant_companion_android2014791649",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.remoteInputHistory_io.homeassistant.companion.android_-2015647979",
+          "cSharpName": "Android_remoteInputHistoryIo_homeassistant_companion_android2015647979",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.remoteInputHistory_io.homeassistant.companion.android_-2015696111",
+          "cSharpName": "Android_remoteInputHistoryIo_homeassistant_companion_android2015696111",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.showBigPictureWhenCollapsed_io.homeassistant.companion.android_-2014791649",
+          "cSharpName": "Android_showBigPictureWhenCollapsedIo_homeassistant_companion_android2014791649",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showBigPictureWhenCollapsed_io.homeassistant.companion.android_-2015647979",
+          "cSharpName": "Android_showBigPictureWhenCollapsedIo_homeassistant_companion_android2015647979",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showBigPictureWhenCollapsed_io.homeassistant.companion.android_-2015696111",
+          "cSharpName": "Android_showBigPictureWhenCollapsedIo_homeassistant_companion_android2015696111",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showChronometer_com.google.android.apps.maps_0",
+          "cSharpName": "Android_showChronometerCom_google_android_apps_maps0",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showChronometer_io.homeassistant.companion.android_-2014791649",
+          "cSharpName": "Android_showChronometerIo_homeassistant_companion_android2014791649",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showChronometer_io.homeassistant.companion.android_-2015647979",
+          "cSharpName": "Android_showChronometerIo_homeassistant_companion_android2015647979",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showChronometer_io.homeassistant.companion.android_-2015696111",
+          "cSharpName": "Android_showChronometerIo_homeassistant_companion_android2015696111",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_com.google.android.apps.maps_0",
+          "cSharpName": "Android_showWhenCom_google_android_apps_maps0",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_io.homeassistant.companion.android_-2014791649",
+          "cSharpName": "Android_showWhenIo_homeassistant_companion_android2014791649",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_io.homeassistant.companion.android_-2015647979",
+          "cSharpName": "Android_showWhenIo_homeassistant_companion_android2015647979",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_io.homeassistant.companion.android_-2015696111",
+          "cSharpName": "Android_showWhenIo_homeassistant_companion_android2015696111",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.subText_com.google.android.apps.maps_0",
+          "cSharpName": "Android_subTextCom_google_android_apps_maps0",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.subText_io.homeassistant.companion.android_-2014791649",
+          "cSharpName": "Android_subTextIo_homeassistant_companion_android2014791649",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.subText_io.homeassistant.companion.android_-2015647979",
+          "cSharpName": "Android_subTextIo_homeassistant_companion_android2015647979",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.subText_io.homeassistant.companion.android_-2015696111",
+          "cSharpName": "Android_subTextIo_homeassistant_companion_android2015696111",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.support.v4.app.extra.COMPAT_TEMPLATE_com.google.android.apps.maps_0",
+          "cSharpName": "Android_support_v4_app_extra_COMPATTEMPLATECom_google_android_apps_maps0",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.template_com.google.android.apps.maps_0",
+          "cSharpName": "Android_templateCom_google_android_apps_maps0",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.template_io.homeassistant.companion.android_-2014791649",
+          "cSharpName": "Android_templateIo_homeassistant_companion_android2014791649",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.template_io.homeassistant.companion.android_-2015647979",
+          "cSharpName": "Android_templateIo_homeassistant_companion_android2015647979",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.template_io.homeassistant.companion.android_-2015696111",
+          "cSharpName": "Android_templateIo_homeassistant_companion_android2015696111",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_com.google.android.apps.maps_0",
+          "cSharpName": "Android_textCom_google_android_apps_maps0",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_io.homeassistant.companion.android_-2014791649",
+          "cSharpName": "Android_textIo_homeassistant_companion_android2014791649",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_io.homeassistant.companion.android_-2015647979",
+          "cSharpName": "Android_textIo_homeassistant_companion_android2015647979",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_io.homeassistant.companion.android_-2015696111",
+          "cSharpName": "Android_textIo_homeassistant_companion_android2015696111",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title.big_com.google.android.apps.maps_0",
+          "cSharpName": "Android_title_bigCom_google_android_apps_maps0",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_com.google.android.apps.maps_0",
+          "cSharpName": "Android_titleCom_google_android_apps_maps0",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_io.homeassistant.companion.android_-2014791649",
+          "cSharpName": "Android_titleIo_homeassistant_companion_android2014791649",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_io.homeassistant.companion.android_-2015647979",
+          "cSharpName": "Android_titleIo_homeassistant_companion_android2015647979",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_io.homeassistant.companion.android_-2015696111",
+          "cSharpName": "Android_titleIo_homeassistant_companion_android2015696111",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "androidx.core.app.extra.COMPAT_TEMPLATE_io.homeassistant.companion.android_-2014791649",
+          "cSharpName": "Androidx_core_app_extra_COMPATTEMPLATEIo_homeassistant_companion_android2014791649",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "androidx.core.app.extra.COMPAT_TEMPLATE_io.homeassistant.companion.android_-2015647979",
+          "cSharpName": "Androidx_core_app_extra_COMPATTEMPLATEIo_homeassistant_companion_android2015647979",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "androidx.core.app.extra.COMPAT_TEMPLATE_io.homeassistant.companion.android_-2015696111",
+          "cSharpName": "Androidx_core_app_extra_COMPATTEMPLATEIo_homeassistant_companion_android2015696111",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.google.android.apps.maps_0_category",
+          "cSharpName": "Com_google_android_apps_maps0Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.google.android.apps.maps_0_channel_id",
+          "cSharpName": "Com_google_android_apps_maps0ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.google.android.apps.maps_0_group_id",
+          "cSharpName": "Com_google_android_apps_maps0GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.google.android.apps.maps_0_is_clearable",
+          "cSharpName": "Com_google_android_apps_maps0IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.google.android.apps.maps_0_is_ongoing",
+          "cSharpName": "Com_google_android_apps_maps0IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.google.android.apps.maps_0_post_time",
+          "cSharpName": "Com_google_android_apps_maps0PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-2014791649_category",
+          "cSharpName": "Io_homeassistant_companion_android2014791649Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-2014791649_channel_id",
+          "cSharpName": "Io_homeassistant_companion_android2014791649ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-2014791649_group_id",
+          "cSharpName": "Io_homeassistant_companion_android2014791649GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-2014791649_is_clearable",
+          "cSharpName": "Io_homeassistant_companion_android2014791649IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-2014791649_is_ongoing",
+          "cSharpName": "Io_homeassistant_companion_android2014791649IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-2014791649_post_time",
+          "cSharpName": "Io_homeassistant_companion_android2014791649PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-2015647979_category",
+          "cSharpName": "Io_homeassistant_companion_android2015647979Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-2015647979_channel_id",
+          "cSharpName": "Io_homeassistant_companion_android2015647979ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-2015647979_group_id",
+          "cSharpName": "Io_homeassistant_companion_android2015647979GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-2015647979_is_clearable",
+          "cSharpName": "Io_homeassistant_companion_android2015647979IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-2015647979_is_ongoing",
+          "cSharpName": "Io_homeassistant_companion_android2015647979IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-2015647979_post_time",
+          "cSharpName": "Io_homeassistant_companion_android2015647979PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-2015696111_category",
+          "cSharpName": "Io_homeassistant_companion_android2015696111Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-2015696111_channel_id",
+          "cSharpName": "Io_homeassistant_companion_android2015696111ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-2015696111_group_id",
+          "cSharpName": "Io_homeassistant_companion_android2015696111GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-2015696111_is_clearable",
+          "cSharpName": "Io_homeassistant_companion_android2015696111IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-2015696111_is_ongoing",
+          "cSharpName": "Io_homeassistant_companion_android2015696111IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-2015696111_post_time",
+          "cSharpName": "Io_homeassistant_companion_android2015696111PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_2147483647_category",
+          "cSharpName": "Io_homeassistant_companion_android2147483647Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_2147483647_channel_id",
+          "cSharpName": "Io_homeassistant_companion_android2147483647ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_2147483647_group_id",
+          "cSharpName": "Io_homeassistant_companion_android2147483647GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_2147483647_is_clearable",
+          "cSharpName": "Io_homeassistant_companion_android2147483647IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_2147483647_is_ongoing",
+          "cSharpName": "Io_homeassistant_companion_android2147483647IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_2147483647_post_time",
+          "cSharpName": "Io_homeassistant_companion_android2147483647PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "marker_high_level",
+          "cSharpName": "MarkerHighLevel",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "marker_low_level",
+          "cSharpName": "MarkerLowLevel",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "marker_type",
+          "cSharpName": "MarkerType",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.appInfo_com.amazon.mShop.android.shopping_3",
+          "cSharpName": "Android_appInfoCom_amazon_mShop_android_shopping3",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon.big_com.amazon.mShop.android.shopping_3",
+          "cSharpName": "Android_largeIcon_bigCom_amazon_mShop_android_shopping3",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon_com.amazon.mShop.android.shopping_3",
+          "cSharpName": "Android_largeIconCom_amazon_mShop_android_shopping3",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.pictureIcon_com.amazon.mShop.android.shopping_3",
+          "cSharpName": "Android_pictureIconCom_amazon_mShop_android_shopping3",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.picture_com.amazon.mShop.android.shopping_3",
+          "cSharpName": "Android_pictureCom_amazon_mShop_android_shopping3",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.reduced.images_com.amazon.mShop.android.shopping_3",
+          "cSharpName": "Android_reduced_imagesCom_amazon_mShop_android_shopping3",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showBigPictureWhenCollapsed_com.amazon.mShop.android.shopping_3",
+          "cSharpName": "Android_showBigPictureWhenCollapsedCom_amazon_mShop_android_shopping3",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.subText_com.amazon.mShop.android.shopping_3",
+          "cSharpName": "Android_subTextCom_amazon_mShop_android_shopping3",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.summaryText_com.amazon.mShop.android.shopping_3",
+          "cSharpName": "Android_summaryTextCom_amazon_mShop_android_shopping3",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.template_com.amazon.mShop.android.shopping_3",
+          "cSharpName": "Android_templateCom_amazon_mShop_android_shopping3",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_com.amazon.mShop.android.shopping_3",
+          "cSharpName": "Android_textCom_amazon_mShop_android_shopping3",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title.big_com.amazon.mShop.android.shopping_3",
+          "cSharpName": "Android_title_bigCom_amazon_mShop_android_shopping3",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_com.amazon.mShop.android.shopping_3",
+          "cSharpName": "Android_titleCom_amazon_mShop_android_shopping3",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.amazon.mShop.android.shopping_3_category",
+          "cSharpName": "Com_amazon_mShop_android_shopping3Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.amazon.mShop.android.shopping_3_channel_id",
+          "cSharpName": "Com_amazon_mShop_android_shopping3ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.amazon.mShop.android.shopping_3_group_id",
+          "cSharpName": "Com_amazon_mShop_android_shopping3GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.amazon.mShop.android.shopping_3_is_clearable",
+          "cSharpName": "Com_amazon_mShop_android_shopping3IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.amazon.mShop.android.shopping_3_is_ongoing",
+          "cSharpName": "Com_amazon_mShop_android_shopping3IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.amazon.mShop.android.shopping_3_post_time",
+          "cSharpName": "Com_amazon_mShop_android_shopping3PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.appInfo_io.homeassistant.companion.android_-1491080574",
+          "cSharpName": "Android_appInfoIo_homeassistant_companion_android1491080574",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.infoText_io.homeassistant.companion.android_-1491080574",
+          "cSharpName": "Android_infoTextIo_homeassistant_companion_android1491080574",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon.big_io.homeassistant.companion.android_-1491080574",
+          "cSharpName": "Android_largeIcon_bigIo_homeassistant_companion_android1491080574",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon_io.homeassistant.companion.android_-1491080574",
+          "cSharpName": "Android_largeIconIo_homeassistant_companion_android1491080574",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.pictureIcon_io.homeassistant.companion.android_-1491080574",
+          "cSharpName": "Android_pictureIconIo_homeassistant_companion_android1491080574",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.picture_io.homeassistant.companion.android_-1491080574",
+          "cSharpName": "Android_pictureIo_homeassistant_companion_android1491080574",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.progressIndeterminate_io.homeassistant.companion.android_-1491080574",
+          "cSharpName": "Android_progressIndeterminateIo_homeassistant_companion_android1491080574",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.progressMax_io.homeassistant.companion.android_-1491080574",
+          "cSharpName": "Android_progressMaxIo_homeassistant_companion_android1491080574",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progress_io.homeassistant.companion.android_-1491080574",
+          "cSharpName": "Android_progressIo_homeassistant_companion_android1491080574",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.reduced.images_io.homeassistant.companion.android_-1491080574",
+          "cSharpName": "Android_reduced_imagesIo_homeassistant_companion_android1491080574",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.remoteInputHistory_io.homeassistant.companion.android_-1491080574",
+          "cSharpName": "Android_remoteInputHistoryIo_homeassistant_companion_android1491080574",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.showBigPictureWhenCollapsed_io.homeassistant.companion.android_-1491080574",
+          "cSharpName": "Android_showBigPictureWhenCollapsedIo_homeassistant_companion_android1491080574",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showChronometer_io.homeassistant.companion.android_-1491080574",
+          "cSharpName": "Android_showChronometerIo_homeassistant_companion_android1491080574",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_io.homeassistant.companion.android_-1491080574",
+          "cSharpName": "Android_showWhenIo_homeassistant_companion_android1491080574",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.subText_io.homeassistant.companion.android_-1491080574",
+          "cSharpName": "Android_subTextIo_homeassistant_companion_android1491080574",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.template_io.homeassistant.companion.android_-1491080574",
+          "cSharpName": "Android_templateIo_homeassistant_companion_android1491080574",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_io.homeassistant.companion.android_-1491080574",
+          "cSharpName": "Android_textIo_homeassistant_companion_android1491080574",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_io.homeassistant.companion.android_-1491080574",
+          "cSharpName": "Android_titleIo_homeassistant_companion_android1491080574",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "androidx.core.app.extra.COMPAT_TEMPLATE_io.homeassistant.companion.android_-1491080574",
+          "cSharpName": "Androidx_core_app_extra_COMPATTEMPLATEIo_homeassistant_companion_android1491080574",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-1491080574_category",
+          "cSharpName": "Io_homeassistant_companion_android1491080574Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-1491080574_channel_id",
+          "cSharpName": "Io_homeassistant_companion_android1491080574ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-1491080574_group_id",
+          "cSharpName": "Io_homeassistant_companion_android1491080574GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-1491080574_is_clearable",
+          "cSharpName": "Io_homeassistant_companion_android1491080574IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-1491080574_is_ongoing",
+          "cSharpName": "Io_homeassistant_companion_android1491080574IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-1491080574_post_time",
+          "cSharpName": "Io_homeassistant_companion_android1491080574PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.appInfo_com.amazon.mShop.android.shopping_1",
+          "cSharpName": "Android_appInfoCom_amazon_mShop_android_shopping1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon.big_com.amazon.mShop.android.shopping_1",
+          "cSharpName": "Android_largeIcon_bigCom_amazon_mShop_android_shopping1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon_com.amazon.mShop.android.shopping_1",
+          "cSharpName": "Android_largeIconCom_amazon_mShop_android_shopping1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.pictureIcon_com.amazon.mShop.android.shopping_1",
+          "cSharpName": "Android_pictureIconCom_amazon_mShop_android_shopping1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.picture_com.amazon.mShop.android.shopping_1",
+          "cSharpName": "Android_pictureCom_amazon_mShop_android_shopping1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.reduced.images_com.amazon.mShop.android.shopping_1",
+          "cSharpName": "Android_reduced_imagesCom_amazon_mShop_android_shopping1",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showBigPictureWhenCollapsed_com.amazon.mShop.android.shopping_1",
+          "cSharpName": "Android_showBigPictureWhenCollapsedCom_amazon_mShop_android_shopping1",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.subText_com.amazon.mShop.android.shopping_1",
+          "cSharpName": "Android_subTextCom_amazon_mShop_android_shopping1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.summaryText_com.amazon.mShop.android.shopping_1",
+          "cSharpName": "Android_summaryTextCom_amazon_mShop_android_shopping1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.template_com.amazon.mShop.android.shopping_1",
+          "cSharpName": "Android_templateCom_amazon_mShop_android_shopping1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_com.amazon.mShop.android.shopping_1",
+          "cSharpName": "Android_textCom_amazon_mShop_android_shopping1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title.big_com.amazon.mShop.android.shopping_1",
+          "cSharpName": "Android_title_bigCom_amazon_mShop_android_shopping1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_com.amazon.mShop.android.shopping_1",
+          "cSharpName": "Android_titleCom_amazon_mShop_android_shopping1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.amazon.mShop.android.shopping_1_category",
+          "cSharpName": "Com_amazon_mShop_android_shopping1Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.amazon.mShop.android.shopping_1_channel_id",
+          "cSharpName": "Com_amazon_mShop_android_shopping1ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.amazon.mShop.android.shopping_1_group_id",
+          "cSharpName": "Com_amazon_mShop_android_shopping1GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.amazon.mShop.android.shopping_1_is_clearable",
+          "cSharpName": "Com_amazon_mShop_android_shopping1IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.amazon.mShop.android.shopping_1_is_ongoing",
+          "cSharpName": "Com_amazon_mShop_android_shopping1IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.amazon.mShop.android.shopping_1_post_time",
+          "cSharpName": "Com_amazon_mShop_android_shopping1PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.appInfo_com.ebay.mobile_1165149517",
+          "cSharpName": "Android_appInfoCom_ebay_mobile1165149517",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.appInfo_com.ebay.mobile_1520376094",
+          "cSharpName": "Android_appInfoCom_ebay_mobile1520376094",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.appInfo_com.ebay.mobile_2147483647",
+          "cSharpName": "Android_appInfoCom_ebay_mobile2147483647",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.bigText_com.ebay.mobile_1165149517",
+          "cSharpName": "Android_bigTextCom_ebay_mobile1165149517",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.infoText_com.ebay.mobile_1165149517",
+          "cSharpName": "Android_infoTextCom_ebay_mobile1165149517",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.infoText_com.ebay.mobile_1520376094",
+          "cSharpName": "Android_infoTextCom_ebay_mobile1520376094",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon.big_com.ebay.mobile_1520376094",
+          "cSharpName": "Android_largeIcon_bigCom_ebay_mobile1520376094",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon_com.ebay.mobile_1165149517",
+          "cSharpName": "Android_largeIconCom_ebay_mobile1165149517",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon_com.ebay.mobile_1520376094",
+          "cSharpName": "Android_largeIconCom_ebay_mobile1520376094",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.pictureIcon_com.ebay.mobile_1520376094",
+          "cSharpName": "Android_pictureIconCom_ebay_mobile1520376094",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.picture_com.ebay.mobile_1520376094",
+          "cSharpName": "Android_pictureCom_ebay_mobile1520376094",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.progressIndeterminate_com.ebay.mobile_1165149517",
+          "cSharpName": "Android_progressIndeterminateCom_ebay_mobile1165149517",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.progressIndeterminate_com.ebay.mobile_1520376094",
+          "cSharpName": "Android_progressIndeterminateCom_ebay_mobile1520376094",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.progressMax_com.ebay.mobile_1165149517",
+          "cSharpName": "Android_progressMaxCom_ebay_mobile1165149517",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progressMax_com.ebay.mobile_1520376094",
+          "cSharpName": "Android_progressMaxCom_ebay_mobile1520376094",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progress_com.ebay.mobile_1165149517",
+          "cSharpName": "Android_progressCom_ebay_mobile1165149517",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progress_com.ebay.mobile_1520376094",
+          "cSharpName": "Android_progressCom_ebay_mobile1520376094",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.reduced.images_com.ebay.mobile_1165149517",
+          "cSharpName": "Android_reduced_imagesCom_ebay_mobile1165149517",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.reduced.images_com.ebay.mobile_1520376094",
+          "cSharpName": "Android_reduced_imagesCom_ebay_mobile1520376094",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.reduced.images_com.ebay.mobile_2147483647",
+          "cSharpName": "Android_reduced_imagesCom_ebay_mobile2147483647",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.remoteInputHistory_com.ebay.mobile_1165149517",
+          "cSharpName": "Android_remoteInputHistoryCom_ebay_mobile1165149517",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.remoteInputHistory_com.ebay.mobile_1520376094",
+          "cSharpName": "Android_remoteInputHistoryCom_ebay_mobile1520376094",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.showBigPictureWhenCollapsed_com.ebay.mobile_1520376094",
+          "cSharpName": "Android_showBigPictureWhenCollapsedCom_ebay_mobile1520376094",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showChronometer_com.ebay.mobile_1165149517",
+          "cSharpName": "Android_showChronometerCom_ebay_mobile1165149517",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showChronometer_com.ebay.mobile_1520376094",
+          "cSharpName": "Android_showChronometerCom_ebay_mobile1520376094",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_com.ebay.mobile_1165149517",
+          "cSharpName": "Android_showWhenCom_ebay_mobile1165149517",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_com.ebay.mobile_1520376094",
+          "cSharpName": "Android_showWhenCom_ebay_mobile1520376094",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.subText_com.ebay.mobile_1165149517",
+          "cSharpName": "Android_subTextCom_ebay_mobile1165149517",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.subText_com.ebay.mobile_1520376094",
+          "cSharpName": "Android_subTextCom_ebay_mobile1520376094",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.template_com.ebay.mobile_1165149517",
+          "cSharpName": "Android_templateCom_ebay_mobile1165149517",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.template_com.ebay.mobile_1520376094",
+          "cSharpName": "Android_templateCom_ebay_mobile1520376094",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_com.ebay.mobile_1165149517",
+          "cSharpName": "Android_textCom_ebay_mobile1165149517",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_com.ebay.mobile_1520376094",
+          "cSharpName": "Android_textCom_ebay_mobile1520376094",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_com.ebay.mobile_1165149517",
+          "cSharpName": "Android_titleCom_ebay_mobile1165149517",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_com.ebay.mobile_1520376094",
+          "cSharpName": "Android_titleCom_ebay_mobile1520376094",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "androidx.core.app.extra.COMPAT_TEMPLATE_com.ebay.mobile_1165149517",
+          "cSharpName": "Androidx_core_app_extra_COMPATTEMPLATECom_ebay_mobile1165149517",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "androidx.core.app.extra.COMPAT_TEMPLATE_com.ebay.mobile_1520376094",
+          "cSharpName": "Androidx_core_app_extra_COMPATTEMPLATECom_ebay_mobile1520376094",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.ebay.mobile_1165149517_category",
+          "cSharpName": "Com_ebay_mobile1165149517Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.ebay.mobile_1165149517_channel_id",
+          "cSharpName": "Com_ebay_mobile1165149517ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.ebay.mobile_1165149517_group_id",
+          "cSharpName": "Com_ebay_mobile1165149517GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.ebay.mobile_1165149517_is_clearable",
+          "cSharpName": "Com_ebay_mobile1165149517IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.ebay.mobile_1165149517_is_ongoing",
+          "cSharpName": "Com_ebay_mobile1165149517IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.ebay.mobile_1165149517_post_time",
+          "cSharpName": "Com_ebay_mobile1165149517PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "com.ebay.mobile_1520376094_category",
+          "cSharpName": "Com_ebay_mobile1520376094Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.ebay.mobile_1520376094_channel_id",
+          "cSharpName": "Com_ebay_mobile1520376094ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.ebay.mobile_1520376094_group_id",
+          "cSharpName": "Com_ebay_mobile1520376094GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.ebay.mobile_1520376094_is_clearable",
+          "cSharpName": "Com_ebay_mobile1520376094IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.ebay.mobile_1520376094_is_ongoing",
+          "cSharpName": "Com_ebay_mobile1520376094IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.ebay.mobile_1520376094_post_time",
+          "cSharpName": "Com_ebay_mobile1520376094PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "com.ebay.mobile_2147483647_category",
+          "cSharpName": "Com_ebay_mobile2147483647Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.ebay.mobile_2147483647_channel_id",
+          "cSharpName": "Com_ebay_mobile2147483647ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.ebay.mobile_2147483647_group_id",
+          "cSharpName": "Com_ebay_mobile2147483647GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.ebay.mobile_2147483647_is_clearable",
+          "cSharpName": "Com_ebay_mobile2147483647IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.ebay.mobile_2147483647_is_ongoing",
+          "cSharpName": "Com_ebay_mobile2147483647IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.ebay.mobile_2147483647_post_time",
+          "cSharpName": "Com_ebay_mobile2147483647PostTime",
+          "clrType": "System.Double"
         }
       ]
     },
@@ -16530,6 +17820,16 @@
           "cSharpName": "GardenSockets"
         },
         {
+          "id": "switch.garden_tap",
+          "friendlyName": "Garden Tap",
+          "cSharpName": "GardenTap"
+        },
+        {
+          "id": "switch.garden_tap_auto_close_when_water_shortage",
+          "friendlyName": "Garden Tap Auto close when water shortage",
+          "cSharpName": "GardenTapAutoCloseWhenWaterShortage"
+        },
+        {
           "id": "switch.gate_socket",
           "friendlyName": "Gate Socket",
           "cSharpName": "GateSocket"
@@ -16560,9 +17860,9 @@
           "cSharpName": "HallTabletDoNotDisturbSwitch"
         },
         {
-          "id": "switch.hallway_light",
+          "id": "switch.hallway_light_switch",
           "friendlyName": "Hallway Light",
-          "cSharpName": "HallwayLight"
+          "cSharpName": "HallwayLightSwitch"
         },
         {
           "id": "switch.hallway_tablet_kiosk_lock",
@@ -16635,6 +17935,11 @@
           "cSharpName": "LightManagerBedroom"
         },
         {
+          "id": "switch.light_manager_dining_room",
+          "friendlyName": "Light Manager dining room",
+          "cSharpName": "LightManagerDiningRoom"
+        },
+        {
           "id": "switch.light_manager_drawing_room",
           "friendlyName": "Light Manager drawing room",
           "cSharpName": "LightManagerDrawingRoom"
@@ -16666,13 +17971,33 @@
         },
         {
           "id": "switch.light_manager_lounge",
-          "friendlyName": "Light Manager Lounge",
+          "friendlyName": "Light Manager lounge",
           "cSharpName": "LightManagerLounge"
+        },
+        {
+          "id": "switch.light_manager_lounge_floor_lamp",
+          "friendlyName": "Light Manager light.lounge_floor_lamp",
+          "cSharpName": "LightManagerLoungeFloorLamp"
+        },
+        {
+          "id": "switch.light_manager_lounge_lamp",
+          "friendlyName": "Light Manager light.lounge_lamp",
+          "cSharpName": "LightManagerLoungeLamp"
+        },
+        {
+          "id": "switch.light_manager_lounge_light",
+          "friendlyName": "Light Manager light.lounge_light",
+          "cSharpName": "LightManagerLoungeLight"
         },
         {
           "id": "switch.light_manager_porch",
           "friendlyName": "Light Manager porch",
           "cSharpName": "LightManagerPorch"
+        },
+        {
+          "id": "switch.light_manager_snug",
+          "friendlyName": "Light Manager snug",
+          "cSharpName": "LightManagerSnug"
         },
         {
           "id": "switch.light_manager_studio",
@@ -16683,6 +18008,11 @@
           "id": "switch.light_manager_toilet",
           "friendlyName": "Light Manager toilet",
           "cSharpName": "LightManagerToilet"
+        },
+        {
+          "id": "switch.light_manager_utility_room",
+          "friendlyName": "Light Manager utility room",
+          "cSharpName": "LightManagerUtilityRoom"
         },
         {
           "id": "switch.lounge_echo_plus_do_not_disturb_switch",
@@ -17225,6 +18555,91 @@
           "jsonName": "supported_features",
           "cSharpName": "SupportedFeatures",
           "clrType": "System.Double"
+        },
+        {
+          "jsonName": "auto_close_when_water_shortage",
+          "cSharpName": "AutoCloseWhenWaterShortage",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "battery",
+          "cSharpName": "Battery",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "current_device_status",
+          "cSharpName": "CurrentDeviceStatus",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "cyclic_quantitative_irrigation",
+          "cSharpName": "CyclicQuantitativeIrrigation",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "cyclic_timed_irrigation",
+          "cSharpName": "CyclicTimedIrrigation",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "flow",
+          "cSharpName": "Flow",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "LuxEntity",
+          "cSharpName": "LuxEntity",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "LuxLimitEntity",
+          "cSharpName": "LuxLimitEntity",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "LuxLimit",
+          "cSharpName": "LuxLimit",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "Lux",
+          "cSharpName": "Lux",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "ConditionState",
+          "cSharpName": "ConditionState",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "IgnoreLux",
+          "cSharpName": "IgnoreLux",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "TurnOnTime",
+          "cSharpName": "TurnOnTime",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "TurnOffTime",
+          "cSharpName": "TurnOffTime",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "IsTurningOff",
+          "cSharpName": "IsTurningOff",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "State",
+          "cSharpName": "State",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "Details",
+          "cSharpName": "Details",
+          "clrType": "System.String"
         }
       ]
     },
@@ -17530,9 +18945,19 @@
           "cSharpName": "GarbageCollectionCardUpdate"
         },
         {
+          "id": "update.garden_tap",
+          "friendlyName": "Garden Tap",
+          "cSharpName": "GardenTap"
+        },
+        {
           "id": "update.glances_update",
           "friendlyName": "Glances Update",
           "cSharpName": "GlancesUpdate"
+        },
+        {
+          "id": "update.grafana_loki_update",
+          "friendlyName": "Grafana Loki Update",
+          "cSharpName": "GrafanaLokiUpdate"
         },
         {
           "id": "update.grafana_update_2",
@@ -17573,6 +18998,11 @@
           "id": "update.hacs_update",
           "friendlyName": "HACS update",
           "cSharpName": "HacsUpdate"
+        },
+        {
+          "id": "update.hallway_light_firmware",
+          "friendlyName": "Hallway Light firmware",
+          "cSharpName": "HallwayLightFirmware"
         },
         {
           "id": "update.home_assistant_core_update",
@@ -17618,6 +19048,11 @@
           "id": "update.local_tuya_update",
           "friendlyName": "Local Tuya update",
           "cSharpName": "LocalTuyaUpdate"
+        },
+        {
+          "id": "update.loki_update",
+          "friendlyName": "Loki Update",
+          "cSharpName": "LokiUpdate"
         },
         {
           "id": "update.lounge_sofa_switch",
@@ -17720,6 +19155,11 @@
           "cSharpName": "OutsideLightsFirmwareUpdate"
         },
         {
+          "id": "update.promtail_update",
+          "friendlyName": "Promtail Update",
+          "cSharpName": "PromtailUpdate"
+        },
+        {
           "id": "update.right_bedside_switch",
           "friendlyName": "Right Bedside Switch",
           "cSharpName": "RightBedsideSwitch"
@@ -17728,11 +19168,6 @@
           "id": "update.samba_share_update",
           "friendlyName": "Samba share Update",
           "cSharpName": "SambaShareUpdate"
-        },
-        {
-          "id": "update.shelly_hallway_light_firmware_update",
-          "friendlyName": "Shelly Hallway Light firmware update",
-          "cSharpName": "ShellyHallwayLightFirmwareUpdate"
         },
         {
           "id": "update.shelly_landing_light_firmware_update",
@@ -17751,17 +19186,17 @@
         },
         {
           "id": "update.shelly_upstairs_lights_1_firmware_update",
-          "friendlyName": "Shelly Upstairs Lights 1 firmware update",
+          "friendlyName": "Shelly Upstairs Lights 1 firmware",
           "cSharpName": "ShellyUpstairsLights1FirmwareUpdate"
         },
         {
           "id": "update.shelly_upstairs_lights_2_firmware_update",
-          "friendlyName": "Shelly Upstairs Lights 2 firmware update",
+          "friendlyName": "Shelly Upstairs Lights 2 firmware",
           "cSharpName": "ShellyUpstairsLights2FirmwareUpdate"
         },
         {
           "id": "update.shelly_upstairs_socket_4_firmware_update",
-          "friendlyName": "Shelly Upstairs Sockets 4 firmware update",
+          "friendlyName": "Shelly Upstairs Sockets 4 firmware",
           "cSharpName": "ShellyUpstairsSocket4FirmwareUpdate"
         },
         {

@@ -3,7 +3,7 @@ using NetDaemon.Extensions.MqttEntityManager;
 namespace NetDaemon.apps.LightApp;
 
 //[Focus]
-[NetDaemonApp]
+//[NetDaemonApp]
 public class Manager : IAsyncInitializable
 {
     private readonly ManagerConfig _config;
@@ -29,7 +29,7 @@ public class Manager : IAsyncInitializable
             .ForEach(async r =>
             {
                 _managerLogger.LogInformation("Configuring light manager for {room}", r.Name);
-                await r.Init(_managerLogger, _config.NdUserId, _scheduler, _haContext, _entityManager, _config.GuardTimeout);
+                await r.Init(_managerLogger, _config.NdUserId, _scheduler, _haContext, _entityManager);
             });
         return Task.CompletedTask;
     }

@@ -15,6 +15,8 @@ publish:
 	cp -R out/ ../netdaemonout/
 	rm -rf out
 
+bp: build publish
+
 gbp: generate build publish
 
 gdp: generate dev publish

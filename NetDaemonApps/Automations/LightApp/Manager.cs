@@ -348,7 +348,7 @@ Manager
             .Union(KeepAliveEntities)
             .StateChanges()
             .Throttle(_ => Observable.Timer(DynamicTimeout, _scheduler))
-            .Where(e => e.New.IsOff())
+            .Where(_ => !IsOccupied)
             .Subscribe(e =>
             {
                 _logger.LogInformation("{room} No Motion Timeout '{entity}'", _entityName, e.New?.EntityId);
@@ -367,7 +367,7 @@ Manager
         PresenceEntities
             .Union(KeepAliveEntities)
             .StateChanges()
-            .Where(e => e.New.IsOff())
+            .Where(_ => !IsOccupied)
             .Subscribe(e =>
             {
                 _logger.LogInformation("{room} No Motion '{entity}'", _entityName, e.New?.EntityId);
@@ -439,6 +439,12 @@ Manager
         if (ManagerEnabled.IsOff())
         {
             _logger.LogInformation("{room} Manager Disabled", _entityName);
+            return;
+        }
+
+        if (!ignoreConditions && !IsOccupied)
+        {
+            _logger.LogInformation("{room} Cant turn off - Not occupied", _entityName);
             return;
         }
 

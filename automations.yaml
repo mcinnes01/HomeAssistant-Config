@@ -876,10 +876,14 @@
     domain: binary_sensor
   condition: []
   action:
-  - service: notify.alexa_media
-    data:
-      message: Hey cats, go get your dinner!
-      title: Cat feeding time
+  - data:
+      target: media_player.all_speakers
+      message: Rupert, Gunther it's dinner time you little beauties.
+      data:
+        type: announce
+        method: all
+      title: Cat's dinner time
+    action: notify.alexa_media
   mode: single
 - id: '1695982971531'
   alias: Turn the store light off
@@ -2293,3 +2297,124 @@
       message: Welcome home Claire
       title: Claire is home
   mode: single
+- id: '1727562224816'
+  alias: Patio Camera Snapshot, AI & Notification on Motion
+  description: ''
+  use_blueprint:
+    path: mcinnes01/ai_camera_motion_notification.yaml
+    input:
+      camera_device: camera.patio_camera_medium_resolution_channel
+      notify_device: 212665b3f569c509043064bb2bf88374
+      motion_sensor: binary_sensor.patio_camera_motion
+      ai_prompt: Motion has been detected, compare and very briefly describe what
+        you see in the following sequence of images from my {{ camera_name }} camera
+        or the last detection. What do you think caused the motion alarm? If a person,
+        animal or car is present, describe them in detail, pay special attention to
+        cats and what they are doing. If you see no obvious causes of motion, reply
+        with "NOCHANGE". Your message needs to be short enough to fit in a phone notification.
+      num_snapshots: 3
+      condition_auto:
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: input_select.location_mode
+          state: Away
+        - condition: state
+          entity_id: input_select.light_control_mode
+          state: Sleeping
+- id: '1727562283950'
+  alias: Hallway Camera Snapshot, AI & Notification on Motion
+  description: ''
+  use_blueprint:
+    path: mcinnes01/ai_camera_motion_notification.yaml
+    input:
+      camera_device: camera.hallway_camera_medium_resolution_channel
+      notify_device: 212665b3f569c509043064bb2bf88374
+      motion_sensor: binary_sensor.hallway_camera_motion
+      num_snapshots: 3
+      ai_prompt: Motion has been detected, compare and very briefly describe what
+        you see in the following sequence of images from my {{ camera_name }} camera.
+        What do you think caused the motion alarm? Tell me how many people come towards
+        the camera through the door in the format "##IN:1##" and how many people walk
+        away from the camera and out through the door in the format "##OUT:0##". Do
+        not describe stationary objects or buildings. If you see no obvious causes
+        of motion, reply with "Camera has detected motion however no obvious motion
+        observed comparing snapshots". Your message needs to be short enough to fit
+        in a phone notification.
+      condition_auto:
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: input_select.location_mode
+          state: OneAway
+        - condition: state
+          entity_id: input_select.location_mode
+          state: Away
+- id: '1727562661192'
+  alias: Shed Camera Snapshot, AI & Notification on Motion
+  description: ''
+  use_blueprint:
+    path: mcinnes01/ai_camera_motion_notification.yaml
+    input:
+      camera_device: camera.shed_camera_medium_resolution_channel
+      notify_device: 212665b3f569c509043064bb2bf88374
+      motion_sensor: binary_sensor.shed_camera_motion
+      ai_prompt: Motion has been detected, compare and very briefly describe what
+        you see in the following sequence of images from my {{ camera_name }} camera
+        or the last detection. What do you think caused the motion alarm? If a person,
+        animal or car is present, describe them in detail, pay special attention to
+        cats and what they are doing. If a car with the registration "LG18 PSU" arrives
+        i.e. was not there previously and now is, Or leaves i.e. was there previously
+        and now is not, reply "Car has arrived" or Car has left. Also comment on whether
+        the black gates are open or closed when the cars location changes. If you
+        see no obvious causes of motion, reply with "NOCHANGE". Your message needs
+        to be short enough to fit in a phone notification.
+      num_snapshots: 3
+      condition_auto:
+      - condition: state
+        entity_id: input_select.location_mode
+        state: Away
+- id: '1727732371723'
+  alias: Basement Hall Camera Snapshot, AI & Notification on Motion
+  description: ''
+  use_blueprint:
+    path: mcinnes01/ai_camera_motion_notification.yaml
+    input:
+      camera_device: camera.basement_hall_camera_medium_resolution_channel
+      notify_device: 212665b3f569c509043064bb2bf88374
+      motion_sensor: binary_sensor.basement_hall_camera_motion
+      ai_prompt: Motion has been detected, compare and very briefly describe what
+        you see in the following sequence of images from my {{ camera_name }} camera.
+        What do you think caused the motion alarm? If a person, animal or car is present,
+        describe them in detail, pay special attention to cats and what they are doing.
+        Do not describe stationary objects or buildings. If you see no obvious causes
+        of motion, reply with "Camera has detected motion however no obvious motion
+        observed comparing snapshots". Your message needs to be short enough to fit
+        in a phone notification.
+      condition_auto:
+      - condition: state
+        entity_id: input_select.location_mode
+        state: Away
+- id: '1727732531669'
+  alias: Kitchen Camera Snapshot, AI & Notification on Motion
+  description: ''
+  use_blueprint:
+    path: mcinnes01/ai_camera_motion_notification.yaml
+    input:
+      camera_device: camera.kitchen_camera_medium_resolution_channel
+      notify_device: 212665b3f569c509043064bb2bf88374
+      motion_sensor: binary_sensor.kitchen_camera_motion
+      ai_prompt: When motion has been detected,  briefly describe what changes you
+        see in the snapshots from my {{ camera_name }} camera. If you see a person
+        tell me your opinion of what they are wearing, what they look like and what
+        they are doing in a very sassy manner. If you see a cat tell me what it's
+        doing. If there are no people or cat's just respond with "NOCHANGE"
+      condition_auto:
+      - condition: state
+        entity_id: input_select.location_mode
+        state: Away
+        enabled: true
+        for:
+          hours: 0
+          minutes: 5
+          seconds: 0
