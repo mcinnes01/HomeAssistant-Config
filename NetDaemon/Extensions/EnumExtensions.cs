@@ -113,7 +113,7 @@ public static class EnumExtensions
     public static InputSelectSetOptionsParameters ToOptions<T>() where T : Enum => 
         new InputSelectSetOptionsParameters
         {
-            Options = string.Join(", ", Enum.GetNames(typeof(T)))
+            Options = Enum.GetNames(typeof(T))
         };
 
     public static bool IsBright(this EntityState<InputSelectAttributes>? state)

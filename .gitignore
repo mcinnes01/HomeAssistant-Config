@@ -34,5 +34,12 @@ netdaemon4/
 obj
 bin
 .vs/
+.dll
+netdaemonout
+netdaemonout/
+netdaemonout/**/*
+netdaemonout/*.dll
 netdaemonout/logs/*.txt
 zigbee2mqtt/state.json
+ollama
+zigbee2mqtt/*.db

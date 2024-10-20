@@ -1,6 +1,6 @@
 namespace NetDaemon.apps.States;
 
-[NetDaemonApp]
+//[NetDaemonApp]
 public class BrightnessController
 {
     private readonly ILogger<BrightnessController> _logger;

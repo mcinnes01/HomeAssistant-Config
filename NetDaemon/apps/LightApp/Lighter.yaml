@@ -1,0 +1,221 @@
+NetDaemon.apps.LightApp.LighterConfig:
+  Lights:
+    - Light: light.lounge_lamp
+      Timeout: 120
+      PresenceSensors:
+        - binary_sensor.main_sofa_occupancy
+        - binary_sensor.window_sofa_occupancy
+      TriggerSensors:
+        - binary_sensor.lounge_motion
+      BlockEntities:
+        - light.lounge_light
+        - switch.lounge_tv
+
+    - Light: light.lounge_floor_lamp
+      Timeout: 120
+      PresenceSensors:
+        - binary_sensor.guest_sofa_occupancy
+      TriggerSensors:
+        - binary_sensor.lounge_motion
+      BlockEntities:
+        - light.lounge_light
+        - switch.lounge_tv
+
+    - Light: light.lounge_light
+      Timeout: 120
+      PresenceSensors:
+        - binary_sensor.lounge_occupancy
+      TriggerSensors:
+        - binary_sensor.lounge_motion
+      BlockEntities:
+        - light.lounge_lamp
+        - light.lounge_floor_lamp
+        - switch.lounge_tv
+
+    # - Name: Guest_Room
+    #   IsBedroom: true
+    #   Timeout: 300
+    #   OverrideTimeout: 1800
+    #   PresenceEntities:
+    #     - binary_sensor.guest_room_motion
+    #     - input_boolean.guest_room_occupancy
+    #   LightEntities:
+    #     - light.guest_room_light
+    #   LampEntities:
+    #     - light.guest_room_lamp
+    #   SupressionEntities:
+    #     - light.guest_room_lamp
+    #   LuxEntity: sensor.guest_room_illuminence
+    #   LuxLimitEntity: input_number.guest_room_lux
+
+    # - Name: Dressing_Room
+    #   Timeout: 300
+    #   OverrideTimeout: 1800
+    #   IsNightLight: true
+    #   PresenceEntities:
+    #     - binary_sensor.dressing_room_motion
+    #   LightEntities:
+    #     - light.dressing_room_light
+
+    # - Name: Bedroom
+    #   IsBedroom: true
+    #   Timeout: 300
+    #   OverrideTimeout: 1800
+    #   PresenceEntities:
+    #     - binary_sensor.bedroom_motion
+    #   LightEntities:
+    #     - light.bedroom_light
+    #   LampEntities:
+    #     - light.bedroom_lamp
+    #   SupressionEntities:
+    #     - light.bedroom_lamp
+
+    # - Name: Landing
+    #   Timeout: 120
+    #   OverrideTimeout: 1800
+    #   IsNightLight: true
+    #   PresenceEntities:
+    #     - binary_sensor.landing_motion
+    #   LightEntities:
+    #     - light.landing_light
+
+    # - Name: Bathroom
+    #   Timeout: 180
+    #   OverrideTimeout: 1800
+    #   IsNightLight: true
+    #   PresenceEntities:
+    #     - binary_sensor.bathroom_motion
+    #   LightEntities:
+    #     - light.bathroom_light
+    #   LampEntities:
+    #     - light.mirror_light
+    #   KeepAliveEntities:
+    #     - scene.showering
+    #   SupressionEntities:
+    #     - light.mirror_light
+
+    # - Name: Studio
+    #   Timeout: 120
+    #   OverrideTimeout: 1800
+    #   IsNightLight: true
+    #   PresenceEntities:
+    #     - binary_sensor.studio_motion
+    #   LightEntities:
+    #     - light.studio_light
+    #   LampEntities:
+    #     - switch.studio_lamp
+
+    # - Name: Lounge
+    #   Timeout: 300
+    #   OverrideTimeout: 1800
+    #   PresenceEntities:
+    #     - binary_sensor.lounge_motion
+    #     - binary_sensor.lounge_occupancy
+    #     - binary_sensor.guest_sofa_occupancy
+    #     - binary_sensor.main_sofa_occupancy
+    #     - binary_sensor.window_sofa_occupancy
+    #   LightEntities:
+    #     - light.lounge_light
+    #   LampEntities:
+    #     - light.lounge_floor_lamp
+    #     - light.lounge_lamp
+    #   SupressionEntities:
+    #     - light.lounge_floor_lamp
+    #     - light.lounge_lamp
+    #     - switch.lounge_tv
+    #     - scene.watching_tv
+    #   KeepAliveEntities:
+    #     - switch.lounge_tv
+    #   LuxEntity: sensor.lounge_illuminance
+    #   LuxLimitEntity: input_number.lounge_lux
+
+    # - Name: Hallway
+    #   Timeout: 120
+    #   OverrideTimeout: 600
+    #   IsNightLight: true
+    #   PresenceEntities:
+    #     - binary_sensor.hallway_motion
+    #     - binary_sensor.hallway_camera_person_detected
+    #     - binary_sensor.front_door
+    #   KeepAliveEntities:
+    #     - binary_sensor.front_door
+    #   LightEntities:
+    #     - light.hallway_light
+    #   LampEntities:
+    #     - light.hallway_lamp
+
+    # - Name: Porch
+    #   Timeout: 90
+    #   PresenceEntities:
+    #     - binary_sensor.front_door
+    #   KeepAliveEntities:
+    #     - binary_sensor.front_door
+    #   LightEntities:
+    #     - light.porch
+    #   ConditionEntity: sun.sun
+    #   ConditionEntityState: below_horizon
+
+    # - Name: Drawing_Room
+    #   Timeout: 120
+    #   OverrideTimeout: 1800
+    #   IsNightLight: true
+    #   PresenceEntities:
+    #     - binary_sensor.drawing_room_motion
+    #   LightEntities:
+    #     - light.drawing_room_light
+    #   LampEntities:
+    #     - light.drawing_room_ligh
+    #     - light.bookshelf_light
+    #     - light.display_cabinet_light
+
+    # - Name: Kitchen
+    #   Timeout: 120
+    #   OverrideTimeout: 1800
+    #   IsNightLight: true
+    #   PresenceEntities:
+    #     - binary_sensor.kitchen_motion
+    #     - binary_sensor.kitchen_camera_person_detected
+    #     - binary_sensor.kitchen_door
+    #   LightEntities:
+    #     - light.kitchen_light
+    #   LampEntities:
+    #     - light.breakfast_bar_light
+
+    # - Name: Toilet
+    #   Timeout: 120
+    #   OverrideTimeout: 300
+    #   IsNightLight: true
+    #   IgnoreLux: true
+    #   PresenceEntities:
+    #     - binary_sensor.toilet_motion
+    #   LightEntities:
+    #     - light.lounge_light
+
+    # - Name: Utility_Room
+    #   Timeout: 120
+    #   OverrideTimeout: 300
+    #   IgnoreLux: true
+    #   PresenceEntities:
+    #     - binary_sensor.utility_room_motion
+    #   LightEntities:
+    #     - light.utility_room_light
+
+    # - Name: Dining_Room
+    #   Timeout: 120
+    #   OverrideTimeout: 300
+    #   IgnoreLux: true
+    #   PresenceEntities:
+    #     - binary_sensor.dining_room_motion
+    #   LightEntities:
+    #     - light.dining_room_light
+
+    # - Name: Basement_Hall
+    #   Timeout: 120
+    #   OverrideTimeout: 300
+    #   IgnoreLux: true
+    #   PresenceEntities:
+    #     - binary_sensor.basement_hall_motion
+    #     - binary_sensor.basement_hall_camera_motion
+    #     - binary_sensor.basement_stairs_motion
+    #   LightEntities:
+    #     - light.basement_hall_light

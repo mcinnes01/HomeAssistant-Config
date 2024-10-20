@@ -1,6 +1,6 @@
 namespace NetDaemon.apps.States;
 
-[NetDaemonApp]
+//[NetDaemonApp]
 public class LightControlModeController
 {
     ILogger<LightControlModeController> _logger;

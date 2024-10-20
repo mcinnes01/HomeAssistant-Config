@@ -1,0 +1,125 @@
+blueprint:
+  name: Camera Snapshot, AI & Notification on Motion
+  description: Take snapshots, analyze with AI, and send notifications on motion detection
+  domain: automation
+  input:
+    camera_device:
+      name: Camera
+      description: The camera which creates the snapshot
+      selector:
+        entity:
+          domain:
+          - camera
+          multiple: false
+    is_ios:
+      name: Is it an iOS device?
+      description: Toggle if your selected device runs iOS, default is Android
+      selector:
+        boolean: {}
+      default: false
+    notify_device:
+      name: Device to notify
+      description: Device needs to run the official Home Assistant app to receive
+        notifications
+      selector:
+        device:
+          integration: mobile_app
+          multiple: false
+    motion_sensor:
+      name: Motion sensor
+      description: The sensor which triggers the snapshot creation
+      selector:
+        entity:
+          domain:
+          - binary_sensor
+          device_class:
+          - motion
+          multiple: false
+    ai_prompt:
+      name: AI Prompt
+      description: The prompt to use for AI analysis
+      selector:
+        text: {}
+      default: 'Motion has been detected, compare and very briefly describe what you
+        see in the following sequence of images from my {{ camera_name }} camera.
+        What do you think caused the motion alarm? If a person, animal or car is present,
+        describe them in detail. Do not describe stationary objects or buildings.
+        If you see no obvious causes of motion, reply with "Camera has detected motion
+        however no obvious motion observed comparing snapshots". Your message needs
+        to be short enough to fit in a phone notification.
+
+        '
+    num_snapshots:
+      name: Number of Snapshots
+      description: Number of snapshots to take (between 1 and 5)
+      selector:
+        number:
+          min: 1.0
+          max: 5.0
+          unit_of_measurement: snapshots
+          step: 1.0
+          mode: slider
+      default: 3
+    condition_auto:
+      name: Add Condition(s) to run this Automation
+      description: Add conditions if needed to run this automation at all. Note, if
+        conditions return `false`, no actions will fire.
+      default: []
+      selector:
+        condition: {}
+  source_url: https://gist.github.com/mcinnes01/0bbbbe0976932048201d9856245994b2
+trigger:
+  platform: state
+  entity_id: !input motion_sensor
+  to: 'on'
+variables:
+  camera_device: !input camera_device
+  camera_name: '{{ state_attr(camera_device, ''friendly_name'') }}'
+  camera_path: '{{ state_attr(camera_device, ''friendly_name'') | lower | replace(''
+    '', ''_'') }}'
+  motion_sensor: !input motion_sensor
+  motion_name: '{{ state_attr(motion_sensor, ''friendly_name'') }}'
+  is_ios: !input is_ios
+  num_snapshots: !input num_snapshots
+  snapshot_access_file_path: /local/snapshots/{{ camera_path }}_snapshot1.jpg
+  ai_prompt: !input ai_prompt
+  condition_auto: !input condition_auto
+action:
+- if:
+  - condition: !input condition_auto
+  then:
+  - repeat:
+      count: '{{ num_snapshots }}'
+      sequence:
+      - service: camera.snapshot
+        data:
+          filename: ./www/snapshots/{{ camera_path }}_snapshot{{ repeat.index }}.jpg
+        target:
+          entity_id: '{{ camera_device }}'
+      - delay:
+          milliseconds: 500
+  - service: google_generative_ai_conversation.generate_content
+    data:
+      prompt: '{{ ai_prompt }}'
+      image_filename: "{% set snap_count = 3 %} {% set ns = namespace(images=[]) %}
+        {% for i in range(1, snap_count + 1) %}\n  {% set image = \"./www/snapshots/\"
+        ~ camera_path ~ \"_snapshot\" ~ i ~ \".jpg\" %}\n  {% set ns.images = ns.images
+        + [image] %}\n{% endfor %} {{ ns.images }}\n"
+    response_variable: generated_content
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: "{{ generated_content['text'] != 'Camera has detected motion
+          however no obvious motion observed comparing snapshots.' }} \n"
+      sequence:
+      - device_id: !input notify_device
+        domain: mobile_app
+        type: notify
+        title: '{{ motion_name }} Detected'
+        message: '{{ generated_content[''text''] }}'
+        data: '{% set android_data = {"image": snapshot_access_file_path} %} {% set
+          ios_data = {"attachment": {"url": snapshot_access_file_path, "content_type":
+          "JPEG"}} %} {{ ios_data if is_ios else android_data }}
+
+          '
+mode: single

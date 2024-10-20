@@ -53,8 +53,8 @@
         "linkquality": 30
     },
     "0xa4c138dff6d5bb59": {
-        "temperature": 20.97,
-        "humidity": 57.39,
+        "temperature": 22.67,
+        "humidity": 55.83,
         "battery": 22,
         "voltage": 2600,
         "linkquality": 39
@@ -118,11 +118,11 @@
         "audio_sensitivity": "medium"
     },
     "0x30fb10fffedd1d44": {
-        "temperature": 18,
-        "humidity": 73,
-        "voc_index": 129,
+        "temperature": 20,
+        "humidity": 64,
+        "voc_index": 49,
         "linkquality": 33,
-        "pm25": 3,
+        "pm25": 2,
         "update": {
             "state": "idle",
             "installed_version": 16777233,
@@ -212,8 +212,8 @@
     },
     "0x048727fffeabad86": {
         "battery": 100,
-        "humidity": 63.1,
-        "temperature": 20.8,
+        "humidity": 74,
+        "temperature": 18.2,
         "update": {
             "state": "idle",
             "installed_version": 8448,

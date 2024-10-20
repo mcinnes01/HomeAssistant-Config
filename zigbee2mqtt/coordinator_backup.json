@@ -2,9 +2,9 @@
   "metadata": {
     "format": "zigpy/open-coordinator-backup",
     "version": 1,
-    "source": "zigbee-herdsman@0.57.3",
+    "source": "zigbee-herdsman@2.1.3",
     "internal": {
-      "date": "2024-09-15T12:17:07.239Z",
+      "date": "2024-10-20T11:29:06.322Z",
       "znpVersion": 1
     }
   },
@@ -25,7 +25,7 @@
   "network_key": {
     "key": "01030507090b0d0f00020406080a0c0d",
     "sequence_number": 0,
-    "frame_counter": 18604018
+    "frame_counter": 21220692
   },
   "devices": [
     {
@@ -66,7 +66,7 @@
     {
       "nwk_address": "58d5",
       "ieee_address": "00124b0023b85ca5",
-      "is_child": false
+      "is_child": true
     },
     {
       "nwk_address": "849e",
@@ -204,8 +204,8 @@
       "is_child": false,
       "link_key": {
         "key": "a259cef0349f4fccf3614c3a55236e88",
-        "rx_counter": 0,
-        "tx_counter": 0
+        "rx_counter": 2,
+        "tx_counter": 10
       }
     },
     {
@@ -231,7 +231,7 @@
     {
       "nwk_address": "419f",
       "ieee_address": "8c6fb9fffe455335",
-      "is_child": false,
+      "is_child": true,
       "link_key": {
         "key": "75476bf73b13f58d31165375f17249ac",
         "rx_counter": 0,
@@ -278,9 +278,9 @@
       "ieee_address": "048727fffeabad86",
       "is_child": false,
       "link_key": {
-        "key": "9283a23a55bd8600c3bb20f03401a744",
+        "key": "8f690164fe23c2120da360d8df67932a",
         "rx_counter": 0,
-        "tx_counter": 0
+        "tx_counter": 11
       }
     },
     {
@@ -340,13 +340,23 @@
       "link_key": {
         "key": "317d68ead14532468d5c2cbbe9c7f827",
         "rx_counter": 2,
-        "tx_counter": 20
+        "tx_counter": 50
       }
     },
     {
       "nwk_address": "657e",
       "ieee_address": "3410f4fffeb53a15",
       "is_child": false
+    },
+    {
+      "nwk_address": "ffd5",
+      "ieee_address": "0ceff6fffeae922a",
+      "is_child": false,
+      "link_key": {
+        "key": "e1b48ebeebd8e6c88008affabae06402",
+        "rx_counter": 0,
+        "tx_counter": 0
+      }
     }
   ]
 }

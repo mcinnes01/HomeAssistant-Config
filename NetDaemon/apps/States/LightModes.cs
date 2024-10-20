@@ -1,6 +1,6 @@
 namespace NetDaemon.apps.States;
 
-[NetDaemonApp]
+//[NetDaemonApp]
 public class LightModes
 {
     private readonly ILogger<LightModes> _logger;
