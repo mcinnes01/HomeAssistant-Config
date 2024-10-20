@@ -36,10 +36,5 @@ bin
 .vs/
 .dll
 netdaemonout
-netdaemonout/
-netdaemonout/**/*
-netdaemonout/*.dll
-netdaemonout/logs/*.txt
-zigbee2mqtt/state.json
 ollama
-zigbee2mqtt/*.db
+zigbee2mqtt
