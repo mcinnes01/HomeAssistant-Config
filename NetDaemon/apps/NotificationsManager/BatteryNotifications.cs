@@ -9,7 +9,7 @@ public class BatteryNotifications(IEntities entities, IServices services, IHaCon
     private readonly IList<BatteryNotificationsConfig> _config = new List<BatteryNotificationsConfig>
     {
         new(entities.Sensor.ClairesIphoneBatteryLevel, entities.Sensor.ClairesIphoneBatteryState, "mobile_app_claireiphone"),
-        new(entities.Sensor.ClairesAppleWatchBattery, entities.Sensor.ClairesIphoneBatteryState, "mobile_app_claireiphone"),
+        //new(entities.Sensor.ClairesAppleWatchBattery, entities.Sensor.ClairesIphoneBatteryState, "mobile_app_claireiphone"),
         new(entities.Sensor.Pixel6BatteryLevel2, entities.Sensor.Pixel6BatteryState2, "mobile_app_pixel_6"),
         new(entities.Sensor.PixelWatchBatteryLevel, entities.Sensor.PixelWatchBatteryState, "mobile_app_pixel_6")
     };

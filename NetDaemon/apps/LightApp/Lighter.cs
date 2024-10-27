@@ -1,3 +1,4 @@
+using System.Reactive;
 using NetDaemon.Extensions.MqttEntityManager;
 
 namespace NetDaemon.apps.LightApp;
@@ -5,12 +6,13 @@ namespace NetDaemon.apps.LightApp;
 public class Lighter
 {
     public required LightEntity Light { get; set; }
-    public required IEnumerable<BinarySensorEntity> PresenceSensors { get; set; }
-    public required IEnumerable<BinarySensorEntity> TriggerSensors { get; set; }
-    // public required IEnumerable<LightEntity> OtherLights { get; set; }
-    public required IEnumerable<Entity> BlockEntities { get; set; }
+    public IEnumerable<BinarySensorEntity> PresenceSensors { get; set; } = new List<BinarySensorEntity>();
+    public IEnumerable<BinarySensorEntity> TriggerSensors { get; set; }  = new List<BinarySensorEntity>();
+    public IEnumerable<Entity> BlockEntities { get; set; } = new List<Entity>();
     public required int Timeout { get; set; } = 120;
     public bool RecreateEnabledSwitch { get; set; } = false;
+    public required int Priority { get; set; } = 0;
+    private LightCoordinator _lightCoordinator;
     private IMqttEntityManager _entityManager;
     private IScheduler _scheduler;
     private IHaContext _context;
@@ -24,26 +26,33 @@ public class Lighter
     private DateTime? TurnOnTime { get; set; }
     private DateTime? TurnOffTime { get; set; }
 
-    public async Task Register(IMqttEntityManager entityManager, IScheduler scheduler, IHaContext haContext, ILogger<Lighting> logger)
+    public async Task Register(LightCoordinator lightCoordinator, IMqttEntityManager entityManager,
+        IScheduler scheduler, IHaContext haContext, ILogger<Lighting> logger)
     {
+        _lightCoordinator = lightCoordinator;
         _entityManager = entityManager;
         _scheduler = scheduler;
         _context = haContext;
         _services = new Services(haContext);
         _logger = logger;
         await SetupEnabledSwitch();
-        EnsureInitialState();
+        await EnsureInitialState();
         SubscribePresenceOnEvent();
         SubscribePresenceOffEvent();
         SubscribeBlockers();
     }
 
-    private void EnsureInitialState()
+    public void SetPriority(int priority)
+    {
+        Priority = priority;
+    }
+
+    private async Task EnsureInitialState()
     {
         // TODO we need to bring in the location, room mode, light mode, etc. to determine the initial state
         // Also things like if the light and tv are left on, should we not turn them off if there is no presence?
         // The tv could be controlled by it's own thing, maybe even a room manager that then feeds in to this
-        var presenceStates = PresenceSensors.Union(TriggerSensors).Select(s => new { s.EntityId, IsOn = s.IsOn() });
+        var presenceStates = TriggerSensors.Union(PresenceSensors).Select(s => new { s.EntityId, IsOn = s.IsOn() });
         if (BlockEntities.All(b => !b.IsOn()))
         {
             if (presenceStates.Any(s => s.IsOn))
@@ -54,7 +63,7 @@ public class Lighter
                     return;
                 }
                 _logger.LogInformation("Initial state {light} is off but there is presence detected {states}, Turning On", Light.EntityId, presenceStates);
-                TurnOnEntities("Initial State");
+                await TurnOnEntities("Initial State");
                 return;
             }
             else if (Light.IsOn())
@@ -81,7 +90,7 @@ public class Lighter
     private void SubscribeBlockers()
     {
         BlockEntities.StateAllChanges()
-        .Subscribe(e =>
+        .SelectMany(async e =>
         {
             if (e.New.IsOn())
             {
@@ -93,18 +102,20 @@ public class Lighter
             }
             else if (e.Old.IsOn() && !e.New.IsOn())
             {
-                if (Light.IsOff() && PresenceSensors.Union(TriggerSensors).Any(s => s.IsOn()))
+                if (Light.IsOff() && TriggerSensors.Union(PresenceSensors).Any(s => s.IsOn()))
                 {
                     _logger.LogInformation("{light} is unblocked by {blocker} and presence detected", Light.EntityId, e.New.EntityId);
-                    TurnOnEntities(e.New?.EntityId);
+                    await TurnOnEntities(e.New?.EntityId);
                 }
-                else if (Light.IsOn() && PresenceSensors.Union(TriggerSensors).All(s => s.IsOff()))
+                else if (Light.IsOn() && TriggerSensors.Union(PresenceSensors).All(s => s.IsOff()))
                 {
                     _logger.LogInformation("{light} is unblocked by {blocker} and no presence detected", Light.EntityId, e.New.EntityId);
                     TurnOffEntities(e.New?.EntityId);
                 }
             }
-        });
+            return Unit.Default;
+        })
+        .Subscribe();
     }
 
     private async Task SetupEnabledSwitch()
@@ -145,11 +156,13 @@ public class Lighter
         PresenceSensors.StateAllChanges()
         .Merge(TriggerSensors.StateAllChanges())
         .Where(e => e.New.IsOn())
-        .Subscribe(e =>
+        .SelectMany(async e =>
         {
             _logger.LogTrace("{light} Presence On Event {entity}", Light.EntityId, e.New?.EntityId);
-            TurnOnEntities(e.New?.EntityId);
-        });
+            await TurnOnEntities(e.New?.EntityId);
+            return Unit.Default;
+        })
+        .Subscribe();
     }
     
     private void SubscribePresenceOffEvent()
@@ -158,10 +171,10 @@ public class Lighter
 
         PresenceSensors.StateAllChanges()
         .Merge(TriggerSensors.StateAllChanges())
-        .Where(_ => PresenceSensors.Union(TriggerSensors).All(s => !s.IsOff()))
+        .Where(_ => TriggerSensors.Union(PresenceSensors).All(s => !s.IsOff()))
         .Subscribe(e =>
         {
-            var states = PresenceSensors.Union(TriggerSensors).Select(s => new { s.EntityId, s.State });
+            var states = TriggerSensors.Union(PresenceSensors).Select(s => new { s.EntityId, s.State });
             _logger.LogTrace("{light} Presence Off Event {entity} {states}", Light.EntityId, e.New?.EntityId, states);
             TurnOffEntities(e.New?.EntityId);
         });
@@ -208,8 +221,14 @@ public class Lighter
         });
     }
 
-    private void TurnOnEntities(string? trigger)
+    private async Task TurnOnEntities(string? trigger)
     {
+        // Delay the turn on based on the priority this just ensures only the light(s) we want come on.
+        var priorityDelay = Priority * 0.5; // seconds
+        if (priorityDelay > 0)
+        {
+            await Task.Delay(TimeSpan.FromSeconds(priorityDelay));
+        }
         if (_turnOffDisposable != null)
         {
             _turnOffDisposable.Dispose();

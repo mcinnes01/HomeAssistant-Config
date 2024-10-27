@@ -24,13 +24,18 @@ public class Lighting : IAsyncInitializable
 
     public Task InitializeAsync(CancellationToken cancellationToken)
     {
-        _logger.LogInformation("Starting lighter configuration for {count} lights", _config.Lights.Count);
-        _config.Lights.ToList()
-            .ForEach(async r =>
+        _logger.LogInformation("Starting lighter configuration for {count} rooms", _config.Rooms.Count);
+        _config.Rooms.ForEach(async r =>
+        {
+            _logger.LogInformation("Configuring room {Room}", r.Name);
+            await r.Register(_entityManager, _scheduler, _haContext, _logger);
+            var coordinator = new LightCoordinator();
+            r.Lights.ToList().ForEach(async l =>
             {
-                _logger.LogInformation("Configuring lighter for {light}", r.Light.EntityId);
-                await r.Register(_entityManager, _scheduler, _haContext, _logger);
+                _logger.LogInformation("Configuring light {light} for {Room}", l.Light.Name(), r.Name);
+                await l.Register(coordinator, _entityManager, _scheduler, _haContext, _logger);
             });
+        });
         return Task.CompletedTask;
     }
 }

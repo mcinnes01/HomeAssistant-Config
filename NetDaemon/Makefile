@@ -14,6 +14,7 @@ publish:
 	rm -rf ../netdaemonout
 	cp -R out/ ../netdaemonout/
 	rm -rf out
+	sudo chown -R holly:holly ../netdaemonout/
 
 bp: build publish
 

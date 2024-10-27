@@ -30,7 +30,7 @@
         },
         {
           "id": "light.basement_stairs_light",
-          "friendlyName": "Basement Stairs Light",
+          "friendlyName": null,
           "cSharpName": "BasementStairsLight"
         },
         {
@@ -82,6 +82,11 @@
           "id": "light.cellar_door_light",
           "friendlyName": "Cellar Door Light",
           "cSharpName": "CellarDoorLight"
+        },
+        {
+          "id": "light.decking_lights",
+          "friendlyName": "Decking Lights",
+          "cSharpName": "DeckingLights"
         },
         {
           "id": "light.decking_wall_light",
@@ -247,6 +252,11 @@
           "id": "light.shed_light",
           "friendlyName": "Shed Light",
           "cSharpName": "ShedLight"
+        },
+        {
+          "id": "light.shed_lights",
+          "friendlyName": "Shed Lights",
+          "cSharpName": "ShedLights"
         },
         {
           "id": "light.snug_lamp",
@@ -2360,6 +2370,11 @@
           "id": "binary_sensor.in_bed",
           "friendlyName": "In Bed",
           "cSharpName": "InBed"
+        },
+        {
+          "id": "binary_sensor.issunset",
+          "friendlyName": "IsSunSet",
+          "cSharpName": "Issunset"
         },
         {
           "id": "binary_sensor.kitchen_air_quality_update_available",
@@ -4874,16 +4889,6 @@
           "cSharpName": "CbSmartcam"
         },
         {
-          "id": "device_tracker.claireiphone_3",
-          "friendlyName": null,
-          "cSharpName": "Claireiphone3"
-        },
-        {
-          "id": "device_tracker.claires_apple_watch",
-          "friendlyName": null,
-          "cSharpName": "ClairesAppleWatch"
-        },
-        {
           "id": "device_tracker.claires_iphone",
           "friendlyName": "claireiphone",
           "cSharpName": "ClairesIphone"
@@ -5052,16 +5057,6 @@
           "id": "device_tracker.galaxy_watch4_x2pv",
           "friendlyName": "Galaxy Watch4 (X2PV) Galaxy Watch4 (X2PV)",
           "cSharpName": "GalaxyWatch4X2pv"
-        },
-        {
-          "id": "device_tracker.garmin_cbd451f45c8a",
-          "friendlyName": "garmin:cbd451f45c8a",
-          "cSharpName": "GarminCbd451f45c8a"
-        },
-        {
-          "id": "device_tracker.garmin_f8b9821aea87",
-          "friendlyName": "garmin:f8b9821aea87",
-          "cSharpName": "GarminF8b9821aea87"
         },
         {
           "id": "device_tracker.gen3_gen3",
@@ -5359,6 +5354,11 @@
           "cSharpName": "N02rf"
         },
         {
+          "id": "device_tracker.name_3020aa5ceb689b96a4",
+          "friendlyName": "name:3020aa5ceb689b96a4",
+          "cSharpName": "Name3020aa5ceb689b96a4"
+        },
+        {
           "id": "device_tracker.name_blinghelmet",
           "friendlyName": "name:blinghelmet",
           "cSharpName": "NameBlinghelmet"
@@ -5374,24 +5374,9 @@
           "cSharpName": "NameDellMouse"
         },
         {
-          "id": "device_tracker.name_e1aa0000",
-          "friendlyName": "name:e1aa0000",
-          "cSharpName": "NameE1aa0000"
-        },
-        {
-          "id": "device_tracker.name_edifier_ble",
-          "friendlyName": "name:edifier-ble",
-          "cSharpName": "NameEdifierBle"
-        },
-        {
-          "id": "device_tracker.name_elk_bbl0",
-          "friendlyName": "name:elk_bbl0",
-          "cSharpName": "NameElkBbl0"
-        },
-        {
-          "id": "device_tracker.name_epic_air_sport_anc_ble",
-          "friendlyName": "name:epic-air-sport-anc-ble",
-          "cSharpName": "NameEpicAirSportAncBle"
+          "id": "device_tracker.name_dime3_le",
+          "friendlyName": "name:dime3_le",
+          "cSharpName": "NameDime3Le"
         },
         {
           "id": "device_tracker.name_freelite",
@@ -5399,24 +5384,14 @@
           "cSharpName": "NameFreelite"
         },
         {
-          "id": "device_tracker.name_id205l",
-          "friendlyName": "name:id205l",
-          "cSharpName": "NameId205l"
+          "id": "device_tracker.name_ibr420_c382",
+          "friendlyName": "name:ibr420-c382",
+          "cSharpName": "NameIbr420C382"
         },
         {
-          "id": "device_tracker.name_jabra",
-          "friendlyName": "name:jabra",
-          "cSharpName": "NameJabra"
-        },
-        {
-          "id": "device_tracker.name_jbl_tune660nc_le",
-          "friendlyName": "name:jbl-tune660nc-le",
-          "cSharpName": "NameJblTune660ncLe"
-        },
-        {
-          "id": "device_tracker.name_le_m51",
-          "friendlyName": "name:le-m51",
-          "cSharpName": "NameLeM51"
+          "id": "device_tracker.name_jbl_tune",
+          "friendlyName": "name:jbl-tune",
+          "cSharpName": "NameJblTune"
         },
         {
           "id": "device_tracker.name_le_wf_1000xm4",
@@ -5449,29 +5424,34 @@
           "cSharpName": "NameLeWiC100"
         },
         {
+          "id": "device_tracker.name_lumosltis",
+          "friendlyName": "name:lumosltis",
+          "cSharpName": "NameLumosltis"
+        },
+        {
           "id": "device_tracker.name_mi",
           "friendlyName": "name:mi",
           "cSharpName": "NameMi"
         },
         {
-          "id": "device_tracker.name_ms_car",
-          "friendlyName": "name:ms-car",
-          "cSharpName": "NameMsCar"
+          "id": "device_tracker.name_rtl33350",
+          "friendlyName": "name:rtl33350",
+          "cSharpName": "NameRtl33350"
         },
         {
-          "id": "device_tracker.name_mx_vertical",
-          "friendlyName": "name:mx-vertical",
-          "cSharpName": "NameMxVertical"
+          "id": "device_tracker.name_se5000_0842344960",
+          "friendlyName": "name:se5000-0842344960",
+          "cSharpName": "NameSe50000842344960"
         },
         {
-          "id": "device_tracker.name_pawfit_hciq7cdf",
-          "friendlyName": "name:pawfit-hciq7cdf",
-          "cSharpName": "NamePawfitHciq7cdf"
+          "id": "device_tracker.name_se5000_1179133952",
+          "friendlyName": "name:se5000-1179133952",
+          "cSharpName": "NameSe50001179133952"
         },
         {
-          "id": "device_tracker.name_rayo_51e0",
-          "friendlyName": "name:rayo_51e0",
-          "cSharpName": "NameRayo51e0"
+          "id": "device_tracker.name_xp_pp_04e35a",
+          "friendlyName": "name:xp-pp-04e35a",
+          "cSharpName": "NameXpPp04e35a"
         },
         {
           "id": "device_tracker.name_ysccu_00000020187859",
@@ -5812,11 +5792,6 @@
           "id": "device_tracker.wsbc025093546s_wsbc025093546s",
           "friendlyName": "WSBC025093546S WSBC025093546S",
           "cSharpName": "Wsbc025093546sWsbc025093546s"
-        },
-        {
-          "id": "device_tracker.xp_pp_04e35a",
-          "friendlyName": "Claire IPhone ",
-          "cSharpName": "XpPp04e35a"
         },
         {
           "id": "device_tracker.yccu_00100310001bbf_yccu_00100310001bbf",
@@ -8217,12 +8192,12 @@
         },
         {
           "id": "sensor.mfc_j5910dw_status",
-          "friendlyName": "Status",
+          "friendlyName": "MFC-J5910DW Status",
           "cSharpName": "MfcJ5910dwStatus"
         },
         {
           "id": "sensor.mfc_j5910dw_uptime",
-          "friendlyName": "Last restart",
+          "friendlyName": "MFC-J5910DW Last restart",
           "cSharpName": "MfcJ5910dwUptime"
         },
         {
@@ -10709,19 +10684,9 @@
           "cSharpName": "ClaireWakeupTime"
         },
         {
-          "id": "sensor.claireiphone_battery_2",
-          "friendlyName": "Battery",
-          "cSharpName": "ClaireiphoneBattery2"
-        },
-        {
           "id": "sensor.claireiphone_watch_battery",
           "friendlyName": "claireiphone Watch Battery",
           "cSharpName": "ClaireiphoneWatchBattery"
-        },
-        {
-          "id": "sensor.claires_apple_watch_battery",
-          "friendlyName": "Battery",
-          "cSharpName": "ClairesAppleWatchBattery"
         },
         {
           "id": "sensor.claires_iphone_average_active_pace",
@@ -12065,27 +12030,27 @@
         },
         {
           "id": "sensor.mfc_j5910dw_black_ink_remaining",
-          "friendlyName": "Black ink remaining",
+          "friendlyName": "MFC-J5910DW Black ink remaining",
           "cSharpName": "MfcJ5910dwBlackInkRemaining"
         },
         {
           "id": "sensor.mfc_j5910dw_cyan_ink_remaining",
-          "friendlyName": "Cyan ink remaining",
+          "friendlyName": "MFC-J5910DW Cyan ink remaining",
           "cSharpName": "MfcJ5910dwCyanInkRemaining"
         },
         {
           "id": "sensor.mfc_j5910dw_magenta_ink_remaining",
-          "friendlyName": "Magenta ink remaining",
+          "friendlyName": "MFC-J5910DW Magenta ink remaining",
           "cSharpName": "MfcJ5910dwMagentaInkRemaining"
         },
         {
           "id": "sensor.mfc_j5910dw_page_counter",
-          "friendlyName": "Page counter",
+          "friendlyName": "MFC-J5910DW Page counter",
           "cSharpName": "MfcJ5910dwPageCounter"
         },
         {
           "id": "sensor.mfc_j5910dw_yellow_ink_remaining",
-          "friendlyName": "Yellow ink remaining",
+          "friendlyName": "MFC-J5910DW Yellow ink remaining",
           "cSharpName": "MfcJ5910dwYellowInkRemaining"
         },
         {
@@ -12199,6 +12164,11 @@
           "cSharpName": "OctopusEnergyElectricity22j01815441610019557951CurrentDemand"
         },
         {
+          "id": "sensor.octopus_energy_electricity_22j0181544_1610019557951_current_interval_accumulative_consumption",
+          "friendlyName": "Current Interval Accumulative Consumption Electricity (22J0181544/1610019557951)",
+          "cSharpName": "OctopusEnergyElectricity22j01815441610019557951CurrentIntervalAccumulativeConsumption"
+        },
+        {
           "id": "sensor.octopus_energy_electricity_22j0181544_1610019557951_current_rate",
           "friendlyName": "Current Rate Electricity (22J0181544 1610019557951)",
           "cSharpName": "OctopusEnergyElectricity22j01815441610019557951CurrentRate"
@@ -12217,6 +12187,11 @@
           "id": "sensor.octopus_energy_electricity_22j0181544_1610019557951_next_rate",
           "friendlyName": "Next Rate Electricity (22J0181544/1610019557951)",
           "cSharpName": "OctopusEnergyElectricity22j01815441610019557951NextRate"
+        },
+        {
+          "id": "sensor.octopus_energy_electricity_22j0181544_1610019557951_octoplus_saving_session_baseline",
+          "friendlyName": "Octoplus Saving Session Baseline Electricity (22J0181544/1610019557951)",
+          "cSharpName": "OctopusEnergyElectricity22j01815441610019557951OctoplusSavingSessionBaseline"
         },
         {
           "id": "sensor.octopus_energy_electricity_22j0181544_1610019557951_previous_accumulative_consumption",
@@ -17259,6 +17234,716 @@
           "jsonName": "com.ebay.mobile_2147483647_post_time",
           "cSharpName": "Com_ebay_mobile2147483647PostTime",
           "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.appInfo_com.google.android.dialer_1",
+          "cSharpName": "Android_appInfoCom_google_android_dialer1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.callIsVideo_com.google.android.dialer_1",
+          "cSharpName": "Android_callIsVideoCom_google_android_dialer1",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.callPerson_com.google.android.dialer_1",
+          "cSharpName": "Android_callPersonCom_google_android_dialer1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.callType_com.google.android.dialer_1",
+          "cSharpName": "Android_callTypeCom_google_android_dialer1",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.colorized_com.google.android.dialer_1",
+          "cSharpName": "Android_colorizedCom_google_android_dialer1",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.hangUpIntent_com.google.android.dialer_1",
+          "cSharpName": "Android_hangUpIntentCom_google_android_dialer1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon_com.google.android.dialer_1",
+          "cSharpName": "Android_largeIconCom_google_android_dialer1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.people.list_com.google.android.dialer_1",
+          "cSharpName": "Android_people_listCom_google_android_dialer1",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.String]"
+        },
+        {
+          "jsonName": "android.reduced.images_com.google.android.dialer_1",
+          "cSharpName": "Android_reduced_imagesCom_google_android_dialer1",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showChronometer_com.google.android.dialer_1",
+          "cSharpName": "Android_showChronometerCom_google_android_dialer1",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.template_com.google.android.dialer_1",
+          "cSharpName": "Android_templateCom_google_android_dialer1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_com.google.android.dialer_1",
+          "cSharpName": "Android_textCom_google_android_dialer1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_com.google.android.dialer_1",
+          "cSharpName": "Android_titleCom_google_android_dialer1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.google.android.dialer_1_category",
+          "cSharpName": "Com_google_android_dialer1Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.google.android.dialer_1_channel_id",
+          "cSharpName": "Com_google_android_dialer1ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.google.android.dialer_1_group_id",
+          "cSharpName": "Com_google_android_dialer1GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.google.android.dialer_1_is_clearable",
+          "cSharpName": "Com_google_android_dialer1IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.google.android.dialer_1_is_ongoing",
+          "cSharpName": "Com_google_android_dialer1IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.google.android.dialer_1_post_time",
+          "cSharpName": "Com_google_android_dialer1PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "is_incomplete_calculation",
+          "cSharpName": "IsIncompleteCalculation",
+          "clrType": null
+        },
+        {
+          "jsonName": "consumption_items",
+          "cSharpName": "ConsumptionItems",
+          "clrType": null
+        },
+        {
+          "jsonName": "total_baseline",
+          "cSharpName": "TotalBaseline",
+          "clrType": null
+        },
+        {
+          "jsonName": "baselines",
+          "cSharpName": "Baselines",
+          "clrType": null
+        },
+        {
+          "jsonName": "android.appInfo_com.google.android.apps.walletnfcrel_1001",
+          "cSharpName": "Android_appInfoCom_google_android_apps_walletnfcrel1001",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.appInfo_io.homeassistant.companion.android_-1235714175",
+          "cSharpName": "Android_appInfoIo_homeassistant_companion_android1235714175",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.appInfo_io.homeassistant.companion.android_-1235721596",
+          "cSharpName": "Android_appInfoIo_homeassistant_companion_android1235721596",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.appInfo_io.homeassistant.companion.android_-1235803350",
+          "cSharpName": "Android_appInfoIo_homeassistant_companion_android1235803350",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.appInfo_io.homeassistant.companion.android_-1236111906",
+          "cSharpName": "Android_appInfoIo_homeassistant_companion_android1236111906",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.infoText_com.google.android.apps.walletnfcrel_1001",
+          "cSharpName": "Android_infoTextCom_google_android_apps_walletnfcrel1001",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.infoText_io.homeassistant.companion.android_-1235714175",
+          "cSharpName": "Android_infoTextIo_homeassistant_companion_android1235714175",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.infoText_io.homeassistant.companion.android_-1235721596",
+          "cSharpName": "Android_infoTextIo_homeassistant_companion_android1235721596",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.infoText_io.homeassistant.companion.android_-1235803350",
+          "cSharpName": "Android_infoTextIo_homeassistant_companion_android1235803350",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.infoText_io.homeassistant.companion.android_-1236111906",
+          "cSharpName": "Android_infoTextIo_homeassistant_companion_android1236111906",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon.big_io.homeassistant.companion.android_-1235714175",
+          "cSharpName": "Android_largeIcon_bigIo_homeassistant_companion_android1235714175",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon.big_io.homeassistant.companion.android_-1235721596",
+          "cSharpName": "Android_largeIcon_bigIo_homeassistant_companion_android1235721596",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon.big_io.homeassistant.companion.android_-1235803350",
+          "cSharpName": "Android_largeIcon_bigIo_homeassistant_companion_android1235803350",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon.big_io.homeassistant.companion.android_-1236111906",
+          "cSharpName": "Android_largeIcon_bigIo_homeassistant_companion_android1236111906",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon_com.google.android.apps.walletnfcrel_1001",
+          "cSharpName": "Android_largeIconCom_google_android_apps_walletnfcrel1001",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon_io.homeassistant.companion.android_-1235714175",
+          "cSharpName": "Android_largeIconIo_homeassistant_companion_android1235714175",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon_io.homeassistant.companion.android_-1235721596",
+          "cSharpName": "Android_largeIconIo_homeassistant_companion_android1235721596",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon_io.homeassistant.companion.android_-1235803350",
+          "cSharpName": "Android_largeIconIo_homeassistant_companion_android1235803350",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon_io.homeassistant.companion.android_-1236111906",
+          "cSharpName": "Android_largeIconIo_homeassistant_companion_android1236111906",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.pictureIcon_io.homeassistant.companion.android_-1235714175",
+          "cSharpName": "Android_pictureIconIo_homeassistant_companion_android1235714175",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.pictureIcon_io.homeassistant.companion.android_-1235721596",
+          "cSharpName": "Android_pictureIconIo_homeassistant_companion_android1235721596",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.pictureIcon_io.homeassistant.companion.android_-1235803350",
+          "cSharpName": "Android_pictureIconIo_homeassistant_companion_android1235803350",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.pictureIcon_io.homeassistant.companion.android_-1236111906",
+          "cSharpName": "Android_pictureIconIo_homeassistant_companion_android1236111906",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.picture_io.homeassistant.companion.android_-1235714175",
+          "cSharpName": "Android_pictureIo_homeassistant_companion_android1235714175",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.picture_io.homeassistant.companion.android_-1235721596",
+          "cSharpName": "Android_pictureIo_homeassistant_companion_android1235721596",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.picture_io.homeassistant.companion.android_-1235803350",
+          "cSharpName": "Android_pictureIo_homeassistant_companion_android1235803350",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.picture_io.homeassistant.companion.android_-1236111906",
+          "cSharpName": "Android_pictureIo_homeassistant_companion_android1236111906",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.progressIndeterminate_com.google.android.apps.walletnfcrel_1001",
+          "cSharpName": "Android_progressIndeterminateCom_google_android_apps_walletnfcrel1001",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.progressIndeterminate_io.homeassistant.companion.android_-1235714175",
+          "cSharpName": "Android_progressIndeterminateIo_homeassistant_companion_android1235714175",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.progressIndeterminate_io.homeassistant.companion.android_-1235721596",
+          "cSharpName": "Android_progressIndeterminateIo_homeassistant_companion_android1235721596",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.progressIndeterminate_io.homeassistant.companion.android_-1235803350",
+          "cSharpName": "Android_progressIndeterminateIo_homeassistant_companion_android1235803350",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.progressIndeterminate_io.homeassistant.companion.android_-1236111906",
+          "cSharpName": "Android_progressIndeterminateIo_homeassistant_companion_android1236111906",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.progressMax_com.google.android.apps.walletnfcrel_1001",
+          "cSharpName": "Android_progressMaxCom_google_android_apps_walletnfcrel1001",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progressMax_io.homeassistant.companion.android_-1235714175",
+          "cSharpName": "Android_progressMaxIo_homeassistant_companion_android1235714175",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progressMax_io.homeassistant.companion.android_-1235721596",
+          "cSharpName": "Android_progressMaxIo_homeassistant_companion_android1235721596",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progressMax_io.homeassistant.companion.android_-1235803350",
+          "cSharpName": "Android_progressMaxIo_homeassistant_companion_android1235803350",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progressMax_io.homeassistant.companion.android_-1236111906",
+          "cSharpName": "Android_progressMaxIo_homeassistant_companion_android1236111906",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progress_com.google.android.apps.walletnfcrel_1001",
+          "cSharpName": "Android_progressCom_google_android_apps_walletnfcrel1001",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progress_io.homeassistant.companion.android_-1235714175",
+          "cSharpName": "Android_progressIo_homeassistant_companion_android1235714175",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progress_io.homeassistant.companion.android_-1235721596",
+          "cSharpName": "Android_progressIo_homeassistant_companion_android1235721596",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progress_io.homeassistant.companion.android_-1235803350",
+          "cSharpName": "Android_progressIo_homeassistant_companion_android1235803350",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progress_io.homeassistant.companion.android_-1236111906",
+          "cSharpName": "Android_progressIo_homeassistant_companion_android1236111906",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.reduced.images_com.google.android.apps.walletnfcrel_1001",
+          "cSharpName": "Android_reduced_imagesCom_google_android_apps_walletnfcrel1001",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.reduced.images_io.homeassistant.companion.android_-1235714175",
+          "cSharpName": "Android_reduced_imagesIo_homeassistant_companion_android1235714175",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.reduced.images_io.homeassistant.companion.android_-1235721596",
+          "cSharpName": "Android_reduced_imagesIo_homeassistant_companion_android1235721596",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.reduced.images_io.homeassistant.companion.android_-1235803350",
+          "cSharpName": "Android_reduced_imagesIo_homeassistant_companion_android1235803350",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.reduced.images_io.homeassistant.companion.android_-1236111906",
+          "cSharpName": "Android_reduced_imagesIo_homeassistant_companion_android1236111906",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.remoteInputHistory_com.google.android.apps.walletnfcrel_1001",
+          "cSharpName": "Android_remoteInputHistoryCom_google_android_apps_walletnfcrel1001",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.remoteInputHistory_io.homeassistant.companion.android_-1235714175",
+          "cSharpName": "Android_remoteInputHistoryIo_homeassistant_companion_android1235714175",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.remoteInputHistory_io.homeassistant.companion.android_-1235721596",
+          "cSharpName": "Android_remoteInputHistoryIo_homeassistant_companion_android1235721596",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.remoteInputHistory_io.homeassistant.companion.android_-1235803350",
+          "cSharpName": "Android_remoteInputHistoryIo_homeassistant_companion_android1235803350",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.remoteInputHistory_io.homeassistant.companion.android_-1236111906",
+          "cSharpName": "Android_remoteInputHistoryIo_homeassistant_companion_android1236111906",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.showBigPictureWhenCollapsed_io.homeassistant.companion.android_-1235714175",
+          "cSharpName": "Android_showBigPictureWhenCollapsedIo_homeassistant_companion_android1235714175",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showBigPictureWhenCollapsed_io.homeassistant.companion.android_-1235721596",
+          "cSharpName": "Android_showBigPictureWhenCollapsedIo_homeassistant_companion_android1235721596",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showBigPictureWhenCollapsed_io.homeassistant.companion.android_-1235803350",
+          "cSharpName": "Android_showBigPictureWhenCollapsedIo_homeassistant_companion_android1235803350",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showBigPictureWhenCollapsed_io.homeassistant.companion.android_-1236111906",
+          "cSharpName": "Android_showBigPictureWhenCollapsedIo_homeassistant_companion_android1236111906",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showChronometer_com.google.android.apps.walletnfcrel_1001",
+          "cSharpName": "Android_showChronometerCom_google_android_apps_walletnfcrel1001",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showChronometer_io.homeassistant.companion.android_-1235714175",
+          "cSharpName": "Android_showChronometerIo_homeassistant_companion_android1235714175",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showChronometer_io.homeassistant.companion.android_-1235721596",
+          "cSharpName": "Android_showChronometerIo_homeassistant_companion_android1235721596",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showChronometer_io.homeassistant.companion.android_-1235803350",
+          "cSharpName": "Android_showChronometerIo_homeassistant_companion_android1235803350",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showChronometer_io.homeassistant.companion.android_-1236111906",
+          "cSharpName": "Android_showChronometerIo_homeassistant_companion_android1236111906",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_com.google.android.apps.walletnfcrel_1001",
+          "cSharpName": "Android_showWhenCom_google_android_apps_walletnfcrel1001",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_io.homeassistant.companion.android_-1235714175",
+          "cSharpName": "Android_showWhenIo_homeassistant_companion_android1235714175",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_io.homeassistant.companion.android_-1235721596",
+          "cSharpName": "Android_showWhenIo_homeassistant_companion_android1235721596",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_io.homeassistant.companion.android_-1235803350",
+          "cSharpName": "Android_showWhenIo_homeassistant_companion_android1235803350",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_io.homeassistant.companion.android_-1236111906",
+          "cSharpName": "Android_showWhenIo_homeassistant_companion_android1236111906",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.subText_com.google.android.apps.walletnfcrel_1001",
+          "cSharpName": "Android_subTextCom_google_android_apps_walletnfcrel1001",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.subText_io.homeassistant.companion.android_-1235714175",
+          "cSharpName": "Android_subTextIo_homeassistant_companion_android1235714175",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.subText_io.homeassistant.companion.android_-1235721596",
+          "cSharpName": "Android_subTextIo_homeassistant_companion_android1235721596",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.subText_io.homeassistant.companion.android_-1235803350",
+          "cSharpName": "Android_subTextIo_homeassistant_companion_android1235803350",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.subText_io.homeassistant.companion.android_-1236111906",
+          "cSharpName": "Android_subTextIo_homeassistant_companion_android1236111906",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.template_io.homeassistant.companion.android_-1235714175",
+          "cSharpName": "Android_templateIo_homeassistant_companion_android1235714175",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.template_io.homeassistant.companion.android_-1235721596",
+          "cSharpName": "Android_templateIo_homeassistant_companion_android1235721596",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.template_io.homeassistant.companion.android_-1235803350",
+          "cSharpName": "Android_templateIo_homeassistant_companion_android1235803350",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.template_io.homeassistant.companion.android_-1236111906",
+          "cSharpName": "Android_templateIo_homeassistant_companion_android1236111906",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_com.google.android.apps.walletnfcrel_1001",
+          "cSharpName": "Android_textCom_google_android_apps_walletnfcrel1001",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_io.homeassistant.companion.android_-1235714175",
+          "cSharpName": "Android_textIo_homeassistant_companion_android1235714175",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_io.homeassistant.companion.android_-1235721596",
+          "cSharpName": "Android_textIo_homeassistant_companion_android1235721596",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_io.homeassistant.companion.android_-1235803350",
+          "cSharpName": "Android_textIo_homeassistant_companion_android1235803350",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_io.homeassistant.companion.android_-1236111906",
+          "cSharpName": "Android_textIo_homeassistant_companion_android1236111906",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_com.google.android.apps.walletnfcrel_1001",
+          "cSharpName": "Android_titleCom_google_android_apps_walletnfcrel1001",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_io.homeassistant.companion.android_-1235714175",
+          "cSharpName": "Android_titleIo_homeassistant_companion_android1235714175",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_io.homeassistant.companion.android_-1235721596",
+          "cSharpName": "Android_titleIo_homeassistant_companion_android1235721596",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_io.homeassistant.companion.android_-1235803350",
+          "cSharpName": "Android_titleIo_homeassistant_companion_android1235803350",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_io.homeassistant.companion.android_-1236111906",
+          "cSharpName": "Android_titleIo_homeassistant_companion_android1236111906",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "androidx.core.app.extra.COMPAT_TEMPLATE_io.homeassistant.companion.android_-1235714175",
+          "cSharpName": "Androidx_core_app_extra_COMPATTEMPLATEIo_homeassistant_companion_android1235714175",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "androidx.core.app.extra.COMPAT_TEMPLATE_io.homeassistant.companion.android_-1235721596",
+          "cSharpName": "Androidx_core_app_extra_COMPATTEMPLATEIo_homeassistant_companion_android1235721596",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "androidx.core.app.extra.COMPAT_TEMPLATE_io.homeassistant.companion.android_-1235803350",
+          "cSharpName": "Androidx_core_app_extra_COMPATTEMPLATEIo_homeassistant_companion_android1235803350",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "androidx.core.app.extra.COMPAT_TEMPLATE_io.homeassistant.companion.android_-1236111906",
+          "cSharpName": "Androidx_core_app_extra_COMPATTEMPLATEIo_homeassistant_companion_android1236111906",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.google.android.apps.walletnfcrel_1001_category",
+          "cSharpName": "Com_google_android_apps_walletnfcrel1001Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.google.android.apps.walletnfcrel_1001_channel_id",
+          "cSharpName": "Com_google_android_apps_walletnfcrel1001ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.google.android.apps.walletnfcrel_1001_group_id",
+          "cSharpName": "Com_google_android_apps_walletnfcrel1001GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.google.android.apps.walletnfcrel_1001_is_clearable",
+          "cSharpName": "Com_google_android_apps_walletnfcrel1001IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.google.android.apps.walletnfcrel_1001_is_ongoing",
+          "cSharpName": "Com_google_android_apps_walletnfcrel1001IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.google.android.apps.walletnfcrel_1001_post_time",
+          "cSharpName": "Com_google_android_apps_walletnfcrel1001PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-1235714175_category",
+          "cSharpName": "Io_homeassistant_companion_android1235714175Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-1235714175_channel_id",
+          "cSharpName": "Io_homeassistant_companion_android1235714175ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-1235714175_group_id",
+          "cSharpName": "Io_homeassistant_companion_android1235714175GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-1235714175_is_clearable",
+          "cSharpName": "Io_homeassistant_companion_android1235714175IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-1235714175_is_ongoing",
+          "cSharpName": "Io_homeassistant_companion_android1235714175IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-1235714175_post_time",
+          "cSharpName": "Io_homeassistant_companion_android1235714175PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-1235721596_category",
+          "cSharpName": "Io_homeassistant_companion_android1235721596Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-1235721596_channel_id",
+          "cSharpName": "Io_homeassistant_companion_android1235721596ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-1235721596_group_id",
+          "cSharpName": "Io_homeassistant_companion_android1235721596GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-1235721596_is_clearable",
+          "cSharpName": "Io_homeassistant_companion_android1235721596IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-1235721596_is_ongoing",
+          "cSharpName": "Io_homeassistant_companion_android1235721596IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-1235721596_post_time",
+          "cSharpName": "Io_homeassistant_companion_android1235721596PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-1235803350_category",
+          "cSharpName": "Io_homeassistant_companion_android1235803350Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-1235803350_channel_id",
+          "cSharpName": "Io_homeassistant_companion_android1235803350ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-1235803350_group_id",
+          "cSharpName": "Io_homeassistant_companion_android1235803350GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-1235803350_is_clearable",
+          "cSharpName": "Io_homeassistant_companion_android1235803350IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-1235803350_is_ongoing",
+          "cSharpName": "Io_homeassistant_companion_android1235803350IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-1235803350_post_time",
+          "cSharpName": "Io_homeassistant_companion_android1235803350PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-1236111906_category",
+          "cSharpName": "Io_homeassistant_companion_android1236111906Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-1236111906_channel_id",
+          "cSharpName": "Io_homeassistant_companion_android1236111906ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-1236111906_group_id",
+          "cSharpName": "Io_homeassistant_companion_android1236111906GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-1236111906_is_clearable",
+          "cSharpName": "Io_homeassistant_companion_android1236111906IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-1236111906_is_ongoing",
+          "cSharpName": "Io_homeassistant_companion_android1236111906IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-1236111906_post_time",
+          "cSharpName": "Io_homeassistant_companion_android1236111906PostTime",
+          "clrType": "System.Double"
         }
       ]
     },
@@ -17930,9 +18615,34 @@
           "cSharpName": "LightManagerBathroom"
         },
         {
+          "id": "switch.light_manager_bathroom_light",
+          "friendlyName": "Light Manager light.bathroom_light",
+          "cSharpName": "LightManagerBathroomLight"
+        },
+        {
           "id": "switch.light_manager_bedroom",
           "friendlyName": "Light Manager bedroom",
           "cSharpName": "LightManagerBedroom"
+        },
+        {
+          "id": "switch.light_manager_bedroom_lamp",
+          "friendlyName": "Light Manager light.bedroom_lamp",
+          "cSharpName": "LightManagerBedroomLamp"
+        },
+        {
+          "id": "switch.light_manager_bedroom_light",
+          "friendlyName": "Light Manager light.bedroom_light",
+          "cSharpName": "LightManagerBedroomLight"
+        },
+        {
+          "id": "switch.light_manager_bookshelf_light",
+          "friendlyName": "Light Manager light.bookshelf_light",
+          "cSharpName": "LightManagerBookshelfLight"
+        },
+        {
+          "id": "switch.light_manager_breakfast_bar_light",
+          "friendlyName": "Light Manager light.breakfast_bar_light",
+          "cSharpName": "LightManagerBreakfastBarLight"
         },
         {
           "id": "switch.light_manager_dining_room",
@@ -17940,9 +18650,19 @@
           "cSharpName": "LightManagerDiningRoom"
         },
         {
+          "id": "switch.light_manager_display_cabinet_light",
+          "friendlyName": "Light Manager light.display_cabinet_light",
+          "cSharpName": "LightManagerDisplayCabinetLight"
+        },
+        {
           "id": "switch.light_manager_drawing_room",
           "friendlyName": "Light Manager drawing room",
           "cSharpName": "LightManagerDrawingRoom"
+        },
+        {
+          "id": "switch.light_manager_drawing_room_light",
+          "friendlyName": "Light Manager light.drawing_room_light",
+          "cSharpName": "LightManagerDrawingRoomLight"
         },
         {
           "id": "switch.light_manager_dressing_room",
@@ -17950,9 +18670,24 @@
           "cSharpName": "LightManagerDressingRoom"
         },
         {
+          "id": "switch.light_manager_dressing_room_light",
+          "friendlyName": "Light Manager light.dressing_room_light",
+          "cSharpName": "LightManagerDressingRoomLight"
+        },
+        {
           "id": "switch.light_manager_guest_room",
           "friendlyName": "Light Manager guest room",
           "cSharpName": "LightManagerGuestRoom"
+        },
+        {
+          "id": "switch.light_manager_guest_room_lamp",
+          "friendlyName": "Light Manager light.guest_room_lamp",
+          "cSharpName": "LightManagerGuestRoomLamp"
+        },
+        {
+          "id": "switch.light_manager_guest_room_light",
+          "friendlyName": "Light Manager light.guest_room_light",
+          "cSharpName": "LightManagerGuestRoomLight"
         },
         {
           "id": "switch.light_manager_hallway",
@@ -17960,14 +18695,34 @@
           "cSharpName": "LightManagerHallway"
         },
         {
+          "id": "switch.light_manager_hallway_lamp",
+          "friendlyName": "Light Manager light.hallway_lamp",
+          "cSharpName": "LightManagerHallwayLamp"
+        },
+        {
+          "id": "switch.light_manager_hallway_light",
+          "friendlyName": "Light Manager light.hallway_light",
+          "cSharpName": "LightManagerHallwayLight"
+        },
+        {
           "id": "switch.light_manager_kitchen",
           "friendlyName": "Light Manager kitchen",
           "cSharpName": "LightManagerKitchen"
         },
         {
+          "id": "switch.light_manager_kitchen_light",
+          "friendlyName": "Light Manager light.kitchen_light",
+          "cSharpName": "LightManagerKitchenLight"
+        },
+        {
           "id": "switch.light_manager_landing",
           "friendlyName": "Light Manager landing",
           "cSharpName": "LightManagerLanding"
+        },
+        {
+          "id": "switch.light_manager_landing_light",
+          "friendlyName": "Light Manager light.landing_light",
+          "cSharpName": "LightManagerLandingLight"
         },
         {
           "id": "switch.light_manager_lounge",
@@ -17990,9 +18745,19 @@
           "cSharpName": "LightManagerLoungeLight"
         },
         {
+          "id": "switch.light_manager_mirror_light",
+          "friendlyName": "Light Manager light.mirror_light",
+          "cSharpName": "LightManagerMirrorLight"
+        },
+        {
           "id": "switch.light_manager_porch",
           "friendlyName": "Light Manager porch",
           "cSharpName": "LightManagerPorch"
+        },
+        {
+          "id": "switch.light_manager_porch_light",
+          "friendlyName": "Light Manager light.porch_light",
+          "cSharpName": "LightManagerPorchLight"
         },
         {
           "id": "switch.light_manager_snug",
@@ -18003,6 +18768,16 @@
           "id": "switch.light_manager_studio",
           "friendlyName": "Light Manager studio",
           "cSharpName": "LightManagerStudio"
+        },
+        {
+          "id": "switch.light_manager_studio_lamp",
+          "friendlyName": "Light Manager light.studio_lamp",
+          "cSharpName": "LightManagerStudioLamp"
+        },
+        {
+          "id": "switch.light_manager_studio_light",
+          "friendlyName": "Light Manager light.studio_light",
+          "cSharpName": "LightManagerStudioLight"
         },
         {
           "id": "switch.light_manager_toilet",
@@ -18955,11 +19730,6 @@
           "cSharpName": "GlancesUpdate"
         },
         {
-          "id": "update.grafana_loki_update",
-          "friendlyName": "Grafana Loki Update",
-          "cSharpName": "GrafanaLokiUpdate"
-        },
-        {
           "id": "update.grafana_update_2",
           "friendlyName": "Grafana Update",
           "cSharpName": "GrafanaUpdate2"
@@ -19048,11 +19818,6 @@
           "id": "update.local_tuya_update",
           "friendlyName": "Local Tuya update",
           "cSharpName": "LocalTuyaUpdate"
-        },
-        {
-          "id": "update.loki_update",
-          "friendlyName": "Loki Update",
-          "cSharpName": "LokiUpdate"
         },
         {
           "id": "update.lounge_sofa_switch",
@@ -19153,11 +19918,6 @@
           "id": "update.outside_lights_firmware_update",
           "friendlyName": "Outside Lights firmware update",
           "cSharpName": "OutsideLightsFirmwareUpdate"
-        },
-        {
-          "id": "update.promtail_update",
-          "friendlyName": "Promtail Update",
-          "cSharpName": "PromtailUpdate"
         },
         {
           "id": "update.right_bedside_switch",
