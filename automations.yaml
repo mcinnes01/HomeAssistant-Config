@@ -501,11 +501,11 @@
   mode: single
 - id: doorbell_trigger
   alias: Doorbell Notifications
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.doorbell_button
+  triggers:
+  - entity_id: binary_sensor.doorbell_button
     to: 'on'
-  action:
+    trigger: state
+  actions:
   - action: notify.mobile_app_pixel_6
     data:
       message: 'Doorbell '
@@ -517,6 +517,7 @@
         type: announce
         state: all
     action: notify.alexa_media
+    enabled: true
   - action: notify.mobile_app_claireiphone
     data:
       message: Doorbell
@@ -2418,3 +2419,70 @@
           hours: 0
           minutes: 5
           seconds: 0
+- id: '1730307028394'
+  alias: Kitchen Wallboard Off
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - binary_sensor.kitchen_motion
+    - binary_sensor.kitchen_camera_motion
+    - binary_sensor.kitchen_camera_person_detected
+    to: 'off'
+    for:
+      hours: 0
+      minutes: 10
+      seconds: 0
+  conditions:
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: binary_sensor.kitchen_motion
+      state: 'off'
+      for:
+        hours: 0
+        minutes: 10
+        seconds: 0
+    - condition: state
+      entity_id: binary_sensor.kitchen_camera_person_detected
+      state: 'off'
+      for:
+        hours: 0
+        minutes: 11
+        seconds: 0
+    - condition: state
+      entity_id: binary_sensor.kitchen_camera_detections_motion
+      state: 'off'
+      for:
+        hours: 0
+        minutes: 10
+        seconds: 0
+  actions:
+  - action: light.turn_off
+    metadata: {}
+    data: {}
+    target:
+      entity_id: light.kitchen_wallboard_screen
+  mode: single
+- id: '1730307076644'
+  alias: Kitchen Wallboard On
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - binary_sensor.kitchen_motion
+    - binary_sensor.kitchen_camera_motion
+    - binary_sensor.kitchen_camera_person_detected
+    to: 'on'
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 0
+  conditions: []
+  actions:
+  - action: light.turn_on
+    metadata: {}
+    data: {}
+    target:
+      entity_id: light.kitchen_wallboard_screen
+  mode: single

@@ -29,12 +29,11 @@ public class Lighting : IAsyncInitializable
         {
             _logger.LogInformation("Configuring room {Room}", r.Name);
             await r.Register(_entityManager, _scheduler, _haContext, _logger);
-            var coordinator = new LightCoordinator();
-            r.Lights.ToList().ForEach(async l =>
+            foreach(var light in r.Lights)
             {
-                _logger.LogInformation("Configuring light {light} for {Room}", l.Light.Name(), r.Name);
-                await l.Register(coordinator, _entityManager, _scheduler, _haContext, _logger);
-            });
+                _logger.LogInformation("Configuring light {light} for {Room}", light.Light.Name(), r.Name);
+                await light.Register(_entityManager, _scheduler, _haContext, _logger);
+            }
         });
         return Task.CompletedTask;
     }

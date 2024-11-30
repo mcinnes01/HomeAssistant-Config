@@ -8,7 +8,7 @@ NetDaemon.apps.LightApp.LighterConfig:
         - binary_sensor.doorbell_button
       Lights:
         - Light: light.hallway_lamp
-          Priority: 1
+          Primary: false
           Timeout: 120
           PresenceSensors:
             - binary_sensor.front_door
@@ -36,8 +36,10 @@ NetDaemon.apps.LightApp.LighterConfig:
         - binary_sensor.doorbell_button
       Lights:
         - Light: light.porch_light
-          Priority: 1
+          Primary: false
           Timeout: 120
+          ConiditionEntity: sun.sun
+          ConditionState: below_horizon
           PresenceSensors:
             - binary_sensor.front_door
           TriggerSensors:
@@ -53,7 +55,7 @@ NetDaemon.apps.LightApp.LighterConfig:
         - binary_sensor.back_door
       Lights:
         - Light: light.breakfast_bar_light
-          Priority: 1
+          Primary: false
           Timeout: 120
           PresenceSensors:
             - binary_sensor.kitchen_camera_person_detected
@@ -78,7 +80,7 @@ NetDaemon.apps.LightApp.LighterConfig:
         - binary_sensor.lounge_motion
       Lights:
         - Light: light.lounge_lamp
-          Priority: 1
+          Primary: false
           Timeout: 30
           PresenceSensors:
             - binary_sensor.main_sofa_occupancy
@@ -90,7 +92,7 @@ NetDaemon.apps.LightApp.LighterConfig:
             - switch.lounge_tv
         - Light: light.lounge_floor_lamp
           Timeout: 30
-          Priority: 1
+          Primary: false
           PresenceSensors:
             - binary_sensor.guest_sofa_occupancy
           TriggerSensors:
@@ -121,14 +123,14 @@ NetDaemon.apps.LightApp.LighterConfig:
             - switch.display_cabinet_light
         - Light: light.bookshelf_light
           Timeout: 300
-          Priority: 1
+          Primary: false
           TriggerSensors:
             - binary_sensor.drawing_room_motion
           BlockEntities:
             - light.drawing_room_light
         - Light: light.display_cabinet_light
           Timeout: 300
-          Priority: 2
+          Primary: 2
           TriggerSensors:
             - binary_sensor.drawing_room_motion
           BlockEntities:
@@ -152,7 +154,7 @@ NetDaemon.apps.LightApp.LighterConfig:
             - input_boolean.guest_room_bed_occupancy
         - Light: light.guest_room_lamp
           Timeout: 30
-          Priority: 1
+          Primary: false
           TriggerSensors:
             - binary_sensor.guest_room_motion
           PresenceEntities:
@@ -183,7 +185,7 @@ NetDaemon.apps.LightApp.LighterConfig:
             - binary_sensor.claire_in_bed
         - Light: light.bedroom_lamp
           Timeout: 120
-          Priority: 1
+          Primary: false
           TriggerSensors:
             - binary_sensor.bedroom_motion
           BlockEntities:
@@ -199,7 +201,6 @@ NetDaemon.apps.LightApp.LighterConfig:
           TriggerSensors:
             - binary_sensor.landing_motion
     - Name: bathroom
-      IsBedroom: true
       TriggerSensors:
         - binary_sensor.bathroom_motion
       Lights:
@@ -212,7 +213,7 @@ NetDaemon.apps.LightApp.LighterConfig:
             - fan.bathroom_fan
         - Light: light.mirror_light
           Timeout: 120
-          Priority: 1
+          Primary: false
           TriggerSensors:
             - binary_sensor.bathroom_motion
           BlockEntities:
@@ -231,7 +232,7 @@ NetDaemon.apps.LightApp.LighterConfig:
             - light.studio_lamp
         - Light: light.studio_lamp
           Timeout: 120
-          Priority: 1
+          Primary: false
           TriggerSensors:
             - binary_sensor.studio_motion
           BlockEntities:
@@ -302,7 +303,7 @@ NetDaemon.apps.LightApp.LighterConfig:
             - media_player.snug_projector
         - Light: light.snug_lamp
           Timeout: 30
-          Priority: 1
+          Primary: false
           TriggerSensors:
             - binary_sensor.snug_motion
           PresenceEntities:
@@ -313,7 +314,7 @@ NetDaemon.apps.LightApp.LighterConfig:
             - media_player.snug_projector
         - Light: light.snug_led_strip
           Timeout: 30
-          Priority: 2
+          Primary: 2
           TriggerSensors:
             - binary_sensor.snug_motion
           PresenceEntities:

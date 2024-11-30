@@ -30,7 +30,7 @@
         },
         {
           "id": "light.basement_stairs_light",
-          "friendlyName": null,
+          "friendlyName": "Basement Stairs Light",
           "cSharpName": "BasementStairsLight"
         },
         {
@@ -606,6 +606,11 @@
           "cSharpName": "HallwayTablet"
         },
         {
+          "id": "media_player.kichen_wallboard",
+          "friendlyName": "Kichen-Wallboard",
+          "cSharpName": "KichenWallboard"
+        },
+        {
           "id": "media_player.kitchen_camera_speaker",
           "friendlyName": "Kitchen Camera Speaker",
           "cSharpName": "KitchenCameraSpeaker"
@@ -676,9 +681,9 @@
           "cSharpName": "StudioEchoDot"
         },
         {
-          "id": "media_player.this_device",
+          "id": "media_player.this_device_2",
           "friendlyName": "This Device",
-          "cSharpName": "ThisDevice"
+          "cSharpName": "ThisDevice2"
         },
         {
           "id": "media_player.upstairs",
@@ -1153,6 +1158,16 @@
           "id": "automation.kitchen_switch",
           "friendlyName": "Kitchen Switch",
           "cSharpName": "KitchenSwitch"
+        },
+        {
+          "id": "automation.kitchen_wallboard_off",
+          "friendlyName": "Kitchen Wallboard Off",
+          "cSharpName": "KitchenWallboardOff"
+        },
+        {
+          "id": "automation.kitchen_wallboard_on",
+          "friendlyName": "Kitchen Wallboard On",
+          "cSharpName": "KitchenWallboardOn"
         },
         {
           "id": "automation.left_bedside_switch",
@@ -4219,12 +4234,27 @@
           "jsonName": "supported_features",
           "cSharpName": "SupportedFeatures",
           "clrType": "System.Double"
+        },
+        {
+          "jsonName": "entity_picture",
+          "cSharpName": "EntityPicture",
+          "clrType": "System.String"
         }
       ]
     },
     {
       "domain": "calendar",
       "entities": [
+        {
+          "id": "calendar.andy_dailies",
+          "friendlyName": "Andy Dailies",
+          "cSharpName": "AndyDailies"
+        },
+        {
+          "id": "calendar.andy_to_do_s",
+          "friendlyName": "Andy To-Do\u0027s",
+          "cSharpName": "AndyToDoS"
+        },
         {
           "id": "calendar.andy_workouts",
           "friendlyName": "Andy Workouts",
@@ -4306,6 +4336,11 @@
           "jsonName": "supported_features",
           "cSharpName": "SupportedFeatures",
           "clrType": "System.Double"
+        },
+        {
+          "jsonName": "yesterdaily",
+          "cSharpName": "Yesterdaily",
+          "clrType": "System.Boolean"
         }
       ]
     },
@@ -5059,6 +5094,21 @@
           "cSharpName": "GalaxyWatch4X2pv"
         },
         {
+          "id": "device_tracker.garmin_e0aad30f513d",
+          "friendlyName": "garmin:e0aad30f513d",
+          "cSharpName": "GarminE0aad30f513d"
+        },
+        {
+          "id": "device_tracker.garmin_f8b9821aea87",
+          "friendlyName": "garmin:f8b9821aea87",
+          "cSharpName": "GarminF8b9821aea87"
+        },
+        {
+          "id": "device_tracker.garmin_fdf02abee5c6",
+          "friendlyName": "garmin:fdf02abee5c6",
+          "cSharpName": "GarminFdf02abee5c6"
+        },
+        {
           "id": "device_tracker.gen3_gen3",
           "friendlyName": "gen3 gen3",
           "cSharpName": "Gen3Gen3"
@@ -5354,9 +5404,9 @@
           "cSharpName": "N02rf"
         },
         {
-          "id": "device_tracker.name_3020aa5ceb689b96a4",
-          "friendlyName": "name:3020aa5ceb689b96a4",
-          "cSharpName": "Name3020aa5ceb689b96a4"
+          "id": "device_tracker.name_52812ddh",
+          "friendlyName": "name:52812ddh",
+          "cSharpName": "Name52812ddh"
         },
         {
           "id": "device_tracker.name_blinghelmet",
@@ -5364,9 +5414,19 @@
           "cSharpName": "NameBlinghelmet"
         },
         {
+          "id": "device_tracker.name_carback",
+          "friendlyName": "name:carback",
+          "cSharpName": "NameCarback"
+        },
+        {
           "id": "device_tracker.name_ccc3",
           "friendlyName": "name:ccc3",
           "cSharpName": "NameCcc3"
+        },
+        {
+          "id": "device_tracker.name_charge_6",
+          "friendlyName": "name:charge-6",
+          "cSharpName": "NameCharge6"
         },
         {
           "id": "device_tracker.name_dell_mouse",
@@ -5374,9 +5434,19 @@
           "cSharpName": "NameDellMouse"
         },
         {
-          "id": "device_tracker.name_dime3_le",
-          "friendlyName": "name:dime3_le",
-          "cSharpName": "NameDime3Le"
+          "id": "device_tracker.name_e1aa0000",
+          "friendlyName": "name:e1aa0000",
+          "cSharpName": "NameE1aa0000"
+        },
+        {
+          "id": "device_tracker.name_ec03_6153",
+          "friendlyName": "name:ec03_6153",
+          "cSharpName": "NameEc036153"
+        },
+        {
+          "id": "device_tracker.name_epic_air_sport_anc_ble",
+          "friendlyName": "name:epic-air-sport-anc-ble",
+          "cSharpName": "NameEpicAirSportAncBle"
         },
         {
           "id": "device_tracker.name_freelite",
@@ -5384,14 +5454,39 @@
           "cSharpName": "NameFreelite"
         },
         {
-          "id": "device_tracker.name_ibr420_c382",
-          "friendlyName": "name:ibr420-c382",
-          "cSharpName": "NameIbr420C382"
+          "id": "device_tracker.name_gms",
+          "friendlyName": "name:gms",
+          "cSharpName": "NameGms"
         },
         {
-          "id": "device_tracker.name_jbl_tune",
-          "friendlyName": "name:jbl-tune",
-          "cSharpName": "NameJblTune"
+          "id": "device_tracker.name_jbl_tune_flex_le",
+          "friendlyName": "name:jbl-tune-flex-le",
+          "cSharpName": "NameJblTuneFlexLe"
+        },
+        {
+          "id": "device_tracker.name_laird_bl600",
+          "friendlyName": "name:laird-bl600",
+          "cSharpName": "NameLairdBl600"
+        },
+        {
+          "id": "device_tracker.name_ldl_1406934_bac5e272",
+          "friendlyName": "name:ldl-1406934-bac5e272",
+          "cSharpName": "NameLdl1406934Bac5e272"
+        },
+        {
+          "id": "device_tracker.name_le_headset",
+          "friendlyName": "name:le-headset",
+          "cSharpName": "NameLeHeadset"
+        },
+        {
+          "id": "device_tracker.name_le_m51",
+          "friendlyName": "name:le-m51",
+          "cSharpName": "NameLeM51"
+        },
+        {
+          "id": "device_tracker.name_le_philips_tah5205",
+          "friendlyName": "name:le-philips-tah5205",
+          "cSharpName": "NameLePhilipsTah5205"
         },
         {
           "id": "device_tracker.name_le_wf_1000xm4",
@@ -5434,19 +5529,49 @@
           "cSharpName": "NameMi"
         },
         {
-          "id": "device_tracker.name_rtl33350",
-          "friendlyName": "name:rtl33350",
-          "cSharpName": "NameRtl33350"
+          "id": "device_tracker.name_pawfit_hciq7cdf",
+          "friendlyName": "name:pawfit-hciq7cdf",
+          "cSharpName": "NamePawfitHciq7cdf"
         },
         {
-          "id": "device_tracker.name_se5000_0842344960",
-          "friendlyName": "name:se5000-0842344960",
-          "cSharpName": "NameSe50000842344960"
+          "id": "device_tracker.name_rct715",
+          "friendlyName": "name:rct715",
+          "cSharpName": "NameRct715"
         },
         {
-          "id": "device_tracker.name_se5000_1179133952",
-          "friendlyName": "name:se5000-1179133952",
-          "cSharpName": "NameSe50001179133952"
+          "id": "device_tracker.name_rob_s_jbl_fli",
+          "friendlyName": "name:rob-s-jbl-fli",
+          "cSharpName": "NameRobSJblFli"
+        },
+        {
+          "id": "device_tracker.name_se5000_1372399872",
+          "friendlyName": "name:se5000-1372399872",
+          "cSharpName": "NameSe50001372399872"
+        },
+        {
+          "id": "device_tracker.name_se5000_1425876480",
+          "friendlyName": "name:se5000-1425876480",
+          "cSharpName": "NameSe50001425876480"
+        },
+        {
+          "id": "device_tracker.name_se5000_2148346112",
+          "friendlyName": "name:se5000-2148346112",
+          "cSharpName": "NameSe50002148346112"
+        },
+        {
+          "id": "device_tracker.name_sram_123133064",
+          "friendlyName": "name:sram-123133064",
+          "cSharpName": "NameSram123133064"
+        },
+        {
+          "id": "device_tracker.name_wllink_3a41",
+          "friendlyName": "name:wllink-3a41",
+          "cSharpName": "NameWllink3a41"
+        },
+        {
+          "id": "device_tracker.name_wlt_0a802d666e6b",
+          "friendlyName": "name:wlt_0a802d666e6b",
+          "cSharpName": "NameWlt0a802d666e6b"
         },
         {
           "id": "device_tracker.name_xp_pp_04e35a",
@@ -5454,9 +5579,14 @@
           "cSharpName": "NameXpPp04e35a"
         },
         {
-          "id": "device_tracker.name_ysccu_00000020187859",
-          "friendlyName": "name:ysccu_00000020187859",
-          "cSharpName": "NameYsccu00000020187859"
+          "id": "device_tracker.name_ysccu_00000003496274",
+          "friendlyName": "name:ysccu_00000003496274",
+          "cSharpName": "NameYsccu00000003496274"
+        },
+        {
+          "id": "device_tracker.name_ysccu_00000003985158",
+          "friendlyName": "name:ysccu_00000003985158",
+          "cSharpName": "NameYsccu00000003985158"
         },
         {
           "id": "device_tracker.name_yt",
@@ -7616,6 +7746,16 @@
           "cSharpName": "AndySnoringEpisodeCount"
         },
         {
+          "id": "sensor.aura_sensor_v2_battery",
+          "friendlyName": "Aura Sensor V2 Battery",
+          "cSharpName": "AuraSensorV2Battery"
+        },
+        {
+          "id": "sensor.aura_sensor_v2_battery_2",
+          "friendlyName": "Aura Sensor V2 Battery",
+          "cSharpName": "AuraSensorV2Battery2"
+        },
+        {
           "id": "sensor.backup_state",
           "friendlyName": "Backup State",
           "cSharpName": "BackupState"
@@ -7669,6 +7809,11 @@
           "id": "sensor.blue_bin",
           "friendlyName": "Blue bin",
           "cSharpName": "BlueBin"
+        },
+        {
+          "id": "sensor.body_battery",
+          "friendlyName": "Body\u002B Battery",
+          "cSharpName": "BodyBattery"
         },
         {
           "id": "sensor.brother_mfc_j5910dw_cups",
@@ -8192,12 +8337,12 @@
         },
         {
           "id": "sensor.mfc_j5910dw_status",
-          "friendlyName": "MFC-J5910DW Status",
+          "friendlyName": "Status",
           "cSharpName": "MfcJ5910dwStatus"
         },
         {
           "id": "sensor.mfc_j5910dw_uptime",
-          "friendlyName": "MFC-J5910DW Last restart",
+          "friendlyName": "Last restart",
           "cSharpName": "MfcJ5910dwUptime"
         },
         {
@@ -8751,19 +8896,19 @@
           "cSharpName": "SunNextSetting"
         },
         {
-          "id": "sensor.this_device_next_alarm",
+          "id": "sensor.this_device_next_alarm_2",
           "friendlyName": "This Device next Alarm",
-          "cSharpName": "ThisDeviceNextAlarm"
+          "cSharpName": "ThisDeviceNextAlarm2"
         },
         {
-          "id": "sensor.this_device_next_reminder",
+          "id": "sensor.this_device_next_reminder_2",
           "friendlyName": "This Device next Reminder",
-          "cSharpName": "ThisDeviceNextReminder"
+          "cSharpName": "ThisDeviceNextReminder2"
         },
         {
-          "id": "sensor.this_device_next_timer",
+          "id": "sensor.this_device_next_timer_2",
           "friendlyName": "This Device next Timer",
-          "cSharpName": "ThisDeviceNextTimer"
+          "cSharpName": "ThisDeviceNextTimer2"
         },
         {
           "id": "sensor.toilet_switch_action",
@@ -9779,6 +9924,11 @@
           "cSharpName": "AndyFloorsClimbedToday"
         },
         {
+          "id": "sensor.andy_gems",
+          "friendlyName": "Andy Gems",
+          "cSharpName": "AndyGems"
+        },
+        {
           "id": "sensor.andy_gold",
           "friendlyName": "Andy Gold",
           "cSharpName": "AndyGold"
@@ -9867,6 +10017,11 @@
           "id": "sensor.andy_muscle_mass",
           "friendlyName": "Muscle mass",
           "cSharpName": "AndyMuscleMass"
+        },
+        {
+          "id": "sensor.andy_mystic_hourglasses",
+          "friendlyName": "Andy Mystic hourglasses",
+          "cSharpName": "AndyMysticHourglasses"
         },
         {
           "id": "sensor.andy_next_level",
@@ -12030,27 +12185,27 @@
         },
         {
           "id": "sensor.mfc_j5910dw_black_ink_remaining",
-          "friendlyName": "MFC-J5910DW Black ink remaining",
+          "friendlyName": "Black ink remaining",
           "cSharpName": "MfcJ5910dwBlackInkRemaining"
         },
         {
           "id": "sensor.mfc_j5910dw_cyan_ink_remaining",
-          "friendlyName": "MFC-J5910DW Cyan ink remaining",
+          "friendlyName": "Cyan ink remaining",
           "cSharpName": "MfcJ5910dwCyanInkRemaining"
         },
         {
           "id": "sensor.mfc_j5910dw_magenta_ink_remaining",
-          "friendlyName": "MFC-J5910DW Magenta ink remaining",
+          "friendlyName": "Magenta ink remaining",
           "cSharpName": "MfcJ5910dwMagentaInkRemaining"
         },
         {
           "id": "sensor.mfc_j5910dw_page_counter",
-          "friendlyName": "MFC-J5910DW Page counter",
+          "friendlyName": "Page counter",
           "cSharpName": "MfcJ5910dwPageCounter"
         },
         {
           "id": "sensor.mfc_j5910dw_yellow_ink_remaining",
-          "friendlyName": "MFC-J5910DW Yellow ink remaining",
+          "friendlyName": "Yellow ink remaining",
           "cSharpName": "MfcJ5910dwYellowInkRemaining"
         },
         {
@@ -17944,6 +18099,106 @@
           "jsonName": "io.homeassistant.companion.android_-1236111906_post_time",
           "cSharpName": "Io_homeassistant_companion_android1236111906PostTime",
           "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.appInfo_com.google.android.apps.wear.companion_45675467",
+          "cSharpName": "Android_appInfoCom_google_android_apps_wear_companion45675467",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.infoText_com.google.android.apps.wear.companion_45675467",
+          "cSharpName": "Android_infoTextCom_google_android_apps_wear_companion45675467",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon_com.google.android.apps.wear.companion_45675467",
+          "cSharpName": "Android_largeIconCom_google_android_apps_wear_companion45675467",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.progressIndeterminate_com.google.android.apps.wear.companion_45675467",
+          "cSharpName": "Android_progressIndeterminateCom_google_android_apps_wear_companion45675467",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.progressMax_com.google.android.apps.wear.companion_45675467",
+          "cSharpName": "Android_progressMaxCom_google_android_apps_wear_companion45675467",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progress_com.google.android.apps.wear.companion_45675467",
+          "cSharpName": "Android_progressCom_google_android_apps_wear_companion45675467",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.reduced.images_com.google.android.apps.wear.companion_45675467",
+          "cSharpName": "Android_reduced_imagesCom_google_android_apps_wear_companion45675467",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.remoteInputHistory_com.google.android.apps.wear.companion_45675467",
+          "cSharpName": "Android_remoteInputHistoryCom_google_android_apps_wear_companion45675467",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.showChronometer_com.google.android.apps.wear.companion_45675467",
+          "cSharpName": "Android_showChronometerCom_google_android_apps_wear_companion45675467",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_com.google.android.apps.wear.companion_45675467",
+          "cSharpName": "Android_showWhenCom_google_android_apps_wear_companion45675467",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.subText_com.google.android.apps.wear.companion_45675467",
+          "cSharpName": "Android_subTextCom_google_android_apps_wear_companion45675467",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_com.google.android.apps.wear.companion_45675467",
+          "cSharpName": "Android_textCom_google_android_apps_wear_companion45675467",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_com.google.android.apps.wear.companion_45675467",
+          "cSharpName": "Android_titleCom_google_android_apps_wear_companion45675467",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.google.android.apps.wear.companion_45675467_category",
+          "cSharpName": "Com_google_android_apps_wear_companion45675467Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.google.android.apps.wear.companion_45675467_channel_id",
+          "cSharpName": "Com_google_android_apps_wear_companion45675467ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.google.android.apps.wear.companion_45675467_group_id",
+          "cSharpName": "Com_google_android_apps_wear_companion45675467GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.google.android.apps.wear.companion_45675467_is_clearable",
+          "cSharpName": "Com_google_android_apps_wear_companion45675467IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.google.android.apps.wear.companion_45675467_is_ongoing",
+          "cSharpName": "Com_google_android_apps_wear_companion45675467IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.google.android.apps.wear.companion_45675467_post_time",
+          "cSharpName": "Com_google_android_apps_wear_companion45675467PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "3b792539-6837-4733-ab17-16989c64f05e",
+          "cSharpName": "_3b79253968374733ab1716989c64f05e",
+          "clrType": "System.Object"
         }
       ]
     },
@@ -18650,6 +18905,11 @@
           "cSharpName": "LightManagerDiningRoom"
         },
         {
+          "id": "switch.light_manager_dining_room_light",
+          "friendlyName": "Light Manager light.dining_room_light",
+          "cSharpName": "LightManagerDiningRoomLight"
+        },
+        {
           "id": "switch.light_manager_display_cabinet_light",
           "friendlyName": "Light Manager light.display_cabinet_light",
           "cSharpName": "LightManagerDisplayCabinetLight"
@@ -18673,6 +18933,11 @@
           "id": "switch.light_manager_dressing_room_light",
           "friendlyName": "Light Manager light.dressing_room_light",
           "cSharpName": "LightManagerDressingRoomLight"
+        },
+        {
+          "id": "switch.light_manager_electric_cabinet_light",
+          "friendlyName": "Light Manager light.electric_cabinet_light",
+          "cSharpName": "LightManagerElectricCabinetLight"
         },
         {
           "id": "switch.light_manager_guest_room",
@@ -18765,6 +19030,21 @@
           "cSharpName": "LightManagerSnug"
         },
         {
+          "id": "switch.light_manager_snug_lamp",
+          "friendlyName": "Light Manager light.snug_lamp",
+          "cSharpName": "LightManagerSnugLamp"
+        },
+        {
+          "id": "switch.light_manager_snug_led_strip",
+          "friendlyName": "Light Manager light.snug_led_strip",
+          "cSharpName": "LightManagerSnugLedStrip"
+        },
+        {
+          "id": "switch.light_manager_snug_light",
+          "friendlyName": "Light Manager light.snug_light",
+          "cSharpName": "LightManagerSnugLight"
+        },
+        {
           "id": "switch.light_manager_studio",
           "friendlyName": "Light Manager studio",
           "cSharpName": "LightManagerStudio"
@@ -18785,9 +19065,19 @@
           "cSharpName": "LightManagerToilet"
         },
         {
+          "id": "switch.light_manager_toilet_light",
+          "friendlyName": "Light Manager light.toilet_light",
+          "cSharpName": "LightManagerToiletLight"
+        },
+        {
           "id": "switch.light_manager_utility_room",
           "friendlyName": "Light Manager utility room",
           "cSharpName": "LightManagerUtilityRoom"
+        },
+        {
+          "id": "switch.light_manager_utility_room_light",
+          "friendlyName": "Light Manager light.utility_room_light",
+          "cSharpName": "LightManagerUtilityRoomLight"
         },
         {
           "id": "switch.lounge_echo_plus_do_not_disturb_switch",
@@ -19105,9 +19395,9 @@
           "cSharpName": "SumpAlarmRestart"
         },
         {
-          "id": "switch.this_device_do_not_disturb_switch",
+          "id": "switch.this_device_do_not_disturb_switch_2",
           "friendlyName": "This Device do not disturb switch",
-          "cSharpName": "ThisDeviceDoNotDisturbSwitch"
+          "cSharpName": "ThisDeviceDoNotDisturbSwitch2"
         },
         {
           "id": "switch.upstairs_do_not_disturb_switch",
@@ -19544,6 +19834,11 @@
           "id": "todo.shopping_list",
           "friendlyName": "Shopping List",
           "cSharpName": "ShoppingList"
+        },
+        {
+          "id": "todo.woodwork",
+          "friendlyName": "Woodwork",
+          "cSharpName": "Woodwork"
         }
       ],
       "attributes": [
@@ -19658,6 +19953,11 @@
           "id": "update.better_thermostat_ui_update",
           "friendlyName": "Better Thermostat UI update",
           "cSharpName": "BetterThermostatUiUpdate"
+        },
+        {
+          "id": "update.browser_mod_update",
+          "friendlyName": "browser_mod update",
+          "cSharpName": "BrowserModUpdate"
         },
         {
           "id": "update.button_card_update",
@@ -20165,6 +20465,16 @@
           "jsonName": "restored",
           "cSharpName": "Restored",
           "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "display_precision",
+          "cSharpName": "DisplayPrecision",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "update_percentage",
+          "cSharpName": "UpdatePercentage",
+          "clrType": null
         }
       ]
     },

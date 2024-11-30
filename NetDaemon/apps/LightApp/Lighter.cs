@@ -11,8 +11,7 @@ public class Lighter
     public IEnumerable<Entity> BlockEntities { get; set; } = new List<Entity>();
     public required int Timeout { get; set; } = 120;
     public bool RecreateEnabledSwitch { get; set; } = false;
-    public required int Priority { get; set; } = 0;
-    private LightCoordinator _lightCoordinator;
+    public bool Primary { get; set; } = true;
     private IMqttEntityManager _entityManager;
     private IScheduler _scheduler;
     private IHaContext _context;
@@ -26,28 +25,39 @@ public class Lighter
     private DateTime? TurnOnTime { get; set; }
     private DateTime? TurnOffTime { get; set; }
 
-    public async Task Register(LightCoordinator lightCoordinator, IMqttEntityManager entityManager,
+    public async Task Register(IMqttEntityManager entityManager,
         IScheduler scheduler, IHaContext haContext, ILogger<Lighting> logger)
     {
-        _lightCoordinator = lightCoordinator;
         _entityManager = entityManager;
         _scheduler = scheduler;
         _context = haContext;
         _services = new Services(haContext);
         _logger = logger;
         await SetupEnabledSwitch();
-        await EnsureInitialState();
+        EnsureInitialState();
         SubscribePresenceOnEvent();
         SubscribePresenceOffEvent();
         SubscribeBlockers();
     }
 
-    public void SetPriority(int priority)
+    // TODO Add lux sensor that defaults to the weather sataion lux sensor or it can be set
+    // Also add a darkThreshold number sensor with a default of sensor.dark_threshold or it can be set
+    // Subscribe to the lux sensor and if it goes below the darkThreshold, and turn the light on
+
+    private void Watchdog()
     {
-        Priority = priority;
+        // TODO: Add a watchdog for where something has gone wonkey, it shouldn't happen really so ensure we log as much as possible
+        // The watchdog will have a subscription that runs every 5 minutes and checks the state of the light and the presence sensors
+        // If the light is on and there has been no presence for 5 minutes, call the Ensure Initial State method
     }
 
-    private async Task EnsureInitialState()
+    private void SubscribeRoomMode()
+    {
+        // TODO: Subscribe to the room mode select entity, this will not only control what happens with motion and presence
+        // but will also potentially turn a light on or off and set blocks
+    }
+
+    private void EnsureInitialState()
     {
         // TODO we need to bring in the location, room mode, light mode, etc. to determine the initial state
         // Also things like if the light and tv are left on, should we not turn them off if there is no presence?
@@ -63,7 +73,7 @@ public class Lighter
                     return;
                 }
                 _logger.LogInformation("Initial state {light} is off but there is presence detected {states}, Turning On", Light.EntityId, presenceStates);
-                await TurnOnEntities("Initial State");
+                TurnOnEntities("Initial State");
                 return;
             }
             else if (Light.IsOn())
@@ -90,7 +100,7 @@ public class Lighter
     private void SubscribeBlockers()
     {
         BlockEntities.StateAllChanges()
-        .SelectMany(async e =>
+        .Subscribe(e =>
         {
             if (e.New.IsOn())
             {
@@ -104,18 +114,16 @@ public class Lighter
             {
                 if (Light.IsOff() && TriggerSensors.Union(PresenceSensors).Any(s => s.IsOn()))
                 {
-                    _logger.LogInformation("{light} is unblocked by {blocker} and presence detected", Light.EntityId, e.New.EntityId);
-                    await TurnOnEntities(e.New?.EntityId);
+                    _logger.LogInformation("{light} is unblocked by {blocker} and presence detected", Light.EntityId, e?.New?.EntityId);
+                    TurnOnEntities(e?.New?.EntityId);
                 }
                 else if (Light.IsOn() && TriggerSensors.Union(PresenceSensors).All(s => s.IsOff()))
                 {
-                    _logger.LogInformation("{light} is unblocked by {blocker} and no presence detected", Light.EntityId, e.New.EntityId);
-                    TurnOffEntities(e.New?.EntityId);
+                    _logger.LogInformation("{light} is unblocked by {blocker} and no presence detected", Light.EntityId, e?.New?.EntityId);
+                    TurnOffEntities(e?.New?.EntityId);
                 }
             }
-            return Unit.Default;
-        })
-        .Subscribe();
+        });
     }
 
     private async Task SetupEnabledSwitch()
@@ -156,13 +164,11 @@ public class Lighter
         PresenceSensors.StateAllChanges()
         .Merge(TriggerSensors.StateAllChanges())
         .Where(e => e.New.IsOn())
-        .SelectMany(async e =>
+        .Subscribe(e =>
         {
             _logger.LogTrace("{light} Presence On Event {entity}", Light.EntityId, e.New?.EntityId);
-            await TurnOnEntities(e.New?.EntityId);
-            return Unit.Default;
-        })
-        .Subscribe();
+            TurnOnEntities(e.New?.EntityId);
+        });
     }
     
     private void SubscribePresenceOffEvent()
@@ -221,14 +227,8 @@ public class Lighter
         });
     }
 
-    private async Task TurnOnEntities(string? trigger)
+    private void TurnOnEntities(string? trigger)
     {
-        // Delay the turn on based on the priority this just ensures only the light(s) we want come on.
-        var priorityDelay = Priority * 0.5; // seconds
-        if (priorityDelay > 0)
-        {
-            await Task.Delay(TimeSpan.FromSeconds(priorityDelay));
-        }
         if (_turnOffDisposable != null)
         {
             _turnOffDisposable.Dispose();
@@ -251,14 +251,18 @@ public class Lighter
             return;
         }
 
-        TurnOnTime = DateTime.Now;
-        var triggerMsg = $"triggered by {trigger ?? "UNKNOWN"}";
-        var logMessage = $"{Light.EntityId} Turned On at {TurnOnTime:G} at {triggerMsg}";
-        _logger.LogInformation(logMessage);
-        Light.TurnOn();
-        LogInLogbook(Light, logMessage);
-        UpdateAttributes(logMessage);
-        WaitAllTasks();
+        // Delay the turn on based on the priority this just ensures only the light(s) we want come on.
+        if (Primary)
+        {
+            Light.TurnOn();
+            TurnOnTime = DateTime.Now;
+            var triggerMsg = $"triggered by {trigger ?? "UNKNOWN"}";
+            var logMessage = $"{Light.EntityId} Turned On at {TurnOnTime:G} at {triggerMsg}";
+            _logger.LogInformation(logMessage);
+            LogInLogbook(Light, logMessage);
+            UpdateAttributes(logMessage);
+            WaitAllTasks();
+        }
     }
 
     private void UpdateAttributes(string? logMessage = null)
