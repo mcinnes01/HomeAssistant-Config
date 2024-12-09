@@ -6,9 +6,11 @@ namespace NetDaemon.apps.LightApp;
 public class Lighter
 {
     public required LightEntity Light { get; set; }
-    public IEnumerable<BinarySensorEntity> PresenceSensors { get; set; } = new List<BinarySensorEntity>();
+    public IEnumerable<BinarySensorEntity> PresenceEntities { get; set; } = new List<BinarySensorEntity>();
     public IEnumerable<BinarySensorEntity> TriggerSensors { get; set; }  = new List<BinarySensorEntity>();
     public IEnumerable<Entity> BlockEntities { get; set; } = new List<Entity>();
+    public Entity? ConditionEntity { get; set; }
+    public string? ConditionEntityState { get; set; }
     public required int Timeout { get; set; } = 120;
     public bool RecreateEnabledSwitch { get; set; } = false;
     public bool Primary { get; set; } = true;
@@ -37,6 +39,7 @@ public class Lighter
         EnsureInitialState();
         SubscribePresenceOnEvent();
         SubscribePresenceOffEvent();
+        SubscribeConditionStateChange();
         SubscribeBlockers();
     }
 
@@ -62,23 +65,23 @@ public class Lighter
         // TODO we need to bring in the location, room mode, light mode, etc. to determine the initial state
         // Also things like if the light and tv are left on, should we not turn them off if there is no presence?
         // The tv could be controlled by it's own thing, maybe even a room manager that then feeds in to this
-        var presenceStates = TriggerSensors.Union(PresenceSensors).Select(s => new { s.EntityId, IsOn = s.IsOn() });
+        var presenceStates = TriggerSensors.Union(PresenceEntities).Select(s => new { s.EntityId, IsOn = s.IsOn() });
         if (BlockEntities.All(b => !b.IsOn()))
         {
             if (presenceStates.Any(s => s.IsOn))
             {
                 if (Light.IsOn())
                 {
-                    _logger.LogInformation("Initial state prescense detected {states} and {light} is already on", presenceStates, Light.EntityId);
+                    _logger.LogInformation("Initial state prescense detected {@states} and {light} is already on", presenceStates, Light.EntityId);
                     return;
                 }
-                _logger.LogInformation("Initial state {light} is off but there is presence detected {states}, Turning On", Light.EntityId, presenceStates);
+                _logger.LogInformation("Initial state {light} is off but there is presence detected {@states}, Turning On", Light.EntityId, presenceStates);
                 TurnOnEntities("Initial State");
                 return;
             }
             else if (Light.IsOn())
             {
-                _logger.LogInformation("Initial state {light} is on but there is no presence detected {states}, Turning Off", Light.EntityId, presenceStates);
+                _logger.LogInformation("Initial state {light} is on but there is no presence detected {@states}, Turning Off", Light.EntityId, presenceStates);
                 TurnOffEntities("Initial State");
             }
         }
@@ -97,27 +100,42 @@ public class Lighter
         }
     }
 
+    private void SubscribeConditionStateChange()
+    {
+        ConditionEntity?.StateAllChanges()
+        .Subscribe(e =>
+        {
+            if (e.Old?.State != ConditionEntityState && e.New?.State == ConditionEntityState && Light.IsOff())
+            {
+                _logger.LogInformation("Condition has been met {Condition} {ConditionState}", ConditionEntity?.EntityId, ConditionEntityState);
+                TurnOnEntities(e.New?.EntityId);
+            }
+            else if (e.Old?.State == ConditionEntityState && e.New?.State != ConditionEntityState && Light.IsOn())
+            {
+                _logger.LogInformation("Condition has been removed {Condition} {ConditionState}", ConditionEntity?.EntityId, ConditionEntityState);
+                TurnOffEntities(e.New?.EntityId);
+            }
+        });
+    }
+
     private void SubscribeBlockers()
     {
         BlockEntities.StateAllChanges()
         .Subscribe(e =>
         {
-            if (e.New.IsOn())
+            if (!e.Old.IsOn() && e.New.IsOn() && Light.IsOn())
             {
-                if (Light.IsOn())
-                {
-                    _logger.LogInformation("{light} is blocked by {blocker}", Light.EntityId, e.New.EntityId);
-                    TurnOffEntities(e.New?.EntityId);
-                }
+                _logger.LogInformation("{light} is blocked by {blocker}", Light.EntityId, e.New.EntityId);
+                TurnOffEntities(e.New?.EntityId);
             }
             else if (e.Old.IsOn() && !e.New.IsOn())
             {
-                if (Light.IsOff() && TriggerSensors.Union(PresenceSensors).Any(s => s.IsOn()))
+                if (Light.IsOff() && TriggerSensors.Union(PresenceEntities).Any(s => s.IsOn()))
                 {
                     _logger.LogInformation("{light} is unblocked by {blocker} and presence detected", Light.EntityId, e?.New?.EntityId);
                     TurnOnEntities(e?.New?.EntityId);
                 }
-                else if (Light.IsOn() && TriggerSensors.Union(PresenceSensors).All(s => s.IsOff()))
+                else if (Light.IsOn() && TriggerSensors.Union(PresenceEntities).All(s => s.IsOff()))
                 {
                     _logger.LogInformation("{light} is unblocked by {blocker} and no presence detected", Light.EntityId, e?.New?.EntityId);
                     TurnOffEntities(e?.New?.EntityId);
@@ -161,7 +179,7 @@ public class Lighter
     private void SubscribePresenceOnEvent()
     {
         _logger.LogDebug("{light} Subscribed to Presence On Events", Light.EntityId);
-        PresenceSensors.StateAllChanges()
+        PresenceEntities.StateAllChanges()
         .Merge(TriggerSensors.StateAllChanges())
         .Where(e => e.New.IsOn())
         .Subscribe(e =>
@@ -175,12 +193,12 @@ public class Lighter
     {
         _logger.LogDebug("{light} Subscribed to Presence Off Events", Light.EntityId);
 
-        PresenceSensors.StateAllChanges()
+        PresenceEntities.StateAllChanges()
         .Merge(TriggerSensors.StateAllChanges())
-        .Where(_ => TriggerSensors.Union(PresenceSensors).All(s => !s.IsOff()))
+        .Where(_ => TriggerSensors.Union(PresenceEntities).All(s => !s.IsOn()))
         .Subscribe(e =>
         {
-            var states = TriggerSensors.Union(PresenceSensors).Select(s => new { s.EntityId, s.State });
+            var states = TriggerSensors.Union(PresenceEntities).Select(s => new { s.EntityId, s.State });
             _logger.LogTrace("{light} Presence Off Event {entity} {states}", Light.EntityId, e.New?.EntityId, states);
             TurnOffEntities(e.New?.EntityId);
         });
@@ -198,6 +216,11 @@ public class Lighter
             _logger.LogTrace("Can't Turn Off {light} with {trigger}, because manager is disabled", Light.EntityId, trigger);
             return;
         }
+        if(ConditionEntity != null && ConditionEntityState != null && ConditionEntity?.State == ConditionEntityState)
+        {
+            _logger.LogTrace("Can't Turn Off {light} with {trigger}, because condition {ConditionEntity} {Condition} is keeping it on", Light.EntityId, trigger, ConditionEntity?.EntityId, ConditionEntityState);
+            return;
+        }
         if (!force && BlockEntities.Any(b => b.State != null && _onStates.Contains(b.State)))
         {
             _logger.LogTrace("Can't Turn Off {light} with {trigger}, because block entity is on", Light.EntityId,
@@ -207,6 +230,11 @@ public class Lighter
         if (Light.IsOff())
         {
             _logger.LogTrace("{light} is already off", Light.EntityId);
+            return;
+        }
+        if (TriggerSensors.Union(PresenceEntities).Any(s => s.IsOn()))
+        {
+            _logger.LogTrace("{light} is on but there is presence detected, not turning off", Light.EntityId);
             return;
         }
 
@@ -239,6 +267,11 @@ public class Lighter
             _logger.LogTrace("Can't Turn On {light} with {trigger}, because manager is disabled", Light.EntityId, trigger);
             return;
         }
+        if(ConditionEntity != null && ConditionEntityState != null && ConditionEntity?.State != ConditionEntityState)
+        {
+            _logger.LogTrace("Can't Turn On {light} with {trigger}, because condition is not met {Condition} {CondiditionState}", Light.EntityId, trigger, ConditionEntity?.EntityId, ConditionEntityState);
+            return;
+        }
         if (BlockEntities.Any(b => b.State != null && _onStates.Contains(b.State)))
         {
             _logger.LogTrace("Can't Turn On {light} with {trigger}, because block entity is on", Light.EntityId,
@@ -251,7 +284,6 @@ public class Lighter
             return;
         }
 
-        // Delay the turn on based on the priority this just ensures only the light(s) we want come on.
         if (Primary)
         {
             Light.TurnOn();
@@ -274,6 +306,9 @@ public class Lighter
             IsTurningOff = TurnOffTime > DateTime.Now,
             Light.State,
             Details = logMessage,
+            ConditionEntity = ConditionEntity?.EntityId ?? "N/A",
+            ConditionEntityState = ConditionEntity?.State ?? "N/A",
+            ConditionState = ConditionEntityState ?? "N/A",
             LastUpdated = DateTime.Now.ToString("G")
         };
         Tasks.Add(_entityManager.SetAttributesAsync(_enabledSwitch, attributes));

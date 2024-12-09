@@ -141,27 +141,27 @@ NetDaemon.apps.LightApp.LighterConfig:
       TriggerSensors:
         - binary_sensor.guest_room_motion
       PresenceEntities:
-        - input_boolean.guest_room_occupancy
+        - binary_sensor.guest_room_occupancy
       Lights:
         - Light: light.guest_room_light
           Timeout: 30
           TriggerSensors:
             - binary_sensor.guest_room_motion
           PresenceEntities:
-            - input_boolean.guest_room_occupancy
+            - binary_sensor.guest_room_occupancy
           BlockEntities:
             - light.guest_room_lamp
-            - input_boolean.guest_room_bed_occupancy
+            - binary_sensor.guest_room_bed_occupancy
         - Light: light.guest_room_lamp
           Timeout: 30
           Primary: false
           TriggerSensors:
             - binary_sensor.guest_room_motion
           PresenceEntities:
-            - input_boolean.guest_room_occupancy
+            - binary_sensor.guest_room_occupancy
           BlockEntities:
             - light.guest_room_light
-            - input_boolean.guest_room_bed_occupancy
+            - binary_sensor.guest_room_bed_occupancy
     - Name: dressing_room
       TriggerSensors:
         - binary_sensor.dressing_room_motion
@@ -181,7 +181,7 @@ NetDaemon.apps.LightApp.LighterConfig:
             - binary_sensor.bedroom_motion
           BlockEntities:
             - light.bedroom_lamp
-            - input_boolean.andy_in_bed
+            - binary_sensor.andy_in_bed
             - binary_sensor.claire_in_bed
         - Light: light.bedroom_lamp
           Timeout: 120
@@ -190,7 +190,7 @@ NetDaemon.apps.LightApp.LighterConfig:
             - binary_sensor.bedroom_motion
           BlockEntities:
             - light.bedroom_light
-            - input_boolean.andy_in_bed
+            - binary_sensor.andy_in_bed
             - binary_sensor.claire_in_bed
     - Name: landing
       TriggerSensors:
@@ -289,14 +289,14 @@ NetDaemon.apps.LightApp.LighterConfig:
       TriggerSensors:
         - binary_sensor.snug_motion
       PresenceEntities:
-        - input_boolean.snug_occupancy
+        - binary_sensor.snug_occupancy
       Lights:
         - Light: light.snug_light
           Timeout: 30
           TriggerSensors:
             - binary_sensor.snug_motion
           PresenceEntities:
-            - input_boolean.snug_occupancy
+            - binary_sensor.snug_occupancy
           BlockEntities:
             - light.snug_led_strip
             - light.snug_lamp
@@ -307,7 +307,7 @@ NetDaemon.apps.LightApp.LighterConfig:
           TriggerSensors:
             - binary_sensor.snug_motion
           PresenceEntities:
-            - input_boolean.snug_occupancy
+            - binary_sensor.snug_occupancy
           BlockEntities:
             - light.snug_led_strip
             - light.snug_light
@@ -318,7 +318,7 @@ NetDaemon.apps.LightApp.LighterConfig:
           TriggerSensors:
             - binary_sensor.snug_motion
           PresenceEntities:
-            - input_boolean.snug_occupancy
+            - binary_sensor.snug_occupancy
           BlockEntities:
             - light.snug_light
             - light.snug_lamp
