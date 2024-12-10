@@ -49,8 +49,9 @@ NetDaemon.apps.LightApp.LighterConfig:
             - binary_sensor.issunset
     - Name: kitchen
       PresenceSensors:
-        - binary_sensor.kitchen_camera_person_detected
+        - binary_sensor.kitchen_occupancy
       TriggerSensors:
+        - binary_sensor.kitchen_camera_person_detected
         - binary_sensor.kitchen_motion
         - binary_sensor.back_door
       Lights:
@@ -58,8 +59,9 @@ NetDaemon.apps.LightApp.LighterConfig:
           Primary: false
           Timeout: 120
           PresenceSensors:
-            - binary_sensor.kitchen_camera_person_detected
+            - binary_sensor.breakfast_bar_presence
           TriggerSensors:
+            - binary_sensor.kitchen_camera_person_detected
             - binary_sensor.kitchen_motion
             - binary_sensor.back_door
           BlockEntities:
@@ -67,8 +69,9 @@ NetDaemon.apps.LightApp.LighterConfig:
         - Light: light.kitchen_light
           Timeout: 120
           PresenceSensors:
-            - binary_sensor.kitchen_camera_person_detected
+            - binary_sensor.kitchen_occupancy
           TriggerSensors:
+            - binary_sensor.kitchen_camera_person_detected
             - binary_sensor.kitchen_motion
             - binary_sensor.back_door
           BlockEntities:
@@ -140,14 +143,14 @@ NetDaemon.apps.LightApp.LighterConfig:
       IsBedroom: true
       TriggerSensors:
         - binary_sensor.guest_room_motion
-      PresenceEntities:
+      PresenceSensors:
         - binary_sensor.guest_room_occupancy
       Lights:
         - Light: light.guest_room_light
           Timeout: 30
           TriggerSensors:
             - binary_sensor.guest_room_motion
-          PresenceEntities:
+          PresenceSensors:
             - binary_sensor.guest_room_occupancy
           BlockEntities:
             - light.guest_room_lamp
@@ -157,7 +160,7 @@ NetDaemon.apps.LightApp.LighterConfig:
           Primary: false
           TriggerSensors:
             - binary_sensor.guest_room_motion
-          PresenceEntities:
+          PresenceSensors:
             - binary_sensor.guest_room_occupancy
           BlockEntities:
             - light.guest_room_light
@@ -275,27 +278,27 @@ NetDaemon.apps.LightApp.LighterConfig:
     - Name: basement_hall
       TriggerSensors:
         - binary_sensor.basement_hall_motion
-      PresenceSensors:
+        - binary_sensor.basement_stairs_motion
         - binary_sensor.basement_hall_camera_person_detected
       Lights:
-        - Light: light.utility_room_light
+        - Light: light.basement_hall_light
           Timeout: 120
           TriggerSensors:
             - binary_sensor.basement_hall_motion
-          PresenceSensors:
+            - binary_sensor.basement_stairs_motion
             - binary_sensor.basement_hall_camera_person_detected
     - Name: snug
       IsBedroom: true
       TriggerSensors:
         - binary_sensor.snug_motion
-      PresenceEntities:
+      PresenceSensors:
         - binary_sensor.snug_occupancy
       Lights:
         - Light: light.snug_light
           Timeout: 30
           TriggerSensors:
             - binary_sensor.snug_motion
-          PresenceEntities:
+          PresenceSensors:
             - binary_sensor.snug_occupancy
           BlockEntities:
             - light.snug_led_strip
@@ -306,7 +309,7 @@ NetDaemon.apps.LightApp.LighterConfig:
           Primary: false
           TriggerSensors:
             - binary_sensor.snug_motion
-          PresenceEntities:
+          PresenceSensors:
             - binary_sensor.snug_occupancy
           BlockEntities:
             - light.snug_led_strip
@@ -317,7 +320,7 @@ NetDaemon.apps.LightApp.LighterConfig:
           Primary: 2
           TriggerSensors:
             - binary_sensor.snug_motion
-          PresenceEntities:
+          PresenceSensors:
             - binary_sensor.snug_occupancy
           BlockEntities:
             - light.snug_light

@@ -34,7 +34,7 @@ Manager
     private bool AllControlEntitiesAreOff => AllControlEntities.All(e => e.IsOff());
     public bool IsNightLight { get; set; }
     private bool IsNightMode => IsBedroom ? RoomMode!.IsSleeping() : _lightControlMode.IsSleeping();
-    private bool IsOccupied => PresenceEntities.Union(KeepAliveEntities).Any(entity => entity.IsOn() || _onStates.Contains(entity.State!));
+    private bool IsOccupied => PresenceSensors.Union(KeepAliveEntities).Any(entity => entity.IsOn() || _onStates.Contains(entity.State!));
     private bool IsTooBright => LuxEntity != null && ( LuxLimitEntity != null ? LuxEntity.State >= LuxLimitEntity.State : LuxEntity.State >= LuxLimit );
     public bool Watchdog { get; set; } = true;
     public Entity? ConditionEntity { get; set; }
@@ -45,7 +45,7 @@ Manager
     public int? LuxLimit { get; set; }
     public List<Entity> SupressionEntities { get; init; } = [];
     public List<BinarySensorEntity> KeepAliveEntities { get; init; } = [];
-    public List<BinarySensorEntity> PresenceEntities { get; init; } = [];
+    public List<BinarySensorEntity> PresenceSensors { get; init; } = [];
     private IEnumerable<LightEntity> AllControlEntities => ControlEntities.Union(NightControlEntities).Union(MonitorEntities).ToList();
     public List<LightEntity> ControlEntities { get; init; } = [];
     private List<LightEntity> MonitorEntities { get; } = [];
@@ -344,7 +344,7 @@ Manager
     private void SubscribePresenceOffEvent()
     {
         _logger.LogDebug("{room} Subscribed to Presence Off Events", _entityName);
-        PresenceEntities
+        PresenceSensors
             .Union(KeepAliveEntities)
             .StateChanges()
             .Throttle(_ => Observable.Timer(DynamicTimeout, _scheduler))
@@ -364,7 +364,7 @@ Manager
                 WaitAllTasks();
             });
 
-        PresenceEntities
+        PresenceSensors
             .Union(KeepAliveEntities)
             .StateChanges()
             .Where(_ => !IsOccupied)
@@ -379,7 +379,7 @@ Manager
     private void SubscribePresenceOnEvent()
     {
         _logger.LogDebug("{room} Subscribed to Presence On Events", _entityName);
-        PresenceEntities.StateAllChanges()
+        PresenceSensors.StateAllChanges()
             .Where(e => e.New.IsOn())
             .Subscribe(e =>
             {

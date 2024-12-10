@@ -3,11 +3,11 @@ namespace NetDaemon.apps.LightApp;
 using NetDaemon.Extensions.MqttEntityManager;
 #pragma warning disable CS8618 
 
-public class Roomer
+public class RoomControl
 {
     public required string Name { get; set; }
     public bool IsBedroom { get; set; } = false;
-    public required IEnumerable<Lighter> Lights { get; set; }
+    public required IEnumerable<LightControl> Lights { get; set; }
     public required IEnumerable<BinarySensorEntity> PresenceSensors { get; set; }
     public required IEnumerable<BinarySensorEntity> TriggerSensors { get; set; }
     public bool RecreateRoomMode { get; set; } = false;
@@ -16,9 +16,9 @@ public class Roomer
     private IMqttEntityManager _entityManager;
     private IScheduler _scheduler;
     private IHaContext _context;
-    private ILogger<Lighting> _logger;
+    private ILogger<LightingManager> _logger;
    
-    public async Task Register(IMqttEntityManager entityManager, IScheduler scheduler, IHaContext haContext, ILogger<Lighting> logger)
+    public async Task Register(IMqttEntityManager entityManager, IScheduler scheduler, IHaContext haContext, ILogger<LightingManager> logger)
     {
         _entityManager = entityManager;
         _scheduler = scheduler;

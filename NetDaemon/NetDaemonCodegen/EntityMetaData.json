@@ -30,7 +30,7 @@
         },
         {
           "id": "light.basement_stairs_light",
-          "friendlyName": null,
+          "friendlyName": "Basement Stairs Light",
           "cSharpName": "BasementStairsLight"
         },
         {
@@ -577,7 +577,7 @@
         },
         {
           "id": "media_player.controller_00_04_20_26_74_45",
-          "friendlyName": "controller: 00:04:20:26:74:45",
+          "friendlyName": "Dining Room Radi",
           "cSharpName": "Controller000420267445"
         },
         {
@@ -592,12 +592,12 @@
         },
         {
           "id": "media_player.dining_room_radi",
-          "friendlyName": null,
+          "friendlyName": "Dining Room Radi",
           "cSharpName": "DiningRoomRadi"
         },
         {
           "id": "media_player.dining_room_radio",
-          "friendlyName": null,
+          "friendlyName": "Dining Room Radi",
           "cSharpName": "DiningRoomRadio"
         },
         {
@@ -1588,12 +1588,12 @@
         },
         {
           "id": "binary_sensor.192_168_1_1_library_rescan",
-          "friendlyName": "Library rescan",
+          "friendlyName": "192.168.1.1 Library rescan",
           "cSharpName": "_19216811LibraryRescan"
         },
         {
           "id": "binary_sensor.192_168_1_1_needs_restart",
-          "friendlyName": "Needs restart",
+          "friendlyName": "192.168.1.1 Needs restart",
           "cSharpName": "_19216811NeedsRestart"
         },
         {
@@ -1997,6 +1997,11 @@
           "cSharpName": "Bl2Unused4Overcurrent"
         },
         {
+          "id": "binary_sensor.breakfast_bar_presence",
+          "friendlyName": "Breakfast Bar Presence",
+          "cSharpName": "BreakfastBarPresence"
+        },
+        {
           "id": "binary_sensor.brewery_light_input",
           "friendlyName": "Brewery Light Input",
           "cSharpName": "BreweryLightInput"
@@ -2285,6 +2290,11 @@
           "id": "binary_sensor.fence_lights_overvoltage",
           "friendlyName": "Fence Lights overvoltage",
           "cSharpName": "FenceLightsOvervoltage"
+        },
+        {
+          "id": "binary_sensor.fridge_presence",
+          "friendlyName": "Fridge Presence",
+          "cSharpName": "FridgePresence"
         },
         {
           "id": "binary_sensor.front_door_battery_low",
@@ -2652,6 +2662,16 @@
           "cSharpName": "KitchenMotionSensors"
         },
         {
+          "id": "binary_sensor.kitchen_occupancy",
+          "friendlyName": "Kitchen Occupancy",
+          "cSharpName": "KitchenOccupancy"
+        },
+        {
+          "id": "binary_sensor.kitchen_sink_presence",
+          "friendlyName": "Kitchen Sink Presence",
+          "cSharpName": "KitchenSinkPresence"
+        },
+        {
           "id": "binary_sensor.landing_light_overheating",
           "friendlyName": "Upstairs Spare Light overheating",
           "cSharpName": "LandingLightOverheating"
@@ -2675,6 +2695,11 @@
           "id": "binary_sensor.landing_motion",
           "friendlyName": "Landing Motion",
           "cSharpName": "LandingMotion"
+        },
+        {
+          "id": "binary_sensor.larder_presence",
+          "friendlyName": "Larder Presence",
+          "cSharpName": "LarderPresence"
         },
         {
           "id": "binary_sensor.loft_hatch_battery_low",
@@ -3068,7 +3093,7 @@
         },
         {
           "id": "binary_sensor.pixel_watch_wifi_state",
-          "friendlyName": "Pixel Watch WiFi state",
+          "friendlyName": "Pixel Watch Wi-Fi state",
           "cSharpName": "PixelWatchWifiState"
         },
         {
@@ -3460,6 +3485,11 @@
           "id": "binary_sensor.store_light_overcurrent",
           "friendlyName": "Store Light overcurrent",
           "cSharpName": "StoreLightOvercurrent"
+        },
+        {
+          "id": "binary_sensor.stove_presence",
+          "friendlyName": "Stove Presence",
+          "cSharpName": "StovePresence"
         },
         {
           "id": "binary_sensor.studio_lamp_overcurrent",
@@ -4147,6 +4177,11 @@
           "id": "button.kitchen_air_quality_identify",
           "friendlyName": "Kitchen Air Quality Identify",
           "cSharpName": "KitchenAirQualityIdentify"
+        },
+        {
+          "id": "button.kitchen_fp2_identify",
+          "friendlyName": "Kitchen FP2 Identify",
+          "cSharpName": "KitchenFp2Identify"
         },
         {
           "id": "button.kitchen_switch_identify",
@@ -5570,7 +5605,7 @@
         },
         {
           "id": "device_tracker.name_dell_mouse",
-          "friendlyName": null,
+          "friendlyName": "name:dell-mouse",
           "cSharpName": "NameDellMouse"
         },
         {
@@ -5604,6 +5639,16 @@
           "cSharpName": "NameLeWh1000xm4"
         },
         {
+          "id": "device_tracker.name_le_wh_1000xm5",
+          "friendlyName": "name:le_wh-1000xm5",
+          "cSharpName": "NameLeWh1000xm5"
+        },
+        {
+          "id": "device_tracker.name_le_wh_xb910n",
+          "friendlyName": "name:le_wh-xb910n",
+          "cSharpName": "NameLeWhXb910n"
+        },
+        {
           "id": "device_tracker.name_lubica_s_jbl",
           "friendlyName": null,
           "cSharpName": "NameLubicaSJbl"
@@ -5632,6 +5677,11 @@
           "id": "device_tracker.name_se5000_2935564032",
           "friendlyName": null,
           "cSharpName": "NameSe50002935564032"
+        },
+        {
+          "id": "device_tracker.name_se5000_4216858368",
+          "friendlyName": "name:se5000-4216858368",
+          "cSharpName": "NameSe50004216858368"
         },
         {
           "id": "device_tracker.name_xp_pp_04e35a",
@@ -7717,7 +7767,7 @@
         },
         {
           "id": "sensor.192_168_1_1_last_scan",
-          "friendlyName": "Last scan",
+          "friendlyName": "192.168.1.1 Last scan",
           "cSharpName": "_19216811LastScan"
         },
         {
@@ -8037,12 +8087,12 @@
         },
         {
           "id": "sensor.epson_xp_950_series",
-          "friendlyName": null,
+          "friendlyName": "EPSON XP-950 Series",
           "cSharpName": "EpsonXp950Series"
         },
         {
           "id": "sensor.epson_xp_950_series_uptime",
-          "friendlyName": "Uptime",
+          "friendlyName": "EPSON XP-950 Series Uptime",
           "cSharpName": "EpsonXp950SeriesUptime"
         },
         {
@@ -8687,12 +8737,12 @@
         },
         {
           "id": "sensor.pixel_watch_wifi_connection",
-          "friendlyName": "Pixel Watch WiFi connection",
+          "friendlyName": "Pixel Watch Wi-Fi connection",
           "cSharpName": "PixelWatchWifiConnection"
         },
         {
           "id": "sensor.pixel_watch_wifi_ip_address",
-          "friendlyName": "Pixel Watch WiFi IP address",
+          "friendlyName": "Pixel Watch Wi-Fi IP address",
           "cSharpName": "PixelWatchWifiIpAddress"
         },
         {
@@ -9771,6 +9821,11 @@
           "jsonName": "1ca92e23-f087-4df7-b9a2-fd4b716a4bf6_2495_0",
           "cSharpName": "_1ca92e23f0874df7b9a2fd4b716a4bf624950",
           "clrType": "System.Double"
+        },
+        {
+          "jsonName": "1ca92e23-f087-4df7-b9a2-fd4b716a4bf6_2504_0",
+          "cSharpName": "_1ca92e23f0874df7b9a2fd4b716a4bf625040",
+          "clrType": "System.Double"
         }
       ]
     },
@@ -9795,37 +9850,37 @@
         },
         {
           "id": "sensor.192_168_1_1_player_count",
-          "friendlyName": "Player count",
+          "friendlyName": "192.168.1.1 Player count",
           "cSharpName": "_19216811PlayerCount"
         },
         {
           "id": "sensor.192_168_1_1_player_count_off_service",
-          "friendlyName": "Player count off service",
+          "friendlyName": "192.168.1.1 Player count off service",
           "cSharpName": "_19216811PlayerCountOffService"
         },
         {
           "id": "sensor.192_168_1_1_total_albums",
-          "friendlyName": "Total albums",
+          "friendlyName": "192.168.1.1 Total albums",
           "cSharpName": "_19216811TotalAlbums"
         },
         {
           "id": "sensor.192_168_1_1_total_artists",
-          "friendlyName": "Total artists",
+          "friendlyName": "192.168.1.1 Total artists",
           "cSharpName": "_19216811TotalArtists"
         },
         {
           "id": "sensor.192_168_1_1_total_duration",
-          "friendlyName": "Total duration",
+          "friendlyName": "192.168.1.1 Total duration",
           "cSharpName": "_19216811TotalDuration"
         },
         {
           "id": "sensor.192_168_1_1_total_genres",
-          "friendlyName": "Total genres",
+          "friendlyName": "192.168.1.1 Total genres",
           "cSharpName": "_19216811TotalGenres"
         },
         {
           "id": "sensor.192_168_1_1_total_songs",
-          "friendlyName": "Total songs",
+          "friendlyName": "192.168.1.1 Total songs",
           "cSharpName": "_19216811TotalSongs"
         },
         {
@@ -11225,32 +11280,32 @@
         },
         {
           "id": "sensor.epson_xp_950_series_black_ink",
-          "friendlyName": "Black ink",
+          "friendlyName": "EPSON XP-950 Series Black ink",
           "cSharpName": "EpsonXp950SeriesBlackInk"
         },
         {
           "id": "sensor.epson_xp_950_series_cyan_ink",
-          "friendlyName": "Cyan ink",
+          "friendlyName": "EPSON XP-950 Series Cyan ink",
           "cSharpName": "EpsonXp950SeriesCyanInk"
         },
         {
           "id": "sensor.epson_xp_950_series_light_cyan_ink",
-          "friendlyName": "Light Cyan ink",
+          "friendlyName": "EPSON XP-950 Series Light Cyan ink",
           "cSharpName": "EpsonXp950SeriesLightCyanInk"
         },
         {
           "id": "sensor.epson_xp_950_series_light_magenta_ink",
-          "friendlyName": "Light Magenta ink",
+          "friendlyName": "EPSON XP-950 Series Light Magenta ink",
           "cSharpName": "EpsonXp950SeriesLightMagentaInk"
         },
         {
           "id": "sensor.epson_xp_950_series_magenta_ink",
-          "friendlyName": "Magenta ink",
+          "friendlyName": "EPSON XP-950 Series Magenta ink",
           "cSharpName": "EpsonXp950SeriesMagentaInk"
         },
         {
           "id": "sensor.epson_xp_950_series_yellow_ink",
-          "friendlyName": "Yellow ink",
+          "friendlyName": "EPSON XP-950 Series Yellow ink",
           "cSharpName": "EpsonXp950SeriesYellowInk"
         },
         {
@@ -12197,6 +12252,11 @@
           "id": "sensor.kitchen_camera_storage_used",
           "friendlyName": "Kitchen Camera Storage used",
           "cSharpName": "KitchenCameraStorageUsed"
+        },
+        {
+          "id": "sensor.kitchen_illuminence",
+          "friendlyName": "Kitchen Illuminence",
+          "cSharpName": "KitchenIlluminence"
         },
         {
           "id": "sensor.kitchen_switch_battery",
@@ -18634,6 +18694,131 @@
           "jsonName": "com.fitbit.FitbitMobile_2131431766_post_time",
           "cSharpName": "Com_fitbit_FitbitMobile2131431766PostTime",
           "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.appInfo_io.homeassistant.companion.android_-1323678593",
+          "cSharpName": "Android_appInfoIo_homeassistant_companion_android1323678593",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.infoText_io.homeassistant.companion.android_-1323678593",
+          "cSharpName": "Android_infoTextIo_homeassistant_companion_android1323678593",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon.big_io.homeassistant.companion.android_-1323678593",
+          "cSharpName": "Android_largeIcon_bigIo_homeassistant_companion_android1323678593",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon_io.homeassistant.companion.android_-1323678593",
+          "cSharpName": "Android_largeIconIo_homeassistant_companion_android1323678593",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.pictureIcon_io.homeassistant.companion.android_-1323678593",
+          "cSharpName": "Android_pictureIconIo_homeassistant_companion_android1323678593",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.picture_io.homeassistant.companion.android_-1323678593",
+          "cSharpName": "Android_pictureIo_homeassistant_companion_android1323678593",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.progressIndeterminate_io.homeassistant.companion.android_-1323678593",
+          "cSharpName": "Android_progressIndeterminateIo_homeassistant_companion_android1323678593",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.progressMax_io.homeassistant.companion.android_-1323678593",
+          "cSharpName": "Android_progressMaxIo_homeassistant_companion_android1323678593",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progress_io.homeassistant.companion.android_-1323678593",
+          "cSharpName": "Android_progressIo_homeassistant_companion_android1323678593",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.reduced.images_io.homeassistant.companion.android_-1323678593",
+          "cSharpName": "Android_reduced_imagesIo_homeassistant_companion_android1323678593",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.remoteInputHistory_io.homeassistant.companion.android_-1323678593",
+          "cSharpName": "Android_remoteInputHistoryIo_homeassistant_companion_android1323678593",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.showBigPictureWhenCollapsed_io.homeassistant.companion.android_-1323678593",
+          "cSharpName": "Android_showBigPictureWhenCollapsedIo_homeassistant_companion_android1323678593",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showChronometer_io.homeassistant.companion.android_-1323678593",
+          "cSharpName": "Android_showChronometerIo_homeassistant_companion_android1323678593",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_io.homeassistant.companion.android_-1323678593",
+          "cSharpName": "Android_showWhenIo_homeassistant_companion_android1323678593",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.subText_io.homeassistant.companion.android_-1323678593",
+          "cSharpName": "Android_subTextIo_homeassistant_companion_android1323678593",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.template_io.homeassistant.companion.android_-1323678593",
+          "cSharpName": "Android_templateIo_homeassistant_companion_android1323678593",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_io.homeassistant.companion.android_-1323678593",
+          "cSharpName": "Android_textIo_homeassistant_companion_android1323678593",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_io.homeassistant.companion.android_-1323678593",
+          "cSharpName": "Android_titleIo_homeassistant_companion_android1323678593",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "androidx.core.app.extra.COMPAT_TEMPLATE_io.homeassistant.companion.android_-1323678593",
+          "cSharpName": "Androidx_core_app_extra_COMPATTEMPLATEIo_homeassistant_companion_android1323678593",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-1323678593_category",
+          "cSharpName": "Io_homeassistant_companion_android1323678593Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-1323678593_channel_id",
+          "cSharpName": "Io_homeassistant_companion_android1323678593ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-1323678593_group_id",
+          "cSharpName": "Io_homeassistant_companion_android1323678593GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-1323678593_is_clearable",
+          "cSharpName": "Io_homeassistant_companion_android1323678593IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-1323678593_is_ongoing",
+          "cSharpName": "Io_homeassistant_companion_android1323678593IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_-1323678593_post_time",
+          "cSharpName": "Io_homeassistant_companion_android1323678593PostTime",
+          "clrType": "System.Double"
         }
       ]
     },
@@ -19298,6 +19483,11 @@
           "id": "switch.light_manager_basement_hall",
           "friendlyName": "Light Manager basement hall",
           "cSharpName": "LightManagerBasementHall"
+        },
+        {
+          "id": "switch.light_manager_basement_hall_light",
+          "friendlyName": "Light Manager light.basement_hall_light",
+          "cSharpName": "LightManagerBasementHallLight"
         },
         {
           "id": "switch.light_manager_bathroom",
