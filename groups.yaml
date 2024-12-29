@@ -97,9 +97,9 @@ lounge:
     - group.climate_downstairs
     - group.media_lounge_echo_plus
     - binary_sensor.lounge_motion
-    - binary_sensor.main_sofa_occupancy
-    - binary_sensor.window_sofa_occupancy
-    - binary_sensor.guest_sofa_occupancy
+    - binary_sensor.main_sofa_presence
+    - binary_sensor.window_sofa_presence
+    - binary_sensor.guest_sofa_presence
     - binary_sensor.lounge_occupancy
     - sensor.lounge_illuminance
 

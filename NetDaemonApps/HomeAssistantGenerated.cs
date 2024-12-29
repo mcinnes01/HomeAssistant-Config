@@ -781,7 +781,7 @@ public partial class BinarySensorEntities
     ///<summary>Gate Socket overvoltage</summary>
     public BinarySensorEntity GateSocketOvervoltage => new(_haContext, "binary_sensor.gate_socket_overvoltage");
     ///<summary>Guest Room Bed Occupancy</summary>
-    public BinarySensorEntity GuestRoomBedOccupancy => new(_haContext, "binary_sensor.guest_room_bed_occupancy");
+    public BinarySensorEntity GuestRoomBedOccupancy => new(_haContext, "binary_sensor.guest_room_bed_presence");
     ///<summary>Guest Room Light overcurrent</summary>
     public BinarySensorEntity GuestRoomLightOvercurrent => new(_haContext, "binary_sensor.guest_room_light_overcurrent");
     ///<summary>Guest Room Light overheating</summary>
@@ -797,7 +797,7 @@ public partial class BinarySensorEntities
     ///<summary>Guest Room Remote</summary>
     public BinarySensorEntity GuestRoomRemoteUpdateAvailable => new(_haContext, "binary_sensor.guest_room_remote_update_available");
     ///<summary>Guest Sofa Occupancy</summary>
-    public BinarySensorEntity GuestSofaOccupancy => new(_haContext, "binary_sensor.guest_sofa_occupancy");
+    public BinarySensorEntity GuestSofaOccupancy => new(_haContext, "binary_sensor.guest_sofa_presence");
     ///<summary>Hallway Camera Detections: motion</summary>
     public BinarySensorEntity HallwayCameraDetectionsMotion => new(_haContext, "binary_sensor.hallway_camera_detections_motion");
     ///<summary>Hallway Camera HDR mode</summary>
@@ -917,7 +917,7 @@ public partial class BinarySensorEntities
     ///<summary>Lounge Occupancy</summary>
     public BinarySensorEntity LoungeOccupancy => new(_haContext, "binary_sensor.lounge_occupancy");
     ///<summary>Main Sofa Occupancy</summary>
-    public BinarySensorEntity MainSofaOccupancy => new(_haContext, "binary_sensor.main_sofa_occupancy");
+    public BinarySensorEntity MainSofaOccupancy => new(_haContext, "binary_sensor.main_sofa_presence");
     ///<summary>Mirror Light overcurrent</summary>
     public BinarySensorEntity MirrorLightOvercurrent => new(_haContext, "binary_sensor.mirror_light_overcurrent");
     ///<summary>Mirror Light overheating</summary>
@@ -1267,7 +1267,7 @@ public partial class BinarySensorEntities
     ///<summary>WIFI smart CO alarm Safety</summary>
     public BinarySensorEntity WifiSmartCoAlarmSafety => new(_haContext, "binary_sensor.wifi_smart_co_alarm_safety");
     ///<summary>Window Sofa Occupancy</summary>
-    public BinarySensorEntity WindowSofaOccupancy => new(_haContext, "binary_sensor.window_sofa_occupancy");
+    public BinarySensorEntity WindowSofaOccupancy => new(_haContext, "binary_sensor.window_sofa_presence");
     ///<summary>Zigbee2MQTT Bridge Connection state</summary>
     public BinarySensorEntity Zigbee2mqttBridgeConnectionState => new(_haContext, "binary_sensor.zigbee2mqtt_bridge_connection_state");
 }

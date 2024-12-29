@@ -1,6 +1,6 @@
 namespace NetDaemon.apps.States;
 
-//[NetDaemonApp]
+[NetDaemonApp]
 public class LightControlModeController
 {
     ILogger<LightControlModeController> _logger;
@@ -49,7 +49,7 @@ public class LightControlModeController
 
         // Bedroom mode sleeping
         BedroomMode?.StateAllChangesWithCurrent()
-        .Where(l => l.New.IsOption(BedroomModeOptions.Sleeping))
+        .Where(l => l.New.IsOption(BedroomModeOptions.Sleeping) && (LocationMode?.IsNotOption(LocationModeOptions.Guest) ?? true))
         .Subscribe(_ => Handle(Trigger.InBed));
 
         // Bedroom mode sleeping

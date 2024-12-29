@@ -10,12 +10,16 @@ public class RoomControl
     public required IEnumerable<LightControl> Lights { get; set; }
     public required IEnumerable<BinarySensorEntity> PresenceSensors { get; set; }
     public required IEnumerable<BinarySensorEntity> TriggerSensors { get; set; }
+    public NumericSensorEntity? IlluminanceSensor { get; set; }
+    public double? IlluminanceLowThreshold { get; set; } = 40.0;
+    public double? IlluminanceHighThreshold { get; set; } = 100.0;
     public bool RecreateRoomMode { get; set; } = false;
     private InputSelectEntity? RoomMode { get; set; }
     private string _roomModeSelect;
     private IMqttEntityManager _entityManager;
     private IScheduler _scheduler;
     private IHaContext _context;
+    private Entities _entities;
     private ILogger<LightingManager> _logger;
    
     public async Task Register(IMqttEntityManager entityManager, IScheduler scheduler, IHaContext haContext, ILogger<LightingManager> logger)
@@ -23,8 +27,11 @@ public class RoomControl
         _entityManager = entityManager;
         _scheduler = scheduler;
         _context = haContext;
+        _entities = new Entities(haContext);
         _logger = logger;
 
+        IlluminanceSensor ??= _entities.Sensor.WeatherStationAmbientLight;
+        
         await SetupRoomModeSelect();
     }
 

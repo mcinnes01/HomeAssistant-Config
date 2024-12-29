@@ -1,6 +1,6 @@
 namespace NetDaemon.apps.States;
 
-//[NetDaemonApp]
+[NetDaemonApp]
 public class LocationModeController
 {
     ILogger<LocationModeController> _logger;

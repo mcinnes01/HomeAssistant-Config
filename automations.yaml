@@ -521,7 +521,9 @@
   - action: notify.mobile_app_claireiphone
     data:
       message: Doorbell
+  - delay: 15
   mode: single
+  max_exceeded: silent
 - id: '1579518320766'
   alias: Turn On Porch Light when Sun is set
   trigger:

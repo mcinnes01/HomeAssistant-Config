@@ -112,9 +112,9 @@ public class BedStateController
     {
         if (IsEnabled.IsOn())
         {
-            if (AndyInBed.IsDetected() && ClaireInBed.IsDetected()
-            || AndyInBed.IsDetected() && LocationMode!.IsOption(LocationModeOptions.OneAway)
-            || ClaireInBed.IsDetected() && LocationMode!.IsOption(LocationModeOptions.OneAway))
+            if ((AndyInBed.IsDetected() && ClaireInBed.IsDetected())
+            || (AndyInBed.IsDetected() && LocationMode!.IsOption(LocationModeOptions.OneAway))
+            || (ClaireInBed.IsDetected() && LocationMode!.IsOption(LocationModeOptions.OneAway)))
             {
                 _logger.LogDebug("Set state to in Bed, {Action}.", WhoMadeAction(), new { Entity = InBed });
                 _entities.InputBoolean.InBed.TurnOn();

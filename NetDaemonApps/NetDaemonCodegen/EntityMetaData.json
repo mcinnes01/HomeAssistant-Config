@@ -1268,7 +1268,7 @@
           "cSharpName": "GateSocketOvervoltage"
         },
         {
-          "id": "binary_sensor.guest_room_bed_occupancy",
+          "id": "binary_sensor.guest_room_bed_presence",
           "friendlyName": "Guest Room Bed Occupancy",
           "cSharpName": "GuestRoomBedOccupancy"
         },
@@ -1308,7 +1308,7 @@
           "cSharpName": "GuestRoomRemoteUpdateAvailable"
         },
         {
-          "id": "binary_sensor.guest_sofa_occupancy",
+          "id": "binary_sensor.guest_sofa_presence",
           "friendlyName": "Guest Sofa Occupancy",
           "cSharpName": "GuestSofaOccupancy"
         },
@@ -1608,7 +1608,7 @@
           "cSharpName": "LoungeOccupancy"
         },
         {
-          "id": "binary_sensor.main_sofa_occupancy",
+          "id": "binary_sensor.main_sofa_presence",
           "friendlyName": "Main Sofa Occupancy",
           "cSharpName": "MainSofaOccupancy"
         },
@@ -2483,7 +2483,7 @@
           "cSharpName": "WifiSmartCoAlarmSafety"
         },
         {
-          "id": "binary_sensor.window_sofa_occupancy",
+          "id": "binary_sensor.window_sofa_presence",
           "friendlyName": "Window Sofa Occupancy",
           "cSharpName": "WindowSofaOccupancy"
         },

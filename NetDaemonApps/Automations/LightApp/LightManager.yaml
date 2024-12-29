@@ -70,9 +70,9 @@ LightManagerV2.ManagerConfig:
       PresenceSensors:
         - binary_sensor.lounge_motion
         - binary_sensor.lounge_occupancy
-        - binary_sensor.guest_sofa_occupancy
-        - binary_sensor.main_sofa_occupancy
-        - binary_sensor.window_sofa_occupancy
+        - binary_sensor.guest_sofa_presence
+        - binary_sensor.main_sofa_presence
+        - binary_sensor.window_sofa_presence
       ControlEntities:
         - light.lounge_light
       SupressionEntities:

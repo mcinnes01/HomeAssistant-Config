@@ -32,7 +32,7 @@ public class LightingManager : IAsyncInitializable
             foreach(var light in room.Lights)
             {
                 _logger.LogInformation("Configuring light {light} for {Room}", light.Light.Name(), room.Name);
-                await light.Register(_entityManager, _scheduler, _haContext, _logger);
+                await light.Register(room, _entityManager, _scheduler, _haContext, _logger);
             }
         });
         return Task.CompletedTask;
