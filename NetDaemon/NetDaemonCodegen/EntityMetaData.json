@@ -577,7 +577,7 @@
         },
         {
           "id": "media_player.controller_00_04_20_26_74_45",
-          "friendlyName": null,
+          "friendlyName": "controller: 00:04:20:26:74:45",
           "cSharpName": "Controller000420267445"
         },
         {
@@ -592,12 +592,12 @@
         },
         {
           "id": "media_player.dining_room_radi",
-          "friendlyName": null,
+          "friendlyName": "Dining Room Radi",
           "cSharpName": "DiningRoomRadi"
         },
         {
           "id": "media_player.dining_room_radio",
-          "friendlyName": null,
+          "friendlyName": "Dining Room Radi",
           "cSharpName": "DiningRoomRadio"
         },
         {
@@ -667,7 +667,7 @@
         },
         {
           "id": "media_player.kichen_wallboard_2",
-          "friendlyName": "Kichen-Wallboard",
+          "friendlyName": null,
           "cSharpName": "KichenWallboard2"
         },
         {
@@ -5629,99 +5629,9 @@
           "cSharpName": "N02rf"
         },
         {
-          "id": "device_tracker.name_at_acbd",
-          "friendlyName": "name:at-acbd",
-          "cSharpName": "NameAtAcbd"
-        },
-        {
-          "id": "device_tracker.name_blinghelmet",
-          "friendlyName": "name:blinghelmet",
-          "cSharpName": "NameBlinghelmet"
-        },
-        {
-          "id": "device_tracker.name_carv_2",
-          "friendlyName": "name:carv-2",
-          "cSharpName": "NameCarv2"
-        },
-        {
-          "id": "device_tracker.name_ccc3",
-          "friendlyName": "name:ccc3",
-          "cSharpName": "NameCcc3"
-        },
-        {
-          "id": "device_tracker.name_dell_mouse",
-          "friendlyName": "name:dell-mouse",
-          "cSharpName": "NameDellMouse"
-        },
-        {
-          "id": "device_tracker.name_ec03_7387",
-          "friendlyName": "name:ec03_7387",
-          "cSharpName": "NameEc037387"
-        },
-        {
-          "id": "device_tracker.name_epic_air_sport_anc_ble",
-          "friendlyName": "name:epic-air-sport-anc-ble",
-          "cSharpName": "NameEpicAirSportAncBle"
-        },
-        {
-          "id": "device_tracker.name_fiido_t2",
-          "friendlyName": "name:fiido_t2",
-          "cSharpName": "NameFiidoT2"
-        },
-        {
-          "id": "device_tracker.name_freelite",
-          "friendlyName": "name:freelite",
-          "cSharpName": "NameFreelite"
-        },
-        {
-          "id": "device_tracker.name_gbk_h6114_5961",
-          "friendlyName": "name:gbk_h6114_5961",
-          "cSharpName": "NameGbkH61145961"
-        },
-        {
-          "id": "device_tracker.name_gms",
-          "friendlyName": "name:gms",
-          "cSharpName": "NameGms"
-        },
-        {
-          "id": "device_tracker.name_govee_h7090_5510",
-          "friendlyName": "name:govee_h7090_5510",
-          "cSharpName": "NameGoveeH70905510"
-        },
-        {
-          "id": "device_tracker.name_ibr420_526a",
-          "friendlyName": "name:ibr420-526a",
-          "cSharpName": "NameIbr420526a"
-        },
-        {
           "id": "device_tracker.name_ibr420_e965",
           "friendlyName": null,
           "cSharpName": "NameIbr420E965"
-        },
-        {
-          "id": "device_tracker.name_jabra_evolve2_65",
-          "friendlyName": "name:jabra-evolve2-65",
-          "cSharpName": "NameJabraEvolve265"
-        },
-        {
-          "id": "device_tracker.name_le_m51",
-          "friendlyName": "name:le-m51",
-          "cSharpName": "NameLeM51"
-        },
-        {
-          "id": "device_tracker.name_le_philips_tah5205",
-          "friendlyName": "name:le-philips-tah5205",
-          "cSharpName": "NameLePhilipsTah5205"
-        },
-        {
-          "id": "device_tracker.name_le_wf_1000xm4",
-          "friendlyName": "name:le_wf-1000xm4",
-          "cSharpName": "NameLeWf1000xm4"
-        },
-        {
-          "id": "device_tracker.name_le_wf_c500",
-          "friendlyName": "name:le_wf-c500",
-          "cSharpName": "NameLeWfC500"
         },
         {
           "id": "device_tracker.name_le_wh_1000xm4",
@@ -5729,34 +5639,14 @@
           "cSharpName": "NameLeWh1000xm4"
         },
         {
-          "id": "device_tracker.name_le_wh_1000xm5",
-          "friendlyName": "name:le_wh-1000xm5",
-          "cSharpName": "NameLeWh1000xm5"
-        },
-        {
           "id": "device_tracker.name_le_wh_xb910n",
           "friendlyName": "name:le_wh-xb910n",
           "cSharpName": "NameLeWhXb910n"
         },
         {
-          "id": "device_tracker.name_le_wi_c100",
-          "friendlyName": "name:le_wi-c100",
-          "cSharpName": "NameLeWiC100"
-        },
-        {
           "id": "device_tracker.name_lubica_s_jbl",
           "friendlyName": null,
           "cSharpName": "NameLubicaSJbl"
-        },
-        {
-          "id": "device_tracker.name_lumosltis",
-          "friendlyName": "name:lumosltis",
-          "cSharpName": "NameLumosltis"
-        },
-        {
-          "id": "device_tracker.name_mi",
-          "friendlyName": "name:mi",
-          "cSharpName": "NameMi"
         },
         {
           "id": "device_tracker.name_ms_car",
@@ -5769,69 +5659,14 @@
           "cSharpName": "NameN6hy00006ln6"
         },
         {
-          "id": "device_tracker.name_oneplus_nord_buds_3_pro",
-          "friendlyName": "name:oneplus-nord-buds-3-pro",
-          "cSharpName": "NameOneplusNordBuds3Pro"
-        },
-        {
-          "id": "device_tracker.name_ring_a3",
-          "friendlyName": "name:ring-a3",
-          "cSharpName": "NameRingA3"
-        },
-        {
           "id": "device_tracker.name_se5000_2311923968",
           "friendlyName": null,
           "cSharpName": "NameSe50002311923968"
         },
         {
-          "id": "device_tracker.name_se5000_2402298368",
-          "friendlyName": "name:se5000-2402298368",
-          "cSharpName": "NameSe50002402298368"
-        },
-        {
-          "id": "device_tracker.name_se5000_2932156160",
-          "friendlyName": "name:se5000-2932156160",
-          "cSharpName": "NameSe50002932156160"
-        },
-        {
           "id": "device_tracker.name_se5000_2935564032",
           "friendlyName": null,
           "cSharpName": "NameSe50002935564032"
-        },
-        {
-          "id": "device_tracker.name_se5000_2969643520",
-          "friendlyName": "name:se5000-2969643520",
-          "cSharpName": "NameSe50002969643520"
-        },
-        {
-          "id": "device_tracker.name_se5000_3107137792",
-          "friendlyName": "name:se5000-3107137792",
-          "cSharpName": "NameSe50003107137792"
-        },
-        {
-          "id": "device_tracker.name_se5000_3148622080",
-          "friendlyName": "name:se5000-3148622080",
-          "cSharpName": "NameSe50003148622080"
-        },
-        {
-          "id": "device_tracker.name_se5000_4216858368",
-          "friendlyName": "name:se5000-4216858368",
-          "cSharpName": "NameSe50004216858368"
-        },
-        {
-          "id": "device_tracker.name_sn_00894100",
-          "friendlyName": "name:sn_00894100",
-          "cSharpName": "NameSn00894100"
-        },
-        {
-          "id": "device_tracker.name_wllink_6e9c",
-          "friendlyName": "name:wllink-6e9c",
-          "cSharpName": "NameWllink6e9c"
-        },
-        {
-          "id": "device_tracker.name_wlt_0a802d666e6b",
-          "friendlyName": "name:wlt_0a802d666e6b",
-          "cSharpName": "NameWlt0a802d666e6b"
         },
         {
           "id": "device_tracker.name_xp_pp_04e35a",
@@ -20228,6 +20063,831 @@
         {
           "jsonName": "com.google.android.apps.weather_114440511_post_time",
           "cSharpName": "Com_google_android_apps_weather114440511PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.showWhen_com.amazon.mShop.android.shopping_1",
+          "cSharpName": "Android_showWhenCom_amazon_mShop_android_shopping1",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.appInfo_com.amazon.dee.app_1735466728",
+          "cSharpName": "Android_appInfoCom_amazon_dee_app1735466728",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.appInfo_com.amazon.dee.app_2147483646",
+          "cSharpName": "Android_appInfoCom_amazon_dee_app2147483646",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.appInfo_com.amazon.mShop.android.shopping_2",
+          "cSharpName": "Android_appInfoCom_amazon_mShop_android_shopping2",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.appInfo_com.amazon.mShop.android.shopping_2147483647",
+          "cSharpName": "Android_appInfoCom_amazon_mShop_android_shopping2147483647",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.appInfo_com.google.android.calendar_-881396900",
+          "cSharpName": "Android_appInfoCom_google_android_calendar881396900",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.appInfo_com.microsoft.office.outlook_463058002",
+          "cSharpName": "Android_appInfoCom_microsoft_office_outlook463058002",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.bigText_com.amazon.dee.app_1735466728",
+          "cSharpName": "Android_bigTextCom_amazon_dee_app1735466728",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.bigText_com.amazon.mShop.android.shopping_2",
+          "cSharpName": "Android_bigTextCom_amazon_mShop_android_shopping2",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.bigText_com.google.android.calendar_-881396900",
+          "cSharpName": "Android_bigTextCom_google_android_calendar881396900",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.conversationUnreadMessageCount_com.google.android.dialer_1",
+          "cSharpName": "Android_conversationUnreadMessageCountCom_google_android_dialer1",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.hiddenConversationTitle_com.google.android.dialer_1",
+          "cSharpName": "Android_hiddenConversationTitleCom_google_android_dialer1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.infoText_com.amazon.dee.app_1735466728",
+          "cSharpName": "Android_infoTextCom_amazon_dee_app1735466728",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.infoText_com.amazon.dee.app_2147483646",
+          "cSharpName": "Android_infoTextCom_amazon_dee_app2147483646",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.infoText_com.google.android.calendar_-881396900",
+          "cSharpName": "Android_infoTextCom_google_android_calendar881396900",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.infoText_com.google.android.dialer_1",
+          "cSharpName": "Android_infoTextCom_google_android_dialer1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.infoText_com.microsoft.office.outlook_463058002",
+          "cSharpName": "Android_infoTextCom_microsoft_office_outlook463058002",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.isGroupConversation_com.google.android.dialer_1",
+          "cSharpName": "Android_isGroupConversationCom_google_android_dialer1",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.largeIcon_com.amazon.dee.app_1735466728",
+          "cSharpName": "Android_largeIconCom_amazon_dee_app1735466728",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon_com.amazon.dee.app_2147483646",
+          "cSharpName": "Android_largeIconCom_amazon_dee_app2147483646",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon_com.google.android.calendar_-881396900",
+          "cSharpName": "Android_largeIconCom_google_android_calendar881396900",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon_com.microsoft.office.outlook_463058002",
+          "cSharpName": "Android_largeIconCom_microsoft_office_outlook463058002",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.messages_com.google.android.dialer_1",
+          "cSharpName": "Android_messagesCom_google_android_dialer1",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.String]"
+        },
+        {
+          "jsonName": "android.messagingStyleUser_com.google.android.dialer_1",
+          "cSharpName": "Android_messagingStyleUserCom_google_android_dialer1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.messagingUser_com.google.android.dialer_1",
+          "cSharpName": "Android_messagingUserCom_google_android_dialer1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.progressIndeterminate_com.amazon.dee.app_1735466728",
+          "cSharpName": "Android_progressIndeterminateCom_amazon_dee_app1735466728",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.progressIndeterminate_com.amazon.dee.app_2147483646",
+          "cSharpName": "Android_progressIndeterminateCom_amazon_dee_app2147483646",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.progressIndeterminate_com.google.android.calendar_-881396900",
+          "cSharpName": "Android_progressIndeterminateCom_google_android_calendar881396900",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.progressIndeterminate_com.google.android.dialer_1",
+          "cSharpName": "Android_progressIndeterminateCom_google_android_dialer1",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.progressIndeterminate_com.microsoft.office.outlook_463058002",
+          "cSharpName": "Android_progressIndeterminateCom_microsoft_office_outlook463058002",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.progressMax_com.amazon.dee.app_1735466728",
+          "cSharpName": "Android_progressMaxCom_amazon_dee_app1735466728",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progressMax_com.amazon.dee.app_2147483646",
+          "cSharpName": "Android_progressMaxCom_amazon_dee_app2147483646",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progressMax_com.google.android.calendar_-881396900",
+          "cSharpName": "Android_progressMaxCom_google_android_calendar881396900",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progressMax_com.google.android.dialer_1",
+          "cSharpName": "Android_progressMaxCom_google_android_dialer1",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progressMax_com.microsoft.office.outlook_463058002",
+          "cSharpName": "Android_progressMaxCom_microsoft_office_outlook463058002",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progress_com.amazon.dee.app_1735466728",
+          "cSharpName": "Android_progressCom_amazon_dee_app1735466728",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progress_com.amazon.dee.app_2147483646",
+          "cSharpName": "Android_progressCom_amazon_dee_app2147483646",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progress_com.google.android.calendar_-881396900",
+          "cSharpName": "Android_progressCom_google_android_calendar881396900",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progress_com.google.android.dialer_1",
+          "cSharpName": "Android_progressCom_google_android_dialer1",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progress_com.microsoft.office.outlook_463058002",
+          "cSharpName": "Android_progressCom_microsoft_office_outlook463058002",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.reduced.images_com.amazon.dee.app_1735466728",
+          "cSharpName": "Android_reduced_imagesCom_amazon_dee_app1735466728",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.reduced.images_com.amazon.dee.app_2147483646",
+          "cSharpName": "Android_reduced_imagesCom_amazon_dee_app2147483646",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.reduced.images_com.amazon.mShop.android.shopping_2",
+          "cSharpName": "Android_reduced_imagesCom_amazon_mShop_android_shopping2",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.reduced.images_com.amazon.mShop.android.shopping_2147483647",
+          "cSharpName": "Android_reduced_imagesCom_amazon_mShop_android_shopping2147483647",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.reduced.images_com.google.android.calendar_-881396900",
+          "cSharpName": "Android_reduced_imagesCom_google_android_calendar881396900",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.reduced.images_com.microsoft.office.outlook_463058002",
+          "cSharpName": "Android_reduced_imagesCom_microsoft_office_outlook463058002",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.remoteInputHistory_com.amazon.dee.app_1735466728",
+          "cSharpName": "Android_remoteInputHistoryCom_amazon_dee_app1735466728",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.remoteInputHistory_com.amazon.dee.app_2147483646",
+          "cSharpName": "Android_remoteInputHistoryCom_amazon_dee_app2147483646",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.remoteInputHistory_com.google.android.calendar_-881396900",
+          "cSharpName": "Android_remoteInputHistoryCom_google_android_calendar881396900",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.remoteInputHistory_com.google.android.dialer_1",
+          "cSharpName": "Android_remoteInputHistoryCom_google_android_dialer1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.remoteInputHistory_com.microsoft.office.outlook_463058002",
+          "cSharpName": "Android_remoteInputHistoryCom_microsoft_office_outlook463058002",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.selfDisplayName_com.google.android.dialer_1",
+          "cSharpName": "Android_selfDisplayNameCom_google_android_dialer1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.showChronometer_com.amazon.dee.app_1735466728",
+          "cSharpName": "Android_showChronometerCom_amazon_dee_app1735466728",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showChronometer_com.amazon.dee.app_2147483646",
+          "cSharpName": "Android_showChronometerCom_amazon_dee_app2147483646",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showChronometer_com.google.android.calendar_-881396900",
+          "cSharpName": "Android_showChronometerCom_google_android_calendar881396900",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showChronometer_com.microsoft.office.outlook_463058002",
+          "cSharpName": "Android_showChronometerCom_microsoft_office_outlook463058002",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_bbc.mobile.news.uk_2147483647",
+          "cSharpName": "Android_showWhenBbc_mobile_news_uk2147483647",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_com.amazon.dee.app_1735466728",
+          "cSharpName": "Android_showWhenCom_amazon_dee_app1735466728",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_com.amazon.dee.app_2147483646",
+          "cSharpName": "Android_showWhenCom_amazon_dee_app2147483646",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_com.amazon.mShop.android.shopping_2",
+          "cSharpName": "Android_showWhenCom_amazon_mShop_android_shopping2",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_com.amazon.mShop.android.shopping_2147483647",
+          "cSharpName": "Android_showWhenCom_amazon_mShop_android_shopping2147483647",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_com.google.android.calendar_-881396900",
+          "cSharpName": "Android_showWhenCom_google_android_calendar881396900",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_com.google.android.dialer_1",
+          "cSharpName": "Android_showWhenCom_google_android_dialer1",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_com.microsoft.office.outlook_463058002",
+          "cSharpName": "Android_showWhenCom_microsoft_office_outlook463058002",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.subText_com.amazon.dee.app_1735466728",
+          "cSharpName": "Android_subTextCom_amazon_dee_app1735466728",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.subText_com.amazon.dee.app_2147483646",
+          "cSharpName": "Android_subTextCom_amazon_dee_app2147483646",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.subText_com.amazon.mShop.android.shopping_2",
+          "cSharpName": "Android_subTextCom_amazon_mShop_android_shopping2",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.subText_com.google.android.calendar_-881396900",
+          "cSharpName": "Android_subTextCom_google_android_calendar881396900",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.subText_com.google.android.dialer_1",
+          "cSharpName": "Android_subTextCom_google_android_dialer1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.subText_com.microsoft.office.outlook_463058002",
+          "cSharpName": "Android_subTextCom_microsoft_office_outlook463058002",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.support.v4.app.extra.COMPAT_TEMPLATE_com.google.android.calendar_-881396900",
+          "cSharpName": "Android_support_v4_app_extra_COMPATTEMPLATECom_google_android_calendar881396900",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.support.v4.app.extra.COMPAT_TEMPLATE_com.google.android.dialer_1",
+          "cSharpName": "Android_support_v4_app_extra_COMPATTEMPLATECom_google_android_dialer1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.template_com.amazon.dee.app_1735466728",
+          "cSharpName": "Android_templateCom_amazon_dee_app1735466728",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.template_com.amazon.mShop.android.shopping_2",
+          "cSharpName": "Android_templateCom_amazon_mShop_android_shopping2",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.template_com.google.android.calendar_-881396900",
+          "cSharpName": "Android_templateCom_google_android_calendar881396900",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_com.amazon.dee.app_1735466728",
+          "cSharpName": "Android_textCom_amazon_dee_app1735466728",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_com.amazon.dee.app_2147483646",
+          "cSharpName": "Android_textCom_amazon_dee_app2147483646",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_com.amazon.mShop.android.shopping_2",
+          "cSharpName": "Android_textCom_amazon_mShop_android_shopping2",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_com.google.android.calendar_-881396900",
+          "cSharpName": "Android_textCom_google_android_calendar881396900",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_com.microsoft.office.outlook_463058002",
+          "cSharpName": "Android_textCom_microsoft_office_outlook463058002",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title.big_com.amazon.dee.app_1735466728",
+          "cSharpName": "Android_title_bigCom_amazon_dee_app1735466728",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title.big_com.amazon.mShop.android.shopping_2",
+          "cSharpName": "Android_title_bigCom_amazon_mShop_android_shopping2",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_com.amazon.dee.app_1735466728",
+          "cSharpName": "Android_titleCom_amazon_dee_app1735466728",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_com.amazon.dee.app_2147483646",
+          "cSharpName": "Android_titleCom_amazon_dee_app2147483646",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_com.amazon.mShop.android.shopping_2",
+          "cSharpName": "Android_titleCom_amazon_mShop_android_shopping2",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_com.google.android.calendar_-881396900",
+          "cSharpName": "Android_titleCom_google_android_calendar881396900",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_com.microsoft.office.outlook_463058002",
+          "cSharpName": "Android_titleCom_microsoft_office_outlook463058002",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.wearable.EXTENSIONS_com.google.android.calendar_-881396900",
+          "cSharpName": "Android_wearable_EXTENSIONSCom_google_android_calendar881396900",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.wearable.EXTENSIONS_com.google.android.dialer_1",
+          "cSharpName": "Android_wearable_EXTENSIONSCom_google_android_dialer1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "androidx.core.app.extra.COMPAT_TEMPLATE_com.amazon.dee.app_1735466728",
+          "cSharpName": "Androidx_core_app_extra_COMPATTEMPLATECom_amazon_dee_app1735466728",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.amazon.dee.app_1735466728_category",
+          "cSharpName": "Com_amazon_dee_app1735466728Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.amazon.dee.app_1735466728_channel_id",
+          "cSharpName": "Com_amazon_dee_app1735466728ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.amazon.dee.app_1735466728_group_id",
+          "cSharpName": "Com_amazon_dee_app1735466728GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.amazon.dee.app_1735466728_is_clearable",
+          "cSharpName": "Com_amazon_dee_app1735466728IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.amazon.dee.app_1735466728_is_ongoing",
+          "cSharpName": "Com_amazon_dee_app1735466728IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.amazon.dee.app_1735466728_post_time",
+          "cSharpName": "Com_amazon_dee_app1735466728PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "com.amazon.dee.app_2147483646_category",
+          "cSharpName": "Com_amazon_dee_app2147483646Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.amazon.dee.app_2147483646_channel_id",
+          "cSharpName": "Com_amazon_dee_app2147483646ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.amazon.dee.app_2147483646_group_id",
+          "cSharpName": "Com_amazon_dee_app2147483646GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.amazon.dee.app_2147483646_is_clearable",
+          "cSharpName": "Com_amazon_dee_app2147483646IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.amazon.dee.app_2147483646_is_ongoing",
+          "cSharpName": "Com_amazon_dee_app2147483646IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.amazon.dee.app_2147483646_post_time",
+          "cSharpName": "Com_amazon_dee_app2147483646PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "com.amazon.mShop.android.shopping_2147483647_category",
+          "cSharpName": "Com_amazon_mShop_android_shopping2147483647Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.amazon.mShop.android.shopping_2147483647_channel_id",
+          "cSharpName": "Com_amazon_mShop_android_shopping2147483647ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.amazon.mShop.android.shopping_2147483647_group_id",
+          "cSharpName": "Com_amazon_mShop_android_shopping2147483647GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.amazon.mShop.android.shopping_2147483647_is_clearable",
+          "cSharpName": "Com_amazon_mShop_android_shopping2147483647IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.amazon.mShop.android.shopping_2147483647_is_ongoing",
+          "cSharpName": "Com_amazon_mShop_android_shopping2147483647IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.amazon.mShop.android.shopping_2147483647_post_time",
+          "cSharpName": "Com_amazon_mShop_android_shopping2147483647PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "com.amazon.mShop.android.shopping_2_category",
+          "cSharpName": "Com_amazon_mShop_android_shopping2Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.amazon.mShop.android.shopping_2_channel_id",
+          "cSharpName": "Com_amazon_mShop_android_shopping2ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.amazon.mShop.android.shopping_2_group_id",
+          "cSharpName": "Com_amazon_mShop_android_shopping2GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.amazon.mShop.android.shopping_2_is_clearable",
+          "cSharpName": "Com_amazon_mShop_android_shopping2IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.amazon.mShop.android.shopping_2_is_ongoing",
+          "cSharpName": "Com_amazon_mShop_android_shopping2IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.amazon.mShop.android.shopping_2_post_time",
+          "cSharpName": "Com_amazon_mShop_android_shopping2PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "com.google.android.calendar_-881396900_category",
+          "cSharpName": "Com_google_android_calendar881396900Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.google.android.calendar_-881396900_channel_id",
+          "cSharpName": "Com_google_android_calendar881396900ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.google.android.calendar_-881396900_group_id",
+          "cSharpName": "Com_google_android_calendar881396900GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.google.android.calendar_-881396900_is_clearable",
+          "cSharpName": "Com_google_android_calendar881396900IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.google.android.calendar_-881396900_is_ongoing",
+          "cSharpName": "Com_google_android_calendar881396900IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.google.android.calendar_-881396900_post_time",
+          "cSharpName": "Com_google_android_calendar881396900PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "com.microsoft.office.outlook_463058002_category",
+          "cSharpName": "Com_microsoft_office_outlook463058002Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.microsoft.office.outlook_463058002_channel_id",
+          "cSharpName": "Com_microsoft_office_outlook463058002ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.microsoft.office.outlook_463058002_group_id",
+          "cSharpName": "Com_microsoft_office_outlook463058002GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.microsoft.office.outlook_463058002_is_clearable",
+          "cSharpName": "Com_microsoft_office_outlook463058002IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.microsoft.office.outlook_463058002_is_ongoing",
+          "cSharpName": "Com_microsoft_office_outlook463058002IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.microsoft.office.outlook_463058002_post_time",
+          "cSharpName": "Com_microsoft_office_outlook463058002PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "notificationId_com.amazon.dee.app_1735466728",
+          "cSharpName": "NotificationIdCom_amazon_dee_app1735466728",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.appInfo_com.ubnt.unifi.protect_514671",
+          "cSharpName": "Android_appInfoCom_ubnt_unifi_protect514671",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.appInfo_io.homeassistant.companion.android_444",
+          "cSharpName": "Android_appInfoIo_homeassistant_companion_android444",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.infoText_com.ubnt.unifi.protect_514671",
+          "cSharpName": "Android_infoTextCom_ubnt_unifi_protect514671",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.infoText_io.homeassistant.companion.android_444",
+          "cSharpName": "Android_infoTextIo_homeassistant_companion_android444",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon_com.ubnt.unifi.protect_514671",
+          "cSharpName": "Android_largeIconCom_ubnt_unifi_protect514671",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon_io.homeassistant.companion.android_444",
+          "cSharpName": "Android_largeIconIo_homeassistant_companion_android444",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.progressIndeterminate_com.ubnt.unifi.protect_514671",
+          "cSharpName": "Android_progressIndeterminateCom_ubnt_unifi_protect514671",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.progressIndeterminate_io.homeassistant.companion.android_444",
+          "cSharpName": "Android_progressIndeterminateIo_homeassistant_companion_android444",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.progressMax_com.ubnt.unifi.protect_514671",
+          "cSharpName": "Android_progressMaxCom_ubnt_unifi_protect514671",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progressMax_io.homeassistant.companion.android_444",
+          "cSharpName": "Android_progressMaxIo_homeassistant_companion_android444",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progress_com.ubnt.unifi.protect_514671",
+          "cSharpName": "Android_progressCom_ubnt_unifi_protect514671",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progress_io.homeassistant.companion.android_444",
+          "cSharpName": "Android_progressIo_homeassistant_companion_android444",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.reduced.images_com.ubnt.unifi.protect_514671",
+          "cSharpName": "Android_reduced_imagesCom_ubnt_unifi_protect514671",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.reduced.images_io.homeassistant.companion.android_444",
+          "cSharpName": "Android_reduced_imagesIo_homeassistant_companion_android444",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.remoteInputHistory_com.ubnt.unifi.protect_514671",
+          "cSharpName": "Android_remoteInputHistoryCom_ubnt_unifi_protect514671",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.remoteInputHistory_io.homeassistant.companion.android_444",
+          "cSharpName": "Android_remoteInputHistoryIo_homeassistant_companion_android444",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.showChronometer_com.ubnt.unifi.protect_514671",
+          "cSharpName": "Android_showChronometerCom_ubnt_unifi_protect514671",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showChronometer_io.homeassistant.companion.android_444",
+          "cSharpName": "Android_showChronometerIo_homeassistant_companion_android444",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_com.ubnt.unifi.protect_514671",
+          "cSharpName": "Android_showWhenCom_ubnt_unifi_protect514671",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_io.homeassistant.companion.android_444",
+          "cSharpName": "Android_showWhenIo_homeassistant_companion_android444",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.subText_com.ubnt.unifi.protect_514671",
+          "cSharpName": "Android_subTextCom_ubnt_unifi_protect514671",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.subText_io.homeassistant.companion.android_444",
+          "cSharpName": "Android_subTextIo_homeassistant_companion_android444",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_com.ubnt.unifi.protect_514671",
+          "cSharpName": "Android_textCom_ubnt_unifi_protect514671",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_io.homeassistant.companion.android_444",
+          "cSharpName": "Android_textIo_homeassistant_companion_android444",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_com.ubnt.unifi.protect_514671",
+          "cSharpName": "Android_titleCom_ubnt_unifi_protect514671",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_io.homeassistant.companion.android_444",
+          "cSharpName": "Android_titleIo_homeassistant_companion_android444",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.ubnt.unifi.protect_514671_category",
+          "cSharpName": "Com_ubnt_unifi_protect514671Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.ubnt.unifi.protect_514671_channel_id",
+          "cSharpName": "Com_ubnt_unifi_protect514671ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.ubnt.unifi.protect_514671_group_id",
+          "cSharpName": "Com_ubnt_unifi_protect514671GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.ubnt.unifi.protect_514671_is_clearable",
+          "cSharpName": "Com_ubnt_unifi_protect514671IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.ubnt.unifi.protect_514671_is_ongoing",
+          "cSharpName": "Com_ubnt_unifi_protect514671IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.ubnt.unifi.protect_514671_post_time",
+          "cSharpName": "Com_ubnt_unifi_protect514671PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_444_category",
+          "cSharpName": "Io_homeassistant_companion_android444Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_444_channel_id",
+          "cSharpName": "Io_homeassistant_companion_android444ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_444_group_id",
+          "cSharpName": "Io_homeassistant_companion_android444GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_444_is_clearable",
+          "cSharpName": "Io_homeassistant_companion_android444IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_444_is_ongoing",
+          "cSharpName": "Io_homeassistant_companion_android444IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "io.homeassistant.companion.android_444_post_time",
+          "cSharpName": "Io_homeassistant_companion_android444PostTime",
           "clrType": "System.Double"
         }
       ]

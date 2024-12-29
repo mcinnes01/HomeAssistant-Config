@@ -252,6 +252,10 @@ NetDaemon.apps.LightApp.LightingConfig:
             - light.bedroom_light
             - binary_sensor.andy_in_bed
             - binary_sensor.claire_in_bed
+          KeepAliveEntities:
+            - binary_sensor.andy_in_bed
+            - binary_sensor.claire_in_bed
+            - binary_sensor.bedroom_bed_presence
     - Name: landing
       IlluminanceSensor: sensor.bedroom_illuminance
       IlluminanceLowThreshold: 19

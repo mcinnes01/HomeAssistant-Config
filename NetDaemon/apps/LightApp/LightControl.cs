@@ -70,6 +70,7 @@ public class LightControl
         // Also things like if the light and tv are left on, should we not turn them off if there is no presence?
         // The tv could be controlled by it's own thing, maybe even a room manager that then feeds in to this
         // We perhaps need to do something with the keepalive sensor too
+        _logger.LogDebug("Ensuring Initial State for {light}", Light.EntityId);
         var presenceStates = TriggerSensors.Union(PresenceSensors).Select(s => new { s.EntityId, IsOn = s.IsOn() });
         if (BlockEntities.All(b => !b.IsOn()))
         {
@@ -86,8 +87,24 @@ public class LightControl
             }
             else if (Light.IsOn())
             {
-                _logger.LogInformation("Initial state {light} is on but there is no presence detected {@states}, Turning Off", Light.EntityId, presenceStates);
-                TurnOffEntities("Initial State");
+                if (KeepAliveEntities.Any(b => !b.IsOn()))
+                {
+                    _logger.LogInformation("Initial state {light} is on but there is no presence detected {@states}, Turning Off", Light.EntityId, presenceStates);
+                    TurnOffEntities("Initial State");
+                }
+                else
+                {
+                    _logger.LogInformation("Initial state {light} is on but there is at least one keep alive entity on {@alive}, Keeping On", Light.EntityId, KeepAliveEntities.Select(b => b.EntityId));
+                }
+            }
+            else if (Conditions.Any(c => c.ConditionPassed()))
+            {
+                _logger.LogInformation("Initial state {light} is off but condition is met, Turning On", Light.EntityId);
+                TurnOnEntities("Initial State");
+            }
+            else
+            {
+                _logger.LogInformation("Initial state {light} is off and no presence detected, Keeping Off", Light.EntityId);
             }
         }
         else
@@ -96,9 +113,16 @@ public class LightControl
             if (mutipleLightsOn && presenceStates.Any(s => !s.IsOn))
             {
                 var lightDetail = mutipleLightsOn  ? $"{Light.EntityId} and other light(s) on" : $"{Light.EntityId} is on";
-                _logger.LogInformation("Initial state {light} is on but there is presence, Turning Off", lightDetail);
-                 TurnOffEntities("Initial State", mutipleLightsOn);
-                return;
+                if (KeepAliveEntities.Any(b => !b.IsOn()))
+                {
+                    _logger.LogInformation("Initial state {light} is on but there is presence, Turning Off", lightDetail);
+                    TurnOffEntities("Initial State", mutipleLightsOn);
+                    return;
+                }
+                else
+                {
+                    _logger.LogInformation("Initial state {light} is on but there is at least one keep alive entity on {@alive}, Keeping On", Light.EntityId, KeepAliveEntities.Select(b => b.EntityId));
+                }
             }
             _logger.LogInformation("Initial state {light} {state}, can't change as {light} is blocked by {blockers}",
                 Light.EntityId, Light.State, Light.EntityId, BlockEntities.Where(b => b.IsOn()).Select(b => b.EntityId));
@@ -108,6 +132,7 @@ public class LightControl
     private void SubscribeToIlluminanceSensor()
     {
         _room.IlluminanceSensor!.StateAllChanges()
+        .Where(e => TriggerWithoutPresence || TriggerSensors.Union(PresenceSensors).Any(s => s.IsOn()))
         .Subscribe(e =>
         {
             // State has changed and is above the threshold
@@ -313,12 +338,14 @@ public class LightControl
                 BlockEntities.Where(b => b.State != null && _onStates.Contains(b.State)).Select(b => b.EntityId));
             return;
         }  
-        if (!TriggerWithoutPresence && TriggerSensors.Union(PresenceSensors).Any(s => !s.IsOn()))
+        if (!TriggerWithoutPresence && TriggerSensors.Union(PresenceSensors).All(s => !s.IsOn()))
         {
             _logger.LogTrace("Can't turn {light} on as there is no presence detected", Light.EntityId);
             return;
         }
-        if (Primary)
+        // this Will stop lamps on conditions ie secondary lights
+        // we need to handle Illuminance or ignore it as a trigger should in most cases
+        if (Primary || TriggerWithoutPresence)
         {
             Light.TurnOn();
             TurnOnTime = DateTime.Now;
