@@ -53,40 +53,7 @@ public class LightModes
             _entities.Light.LoungeFloorLamp
         ];
 
-        BrightnessChanged();
         LightControlModeChanged();
-    }
-
-    private void BrightnessChanged()
-    {
-        _entities.InputSelect.Brightness.StateAllChangesWithCurrent()
-        .Where(e =>
-        {
-            _logger.LogTrace(@$"Brightness New: {e.New?.State} Old: {e.Old?.State}
-                Light Mode: {_entities.InputSelect.LightControlMode.State}
-                Bedroom Mode: {_entities.InputSelect.BedroomMode.State}
-                Lounge Mode: {_entities.InputSelect.LoungeMode.State}
-                Snug Mode: {_entities.InputSelect.SnugMode.State}");
-            return e.New.IsOption(BrightnessOptions.Bright)
-            && _entities.InputSelect.LightControlMode.IsNotOption(LightControlModeOptions.Cleaning)
-            && _entities.InputSelect.LightControlMode.IsNotOption(LightControlModeOptions.Manual);
-        })
-        .Subscribe(e =>
-        {
-            _logger.LogDebug("Brightness transitioned to bright, so turning off lights.");
-            _insideNoRoomControlNotBasement.TurnOff();
-
-            if (Constants.BedroomMotionModes.Contains(_entities.InputSelect.BedroomMode.AsOption<RoomModeOptions>()))
-            {
-                _logger.LogDebug("Transition to Bright and Bedroom in a motion mode, turning off Bedroom lights.");
-                _bedroomLights.TurnOff();
-            }
-            if (_entities.InputSelect.LoungeMode.IsOption(LoungeModeOptions.Normal))
-            {
-                _logger.LogDebug("Transition to Bright and Lounge in a motion mode, turning off Lounge lights.");
-                _loungeLights.TurnOff();
-            }
-        });
     }
 
     private void LightControlModeChanged()

@@ -55,12 +55,11 @@ public class LightControl
     }
 
     // Still to do:
-    // Some entities like illuminance showing as null or their threshold values
-    // Might also be nice to add a learning sequence where it can set the values automatically
+    // Might be nice to add a learning sequence to illuminance thresholds where it can set the values automatically,
     // by turning off the light taking the reading and then turning it on and taking the reading to give a high and low value
     // The room mode entities still aren't creating properly and we need to ensure we trigger set them. If there is presence in a room bar master bedroom
     // then we can do something like set mode to sleeping in all other rooms, if that room then becomes unoccupied and master bedroom is sleeping the we 
-    // set that to sleeping too. If we have guest mode enabled and there is general movement around the hou
+    // set that to sleeping too. If we have guest mode enabled and there is general movement around the house we only set master bedroom to sleeping
 
     private async Task SetupEnabledSwitch()
     {
