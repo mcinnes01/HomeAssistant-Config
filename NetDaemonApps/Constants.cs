@@ -64,10 +64,10 @@ public static class Constants
         LightControlModeOptions.Relaxing
     ];
 
-    public static BedroomModeOptions[] BedroomMotionModes =
+    public static RoomModeOptions[] BedroomMotionModes =
     [
-        BedroomModeOptions.Normal,
-        BedroomModeOptions.Relaxing
+        RoomModeOptions.Normal,
+        RoomModeOptions.Relaxing
     ];
 
     public static LocationModeOptions[] HouseOccupied =

@@ -49,13 +49,13 @@ public class LightControlModeController
 
         // Bedroom mode sleeping
         BedroomMode?.StateAllChangesWithCurrent()
-        .Where(l => l.New.IsOption(BedroomModeOptions.Sleeping))
+        .Where(l => l.New.IsOption(RoomModeOptions.Sleeping))
         .Subscribe(_ => Handle(Trigger.InBed));
 
         // Bedroom mode sleeping
         BedroomMode?.StateAllChangesWithCurrent()
-        .Where(l => l.New.IsNotOption(BedroomModeOptions.Sleeping)
-         && l.Old.IsOption(BedroomModeOptions.Sleeping))
+        .Where(l => l.New.IsNotOption(RoomModeOptions.Sleeping)
+         && l.Old.IsOption(RoomModeOptions.Sleeping))
         .Subscribe(_ => Handle(Trigger.OutOfBed));
 
         // Set to motion control when its day time and we are home

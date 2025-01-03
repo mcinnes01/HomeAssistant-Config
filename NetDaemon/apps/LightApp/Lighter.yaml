@@ -1,6 +1,7 @@
 NetDaemon.apps.LightApp.LightingConfig:
   Rooms:
     - Name: hallway
+      IsEntrance: true
       TriggerSensors:
         - binary_sensor.hallway_camera_person_detected
         - binary_sensor.hallway_motion
@@ -45,6 +46,7 @@ NetDaemon.apps.LightApp.LightingConfig:
           KeepAliveEntities:
             - binary_sensor.front_door
     - Name: porch
+      IsEntrance: true
       TriggerSensors:
         - binary_sensor.front_door
         - binary_sensor.doorbell_button
@@ -68,6 +70,7 @@ NetDaemon.apps.LightApp.LightingConfig:
           KeepAliveEntities:
             - binary_sensor.issunset
     - Name: kitchen
+      IsEntrance: true
       IlluminanceSensor: sensor.kitchen_illuminance
       IlluminanceLowThreshold: 7
       IlluminanceHighThreshold: 17
@@ -108,6 +111,10 @@ NetDaemon.apps.LightApp.LightingConfig:
       IlluminanceSensor: sensor.lounge_illuminance
       IlluminanceLowThreshold: 7
       IlluminanceHighThreshold: 44
+      BlockModes:
+        - Sleeping
+        - Bright
+        - Television
       PresenceSensors:
         - binary_sensor.lounge_occupancy
       TriggerSensors:
@@ -271,6 +278,9 @@ NetDaemon.apps.LightApp.LightingConfig:
       IlluminanceSensor: sensor.studio_illuminance
       IlluminanceLowThreshold: 35
       IlluminanceHighThreshold: 35
+      KeepAliveModes:
+        - Showering
+        - Bright
       TriggerSensors:
         - binary_sensor.bathroom_motion
       Lights:
@@ -327,6 +337,7 @@ NetDaemon.apps.LightApp.LightingConfig:
           TriggerSensors:
             - binary_sensor.toilet_motion
     - Name: utility_room
+      IsEntrance: true
       IlluminanceSensor: sensor.dining_room_illuminance
       IlluminanceLowThreshold: 26
       IlluminanceHighThreshold: 26
@@ -382,6 +393,10 @@ NetDaemon.apps.LightApp.LightingConfig:
       IlluminanceSensor: sensor.snug_illuminance
       IlluminanceLowThreshold: 7
       IlluminanceHighThreshold: 17
+      BlockModes:
+        - Sleeping
+        - Bright
+        - Movie
       PresenceSensors:
         - binary_sensor.snug_occupancy
       TriggerSensors:

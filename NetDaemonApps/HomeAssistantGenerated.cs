@@ -4496,7 +4496,7 @@ public partial class SensorEntities
     ///<summary>Snug Desk Switch Battery</summary>
     public NumericSensorEntity SnugDeskSwitchBattery => new(_haContext, "sensor.snug_desk_switch_battery");
     ///<summary>Snug Illuminance</summary>
-    public NumericSensorEntity SnugIllumenance => new(_haContext, "sensor.snug_illumenance");
+    public NumericSensorEntity SnugIlluminance => new(_haContext, "sensor.snug_illuminance");
     ///<summary>Snug Led Strip Linkquality</summary>
     public NumericSensorEntity SnugLedStripLinkquality => new(_haContext, "sensor.snug_led_strip_linkquality");
     ///<summary>Snug Switch Battery</summary>

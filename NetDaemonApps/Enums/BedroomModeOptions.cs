@@ -1,6 +1,6 @@
 namespace Enums;
 
-public enum BedroomModeOptions
+public enum RoomModeOptions
 {
     Bright,
     Normal,

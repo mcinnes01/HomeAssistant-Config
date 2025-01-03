@@ -96,18 +96,18 @@ public class BedroomModeController
                 case Trigger.TimeOfDayNight:
                 case Trigger.InBed:
                     _logger.LogDebug("Set state to Sleeping, triggered by {Trigger}.", trigger.ToString(), new { Entity = BedroomMode });
-                    BedroomMode!.SelectOption(BedroomModeOptions.Sleeping);
+                    BedroomMode!.SelectOption(RoomModeOptions.Sleeping);
                     break;
                 case Trigger.TimeOfDayMorning:
                 case Trigger.OutOfBed:
                     _logger.LogDebug("Set state to Relaxing, triggered by {Trigger}.", trigger.ToString(), new { Entity = BedroomMode });
                     if (TimeOfDay!.IsOption(TimeOfDayOptions.Day))
                     {
-                        BedroomMode!.SelectOption(BedroomModeOptions.Normal);
+                        BedroomMode!.SelectOption(RoomModeOptions.Normal);
                     }
                     else
                     {
-                        BedroomMode!.SelectOption(BedroomModeOptions.Relaxing);
+                        BedroomMode!.SelectOption(RoomModeOptions.Relaxing);
                     }
                     break;
                 case Trigger.Manual:
@@ -116,7 +116,7 @@ public class BedroomModeController
                 default:
                 case Trigger.TimeOfDayDay:
                     _logger.LogDebug("Set state to Normal, triggered by {Trigger}", trigger?.ToString(), new { Entity = BedroomMode });
-                    BedroomMode!.SelectOption(BedroomModeOptions.Normal);
+                    BedroomMode!.SelectOption(RoomModeOptions.Normal);
                     break;
             }
         }

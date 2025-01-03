@@ -29,14 +29,14 @@ public class BedroomScenes
 
     private void GetReadyForBed()
     {
-        _entities.InputSelect.BedroomMode.SelectOption(BedroomModeOptions.Relaxing);
+        _entities.InputSelect.BedroomMode.SelectOption(RoomModeOptions.Relaxing);
         _entities.Light.BedroomLamp.TurnOn();
         _entities.Light.BedroomLight.TurnOff();
     }
 
     private void Sleeping()
     {
-        _entities.InputSelect.BedroomMode.SelectOption(BedroomModeOptions.Sleeping);
+        _entities.InputSelect.BedroomMode.SelectOption(RoomModeOptions.Sleeping);
         _entities.Light.AllLights.TurnOff();
         _alexa.TurnScreenOff(_entities.MediaPlayer.BedroomEchoShow.EntityId);
         _alexa.TurnScreenOff(_entities.MediaPlayer.GuestRoomEchoShow.EntityId);
@@ -46,21 +46,21 @@ public class BedroomScenes
 
     public void Waking()
     {
-        _entities.InputSelect.BedroomMode.SelectOption(BedroomModeOptions.Relaxing);
+        _entities.InputSelect.BedroomMode.SelectOption(RoomModeOptions.Relaxing);
         _entities.Light.BedroomLamp.TurnOn();
         _alexa.TurnScreenOn(_entities.MediaPlayer.BedroomEchoShow.EntityId);
     }
 
     public void GetUp()
     {
-        _entities.InputSelect.BedroomMode.SelectOption(BedroomModeOptions.Normal);
+        _entities.InputSelect.BedroomMode.SelectOption(RoomModeOptions.Normal);
         _entities.Light.BedroomLamp.TurnOn();
         _alexa.TurnScreenOn(_entities.MediaPlayer.BedroomEchoShow.EntityId);
     }
 
     public void Awake()
     {
-        _entities.InputSelect.BedroomMode.SelectOption(BedroomModeOptions.Normal);
+        _entities.InputSelect.BedroomMode.SelectOption(RoomModeOptions.Normal);
         _entities.Light.BedroomLamp.TurnOff();
         _entities.Light.BedroomLight.TurnOff();
         _alexa.TurnScreenOn(_entities.MediaPlayer.BedroomEchoShow.EntityId);

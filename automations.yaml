@@ -2356,27 +2356,75 @@
 - id: '1727562661192'
   alias: Shed Camera Snapshot, AI & Notification on Motion
   description: ''
-  use_blueprint:
-    path: mcinnes01/ai_camera_motion_notification.yaml
-    input:
-      camera_device: camera.shed_camera_medium_resolution_channel
-      notify_device: 212665b3f569c509043064bb2bf88374
-      motion_sensor: binary_sensor.shed_camera_motion
-      ai_prompt: Motion has been detected, compare and very briefly describe what
-        you see in the following sequence of images from my {{ camera_name }} camera
-        or the last detection. What do you think caused the motion alarm? If a person,
-        animal or car is present, describe them in detail, pay special attention to
-        cats and what they are doing. If a car with the registration "LG18 PSU" arrives
-        i.e. was not there previously and now is, Or leaves i.e. was there previously
-        and now is not, reply "Car has arrived" or Car has left. Also comment on whether
-        the black gates are open or closed when the cars location changes. If you
-        see no obvious causes of motion, reply with "NOCHANGE". Your message needs
-        to be short enough to fit in a phone notification.
-      num_snapshots: 3
-      condition_auto:
+  triggers:
+  - entity_id: binary_sensor.shed_camera_motion
+    to: 'on'
+    trigger: state
+  actions:
+  - if:
+    - condition:
       - condition: state
         entity_id: input_select.location_mode
         state: Away
+    then:
+    - repeat:
+        count: '{{ num_snapshots }}'
+        sequence:
+        - data:
+            filename: ./www/snapshots/{{ camera_path }}_snapshot{{ repeat.index }}.jpg
+          target:
+            entity_id: '{{ camera_device }}'
+          action: camera.snapshot
+        - delay:
+            milliseconds: 500
+    - data:
+        prompt: '{{ ai_prompt }}'
+        image_filename: "{% set snap_count = 3 %} {% set ns = namespace(images=[])
+          %} {% for i in range(1, snap_count + 1) %}\n  {% set image = \"./www/snapshots/\"
+          ~ camera_path ~ \"_snapshot\" ~ i ~ \".jpg\" %}\n  {% set ns.images = ns.images
+          + [image] %}\n{% endfor %} {{ ns.images }}\n"
+      response_variable: generated_content
+      action: google_generative_ai_conversation.generate_content
+    - choose:
+      - conditions:
+        - condition: template
+          value_template: "{{ generated_content['text'] != 'NOCHANGE' }} \n"
+        sequence:
+        - device_id: 212665b3f569c509043064bb2bf88374
+          domain: mobile_app
+          type: notify
+          title: '{{ motion_name }} Detected'
+          message: '{{ generated_content[''text''] }}'
+          data: '{% set android_data = {"image": snapshot_access_file_path} %} {%
+            set ios_data = {"attachment": {"url": snapshot_access_file_path, "content_type":
+            "JPEG"}} %} {{ ios_data if is_ios else android_data }}
+
+            '
+  variables:
+    camera_device: camera.shed_camera_medium_resolution_channel
+    camera_name: '{{ state_attr(camera_device, ''friendly_name'') }}'
+    camera_path: '{{ state_attr(camera_device, ''friendly_name'') | lower | replace(''
+      '', ''_'') }}'
+    motion_sensor: binary_sensor.shed_camera_motion
+    motion_name: '{{ state_attr(motion_sensor, ''friendly_name'') }}'
+    is_ios: false
+    num_snapshots: 3
+    snapshot_access_file_path: /local/snapshots/{{ camera_path }}_snapshot1.jpg
+    ai_prompt: Motion has been detected, compare and very briefly describe what you
+      see in the following sequence of images from my {{ camera_name }} camera or
+      the last detection. What do you think caused the motion alarm? If a person,
+      animal or car is present, describe them in detail, pay special attention to
+      cats and what they are doing. If a car with the registration "LG18 PSU" arrives
+      i.e. was not there previously and now is, Or leaves i.e. was there previously
+      and now is not, reply "Car has arrived" or Car has left. Also comment on whether
+      the black gates are open or closed when the cars location changes. If you see
+      no obvious causes of motion, reply with "NOCHANGE". Your message needs to be
+      short enough to fit in a phone notification.
+    condition_auto:
+    - condition: state
+      entity_id: input_select.location_mode
+      state: Away
+  mode: single
 - id: '1727732371723'
   alias: Basement Hall Camera Snapshot, AI & Notification on Motion
   description: ''

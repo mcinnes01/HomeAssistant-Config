@@ -12927,9 +12927,9 @@
           "cSharpName": "SnugDeskSwitchBattery"
         },
         {
-          "id": "sensor.snug_illumenance",
+          "id": "sensor.snug_illuminance",
           "friendlyName": "Snug Illuminance",
-          "cSharpName": "SnugIllumenance"
+          "cSharpName": "SnugIlluminance"
         },
         {
           "id": "sensor.snug_led_strip_linkquality",

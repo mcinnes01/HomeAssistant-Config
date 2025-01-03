@@ -184,7 +184,7 @@ Manager
 
             // Set the options for the input_select entity
             if (IsBedroom)
-                RoomMode.SetOptions(EnumExtensions.ToOptions<BedroomModeOptions>());
+                RoomMode.SetOptions(EnumExtensions.ToOptions<RoomModeOptions>());
             else
                 RoomMode.SetOptions(EnumExtensions.ToOptions<RoomModeOptions>());
 

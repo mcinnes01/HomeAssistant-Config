@@ -7,14 +7,19 @@ public class RoomControl
 {
     public required string Name { get; set; }
     public bool IsBedroom { get; set; } = false;
+    public bool IsEntrance { get; set; } = false;
     public required IEnumerable<LightControl> Lights { get; set; }
+    public bool HasMultipleLights => Lights.Count() > 1;
     public required IEnumerable<BinarySensorEntity> PresenceSensors { get; set; }
     public required IEnumerable<BinarySensorEntity> TriggerSensors { get; set; }
     public NumericSensorEntity? IlluminanceSensor { get; set; }
     public double? IlluminanceLowThreshold { get; set; } = 40.0;
     public double? IlluminanceHighThreshold { get; set; } = 100.0;
-    public bool RecreateRoomMode { get; set; } = false;
-    private InputSelectEntity? RoomMode { get; set; }
+    public bool IsBright => IlluminanceSensor?.State > IlluminanceLowThreshold;
+    public bool RecreateRoomMode { get; set; } = true;
+    public InputSelectEntity? RoomMode { get; set; }
+    public string[] BlockModes { get; set; } = ["Sleeping", "Manual"];
+    public string[] KeepAliveModes { get; set; } = ["Relaxing", "Bright"];
     private string _roomModeSelect;
     private IMqttEntityManager _entityManager;
     private IScheduler _scheduler;
@@ -44,19 +49,19 @@ public class RoomControl
         }
 
         var room = Name.ToLower().ReplaceLineEndings("").Replace(" ", "_");
-        _roomModeSelect = RoomMode?.EntityId ?? $"input_select.light_manager_{room}_mode";
+        _roomModeSelect = RoomMode?.EntityId ?? $"input_select.{room}_mode";
         _logger.LogDebug("{room} Setup Room Mode Select", Name);
 
         if (_context.Entity(_roomModeSelect).State != null && RecreateRoomMode)
         {
-            _logger.LogDebug("{room} Removing Room Mode Select", _roomModeSelect);
+            _logger.LogDebug("{room} Remove Room Mode Select", _roomModeSelect);
             await _entityManager.RemoveAsync(_roomModeSelect);
         }
         
         if (_context.Entity(_roomModeSelect).State == null)
         {
-            // Create the input_select entity
-            await _entityManager.CreateAsync(_roomModeSelect, new EntityCreationOptions(Name: $"{Name} Mode", DeviceClass: "input_select", Persist: true));
+            _logger.LogDebug("{room} Creating Room Mode Select", _roomModeSelect);
+            await _entityManager.CreateAsync(_roomModeSelect, new EntityCreationOptions(Name: $"{Name} Mode", UniqueId: _roomModeSelect, DeviceClass: "input_select", Persist: true)).ConfigureAwait(false);
             RoomMode = new InputSelectEntity(_context, _roomModeSelect);
         }
 
@@ -66,9 +71,8 @@ public class RoomControl
             return;
         }
 
-        // Set the options for the input_select entity
         if (IsBedroom)
-            RoomMode.SetOptions(EnumExtensions.ToOptions<BedroomModeOptions>());
+            RoomMode.SetOptions(EnumExtensions.ToOptions<RoomModeOptions>());
         else if (room.Equals("lounge"))
             RoomMode.SetOptions(EnumExtensions.ToOptions<LoungeModeOptions>());
         else if (room.Equals("snug"))
@@ -81,6 +85,7 @@ public class RoomControl
 
         if (_roomModeSelect != "input_select.testroom_mode")
         {
+            _logger.LogTrace("{room} Setup Room Mode Select Subscriptions", Name);
             // This creates a subscription just to output the state of the entity
             (await _entityManager.PrepareCommandSubscriptionAsync(RoomMode.EntityId)).SubscribeAsync(async s =>
                 {

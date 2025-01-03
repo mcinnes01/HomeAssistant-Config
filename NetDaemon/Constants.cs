@@ -37,7 +37,7 @@ public static class Constants
     public static LoungeModeOptions[] LoungeLightModes =
     [
         LoungeModeOptions.Normal,
-        LoungeModeOptions.Reading
+        LoungeModeOptions.Bright
     ];
 
     public static LoungeModeOptions[] LoungeLampModes =
@@ -64,10 +64,10 @@ public static class Constants
         LightControlModeOptions.Relaxing
     ];
 
-    public static BedroomModeOptions[] BedroomMotionModes =
+    public static RoomModeOptions[] BedroomMotionModes =
     [
-        BedroomModeOptions.Normal,
-        BedroomModeOptions.Relaxing
+        RoomModeOptions.Normal,
+        RoomModeOptions.Relaxing
     ];
 
     public static LocationModeOptions[] HouseOccupied =

@@ -2,9 +2,9 @@ namespace NetDaemon.Enums;
 
 public enum LoungeModeOptions
 {
+    Bright,
     Manual,
     Normal,
-    Reading,
     Relaxing,
     Television
 }

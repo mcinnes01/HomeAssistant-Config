@@ -78,7 +78,7 @@ public class LightModes
             _logger.LogDebug("Brightness transitioned to bright, so turning off lights.");
             _insideNoRoomControlNotBasement.TurnOff();
 
-            if (Constants.BedroomMotionModes.Contains(_entities.InputSelect.BedroomMode.AsOption<BedroomModeOptions>()))
+            if (Constants.BedroomMotionModes.Contains(_entities.InputSelect.BedroomMode.AsOption<RoomModeOptions>()))
             {
                 _logger.LogDebug("Transition to Bright and Bedroom in a motion mode, turning off Bedroom lights.");
                 _bedroomLights.TurnOff();
@@ -101,10 +101,10 @@ public class LightModes
             switch (oldMode, newMode)
             {
                 case (LightControlModeOptions.Sleeping, LightControlModeOptions.Motion):
-                    if (_entities.InputSelect.BedroomMode.IsOption(BedroomModeOptions.Sleeping))
+                    if (_entities.InputSelect.BedroomMode.IsOption(RoomModeOptions.Sleeping))
                     {
                         _logger.LogDebug($"Old: {oldMode} to New: {newMode} setting Bedroom Mode to Normal.");
-                        _entities.InputSelect.BedroomMode.SelectOption(BedroomModeOptions.Normal);
+                        _entities.InputSelect.BedroomMode.SelectOption(RoomModeOptions.Normal);
                         _entities.Scene.Awake.TurnOn();
                     }
                     break;
@@ -116,7 +116,7 @@ public class LightModes
                 case (_, LightControlModeOptions.Relaxing):
                     _logger.LogDebug($"Old: {oldMode} to New: {newMode} turn bright lights off.");
                     _brightLightsNoRoomControl.TurnOff();
-                    if (!Constants.BedroomMotionModes.Contains(_entities.InputSelect.BedroomMode.AsOption<BedroomModeOptions>()))
+                    if (!Constants.BedroomMotionModes.Contains(_entities.InputSelect.BedroomMode.AsOption<RoomModeOptions>()))
                     {
                         _logger.LogDebug($"Old: {oldMode} to New: {newMode} Bedroom not in a motion mode, turning off Bedroom light.");
                         _entities.Light.BedroomLight.TurnOff();
@@ -149,10 +149,10 @@ public class LightModes
                         _logger.LogDebug($"Old: {oldMode} to New: {newMode} setting Snug Mode to Normal.");
                         _entities.InputSelect.SnugMode.SelectOption(SnugModeOptions.Normal);
                     }
-                    if (_entities.InputSelect.BedroomMode.IsNotOption(BedroomModeOptions.Sleeping))
+                    if (_entities.InputSelect.BedroomMode.IsNotOption(RoomModeOptions.Sleeping))
                     {
                         _logger.LogDebug($"Old: {oldMode} to New: {newMode} setting Bedroom Mode to Sleeping.");
-                        _entities.InputSelect.BedroomMode.SelectOption(BedroomModeOptions.Sleeping);
+                        _entities.InputSelect.BedroomMode.SelectOption(RoomModeOptions.Sleeping);
                         _entities.Scene.Sleeping.TurnOn();
                     }
                     break;

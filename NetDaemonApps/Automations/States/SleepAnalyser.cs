@@ -41,7 +41,7 @@ public class SleepAnalyser
             {
                 _logger.LogDebug("Andy in bed, setting mode to Night");
                 _entities.InputSelect.LightControlMode.SelectOption(LightControlModeOptions.Sleeping);
-                _entities.InputSelect.BedroomMode.SelectOption(BedroomModeOptions.Sleeping);
+                _entities.InputSelect.BedroomMode.SelectOption(RoomModeOptions.Sleeping);
                 _entities.InputSelect.TimeOfDay.SelectOption(TimeOfDayOptions.Night);
             });
     }
@@ -67,7 +67,7 @@ public class SleepAnalyser
             {
                 _logger.LogDebug("Claire in bed, setting mode to Night");
                 _entities.InputSelect.LightControlMode.SelectOption(LightControlModeOptions.Sleeping);
-                _entities.InputSelect.BedroomMode.SelectOption(BedroomModeOptions.Sleeping);
+                _entities.InputSelect.BedroomMode.SelectOption(RoomModeOptions.Sleeping);
                 _entities.InputSelect.TimeOfDay.SelectOption(TimeOfDayOptions.Night);
             });
     }
@@ -88,7 +88,7 @@ public class SleepAnalyser
             {
                 _logger.LogDebug("Andy out of bed, setting mode to Day");
                 _entities.InputSelect.LightControlMode.SelectOption(LightControlModeOptions.Motion);
-                _entities.InputSelect.BedroomMode.SelectOption(BedroomModeOptions.Normal);
+                _entities.InputSelect.BedroomMode.SelectOption(RoomModeOptions.Normal);
                 _entities.InputSelect.TimeOfDay.SelectOption(TimeOfDayOptions.Day);
             });
     }
@@ -109,7 +109,7 @@ public class SleepAnalyser
             {
                 _logger.LogDebug("Claire out of bed, setting mode to Day");
                 _entities.InputSelect.LightControlMode.SelectOption(LightControlModeOptions.Motion);
-                _entities.InputSelect.BedroomMode.SelectOption(BedroomModeOptions.Normal);
+                _entities.InputSelect.BedroomMode.SelectOption(RoomModeOptions.Normal);
                 _entities.InputSelect.TimeOfDay.SelectOption(TimeOfDayOptions.Day);
             });
     }

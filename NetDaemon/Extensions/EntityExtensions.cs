@@ -2,7 +2,8 @@
 
 public static class EntityExtensions
 {
-    private static readonly string[] _onStates = ["on", "playing"];
+    public static readonly string[] OnStates = ["on", "playing"];
+    public static readonly string[] BoolTypes = ["light", "switch", "scene", "input_boolean", "binary_sensor", "automation"];
 
     public static IDisposable WhenOn<TEntity, TAttributes>(this Entity<TEntity, EntityState<TAttributes>, TAttributes> entity,
         Action<StateChange<TEntity, EntityState<TAttributes>>> action)
@@ -60,8 +61,7 @@ public static class EntityExtensions
 
     public static bool BoolState(this Entity? entity)
     {
-        var boolTypes = new[] { "light", "switch", "scene", "input_boolean", "binary_sensor", "automation" };
-        return boolTypes.ToList().Contains(entity?.Domain() ?? "") && entity?.State != null
-            ? _onStates.Contains(entity?.State) : false;
+        return BoolTypes.ToList().Contains(entity?.Domain() ?? "") && entity?.State != null
+            ? OnStates.Contains(entity?.State) : false;
     }
 }

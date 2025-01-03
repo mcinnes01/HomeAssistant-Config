@@ -96,14 +96,15 @@ public static class EnumExtensions
             throw;
         }
     }
-
     public static bool IsOption(this InputSelectEntity target, Enum @option)
     =>target.State == @option.ToString();
+
     public static bool IsOption(this EntityState<InputSelectAttributes>? target, Enum @option)
     => target?.State == @option.ToString();
-    
+
     public static bool IsNotOption(this InputSelectEntity target, Enum @option)
     => target.State != @option.ToString();
+
     public static bool IsNotOption(this EntityState<InputSelectAttributes>? target, Enum @option)
     => target?.State != @option.ToString();
 
@@ -115,59 +116,49 @@ public static class EnumExtensions
         {
             Options = Enum.GetNames(typeof(T))
         };
-
+        
     public static bool IsBright(this EntityState<InputSelectAttributes>? state)
-    => state?.IsOption(BedroomModeOptions.Bright) ?? false;
+    => state?.IsOption(RoomModeOptions.Bright) ?? false;
     public static bool IsBright(this InputSelectEntity? entity)
     => entity?.EntityState?.IsBright() ?? false;
-
     public static bool IsCleaning(this EntityState<InputSelectAttributes>? state)
     => state?.IsOption(LightControlModeOptions.Cleaning) ?? false;
     public static bool IsCleaning(this InputSelectEntity? entity)
     => entity?.EntityState?.IsCleaning() ?? false;
-
     public static bool IsManual(this EntityState<InputSelectAttributes>? state)
-    => state?.IsOption(BedroomModeOptions.Manual) ?? false;
+    => state?.IsOption(RoomModeOptions.Manual) ?? false;
     public static bool IsManual(this InputSelectEntity? entity)
     => entity?.EntityState?.IsManual() ?? false;
-
     public static bool IsMotion(this EntityState<InputSelectAttributes>? state)
     => state?.IsOption(LightControlModeOptions.Motion) ?? false;
     public static bool IsMotion(this InputSelectEntity? entity)
     => entity?.EntityState?.IsMotion() ?? false;
-
     public static bool IsMovie(this EntityState<InputSelectAttributes>? state)
     => state?.IsOption(SnugModeOptions.Movie) ?? false;
     public static bool IsMovie(this InputSelectEntity? entity)
     => entity?.EntityState?.IsMovie() ?? false;
-
     public static bool IsNormal(this EntityState<InputSelectAttributes>? state)
-    => state?.IsOption(BedroomModeOptions.Normal) ?? false;
+    => state?.IsOption(RoomModeOptions.Normal) ?? false;
     public static bool IsNormal(this InputSelectEntity? entity)
     => entity?.EntityState?.IsNormal() ?? false;
-
     public static bool IsRelaxing(this EntityState<InputSelectAttributes>? state)
-    => state?.IsOption(BedroomModeOptions.Relaxing) ?? false;
+    => state?.IsOption(RoomModeOptions.Relaxing) ?? false;
     public static bool IsRelaxing(this InputSelectEntity? entity)
     => entity?.EntityState?.IsRelaxing() ?? false;
-
     public static bool IsShowering(this EntityState<InputSelectAttributes>? state)
     => state?.IsOption(BathroomModeOptions.Showering) ?? false;
     public static bool IsShowering(this InputSelectEntity? entity)
     => entity?.EntityState?.IsShowering() ?? false;
-
     public static bool IsSleeping(this EntityState<InputSelectAttributes>? state)
-    => state?.IsOption(BedroomModeOptions.Sleeping) ?? false;
+    => state?.IsOption(RoomModeOptions.Sleeping) ?? false;
     public static bool IsSleeping(this InputSelectEntity? entity)
     => entity?.EntityState?.IsSleeping() ?? false;
-
     public static bool IsTelevision(this EntityState<InputSelectAttributes>? state)
     => state?.IsOption(LoungeModeOptions.Television) ?? false;
     public static bool IsTelevision(this InputSelectEntity? entity)
     => entity?.EntityState?.IsTelevision() ?? false;
-
     public static bool Bright(this InputSelectEntity locationMode)
-    => locationMode.IsOption(BedroomModeOptions.Bright);
+    => locationMode.IsOption(RoomModeOptions.Bright);
     public static bool Cleaning(this InputSelectEntity locationMode)
     => locationMode.IsOption(LightControlModeOptions.Cleaning);
     public static void Manual(this InputSelectEntity locationMode)
@@ -179,11 +170,11 @@ public static class EnumExtensions
     public static void Normal(this InputSelectEntity locationMode)
     => locationMode.SelectOption(RoomModeOptions.Normal);
     public static bool Relaxing(this InputSelectEntity locationMode)
-    => locationMode.IsOption(BedroomModeOptions.Relaxing);
+    => locationMode.IsOption(RoomModeOptions.Relaxing);
     public static bool Showering(this InputSelectEntity locationMode)
     => locationMode.IsOption(BathroomModeOptions.Showering);
     public static bool Sleeping(this InputSelectEntity locationMode)
-    => locationMode.IsOption(BedroomModeOptions.Sleeping);
+    => locationMode.IsOption(RoomModeOptions.Sleeping);
     public static void Television(this InputSelectEntity locationMode)
     => locationMode.SelectOption(LoungeModeOptions.Television);
 }

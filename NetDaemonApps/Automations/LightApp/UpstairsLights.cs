@@ -12,8 +12,8 @@ public class UpstairsLights
     private IDisposable _bathroomOccupancyDisposable;
     private bool _bathroomWaspInABox = false;
     private bool OutOfBed => 
-        _entities.InputSelect.BedroomMode.IsNotOption(BedroomModeOptions.Sleeping) ||
-        _entities.InputSelect.BedroomMode.IsOption(BedroomModeOptions.Sleeping) &&
+        _entities.InputSelect.BedroomMode.IsNotOption(RoomModeOptions.Sleeping) ||
+        _entities.InputSelect.BedroomMode.IsOption(RoomModeOptions.Sleeping) &&
         _entities.InputSelect.LocationMode.IsOption(LocationModeOptions.Home) &&
         (_entities.BinarySensor.AndyInBed.IsOff() || _entities.BinarySensor.ClaireInBed.IsOff()) ||
         (_entities.InputSelect.LocationMode.IsOption(LocationModeOptions.OneAway) &&
@@ -54,10 +54,10 @@ public class UpstairsLights
             && e.New.IsOn()
             && _entities.Light.LandingLight.IsOff()
             && _lightingStates.InMotionMode(true)
-            && ((_entities.InputSelect.BedroomMode.IsOption(BedroomModeOptions.Sleeping)
+            && ((_entities.InputSelect.BedroomMode.IsOption(RoomModeOptions.Sleeping)
             && (_entities.BinarySensor.AndyInBed.IsOff() && _entities.Person.Andy.IsHome())
             || (_entities.BinarySensor.ClaireInBed.IsOff() && _entities.Person.Claire.IsHome()))
-            || _entities.InputSelect.BedroomMode.IsNotOption(BedroomModeOptions.Sleeping));
+            || _entities.InputSelect.BedroomMode.IsNotOption(RoomModeOptions.Sleeping));
         })
         .Subscribe(_ =>
         {
@@ -228,12 +228,12 @@ public class UpstairsLights
             return !e.Old.IsOn()
             && e.New.IsOn()
             && _lightingStates.InMotionMode()
-            && _entities.InputSelect.BedroomMode.IsNotOption(BedroomModeOptions.Sleeping)
+            && _entities.InputSelect.BedroomMode.IsNotOption(RoomModeOptions.Sleeping)
             && _entities.Light.BedroomLights.IsOff();
         })
         .Subscribe(e =>
         {
-            var bedroomMode = _entities.InputSelect.BedroomMode.AsOption<BedroomModeOptions>();
+            var bedroomMode = _entities.InputSelect.BedroomMode.AsOption<RoomModeOptions>();
             var lightMode = _entities.InputSelect.LightControlMode.AsOption<LightControlModeOptions>();
             _logger.LogTrace(@$"Light Mode: {lightMode},
                 Bedroom Mode: {bedroomMode},
@@ -243,7 +243,7 @@ public class UpstairsLights
                 Bedroom Light: {_entities.Light.BedroomLight.State}");
 
             if (Constants.NormalMotionModes.Contains(lightMode)
-                && BedroomModeOptions.Normal == bedroomMode
+                && RoomModeOptions.Normal == bedroomMode
                 && !_entities.Light.BedroomLight.IsOn())
             {
                 _logger.LogDebug("Motion detected, turning Bedroom Light On.");
@@ -268,7 +268,7 @@ public class UpstairsLights
             TimeSpan.FromMinutes(2), _scheduler)
         .Subscribe(e =>
         {
-            var bedroomMode = _entities.InputSelect.BedroomMode.AsOption<BedroomModeOptions>();
+            var bedroomMode = _entities.InputSelect.BedroomMode.AsOption<RoomModeOptions>();
             var lightMode = _entities.InputSelect.LightControlMode.AsOption<LightControlModeOptions>();
             _logger.LogTrace(@$"Light Mode: {lightMode},
                 Bedroom Mode: {bedroomMode},
@@ -279,13 +279,13 @@ public class UpstairsLights
 
             if (lightMode != LightControlModeOptions.Manual)
             {
-                if (bedroomMode != BedroomModeOptions.Bright
+                if (bedroomMode != RoomModeOptions.Bright
                     && !_entities.Light.BedroomLight.IsOff())
                 {
                     _logger.LogDebug("No motion, turning Bedroom Light Off");
                     _entities.Light.BedroomLight.TurnOff();
                 }
-                if (bedroomMode != BedroomModeOptions.Relaxing
+                if (bedroomMode != RoomModeOptions.Relaxing
                     && !_entities.Light.BedroomLamp.IsOff())
                 {
                     _logger.LogDebug("No motion, turning Bedside Lamp Off");

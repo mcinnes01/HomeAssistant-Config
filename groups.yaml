@@ -144,7 +144,7 @@ snug:
     - media_player.snug_radio
     - group.media_snug_echo_input
     - binary_sensor.snug_occupancy
-    - sensor.snug_illumenance
+    - sensor.snug_illuminance
 
 dining_room:
   name: Dining Room
