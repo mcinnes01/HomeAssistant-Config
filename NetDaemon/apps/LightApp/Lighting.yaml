@@ -17,11 +17,11 @@ NetDaemon.apps.LightApp.LightingConfig:
             - Entity: sun.sun
               Operator: Equals
               State: below_horizon
-            - Entity: input_select.light_control_mode
+            - Entity: input_select.bedroom_mode
               Operator: NotEquals
               State: 'Sleeping'
           Primary: false
-          Timeout: 120
+          Timeout: 240
           PresenceSensors:
             - binary_sensor.front_door
           TriggerSensors:
@@ -32,9 +32,8 @@ NetDaemon.apps.LightApp.LightingConfig:
             - light.hallway_light
           KeepAliveEntities:
             - binary_sensor.front_door
-            - binary_sensor.issunset
         - Light: light.hallway_light
-          Timeout: 120
+          Timeout: 240
           PresenceSensors:
             - binary_sensor.front_door
           TriggerSensors:
@@ -53,7 +52,7 @@ NetDaemon.apps.LightApp.LightingConfig:
       Lights:
         - Light: light.porch_light
           Primary: false
-          Timeout: 120
+          Timeout: 240
           TriggerWithoutPresence: true
           Conditions:
             - Entity: sun.sun
@@ -88,7 +87,7 @@ NetDaemon.apps.LightApp.LightingConfig:
       Lights:
         - Light: light.breakfast_bar_light
           Primary: false
-          Timeout: 30
+          Timeout: 240
           PresenceSensors:
             - binary_sensor.breakfast_bar_presence
           TriggerSensors:
@@ -98,7 +97,7 @@ NetDaemon.apps.LightApp.LightingConfig:
           BlockEntities:
             - light.kitchen_light
         - Light: light.kitchen_light
-          Timeout: 30
+          Timeout: 240
           PresenceSensors:
             - binary_sensor.kitchen_occupancy
           TriggerSensors:
@@ -122,36 +121,40 @@ NetDaemon.apps.LightApp.LightingConfig:
       Lights:
         - Light: light.lounge_lamp
           Primary: false
-          Timeout: 30
+          IndependentSecondary: true
+          Timeout: 240
           PresenceSensors:
             - binary_sensor.main_sofa_presence
             - binary_sensor.window_sofa_presence
-          TriggerSensors:
-            - binary_sensor.lounge_motion
-          BlockEntities:
-            - light.lounge_light
           KeepAliveEntities:
             - switch.lounge_tv
+            - binary_sensor.guest_sofa_presence
         - Light: light.lounge_floor_lamp
-          Timeout: 30
+          Timeout: 240
           Primary: false
+          IndependentSecondary: true
           PresenceSensors:
             - binary_sensor.guest_sofa_presence
-          TriggerSensors:
-            - binary_sensor.lounge_motion
-          BlockEntities:
-            - light.lounge_light
           KeepAliveEntities:
             - switch.lounge_tv
+            - binary_sensor.main_sofa_presence
+            - binary_sensor.window_sofa_presence
         - Light: light.lounge_light
-          Timeout: 30
+          Timeout: 240
           PresenceSensors:
             - binary_sensor.lounge_occupancy
           TriggerSensors:
             - binary_sensor.lounge_motion
+          TurnOffTriggerTime: 300
+          TurnOffTriggerEntities:
+            - switch.lounge_tv
+            - binary_sensor.main_sofa_presence
+            - binary_sensor.window_sofa_presence
+            - binary_sensor.guest_sofa_presence
           BlockEntities:
-            - light.lounge_lamp
-            - light.lounge_floor_lamp
+            - binary_sensor.main_sofa_presence
+            - binary_sensor.window_sofa_presence
+            - binary_sensor.guest_sofa_presence
             - switch.lounge_tv
     - Name: drawing_room
       IlluminanceSensor: sensor.drawing_room_illuminance
@@ -165,7 +168,7 @@ NetDaemon.apps.LightApp.LightingConfig:
         - binary_sensor.drawing_room_motion
       Lights:
         - Light: light.drawing_room_light
-          Timeout: 30
+          Timeout: 240
           TriggerSensors:
             - binary_sensor.drawing_room_motion
           PresenceSensors:
@@ -174,20 +177,22 @@ NetDaemon.apps.LightApp.LightingConfig:
             - light.bookshelf_light
             - switch.display_cabinet_light
         - Light: light.bookshelf_light
-          Timeout: 30
+          Timeout: 240
+          Primary: false
+          IndependentSecondary: true
+          PresenceSensors:
+            - binary_sensor.library_presence
+          KeepAliveModes:
+            - Relaxing
+        - Light: light.display_cabinet_light
+          Timeout: 240
           Primary: false
           PresenceSensors:
             - binary_sensor.settee_presence
-            - binary_sensor.library_presence
           BlockEntities:
             - light.drawing_room_light
-        - Light: light.display_cabinet_light
-          Timeout: 30
-          Primary: false
-          PresenceSensors:
-            - binary_sensor.settee_presence
-          BlockEntities:
-            - light.drawing_room_light      
+          KeepAliveModes:
+            - Relaxing     
     - Name: guest_room
       IsBedroom: true
       IlluminanceSensor: sensor.guest_room_illuminance
@@ -199,7 +204,7 @@ NetDaemon.apps.LightApp.LightingConfig:
         - binary_sensor.guest_room_motion
       Lights:
         - Light: light.guest_room_light
-          Timeout: 30
+          Timeout: 240
           TriggerSensors:
             - binary_sensor.guest_room_motion
           PresenceSensors:
@@ -208,7 +213,7 @@ NetDaemon.apps.LightApp.LightingConfig:
             - light.guest_room_lamp
             - binary_sensor.guest_room_bed_presence
         - Light: light.guest_room_lamp
-          Timeout: 30
+          Timeout: 240
           Primary: false
           TriggerSensors:
             - binary_sensor.guest_room_motion
@@ -238,18 +243,23 @@ NetDaemon.apps.LightApp.LightingConfig:
         - binary_sensor.bedroom_motion
       Lights:
         - Light: light.bedroom_light
-          Timeout: 30
+          Timeout: 240
           TriggerSensors:
             - binary_sensor.bedroom_motion
           PresenceSensors:
             - binary_sensor.bedroom_occupancy
+          TurnOffTriggerTime: 450
+          TurnOffTriggerEntities:
+            - binary_sensor.andy_in_bed
+            - binary_sensor.claire_in_bed
+            - binary_sensor.bedroom_bed_presence
           BlockEntities:
             - light.bedroom_lamp
             - binary_sensor.andy_in_bed
             - binary_sensor.claire_in_bed
             - binary_sensor.bedroom_bed_presence
         - Light: light.bedroom_lamp
-          Timeout: 30
+          Timeout: 240
           Primary: false
           TriggerSensors:
             - binary_sensor.bedroom_motion
@@ -271,9 +281,11 @@ NetDaemon.apps.LightApp.LightingConfig:
         - binary_sensor.landing_motion
       Lights:
         - Light: light.landing_light
-          Timeout: 120
+          Timeout: 240
           TriggerSensors:
             - binary_sensor.landing_motion
+          BlockEntities:
+            - binary_sensor.in_bed
     - Name: bathroom
       IlluminanceSensor: sensor.studio_illuminance
       IlluminanceLowThreshold: 35
@@ -285,7 +297,7 @@ NetDaemon.apps.LightApp.LightingConfig:
         - binary_sensor.bathroom_motion
       Lights:
         - Light: light.bathroom_light
-          Timeout: 120
+          Timeout: 240
           TriggerSensors:
             - binary_sensor.bathroom_motion
           BlockEntities:
@@ -293,7 +305,7 @@ NetDaemon.apps.LightApp.LightingConfig:
           KeepAliveEntities:
             - fan.bathroom_fan
         - Light: light.mirror_light
-          Timeout: 120
+          Timeout: 240
           Primary: false
           TriggerSensors:
             - binary_sensor.bathroom_motion
@@ -312,7 +324,7 @@ NetDaemon.apps.LightApp.LightingConfig:
         - binary_sensor.studio_motion
       Lights:
         - Light: light.studio_light
-          Timeout: 30
+          Timeout: 240
           TriggerSensors:
             - binary_sensor.studio_motion
           PresenceSensors:
@@ -320,7 +332,7 @@ NetDaemon.apps.LightApp.LightingConfig:
           BlockEntities:
             - light.studio_lamp
         - Light: light.studio_lamp
-          Timeout: 30
+          Timeout: 240
           Primary: false
           TriggerSensors:
             - binary_sensor.studio_motion
@@ -333,7 +345,7 @@ NetDaemon.apps.LightApp.LightingConfig:
         - binary_sensor.toilet_motion
       Lights:
         - Light: light.toilet_light
-          Timeout: 120
+          Timeout: 240
           TriggerSensors:
             - binary_sensor.toilet_motion
     - Name: utility_room
@@ -346,7 +358,7 @@ NetDaemon.apps.LightApp.LightingConfig:
         - binary_sensor.cellar_door
       Lights:
         - Light: light.utility_room_light
-          Timeout: 120
+          Timeout: 240
           TriggerSensors:
             - binary_sensor.utility_room_motion
             - binary_sensor.cellar_door
@@ -360,7 +372,7 @@ NetDaemon.apps.LightApp.LightingConfig:
         - binary_sensor.dining_room_motion
       Lights:
         - Light: light.dining_room_light
-          Timeout: 30
+          Timeout: 240
           TriggerSensors:
             - binary_sensor.dining_room_motion
           PresenceSensors:
@@ -370,7 +382,7 @@ NetDaemon.apps.LightApp.LightingConfig:
         - binary_sensor.electric_cabinet_door
       Lights:
         - Light: light.electric_cabinet_light
-          Timeout: 30
+          Timeout: 240
           PresenceSensors:
             - binary_sensor.electric_cabinet_door
     - Name: basement_hall
@@ -383,7 +395,7 @@ NetDaemon.apps.LightApp.LightingConfig:
         - binary_sensor.basement_hall_camera_person_detected
       Lights:
         - Light: light.basement_hall_light
-          Timeout: 120
+          Timeout: 240
           TriggerSensors:
             - binary_sensor.basement_hall_motion
             - binary_sensor.basement_stairs_motion
@@ -403,7 +415,7 @@ NetDaemon.apps.LightApp.LightingConfig:
         - binary_sensor.snug_motion
       Lights:
         - Light: light.snug_light
-          Timeout: 30
+          Timeout: 240
           TriggerSensors:
             - binary_sensor.snug_motion
           PresenceSensors:
@@ -413,7 +425,7 @@ NetDaemon.apps.LightApp.LightingConfig:
             - light.snug_lamp
             - media_player.snug_projector
         - Light: light.snug_lamp
-          Timeout: 30
+          Timeout: 240
           Primary: false
           TriggerSensors:
             - binary_sensor.snug_motion
@@ -424,7 +436,7 @@ NetDaemon.apps.LightApp.LightingConfig:
             - light.snug_light
             - media_player.snug_projector
         - Light: light.snug_led_strip
-          Timeout: 30
+          Timeout: 240
           Primary: false
           TriggerSensors:
             - binary_sensor.snug_motion

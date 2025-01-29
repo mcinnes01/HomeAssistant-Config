@@ -231,19 +231,20 @@
 - id: '1624467229490'
   alias: In bed
   description: ''
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.in_bed
+  triggers:
+  - entity_id: binary_sensor.in_bed
     to: 'on'
     for: 00:05:00
-  condition:
+    trigger: state
+  conditions:
   - condition: time
     after: '20:00:00'
-    before: 04:30:00
-  action:
-  - service: input_boolean.turn_on
-    target:
+    before: 07:30:00
+  actions:
+  - target:
       entity_id: input_boolean.in_bed
+    action: input_boolean.turn_on
+    data: {}
   mode: single
 - id: '1624870805960'
   alias: Out of bed
@@ -1674,25 +1675,24 @@
     path: EPMatt/ikea_e2001_e2002.yaml
     input:
       integration: Zigbee2MQTT
-      controller_entity: sensor.kitchen_switch_action
+      controller_entity: event.kitchen_switch_action
       helper_last_controller_event: input_text.kitchen_switch_state
       action_button_up_short:
-      - service: light.turn_on
-        metadata: {}
+      - metadata: {}
         data: {}
         target:
           entity_id: light.kitchen_light
+        action: light.turn_on
       action_button_down_short:
-      - service: light.turn_off
-        metadata: {}
+      - metadata: {}
         data: {}
         target:
           entity_id:
           - light.kitchen_light
           - light.breakfast_bar_lamp
+        action: light.turn_off
       action_button_up_double:
-      - service: light.turn_on
-        metadata: {}
+      - metadata: {}
         data:
           transition: 2
           rgb_color:
@@ -1701,63 +1701,64 @@
           - 255
         target:
           entity_id: light.breakfast_bar_lamp
+        action: light.turn_on
       action_button_down_double:
-      - service: light.turn_off
-        metadata: {}
+      - metadata: {}
         data: {}
         target:
           entity_id: light.breakfast_bar_lamp
+        action: light.turn_off
       action_button_left_short:
-      - service: light.turn_off
-        metadata: {}
+      - metadata: {}
         data: {}
         target:
           entity_id:
           - light.fence_lights
           - light.shed_light
           - light.back_door_light
+        action: light.turn_off
       action_button_right_short:
-      - service: light.turn_on
-        metadata: {}
+      - metadata: {}
         data: {}
         target:
           entity_id:
           - light.fence_lights
           - light.shed_light
           - light.back_door_light
+        action: light.turn_on
       action_button_up_long:
-      - service: script.turn_on
-        data:
+      - data:
           variables:
             entity_id: light.breakfast_bar_lamp
             button_state: input_text.kitchen_switch_state
         target:
           entity_id: script.yeelight_dimmer_up
         enabled: true
+        action: script.turn_on
       action_button_left_long:
-      - service: media_player.volume_down
-        metadata: {}
+      - metadata: {}
         data: {}
         target:
           entity_id: media_player.kitchen_echo_show
+        action: media_player.volume_down
       action_button_right_long:
-      - service: media_player.volume_up
-        target:
+      - target:
           entity_id:
           - media_player.kitchen_echo_show
         data: {}
+        action: media_player.volume_up
       action_button_left_double:
-      - service: light.turn_off
-        metadata: {}
+      - metadata: {}
         data: {}
         target:
           entity_id: light.patio_light
+        action: light.turn_off
       action_button_right_double:
-      - service: light.turn_on
-        metadata: {}
+      - metadata: {}
         data: {}
         target:
           entity_id: light.patio_light
+        action: light.turn_on
       button_left_long_loop: true
       button_left_long_max_loop_repeats: 3
       button_right_long_loop: true
@@ -1771,34 +1772,34 @@
       button_up_double_press: true
       button_down_double_press: true
       action_button_down_long:
-      - service: script.turn_on
-        data:
+      - data:
           variables:
             entity_id: light.breakfast_bar_lamp
             button_state: input_text.kitchen_switch_state
         target:
           entity_id: script.yeelight_dimmer_down
         enabled: true
+        action: script.turn_on
       helper_double_press_delay: 500
       helper_debounce_delay: 0
       action_button_up_release:
-      - service: script.turn_off
-        data:
+      - data:
           variables:
             entity_id: light.breakfast_bar_lamp
             button_state: input_text.kitchen_switch_state
         target:
           entity_id: script.yeelight_dimmer_up
         enabled: true
+        action: script.turn_off
       action_button_down_release:
-      - service: script.turn_off
-        data:
+      - data:
           variables:
             entity_id: light.breakfast_bar_lamp
             button_state: input_text.kitchen_switch_state
         target:
           entity_id: script.yeelight_dimmer_down
         enabled: true
+        action: script.turn_off
 - id: '1714152051507'
   alias: Hallway Lamp On At Sunset
   description: ''
@@ -2535,4 +2536,33 @@
     data: {}
     target:
       entity_id: light.kitchen_wallboard_screen
+  mode: single
+- id: '1737788443298'
+  alias: Cat in tray
+  description: ''
+  triggers:
+  - type: occupied
+    device_id: 152464013553416134ac864861e8ae82
+    entity_id: d7af482f09ee05ac1d289576f1338044
+    domain: binary_sensor
+    trigger: device
+  conditions: []
+  actions:
+  - action: notify.alexa_media_all_speakers
+    metadata: {}
+    data:
+      message: Cat in tray
+      data:
+        type: announce
+        state: all
+      target: media_player.all_speakers
+  - action: persistent_notification.create
+    metadata: {}
+    data:
+      message: Cat in tray
+      notification_id: catintray
+  - delay:
+      hours: 0
+      minutes: 2
+      seconds: 0
   mode: single

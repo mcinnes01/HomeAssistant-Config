@@ -35,9 +35,9 @@
 		<PackageReference Include="NetDaemon.Extensions.Scheduling" Version="24.52.0" />
 		<PackageReference Include="NetDaemon.Extensions.Logging" Version="24.52.0" />
 		<PackageReference Include="NetDaemon.Extensions.Tts" Version="24.52.0" />
-		<PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.1" />
 		<PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
-		<PackageReference Include="stateless" Version="5.16.0" />
+		<PackageReference Include="stateless" Version="5.17.0" />
 		<PackageReference Include="System.Reactive" Version="6.0.1" />
 		<PackageReference Include="CacheManager.Core" Version="1.2.0" />
 		<PackageReference Include="CacheManager.Microsoft.Extensions.Configuration" Version="1.2.0" />

@@ -2,18 +2,21 @@ using System.Reactive;
 using NetDaemon.Extensions.MqttEntityManager;
 
 namespace NetDaemon.apps.LightApp;
-#pragma warning disable CS8618 
+#pragma warning disable CS8618
 public class LightControl
 {
     public required LightEntity Light { get; set; }
     public IEnumerable<BinarySensorEntity> PresenceSensors { get; set; } = new List<BinarySensorEntity>();
     public IEnumerable<BinarySensorEntity> TriggerSensors { get; set; }  = new List<BinarySensorEntity>();
+    // public IEnumerable<Entity> TurnOffTriggerEntities { get; set; } = new List<Entity>();
+    // public int TurnOffTriggerTime { get; set; } = 0;
     public IEnumerable<Entity> BlockEntities { get; set; } = new List<Entity>();
     public IEnumerable<Entity> KeepAliveEntities { get; set; } = new List<Entity>();
     public IEnumerable<Condition> Conditions { get; set; } = new List<Condition>();
     public required int Timeout { get; set; } = 120;
     public bool RecreateEnabledSwitch { get; set; } = false;
     public bool Primary { get; set; } = true;
+    //public bool IndependentSecondary { get; set; } = false;
     public bool TriggerWithoutPresence { get; set; } = false;
     private RoomControl _room { get; set; }
     private IMqttEntityManager _entityManager;
@@ -52,13 +55,14 @@ public class LightControl
         SubscribePresenceOffEvent();
         SubscribeConditionStateChange();
         SubscribeBlockers();
+        //SubScribeTurnOffTriggers();
     }
 
     // Still to do:
     // Might be nice to add a learning sequence to illuminance thresholds where it can set the values automatically,
     // by turning off the light taking the reading and then turning it on and taking the reading to give a high and low value
     // The room mode entities still aren't creating properly and we need to ensure we trigger set them. If there is presence in a room bar master bedroom
-    // then we can do something like set mode to sleeping in all other rooms, if that room then becomes unoccupied and master bedroom is sleeping the we 
+    // then we can do something like set mode to sleeping in all other rooms, if that room then becomes unoccupied and master bedroom is sleeping the we
     // set that to sleeping too. If we have guest mode enabled and there is general movement around the house we only set master bedroom to sleeping
 
     private async Task SetupEnabledSwitch()
@@ -75,8 +79,8 @@ public class LightControl
         if (_context.Entity(_enabledSwitch).State == null)
         {
             await _entityManager.CreateAsync(_enabledSwitch, new EntityCreationOptions(
-                Name: $"Light Manager {Light.Name().Replace("_", " ")}", 
-                UniqueId: _enabledSwitch, 
+                Name: $"Light Manager {Light.Name().Replace("_", " ")}",
+                UniqueId: _enabledSwitch,
                 DeviceClass: "switch",
                 Persist: true)).ConfigureAwait(false);
             ManagerEnabled = new SwitchEntity(_context, _enabledSwitch);
@@ -185,6 +189,14 @@ public class LightControl
 
         // Need to add conditions in to initial state
         var presenceStates = TriggerSensors.Union(PresenceSensors).Select(s => new { s.EntityId, IsOn = s.IsOn() });
+        var conditions = Conditions.Select(c => new
+        {
+            c.Entity.EntityId,
+            ActualState = c.Entity.EntityState,
+            TargetState = c.State,
+            c.Operator,
+            ConditionPassed = c.ConditionPassed()
+        });
 
         // if Light is On
         // if keep alive keep on
@@ -194,46 +206,47 @@ public class LightControl
         // if Light is Off
         // if block keep off
         // else
-        // if (Presence || Condition) &&  Illuminance < Bright turn on / else turn off  
+        // if (Presence || Condition) &&  Illuminance < Bright turn on / else turn off
 
         if (Light.IsOn())
-        {    
-            if (KeepAliveEntities.Any(b => b.IsOn()))           
+        {
+            if (KeepAliveEntities.Any(b => b.IsOn()))
             {
-                _logger.LogInformation("Initial state {light} is on and there is at least one keep alive entity on {@alive}, Keeping On", 
+                _logger.LogInformation("Initial state {light} is on and there is at least one keep alive entity on {@alive}, Keeping On",
                     Light.EntityId, KeepAliveEntities.Select(b => b.EntityId));
                 return;
             }
             else
             {
-                if ((presenceStates.Any(s => s.IsOn) || Conditions.Any(c => c.ConditionPassed())) && (!_room.IsBright || _room.RoomMode.IsBright())) 
+                if ((presenceStates.Any(s => s.IsOn) || conditions.Any(c => c.ConditionPassed)) && (!_room.IsBright || _room.RoomMode.IsBright()))
                 {
-                    _logger.LogInformation("Initial state {light} is on and presence {@presence} or condition {@condition} are met a illuminance is not bright, Keeping On", 
-                        Light.EntityId, presenceStates, Conditions);
+                    _logger.LogInformation("Initial state {light} is on and presence {@presence} or condition {@condition} are met and illuminance is not bright, Keeping On",
+                        Light.EntityId, presenceStates, conditions);
                     return;
                 }
-                _logger.LogInformation("Initial state {light} is on but there is no presence detected or condition met or it's too bright {illuminance} {threshold}, Turning Off", 
+                _logger.LogInformation("Initial state {light} is on but there is no presence detected or condition met or it's too bright {illuminance} {threshold}, Turning Off",
                     Light.EntityId, _room.IlluminanceSensor?.State, _room.IlluminanceHighThreshold);
                 TurnOffEntities("Initial State");
             }
         }
         else
         {
-            if (BlockEntities.Any(b => b.IsOn()))           
+            if (BlockEntities.Any(b => b.IsOn()))
             {
-                _logger.LogInformation("Initial state {light} is off and there is a block entity on {@block}, Keeping Off", 
+                _logger.LogInformation("Initial state {light} is off and there is a block entity on {@block}, Keeping Off",
                     Light.EntityId, BlockEntities.Select(b => b.EntityId));
                 return;
             }
             else
             {
-                if ((presenceStates.Any(s => s.IsOn) || Conditions.Any(c => c.ConditionPassed())) && _room.IlluminanceSensor?.State < _room.IlluminanceHighThreshold)
+                if ((presenceStates.Any(s => s.IsOn) || conditions.Any(c => c.ConditionPassed)) && _room.IlluminanceSensor?.State < _room.IlluminanceHighThreshold)
                 {
-                    _logger.LogInformation("Initial state {light} is off presence {@presence} or condition {@condition} are met a illuminance {sensor} is not bright enough {illuminance} {threshold}, Turning On", 
-                        Light.EntityId, presenceStates, Conditions, _room.IlluminanceSensor?.EntityId, _room.IlluminanceSensor?.State, _room.IlluminanceHighThreshold);
+                    _logger.LogInformation("Initial state {light} is off presence {@presence} or condition {condition} are met a illuminance {sensor} is not bright enough {illuminance} {threshold}, Turning On",
+                        Light.EntityId, presenceStates, Conditions.AsString(), _room.IlluminanceSensor?.EntityId, _room.IlluminanceSensor?.State, _room.IlluminanceHighThreshold);
                     TurnOnEntities("Initial State");
+                    return;
                 }
-                _logger.LogInformation("Initial state {light} is off and there is no presence or condition met and illuminance {sensor} is not dark enough {illuminance} {threshold}, Keeping Off", 
+                _logger.LogInformation("Initial state {light} is off and there is no presence or condition met and illuminance {sensor} is not dark enough {illuminance} {threshold}, Keeping Off",
                     Light.EntityId, _room.IlluminanceSensor?.EntityId, _room.IlluminanceSensor?.State, _room.IlluminanceHighThreshold);
             }
         }
@@ -260,25 +273,28 @@ public class LightControl
 
     private void SubscribeConditionStateChange()
     {
-        _logger.LogDebug("Subscribing {light} to Condition State Changes", Light.EntityId);
-        foreach (var condition in Conditions)
+        if (Conditions.Any())
         {
-            _logger.LogDebug("{Light} Subscribed to {Entity} where state matches condition {State}", 
-                Light.EntityId, condition.Entity.EntityId, condition.State);
-            condition.Entity.StateAllChanges()
-            .Subscribe(e =>
+            _logger.LogDebug("Subscribing {light} to Condition State Changes", Light.EntityId);
+            foreach (var condition in Conditions)
             {
-                if (Light.IsOff() && !e.Old.ConditionPassed(condition) && e.New.ConditionPassed(condition))
+                _logger.LogDebug("{Light} Subscribed to {Entity} state for condition {Operator} {State}",
+                    Light.EntityId, condition.Entity.EntityId, condition.Operator, condition.State);
+                condition.Entity.StateAllChanges()
+                .Subscribe(e =>
                 {
-                    _logger.LogInformation("Condition has been met {Condition} {ConditionState}", condition.Entity.EntityId, condition.State);
-                    TurnOnEntities(e.New?.EntityId);
-                }
-                else if (Light.IsOn() && e.Old.ConditionPassed(condition) && !e.New.ConditionPassed(condition))
-                {
-                    _logger.LogInformation("Condition has been removed {Condition} {ConditionState}", condition.Entity.EntityId, condition.State);
-                    TurnOffEntities(e.New?.EntityId);
-                }
-            });
+                    if (e.New!.ConditionPassed(condition))
+                    {
+                        _logger.LogInformation("Condition has been met {Condition} {ConditionState}", condition.Entity.EntityId, condition.State);
+                        TurnOnEntities(e.New?.EntityId);
+                    }
+                    else
+                    {
+                        _logger.LogInformation("Condition has been removed {Condition} {ConditionState}", condition.Entity.EntityId, condition.State);
+                        TurnOffEntities(e.New?.EntityId);
+                    }
+                });
+            }
         }
     }
 
@@ -308,6 +324,19 @@ public class LightControl
         });
     }
 
+    // private void SubScribeTurnOffTriggers()
+    // {
+    //     _logger.LogDebug("{light} Subscribed to Turn Off Trigger Events", Light.EntityId);
+    //     TurnOffTriggerEntities.StateAllChanges()
+    //     .Where(e => e.New.IsOn())
+    //     .WhenStateIsFor(e => e.IsOn(), TimeSpan.FromSeconds(TurnOffTriggerTime), _scheduler)
+    //     .Subscribe(e =>
+    //     {
+    //         _logger.LogTrace("{light} Turn Off Trigger Entity {entity}", Light.EntityId, e.New?.EntityId);
+    //         TurnOffEntities(e.New?.EntityId);
+    //     });
+    // }
+
     private void SubscribePresenceOnEvent()
     {
         _logger.LogDebug("{light} Subscribed to Presence On Events", Light.EntityId);
@@ -320,7 +349,7 @@ public class LightControl
             TurnOnEntities(e.New?.EntityId);
         });
     }
-    
+
     private void SubscribePresenceOffEvent()
     {
         _logger.LogDebug("{light} Subscribed to Presence Off Events", Light.EntityId);
@@ -353,12 +382,17 @@ public class LightControl
             _logger.LogTrace("Can't Turn Off {light} with {trigger}, because manager is disabled", Light.EntityId, trigger);
             return;
         }
+        if (_room.RoomMode.IsManual())
+        {
+            _logger.LogTrace("Can't Turn Off {light} with {trigger}, because room mode is {state}", Light.EntityId, trigger, _room.RoomMode?.State);
+            return;
+        }
         if (_room.KeepAliveModes.Contains(_room.RoomMode?.State))
         {
             _logger.LogTrace("Can't Turn Off {light} with {trigger}, because room mode is {state}", Light.EntityId, trigger, _room.RoomMode?.State);
             return;
         }
-        if(Conditions.Any() && Conditions.All(c => c.Entity.State == c.State))
+        if(Conditions.Any() && Conditions.All(c => c.ConditionPassed()))
         {
             _logger.LogTrace("Can't Turn Off {light} with {trigger}, because condition(s) {Conditions} are keeping it on", Light.EntityId, trigger, Conditions.AsString());
             return;
@@ -414,17 +448,18 @@ public class LightControl
             _logger.LogTrace("Can't Turn On {light} with {trigger}, because room mode is {state}", Light.EntityId, trigger, _room.RoomMode?.State);
             return;
         }
-        if(Conditions.Any() && Conditions.Any(c => c.State != c.Entity?.State))
+        if(Conditions.Any() && Conditions.Any(c => !c.ConditionPassed()))
         {
-            _logger.LogTrace("Can't Turn On {light} with {trigger}, because one or more condition is not met {Conditions}", Light.EntityId, trigger, Conditions.AsString());
+            _logger.LogTrace("Can't Turn On {light} with {trigger}, because one or more condition is not met {Conditions}",
+                Light.EntityId, trigger, Conditions.AsString());
             return;
         }
         if (BlockEntities.Any(b => b.State != null && Extensions.EntityExtensions.OnStates.Contains(b.State)))
         {
-            _logger.LogTrace("Can't Turn On {light} with {trigger}, because block entity is on", Light.EntityId,
+            _logger.LogTrace("Can't Turn On {light} with {trigger}, because block entity {block} is on", Light.EntityId, trigger,
                 BlockEntities.Where(b => b.State != null && Extensions.EntityExtensions.OnStates.Contains(b.State)).Select(b => b.EntityId));
             return;
-        }  
+        }
         if (!TriggerWithoutPresence && TriggerSensors.Union(PresenceSensors).All(s => !s.IsOn()))
         {
             _logger.LogTrace("Can't turn {light} on as there is no presence detected", Light.EntityId);
@@ -435,9 +470,10 @@ public class LightControl
             _logger.LogTrace("Can't turn {light} on as the room is bright enough", Light.EntityId);
             return;
         }
+
         // this Will stop lamps on conditions ie secondary lights
         // we need to handle Illuminance or ignore it as a trigger should in most cases
-        if (Primary || TriggerWithoutPresence)
+        if (Primary || TriggerWithoutPresence)// || IndependentSecondary)
         {
             Light.TurnOn();
             TurnOnTime = DateTime.Now;
@@ -459,13 +495,15 @@ public class LightControl
             IsTurningOff = TurnOffTime > DateTime.Now,
             Light.State,
             Details = logMessage,
-            RoomMode = _room.RoomMode?.State,
+            RoomMode = _room.RoomMode?.State ?? "N/A",
+            BlockModes = _room.BlockModes.Any() ? string.Join(",", _room.BlockModes) : "N/A",
+            KeepAliveModes = _room.KeepAliveModes.Any() ? string.Join(",", _room.KeepAliveModes) : "N/A",
             Illuminance = _room.IlluminanceSensor?.State,
             LowLightThreshold = _room.IlluminanceLowThreshold,
             HighLightThreshold = _room.IlluminanceHighThreshold,
             BlockEntities = BlockEntities.Any() ? string.Join(",", BlockEntities.Select(c => c.EntityId)) : "N/A",
             KeepAliveEntities = KeepAliveEntities.Any() ? string.Join(",", KeepAliveEntities.Select(c => c.EntityId)) : "N/A",
-            Condition = Conditions.Any() ? string.Join(",", Conditions.Select(c => $"{c.Entity.EntityId} {c.Entity.State} {c.Operator} {c.State}")) : "N/A",
+            Condition = Conditions.Any() ? Conditions.AsString() : "N/A",
             LastUpdated = DateTime.Now.ToString("G")
         };
         Tasks.Add(_entityManager.SetAttributesAsync(_enabledSwitch, attributes));

@@ -61,7 +61,13 @@ public class RoomControl
         if (_context.Entity(_roomModeSelect).State == null)
         {
             _logger.LogDebug("{room} Creating Room Mode Select", _roomModeSelect);
-            await _entityManager.CreateAsync(_roomModeSelect, new EntityCreationOptions(Name: $"{Name} Mode", UniqueId: _roomModeSelect, DeviceClass: "input_select", Persist: true)).ConfigureAwait(false);
+            await _entityManager.CreateAsync(_roomModeSelect, new EntityCreationOptions
+            {
+                Name = $"{Name} Mode",
+                UniqueId = _roomModeSelect,
+                DeviceClass = "input_select",
+                Persist = true
+            }).ConfigureAwait(false);
             RoomMode = new InputSelectEntity(_context, _roomModeSelect);
         }
 

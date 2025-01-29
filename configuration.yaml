@@ -249,7 +249,7 @@ yeelight:
 #binary_sensor:
 #- platform: uptimerobot
 # api_key: !secret uptime_key
-template: !include templates.yaml
+#template: !include templates.yaml
 
 influxdb:
   host: 192.168.1.1

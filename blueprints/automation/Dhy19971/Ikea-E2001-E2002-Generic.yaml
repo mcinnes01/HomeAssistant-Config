@@ -1,0 +1,208 @@
+blueprint:
+  name: Ikea E2001-E2002 - Z2M 2.0 - Generic use
+  description: This blueprint is for Ikea E2001-E2002 generic use.
+  domain: automation
+  input:
+    remote:
+      name: Remote
+      description: The MQTT device created by Z2M
+      selector:
+        device:
+          filter:
+          - integration: mqtt
+          multiple: false
+    on_act:
+      name: Top Button push
+      description: Action to perform
+      selector:
+        action: {}
+      default: []
+    brightness_move_up:
+      name: Top Button hold
+      description: Action to perform
+      selector:
+        action: {}
+      default: []
+    brightness_stop:
+      name: Top Button release
+      description: Action to perform
+      selector:
+        action: {}
+      default: []
+    off_act:
+      name: Bottom Button push
+      description: Action to perform
+      selector:
+        action: {}
+      default: []
+    brightness_move_down:
+      name: Bottom Button hold
+      description: Action to perform
+      selector:
+        action: {}
+      default: []
+    arrow_left_click:
+      name: Arrow left push
+      description: Action to perform
+      selector:
+        action: {}
+      default: []
+    arrow_left_hold:
+      name: Arrow left hold
+      description: Action to perform
+      selector:
+        action: {}
+      default: []
+    arrow_left_release:
+      name: Arrow left release
+      description: Action to perform
+      selector:
+        action: {}
+      default: []
+    arrow_right_click:
+      name: Arrow right push
+      description: Action to perform
+      selector:
+        action: {}
+      default: []
+    arrow_right_hold:
+      name: "Arrow right\thold"
+      description: Action to perform
+      selector:
+        action: {}
+      default: []
+    arrow_right_release:
+      name: "Arrow right\trelease"
+      description: Action to perform
+      selector:
+        action: {}
+      default: []
+  source_url: https://github.com/Dhy19971/Home-assistant-blueprint/blob/main/Z2M-2.0/Ikea/Ikea-E2001-E2002-Generic.yaml
+mode: parallel
+max: 10
+triggers:
+- domain: mqtt
+  device_id: !input remote
+  type: action
+  subtype: 'on'
+  id: 'on'
+  trigger: device
+- domain: mqtt
+  device_id: !input remote
+  type: action
+  subtype: brightness_move_up
+  id: brightness_move_up
+  trigger: device
+- domain: mqtt
+  device_id: !input remote
+  type: action
+  subtype: brightness_stop
+  id: brightness_stop
+  trigger: device
+- domain: mqtt
+  device_id: !input remote
+  type: action
+  subtype: 'off'
+  id: 'off'
+  trigger: device
+- domain: mqtt
+  device_id: !input remote
+  type: action
+  subtype: brightness_move_down
+  id: brightness_move_down
+  trigger: device
+- domain: mqtt
+  device_id: !input remote
+  type: action
+  subtype: arrow_left_click
+  id: arrow_left_click
+  trigger: device
+- domain: mqtt
+  device_id: !input remote
+  type: action
+  subtype: arrow_left_hold
+  id: arrow_left_hold
+  trigger: device
+- domain: mqtt
+  device_id: !input remote
+  type: action
+  subtype: arrow_left_release
+  id: arrow_left_release
+  trigger: device
+- domain: mqtt
+  device_id: !input remote
+  type: action
+  subtype: arrow_right_click
+  id: arrow_right_click
+  trigger: device
+- domain: mqtt
+  device_id: !input remote
+  type: action
+  subtype: arrow_right_hold
+  id: arrow_right_hold
+  trigger: device
+- domain: mqtt
+  device_id: !input remote
+  type: action
+  subtype: arrow_right_release
+  id: arrow_right_release
+  trigger: device
+conditions: []
+actions:
+- choose:
+  - conditions:
+    - condition: trigger
+      id:
+      - 'on'
+    sequence: !input on_act
+- choose:
+  - conditions:
+    - condition: trigger
+      id:
+      - brightness_move_up
+    sequence: !input brightness_move_up
+  - conditions:
+    - condition: trigger
+      id:
+      - brightness_stop
+    sequence: !input brightness_stop
+  - conditions:
+    - condition: trigger
+      id:
+      - 'off'
+    sequence: !input off_act
+  - conditions:
+    - condition: trigger
+      id:
+      - brightness_move_down
+    sequence: !input brightness_move_down
+  - conditions:
+    - condition: trigger
+      id:
+      - arrow_left_click
+    sequence: !input arrow_left_click
+  - conditions:
+    - condition: trigger
+      id:
+      - arrow_left_hold
+    sequence: !input arrow_left_hold
+  - conditions:
+    - condition: trigger
+      id:
+      - arrow_left_release
+    sequence: !input arrow_left_release
+  - conditions:
+    - condition: trigger
+      id:
+      - arrow_right_click
+    sequence: !input arrow_right_click
+  - conditions:
+    - condition: trigger
+      id:
+      - arrow_right_hold
+    sequence: !input arrow_right_hold
+  - conditions:
+    - condition: trigger
+      id:
+      - arrow_right_release
+    sequence: !input arrow_right_release
