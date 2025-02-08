@@ -8,15 +8,12 @@ public class LightControl
     public required LightEntity Light { get; set; }
     public IEnumerable<BinarySensorEntity> PresenceSensors { get; set; } = new List<BinarySensorEntity>();
     public IEnumerable<BinarySensorEntity> TriggerSensors { get; set; }  = new List<BinarySensorEntity>();
-    // public IEnumerable<Entity> TurnOffTriggerEntities { get; set; } = new List<Entity>();
-    // public int TurnOffTriggerTime { get; set; } = 0;
     public IEnumerable<Entity> BlockEntities { get; set; } = new List<Entity>();
     public IEnumerable<Entity> KeepAliveEntities { get; set; } = new List<Entity>();
     public IEnumerable<Condition> Conditions { get; set; } = new List<Condition>();
     public required int Timeout { get; set; } = 120;
     public bool RecreateEnabledSwitch { get; set; } = false;
     public bool Primary { get; set; } = true;
-    //public bool IndependentSecondary { get; set; } = false;
     public bool TriggerWithoutPresence { get; set; } = false;
     private RoomControl _room { get; set; }
     private IMqttEntityManager _entityManager;
@@ -55,7 +52,6 @@ public class LightControl
         SubscribePresenceOffEvent();
         SubscribeConditionStateChange();
         SubscribeBlockers();
-        //SubScribeTurnOffTriggers();
     }
 
     // Still to do:
@@ -72,7 +68,7 @@ public class LightControl
 
         if (_context.Entity(_enabledSwitch).State != null && RecreateEnabledSwitch)
         {
-            _logger.LogDebug("{switch} Remove enable switch", _enabledSwitch);
+            _logger.LogDebug("{light} {switch} Remove enable switch", Light.EntityId, _enabledSwitch);
             await _entityManager.RemoveAsync(_enabledSwitch);
         }
 
@@ -85,7 +81,7 @@ public class LightControl
                 Persist: true)).ConfigureAwait(false);
             ManagerEnabled = new SwitchEntity(_context, _enabledSwitch);
             ManagerEnabled.TurnOn();
-            _logger.LogDebug("{switch} Created Enabled Switch", _enabledSwitch);
+            _logger.LogDebug("{light} {switch} Created Enabled Switch", Light.EntityId, _enabledSwitch);
         }
 
         if (_enabledSwitch != "switch.light_manager_testroom")
@@ -285,12 +281,12 @@ public class LightControl
                 {
                     if (e.New!.ConditionPassed(condition))
                     {
-                        _logger.LogInformation("Condition has been met {Condition} {ConditionState}", condition.Entity.EntityId, condition.State);
+                        _logger.LogInformation("{light} Condition has been met {Condition} {ConditionState}", Light.EntityId, condition.Entity.EntityId, condition.State);
                         TurnOnEntities(e.New?.EntityId);
                     }
                     else
                     {
-                        _logger.LogInformation("Condition has been removed {Condition} {ConditionState}", condition.Entity.EntityId, condition.State);
+                        _logger.LogInformation("{light} Condition has been removed {Condition} {ConditionState}", Light.EntityId, condition.Entity.EntityId, condition.State);
                         TurnOffEntities(e.New?.EntityId);
                     }
                 });

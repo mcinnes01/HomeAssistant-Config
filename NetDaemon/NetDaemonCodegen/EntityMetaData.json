@@ -35,7 +35,7 @@
         },
         {
           "id": "light.basement_stairs_light",
-          "friendlyName": "Basement Stairs Light",
+          "friendlyName": null,
           "cSharpName": "BasementStairsLight"
         },
         {
@@ -782,7 +782,7 @@
         },
         {
           "id": "media_player.snug_projector_3",
-          "friendlyName": "Snug Projector",
+          "friendlyName": null,
           "cSharpName": "SnugProjector3"
         },
         {
@@ -1136,7 +1136,7 @@
         },
         {
           "id": "automation.automation_46",
-          "friendlyName": "automation 40",
+          "friendlyName": "Shed Door Open",
           "cSharpName": "Automation46"
         },
         {
@@ -1455,6 +1455,11 @@
           "cSharpName": "ShedCameraSnapshotAiNotificationOnMotion"
         },
         {
+          "id": "automation.shed_no_motion",
+          "friendlyName": "Shed No Motion",
+          "cSharpName": "ShedNoMotion"
+        },
+        {
           "id": "automation.shower_timer_finished",
           "friendlyName": "Shower timer finished",
           "cSharpName": "ShowerTimerFinished"
@@ -1640,6 +1645,11 @@
           "id": "binary_sensor.andy_pending_quest_invitation",
           "friendlyName": "Andy Pending quest invitation",
           "cSharpName": "AndyPendingQuestInvitation"
+        },
+        {
+          "id": "binary_sensor.andy_s_keys_lost",
+          "friendlyName": "Andy\u0027s Keys Lost",
+          "cSharpName": "AndySKeysLost"
         },
         {
           "id": "binary_sensor.averge_bathroom_humidity",
@@ -2062,6 +2072,16 @@
           "cSharpName": "BreweryLightOvervoltage"
         },
         {
+          "id": "binary_sensor.car_key_lost",
+          "friendlyName": "Car Key Lost",
+          "cSharpName": "CarKeyLost"
+        },
+        {
+          "id": "binary_sensor.car_lost",
+          "friendlyName": "Car Lost",
+          "cSharpName": "CarLost"
+        },
+        {
           "id": "binary_sensor.cellar_door",
           "friendlyName": "Cellar Door",
           "cSharpName": "CellarDoor"
@@ -2092,6 +2112,11 @@
           "cSharpName": "ClaireInBed"
         },
         {
+          "id": "binary_sensor.claire_s_keys_lost",
+          "friendlyName": "Claire\u0027s Keys Lost",
+          "cSharpName": "ClaireSKeysLost"
+        },
+        {
           "id": "binary_sensor.claireash_pending_quest_invitation",
           "friendlyName": "ClaireAsh Pending quest invitation",
           "cSharpName": "ClaireashPendingQuestInvitation"
@@ -2100,6 +2125,11 @@
           "id": "binary_sensor.claires_iphone_focus",
           "friendlyName": "Claire\u2019s iPhone Focus",
           "cSharpName": "ClairesIphoneFocus"
+        },
+        {
+          "id": "binary_sensor.claires_iphone_lost",
+          "friendlyName": "Claire\u2019s iPhone Lost",
+          "cSharpName": "ClairesIphoneLost"
         },
         {
           "id": "binary_sensor.cold_frame_input",
@@ -3062,6 +3092,16 @@
           "cSharpName": "Pixel6KeyguardSecure2"
         },
         {
+          "id": "binary_sensor.pixel_6_lost",
+          "friendlyName": "Pixel 6 Lost",
+          "cSharpName": "Pixel6Lost"
+        },
+        {
+          "id": "binary_sensor.pixel_6_lost_2",
+          "friendlyName": "Pixel 6 Lost",
+          "cSharpName": "Pixel6Lost2"
+        },
+        {
           "id": "binary_sensor.pixel_6_mic_muted_2",
           "friendlyName": "Pixel 6 Mic muted",
           "cSharpName": "Pixel6MicMuted2"
@@ -4007,6 +4047,16 @@
           "jsonName": "teleFails",
           "cSharpName": "TeleFails",
           "clrType": "System.Double"
+        },
+        {
+          "jsonName": "queried",
+          "cSharpName": "Queried",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "resetReason",
+          "cSharpName": "ResetReason",
+          "clrType": "System.String"
         }
       ]
     },
@@ -4815,6 +4865,11 @@
           "jsonName": "restored",
           "cSharpName": "Restored",
           "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "current_humidity",
+          "cSharpName": "CurrentHumidity",
+          "clrType": "System.Double"
         }
       ]
     },
@@ -4847,6 +4902,11 @@
           "jsonName": "supported_features",
           "cSharpName": "SupportedFeatures",
           "clrType": "System.Double"
+        },
+        {
+          "jsonName": "restored",
+          "cSharpName": "Restored",
+          "clrType": "System.Boolean"
         }
       ]
     },
@@ -5192,16 +5252,6 @@
           "id": "device_tracker.cb_smartcam",
           "friendlyName": "CB_SmartCam CB_SmartCam",
           "cSharpName": "CbSmartcam"
-        },
-        {
-          "id": "device_tracker.claireiphone",
-          "friendlyName": "claireiphone",
-          "cSharpName": "Claireiphone"
-        },
-        {
-          "id": "device_tracker.claires_apple_watch",
-          "friendlyName": "Claire\u2019s Apple Watch",
-          "cSharpName": "ClairesAppleWatch"
         },
         {
           "id": "device_tracker.claires_iphone",
@@ -5679,69 +5729,9 @@
           "cSharpName": "N02rf"
         },
         {
-          "id": "device_tracker.name_02839ddi",
-          "friendlyName": "name:02839ddi",
-          "cSharpName": "Name02839ddi"
-        },
-        {
-          "id": "device_tracker.name_ac",
-          "friendlyName": "name:ac",
-          "cSharpName": "NameAc"
-        },
-        {
           "id": "device_tracker.name_ccc3",
           "friendlyName": "name:ccc3",
           "cSharpName": "NameCcc3"
-        },
-        {
-          "id": "device_tracker.name_dell_mouse",
-          "friendlyName": "name:dell-mouse",
-          "cSharpName": "NameDellMouse"
-        },
-        {
-          "id": "device_tracker.name_dime3_le",
-          "friendlyName": "name:dime3_le",
-          "cSharpName": "NameDime3Le"
-        },
-        {
-          "id": "device_tracker.name_elk_bbl0",
-          "friendlyName": "name:elk_bbl0",
-          "cSharpName": "NameElkBbl0"
-        },
-        {
-          "id": "device_tracker.name_ember_travel_mug_2",
-          "friendlyName": "name:ember-travel-mug-2",
-          "cSharpName": "NameEmberTravelMug2"
-        },
-        {
-          "id": "device_tracker.name_fiido_t2",
-          "friendlyName": "name:fiido_t2",
-          "cSharpName": "NameFiidoT2"
-        },
-        {
-          "id": "device_tracker.name_freelite",
-          "friendlyName": "name:freelite",
-          "cSharpName": "NameFreelite"
-        },
-        {
-          "id": "device_tracker.name_gaha09752",
-          "friendlyName": "name:gaha09752",
-          "cSharpName": "NameGaha09752"
-        },
-        {
-          "id": "device_tracker.name_gbk_h6114_5961",
-          "friendlyName": "name:gbk_h6114_5961",
-          "cSharpName": "NameGbkH61145961"
-        },
-        {
-          "id": "device_tracker.name_gms",
-          "friendlyName": "name:gms",
-          "cSharpName": "NameGms"
-        },
-        {
-          "id": "device_tracker.name_govee_h7090_5510",
-          "friendlyName": "name:govee_h7090_5510",
-          "cSharpName": "NameGoveeH70905510"
         },
         {
           "id": "device_tracker.name_ibr420_e965",
@@ -5749,109 +5739,14 @@
           "cSharpName": "NameIbr420E965"
         },
         {
-          "id": "device_tracker.name_jabra",
-          "friendlyName": "name:jabra",
-          "cSharpName": "NameJabra"
-        },
-        {
-          "id": "device_tracker.name_jabra_evolve2_65",
-          "friendlyName": "name:jabra-evolve2-65",
-          "cSharpName": "NameJabraEvolve265"
-        },
-        {
-          "id": "device_tracker.name_jabra_evolve2_85",
-          "friendlyName": "name:jabra-evolve2-85",
-          "cSharpName": "NameJabraEvolve285"
-        },
-        {
-          "id": "device_tracker.name_jbl_boombox_3",
-          "friendlyName": "name:jbl-boombox-3",
-          "cSharpName": "NameJblBoombox3"
-        },
-        {
-          "id": "device_tracker.name_joyce_s_jbl_f",
-          "friendlyName": "name:joyce-s-jbl-f",
-          "cSharpName": "NameJoyceSJblF"
-        },
-        {
-          "id": "device_tracker.name_le_m51",
-          "friendlyName": "name:le-m51",
-          "cSharpName": "NameLeM51"
-        },
-        {
-          "id": "device_tracker.name_le_philips_tah5205",
-          "friendlyName": "name:le-philips-tah5205",
-          "cSharpName": "NameLePhilipsTah5205"
-        },
-        {
-          "id": "device_tracker.name_le_wf_1000xm4",
-          "friendlyName": "name:le_wf-1000xm4",
-          "cSharpName": "NameLeWf1000xm4"
-        },
-        {
-          "id": "device_tracker.name_le_wf_c500",
-          "friendlyName": "name:le_wf-c500",
-          "cSharpName": "NameLeWfC500"
-        },
-        {
-          "id": "device_tracker.name_le_wh_1000xm4",
-          "friendlyName": "name:le_wh-1000xm4",
-          "cSharpName": "NameLeWh1000xm4"
-        },
-        {
-          "id": "device_tracker.name_le_wh_1000xm5",
-          "friendlyName": "name:le_wh-1000xm5",
-          "cSharpName": "NameLeWh1000xm5"
-        },
-        {
-          "id": "device_tracker.name_le_wh_xb910n",
-          "friendlyName": "name:le_wh-xb910n",
-          "cSharpName": "NameLeWhXb910n"
-        },
-        {
-          "id": "device_tracker.name_le_wi_c100",
-          "friendlyName": "name:le_wi-c100",
-          "cSharpName": "NameLeWiC100"
-        },
-        {
-          "id": "device_tracker.name_lubica_s_jbl",
-          "friendlyName": "name:lubica-s-jbl",
-          "cSharpName": "NameLubicaSJbl"
-        },
-        {
-          "id": "device_tracker.name_lumosltis",
-          "friendlyName": "name:lumosltis",
-          "cSharpName": "NameLumosltis"
-        },
-        {
-          "id": "device_tracker.name_mi",
-          "friendlyName": "name:mi",
-          "cSharpName": "NameMi"
-        },
-        {
           "id": "device_tracker.name_polar_h10_df25a82d",
           "friendlyName": null,
           "cSharpName": "NamePolarH10Df25a82d"
         },
         {
-          "id": "device_tracker.name_push_play_active_ble",
-          "friendlyName": "name:push-play-active-ble",
-          "cSharpName": "NamePushPlayActiveBle"
-        },
-        {
-          "id": "device_tracker.name_raz",
-          "friendlyName": "name:raz",
-          "cSharpName": "NameRaz"
-        },
-        {
-          "id": "device_tracker.name_se5000_2311923968",
-          "friendlyName": null,
-          "cSharpName": "NameSe50002311923968"
-        },
-        {
-          "id": "device_tracker.name_se5000_2932156160",
-          "friendlyName": "name:se5000-2932156160",
-          "cSharpName": "NameSe50002932156160"
+          "id": "device_tracker.name_ql_yq5a240500739",
+          "friendlyName": "name:ql-yq5a240500739",
+          "cSharpName": "NameQlYq5a240500739"
         },
         {
           "id": "device_tracker.name_se5000_2935564032",
@@ -5859,34 +5754,9 @@
           "cSharpName": "NameSe50002935564032"
         },
         {
-          "id": "device_tracker.name_se5000_3634702080",
-          "friendlyName": "name:se5000-3634702080",
-          "cSharpName": "NameSe50003634702080"
-        },
-        {
-          "id": "device_tracker.name_sn_00894100",
-          "friendlyName": "name:sn_00894100",
-          "cSharpName": "NameSn00894100"
-        },
-        {
-          "id": "device_tracker.name_tozo_t12",
-          "friendlyName": "name:tozo-t12",
-          "cSharpName": "NameTozoT12"
-        },
-        {
-          "id": "device_tracker.name_truefree",
-          "friendlyName": "name:truefree",
-          "cSharpName": "NameTruefree"
-        },
-        {
           "id": "device_tracker.name_xp_pp_04e35a",
           "friendlyName": "name:xp-pp-04e35a",
           "cSharpName": "NameXpPp04e35a"
-        },
-        {
-          "id": "device_tracker.name_yt",
-          "friendlyName": "name:yt",
-          "cSharpName": "NameYt"
         },
         {
           "id": "device_tracker.niu_6261_niu_6261",
@@ -6712,7 +6582,7 @@
         {
           "jsonName": "percentage",
           "cSharpName": "Percentage",
-          "clrType": null
+          "clrType": "System.Double"
         },
         {
           "jsonName": "percentage_step",
@@ -8802,12 +8672,12 @@
         },
         {
           "id": "sensor.mfc_j5910dw_status",
-          "friendlyName": "Status",
+          "friendlyName": "MFC-J5910DW Status",
           "cSharpName": "MfcJ5910dwStatus"
         },
         {
           "id": "sensor.mfc_j5910dw_uptime",
-          "friendlyName": "Last restart",
+          "friendlyName": "MFC-J5910DW Last restart",
           "cSharpName": "MfcJ5910dwUptime"
         },
         {
@@ -10275,7 +10145,7 @@
         },
         {
           "id": "sensor.andy_dailies",
-          "friendlyName": "Andy Dailies",
+          "friendlyName": "Dailies",
           "cSharpName": "AndyDailies"
         },
         {
@@ -10297,6 +10167,11 @@
           "id": "sensor.andy_distance_travelled_today",
           "friendlyName": "Andy Distance travelled today",
           "cSharpName": "AndyDistanceTravelledToday"
+        },
+        {
+          "id": "sensor.andy_eggs",
+          "friendlyName": "Andy Eggs",
+          "cSharpName": "AndyEggs"
         },
         {
           "id": "sensor.andy_experience",
@@ -10342,6 +10217,11 @@
           "id": "sensor.andy_habits",
           "friendlyName": "Andy Habits",
           "cSharpName": "AndyHabits"
+        },
+        {
+          "id": "sensor.andy_hatching_potions",
+          "friendlyName": "Andy Hatching potions",
+          "cSharpName": "AndyHatchingPotions"
         },
         {
           "id": "sensor.andy_health",
@@ -10449,9 +10329,19 @@
           "cSharpName": "AndyPerception"
         },
         {
+          "id": "sensor.andy_pet_food",
+          "friendlyName": "Andy Pet food",
+          "cSharpName": "AndyPetFood"
+        },
+        {
           "id": "sensor.andy_pulse_wave_velocity",
           "friendlyName": "Pulse wave velocity",
           "cSharpName": "AndyPulseWaveVelocity"
+        },
+        {
+          "id": "sensor.andy_quest_scrolls",
+          "friendlyName": "Andy Quest scrolls",
+          "cSharpName": "AndyQuestScrolls"
         },
         {
           "id": "sensor.andy_rem_sleep",
@@ -10462,6 +10352,11 @@
           "id": "sensor.andy_rewards",
           "friendlyName": "Andy Rewards",
           "cSharpName": "AndyRewards"
+        },
+        {
+          "id": "sensor.andy_saddles",
+          "friendlyName": "Andy Saddles",
+          "cSharpName": "AndySaddles"
         },
         {
           "id": "sensor.andy_skin_temperature",
@@ -10520,7 +10415,7 @@
         },
         {
           "id": "sensor.andy_to_do_s",
-          "friendlyName": "Andy To-Do\u0027s",
+          "friendlyName": "To-Do\u0027s",
           "cSharpName": "AndyToDoS"
         },
         {
@@ -11299,6 +11194,11 @@
           "cSharpName": "ClaireashConstitution"
         },
         {
+          "id": "sensor.claireash_eggs",
+          "friendlyName": "ClaireAsh Eggs",
+          "cSharpName": "ClaireashEggs"
+        },
+        {
           "id": "sensor.claireash_experience",
           "friendlyName": "ClaireAsh Experience",
           "cSharpName": "ClaireashExperience"
@@ -11317,6 +11217,11 @@
           "id": "sensor.claireash_habits",
           "friendlyName": "ClaireAsh Habits",
           "cSharpName": "ClaireashHabits"
+        },
+        {
+          "id": "sensor.claireash_hatching_potions",
+          "friendlyName": "ClaireAsh Hatching potions",
+          "cSharpName": "ClaireashHatchingPotions"
         },
         {
           "id": "sensor.claireash_health",
@@ -11354,9 +11259,24 @@
           "cSharpName": "ClaireashPerception"
         },
         {
+          "id": "sensor.claireash_pet_food",
+          "friendlyName": "ClaireAsh Pet food",
+          "cSharpName": "ClaireashPetFood"
+        },
+        {
+          "id": "sensor.claireash_quest_scrolls",
+          "friendlyName": "ClaireAsh Quest scrolls",
+          "cSharpName": "ClaireashQuestScrolls"
+        },
+        {
           "id": "sensor.claireash_rewards",
           "friendlyName": "ClaireAsh Rewards",
           "cSharpName": "ClaireashRewards"
+        },
+        {
+          "id": "sensor.claireash_saddles",
+          "friendlyName": "ClaireAsh Saddles",
+          "cSharpName": "ClaireashSaddles"
         },
         {
           "id": "sensor.claireash_strength",
@@ -11830,7 +11750,7 @@
         },
         {
           "id": "sensor.garden_tap_flow",
-          "friendlyName": "Garden Tap Flow",
+          "friendlyName": "Garden Tap Volume flow rate",
           "cSharpName": "GardenTapFlow"
         },
         {
@@ -12755,27 +12675,27 @@
         },
         {
           "id": "sensor.mfc_j5910dw_black_ink_remaining",
-          "friendlyName": "Black ink remaining",
+          "friendlyName": "MFC-J5910DW Black ink remaining",
           "cSharpName": "MfcJ5910dwBlackInkRemaining"
         },
         {
           "id": "sensor.mfc_j5910dw_cyan_ink_remaining",
-          "friendlyName": "Cyan ink remaining",
+          "friendlyName": "MFC-J5910DW Cyan ink remaining",
           "cSharpName": "MfcJ5910dwCyanInkRemaining"
         },
         {
           "id": "sensor.mfc_j5910dw_magenta_ink_remaining",
-          "friendlyName": "Magenta ink remaining",
+          "friendlyName": "MFC-J5910DW Magenta ink remaining",
           "cSharpName": "MfcJ5910dwMagentaInkRemaining"
         },
         {
           "id": "sensor.mfc_j5910dw_page_counter",
-          "friendlyName": "Page counter",
+          "friendlyName": "MFC-J5910DW Page counter",
           "cSharpName": "MfcJ5910dwPageCounter"
         },
         {
           "id": "sensor.mfc_j5910dw_yellow_ink_remaining",
-          "friendlyName": "Yellow ink remaining",
+          "friendlyName": "MFC-J5910DW Yellow ink remaining",
           "cSharpName": "MfcJ5910dwYellowInkRemaining"
         },
         {
@@ -23374,6 +23294,531 @@
           "jsonName": "extra_im_notification_latest_timestamp_com.google.android.apps.messaging_2",
           "cSharpName": "ExtraImNotificationLatestTimestampCom_google_android_apps_messaging2",
           "clrType": "System.Double"
+        },
+        {
+          "jsonName": "Tiger Cub",
+          "cSharpName": "TigerCub",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "Dragon",
+          "cSharpName": "Dragon",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "Lion Cub",
+          "cSharpName": "LionCub",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "Skeleton",
+          "cSharpName": "Skeleton",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "Royal Purple",
+          "cSharpName": "RoyalPurple",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "Zombie",
+          "cSharpName": "Zombie",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "Red",
+          "cSharpName": "Red",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "Cotton Candy Blue",
+          "cSharpName": "CottonCandyBlue",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "Basic Candy",
+          "cSharpName": "BasicCandy",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "Sour Blue Candy",
+          "cSharpName": "SourBlueCandy",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "Sour Pink Candy",
+          "cSharpName": "SourPinkCandy",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "Sand Candy",
+          "cSharpName": "SandCandy",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "Honey Candy",
+          "cSharpName": "HoneyCandy",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "Cinnamon Candy",
+          "cSharpName": "CinnamonCandy",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "Chocolate Candy",
+          "cSharpName": "ChocolateCandy",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "Bare Bones Candy",
+          "cSharpName": "BareBonesCandy",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "Vanilla Candy",
+          "cSharpName": "VanillaCandy",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "Rotten Candy",
+          "cSharpName": "RottenCandy",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "Chocolate",
+          "cSharpName": "Chocolate",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "Meat",
+          "cSharpName": "Meat",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "Pink Cotton Candy",
+          "cSharpName": "PinkCottonCandy",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "Milk",
+          "cSharpName": "Milk",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "Honey",
+          "cSharpName": "Honey",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "Basic Cake",
+          "cSharpName": "BasicCake",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "Candy Blue Cake",
+          "cSharpName": "CandyBlueCake",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "Candy Pink Cake",
+          "cSharpName": "CandyPinkCake",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "Sand Cake",
+          "cSharpName": "SandCake",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "Honey Cake",
+          "cSharpName": "HoneyCake",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "Strawberry Cake",
+          "cSharpName": "StrawberryCake",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "Chocolate Cake",
+          "cSharpName": "ChocolateCake",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "Bare Bones Cake",
+          "cSharpName": "BareBonesCake",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "Cream Cake",
+          "cSharpName": "CreamCake",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "Rotten Cake",
+          "cSharpName": "RottenCake",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "The Feral Dust Bunnies",
+          "cSharpName": "TheFeralDustBunnies",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "Lunar Battle, Part 1: Find the Mysterious Shards",
+          "cSharpName": "LunarBattlePart1FindtheMysteriousShards",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "Cactus",
+          "cSharpName": "Cactus",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "Cotton Candy Pink",
+          "cSharpName": "CottonCandyPink",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "Strawberry",
+          "cSharpName": "Strawberry",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "Fish",
+          "cSharpName": "Fish",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "831d2447-77e2-43a7-b75f-ab2c5bf4fc08",
+          "cSharpName": "_831d244777e243a7b75fab2c5bf4fc08",
+          "clrType": "System.Object"
+        },
+        {
+          "jsonName": "android.appInfo_com.soundcloud.android_1",
+          "cSharpName": "Android_appInfoCom_soundcloud_android1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.appInfo_com.ubnt.unifi.protect_1349282808",
+          "cSharpName": "Android_appInfoCom_ubnt_unifi_protect1349282808",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.infoText_com.soundcloud.android_1",
+          "cSharpName": "Android_infoTextCom_soundcloud_android1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.infoText_com.ubnt.unifi.protect_1349282808",
+          "cSharpName": "Android_infoTextCom_ubnt_unifi_protect1349282808",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon_com.soundcloud.android_1",
+          "cSharpName": "Android_largeIconCom_soundcloud_android1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon_com.ubnt.unifi.protect_1349282808",
+          "cSharpName": "Android_largeIconCom_ubnt_unifi_protect1349282808",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.mediaSession_com.soundcloud.android_1",
+          "cSharpName": "Android_mediaSessionCom_soundcloud_android1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.progressIndeterminate_com.soundcloud.android_1",
+          "cSharpName": "Android_progressIndeterminateCom_soundcloud_android1",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.progressIndeterminate_com.ubnt.unifi.protect_1349282808",
+          "cSharpName": "Android_progressIndeterminateCom_ubnt_unifi_protect1349282808",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.progressMax_com.soundcloud.android_1",
+          "cSharpName": "Android_progressMaxCom_soundcloud_android1",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progressMax_com.ubnt.unifi.protect_1349282808",
+          "cSharpName": "Android_progressMaxCom_ubnt_unifi_protect1349282808",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progress_com.soundcloud.android_1",
+          "cSharpName": "Android_progressCom_soundcloud_android1",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progress_com.ubnt.unifi.protect_1349282808",
+          "cSharpName": "Android_progressCom_ubnt_unifi_protect1349282808",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.reduced.images_com.soundcloud.android_1",
+          "cSharpName": "Android_reduced_imagesCom_soundcloud_android1",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.reduced.images_com.ubnt.unifi.protect_1349282808",
+          "cSharpName": "Android_reduced_imagesCom_ubnt_unifi_protect1349282808",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.remoteInputHistory_com.soundcloud.android_1",
+          "cSharpName": "Android_remoteInputHistoryCom_soundcloud_android1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.remoteInputHistory_com.ubnt.unifi.protect_1349282808",
+          "cSharpName": "Android_remoteInputHistoryCom_ubnt_unifi_protect1349282808",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.showChronometer_com.soundcloud.android_1",
+          "cSharpName": "Android_showChronometerCom_soundcloud_android1",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showChronometer_com.ubnt.unifi.protect_1349282808",
+          "cSharpName": "Android_showChronometerCom_ubnt_unifi_protect1349282808",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_com.soundcloud.android_1",
+          "cSharpName": "Android_showWhenCom_soundcloud_android1",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_com.ubnt.unifi.protect_1349282808",
+          "cSharpName": "Android_showWhenCom_ubnt_unifi_protect1349282808",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.subText_com.soundcloud.android_1",
+          "cSharpName": "Android_subTextCom_soundcloud_android1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.subText_com.ubnt.unifi.protect_1349282808",
+          "cSharpName": "Android_subTextCom_ubnt_unifi_protect1349282808",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.template_com.soundcloud.android_1",
+          "cSharpName": "Android_templateCom_soundcloud_android1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_com.soundcloud.android_1",
+          "cSharpName": "Android_textCom_soundcloud_android1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_com.ubnt.unifi.protect_1349282808",
+          "cSharpName": "Android_textCom_ubnt_unifi_protect1349282808",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_com.soundcloud.android_1",
+          "cSharpName": "Android_titleCom_soundcloud_android1",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_com.ubnt.unifi.protect_1349282808",
+          "cSharpName": "Android_titleCom_ubnt_unifi_protect1349282808",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.soundcloud.android_1_category",
+          "cSharpName": "Com_soundcloud_android1Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.soundcloud.android_1_channel_id",
+          "cSharpName": "Com_soundcloud_android1ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.soundcloud.android_1_group_id",
+          "cSharpName": "Com_soundcloud_android1GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.soundcloud.android_1_is_clearable",
+          "cSharpName": "Com_soundcloud_android1IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.soundcloud.android_1_is_ongoing",
+          "cSharpName": "Com_soundcloud_android1IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.soundcloud.android_1_post_time",
+          "cSharpName": "Com_soundcloud_android1PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "com.ubnt.unifi.protect_1349282808_category",
+          "cSharpName": "Com_ubnt_unifi_protect1349282808Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.ubnt.unifi.protect_1349282808_channel_id",
+          "cSharpName": "Com_ubnt_unifi_protect1349282808ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.ubnt.unifi.protect_1349282808_group_id",
+          "cSharpName": "Com_ubnt_unifi_protect1349282808GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.ubnt.unifi.protect_1349282808_is_clearable",
+          "cSharpName": "Com_ubnt_unifi_protect1349282808IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.ubnt.unifi.protect_1349282808_is_ongoing",
+          "cSharpName": "Com_ubnt_unifi_protect1349282808IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.ubnt.unifi.protect_1349282808_post_time",
+          "cSharpName": "Com_ubnt_unifi_protect1349282808PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.appInfo_com.ebay.mobile_1916717567",
+          "cSharpName": "Android_appInfoCom_ebay_mobile1916717567",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.infoText_com.ebay.mobile_1916717567",
+          "cSharpName": "Android_infoTextCom_ebay_mobile1916717567",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon.big_com.ebay.mobile_1916717567",
+          "cSharpName": "Android_largeIcon_bigCom_ebay_mobile1916717567",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon_com.ebay.mobile_1916717567",
+          "cSharpName": "Android_largeIconCom_ebay_mobile1916717567",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.pictureIcon_com.ebay.mobile_1916717567",
+          "cSharpName": "Android_pictureIconCom_ebay_mobile1916717567",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.picture_com.ebay.mobile_1916717567",
+          "cSharpName": "Android_pictureCom_ebay_mobile1916717567",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.progressIndeterminate_com.ebay.mobile_1916717567",
+          "cSharpName": "Android_progressIndeterminateCom_ebay_mobile1916717567",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.progressMax_com.ebay.mobile_1916717567",
+          "cSharpName": "Android_progressMaxCom_ebay_mobile1916717567",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progress_com.ebay.mobile_1916717567",
+          "cSharpName": "Android_progressCom_ebay_mobile1916717567",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.reduced.images_com.ebay.mobile_1916717567",
+          "cSharpName": "Android_reduced_imagesCom_ebay_mobile1916717567",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.remoteInputHistory_com.ebay.mobile_1916717567",
+          "cSharpName": "Android_remoteInputHistoryCom_ebay_mobile1916717567",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.showBigPictureWhenCollapsed_com.ebay.mobile_1916717567",
+          "cSharpName": "Android_showBigPictureWhenCollapsedCom_ebay_mobile1916717567",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showChronometer_com.ebay.mobile_1916717567",
+          "cSharpName": "Android_showChronometerCom_ebay_mobile1916717567",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_com.ebay.mobile_1916717567",
+          "cSharpName": "Android_showWhenCom_ebay_mobile1916717567",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.subText_com.ebay.mobile_1916717567",
+          "cSharpName": "Android_subTextCom_ebay_mobile1916717567",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.template_com.ebay.mobile_1916717567",
+          "cSharpName": "Android_templateCom_ebay_mobile1916717567",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_com.ebay.mobile_1916717567",
+          "cSharpName": "Android_textCom_ebay_mobile1916717567",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_com.ebay.mobile_1916717567",
+          "cSharpName": "Android_titleCom_ebay_mobile1916717567",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "androidx.core.app.extra.COMPAT_TEMPLATE_com.ebay.mobile_1916717567",
+          "cSharpName": "Androidx_core_app_extra_COMPATTEMPLATECom_ebay_mobile1916717567",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.ebay.mobile_1916717567_category",
+          "cSharpName": "Com_ebay_mobile1916717567Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.ebay.mobile_1916717567_channel_id",
+          "cSharpName": "Com_ebay_mobile1916717567ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.ebay.mobile_1916717567_group_id",
+          "cSharpName": "Com_ebay_mobile1916717567GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.ebay.mobile_1916717567_is_clearable",
+          "cSharpName": "Com_ebay_mobile1916717567IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.ebay.mobile_1916717567_is_ongoing",
+          "cSharpName": "Com_ebay_mobile1916717567IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.ebay.mobile_1916717567_post_time",
+          "cSharpName": "Com_ebay_mobile1916717567PostTime",
+          "clrType": "System.Double"
         }
       ]
     },
@@ -25500,11 +25945,6 @@
           "cSharpName": "OctopusEnergyUpdate"
         },
         {
-          "id": "update.ollama_update",
-          "friendlyName": "Ollama Update",
-          "cSharpName": "OllamaUpdate"
-        },
-        {
           "id": "update.outside_lights_firmware_update",
           "friendlyName": "Outside Lights firmware update",
           "cSharpName": "OutsideLightsFirmwareUpdate"
@@ -26017,6 +26457,16 @@
     {
       "domain": "image",
       "entities": [
+        {
+          "id": "image.andy_avatar",
+          "friendlyName": "Andy Avatar",
+          "cSharpName": "AndyAvatar"
+        },
+        {
+          "id": "image.claireash_avatar",
+          "friendlyName": "ClaireAsh Avatar",
+          "cSharpName": "ClaireashAvatar"
+        },
         {
           "id": "image.hallway_tablet_screenshot",
           "friendlyName": "Hallway Tablet Screenshot",

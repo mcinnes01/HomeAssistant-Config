@@ -915,20 +915,26 @@
     domain: light
   mode: single
 - id: '1701115009986'
+  alias: Shed Door Open
   description: ''
-  trigger:
+  triggers:
   - type: opened
-    platform: device
     device_id: 6f8559d1aa9eaadba986f9582dd59e42
     entity_id: 3a08a1fe45e2ee31b4990437f809aa5c
     domain: binary_sensor
-  condition:
+    trigger: device
+  - type: motion
+    device_id: 9ac191139987008f2d426970a6803c80
+    entity_id: ea9035c38f987cc128a94121bed9de04
+    domain: binary_sensor
+    trigger: device
+  conditions:
   - condition: state
     entity_id: input_select.brightness
     state:
     - Dim
     - Dark
-  action:
+  actions:
   - type: turn_on
     device_id: 0310dc65362a7761574235ef385900ed
     entity_id: 5ef6609d7bee0398fa0100f1d52c0f6e
@@ -2565,4 +2571,24 @@
       hours: 0
       minutes: 2
       seconds: 0
+  mode: single
+- id: '1739019274052'
+  alias: Shed No Motion
+  description: ''
+  triggers:
+  - type: no_motion
+    device_id: 9ac191139987008f2d426970a6803c80
+    entity_id: ea9035c38f987cc128a94121bed9de04
+    domain: binary_sensor
+    trigger: device
+    for:
+      hours: 0
+      minutes: 4
+      seconds: 0
+  conditions: []
+  actions:
+  - type: turn_off
+    device_id: 0310dc65362a7761574235ef385900ed
+    entity_id: 5ef6609d7bee0398fa0100f1d52c0f6e
+    domain: light
   mode: single

@@ -66,8 +66,6 @@ NetDaemon.apps.LightApp.LightingConfig:
           TriggerSensors:
             - binary_sensor.hallway_camera_person_detected
             - binary_sensor.doorbell_button
-          KeepAliveEntities:
-            - binary_sensor.issunset
     - Name: kitchen
       IsEntrance: true
       IlluminanceSensor: sensor.kitchen_illuminance
@@ -121,7 +119,6 @@ NetDaemon.apps.LightApp.LightingConfig:
       Lights:
         - Light: light.lounge_lamp
           Primary: false
-          IndependentSecondary: true
           Timeout: 240
           PresenceSensors:
             - binary_sensor.main_sofa_presence
@@ -132,7 +129,6 @@ NetDaemon.apps.LightApp.LightingConfig:
         - Light: light.lounge_floor_lamp
           Timeout: 240
           Primary: false
-          IndependentSecondary: true
           PresenceSensors:
             - binary_sensor.guest_sofa_presence
           KeepAliveEntities:
@@ -145,12 +141,6 @@ NetDaemon.apps.LightApp.LightingConfig:
             - binary_sensor.lounge_occupancy
           TriggerSensors:
             - binary_sensor.lounge_motion
-          TurnOffTriggerTime: 300
-          TurnOffTriggerEntities:
-            - switch.lounge_tv
-            - binary_sensor.main_sofa_presence
-            - binary_sensor.window_sofa_presence
-            - binary_sensor.guest_sofa_presence
           BlockEntities:
             - binary_sensor.main_sofa_presence
             - binary_sensor.window_sofa_presence
@@ -179,7 +169,6 @@ NetDaemon.apps.LightApp.LightingConfig:
         - Light: light.bookshelf_light
           Timeout: 240
           Primary: false
-          IndependentSecondary: true
           PresenceSensors:
             - binary_sensor.library_presence
           KeepAliveModes:
@@ -248,11 +237,6 @@ NetDaemon.apps.LightApp.LightingConfig:
             - binary_sensor.bedroom_motion
           PresenceSensors:
             - binary_sensor.bedroom_occupancy
-          TurnOffTriggerTime: 450
-          TurnOffTriggerEntities:
-            - binary_sensor.andy_in_bed
-            - binary_sensor.claire_in_bed
-            - binary_sensor.bedroom_bed_presence
           BlockEntities:
             - light.bedroom_lamp
             - binary_sensor.andy_in_bed

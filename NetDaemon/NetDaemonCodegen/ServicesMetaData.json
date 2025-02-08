@@ -289,135 +289,6 @@
       "fields": {}
     }
   },
-  "frontend": {
-    "set_theme": {
-      "name": "Set the default theme",
-      "description": "Sets the default theme Home Assistant uses. Can be overridden by a user.",
-      "fields": {
-        "name": {
-          "required": true,
-          "example": "default",
-          "selector": {
-            "theme": {
-              "include_default": true
-            }
-          },
-          "name": "Theme",
-          "description": "Name of a theme."
-        },
-        "mode": {
-          "default": "light",
-          "selector": {
-            "select": {
-              "options": [
-                "dark",
-                "light"
-              ],
-              "translation_key": "mode"
-            }
-          },
-          "name": "Mode",
-          "description": "Theme mode."
-        }
-      }
-    },
-    "reload_themes": {
-      "name": "Reload themes",
-      "description": "Reloads themes from the YAML-configuration.",
-      "fields": {}
-    }
-  },
-  "recorder": {
-    "purge": {
-      "name": "Purge",
-      "description": "Starts purge task - to clean up old data from your database.",
-      "fields": {
-        "keep_days": {
-          "selector": {
-            "number": {
-              "min": 0,
-              "max": 365,
-              "unit_of_measurement": "days"
-            }
-          },
-          "name": "Days to keep",
-          "description": "Number of days to keep the data in the database. Starting today, counting backward. A value of \u00607\u0060 means that everything older than a week will be purged."
-        },
-        "repack": {
-          "default": false,
-          "selector": {
-            "boolean": null
-          },
-          "name": "Repack",
-          "description": "Attempt to save disk space by rewriting the entire database file."
-        },
-        "apply_filter": {
-          "default": false,
-          "selector": {
-            "boolean": null
-          },
-          "name": "Apply filter",
-          "description": "Apply \u0060entity_id\u0060 and \u0060event_type\u0060 filters in addition to time-based purge."
-        }
-      }
-    },
-    "purge_entities": {
-      "name": "Purge entities",
-      "description": "Starts a purge task to remove the data related to specific entities from your database.",
-      "fields": {
-        "entity_id": {
-          "required": false,
-          "selector": {
-            "entity": {
-              "multiple": true
-            }
-          },
-          "name": "Entities to remove",
-          "description": "List of entities for which the data is to be removed from the recorder database."
-        },
-        "domains": {
-          "example": "sun",
-          "required": false,
-          "selector": {
-            "object": null
-          },
-          "name": "Domains to remove",
-          "description": "List of domains for which the data needs to be removed from the recorder database."
-        },
-        "entity_globs": {
-          "example": "domain*.object_id*",
-          "required": false,
-          "selector": {
-            "object": null
-          },
-          "name": "Entity globs to remove",
-          "description": "List of glob patterns used to select the entities for which the data is to be removed from the recorder database."
-        },
-        "keep_days": {
-          "default": 0,
-          "selector": {
-            "number": {
-              "min": 0,
-              "max": 365,
-              "unit_of_measurement": "days"
-            }
-          },
-          "name": "Days to keep",
-          "description": "Number of days to keep the data for rows matching the filter. Starting today, counting backward. A value of \u00607\u0060 means that everything older than a week will be purged. The default of 0 days will remove all matching rows immediately."
-        }
-      }
-    },
-    "enable": {
-      "name": "Enable",
-      "description": "Starts the recording of events and state changes.",
-      "fields": {}
-    },
-    "disable": {
-      "name": "Disable",
-      "description": "Stops the recording of events and state changes.",
-      "fields": {}
-    }
-  },
   "hassio": {
     "addon_start": {
       "name": "Start add-on",
@@ -716,6 +587,11 @@
           "description": "The version to install. If omitted, the latest version will be installed."
         },
         "backup": {
+          "filter": {
+            "supported_features": [
+              8
+            ]
+          },
           "required": false,
           "selector": {
             "boolean": null
@@ -763,6 +639,142 @@
       }
     }
   },
+  "backup": {
+    "create_automatic": {
+      "name": "Create automatic backup",
+      "description": "Creates a new backup with automatic backup settings.",
+      "fields": {}
+    }
+  },
+  "frontend": {
+    "set_theme": {
+      "name": "Set the default theme",
+      "description": "Sets the default theme Home Assistant uses. Can be overridden by a user.",
+      "fields": {
+        "name": {
+          "required": true,
+          "example": "default",
+          "selector": {
+            "theme": {
+              "include_default": true
+            }
+          },
+          "name": "Theme",
+          "description": "Name of a theme."
+        },
+        "mode": {
+          "default": "light",
+          "selector": {
+            "select": {
+              "options": [
+                "dark",
+                "light"
+              ],
+              "translation_key": "mode"
+            }
+          },
+          "name": "Mode",
+          "description": "Theme mode."
+        }
+      }
+    },
+    "reload_themes": {
+      "name": "Reload themes",
+      "description": "Reloads themes from the YAML-configuration.",
+      "fields": {}
+    }
+  },
+  "recorder": {
+    "purge": {
+      "name": "Purge",
+      "description": "Starts purge task - to clean up old data from your database.",
+      "fields": {
+        "keep_days": {
+          "selector": {
+            "number": {
+              "min": 0,
+              "max": 365,
+              "unit_of_measurement": "days"
+            }
+          },
+          "name": "Days to keep",
+          "description": "Number of days to keep the data in the database. Starting today, counting backward. A value of \u00607\u0060 means that everything older than a week will be purged."
+        },
+        "repack": {
+          "default": false,
+          "selector": {
+            "boolean": null
+          },
+          "name": "Repack",
+          "description": "Attempt to save disk space by rewriting the entire database file."
+        },
+        "apply_filter": {
+          "default": false,
+          "selector": {
+            "boolean": null
+          },
+          "name": "Apply filter",
+          "description": "Apply \u0060entity_id\u0060 and \u0060event_type\u0060 filters in addition to time-based purge."
+        }
+      }
+    },
+    "purge_entities": {
+      "name": "Purge entities",
+      "description": "Starts a purge task to remove the data related to specific entities from your database.",
+      "fields": {
+        "entity_id": {
+          "required": false,
+          "selector": {
+            "entity": {
+              "multiple": true
+            }
+          },
+          "name": "Entities to remove",
+          "description": "List of entities for which the data is to be removed from the recorder database."
+        },
+        "domains": {
+          "example": "sun",
+          "required": false,
+          "selector": {
+            "object": null
+          },
+          "name": "Domains to remove",
+          "description": "List of domains for which the data needs to be removed from the recorder database."
+        },
+        "entity_globs": {
+          "example": "domain*.object_id*",
+          "required": false,
+          "selector": {
+            "object": null
+          },
+          "name": "Entity globs to remove",
+          "description": "List of glob patterns used to select the entities for which the data is to be removed from the recorder database."
+        },
+        "keep_days": {
+          "default": 0,
+          "selector": {
+            "number": {
+              "min": 0,
+              "max": 365,
+              "unit_of_measurement": "days"
+            }
+          },
+          "name": "Days to keep",
+          "description": "Number of days to keep the data for rows matching the filter. Starting today, counting backward. A value of \u00607\u0060 means that everything older than a week will be purged. The default of 0 days will remove all matching rows immediately."
+        }
+      }
+    },
+    "enable": {
+      "name": "Enable",
+      "description": "Starts the recording of events and state changes.",
+      "fields": {}
+    },
+    "disable": {
+      "name": "Disable",
+      "description": "Stops the recording of events and state changes.",
+      "fields": {}
+    }
+  },
   "cloud": {
     "remote_connect": {
       "name": "Enable remote access",
@@ -772,6 +784,136 @@
     "remote_disconnect": {
       "name": "Disable remote access",
       "description": "Disconnects the instance UI from Home Assistant Cloud. This disables access to it from outside your local network.",
+      "fields": {}
+    }
+  },
+  "calendar": {
+    "create_event": {
+      "name": "Create event",
+      "description": "Adds a new calendar event.",
+      "fields": {
+        "summary": {
+          "required": true,
+          "example": "Department Party",
+          "selector": {
+            "text": null
+          },
+          "name": "Summary",
+          "description": "Defines the short summary or subject for the event."
+        },
+        "description": {
+          "example": "Meeting to provide technical review for \u0027Phoenix\u0027 design.",
+          "selector": {
+            "text": null
+          },
+          "name": "Description",
+          "description": "A more complete description of the event than the one provided by the summary."
+        },
+        "start_date_time": {
+          "example": "2022-03-22 20:00:00",
+          "selector": {
+            "datetime": null
+          },
+          "name": "Start time",
+          "description": "The date and time the event should start."
+        },
+        "end_date_time": {
+          "example": "2022-03-22 22:00:00",
+          "selector": {
+            "datetime": null
+          },
+          "name": "End time",
+          "description": "The date and time the event should end."
+        },
+        "start_date": {
+          "example": "2022-03-22",
+          "selector": {
+            "date": null
+          },
+          "name": "Start date",
+          "description": "The date the all-day event should start."
+        },
+        "end_date": {
+          "example": "2022-03-23",
+          "selector": {
+            "date": null
+          },
+          "name": "End date",
+          "description": "The date the all-day event should end (exclusive)."
+        },
+        "in": {
+          "example": "{\u0022days\u0022: 2} or {\u0022weeks\u0022: 2}",
+          "name": "In",
+          "description": "Days or weeks that you want to create the event in."
+        },
+        "location": {
+          "example": "Conference Room - F123, Bldg. 002",
+          "selector": {
+            "text": null
+          },
+          "name": "Location",
+          "description": "The location of the event."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "calendar"
+            ],
+            "supported_features": [
+              1
+            ]
+          }
+        ]
+      }
+    },
+    "get_events": {
+      "name": "Get events",
+      "description": "Get events on a calendar within a time range.",
+      "fields": {
+        "start_date_time": {
+          "example": "2022-03-22 20:00:00",
+          "selector": {
+            "datetime": null
+          },
+          "name": "Start time",
+          "description": "Returns active events after this time (exclusive). When not set, defaults to now."
+        },
+        "end_date_time": {
+          "example": "2022-03-22 22:00:00",
+          "selector": {
+            "datetime": null
+          },
+          "name": "End time",
+          "description": "Returns active events before this time (exclusive). Cannot be used with Duration."
+        },
+        "duration": {
+          "selector": {
+            "duration": null
+          },
+          "name": "Duration",
+          "description": "Returns active events from Start time for the specified duration."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "calendar"
+            ]
+          }
+        ]
+      },
+      "response": {
+        "optional": false
+      }
+    }
+  },
+  "waste_collection_schedule": {
+    "fetch_data": {
+      "name": "Fetch data from all sources.",
+      "description": "Fetch data from all sources.",
       "fields": {}
     }
   },
@@ -1052,6 +1194,113 @@
             ]
           }
         ]
+      }
+    }
+  },
+  "conversation": {
+    "process": {
+      "name": "Process",
+      "description": "Launches a conversation from a transcribed text.",
+      "fields": {
+        "text": {
+          "example": "Turn all lights on",
+          "required": true,
+          "selector": {
+            "text": null
+          },
+          "name": "Text",
+          "description": "Transcribed text input."
+        },
+        "language": {
+          "example": "NL",
+          "selector": {
+            "text": null
+          },
+          "name": "Language",
+          "description": "Language of text. Defaults to server language."
+        },
+        "agent_id": {
+          "example": "homeassistant",
+          "selector": {
+            "conversation_agent": null
+          },
+          "name": "Agent",
+          "description": "Conversation agent to process your request. The conversation agent is the brains of your assistant. It processes the incoming text commands."
+        },
+        "conversation_id": {
+          "example": "my_conversation_1",
+          "selector": {
+            "text": null
+          },
+          "name": "Conversation ID",
+          "description": "ID of the conversation, to be able to continue a previous conversation"
+        }
+      },
+      "response": {
+        "optional": true
+      }
+    },
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads the intent configuration.",
+      "fields": {
+        "language": {
+          "example": "NL",
+          "selector": {
+            "text": null
+          },
+          "name": "Language",
+          "description": "Language to clear cached intents for. Defaults to server language."
+        },
+        "agent_id": {
+          "example": "homeassistant",
+          "selector": {
+            "conversation_agent": null
+          },
+          "name": "Agent",
+          "description": "Conversation agent to reload."
+        }
+      }
+    }
+  },
+  "logbook": {
+    "log": {
+      "name": "Log",
+      "description": "Creates a custom entry in the logbook.",
+      "fields": {
+        "name": {
+          "required": true,
+          "example": "Kitchen",
+          "selector": {
+            "text": null
+          },
+          "name": "Name",
+          "description": "Custom name for an entity, can be referenced using an \u0060entity_id\u0060."
+        },
+        "message": {
+          "required": true,
+          "example": "is being used",
+          "selector": {
+            "text": null
+          },
+          "name": "Message",
+          "description": "Message of the logbook entry."
+        },
+        "entity_id": {
+          "selector": {
+            "entity": null
+          },
+          "name": "Entity ID",
+          "description": "Entity to reference in the logbook entry."
+        },
+        "domain": {
+          "example": "light",
+          "selector": {
+            "text": null
+          },
+          "name": "Domain",
+          "description": "Determines which icon is used in the logbook entry. The icon illustrates the integration domain related to this logbook entry."
+        }
       }
     }
   },
@@ -2117,47 +2366,6 @@
       }
     }
   },
-  "logbook": {
-    "log": {
-      "name": "Log",
-      "description": "Creates a custom entry in the logbook.",
-      "fields": {
-        "name": {
-          "required": true,
-          "example": "Kitchen",
-          "selector": {
-            "text": null
-          },
-          "name": "Name",
-          "description": "Custom name for an entity, can be referenced using an \u0060entity_id\u0060."
-        },
-        "message": {
-          "required": true,
-          "example": "is being used",
-          "selector": {
-            "text": null
-          },
-          "name": "Message",
-          "description": "Message of the logbook entry."
-        },
-        "entity_id": {
-          "selector": {
-            "entity": null
-          },
-          "name": "Entity ID",
-          "description": "Entity to reference in the logbook entry."
-        },
-        "domain": {
-          "example": "light",
-          "selector": {
-            "text": null
-          },
-          "name": "Domain",
-          "description": "Determines which icon is used in the logbook entry. The icon illustrates the integration domain related to this logbook entry."
-        }
-      }
-    }
-  },
   "zone": {
     "reload": {
       "name": "Reload",
@@ -2359,6 +2567,76 @@
       }
     }
   },
+  "input_button": {
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads helpers from the YAML-configuration.",
+      "fields": {}
+    },
+    "press": {
+      "name": "Press",
+      "description": "Mimics the physical button press on the device.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "input_button"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "input_boolean": {
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads helpers from the YAML-configuration.",
+      "fields": {}
+    },
+    "turn_on": {
+      "name": "Turn on",
+      "description": "Turns on the helper.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "input_boolean"
+            ]
+          }
+        ]
+      }
+    },
+    "turn_off": {
+      "name": "Turn off",
+      "description": "Turns off the helper.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "input_boolean"
+            ]
+          }
+        ]
+      }
+    },
+    "toggle": {
+      "name": "Toggle",
+      "description": "Toggles the helper on/off.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "input_boolean"
+            ]
+          }
+        ]
+      }
+    }
+  },
   "timer": {
     "reload": {
       "name": "Reload",
@@ -2456,76 +2734,6 @@
       }
     }
   },
-  "input_button": {
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads helpers from the YAML-configuration.",
-      "fields": {}
-    },
-    "press": {
-      "name": "Press",
-      "description": "Mimics the physical button press on the device.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "input_button"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "input_boolean": {
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads helpers from the YAML-configuration.",
-      "fields": {}
-    },
-    "turn_on": {
-      "name": "Turn on",
-      "description": "Turns on the helper.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "input_boolean"
-            ]
-          }
-        ]
-      }
-    },
-    "turn_off": {
-      "name": "Turn off",
-      "description": "Turns off the helper.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "input_boolean"
-            ]
-          }
-        ]
-      }
-    },
-    "toggle": {
-      "name": "Toggle",
-      "description": "Toggles the helper on/off.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "input_boolean"
-            ]
-          }
-        ]
-      }
-    }
-  },
   "device_tracker": {
     "see": {
       "name": "See",
@@ -2596,69 +2804,184 @@
       }
     }
   },
-  "conversation": {
-    "process": {
-      "name": "Process",
-      "description": "Launches a conversation from a transcribed text.",
+  "alarm_control_panel": {
+    "alarm_disarm": {
+      "name": "Disarm",
+      "description": "Disarms the alarm.",
       "fields": {
-        "text": {
-          "example": "Turn all lights on",
-          "required": true,
+        "code": {
+          "example": "1234",
           "selector": {
             "text": null
           },
-          "name": "Text",
-          "description": "Transcribed text input."
-        },
-        "language": {
-          "example": "NL",
-          "selector": {
-            "text": null
-          },
-          "name": "Language",
-          "description": "Language of text. Defaults to server language."
-        },
-        "agent_id": {
-          "example": "homeassistant",
-          "selector": {
-            "conversation_agent": null
-          },
-          "name": "Agent",
-          "description": "Conversation agent to process your request. The conversation agent is the brains of your assistant. It processes the incoming text commands."
-        },
-        "conversation_id": {
-          "example": "my_conversation_1",
-          "selector": {
-            "text": null
-          },
-          "name": "Conversation ID",
-          "description": "ID of the conversation, to be able to continue a previous conversation"
+          "name": "Code",
+          "description": "Code to disarm the alarm."
         }
       },
-      "response": {
-        "optional": true
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "alarm_control_panel"
+            ]
+          }
+        ]
       }
     },
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads the intent configuration.",
+    "alarm_arm_home": {
+      "name": "Arm home",
+      "description": "Sets the alarm to: _armed, but someone is home_.",
       "fields": {
-        "language": {
-          "example": "NL",
+        "code": {
+          "example": "1234",
           "selector": {
             "text": null
           },
-          "name": "Language",
-          "description": "Language to clear cached intents for. Defaults to server language."
-        },
-        "agent_id": {
-          "example": "homeassistant",
-          "selector": {
-            "conversation_agent": null
-          },
-          "name": "Agent",
-          "description": "Conversation agent to reload."
+          "name": "Code",
+          "description": "Code to arm the alarm."
         }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "alarm_control_panel"
+            ],
+            "supported_features": [
+              1
+            ]
+          }
+        ]
+      }
+    },
+    "alarm_arm_away": {
+      "name": "Arm away",
+      "description": "Sets the alarm to: _armed, no one home_.",
+      "fields": {
+        "code": {
+          "example": "1234",
+          "selector": {
+            "text": null
+          },
+          "name": "Code",
+          "description": "Code to arm the alarm."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "alarm_control_panel"
+            ],
+            "supported_features": [
+              2
+            ]
+          }
+        ]
+      }
+    },
+    "alarm_arm_night": {
+      "name": "Arm night",
+      "description": "Sets the alarm to: _armed for the night_.",
+      "fields": {
+        "code": {
+          "example": "1234",
+          "selector": {
+            "text": null
+          },
+          "name": "Code",
+          "description": "Code to arm the alarm."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "alarm_control_panel"
+            ],
+            "supported_features": [
+              4
+            ]
+          }
+        ]
+      }
+    },
+    "alarm_arm_vacation": {
+      "name": "Arm vacation",
+      "description": "Sets the alarm to: _armed for vacation_.",
+      "fields": {
+        "code": {
+          "example": "1234",
+          "selector": {
+            "text": null
+          },
+          "name": "Code",
+          "description": "Code to arm the alarm."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "alarm_control_panel"
+            ],
+            "supported_features": [
+              32
+            ]
+          }
+        ]
+      }
+    },
+    "alarm_arm_custom_bypass": {
+      "name": "Arm with custom bypass",
+      "description": "Arms the alarm while allowing to bypass a custom area.",
+      "fields": {
+        "code": {
+          "example": "1234",
+          "selector": {
+            "text": null
+          },
+          "name": "Code",
+          "description": "Code to arm the alarm."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "alarm_control_panel"
+            ],
+            "supported_features": [
+              16
+            ]
+          }
+        ]
+      }
+    },
+    "alarm_trigger": {
+      "name": "Trigger",
+      "description": "Trigger the alarm manually.",
+      "fields": {
+        "code": {
+          "example": "1234",
+          "selector": {
+            "text": null
+          },
+          "name": "Code",
+          "description": "Code to arm the alarm."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "alarm_control_panel"
+            ],
+            "supported_features": [
+              8
+            ]
+          }
+        ]
       }
     }
   },
@@ -3847,273 +4170,6 @@
       }
     }
   },
-  "alarm_control_panel": {
-    "alarm_disarm": {
-      "name": "Disarm",
-      "description": "Disarms the alarm.",
-      "fields": {
-        "code": {
-          "example": "1234",
-          "selector": {
-            "text": null
-          },
-          "name": "Code",
-          "description": "Code to disarm the alarm."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "alarm_control_panel"
-            ]
-          }
-        ]
-      }
-    },
-    "alarm_arm_home": {
-      "name": "Arm home",
-      "description": "Sets the alarm to: _armed, but someone is home_.",
-      "fields": {
-        "code": {
-          "example": "1234",
-          "selector": {
-            "text": null
-          },
-          "name": "Code",
-          "description": "Code to arm the alarm."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "alarm_control_panel"
-            ],
-            "supported_features": [
-              1
-            ]
-          }
-        ]
-      }
-    },
-    "alarm_arm_away": {
-      "name": "Arm away",
-      "description": "Sets the alarm to: _armed, no one home_.",
-      "fields": {
-        "code": {
-          "example": "1234",
-          "selector": {
-            "text": null
-          },
-          "name": "Code",
-          "description": "Code to arm the alarm."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "alarm_control_panel"
-            ],
-            "supported_features": [
-              2
-            ]
-          }
-        ]
-      }
-    },
-    "alarm_arm_night": {
-      "name": "Arm night",
-      "description": "Sets the alarm to: _armed for the night_.",
-      "fields": {
-        "code": {
-          "example": "1234",
-          "selector": {
-            "text": null
-          },
-          "name": "Code",
-          "description": "Code to arm the alarm."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "alarm_control_panel"
-            ],
-            "supported_features": [
-              4
-            ]
-          }
-        ]
-      }
-    },
-    "alarm_arm_vacation": {
-      "name": "Arm vacation",
-      "description": "Sets the alarm to: _armed for vacation_.",
-      "fields": {
-        "code": {
-          "example": "1234",
-          "selector": {
-            "text": null
-          },
-          "name": "Code",
-          "description": "Code to arm the alarm."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "alarm_control_panel"
-            ],
-            "supported_features": [
-              32
-            ]
-          }
-        ]
-      }
-    },
-    "alarm_arm_custom_bypass": {
-      "name": "Arm with custom bypass",
-      "description": "Arms the alarm while allowing to bypass a custom area.",
-      "fields": {
-        "code": {
-          "example": "1234",
-          "selector": {
-            "text": null
-          },
-          "name": "Code",
-          "description": "Code to arm the alarm."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "alarm_control_panel"
-            ],
-            "supported_features": [
-              16
-            ]
-          }
-        ]
-      }
-    },
-    "alarm_trigger": {
-      "name": "Trigger",
-      "description": "Trigger the alarm manually.",
-      "fields": {
-        "code": {
-          "example": "1234",
-          "selector": {
-            "text": null
-          },
-          "name": "Code",
-          "description": "Code to arm the alarm."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "alarm_control_panel"
-            ],
-            "supported_features": [
-              8
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "netdaemon": {
-    "register_service": {
-      "name": "",
-      "description": "Register a new service for netdaemon, used by the daemon and not to be used by users",
-      "fields": {
-        "service": {
-          "description": "The name of the service to register"
-        },
-        "class": {
-          "description": "The class that implements the service call"
-        },
-        "method": {
-          "description": "The method to call"
-        }
-      }
-    },
-    "reload_apps": {
-      "name": "",
-      "description": "",
-      "fields": {}
-    },
-    "entity_create": {
-      "name": "",
-      "description": "Create an entity",
-      "fields": {
-        "entity_id": {
-          "description": "The entity ID of the entity",
-          "example": "sensor.awesome"
-        },
-        "state": {
-          "description": "The state of the entity",
-          "example": "Lorem ipsum"
-        },
-        "icon": {
-          "description": "The icon for the entity",
-          "example": "mdi:rocket-launch-outline"
-        },
-        "unit": {
-          "description": "The unit of measurement for the entity"
-        },
-        "options": {
-          "description": "List of options for a select entity"
-        },
-        "attributes": {
-          "description": "The attributes of the entity"
-        }
-      }
-    },
-    "entity_update": {
-      "name": "",
-      "description": "Update an entity",
-      "fields": {
-        "entity_id": {
-          "description": "The entity ID of the entity",
-          "example": "sensor.awesome"
-        },
-        "state": {
-          "description": "The state of the entity",
-          "example": "Lorem ipsum"
-        },
-        "icon": {
-          "description": "The icon for the entity",
-          "example": "mdi:rocket-launch-outline"
-        },
-        "unit": {
-          "description": "The unit of measurement for the entity"
-        },
-        "options": {
-          "description": "List of options for a select entity"
-        },
-        "attributes": {
-          "description": "The attributes of the entity"
-        }
-      }
-    },
-    "entity_remove": {
-      "name": "",
-      "description": "Remove an entity",
-      "fields": {
-        "entity_id": {
-          "description": "The entity ID of the entity",
-          "example": "sensor.awesome"
-        }
-      }
-    }
-  },
   "shopping_list": {
     "add_item": {
       "name": "Add item",
@@ -4205,10 +4261,69 @@
       }
     }
   },
+  "localtuya": {
+    "reload": {
+      "name": "Reload",
+      "description": "Reload localtuya and reconnect to all devices.",
+      "fields": {}
+    },
+    "set_dp": {
+      "name": "Set datapoint",
+      "description": "Change the value of a datapoint (DP)",
+      "fields": {
+        "device_id": {
+          "description": "Device ID of device to change datapoint value for",
+          "example": "11100118278aab4de001",
+          "name": "Device ID"
+        },
+        "dp": {
+          "description": "Datapoint index",
+          "example": 1,
+          "name": "DP"
+        },
+        "value": {
+          "description": "New value to set",
+          "example": false,
+          "name": "Value"
+        }
+      }
+    }
+  },
+  "google_generative_ai_conversation": {
+    "generate_content": {
+      "name": "Generate content",
+      "description": "Generate content from a prompt consisting of text and optionally images",
+      "fields": {
+        "prompt": {
+          "required": true,
+          "selector": {
+            "text": {
+              "multiline": true
+            }
+          },
+          "name": "Prompt",
+          "description": "The prompt",
+          "example": "Describe what you see in these images"
+        },
+        "image_filename": {
+          "required": false,
+          "selector": {
+            "object": null
+          },
+          "name": "Image filename",
+          "description": "Images",
+          "example": "/config/www/image.jpg"
+        }
+      },
+      "response": {
+        "optional": false
+      }
+    }
+  },
   "music_assistant": {
     "search": {
       "name": "Search Music Assistant",
-      "description": "Perform a global search on the Music Assistant library and all providers.",
+      "description": "Performs a global search on the Music Assistant library and all providers.",
       "fields": {
         "config_entry_id": {
           "required": true,
@@ -4432,7 +4547,7 @@
     },
     "play_media": {
       "name": "Play media",
-      "description": "Play media on a Music Assistant player with more fine-grained control options.",
+      "description": "Plays media on a Music Assistant player with more fine-grained control options.",
       "fields": {
         "media_id": {
           "required": true,
@@ -4517,7 +4632,7 @@
     },
     "play_announcement": {
       "name": "Play announcement",
-      "description": "Play announcement on a Music Assistant player with more fine-grained control options.",
+      "description": "Plays an announcement on a Music Assistant player with more fine-grained control options.",
       "fields": {
         "url": {
           "required": true,
@@ -4566,7 +4681,7 @@
     },
     "transfer_queue": {
       "name": "Transfer queue",
-      "description": "Transfer the player\u0027s queue to another player.",
+      "description": "Transfers a player\u0027s queue to another player.",
       "fields": {
         "source_player": {
           "selector": {
@@ -4600,7 +4715,7 @@
     },
     "get_queue": {
       "name": "Get playerQueue details (advanced)",
-      "description": "Get the details of the currently active queue of a Music Assistant player.",
+      "description": "Retrieves the details of the currently active queue of a Music Assistant player.",
       "fields": {},
       "target": {
         "entity": [
@@ -4617,6 +4732,269 @@
       },
       "response": {
         "optional": false
+      }
+    }
+  },
+  "netdaemon": {
+    "register_service": {
+      "name": "",
+      "description": "Register a new service for netdaemon, used by the daemon and not to be used by users",
+      "fields": {
+        "service": {
+          "description": "The name of the service to register"
+        },
+        "class": {
+          "description": "The class that implements the service call"
+        },
+        "method": {
+          "description": "The method to call"
+        }
+      }
+    },
+    "reload_apps": {
+      "name": "",
+      "description": "",
+      "fields": {}
+    },
+    "entity_create": {
+      "name": "",
+      "description": "Create an entity",
+      "fields": {
+        "entity_id": {
+          "description": "The entity ID of the entity",
+          "example": "sensor.awesome"
+        },
+        "state": {
+          "description": "The state of the entity",
+          "example": "Lorem ipsum"
+        },
+        "icon": {
+          "description": "The icon for the entity",
+          "example": "mdi:rocket-launch-outline"
+        },
+        "unit": {
+          "description": "The unit of measurement for the entity"
+        },
+        "options": {
+          "description": "List of options for a select entity"
+        },
+        "attributes": {
+          "description": "The attributes of the entity"
+        }
+      }
+    },
+    "entity_update": {
+      "name": "",
+      "description": "Update an entity",
+      "fields": {
+        "entity_id": {
+          "description": "The entity ID of the entity",
+          "example": "sensor.awesome"
+        },
+        "state": {
+          "description": "The state of the entity",
+          "example": "Lorem ipsum"
+        },
+        "icon": {
+          "description": "The icon for the entity",
+          "example": "mdi:rocket-launch-outline"
+        },
+        "unit": {
+          "description": "The unit of measurement for the entity"
+        },
+        "options": {
+          "description": "List of options for a select entity"
+        },
+        "attributes": {
+          "description": "The attributes of the entity"
+        }
+      }
+    },
+    "entity_remove": {
+      "name": "",
+      "description": "Remove an entity",
+      "fields": {
+        "entity_id": {
+          "description": "The entity ID of the entity",
+          "example": "sensor.awesome"
+        }
+      }
+    }
+  },
+  "schedule": {
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads schedules from the YAML-configuration.",
+      "fields": {}
+    }
+  },
+  "script": {
+    "feed_cats": {
+      "name": "Feed Cats",
+      "description": "",
+      "fields": {},
+      "response": {
+        "optional": true
+      }
+    },
+    "notify_alexa_everywhere": {
+      "name": "Notify Alexa Everywhere",
+      "description": "",
+      "fields": {},
+      "response": {
+        "optional": true
+      }
+    },
+    "notify_all": {
+      "name": "Notify All",
+      "description": "",
+      "fields": {},
+      "response": {
+        "optional": true
+      }
+    },
+    "room_controller_reset": {
+      "name": "Room Controller Reset",
+      "description": "",
+      "fields": {},
+      "response": {
+        "optional": true
+      }
+    },
+    "new_script": {
+      "name": "activate_alexa_actionable_notification",
+      "description": "Activates an actionable notification on a specific echo device",
+      "fields": {
+        "text": {
+          "description": "The text you would like alexa to speak.",
+          "example": "What would you like the thermostat set to?",
+          "required": false,
+          "advanced": false
+        },
+        "event_id": {
+          "description": "Correlation ID for event responses",
+          "example": "ask_for_temperature",
+          "required": false,
+          "advanced": false
+        },
+        "alexa_device": {
+          "description": "Alexa device you want to trigger",
+          "example": "media_player.bedroom_echo",
+          "required": false,
+          "advanced": false
+        }
+      },
+      "response": {
+        "optional": true
+      }
+    },
+    "alarm_triggered": {
+      "name": "Alarm Triggered",
+      "description": "",
+      "fields": {},
+      "response": {
+        "optional": true
+      }
+    },
+    "yeelight_dimmer": {
+      "name": "Yeelight Dimmer Up",
+      "description": "",
+      "fields": {
+        "entitiy_id": {
+          "name": "entitiy_id",
+          "description": "The entity ID of your bulb",
+          "example": "light.your_light",
+          "required": true,
+          "advanced": false
+        },
+        "button_state": {
+          "name": "button_state",
+          "description": "The entity ID of the input_text helper for your button state",
+          "example": "input_text.your_button_state",
+          "required": true,
+          "advanced": false
+        }
+      },
+      "response": {
+        "optional": true
+      }
+    },
+    "yeelight_dimmer_down": {
+      "name": "Yeelight Dimmer Down",
+      "description": "",
+      "fields": {
+        "entitiy_id": {
+          "name": "entitiy_id",
+          "description": "The entity ID of your bulb",
+          "example": "light.your_light",
+          "required": true,
+          "advanced": false
+        },
+        "button_state": {
+          "name": "button_state",
+          "description": "The entity ID of the input_text helper for your button state",
+          "example": "input_text.your_button_state",
+          "required": true,
+          "advanced": false
+        }
+      },
+      "response": {
+        "optional": true
+      }
+    },
+    "camera_shed_snapshot_ai_notification": {
+      "name": "Camera - shed - Snapshot, AI \u0026 Notification",
+      "description": "",
+      "fields": {},
+      "response": {
+        "optional": true
+      }
+    },
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads all the available scripts.",
+      "fields": {}
+    },
+    "turn_on": {
+      "name": "Turn on",
+      "description": "Runs the sequence of actions defined in a script.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "script"
+            ]
+          }
+        ]
+      }
+    },
+    "turn_off": {
+      "name": "Turn off",
+      "description": "Stops a running script.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "script"
+            ]
+          }
+        ]
+      }
+    },
+    "toggle": {
+      "name": "Toggle",
+      "description": "Starts a script if it isn\u0027t running, stops it otherwise.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "script"
+            ]
+          }
+        ]
       }
     }
   },
@@ -5743,6 +6121,94 @@
       }
     }
   },
+  "mqtt": {
+    "publish": {
+      "name": "Publish",
+      "description": "Publishes a message to an MQTT topic.",
+      "fields": {
+        "topic": {
+          "required": true,
+          "example": "/homeassistant/hello",
+          "selector": {
+            "text": null
+          },
+          "name": "Topic",
+          "description": "Topic to publish to."
+        },
+        "payload": {
+          "example": "The temperature is {{ states(\u0027sensor.temperature\u0027) }}",
+          "selector": {
+            "template": null
+          },
+          "name": "Payload",
+          "description": "The payload to publish. Publishes an empty message if not provided."
+        },
+        "evaluate_payload": {
+          "advanced": true,
+          "default": false,
+          "selector": {
+            "boolean": null
+          },
+          "name": "Evaluate payload",
+          "description": "When \u0060payload\u0060 is a Python bytes literal, evaluate the bytes literal and publish the raw data."
+        },
+        "qos": {
+          "advanced": true,
+          "default": 0,
+          "selector": {
+            "select": {
+              "options": [
+                "0",
+                "1",
+                "2"
+              ]
+            }
+          },
+          "name": "QoS",
+          "description": "Quality of Service to use. 0: At most once. 1: At least once. 2: Exactly once."
+        },
+        "retain": {
+          "default": false,
+          "selector": {
+            "boolean": null
+          },
+          "name": "Retain",
+          "description": "If the message should have the retain flag set. If set, the broker stores the most recent message on a topic."
+        }
+      }
+    },
+    "dump": {
+      "name": "Export",
+      "description": "Writes all messages on a specific topic into the \u0060mqtt_dump.txt\u0060 file in your configuration folder.",
+      "fields": {
+        "topic": {
+          "example": "OpenZWave/#",
+          "selector": {
+            "text": null
+          },
+          "name": "Topic",
+          "description": "Topic to listen to."
+        },
+        "duration": {
+          "default": 5,
+          "selector": {
+            "number": {
+              "min": 1,
+              "max": 300,
+              "unit_of_measurement": "seconds"
+            }
+          },
+          "name": "Duration",
+          "description": "How long we should listen for messages in seconds."
+        }
+      }
+    },
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads MQTT entities from the YAML-configuration.",
+      "fields": {}
+    }
+  },
   "climate": {
     "turn_on": {
       "name": "Turn on",
@@ -6738,50 +7204,6 @@
       }
     }
   },
-  "switch": {
-    "turn_off": {
-      "name": "Turn off",
-      "description": "Turns a switch off.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "switch"
-            ]
-          }
-        ]
-      }
-    },
-    "turn_on": {
-      "name": "Turn on",
-      "description": "Turns a switch on.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "switch"
-            ]
-          }
-        ]
-      }
-    },
-    "toggle": {
-      "name": "Toggle",
-      "description": "Toggles a switch on/off.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "switch"
-            ]
-          }
-        ]
-      }
-    }
-  },
   "vacuum": {
     "start": {
       "name": "Start",
@@ -7037,459 +7459,6 @@
           }
         ]
       }
-    }
-  },
-  "input_text": {
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads helpers from the YAML-configuration.",
-      "fields": {}
-    },
-    "set_value": {
-      "name": "Set",
-      "description": "Sets the value.",
-      "fields": {
-        "value": {
-          "required": true,
-          "example": "This is an example text",
-          "selector": {
-            "text": null
-          },
-          "name": "Value",
-          "description": "The target value."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "input_text"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "localtuya": {
-    "reload": {
-      "name": "Reload",
-      "description": "Reload localtuya and reconnect to all devices.",
-      "fields": {}
-    },
-    "set_dp": {
-      "name": "Set datapoint",
-      "description": "Change the value of a datapoint (DP)",
-      "fields": {
-        "device_id": {
-          "description": "Device ID of device to change datapoint value for",
-          "example": "11100118278aab4de001",
-          "name": "Device ID"
-        },
-        "dp": {
-          "description": "Datapoint index",
-          "example": 1,
-          "name": "DP"
-        },
-        "value": {
-          "description": "New value to set",
-          "example": false,
-          "name": "Value"
-        }
-      }
-    }
-  },
-  "input_datetime": {
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads helpers from the YAML-configuration.",
-      "fields": {}
-    },
-    "set_datetime": {
-      "name": "Set",
-      "description": "Sets the date and/or time.",
-      "fields": {
-        "date": {
-          "example": "\u00222019-04-20\u0022",
-          "selector": {
-            "text": null
-          },
-          "name": "Date",
-          "description": "The target date."
-        },
-        "time": {
-          "example": "\u002205:04:20\u0022",
-          "selector": {
-            "time": null
-          },
-          "name": "Time",
-          "description": "The target time."
-        },
-        "datetime": {
-          "example": "\u00222019-04-20 05:04:20\u0022",
-          "selector": {
-            "text": null
-          },
-          "name": "Date \u0026 time",
-          "description": "The target date \u0026 time."
-        },
-        "timestamp": {
-          "selector": {
-            "number": {
-              "min": 0,
-              "max": 9223372036854775807,
-              "mode": "box"
-            }
-          },
-          "name": "Timestamp",
-          "description": "The target date \u0026 time, expressed by a UNIX timestamp."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "input_datetime"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "script": {
-    "feed_cats": {
-      "name": "Feed Cats",
-      "description": "",
-      "fields": {},
-      "response": {
-        "optional": true
-      }
-    },
-    "notify_alexa_everywhere": {
-      "name": "Notify Alexa Everywhere",
-      "description": "",
-      "fields": {},
-      "response": {
-        "optional": true
-      }
-    },
-    "notify_all": {
-      "name": "Notify All",
-      "description": "",
-      "fields": {},
-      "response": {
-        "optional": true
-      }
-    },
-    "room_controller_reset": {
-      "name": "Room Controller Reset",
-      "description": "",
-      "fields": {},
-      "response": {
-        "optional": true
-      }
-    },
-    "new_script": {
-      "name": "activate_alexa_actionable_notification",
-      "description": "Activates an actionable notification on a specific echo device",
-      "fields": {
-        "text": {
-          "description": "The text you would like alexa to speak.",
-          "example": "What would you like the thermostat set to?",
-          "advanced": false,
-          "required": false
-        },
-        "event_id": {
-          "description": "Correlation ID for event responses",
-          "example": "ask_for_temperature",
-          "advanced": false,
-          "required": false
-        },
-        "alexa_device": {
-          "description": "Alexa device you want to trigger",
-          "example": "media_player.bedroom_echo",
-          "advanced": false,
-          "required": false
-        }
-      },
-      "response": {
-        "optional": true
-      }
-    },
-    "alarm_triggered": {
-      "name": "Alarm Triggered",
-      "description": "",
-      "fields": {},
-      "response": {
-        "optional": true
-      }
-    },
-    "yeelight_dimmer": {
-      "name": "Yeelight Dimmer Up",
-      "description": "",
-      "fields": {
-        "entitiy_id": {
-          "name": "entitiy_id",
-          "description": "The entity ID of your bulb",
-          "example": "light.your_light",
-          "required": true,
-          "advanced": false
-        },
-        "button_state": {
-          "name": "button_state",
-          "description": "The entity ID of the input_text helper for your button state",
-          "example": "input_text.your_button_state",
-          "required": true,
-          "advanced": false
-        }
-      },
-      "response": {
-        "optional": true
-      }
-    },
-    "yeelight_dimmer_down": {
-      "name": "Yeelight Dimmer Down",
-      "description": "",
-      "fields": {
-        "entitiy_id": {
-          "name": "entitiy_id",
-          "description": "The entity ID of your bulb",
-          "example": "light.your_light",
-          "required": true,
-          "advanced": false
-        },
-        "button_state": {
-          "name": "button_state",
-          "description": "The entity ID of the input_text helper for your button state",
-          "example": "input_text.your_button_state",
-          "required": true,
-          "advanced": false
-        }
-      },
-      "response": {
-        "optional": true
-      }
-    },
-    "camera_shed_snapshot_ai_notification": {
-      "name": "Camera - shed - Snapshot, AI \u0026 Notification",
-      "description": "",
-      "fields": {},
-      "response": {
-        "optional": true
-      }
-    },
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads all the available scripts.",
-      "fields": {}
-    },
-    "turn_on": {
-      "name": "Turn on",
-      "description": "Runs the sequence of actions defined in a script.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "script"
-            ]
-          }
-        ]
-      }
-    },
-    "turn_off": {
-      "name": "Turn off",
-      "description": "Stops a running script.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "script"
-            ]
-          }
-        ]
-      }
-    },
-    "toggle": {
-      "name": "Toggle",
-      "description": "Starts a script if it isn\u0027t running, stops it otherwise.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "script"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "mqtt": {
-    "publish": {
-      "name": "Publish",
-      "description": "Publishes a message to an MQTT topic.",
-      "fields": {
-        "topic": {
-          "required": true,
-          "example": "/homeassistant/hello",
-          "selector": {
-            "text": null
-          },
-          "name": "Topic",
-          "description": "Topic to publish to."
-        },
-        "payload": {
-          "required": true,
-          "example": "The temperature is {{ states(\u0027sensor.temperature\u0027) }}",
-          "selector": {
-            "template": null
-          },
-          "name": "Payload",
-          "description": "The payload to publish."
-        },
-        "evaluate_payload": {
-          "advanced": true,
-          "default": false,
-          "selector": {
-            "boolean": null
-          },
-          "name": "Evaluate payload",
-          "description": "When \u0060payload\u0060 is a Python bytes literal, evaluate the bytes literal and publish the raw data."
-        },
-        "qos": {
-          "advanced": true,
-          "default": 0,
-          "selector": {
-            "select": {
-              "options": [
-                "0",
-                "1",
-                "2"
-              ]
-            }
-          },
-          "name": "QoS",
-          "description": "Quality of Service to use. 0: At most once. 1: At least once. 2: Exactly once."
-        },
-        "retain": {
-          "default": false,
-          "selector": {
-            "boolean": null
-          },
-          "name": "Retain",
-          "description": "If the message should have the retain flag set. If set, the broker stores the most recent message on a topic."
-        }
-      }
-    },
-    "dump": {
-      "name": "Export",
-      "description": "Writes all messages on a specific topic into the \u0060mqtt_dump.txt\u0060 file in your configuration folder.",
-      "fields": {
-        "topic": {
-          "example": "OpenZWave/#",
-          "selector": {
-            "text": null
-          },
-          "name": "Topic",
-          "description": "Topic to listen to."
-        },
-        "duration": {
-          "default": 5,
-          "selector": {
-            "number": {
-              "min": 1,
-              "max": 300,
-              "unit_of_measurement": "seconds"
-            }
-          },
-          "name": "Duration",
-          "description": "How long we should listen for messages in seconds."
-        }
-      }
-    },
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads MQTT entities from the YAML-configuration.",
-      "fields": {}
-    }
-  },
-  "counter": {
-    "increment": {
-      "name": "Increment",
-      "description": "Increments a counter by its step size.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "counter"
-            ]
-          }
-        ]
-      }
-    },
-    "decrement": {
-      "name": "Decrement",
-      "description": "Decrements a counter by its step size.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "counter"
-            ]
-          }
-        ]
-      }
-    },
-    "reset": {
-      "name": "Reset",
-      "description": "Resets a counter to its initial value.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "counter"
-            ]
-          }
-        ]
-      }
-    },
-    "set_value": {
-      "name": "Set",
-      "description": "Sets the counter to a specific value.",
-      "fields": {
-        "value": {
-          "required": true,
-          "selector": {
-            "number": {
-              "min": 0,
-              "max": 9223372036854775807,
-              "mode": "box"
-            }
-          },
-          "name": "Value",
-          "description": "The new counter value the entity should be set to."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "counter"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "schedule": {
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads schedules from the YAML-configuration.",
-      "fields": {}
     }
   },
   "habitica": {
@@ -7799,6 +7768,157 @@
       "response": {
         "optional": false
       }
+    },
+    "get_tasks": {
+      "name": "Get tasks",
+      "description": "Retrieves tasks from your Habitica character.",
+      "fields": {
+        "config_entry": {
+          "required": true,
+          "selector": {
+            "config_entry": {
+              "integration": "habitica"
+            }
+          },
+          "name": "Select character",
+          "description": "Choose the Habitica character to retrieve tasks from."
+        },
+        "filter": {
+          "collapsed": true,
+          "fields": {
+            "type": {
+              "required": false,
+              "selector": {
+                "select": {
+                  "options": [
+                    "habit",
+                    "daily",
+                    "todo",
+                    "reward"
+                  ],
+                  "mode": "dropdown",
+                  "translation_key": "type",
+                  "multiple": true,
+                  "sort": true
+                }
+              }
+            },
+            "priority": {
+              "required": false,
+              "selector": {
+                "select": {
+                  "options": [
+                    "trivial",
+                    "easy",
+                    "medium",
+                    "hard"
+                  ],
+                  "mode": "dropdown",
+                  "translation_key": "priority",
+                  "multiple": true,
+                  "sort": false
+                }
+              }
+            },
+            "task": {
+              "required": false,
+              "selector": {
+                "text": {
+                  "multiple": true
+                }
+              }
+            },
+            "tag": {
+              "required": false,
+              "selector": {
+                "text": {
+                  "multiple": true
+                }
+              }
+            },
+            "keyword": {
+              "required": false,
+              "selector": {
+                "text": null
+              }
+            }
+          }
+        }
+      },
+      "response": {
+        "optional": false
+      }
+    }
+  },
+  "counter": {
+    "increment": {
+      "name": "Increment",
+      "description": "Increments a counter by its step size.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "counter"
+            ]
+          }
+        ]
+      }
+    },
+    "decrement": {
+      "name": "Decrement",
+      "description": "Decrements a counter by its step size.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "counter"
+            ]
+          }
+        ]
+      }
+    },
+    "reset": {
+      "name": "Reset",
+      "description": "Resets a counter to its initial value.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "counter"
+            ]
+          }
+        ]
+      }
+    },
+    "set_value": {
+      "name": "Set",
+      "description": "Sets the counter to a specific value.",
+      "fields": {
+        "value": {
+          "required": true,
+          "selector": {
+            "number": {
+              "min": 0,
+              "max": 9223372036854775807,
+              "mode": "box"
+            }
+          },
+          "name": "Value",
+          "description": "The new counter value the entity should be set to."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "counter"
+            ]
+          }
+        ]
+      }
     }
   },
   "octopus_energy": {
@@ -7825,122 +7945,6 @@
             "integration": "octopus_energy",
             "domain": [
               "event"
-            ]
-          }
-        ]
-      }
-    },
-    "boost_heat_pump_zone": {
-      "name": "Boost heat pump zone",
-      "description": "Boost a given heat pump zone for a given time period",
-      "fields": {
-        "hours": {
-          "name": "Hours",
-          "description": "The number of hours to boost for",
-          "required": true,
-          "selector": {
-            "number": {
-              "step": 1,
-              "min": 0,
-              "max": 12,
-              "mode": "box"
-            }
-          }
-        },
-        "minutes": {
-          "name": "Minutes",
-          "description": "The number of minutes to boost for",
-          "required": true,
-          "selector": {
-            "number": {
-              "step": 15,
-              "min": 0,
-              "max": 45,
-              "mode": "box"
-            }
-          }
-        },
-        "target_temperature": {
-          "name": "Target Temperature",
-          "description": "The optional target temperature to boost to. If not supplied, then the current target temperature will be used",
-          "required": false,
-          "selector": {
-            "number": {
-              "step": 0.5,
-              "mode": "box"
-            }
-          }
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "integration": "octopus_energy",
-            "domain": [
-              "climate"
-            ]
-          }
-        ]
-      }
-    },
-    "set_heat_pump_flow_temp_config": {
-      "name": "Set heat pump flow temperature configuration",
-      "description": "Sets the full flow temperature configuration for fixed and weather compensated flow temperatures, with the option to select which is active. Changing this configuration without a good understanding of heat loss and emitter output can cause cycling, defrosting, or incorrect heat delivery.",
-      "fields": {
-        "weather_comp_enabled": {
-          "name": "Weather compensation enabled",
-          "description": "Switches weather compensation on or off",
-          "required": true,
-          "selector": {
-            "boolean": null
-          }
-        },
-        "weather_comp_min_temperature": {
-          "name": "Weather compensated minimum temperature",
-          "description": "Minimum allowable temperature for weather compensation",
-          "required": true,
-          "selector": {
-            "number": {
-              "step": 0.5,
-              "min": 30,
-              "max": 70,
-              "mode": "box"
-            }
-          }
-        },
-        "weather_comp_max_temperature": {
-          "name": "Weather compensated maximum temperature",
-          "description": "Maximum allowable temperature for weather compensation",
-          "required": true,
-          "selector": {
-            "number": {
-              "step": 0.5,
-              "min": 30,
-              "max": 70,
-              "mode": "box"
-            }
-          }
-        },
-        "fixed_flow_temperature": {
-          "name": "Fixed flow temperature",
-          "description": "Temperature for a fixed flow without weather compensation",
-          "required": true,
-          "selector": {
-            "number": {
-              "step": 0.5,
-              "min": 30,
-              "max": 70,
-              "mode": "box"
-            }
-          }
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "integration": "octopus_energy",
-            "domain": [
-              "climate"
             ]
           }
         ]
@@ -8037,6 +8041,94 @@
       }
     }
   },
+  "input_datetime": {
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads helpers from the YAML-configuration.",
+      "fields": {}
+    },
+    "set_datetime": {
+      "name": "Set",
+      "description": "Sets the date and/or time.",
+      "fields": {
+        "date": {
+          "example": "\u00222019-04-20\u0022",
+          "selector": {
+            "text": null
+          },
+          "name": "Date",
+          "description": "The target date."
+        },
+        "time": {
+          "example": "\u002205:04:20\u0022",
+          "selector": {
+            "time": null
+          },
+          "name": "Time",
+          "description": "The target time."
+        },
+        "datetime": {
+          "example": "\u00222019-04-20 05:04:20\u0022",
+          "selector": {
+            "text": null
+          },
+          "name": "Date \u0026 time",
+          "description": "The target date \u0026 time."
+        },
+        "timestamp": {
+          "selector": {
+            "number": {
+              "min": 0,
+              "max": 9223372036854775807,
+              "mode": "box"
+            }
+          },
+          "name": "Timestamp",
+          "description": "The target date \u0026 time, expressed by a UNIX timestamp."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "input_datetime"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "input_text": {
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads helpers from the YAML-configuration.",
+      "fields": {}
+    },
+    "set_value": {
+      "name": "Set",
+      "description": "Sets the value.",
+      "fields": {
+        "value": {
+          "required": true,
+          "example": "This is an example text",
+          "selector": {
+            "text": null
+          },
+          "name": "Value",
+          "description": "The target value."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "input_text"
+            ]
+          }
+        ]
+      }
+    }
+  },
   "template": {
     "reload": {
       "name": "Reload",
@@ -8046,7 +8138,7 @@
   },
   "unifiprotect": {
     "add_doorbell_text": {
-      "name": "Add custom doorbell text",
+      "name": "Add doorbell text",
       "description": "Adds a new custom message for doorbells.",
       "fields": {
         "device_id": {
@@ -8057,7 +8149,7 @@
             }
           },
           "name": "UniFi Protect NVR",
-          "description": "Any device from the UniFi Protect instance you want to change. In case you have multiple Protect Instances."
+          "description": "Any device from the UniFi Protect instance you want to change. In case you have multiple Protect instances."
         },
         "message": {
           "example": "Come In",
@@ -8066,13 +8158,13 @@
             "text": null
           },
           "name": "Custom message",
-          "description": "New custom message to add for doorbells. Must be less than 30 characters."
+          "description": "New custom message to add. Must be less than 30 characters."
         }
       }
     },
     "remove_doorbell_text": {
-      "name": "Remove custom doorbell text",
-      "description": "Removes an existing message for doorbells.",
+      "name": "Remove doorbell text",
+      "description": "Removes an existing custom message for doorbells.",
       "fields": {
         "device_id": {
           "required": true,
@@ -8082,7 +8174,7 @@
             }
           },
           "name": "UniFi Protect NVR",
-          "description": "Any device from the UniFi Protect instance you want to change. In case you have multiple Protect Instances."
+          "description": "Any device from the UniFi Protect instance you want to change. In case you have multiple Protect instances."
         },
         "message": {
           "example": "Go Away!",
@@ -8091,13 +8183,13 @@
             "text": null
           },
           "name": "Custom message",
-          "description": "Existing custom message to remove for doorbells."
+          "description": "Existing custom message to remove."
         }
       }
     },
     "set_chime_paired_doorbells": {
       "name": "Set chime paired doorbells",
-      "description": "Use to set the paired doorbell(s) with a smart chime.",
+      "description": "Pairs doorbell(s) with a smart chime.",
       "fields": {
         "device_id": {
           "required": true,
@@ -8130,8 +8222,8 @@
       }
     },
     "remove_privacy_zone": {
-      "name": "Remove camera privacy zone",
-      "description": "Use to remove a privacy zone from a camera.",
+      "name": "Remove privacy zone",
+      "description": "Removes a privacy zone from a camera.",
       "fields": {
         "device_id": {
           "required": true,
@@ -8144,21 +8236,21 @@
             }
           },
           "name": "Camera",
-          "description": "Camera you want to remove privacy zone from."
+          "description": "Camera you want to remove the privacy zone from."
         },
         "name": {
           "required": true,
           "selector": {
             "text": null
           },
-          "name": "Privacy Zone Name",
+          "name": "Privacy zone",
           "description": "The name of the zone to remove."
         }
       }
     },
     "get_user_keyring_info": {
-      "name": "Retrieve Keyring Details for Users",
-      "description": "Fetch a detailed list of users with NFC and fingerprint associations for automations.",
+      "name": "Get user keyring info",
+      "description": "Fetches a detailed list of users with NFC and fingerprint associations for automations.",
       "fields": {
         "device_id": {
           "required": true,
@@ -8174,167 +8266,6 @@
       "response": {
         "optional": false
       }
-    }
-  },
-  "google_generative_ai_conversation": {
-    "generate_content": {
-      "name": "Generate content",
-      "description": "Generate content from a prompt consisting of text and optionally images",
-      "fields": {
-        "prompt": {
-          "required": true,
-          "selector": {
-            "text": {
-              "multiline": true
-            }
-          },
-          "name": "Prompt",
-          "description": "The prompt",
-          "example": "Describe what you see in these images"
-        },
-        "image_filename": {
-          "required": false,
-          "selector": {
-            "object": null
-          },
-          "name": "Image filename",
-          "description": "Images",
-          "example": "/config/www/image.jpg"
-        }
-      },
-      "response": {
-        "optional": false
-      }
-    }
-  },
-  "calendar": {
-    "create_event": {
-      "name": "Create event",
-      "description": "Adds a new calendar event.",
-      "fields": {
-        "summary": {
-          "required": true,
-          "example": "Department Party",
-          "selector": {
-            "text": null
-          },
-          "name": "Summary",
-          "description": "Defines the short summary or subject for the event."
-        },
-        "description": {
-          "example": "Meeting to provide technical review for \u0027Phoenix\u0027 design.",
-          "selector": {
-            "text": null
-          },
-          "name": "Description",
-          "description": "A more complete description of the event than the one provided by the summary."
-        },
-        "start_date_time": {
-          "example": "2022-03-22 20:00:00",
-          "selector": {
-            "datetime": null
-          },
-          "name": "Start time",
-          "description": "The date and time the event should start."
-        },
-        "end_date_time": {
-          "example": "2022-03-22 22:00:00",
-          "selector": {
-            "datetime": null
-          },
-          "name": "End time",
-          "description": "The date and time the event should end."
-        },
-        "start_date": {
-          "example": "2022-03-22",
-          "selector": {
-            "date": null
-          },
-          "name": "Start date",
-          "description": "The date the all-day event should start."
-        },
-        "end_date": {
-          "example": "2022-03-23",
-          "selector": {
-            "date": null
-          },
-          "name": "End date",
-          "description": "The date the all-day event should end (exclusive)."
-        },
-        "in": {
-          "example": "{\u0022days\u0022: 2} or {\u0022weeks\u0022: 2}",
-          "name": "In",
-          "description": "Days or weeks that you want to create the event in."
-        },
-        "location": {
-          "example": "Conference Room - F123, Bldg. 002",
-          "selector": {
-            "text": null
-          },
-          "name": "Location",
-          "description": "The location of the event."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "calendar"
-            ],
-            "supported_features": [
-              1
-            ]
-          }
-        ]
-      }
-    },
-    "get_events": {
-      "name": "Get events",
-      "description": "Get events on a calendar within a time range.",
-      "fields": {
-        "start_date_time": {
-          "example": "2022-03-22 20:00:00",
-          "selector": {
-            "datetime": null
-          },
-          "name": "Start time",
-          "description": "Returns active events after this time (exclusive). When not set, defaults to now."
-        },
-        "end_date_time": {
-          "example": "2022-03-22 22:00:00",
-          "selector": {
-            "datetime": null
-          },
-          "name": "End time",
-          "description": "Returns active events before this time (exclusive). Cannot be used with Duration."
-        },
-        "duration": {
-          "selector": {
-            "duration": null
-          },
-          "name": "Duration",
-          "description": "Returns active events from Start time for the specified duration."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "calendar"
-            ]
-          }
-        ]
-      },
-      "response": {
-        "optional": false
-      }
-    }
-  },
-  "waste_collection_schedule": {
-    "fetch_data": {
-      "name": "Fetch data from all sources.",
-      "description": "Fetch data from all sources.",
-      "fields": {}
     }
   },
   "todo": {
@@ -8570,6 +8501,116 @@
       }
     }
   },
+  "text": {
+    "set_value": {
+      "name": "Set value",
+      "description": "Sets the value.",
+      "fields": {
+        "value": {
+          "required": true,
+          "example": "Hello world!",
+          "selector": {
+            "text": null
+          },
+          "name": "Value",
+          "description": "Enter your text."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "text"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "switch": {
+    "turn_off": {
+      "name": "Turn off",
+      "description": "Turns a switch off.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "switch"
+            ]
+          }
+        ]
+      }
+    },
+    "turn_on": {
+      "name": "Turn on",
+      "description": "Turns a switch on.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "switch"
+            ]
+          }
+        ]
+      }
+    },
+    "toggle": {
+      "name": "Toggle",
+      "description": "Toggles a switch on/off.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "switch"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "weather": {
+    "get_forecasts": {
+      "name": "Get forecasts",
+      "description": "Get weather forecasts.",
+      "fields": {
+        "type": {
+          "required": true,
+          "selector": {
+            "select": {
+              "options": [
+                "daily",
+                "hourly",
+                "twice_daily"
+              ],
+              "translation_key": "forecast_type"
+            }
+          },
+          "name": "Forecast type",
+          "description": "Forecast type: daily, hourly or twice daily."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "weather"
+            ],
+            "supported_features": [
+              1,
+              2,
+              4
+            ]
+          }
+        ]
+      },
+      "response": {
+        "optional": false
+      }
+    }
+  },
   "adguard": {
     "add_url": {
       "name": "Add URL",
@@ -8655,155 +8696,6 @@
       }
     }
   },
-  "icloud": {
-    "play_sound": {
-      "name": "Play sound",
-      "description": "Plays the Lost device sound on an Apple device.",
-      "fields": {
-        "account": {
-          "required": true,
-          "example": "steve@apple.com",
-          "selector": {
-            "text": null
-          },
-          "name": "Account",
-          "description": "Your iCloud account username (email) or account name."
-        },
-        "device_name": {
-          "required": true,
-          "example": "stevesiphone",
-          "selector": {
-            "text": null
-          },
-          "name": "Device name",
-          "description": "The name of the Apple device to play the sound."
-        }
-      }
-    },
-    "display_message": {
-      "name": "Display message",
-      "description": "Displays a message on an Apple device.",
-      "fields": {
-        "account": {
-          "required": true,
-          "example": "steve@apple.com",
-          "selector": {
-            "text": null
-          },
-          "name": "Account",
-          "description": "Your iCloud account username (email) or account name."
-        },
-        "device_name": {
-          "required": true,
-          "example": "stevesiphone",
-          "selector": {
-            "text": null
-          },
-          "name": "Device name",
-          "description": "The name of the Apple device to display the message."
-        },
-        "message": {
-          "required": true,
-          "example": "Hey Steve !",
-          "selector": {
-            "text": null
-          },
-          "name": "Message",
-          "description": "The content of your message."
-        },
-        "sound": {
-          "selector": {
-            "boolean": null
-          },
-          "name": "Sound",
-          "description": "To make a sound when displaying the message."
-        }
-      }
-    },
-    "lost_device": {
-      "name": "Lost device",
-      "description": "Puts an Apple device in lost state.",
-      "fields": {
-        "account": {
-          "required": true,
-          "example": "steve@apple.com",
-          "selector": {
-            "text": null
-          },
-          "name": "Account",
-          "description": "Your iCloud account username (email) or account name."
-        },
-        "device_name": {
-          "required": true,
-          "example": "stevesiphone",
-          "selector": {
-            "text": null
-          },
-          "name": "Device name",
-          "description": "The name of the Apple device to set lost."
-        },
-        "number": {
-          "required": true,
-          "example": "\u002B33450020100",
-          "selector": {
-            "text": null
-          },
-          "name": "Number",
-          "description": "The phone number to call in lost mode (must contain country code)."
-        },
-        "message": {
-          "required": true,
-          "example": "Call me",
-          "selector": {
-            "text": null
-          },
-          "name": "Message",
-          "description": "The message to display in lost mode."
-        }
-      }
-    },
-    "update": {
-      "name": "Update",
-      "description": "Updates iCloud devices.",
-      "fields": {
-        "account": {
-          "required": true,
-          "example": "steve@apple.com",
-          "selector": {
-            "text": null
-          },
-          "name": "Account",
-          "description": "Your iCloud account username (email) or account name."
-        }
-      }
-    }
-  },
-  "text": {
-    "set_value": {
-      "name": "Set value",
-      "description": "Sets the value.",
-      "fields": {
-        "value": {
-          "required": true,
-          "example": "Hello world!",
-          "selector": {
-            "text": null
-          },
-          "name": "Value",
-          "description": "Enter your text."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "text"
-            ]
-          }
-        ]
-      }
-    }
-  },
   "time": {
     "set_value": {
       "name": "Set Time",
@@ -8824,244 +8716,6 @@
           {
             "domain": [
               "time"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "weather": {
-    "get_forecasts": {
-      "name": "Get forecasts",
-      "description": "Get weather forecasts.",
-      "fields": {
-        "type": {
-          "required": true,
-          "selector": {
-            "select": {
-              "options": [
-                "daily",
-                "hourly",
-                "twice_daily"
-              ],
-              "translation_key": "forecast_type"
-            }
-          },
-          "name": "Forecast type",
-          "description": "Forecast type: daily, hourly or twice daily."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "weather"
-            ],
-            "supported_features": [
-              1,
-              2,
-              4
-            ]
-          }
-        ]
-      },
-      "response": {
-        "optional": false
-      }
-    }
-  },
-  "humidifier": {
-    "turn_on": {
-      "name": "Turn on",
-      "description": "Turns the humidifier on.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "humidifier"
-            ]
-          }
-        ]
-      }
-    },
-    "turn_off": {
-      "name": "Turn off",
-      "description": "Turns the humidifier off.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "humidifier"
-            ]
-          }
-        ]
-      }
-    },
-    "toggle": {
-      "name": "Toggle",
-      "description": "Toggles the humidifier on/off.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "humidifier"
-            ]
-          }
-        ]
-      }
-    },
-    "set_mode": {
-      "name": "Set mode",
-      "description": "Sets the humidifier operation mode.",
-      "fields": {
-        "mode": {
-          "required": true,
-          "example": "away",
-          "selector": {
-            "text": null
-          },
-          "name": "Mode",
-          "description": "Operation mode. For example, _normal_, _eco_, or _away_. For a list of possible values, refer to the integration documentation."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "humidifier"
-            ],
-            "supported_features": [
-              1
-            ]
-          }
-        ]
-      }
-    },
-    "set_humidity": {
-      "name": "Set humidity",
-      "description": "Sets the target humidity.",
-      "fields": {
-        "humidity": {
-          "required": true,
-          "selector": {
-            "number": {
-              "min": 0,
-              "max": 100,
-              "unit_of_measurement": "%"
-            }
-          },
-          "name": "Humidity",
-          "description": "Target humidity."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "humidifier"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "siren": {
-    "turn_on": {
-      "name": "Turn on",
-      "description": "Turns the siren on.",
-      "fields": {
-        "tone": {
-          "example": "fire",
-          "filter": {
-            "supported_features": [
-              4
-            ]
-          },
-          "required": false,
-          "selector": {
-            "text": null
-          },
-          "name": "Tone",
-          "description": "The tone to emit. When \u0060available_tones\u0060 property is a map, either the key or the value can be used. Must be supported by the integration."
-        },
-        "volume_level": {
-          "example": 0.5,
-          "filter": {
-            "supported_features": [
-              8
-            ]
-          },
-          "required": false,
-          "selector": {
-            "number": {
-              "min": 0,
-              "max": 1,
-              "step": 0.05
-            }
-          },
-          "name": "Volume",
-          "description": "The volume. 0 is inaudible, 1 is the maximum volume. Must be supported by the integration."
-        },
-        "duration": {
-          "example": 15,
-          "filter": {
-            "supported_features": [
-              16
-            ]
-          },
-          "required": false,
-          "selector": {
-            "text": null
-          },
-          "name": "Duration",
-          "description": "Number of seconds the sound is played. Must be supported by the integration."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "siren"
-            ],
-            "supported_features": [
-              1
-            ]
-          }
-        ]
-      }
-    },
-    "turn_off": {
-      "name": "Turn off",
-      "description": "Turns the siren off.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "siren"
-            ],
-            "supported_features": [
-              2
-            ]
-          }
-        ]
-      }
-    },
-    "toggle": {
-      "name": "Toggle",
-      "description": "Toggles the siren on/off.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "siren"
-            ],
-            "supported_features": [
-              3
             ]
           }
         ]
@@ -9375,155 +9029,224 @@
       }
     }
   },
-  "google": {
-    "add_event": {
-      "name": "Add event",
-      "description": "Adds a new calendar event.",
+  "image": {
+    "snapshot": {
+      "name": "Take snapshot",
+      "description": "Takes a snapshot from an image.",
       "fields": {
-        "calendar_id": {
+        "filename": {
           "required": true,
-          "example": "Your email",
+          "example": "/tmp/image_snapshot.jpg",
           "selector": {
             "text": null
           },
-          "name": "Calendar ID",
-          "description": "The id of the calendar you want."
-        },
-        "summary": {
-          "required": true,
-          "example": "Bowling",
-          "selector": {
-            "text": null
-          },
-          "name": "Summary",
-          "description": "Acts as the title of the event."
-        },
-        "description": {
-          "example": "Birthday bowling",
-          "selector": {
-            "text": null
-          },
-          "name": "Description",
-          "description": "The description of the event. Optional."
-        },
-        "start_date_time": {
-          "example": "2019-03-22 20:00:00",
-          "selector": {
-            "text": null
-          },
-          "name": "Start time",
-          "description": "The date and time the event should start."
-        },
-        "end_date_time": {
-          "example": "2019-03-22 22:00:00",
-          "selector": {
-            "text": null
-          },
-          "name": "End time",
-          "description": "The date and time the event should end."
-        },
-        "start_date": {
-          "example": "2019-03-10",
-          "selector": {
-            "text": null
-          },
-          "name": "Start date",
-          "description": "The date the whole day event should start."
-        },
-        "end_date": {
-          "example": "2019-03-11",
-          "selector": {
-            "text": null
-          },
-          "name": "End date",
-          "description": "The date the whole day event should end."
-        },
-        "in": {
-          "example": "\u0022days\u0022: 2 or \u0022weeks\u0022: 2",
-          "selector": {
-            "object": null
-          },
-          "name": "In",
-          "description": "Days or weeks that you want to create the event in."
-        }
-      }
-    },
-    "create_event": {
-      "name": "Create event",
-      "description": "Adds a new calendar event.",
-      "fields": {
-        "summary": {
-          "required": true,
-          "example": "Bowling",
-          "selector": {
-            "text": null
-          },
-          "name": "Summary",
-          "description": "Acts as the title of the event."
-        },
-        "description": {
-          "example": "Birthday bowling",
-          "selector": {
-            "text": null
-          },
-          "name": "Description",
-          "description": "The description of the event. Optional."
-        },
-        "start_date_time": {
-          "example": "2022-03-22 20:00:00",
-          "selector": {
-            "text": null
-          },
-          "name": "Start time",
-          "description": "The date and time the event should start."
-        },
-        "end_date_time": {
-          "example": "2022-03-22 22:00:00",
-          "selector": {
-            "text": null
-          },
-          "name": "End time",
-          "description": "The date and time the event should end."
-        },
-        "start_date": {
-          "example": "2022-03-10",
-          "selector": {
-            "text": null
-          },
-          "name": "Start date",
-          "description": "The date the whole day event should start."
-        },
-        "end_date": {
-          "example": "2022-03-11",
-          "selector": {
-            "text": null
-          },
-          "name": "End date",
-          "description": "The date the whole day event should end."
-        },
-        "in": {
-          "example": "\u0022days\u0022: 2 or \u0022weeks\u0022: 2",
-          "selector": {
-            "object": null
-          },
-          "name": "In",
-          "description": "Days or weeks that you want to create the event in."
-        },
-        "location": {
-          "example": "Conference Room - F123, Bldg. 002",
-          "selector": {
-            "text": null
-          },
-          "name": "Location",
-          "description": "The location of the event. Optional."
+          "name": "Filename",
+          "description": "Template of a filename. Variable available is \u0060entity_id\u0060."
         }
       },
       "target": {
         "entity": [
           {
-            "integration": "google",
             "domain": [
-              "calendar"
+              "image"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "humidifier": {
+    "turn_on": {
+      "name": "Turn on",
+      "description": "Turns the humidifier on.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "humidifier"
+            ]
+          }
+        ]
+      }
+    },
+    "turn_off": {
+      "name": "Turn off",
+      "description": "Turns the humidifier off.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "humidifier"
+            ]
+          }
+        ]
+      }
+    },
+    "toggle": {
+      "name": "Toggle",
+      "description": "Toggles the humidifier on/off.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "humidifier"
+            ]
+          }
+        ]
+      }
+    },
+    "set_mode": {
+      "name": "Set mode",
+      "description": "Sets the humidifier operation mode.",
+      "fields": {
+        "mode": {
+          "required": true,
+          "example": "away",
+          "selector": {
+            "text": null
+          },
+          "name": "Mode",
+          "description": "Operation mode. For example, _normal_, _eco_, or _away_. For a list of possible values, refer to the integration documentation."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "humidifier"
+            ],
+            "supported_features": [
+              1
+            ]
+          }
+        ]
+      }
+    },
+    "set_humidity": {
+      "name": "Set humidity",
+      "description": "Sets the target humidity.",
+      "fields": {
+        "humidity": {
+          "required": true,
+          "selector": {
+            "number": {
+              "min": 0,
+              "max": 100,
+              "unit_of_measurement": "%"
+            }
+          },
+          "name": "Humidity",
+          "description": "Target humidity."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "humidifier"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "siren": {
+    "turn_on": {
+      "name": "Turn on",
+      "description": "Turns the siren on.",
+      "fields": {
+        "tone": {
+          "example": "fire",
+          "filter": {
+            "supported_features": [
+              4
+            ]
+          },
+          "required": false,
+          "selector": {
+            "text": null
+          },
+          "name": "Tone",
+          "description": "The tone to emit. When \u0060available_tones\u0060 property is a map, either the key or the value can be used. Must be supported by the integration."
+        },
+        "volume_level": {
+          "example": 0.5,
+          "filter": {
+            "supported_features": [
+              8
+            ]
+          },
+          "required": false,
+          "selector": {
+            "number": {
+              "min": 0,
+              "max": 1,
+              "step": 0.05
+            }
+          },
+          "name": "Volume",
+          "description": "The volume. 0 is inaudible, 1 is the maximum volume. Must be supported by the integration."
+        },
+        "duration": {
+          "example": 15,
+          "filter": {
+            "supported_features": [
+              16
+            ]
+          },
+          "required": false,
+          "selector": {
+            "text": null
+          },
+          "name": "Duration",
+          "description": "Number of seconds the sound is played. Must be supported by the integration."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "siren"
+            ],
+            "supported_features": [
+              1
+            ]
+          }
+        ]
+      }
+    },
+    "turn_off": {
+      "name": "Turn off",
+      "description": "Turns the siren off.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "siren"
+            ],
+            "supported_features": [
+              2
+            ]
+          }
+        ]
+      }
+    },
+    "toggle": {
+      "name": "Toggle",
+      "description": "Toggles the siren on/off.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "siren"
+            ],
+            "supported_features": [
+              3
             ]
           }
         ]
@@ -9788,222 +9511,155 @@
       }
     }
   },
-  "remote": {
-    "turn_off": {
-      "name": "Turn off",
-      "description": "Sends the turn off command.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "remote"
-            ]
-          }
-        ]
-      }
-    },
-    "turn_on": {
-      "name": "Turn on",
-      "description": "Sends the turn on command.",
+  "google": {
+    "add_event": {
+      "name": "Add event",
+      "description": "Adds a new calendar event.",
       "fields": {
-        "activity": {
-          "example": "BedroomTV",
-          "filter": {
-            "supported_features": [
-              4
-            ]
-          },
-          "selector": {
-            "text": null
-          },
-          "name": "Activity",
-          "description": "Activity ID or activity name to be started."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "remote"
-            ]
-          }
-        ]
-      }
-    },
-    "toggle": {
-      "name": "Toggle",
-      "description": "Sends the toggle command.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "remote"
-            ]
-          }
-        ]
-      }
-    },
-    "send_command": {
-      "name": "Send command",
-      "description": "Sends a command or a list of commands to a device.",
-      "fields": {
-        "device": {
-          "example": "32756745",
-          "selector": {
-            "text": null
-          },
-          "name": "Device",
-          "description": "Device ID to send command to."
-        },
-        "command": {
+        "calendar_id": {
           "required": true,
-          "example": "Play",
-          "selector": {
-            "object": null
-          },
-          "name": "Command",
-          "description": "A single command or a list of commands to send."
-        },
-        "num_repeats": {
-          "default": 1,
-          "selector": {
-            "number": {
-              "min": 0,
-              "max": 255
-            }
-          },
-          "name": "Repeats",
-          "description": "The number of times you want to repeat the commands."
-        },
-        "delay_secs": {
-          "default": 0.4,
-          "selector": {
-            "number": {
-              "min": 0,
-              "max": 60,
-              "step": 0.1,
-              "unit_of_measurement": "seconds"
-            }
-          },
-          "name": "Delay seconds",
-          "description": "The time you want to wait in between repeated commands."
-        },
-        "hold_secs": {
-          "default": 0,
-          "selector": {
-            "number": {
-              "min": 0,
-              "max": 60,
-              "step": 0.1,
-              "unit_of_measurement": "seconds"
-            }
-          },
-          "name": "Hold seconds",
-          "description": "The time you want to have it held before the release is send."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "remote"
-            ]
-          }
-        ]
-      }
-    },
-    "learn_command": {
-      "name": "Learn command",
-      "description": "Learns a command or a list of commands from a device.",
-      "fields": {
-        "device": {
-          "example": "television",
+          "example": "Your email",
           "selector": {
             "text": null
           },
-          "name": "Device",
-          "description": "Device ID to learn command from."
+          "name": "Calendar ID",
+          "description": "The id of the calendar you want."
         },
-        "command": {
-          "example": "Turn on",
-          "selector": {
-            "object": null
-          },
-          "name": "Command",
-          "description": "A single command or a list of commands to learn."
-        },
-        "command_type": {
-          "default": "ir",
-          "selector": {
-            "select": {
-              "options": [
-                "ir",
-                "rf"
-              ]
-            }
-          },
-          "name": "Command type",
-          "description": "The type of command to be learned."
-        },
-        "alternative": {
-          "selector": {
-            "boolean": null
-          },
-          "name": "Alternative",
-          "description": "If code must be stored as an alternative. This is useful for discrete codes. Discrete codes are used for toggles that only perform one function. For example, a code to only turn a device on. If it is on already, sending the code won\u0027t change the state."
-        },
-        "timeout": {
-          "selector": {
-            "number": {
-              "min": 0,
-              "max": 60,
-              "step": 5,
-              "unit_of_measurement": "seconds"
-            }
-          },
-          "name": "Timeout",
-          "description": "Timeout for the command to be learned."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "remote"
-            ]
-          }
-        ]
-      }
-    },
-    "delete_command": {
-      "name": "Delete command",
-      "description": "Deletes a command or a list of commands from the database.",
-      "fields": {
-        "device": {
-          "example": "television",
-          "selector": {
-            "text": null
-          },
-          "name": "Device",
-          "description": "Device from which commands will be deleted."
-        },
-        "command": {
+        "summary": {
           "required": true,
-          "example": "Mute",
+          "example": "Bowling",
+          "selector": {
+            "text": null
+          },
+          "name": "Summary",
+          "description": "Acts as the title of the event."
+        },
+        "description": {
+          "example": "Birthday bowling",
+          "selector": {
+            "text": null
+          },
+          "name": "Description",
+          "description": "The description of the event. Optional."
+        },
+        "start_date_time": {
+          "example": "2019-03-22 20:00:00",
+          "selector": {
+            "text": null
+          },
+          "name": "Start time",
+          "description": "The date and time the event should start."
+        },
+        "end_date_time": {
+          "example": "2019-03-22 22:00:00",
+          "selector": {
+            "text": null
+          },
+          "name": "End time",
+          "description": "The date and time the event should end."
+        },
+        "start_date": {
+          "example": "2019-03-10",
+          "selector": {
+            "text": null
+          },
+          "name": "Start date",
+          "description": "The date the whole day event should start."
+        },
+        "end_date": {
+          "example": "2019-03-11",
+          "selector": {
+            "text": null
+          },
+          "name": "End date",
+          "description": "The date the whole day event should end."
+        },
+        "in": {
+          "example": "\u0022days\u0022: 2 or \u0022weeks\u0022: 2",
           "selector": {
             "object": null
           },
-          "name": "Command",
-          "description": "The single command or the list of commands to be deleted."
+          "name": "In",
+          "description": "Days or weeks that you want to create the event in."
+        }
+      }
+    },
+    "create_event": {
+      "name": "Create event",
+      "description": "Adds a new calendar event.",
+      "fields": {
+        "summary": {
+          "required": true,
+          "example": "Bowling",
+          "selector": {
+            "text": null
+          },
+          "name": "Summary",
+          "description": "Acts as the title of the event."
+        },
+        "description": {
+          "example": "Birthday bowling",
+          "selector": {
+            "text": null
+          },
+          "name": "Description",
+          "description": "The description of the event. Optional."
+        },
+        "start_date_time": {
+          "example": "2022-03-22 20:00:00",
+          "selector": {
+            "text": null
+          },
+          "name": "Start time",
+          "description": "The date and time the event should start."
+        },
+        "end_date_time": {
+          "example": "2022-03-22 22:00:00",
+          "selector": {
+            "text": null
+          },
+          "name": "End time",
+          "description": "The date and time the event should end."
+        },
+        "start_date": {
+          "example": "2022-03-10",
+          "selector": {
+            "text": null
+          },
+          "name": "Start date",
+          "description": "The date the whole day event should start."
+        },
+        "end_date": {
+          "example": "2022-03-11",
+          "selector": {
+            "text": null
+          },
+          "name": "End date",
+          "description": "The date the whole day event should end."
+        },
+        "in": {
+          "example": "\u0022days\u0022: 2 or \u0022weeks\u0022: 2",
+          "selector": {
+            "object": null
+          },
+          "name": "In",
+          "description": "Days or weeks that you want to create the event in."
+        },
+        "location": {
+          "example": "Conference Room - F123, Bldg. 002",
+          "selector": {
+            "text": null
+          },
+          "name": "Location",
+          "description": "The location of the event. Optional."
         }
       },
       "target": {
         "entity": [
           {
+            "integration": "google",
             "domain": [
-              "remote"
+              "calendar"
             ]
           }
         ]
@@ -10373,6 +10029,312 @@
       }
     }
   },
+  "remote": {
+    "turn_off": {
+      "name": "Turn off",
+      "description": "Sends the turn off command.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "remote"
+            ]
+          }
+        ]
+      }
+    },
+    "turn_on": {
+      "name": "Turn on",
+      "description": "Sends the turn on command.",
+      "fields": {
+        "activity": {
+          "example": "BedroomTV",
+          "filter": {
+            "supported_features": [
+              4
+            ]
+          },
+          "selector": {
+            "text": null
+          },
+          "name": "Activity",
+          "description": "Activity ID or activity name to be started."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "remote"
+            ]
+          }
+        ]
+      }
+    },
+    "toggle": {
+      "name": "Toggle",
+      "description": "Sends the toggle command.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "remote"
+            ]
+          }
+        ]
+      }
+    },
+    "send_command": {
+      "name": "Send command",
+      "description": "Sends a command or a list of commands to a device.",
+      "fields": {
+        "device": {
+          "example": "32756745",
+          "selector": {
+            "text": null
+          },
+          "name": "Device",
+          "description": "Device ID to send command to."
+        },
+        "command": {
+          "required": true,
+          "example": "Play",
+          "selector": {
+            "object": null
+          },
+          "name": "Command",
+          "description": "A single command or a list of commands to send."
+        },
+        "num_repeats": {
+          "default": 1,
+          "selector": {
+            "number": {
+              "min": 0,
+              "max": 255
+            }
+          },
+          "name": "Repeats",
+          "description": "The number of times you want to repeat the commands."
+        },
+        "delay_secs": {
+          "default": 0.4,
+          "selector": {
+            "number": {
+              "min": 0,
+              "max": 60,
+              "step": 0.1,
+              "unit_of_measurement": "seconds"
+            }
+          },
+          "name": "Delay seconds",
+          "description": "The time you want to wait in between repeated commands."
+        },
+        "hold_secs": {
+          "default": 0,
+          "selector": {
+            "number": {
+              "min": 0,
+              "max": 60,
+              "step": 0.1,
+              "unit_of_measurement": "seconds"
+            }
+          },
+          "name": "Hold seconds",
+          "description": "The time you want to have it held before the release is send."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "remote"
+            ]
+          }
+        ]
+      }
+    },
+    "learn_command": {
+      "name": "Learn command",
+      "description": "Learns a command or a list of commands from a device.",
+      "fields": {
+        "device": {
+          "example": "television",
+          "selector": {
+            "text": null
+          },
+          "name": "Device",
+          "description": "Device ID to learn command from."
+        },
+        "command": {
+          "example": "Turn on",
+          "selector": {
+            "object": null
+          },
+          "name": "Command",
+          "description": "A single command or a list of commands to learn."
+        },
+        "command_type": {
+          "default": "ir",
+          "selector": {
+            "select": {
+              "options": [
+                "ir",
+                "rf"
+              ]
+            }
+          },
+          "name": "Command type",
+          "description": "The type of command to be learned."
+        },
+        "alternative": {
+          "selector": {
+            "boolean": null
+          },
+          "name": "Alternative",
+          "description": "If code must be stored as an alternative. This is useful for discrete codes. Discrete codes are used for toggles that only perform one function. For example, a code to only turn a device on. If it is on already, sending the code won\u0027t change the state."
+        },
+        "timeout": {
+          "selector": {
+            "number": {
+              "min": 0,
+              "max": 60,
+              "step": 5,
+              "unit_of_measurement": "seconds"
+            }
+          },
+          "name": "Timeout",
+          "description": "Timeout for the command to be learned."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "remote"
+            ]
+          }
+        ]
+      }
+    },
+    "delete_command": {
+      "name": "Delete command",
+      "description": "Deletes a command or a list of commands from the database.",
+      "fields": {
+        "device": {
+          "example": "television",
+          "selector": {
+            "text": null
+          },
+          "name": "Device",
+          "description": "Device from which commands will be deleted."
+        },
+        "command": {
+          "required": true,
+          "example": "Mute",
+          "selector": {
+            "object": null
+          },
+          "name": "Command",
+          "description": "The single command or the list of commands to be deleted."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "remote"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "vesync": {
+    "update_devices": {
+      "name": "Update devices",
+      "description": "Adds new VeSync devices to Home Assistant.",
+      "fields": {}
+    }
+  },
+  "fully_kiosk": {
+    "load_url": {
+      "name": "Load URL",
+      "description": "Loads a URL on Fully Kiosk Browser.",
+      "fields": {
+        "url": {
+          "example": "https://home-assistant.io",
+          "required": true,
+          "selector": {
+            "text": null
+          },
+          "name": "URL",
+          "description": "URL to load."
+        }
+      },
+      "target": {
+        "device": [
+          {
+            "integration": "fully_kiosk"
+          }
+        ]
+      }
+    },
+    "start_application": {
+      "name": "Start Application",
+      "description": "Starts an application on the device running Fully Kiosk Browser.",
+      "fields": {
+        "application": {
+          "example": "de.ozerov.fully",
+          "required": true,
+          "selector": {
+            "text": null
+          },
+          "name": "Application",
+          "description": "Package name of the application to start."
+        }
+      },
+      "target": {
+        "device": [
+          {
+            "integration": "fully_kiosk"
+          }
+        ]
+      }
+    },
+    "set_config": {
+      "name": "Set Configuration",
+      "description": "Sets a configuration parameter on Fully Kiosk Browser.",
+      "fields": {
+        "key": {
+          "example": "motionSensitivity",
+          "required": true,
+          "selector": {
+            "text": null
+          },
+          "name": "Key",
+          "description": "Configuration parameter to set."
+        },
+        "value": {
+          "example": "90",
+          "required": true,
+          "selector": {
+            "text": null
+          },
+          "name": "Value",
+          "description": "Value for the configuration parameter."
+        }
+      },
+      "target": {
+        "device": [
+          {
+            "integration": "fully_kiosk"
+          }
+        ]
+      }
+    }
+  },
   "alarmo": {
     "arm": {
       "name": "",
@@ -10477,109 +10439,6 @@
             "text": null
           }
         }
-      }
-    }
-  },
-  "fully_kiosk": {
-    "load_url": {
-      "name": "Load URL",
-      "description": "Loads a URL on Fully Kiosk Browser.",
-      "fields": {
-        "url": {
-          "example": "https://home-assistant.io",
-          "required": true,
-          "selector": {
-            "text": null
-          },
-          "name": "URL",
-          "description": "URL to load."
-        }
-      },
-      "target": {
-        "device": [
-          {
-            "integration": "fully_kiosk"
-          }
-        ]
-      }
-    },
-    "start_application": {
-      "name": "Start Application",
-      "description": "Starts an application on the device running Fully Kiosk Browser.",
-      "fields": {
-        "application": {
-          "example": "de.ozerov.fully",
-          "required": true,
-          "selector": {
-            "text": null
-          },
-          "name": "Application",
-          "description": "Package name of the application to start."
-        }
-      },
-      "target": {
-        "device": [
-          {
-            "integration": "fully_kiosk"
-          }
-        ]
-      }
-    },
-    "set_config": {
-      "name": "Set Configuration",
-      "description": "Sets a configuration parameter on Fully Kiosk Browser.",
-      "fields": {
-        "key": {
-          "example": "motionSensitivity",
-          "required": true,
-          "selector": {
-            "text": null
-          },
-          "name": "Key",
-          "description": "Configuration parameter to set."
-        },
-        "value": {
-          "example": "90",
-          "required": true,
-          "selector": {
-            "text": null
-          },
-          "name": "Value",
-          "description": "Value for the configuration parameter."
-        }
-      },
-      "target": {
-        "device": [
-          {
-            "integration": "fully_kiosk"
-          }
-        ]
-      }
-    }
-  },
-  "image": {
-    "snapshot": {
-      "name": "Take snapshot",
-      "description": "Takes a snapshot from an image.",
-      "fields": {
-        "filename": {
-          "required": true,
-          "example": "/tmp/image_snapshot.jpg",
-          "selector": {
-            "text": null
-          },
-          "name": "Filename",
-          "description": "Template of a filename. Variable available is \u0060entity_id\u0060."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "image"
-            ]
-          }
-        ]
       }
     }
   },
@@ -10705,11 +10564,127 @@
       }
     }
   },
-  "vesync": {
-    "update_devices": {
-      "name": "Update devices",
-      "description": "Adds new VeSync devices to Home Assistant.",
-      "fields": {}
+  "icloud": {
+    "play_sound": {
+      "name": "Play sound",
+      "description": "Plays the Lost device sound on an Apple device.",
+      "fields": {
+        "account": {
+          "required": true,
+          "example": "steve@apple.com",
+          "selector": {
+            "text": null
+          },
+          "name": "Account",
+          "description": "Your iCloud account username (email) or account name."
+        },
+        "device_name": {
+          "required": true,
+          "example": "stevesiphone",
+          "selector": {
+            "text": null
+          },
+          "name": "Device name",
+          "description": "The name of the Apple device to play the sound."
+        }
+      }
+    },
+    "display_message": {
+      "name": "Display message",
+      "description": "Displays a message on an Apple device.",
+      "fields": {
+        "account": {
+          "required": true,
+          "example": "steve@apple.com",
+          "selector": {
+            "text": null
+          },
+          "name": "Account",
+          "description": "Your iCloud account username (email) or account name."
+        },
+        "device_name": {
+          "required": true,
+          "example": "stevesiphone",
+          "selector": {
+            "text": null
+          },
+          "name": "Device name",
+          "description": "The name of the Apple device to display the message."
+        },
+        "message": {
+          "required": true,
+          "example": "Hey Steve !",
+          "selector": {
+            "text": null
+          },
+          "name": "Message",
+          "description": "The content of your message."
+        },
+        "sound": {
+          "selector": {
+            "boolean": null
+          },
+          "name": "Sound",
+          "description": "To make a sound when displaying the message."
+        }
+      }
+    },
+    "lost_device": {
+      "name": "Lost device",
+      "description": "Puts an Apple device in lost state.",
+      "fields": {
+        "account": {
+          "required": true,
+          "example": "steve@apple.com",
+          "selector": {
+            "text": null
+          },
+          "name": "Account",
+          "description": "Your iCloud account username (email) or account name."
+        },
+        "device_name": {
+          "required": true,
+          "example": "stevesiphone",
+          "selector": {
+            "text": null
+          },
+          "name": "Device name",
+          "description": "The name of the Apple device to set lost."
+        },
+        "number": {
+          "required": true,
+          "example": "\u002B33450020100",
+          "selector": {
+            "text": null
+          },
+          "name": "Number",
+          "description": "The phone number to call in lost mode (must contain country code)."
+        },
+        "message": {
+          "required": true,
+          "example": "Call me",
+          "selector": {
+            "text": null
+          },
+          "name": "Message",
+          "description": "The message to display in lost mode."
+        }
+      }
+    },
+    "update": {
+      "name": "Update",
+      "description": "Updates iCloud devices.",
+      "fields": {
+        "account": {
+          "required": true,
+          "example": "steve@apple.com",
+          "selector": {
+            "text": null
+          },
+          "name": "Account",
+          "description": "Your iCloud account username (email) or account name."
+        }
+      }
     }
   }
 }
