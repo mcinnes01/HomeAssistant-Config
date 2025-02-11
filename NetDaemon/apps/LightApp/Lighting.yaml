@@ -329,6 +329,7 @@ NetDaemon.apps.LightApp.LightingConfig:
         - binary_sensor.toilet_motion
       Lights:
         - Light: light.toilet_light
+          HasNoNaturalLight: true
           Timeout: 240
           TriggerSensors:
             - binary_sensor.toilet_motion
@@ -366,6 +367,7 @@ NetDaemon.apps.LightApp.LightingConfig:
         - binary_sensor.electric_cabinet_door
       Lights:
         - Light: light.electric_cabinet_light
+          HasNoNaturalLight: true
           Timeout: 240
           PresenceSensors:
             - binary_sensor.electric_cabinet_door
@@ -430,3 +432,57 @@ NetDaemon.apps.LightApp.LightingConfig:
             - light.snug_light
             - light.snug_lamp
             - media_player.snug_projector
+    - Name: shed
+      IsEntrance: true
+      IlluminanceSensor: sensor.shed_door_illuminance
+      IlluminanceLowThreshold: 26
+      IlluminanceHighThreshold: 26
+      TriggerSensors:
+        - binary_sensor.shed_door
+        - binary_sensor.shed_motion
+      Lights:
+        - Light: light.brewery_light
+          Timeout: 240
+          TriggerSensors:
+            - binary_sensor.shed_door
+            - binary_sensor.shed_motion
+    - Name: garden
+      IsEntrance: true
+      IlluminanceSensor: sensor.shed_door_illuminance
+      IlluminanceLowThreshold: 26
+      IlluminanceHighThreshold: 26
+      TriggerSensors:
+        - binary_sensor.shed_door
+        - binary_sensor.shed_camera_person_detected
+        - binary_sensor.shed_camera_vehicle_detected
+      Lights:
+        - Light: light.shed
+          Timeout: 240
+          TriggerSensors:
+            - binary_sensor.shed_camera_person_detected
+            - binary_sensor.shed_camera_vehicle_detected
+          KeepAliveEntities:
+            - binary_sensor.shed_door
+            - binary_sensor.shed_camera_speaking_detected
+        - Light: light.patio_lamp
+          Timeout: 240
+          TriggerSensors:
+            - binary_sensor.shed_camera_person_detected
+            - binary_sensor.shed_camera_vehicle_detected
+          KeepAliveEntities:
+            - binary_sensor.shed_door
+            - binary_sensor.shed_camera_speaking_detected
+        - Light: light.back_door
+          Timeout: 240
+          TriggerSensors:
+            - binary_sensor.back_door
+            - binary_sensor.patio_camera_person_detected
+          KeepAliveEntities:
+            - binary_sensor.patio_camera_speaking_detected
+        - Light: light.decking_wall_light
+          Timeout: 240
+          TriggerSensors:
+            - binary_sensor.back_door
+            - binary_sensor.patio_camera_person_detected
+          KeepAliveEntities:
+            - binary_sensor.patio_camera_speaking_detected

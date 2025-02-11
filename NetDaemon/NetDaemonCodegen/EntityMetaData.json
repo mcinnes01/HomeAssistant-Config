@@ -35,7 +35,7 @@
         },
         {
           "id": "light.basement_stairs_light",
-          "friendlyName": null,
+          "friendlyName": "Basement Stairs Light",
           "cSharpName": "BasementStairsLight"
         },
         {
@@ -4877,11 +4877,6 @@
       "domain": "conversation",
       "entities": [
         {
-          "id": "conversation.deepseek_r1_7b",
-          "friendlyName": "deepseek-r1:7b",
-          "cSharpName": "DeepseekR17b"
-        },
-        {
           "id": "conversation.google_generative_ai",
           "friendlyName": "Google Generative AI",
           "cSharpName": "GoogleGenerativeAi"
@@ -5252,6 +5247,16 @@
           "id": "device_tracker.cb_smartcam",
           "friendlyName": "CB_SmartCam CB_SmartCam",
           "cSharpName": "CbSmartcam"
+        },
+        {
+          "id": "device_tracker.claireiphone",
+          "friendlyName": "claireiphone",
+          "cSharpName": "Claireiphone"
+        },
+        {
+          "id": "device_tracker.claires_apple_watch",
+          "friendlyName": "Claire\u2019s Apple Watch",
+          "cSharpName": "ClairesAppleWatch"
         },
         {
           "id": "device_tracker.claires_iphone",
@@ -5729,14 +5734,69 @@
           "cSharpName": "N02rf"
         },
         {
+          "id": "device_tracker.name_byd_ble3",
+          "friendlyName": "name:byd-ble3",
+          "cSharpName": "NameBydBle3"
+        },
+        {
           "id": "device_tracker.name_ccc3",
           "friendlyName": "name:ccc3",
           "cSharpName": "NameCcc3"
         },
         {
+          "id": "device_tracker.name_dell_mouse",
+          "friendlyName": "name:dell-mouse",
+          "cSharpName": "NameDellMouse"
+        },
+        {
+          "id": "device_tracker.name_epic_air_sport_anc_ble",
+          "friendlyName": "name:epic-air-sport-anc-ble",
+          "cSharpName": "NameEpicAirSportAncBle"
+        },
+        {
+          "id": "device_tracker.name_gbk_h6114_5961",
+          "friendlyName": "name:gbk_h6114_5961",
+          "cSharpName": "NameGbkH61145961"
+        },
+        {
+          "id": "device_tracker.name_govee_h7090_5510",
+          "friendlyName": "name:govee_h7090_5510",
+          "cSharpName": "NameGoveeH70905510"
+        },
+        {
           "id": "device_tracker.name_ibr420_e965",
           "friendlyName": null,
           "cSharpName": "NameIbr420E965"
+        },
+        {
+          "id": "device_tracker.name_jabra_evolve2_65",
+          "friendlyName": "name:jabra-evolve2-65",
+          "cSharpName": "NameJabraEvolve265"
+        },
+        {
+          "id": "device_tracker.name_le_wh_1000xm4",
+          "friendlyName": "name:le_wh-1000xm4",
+          "cSharpName": "NameLeWh1000xm4"
+        },
+        {
+          "id": "device_tracker.name_le_wh_1000xm5",
+          "friendlyName": "name:le_wh-1000xm5",
+          "cSharpName": "NameLeWh1000xm5"
+        },
+        {
+          "id": "device_tracker.name_le_wi_c100",
+          "friendlyName": "name:le_wi-c100",
+          "cSharpName": "NameLeWiC100"
+        },
+        {
+          "id": "device_tracker.name_lumosltis",
+          "friendlyName": "name:lumosltis",
+          "cSharpName": "NameLumosltis"
+        },
+        {
+          "id": "device_tracker.name_mi",
+          "friendlyName": "name:mi",
+          "cSharpName": "NameMi"
         },
         {
           "id": "device_tracker.name_polar_h10_df25a82d",
@@ -5749,14 +5809,34 @@
           "cSharpName": "NameQlYq5a240500739"
         },
         {
+          "id": "device_tracker.name_rtl52619",
+          "friendlyName": "name:rtl52619",
+          "cSharpName": "NameRtl52619"
+        },
+        {
           "id": "device_tracker.name_se5000_2935564032",
           "friendlyName": null,
           "cSharpName": "NameSe50002935564032"
         },
         {
+          "id": "device_tracker.name_se5000_2969643520",
+          "friendlyName": "name:se5000-2969643520",
+          "cSharpName": "NameSe50002969643520"
+        },
+        {
+          "id": "device_tracker.name_whoop_4c1129697",
+          "friendlyName": "name:whoop-4c1129697",
+          "cSharpName": "NameWhoop4c1129697"
+        },
+        {
           "id": "device_tracker.name_xp_pp_04e35a",
           "friendlyName": "name:xp-pp-04e35a",
           "cSharpName": "NameXpPp04e35a"
+        },
+        {
+          "id": "device_tracker.name_yt",
+          "friendlyName": "name:yt",
+          "cSharpName": "NameYt"
         },
         {
           "id": "device_tracker.niu_6261_niu_6261",
@@ -23818,6 +23898,201 @@
         {
           "jsonName": "com.ebay.mobile_1916717567_post_time",
           "cSharpName": "Com_ebay_mobile1916717567PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.appInfo_com.fitbit.FitbitMobile_2131431360",
+          "cSharpName": "Android_appInfoCom_fitbit_FitbitMobile2131431360",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.appInfo_com.google.android.permissioncontroller_5",
+          "cSharpName": "Android_appInfoCom_google_android_permissioncontroller5",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.infoText_com.fitbit.FitbitMobile_2131431360",
+          "cSharpName": "Android_infoTextCom_fitbit_FitbitMobile2131431360",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.infoText_com.google.android.permissioncontroller_5",
+          "cSharpName": "Android_infoTextCom_google_android_permissioncontroller5",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon_com.fitbit.FitbitMobile_2131431360",
+          "cSharpName": "Android_largeIconCom_fitbit_FitbitMobile2131431360",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon_com.google.android.permissioncontroller_5",
+          "cSharpName": "Android_largeIconCom_google_android_permissioncontroller5",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.progressIndeterminate_com.fitbit.FitbitMobile_2131431360",
+          "cSharpName": "Android_progressIndeterminateCom_fitbit_FitbitMobile2131431360",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.progressIndeterminate_com.google.android.permissioncontroller_5",
+          "cSharpName": "Android_progressIndeterminateCom_google_android_permissioncontroller5",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.progressMax_com.fitbit.FitbitMobile_2131431360",
+          "cSharpName": "Android_progressMaxCom_fitbit_FitbitMobile2131431360",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progressMax_com.google.android.permissioncontroller_5",
+          "cSharpName": "Android_progressMaxCom_google_android_permissioncontroller5",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progress_com.fitbit.FitbitMobile_2131431360",
+          "cSharpName": "Android_progressCom_fitbit_FitbitMobile2131431360",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progress_com.google.android.permissioncontroller_5",
+          "cSharpName": "Android_progressCom_google_android_permissioncontroller5",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.reduced.images_com.fitbit.FitbitMobile_2131431360",
+          "cSharpName": "Android_reduced_imagesCom_fitbit_FitbitMobile2131431360",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.reduced.images_com.google.android.permissioncontroller_5",
+          "cSharpName": "Android_reduced_imagesCom_google_android_permissioncontroller5",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.remoteInputHistory_com.fitbit.FitbitMobile_2131431360",
+          "cSharpName": "Android_remoteInputHistoryCom_fitbit_FitbitMobile2131431360",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.remoteInputHistory_com.google.android.permissioncontroller_5",
+          "cSharpName": "Android_remoteInputHistoryCom_google_android_permissioncontroller5",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.showChronometer_com.fitbit.FitbitMobile_2131431360",
+          "cSharpName": "Android_showChronometerCom_fitbit_FitbitMobile2131431360",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showChronometer_com.google.android.permissioncontroller_5",
+          "cSharpName": "Android_showChronometerCom_google_android_permissioncontroller5",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_com.fitbit.FitbitMobile_2131431360",
+          "cSharpName": "Android_showWhenCom_fitbit_FitbitMobile2131431360",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_com.google.android.permissioncontroller_5",
+          "cSharpName": "Android_showWhenCom_google_android_permissioncontroller5",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.subText_com.fitbit.FitbitMobile_2131431360",
+          "cSharpName": "Android_subTextCom_fitbit_FitbitMobile2131431360",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.subText_com.google.android.permissioncontroller_5",
+          "cSharpName": "Android_subTextCom_google_android_permissioncontroller5",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.substName_com.google.android.permissioncontroller_5",
+          "cSharpName": "Android_substNameCom_google_android_permissioncontroller5",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_com.fitbit.FitbitMobile_2131431360",
+          "cSharpName": "Android_textCom_fitbit_FitbitMobile2131431360",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_com.google.android.permissioncontroller_5",
+          "cSharpName": "Android_textCom_google_android_permissioncontroller5",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_com.fitbit.FitbitMobile_2131431360",
+          "cSharpName": "Android_titleCom_fitbit_FitbitMobile2131431360",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_com.google.android.permissioncontroller_5",
+          "cSharpName": "Android_titleCom_google_android_permissioncontroller5",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.fitbit.FitbitMobile_2131431360_category",
+          "cSharpName": "Com_fitbit_FitbitMobile2131431360Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.fitbit.FitbitMobile_2131431360_channel_id",
+          "cSharpName": "Com_fitbit_FitbitMobile2131431360ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.fitbit.FitbitMobile_2131431360_group_id",
+          "cSharpName": "Com_fitbit_FitbitMobile2131431360GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.fitbit.FitbitMobile_2131431360_is_clearable",
+          "cSharpName": "Com_fitbit_FitbitMobile2131431360IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.fitbit.FitbitMobile_2131431360_is_ongoing",
+          "cSharpName": "Com_fitbit_FitbitMobile2131431360IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.fitbit.FitbitMobile_2131431360_post_time",
+          "cSharpName": "Com_fitbit_FitbitMobile2131431360PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "com.google.android.permissioncontroller_5_category",
+          "cSharpName": "Com_google_android_permissioncontroller5Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.google.android.permissioncontroller_5_channel_id",
+          "cSharpName": "Com_google_android_permissioncontroller5ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.google.android.permissioncontroller_5_group_id",
+          "cSharpName": "Com_google_android_permissioncontroller5GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.google.android.permissioncontroller_5_is_clearable",
+          "cSharpName": "Com_google_android_permissioncontroller5IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.google.android.permissioncontroller_5_is_ongoing",
+          "cSharpName": "Com_google_android_permissioncontroller5IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.google.android.permissioncontroller_5_post_time",
+          "cSharpName": "Com_google_android_permissioncontroller5PostTime",
           "clrType": "System.Double"
         }
       ]

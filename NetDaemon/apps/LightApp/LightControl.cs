@@ -31,6 +31,7 @@ public class LightControl
     private DateTime? TurnOnTime { get; set; }
     private DateTime? TurnOffTime { get; set; }
     private bool IsMoodLight => !Primary && _room.HasMultipleLights;
+    private bool HasNoNaturalLight { get; set; } = false;
 
     public async Task Register(RoomControl room, IMqttEntityManager entityManager,
         IScheduler scheduler, IHaContext haContext, ILogger<LightingManager> logger)
@@ -214,7 +215,7 @@ public class LightControl
             }
             else
             {
-                if ((presenceStates.Any(s => s.IsOn) || conditions.Any(c => c.ConditionPassed)) && (!_room.IsBright || _room.RoomMode.IsBright()))
+                if ((presenceStates.Any(s => s.IsOn) || conditions.Any(c => c.ConditionPassed)) && (!_room.IsBright || _room.RoomMode.IsBright() || HasNoNaturalLight))
                 {
                     _logger.LogInformation("Initial state {light} is on and presence {@presence} or condition {@condition} are met and illuminance is not bright, Keeping On",
                         Light.EntityId, presenceStates, conditions);
@@ -235,7 +236,8 @@ public class LightControl
             }
             else
             {
-                if ((presenceStates.Any(s => s.IsOn) || conditions.Any(c => c.ConditionPassed)) && _room.IlluminanceSensor?.State < _room.IlluminanceHighThreshold)
+                if ((presenceStates.Any(s => s.IsOn) || conditions.Any(c => c.ConditionPassed))
+                 && (HasNoNaturalLight || _room.IlluminanceSensor?.State < _room.IlluminanceHighThreshold))
                 {
                     _logger.LogInformation("Initial state {light} is off presence {@presence} or condition {condition} are met a illuminance {sensor} is not bright enough {illuminance} {threshold}, Turning On",
                         Light.EntityId, presenceStates, Conditions.AsString(), _room.IlluminanceSensor?.EntityId, _room.IlluminanceSensor?.State, _room.IlluminanceHighThreshold);
@@ -250,21 +252,27 @@ public class LightControl
 
     private void SubscribeToIlluminanceSensor()
     {
-        _room.IlluminanceSensor!.StateAllChanges()
-        .Throttle(TimeSpan.FromSeconds(60))
-        .Subscribe(e =>
+        if (!HasNoNaturalLight)
         {
-            if (Light.IsOn() && e.New?.State >= _room.IlluminanceHighThreshold)
+            _room.IlluminanceSensor!.StateAllChanges()
+            .Throttle(TimeSpan.FromSeconds(60))
+            .Subscribe(e =>
             {
-                _logger.LogInformation("Illuminance Sensor {sensor} {state} is above threshold {threshold}, turning off {light}", e.New.EntityId, e.New.State, _room.IlluminanceLowThreshold, Light.EntityId);
-                TurnOffEntities("Too Bright");
-            }
-            else if (Light.IsOff() && e.New?.State < _room.IlluminanceLowThreshold && (TriggerWithoutPresence || TriggerSensors.Union(PresenceSensors).Any(s => s.IsOn())))
-            {
-                _logger.LogInformation("Illuminance Sensor {sensor} {state} is below threshold {threshold}, turning on {light}", e.New.EntityId, e.New.State, _room.IlluminanceLowThreshold, Light.EntityId);
-                TurnOnEntities("Too Dark");
-            }
-        });
+                if (Light.IsOn() && e.New?.State >= _room.IlluminanceHighThreshold)
+                {
+                    _logger.LogInformation("Illuminance Sensor {sensor} {state} is above threshold {threshold}, turning off {light}",
+                                            e.New.EntityId, e.New.State, _room.IlluminanceLowThreshold, Light.EntityId);
+                    TurnOffEntities("Too Bright");
+                }
+                else if (Light.IsOff() && e.New?.State < _room.IlluminanceLowThreshold 
+                     && (TriggerWithoutPresence || TriggerSensors.Union(PresenceSensors).Any(s => s.IsOn())))
+                {
+                    _logger.LogInformation("Illuminance Sensor {sensor} {state} is below threshold {threshold}, turning on {light}",
+                                            e.New.EntityId, e.New.State, _room.IlluminanceLowThreshold, Light.EntityId);
+                    TurnOnEntities("Too Dark");
+                }
+            });
+        }
     }
 
     private void SubscribeConditionStateChange()
@@ -461,15 +469,13 @@ public class LightControl
             _logger.LogTrace("Can't turn {light} on as there is no presence detected", Light.EntityId);
             return;
         }
-        if (_room.IsBright && !_room.RoomMode.IsBright())
+        if (!HasNoNaturalLight && _room.IsBright && !_room.RoomMode.IsBright())
         {
             _logger.LogTrace("Can't turn {light} on as the room is bright enough", Light.EntityId);
             return;
         }
 
-        // this Will stop lamps on conditions ie secondary lights
-        // we need to handle Illuminance or ignore it as a trigger should in most cases
-        if (Primary || TriggerWithoutPresence)// || IndependentSecondary)
+        if (Primary || TriggerWithoutPresence)
         {
             Light.TurnOn();
             TurnOnTime = DateTime.Now;
@@ -497,6 +503,7 @@ public class LightControl
             Illuminance = _room.IlluminanceSensor?.State,
             LowLightThreshold = _room.IlluminanceLowThreshold,
             HighLightThreshold = _room.IlluminanceHighThreshold,
+            HasNoNaturalLight,
             BlockEntities = BlockEntities.Any() ? string.Join(",", BlockEntities.Select(c => c.EntityId)) : "N/A",
             KeepAliveEntities = KeepAliveEntities.Any() ? string.Join(",", KeepAliveEntities.Select(c => c.EntityId)) : "N/A",
             Condition = Conditions.Any() ? Conditions.AsString() : "N/A",
