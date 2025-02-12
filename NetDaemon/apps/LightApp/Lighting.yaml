@@ -142,9 +142,8 @@ NetDaemon.apps.LightApp.LightingConfig:
           TriggerSensors:
             - binary_sensor.lounge_motion
           BlockEntities:
-            - binary_sensor.main_sofa_presence
-            - binary_sensor.window_sofa_presence
-            - binary_sensor.guest_sofa_presence
+            - light.lounge_lamp
+            - light.lounge_floor_lamp
             - switch.lounge_tv
     - Name: drawing_room
       IlluminanceSensor: sensor.drawing_room_illuminance

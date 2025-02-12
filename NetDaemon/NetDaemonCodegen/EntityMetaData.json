@@ -24775,6 +24775,11 @@
           "cSharpName": "LandingTabletDoNotDisturbSwitch"
         },
         {
+          "id": "switch.light_manager_back_door",
+          "friendlyName": "Light Manager back door",
+          "cSharpName": "LightManagerBackDoor"
+        },
+        {
           "id": "switch.light_manager_basement_hall",
           "friendlyName": "Light Manager basement hall",
           "cSharpName": "LightManagerBasementHall"
@@ -24818,6 +24823,16 @@
           "id": "switch.light_manager_breakfast_bar_light",
           "friendlyName": "Light Manager breakfast bar light",
           "cSharpName": "LightManagerBreakfastBarLight"
+        },
+        {
+          "id": "switch.light_manager_brewery_light",
+          "friendlyName": "Light Manager brewery light",
+          "cSharpName": "LightManagerBreweryLight"
+        },
+        {
+          "id": "switch.light_manager_decking_wall_light",
+          "friendlyName": "Light Manager decking wall light",
+          "cSharpName": "LightManagerDeckingWallLight"
         },
         {
           "id": "switch.light_manager_dining_room",
@@ -24935,6 +24950,11 @@
           "cSharpName": "LightManagerMirrorLight"
         },
         {
+          "id": "switch.light_manager_patio_lamp",
+          "friendlyName": "Light Manager patio lamp",
+          "cSharpName": "LightManagerPatioLamp"
+        },
+        {
           "id": "switch.light_manager_porch",
           "friendlyName": "Light Manager porch",
           "cSharpName": "LightManagerPorch"
@@ -24943,6 +24963,11 @@
           "id": "switch.light_manager_porch_light",
           "friendlyName": "Light Manager porch light",
           "cSharpName": "LightManagerPorchLight"
+        },
+        {
+          "id": "switch.light_manager_shed",
+          "friendlyName": "Light Manager shed",
+          "cSharpName": "LightManagerShed"
         },
         {
           "id": "switch.light_manager_snug",
@@ -25670,6 +25695,11 @@
           "jsonName": "KeepAliveModes",
           "cSharpName": "KeepAliveModes",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "HasNoNaturalLight",
+          "cSharpName": "HasNoNaturalLight",
+          "clrType": "System.Boolean"
         }
       ]
     },

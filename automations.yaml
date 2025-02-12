@@ -780,19 +780,19 @@
 - id: '1685484233163'
   alias: 'Bedroom show screen off '
   description: ''
-  trigger:
-  - platform: state
-    entity_id:
+  triggers:
+  - entity_id:
     - input_select.bedroom_mode
     to: Sleeping
-  condition: []
-  action:
-  - service: media_player.play_media
-    data:
+    trigger: state
+  conditions: []
+  actions:
+  - data:
       media_content_type: custom
-      media_content_id: Turn the screen off
+      media_content_id: Turn your screen off
     target:
       device_id: 05fc0ef00cc911eb9bd319798131fa33
+    action: media_player.play_media
   mode: single
 - id: '1685484296390'
   alias: Bedroom show screen on

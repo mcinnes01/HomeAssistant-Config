@@ -52,7 +52,7 @@ public class RoomControl
         _roomModeSelect = RoomMode?.EntityId ?? $"input_select.{room}_mode";
         _logger.LogDebug("{room} Setup Room Mode Select", Name);
 
-        if (_context.Entity(_roomModeSelect).State != null && RecreateRoomMode)
+        if (_context.Entity(_roomModeSelect) != null && RecreateRoomMode)
         {
             _logger.LogDebug("{room} Remove Room Mode Select", _roomModeSelect);
             await _entityManager.RemoveAsync(_roomModeSelect);
@@ -77,6 +77,7 @@ public class RoomControl
             return;
         }
 
+        // Load options based on room
         if (IsBedroom)
             RoomMode.SetOptions(EnumExtensions.ToOptions<RoomModeOptions>());
         else if (room.Equals("lounge"))

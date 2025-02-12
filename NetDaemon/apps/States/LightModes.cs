@@ -18,18 +18,18 @@ public class LightModes
 
         _insideNoRoomControlNotBasement =
         [
+            _entities.Light.LandingLight,
+            _entities.Light.StudioLight,
             _entities.Light.BathroomLight,
             _entities.Light.MirrorLight,
+            _entities.Light.GuestRoomLight,
+            _entities.Light.DressingRoomLight,
             _entities.Light.DrawingRoomLight,
             _entities.Light.BookshelfLight,
-            _entities.Light.DressingRoomLight,
-            _entities.Light.GuestRoomLight,
             _entities.Light.HallwayLight,
             _entities.Light.HallwayLamp,
             _entities.Light.KitchenLight,
             _entities.Light.BreakfastBarLamp,
-            _entities.Light.LandingLight,
-            _entities.Light.StudioLight
         ];
 
         _bedroomLights =
