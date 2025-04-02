@@ -13,9 +13,10 @@ public class RoomControl
     public required IEnumerable<BinarySensorEntity> PresenceSensors { get; set; }
     public required IEnumerable<BinarySensorEntity> TriggerSensors { get; set; }
     public NumericSensorEntity? IlluminanceSensor { get; set; }
+    public bool IgnoreIlluminance { get; set; } = false;
     public double? IlluminanceLowThreshold { get; set; } = 40.0;
     public double? IlluminanceHighThreshold { get; set; } = 100.0;
-    public bool IsBright => IlluminanceSensor?.State > IlluminanceLowThreshold;
+    public bool IsBright => !IgnoreIlluminance && IlluminanceSensor?.State > IlluminanceHighThreshold;
     public bool RecreateRoomMode { get; set; } = true;
     public InputSelectEntity? RoomMode { get; set; }
     public string[] BlockModes { get; set; } = ["Sleeping", "Manual"];

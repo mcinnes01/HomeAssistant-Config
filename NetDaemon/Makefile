@@ -4,6 +4,7 @@ generate:
 	nd-codegen -o HomeAssistantGenerated.cs
 
 clean:
+	sudo chown -R holly:holly ./
 	rm -rf bin obj out
 	dotnet clean
 

@@ -14,7 +14,7 @@
       state: Television
     light.lounge_floor_lamp:
       min_color_temp_kelvin: 1700
-      max_color_temp_kelvin: 6535
+      max_color_temp_kelvin: 6500
       min_mireds: 153
       max_mireds: 588
       effect_list:
@@ -59,13 +59,14 @@
       - color_temp
       - hs
       - rgb
+      effect:
       color_mode: color_temp
       brightness: 204
-      color_temp_kelvin: 3703
+      color_temp_kelvin: 3700
       color_temp: 270
       hs_color:
-      - 26.994
-      - 40.533
+      - 26.996
+      - 40.593
       rgb_color:
       - 255
       - 198
@@ -73,7 +74,6 @@
       xy_color:
       - 0.44
       - 0.371
-      effect:
       flowing: false
       music_mode: false
       icon: mdi:floor-lamp-outline
@@ -82,7 +82,7 @@
       state: 'on'
     light.lounge_lamp:
       min_color_temp_kelvin: 1700
-      max_color_temp_kelvin: 6535
+      max_color_temp_kelvin: 6500
       min_mireds: 153
       max_mireds: 588
       effect_list:
@@ -127,13 +127,14 @@
       - color_temp
       - hs
       - rgb
+      effect:
       color_mode: color_temp
       brightness: 204
-      color_temp_kelvin: 3703
+      color_temp_kelvin: 3700
       color_temp: 270
       hs_color:
-      - 26.994
-      - 40.533
+      - 26.996
+      - 40.593
       rgb_color:
       - 255
       - 198
@@ -141,15 +142,19 @@
       xy_color:
       - 0.44
       - 0.371
-      effect:
       flowing: false
       music_mode: false
       icon: mdi:lamp
       friendly_name: Lounge Lamp
       supported_features: 44
       state: 'on'
-    switch.lounge_tv:
+    media_player.lounge_tv:
+      volume_level: 0.06
+      is_volume_muted: false
+      source: digitalTv
+      device_class: tv
       friendly_name: Lounge TV
+      supported_features: 23997
       state: 'on'
   icon: hass:television-classic
   metadata: {}

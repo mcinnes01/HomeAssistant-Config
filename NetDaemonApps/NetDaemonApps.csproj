@@ -27,20 +27,20 @@
         <None Remove="README.md" />
     </ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="NetDaemon.AppModel" Version="25.5.0" />
-		<PackageReference Include="NetDaemon.Extensions.Mqtt" Version="25.5.0" />
-		<PackageReference Include="NetDaemon.Runtime" Version="25.5.0" />
-		<PackageReference Include="NetDaemon.HassModel" Version="25.5.0" />
-		<PackageReference Include="NetDaemon.Client" Version="25.5.0" />
-		<PackageReference Include="NetDaemon.Extensions.Scheduling" Version="25.5.0" />
-		<PackageReference Include="NetDaemon.Extensions.Logging" Version="25.5.0" />
-		<PackageReference Include="NetDaemon.Extensions.Tts" Version="25.5.0" />
-		<PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.2" />
+		<PackageReference Include="NetDaemon.AppModel" Version="25.10.0" />
+		<PackageReference Include="NetDaemon.Extensions.Mqtt" Version="25.10.0" />
+		<PackageReference Include="NetDaemon.Runtime" Version="25.10.0" />
+		<PackageReference Include="NetDaemon.HassModel" Version="25.10.0" />
+		<PackageReference Include="NetDaemon.Client" Version="25.10.0" />
+		<PackageReference Include="NetDaemon.Extensions.Scheduling" Version="25.10.0" />
+		<PackageReference Include="NetDaemon.Extensions.Logging" Version="25.10.0" />
+		<PackageReference Include="NetDaemon.Extensions.Tts" Version="25.10.0" />
+		<PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.3" />
 		<PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
 		<PackageReference Include="stateless" Version="5.17.0" />
 		<PackageReference Include="System.Reactive" Version="6.0.1" />
-		<PackageReference Include="CacheManager.Core" Version="1.2.0" />
-		<PackageReference Include="CacheManager.Microsoft.Extensions.Configuration" Version="1.2.0" />
+		<PackageReference Include="CacheManager.Core" Version="2.0.0" />
+		<PackageReference Include="CacheManager.Microsoft.Extensions.Configuration" Version="2.0.0" />
 	</ItemGroup>
 	<Target Name="AfterPublishMessage" AfterTargets="Publish">
 		<Message Text="Publish done! Copy all content in directory: $(PublishDir) to the `/config/netdaemon3' folder for add-on or your custom folder to deploy" Importance="high" />

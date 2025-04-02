@@ -453,34 +453,35 @@
 - id: 34d291332d9d4a9185327573b8c1a90f
   alias: Lounge Scene Watch Television
   description: ''
-  trigger:
-  - platform: state
-    entity_id: input_select.lounge_mode
+  triggers:
+  - entity_id: input_select.lounge_mode
     to: Television
-  condition: []
-  action:
-  - service: input_boolean.turn_on
-    target:
+    trigger: state
+  conditions: []
+  actions:
+  - target:
       entity_id:
       - group.lounge_overrides
     data: {}
-  - service: light.turn_off
-    target:
+    action: input_boolean.turn_on
+  - target:
       entity_id:
       - light.lounge_light
     data: {}
-  - service: yeelight.set_color_temp_scene
-    data:
+    action: light.turn_off
+  - data:
       kelvin: 3700
       brightness: 80
     target:
       entity_id:
       - light.lounge_lamp
       - light.lounge_floor_lamp
-  - service: switch.turn_on
+    action: yeelight.set_color_temp_scene
+  - action: media_player.turn_on
+    metadata: {}
     data: {}
     target:
-      entity_id: switch.lounge_tv
+      entity_id: media_player.lounge_tv
   mode: single
 - id: '1621853753389'
   alias: Patio door is open
@@ -710,46 +711,47 @@
       controller_entity: sensor.guest_room_remote_action
       helper_last_controller_event: input_text.guest_room_remote_last_state
       action_button_up_short:
-      - service: light.turn_on
-        target:
+      - target:
           entity_id:
           - light.guest_room_lamp
         data: {}
+        action: light.turn_on
       action_button_up_long:
-      - service: media_player.volume_up
-        metadata: {}
+      - metadata: {}
         data: {}
         target:
           entity_id: media_player.guest_room_echo_show
+        action: media_player.volume_up
       action_button_down_short:
-      - service: light.turn_off
-        data: {}
+      - data: {}
         target:
           entity_id: light.guest_room_light
-      - service: light.turn_off
-        target:
+        action: light.turn_off
+      - target:
           entity_id:
           - light.guest_room_lamp
         data: {}
-      - service: media_player.play_media
-        data:
+        action: light.turn_off
+      - data:
           media_content_type: custom
           media_content_id: Turn off your screen
         target:
           entity_id: media_player.guest_room_echo_show
+        action: media_player.play_media
       action_button_up_double:
-      - service: light.turn_on
-        data: {}
+      - data: {}
         target:
           entity_id: light.guest_room_light
+        action: light.turn_on
       action_button_down_double: []
       action_button_down_long:
-      - service: media_player.volume_down
-        metadata: {}
+      - metadata: {}
         data: {}
         target:
           entity_id: media_player.guest_room_echo_show
+        action: media_player.volume_down
       button_down_long_max_loop_repeats: 500
+      controller_device: df7b1ea31d9a31f4dcf2431ca2221da6
 - id: '1674657037158'
   alias: NSPanel Configuration
   description: ''
@@ -764,7 +766,7 @@
       indoortemp: sensor.downstairs_thermostat_temperature
       humidity: sensor.downstairs_thermostat_humidity
       climate: climate.downstairs
-      left_button_entity: light.back_door_light
+      left_button_entity: light.backdoor_light
       left_button_name: Back door
       right_button_entity: light.patio_light
       right_button_name: Patio
@@ -1114,20 +1116,28 @@
 - id: '1709056785566'
   alias: 'Turn off extractor '
   description: ''
-  trigger:
+  triggers:
   - type: humidity
-    platform: device
     device_id: 7c997ccb1bc8fd71717b511229494490
     entity_id: cca0856fa881c95a112155145f3c1856
     domain: sensor
     below: 80
+    trigger: device
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
   - type: pm25
-    platform: device
     device_id: 7c997ccb1bc8fd71717b511229494490
     entity_id: b91255e7f0c832496c13e82d8816c48a
     domain: sensor
     below: 40
-  condition:
+    trigger: device
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+  conditions:
   - type: is_humidity
     condition: device
     device_id: 7c997ccb1bc8fd71717b511229494490
@@ -1140,7 +1150,7 @@
     entity_id: b91255e7f0c832496c13e82d8816c48a
     domain: sensor
     below: 40
-  action:
+  actions:
   - type: turn_off
     device_id: 53fee161c82e36216a2588d4db48d14e
     entity_id: 298e9c49e7a82bf1806662b428b52632
@@ -1674,138 +1684,6 @@
         data: {}
       helper_hold_delay: 750
       helper_max_loops: 10
-- id: '1710587394031'
-  alias: Kitchen Switch
-  description: ''
-  use_blueprint:
-    path: EPMatt/ikea_e2001_e2002.yaml
-    input:
-      integration: Zigbee2MQTT
-      controller_entity: event.kitchen_switch_action
-      helper_last_controller_event: input_text.kitchen_switch_state
-      action_button_up_short:
-      - metadata: {}
-        data: {}
-        target:
-          entity_id: light.kitchen_light
-        action: light.turn_on
-      action_button_down_short:
-      - metadata: {}
-        data: {}
-        target:
-          entity_id:
-          - light.kitchen_light
-          - light.breakfast_bar_lamp
-        action: light.turn_off
-      action_button_up_double:
-      - metadata: {}
-        data:
-          transition: 2
-          rgb_color:
-          - 255
-          - 255
-          - 255
-        target:
-          entity_id: light.breakfast_bar_lamp
-        action: light.turn_on
-      action_button_down_double:
-      - metadata: {}
-        data: {}
-        target:
-          entity_id: light.breakfast_bar_lamp
-        action: light.turn_off
-      action_button_left_short:
-      - metadata: {}
-        data: {}
-        target:
-          entity_id:
-          - light.fence_lights
-          - light.shed_light
-          - light.back_door_light
-        action: light.turn_off
-      action_button_right_short:
-      - metadata: {}
-        data: {}
-        target:
-          entity_id:
-          - light.fence_lights
-          - light.shed_light
-          - light.back_door_light
-        action: light.turn_on
-      action_button_up_long:
-      - data:
-          variables:
-            entity_id: light.breakfast_bar_lamp
-            button_state: input_text.kitchen_switch_state
-        target:
-          entity_id: script.yeelight_dimmer_up
-        enabled: true
-        action: script.turn_on
-      action_button_left_long:
-      - metadata: {}
-        data: {}
-        target:
-          entity_id: media_player.kitchen_echo_show
-        action: media_player.volume_down
-      action_button_right_long:
-      - target:
-          entity_id:
-          - media_player.kitchen_echo_show
-        data: {}
-        action: media_player.volume_up
-      action_button_left_double:
-      - metadata: {}
-        data: {}
-        target:
-          entity_id: light.patio_light
-        action: light.turn_off
-      action_button_right_double:
-      - metadata: {}
-        data: {}
-        target:
-          entity_id: light.patio_light
-        action: light.turn_on
-      button_left_long_loop: true
-      button_left_long_max_loop_repeats: 3
-      button_right_long_loop: true
-      button_right_long_max_loop_repeats: 3
-      button_up_long_loop: true
-      button_down_long_loop: true
-      button_up_long_max_loop_repeats: 2
-      button_down_long_max_loop_repeats: 2
-      button_left_double_press: true
-      button_right_double_press: true
-      button_up_double_press: true
-      button_down_double_press: true
-      action_button_down_long:
-      - data:
-          variables:
-            entity_id: light.breakfast_bar_lamp
-            button_state: input_text.kitchen_switch_state
-        target:
-          entity_id: script.yeelight_dimmer_down
-        enabled: true
-        action: script.turn_on
-      helper_double_press_delay: 500
-      helper_debounce_delay: 0
-      action_button_up_release:
-      - data:
-          variables:
-            entity_id: light.breakfast_bar_lamp
-            button_state: input_text.kitchen_switch_state
-        target:
-          entity_id: script.yeelight_dimmer_up
-        enabled: true
-        action: script.turn_off
-      action_button_down_release:
-      - data:
-          variables:
-            entity_id: light.breakfast_bar_lamp
-            button_state: input_text.kitchen_switch_state
-        target:
-          entity_id: script.yeelight_dimmer_down
-        enabled: true
-        action: script.turn_off
 - id: '1714152051507'
   alias: Hallway Lamp On At Sunset
   description: ''
@@ -2453,6 +2331,7 @@
       - condition: state
         entity_id: input_select.location_mode
         state: Away
+      is_ios: false
 - id: '1727732531669'
   alias: Kitchen Camera Snapshot, AI & Notification on Motion
   description: ''
@@ -2592,3 +2471,90 @@
     entity_id: 5ef6609d7bee0398fa0100f1d52c0f6e
     domain: light
   mode: single
+- id: '1740127989989'
+  alias: Ensure Bed Is Calibrated Weekly
+  description: ''
+  triggers:
+  - trigger: time
+    at: 09:15:00
+  conditions:
+  - condition: time
+    weekday:
+    - fri
+  actions:
+  - action: switch.turn_off
+    metadata: {}
+    data: {}
+    target:
+      entity_id: switch.bed_socket
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 15
+      milliseconds: 0
+  - action: switch.turn_on
+    metadata: {}
+    data: {}
+    target:
+      entity_id: switch.bed_socket
+  - wait_for_trigger:
+    - trigger: state
+      entity_id:
+      - light.bedroom_lamp
+      from: unavailable
+      to: 'on'
+    timeout:
+      hours: 0
+      minutes: 3
+      seconds: 0
+      milliseconds: 0
+  - action: light.turn_off
+    metadata: {}
+    data: {}
+    target:
+      entity_id: light.bedroom_lamp
+  mode: single
+- id: '1740133279094'
+  alias: Kitchen Switch
+  description: ''
+  use_blueprint:
+    path: Tiisetso/Z2M_2.0.0_IKEA_STRYBAR_4_Button_Remote.yaml
+    input:
+      remote_device: 644de21c70910c6cce73c1094b2f419e
+      action_on:
+      - action: light.toggle
+        metadata: {}
+        data: {}
+        target:
+          entity_id: light.kitchen_light
+      action_off:
+      - action: light.toggle
+        metadata: {}
+        data: {}
+        target:
+          entity_id: light.breakfast_bar_lamp
+      action_arrow_left_click:
+      - action: light.toggle
+        metadata: {}
+        data: {}
+        target:
+          entity_id: light.fence_lights
+      action_arrow_left_release: []
+      action_arrow_left_hold:
+      - action: media_player.volume_down
+        metadata: {}
+        data: {}
+        target:
+          entity_id: media_player.kitchen_echo_show_2
+      action_arrow_right_hold:
+      - action: media_player.volume_up
+        metadata: {}
+        data: {}
+        target:
+          entity_id: media_player.kitchen_echo_show_2
+      action_arrow_right_click:
+      - action: light.toggle
+        metadata: {}
+        data: {}
+        target:
+          label_id: garden_access_lights

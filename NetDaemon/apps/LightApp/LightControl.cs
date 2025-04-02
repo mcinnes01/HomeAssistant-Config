@@ -5,11 +5,17 @@ namespace NetDaemon.apps.LightApp;
 #pragma warning disable CS8618
 public class LightControl
 {
+    // The subject light that this manager controls
     public required LightEntity Light { get; set; }
-    public IEnumerable<BinarySensorEntity> PresenceSensors { get; set; } = new List<BinarySensorEntity>();
+    // A trigger sensor will turn the light on
     public IEnumerable<BinarySensorEntity> TriggerSensors { get; set; }  = new List<BinarySensorEntity>();
+    // A presence sensor will keep the light on
+    public IEnumerable<BinarySensorEntity> PresenceSensors { get; set; } = new List<BinarySensorEntity>();
+    // A block sensor will stop the light turning on
     public IEnumerable<Entity> BlockEntities { get; set; } = new List<Entity>();
+    // A keep alive sensor will stop the light turning off
     public IEnumerable<Entity> KeepAliveEntities { get; set; } = new List<Entity>();
+    // A condition will turn the light on if met and off if not  
     public IEnumerable<Condition> Conditions { get; set; } = new List<Condition>();
     public required int Timeout { get; set; } = 120;
     public bool RecreateEnabledSwitch { get; set; } = false;
@@ -23,7 +29,7 @@ public class LightControl
     private Entities _entities;
     private ILogger<LightingManager> _logger;
     private InputSelectEntity _locationMode;
-    private readonly List<string> _occupiedStates = ["Home", "OneAway", "Guest"];
+    private readonly List<string> _occupiedStates = new() { "Home", "OneAway", "Guest" };
     private string _enabledSwitch = "";
     private SwitchEntity? ManagerEnabled = null;
     private List<Task> Tasks { get; } = new List<Task>();
@@ -31,7 +37,6 @@ public class LightControl
     private DateTime? TurnOnTime { get; set; }
     private DateTime? TurnOffTime { get; set; }
     private bool IsMoodLight => !Primary && _room.HasMultipleLights;
-    private bool HasNoNaturalLight { get; set; } = false;
 
     public async Task Register(RoomControl room, IMqttEntityManager entityManager,
         IScheduler scheduler, IHaContext haContext, ILogger<LightingManager> logger)
@@ -215,7 +220,7 @@ public class LightControl
             }
             else
             {
-                if ((presenceStates.Any(s => s.IsOn) || conditions.Any(c => c.ConditionPassed)) && (!_room.IsBright || _room.RoomMode.IsBright() || HasNoNaturalLight))
+                if ((presenceStates.Any(s => s.IsOn) || conditions.Any(c => c.ConditionPassed)) && (!_room.IsBright || _room.RoomMode.IsBright()))
                 {
                     _logger.LogInformation("Initial state {light} is on and presence {@presence} or condition {@condition} are met and illuminance is not bright, Keeping On",
                         Light.EntityId, presenceStates, conditions);
@@ -237,7 +242,7 @@ public class LightControl
             else
             {
                 if ((presenceStates.Any(s => s.IsOn) || conditions.Any(c => c.ConditionPassed))
-                 && (HasNoNaturalLight || _room.IlluminanceSensor?.State < _room.IlluminanceHighThreshold))
+                 && (_room.IgnoreIlluminance || _room.IlluminanceSensor?.State < _room.IlluminanceHighThreshold))
                 {
                     _logger.LogInformation("Initial state {light} is off presence {@presence} or condition {condition} are met a illuminance {sensor} is not bright enough {illuminance} {threshold}, Turning On",
                         Light.EntityId, presenceStates, Conditions.AsString(), _room.IlluminanceSensor?.EntityId, _room.IlluminanceSensor?.State, _room.IlluminanceHighThreshold);
@@ -252,7 +257,7 @@ public class LightControl
 
     private void SubscribeToIlluminanceSensor()
     {
-        if (!HasNoNaturalLight)
+        if (!_room.IgnoreIlluminance)
         {
             _room.IlluminanceSensor!.StateAllChanges()
             .Throttle(TimeSpan.FromSeconds(60))
@@ -407,7 +412,7 @@ public class LightControl
                 KeepAliveEntities.Where(b => b.State != null && Extensions.EntityExtensions.OnStates.Contains(b.State)).Select(b => b.EntityId));
             return;
         }
-        if (TriggerSensors.Union(PresenceSensors).Any(s => s.IsOn()))
+        if (PresenceSensors.Any(s => s.IsOn()))
         {
             _logger.LogTrace("{light} is on but there is presence detected, not turning off", Light.EntityId);
             return;
@@ -469,7 +474,7 @@ public class LightControl
             _logger.LogTrace("Can't turn {light} on as there is no presence detected", Light.EntityId);
             return;
         }
-        if (!HasNoNaturalLight && _room.IsBright && !_room.RoomMode.IsBright())
+        if (_room.IsBright && !_room.RoomMode.IsBright())
         {
             _logger.LogTrace("Can't turn {light} on as the room is bright enough", Light.EntityId);
             return;
@@ -503,7 +508,7 @@ public class LightControl
             Illuminance = _room.IlluminanceSensor?.State,
             LowLightThreshold = _room.IlluminanceLowThreshold,
             HighLightThreshold = _room.IlluminanceHighThreshold,
-            HasNoNaturalLight,
+            IgnoreIlluminance =_room.IgnoreIlluminance,
             BlockEntities = BlockEntities.Any() ? string.Join(",", BlockEntities.Select(c => c.EntityId)) : "N/A",
             KeepAliveEntities = KeepAliveEntities.Any() ? string.Join(",", KeepAliveEntities.Select(c => c.EntityId)) : "N/A",
             Condition = Conditions.Any() ? Conditions.AsString() : "N/A",

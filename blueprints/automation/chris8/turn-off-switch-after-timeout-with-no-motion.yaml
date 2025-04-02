@@ -8,13 +8,18 @@ blueprint:
       name: Motion Sensor
       selector:
         entity:
-          domain: binary_sensor
-          device_class: motion
+          domain:
+          - binary_sensor
+          device_class:
+          - motion
+          multiple: false
     switch_entity:
       name: Switch
       selector:
         entity:
-          domain: switch
+          domain:
+          - switch
+          multiple: false
     wait_time_selector:
       name: Stay On Time
       description: Time to keep switch on with no motion
@@ -53,40 +58,40 @@ blueprint:
 mode: single
 trigger:
 - platform: state
-  entity_id: !input 'switch_entity'
+  entity_id: !input switch_entity
   to: 'on'
   for:
-    minutes: !input 'wait_time_selector'
+    minutes: !input wait_time_selector
 - platform: state
-  entity_id: !input 'motion_entity'
+  entity_id: !input motion_entity
   to: 'off'
   for:
-    minutes: !input 'wait_time_selector'
+    minutes: !input wait_time_selector
 condition:
 - condition: state
-  entity_id: !input 'switch_entity'
+  entity_id: !input switch_entity
   state: 'on'
   for:
-    minutes: !input 'wait_time_selector'
+    minutes: !input wait_time_selector
 - condition: state
-  entity_id: !input 'motion_entity'
+  entity_id: !input motion_entity
   state: 'off'
   for:
-    minutes: !input 'wait_time_selector'
+    minutes: !input wait_time_selector
 action:
 - service: switch.turn_off
-  entity_id: !input 'switch_entity'
+  entity_id: !input switch_entity
 - delay:
-    seconds: !input 'grace_arm_delay_selector'
+    seconds: !input grace_arm_delay_selector
 - wait_for_trigger:
   - platform: state
-    entity_id: !input 'motion_entity'
+    entity_id: !input motion_entity
     to: 'on'
   - platform: state
-    entity_id: !input 'switch_entity'
+    entity_id: !input switch_entity
     to: 'on'
   timeout:
-    minutes: !input 'grace_period_selector'
+    minutes: !input grace_period_selector
   continue_on_timeout: false
 - service: switch.turn_on
-  entity_id: !input 'switch_entity'
+  entity_id: !input switch_entity

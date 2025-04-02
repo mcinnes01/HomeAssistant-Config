@@ -3,13 +3,13 @@ NetDaemon.apps.LightApp.LightingConfig:
     - Name: hallway
       IsEntrance: true
       TriggerSensors:
+        - binary_sensor.doorbell_button
+      PresenceSensors:
         - binary_sensor.hallway_camera_person_detected
         - binary_sensor.hallway_motion
         - binary_sensor.front_door
-        - binary_sensor.doorbell_button
-      IlluminanceSensor: sensor.lounge_illuminance
-      IlluminanceLowThreshold: 43
-      IlluminanceHighThreshold: 43
+      IlluminanceLowThreshold: 26
+      IlluminanceHighThreshold: 26
       Lights:
         - Light: light.hallway_lamp
           TriggerWithoutPresence: true
@@ -22,30 +22,32 @@ NetDaemon.apps.LightApp.LightingConfig:
               State: 'Sleeping'
           Primary: false
           Timeout: 240
+          TriggerSensors:
+            - binary_sensor.doorbell_button
           PresenceSensors:
             - binary_sensor.front_door
-          TriggerSensors:
             - binary_sensor.hallway_camera_person_detected
             - binary_sensor.hallway_motion
-            - binary_sensor.doorbell_button
           BlockEntities:
             - light.hallway_light
           KeepAliveEntities:
             - binary_sensor.front_door
         - Light: light.hallway_light
           Timeout: 240
+          TriggerSensors:
+            - binary_sensor.doorbell_button
           PresenceSensors:
             - binary_sensor.front_door
-          TriggerSensors:
             - binary_sensor.hallway_camera_person_detected
             - binary_sensor.hallway_motion
-            - binary_sensor.doorbell_button
           BlockEntities:
             - light.hallway_lamp
           KeepAliveEntities:
             - binary_sensor.front_door
     - Name: porch
       IsEntrance: true
+      IlluminanceLowThreshold: 26
+      IlluminanceHighThreshold: 26
       TriggerSensors:
         - binary_sensor.front_door
         - binary_sensor.doorbell_button
@@ -61,47 +63,47 @@ NetDaemon.apps.LightApp.LightingConfig:
             - Entity: input_select.light_control_mode
               Operator: NotEquals
               State: 'Sleeping'
+          TriggerSensors:
+            - binary_sensor.doorbell_button
           PresenceSensors:
             - binary_sensor.front_door
-          TriggerSensors:
             - binary_sensor.hallway_camera_person_detected
-            - binary_sensor.doorbell_button
     - Name: kitchen
       IsEntrance: true
       IlluminanceSensor: sensor.kitchen_illuminance
       IlluminanceLowThreshold: 7
-      IlluminanceHighThreshold: 17
+      IlluminanceHighThreshold: 71
+      TriggerSensors:
+        - binary_sensor.patio_door
       PresenceSensors:
+        - binary_sensor.kitchen_camera_person_detected
+        - binary_sensor.kitchen_motion
         - binary_sensor.kitchen_occupancy
         - binary_sensor.breakfast_bar_presence
         - binary_sensor.sink_presence
         - binary_sensor.stove_presence
         - binary_sensor.fridge_presence
         - binary_sensor.larder_presence
-      TriggerSensors:
-        - binary_sensor.kitchen_camera_person_detected
-        - binary_sensor.kitchen_motion
-        - binary_sensor.back_door
       Lights:
         - Light: light.breakfast_bar_light
           Primary: false
           Timeout: 240
-          PresenceSensors:
-            - binary_sensor.breakfast_bar_presence
           TriggerSensors:
             - binary_sensor.kitchen_camera_person_detected
             - binary_sensor.kitchen_motion
-            - binary_sensor.back_door
+            - binary_sensor.patio_door
+          PresenceSensors:
+            - binary_sensor.breakfast_bar_presence
           BlockEntities:
             - light.kitchen_light
         - Light: light.kitchen_light
           Timeout: 240
-          PresenceSensors:
-            - binary_sensor.kitchen_occupancy
           TriggerSensors:
             - binary_sensor.kitchen_camera_person_detected
             - binary_sensor.kitchen_motion
-            - binary_sensor.back_door
+            - binary_sensor.patio_door
+          PresenceSensors:
+            - binary_sensor.kitchen_occupancy
           BlockEntities:
             - light.breakfast_bar_light
     - Name: lounge
@@ -112,10 +114,13 @@ NetDaemon.apps.LightApp.LightingConfig:
         - Sleeping
         - Bright
         - Television
-      PresenceSensors:
-        - binary_sensor.lounge_occupancy
       TriggerSensors:
         - binary_sensor.lounge_motion
+      PresenceSensors:
+        - binary_sensor.lounge_occupancy
+          - binary_sensor.guest_sofa_presence
+          - binary_sensor.main_sofa_presence
+          - binary_sensor.window_sofa_presence
       Lights:
         - Light: light.lounge_lamp
           Primary: false
@@ -137,10 +142,10 @@ NetDaemon.apps.LightApp.LightingConfig:
             - binary_sensor.window_sofa_presence
         - Light: light.lounge_light
           Timeout: 240
-          PresenceSensors:
-            - binary_sensor.lounge_occupancy
           TriggerSensors:
             - binary_sensor.lounge_motion
+          PresenceSensors:
+            - binary_sensor.lounge_occupancy
           BlockEntities:
             - light.lounge_lamp
             - light.lounge_floor_lamp
@@ -149,12 +154,12 @@ NetDaemon.apps.LightApp.LightingConfig:
       IlluminanceSensor: sensor.drawing_room_illuminance
       IlluminanceLowThreshold: 7
       IlluminanceHighThreshold: 7
+      TriggerSensors:
+        - binary_sensor.drawing_room_motion
       PresenceSensors:
         - binary_sensor.drawing_room_occupancy
         - binary_sensor.library_presence
         - binary_sensor.settee_presence
-      TriggerSensors:
-        - binary_sensor.drawing_room_motion
       Lights:
         - Light: light.drawing_room_light
           Timeout: 240
@@ -186,10 +191,11 @@ NetDaemon.apps.LightApp.LightingConfig:
       IlluminanceSensor: sensor.guest_room_illuminance
       IlluminanceLowThreshold: 7
       IlluminanceHighThreshold: 35
-      PresenceSensors:
-        - binary_sensor.guest_room_occupancy
       TriggerSensors:
         - binary_sensor.guest_room_motion
+      PresenceSensors:
+        - binary_sensor.guest_room_occupancy
+        - binary_sensor.guest_room_bed_presence
       Lights:
         - Light: light.guest_room_light
           Timeout: 240
@@ -225,10 +231,11 @@ NetDaemon.apps.LightApp.LightingConfig:
       IlluminanceSensor: sensor.bedroom_illuminance
       IlluminanceLowThreshold: 7
       IlluminanceHighThreshold: 19
-      PresenceSensors:
-        - binary_sensor.bedroom_occupancy
       TriggerSensors:
         - binary_sensor.bedroom_motion
+      PresenceSensors:
+        - binary_sensor.bedroom_occupancy
+        - binary_sensor.bedroom_bed_presence
       Lights:
         - Light: light.bedroom_light
           Timeout: 240
@@ -277,11 +284,16 @@ NetDaemon.apps.LightApp.LightingConfig:
         - Showering
         - Bright
       TriggerSensors:
+        - binary_sensor.bathroom_door
+      PresenceSensors:
         - binary_sensor.bathroom_motion
       Lights:
         - Light: light.bathroom_light
           Timeout: 240
           TriggerSensors:
+            - fan.bathroom_fan
+            - binary_sensor.bathroom_door
+          PresenceSensors:
             - binary_sensor.bathroom_motion
           BlockEntities:
             - light.bathroom_mirror_light
@@ -293,18 +305,18 @@ NetDaemon.apps.LightApp.LightingConfig:
           TriggerSensors:
             - binary_sensor.bathroom_motion
           BlockEntities:
-            - light.bathroom_mirror_light
             - fan.bathroom_fan
+            - light.bathroom_light
     - Name: studio
       IsBedroom: true
       IlluminanceSensor: sensor.studio_illuminance
       IlluminanceLowThreshold: 7
       IlluminanceHighThreshold: 35
+      TriggerSensors:
+        - binary_sensor.studio_motion
       PresenceSensors:
         - binary_sensor.studio_occupancy
         - binary_sensor.sofa_bed_presence
-      TriggerSensors:
-        - binary_sensor.studio_motion
       Lights:
         - Light: light.studio_light
           Timeout: 240
@@ -324,26 +336,30 @@ NetDaemon.apps.LightApp.LightingConfig:
           BlockEntities:
             - light.studio_light
     - Name: toilet
+      IgnoreIlluminance: true
       TriggerSensors:
+        - binary_sensor.toilet_door
+      PresenceSensors:
         - binary_sensor.toilet_motion
       Lights:
         - Light: light.toilet_light
-          HasNoNaturalLight: true
           Timeout: 240
           TriggerSensors:
+            - binary_sensor.toilet_door
+          PresenceSensors:
             - binary_sensor.toilet_motion
     - Name: utility_room
       IsEntrance: true
       IlluminanceSensor: sensor.dining_room_illuminance
       IlluminanceLowThreshold: 26
       IlluminanceHighThreshold: 26
-      TriggerSensors:
+      PresenceSensors:
         - binary_sensor.utility_room_motion
         - binary_sensor.cellar_door
       Lights:
         - Light: light.utility_room_light
           Timeout: 240
-          TriggerSensors:
+          PresenceSensors:
             - binary_sensor.utility_room_motion
             - binary_sensor.cellar_door
     - Name: dining_room
@@ -351,22 +367,20 @@ NetDaemon.apps.LightApp.LightingConfig:
       IlluminanceLowThreshold: 7
       IlluminanceHighThreshold: 26
       PresenceSensors:
-        - binary_sensor.dining_room_occupancy
-      TriggerSensors:
         - binary_sensor.dining_room_motion
+        - binary_sensor.dining_room_occupancy
       Lights:
         - Light: light.dining_room_light
           Timeout: 240
-          TriggerSensors:
-            - binary_sensor.dining_room_motion
           PresenceSensors:
+            - binary_sensor.dining_room_motion
             - binary_sensor.dining_room_occupancy
     - Name: electric_cabinet
+      IgnoreIlluminance: true
       PresenceSensors:
         - binary_sensor.electric_cabinet_door
       Lights:
         - Light: light.electric_cabinet_light
-          HasNoNaturalLight: true
           Timeout: 240
           PresenceSensors:
             - binary_sensor.electric_cabinet_door
@@ -374,14 +388,14 @@ NetDaemon.apps.LightApp.LightingConfig:
       IlluminanceSensor: sensor.dining_room_illuminance
       IlluminanceLowThreshold: 26
       IlluminanceHighThreshold: 26
-      TriggerSensors:
+      PresenceSensors:
         - binary_sensor.basement_hall_motion
         - binary_sensor.basement_stairs_motion
         - binary_sensor.basement_hall_camera_person_detected
       Lights:
         - Light: light.basement_hall_light
           Timeout: 240
-          TriggerSensors:
+          PresenceSensors:
             - binary_sensor.basement_hall_motion
             - binary_sensor.basement_stairs_motion
             - binary_sensor.basement_hall_camera_person_detected
@@ -395,15 +409,13 @@ NetDaemon.apps.LightApp.LightingConfig:
         - Bright
         - Movie
       PresenceSensors:
-        - binary_sensor.snug_occupancy
-      TriggerSensors:
         - binary_sensor.snug_motion
+        - binary_sensor.snug_occupancy
       Lights:
         - Light: light.snug_light
           Timeout: 240
-          TriggerSensors:
-            - binary_sensor.snug_motion
           PresenceSensors:
+            - binary_sensor.snug_motion
             - binary_sensor.snug_occupancy
           BlockEntities:
             - light.snug_led_strip
@@ -412,9 +424,8 @@ NetDaemon.apps.LightApp.LightingConfig:
         - Light: light.snug_lamp
           Timeout: 240
           Primary: false
-          TriggerSensors:
-            - binary_sensor.snug_motion
           PresenceSensors:
+            - binary_sensor.snug_motion
             - binary_sensor.snug_occupancy
           BlockEntities:
             - light.snug_led_strip
@@ -423,9 +434,8 @@ NetDaemon.apps.LightApp.LightingConfig:
         - Light: light.snug_led_strip
           Timeout: 240
           Primary: false
-          TriggerSensors:
-            - binary_sensor.snug_motion
           PresenceSensors:
+            - binary_sensor.snug_motion
             - binary_sensor.snug_occupancy
           BlockEntities:
             - light.snug_light
@@ -436,21 +446,20 @@ NetDaemon.apps.LightApp.LightingConfig:
       IlluminanceSensor: sensor.shed_door_illuminance
       IlluminanceLowThreshold: 26
       IlluminanceHighThreshold: 26
-      TriggerSensors:
+      PresenceSensors:
         - binary_sensor.shed_door
         - binary_sensor.shed_motion
       Lights:
         - Light: light.brewery_light
           Timeout: 240
-          TriggerSensors:
+          PresenceSensors:
             - binary_sensor.shed_door
             - binary_sensor.shed_motion
     - Name: garden
       IsEntrance: true
-      IlluminanceSensor: sensor.shed_door_illuminance
       IlluminanceLowThreshold: 26
       IlluminanceHighThreshold: 26
-      TriggerSensors:
+      PresenceSensors:
         - binary_sensor.shed_door
         - binary_sensor.shed_camera_person_detected
         - binary_sensor.shed_camera_vehicle_detected
@@ -458,30 +467,50 @@ NetDaemon.apps.LightApp.LightingConfig:
         - Light: light.shed
           Timeout: 240
           TriggerSensors:
+            - binary_sensor.shed_door
+          PresenceSensors:
             - binary_sensor.shed_camera_person_detected
             - binary_sensor.shed_camera_vehicle_detected
           KeepAliveEntities:
             - binary_sensor.shed_door
             - binary_sensor.shed_camera_speaking_detected
+          Conditions:
+            - Entity: sun.sun
+              Operator: Equals
+              State: below_horizon
         - Light: light.patio_lamp
           Timeout: 240
           TriggerSensors:
+            - binary_sensor.shed_door
+          PresenceSensors:
             - binary_sensor.shed_camera_person_detected
             - binary_sensor.shed_camera_vehicle_detected
           KeepAliveEntities:
             - binary_sensor.shed_door
             - binary_sensor.shed_camera_speaking_detected
-        - Light: light.back_door
+          Conditions:
+            - Entity: sun.sun
+              Operator: Equals
+              State: below_horizon
+        - Light: light.backdoor_light
           Timeout: 240
-          TriggerSensors:
-            - binary_sensor.back_door
+          PresenceSensors:
+            - binary_sensor.patio_door
             - binary_sensor.patio_camera_person_detected
           KeepAliveEntities:
             - binary_sensor.patio_camera_speaking_detected
+          Conditions:
+            - Entity: sun.sun
+              Operator: Equals
+              State: below_horizon
         - Light: light.decking_wall_light
           Timeout: 240
-          TriggerSensors:
-            - binary_sensor.back_door
+          PresenceSensors:
+            - binary_sensor.patio_door
             - binary_sensor.patio_camera_person_detected
           KeepAliveEntities:
             - binary_sensor.patio_camera_speaking_detected
+          Conditions:
+            - Entity: sun.sun
+              Operator: Equals
+              State: below_horizon

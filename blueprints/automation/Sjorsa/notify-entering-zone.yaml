@@ -1,40 +1,76 @@
 blueprint:
-  name: Zone Entering Notification
-  description: Send a notification to a device when a person enters a specific zone.
+  name: Zone Enter/Leave Notification
+  description: Send a notification to a device when a person enters or leaves a specific
+    zone.
   domain: automation
+  author: Sjorsa
   input:
     person_entity:
       name: Person
       selector:
         entity:
-          domain: person
+          filter:
+          - domain:
+            - person
+          multiple: false
     zone_entity:
       name: Zone
       selector:
         entity:
-          domain: zone
+          filter:
+          - domain:
+            - zone
+          multiple: false
     notify_device:
       name: Device to notify
-      description: Device needs to run the official Home Assistant app to receive
-        notifications.
       selector:
         device:
-          integration: mobile_app
+          filter:
+          - integration: mobile_app
+          multiple: false
+    notify_when_entering:
+      name: Notify when entering zone
+      description: Toggle this even if you want it off, otherwise you'll get an error
+        when saving the automation. If both options are off, no notifications will
+        be sent. You can also turn both on of course.
+      selector:
+        boolean: {}
+    notify_when_leaving:
+      name: Notify when leaving zone
+      description: Toggle this even if you want it off, otherwise you'll get an error
+        when saving the automation. If both options are off, no notifications will
+        be sent. You can also turn both on of course.
+      selector:
+        boolean: {}
   source_url: https://community.home-assistant.io/t/notify-entering-zone/255248
 trigger:
   platform: state
-  entity_id: !input 'person_entity'
+  entity_id: !input person_entity
 variables:
-  zone_entity: !input 'zone_entity'
-  zone_state: '{{ states[zone_entity].name }}'
-  person_entity: !input 'person_entity'
+  zone_entity: !input zone_entity
+  zone_state: '{{ states[zone_entity].name|lower }}'
+  zone_name: '{{ states[zone_entity].name }}'
+  person_entity: !input person_entity
   person_name: '{{ states[person_entity].name }}'
-condition:
-  condition: template
-  value_template: '{{ trigger.from_state.state != zone_state and trigger.to_state.state
-    == zone_state }}'
+  notify_when_leaving: !input notify_when_leaving
+  notify_when_entering: !input notify_when_entering
+condition: []
 action:
-  domain: mobile_app
-  type: notify
-  device_id: !input 'notify_device'
-  message: '{{ person_name }} has entered {{ zone_state }}'
+- if:
+  - condition: template
+    value_template: '{{ notify_when_leaving == true and trigger.from_state.state ==
+      zone_state and trigger.to_state.state != zone_state }}'
+  then:
+    domain: mobile_app
+    type: notify
+    device_id: !input notify_device
+    message: '{{ person_name }} has left {{ zone_name }}'
+- if:
+  - condition: template
+    value_template: '{{ notify_when_entering == true and trigger.from_state.state
+      != zone_state and trigger.to_state.state == zone_state }}'
+  then:
+    domain: mobile_app
+    type: notify
+    device_id: !input notify_device
+    message: '{{ person_name }} has entered {{ zone_name }}'

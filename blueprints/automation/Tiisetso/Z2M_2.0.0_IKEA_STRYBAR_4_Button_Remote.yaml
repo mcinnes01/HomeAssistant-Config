@@ -1,0 +1,211 @@
+blueprint:
+  name: Zigbee2MQTT 2.0.0 IKEA STRYBAR 4 Button Remote Actions
+  description: 'This blueprint enables easy configuration of actions for the four
+    possible button presses (clicks and holds/long-presses) on the IKEA STRYBAR 4
+    button remote.
+
+    Tested on E2002 remote but it should also work with E2001. Naming follows the
+    convention provided by [Zigbee2MQTT IKEA E2001/E2002](https://www.zigbee2mqtt.io/devices/E2001_E2002.html).
+
+    Notably the release action on the bottom small light button is not currently included
+    in this blueprint.  The exposed action "brightness_stop" duplicates the top large
+    light button and the MQTT package is identical. This can be addressed by monitoring
+    which button was held, possibly using helpers, though this requires additional
+    configuration.
+
+    Thanks to [Christoph Schorn](https://github.com/chrschorn) for writing [TRÅDFRI
+    remote blueprint](https://gist.github.com/chrschorn/64acf5f8b692f1177c04681cbee49bbf)
+    which I slightly modified for compatibility with the STRYBAR remote. '
+  domain: automation
+  input:
+    remote_device:
+      name: Remote Device
+      description: The MQTT device created by Zigbee2MQTT
+      selector:
+        device:
+          filter:
+          - integration: mqtt
+          multiple: false
+    action_on:
+      name: Click Light Large (Top)
+      description: Click the recessed large top light button
+      selector:
+        action: {}
+      default: []
+    action_brightness_move_up:
+      name: Hold Light Large (Top)
+      description: Hold the recessed large top light button
+      selector:
+        action: {}
+      default: []
+    action_brightness_stop:
+      name: Release Light Large (Top)
+      description: Release the recessed large top light button
+      selector:
+        action: {}
+      default: []
+    action_off:
+      name: Click Light Small (Bottom)
+      description: Click the bottom small light button
+      selector:
+        action: {}
+      default: []
+    action_brightness_move_down:
+      name: Hold Light Small (Bottom)
+      description: Hold the bottom small light button
+      selector:
+        action: {}
+      default: []
+    action_arrow_left_click:
+      name: Click Arrow Left
+      description: Click the left arrow button
+      selector:
+        action: {}
+      default: []
+    action_arrow_left_hold:
+      name: Long Hold Arrow Left
+      description: Hold the left arrow button
+      selector:
+        action: {}
+      default: []
+    action_arrow_left_release:
+      name: Release Arrow Left
+      description: Release the left arrow button
+      selector:
+        action: {}
+      default: []
+    action_arrow_right_click:
+      name: Click Arrow Right
+      description: Click the right arrow button
+      selector:
+        action: {}
+      default: []
+    action_arrow_right_hold:
+      name: Long Hold Arrow Right
+      description: Hold the right arrow button
+      selector:
+        action: {}
+      default: []
+    action_arrow_right_release:
+      name: Release Arrow Right
+      description: Release the right arrow button
+      selector:
+        action: {}
+      default: []
+  source_url: https://gist.github.com/Tiisetso/cd8d5fcc451977a3c35b357cca871553
+mode: parallel
+max: 10
+triggers:
+- platform: device
+  device_id: !input remote_device
+  domain: mqtt
+  type: action
+  subtype: 'on'
+  id: 'on'
+- platform: device
+  device_id: !input remote_device
+  domain: mqtt
+  type: action
+  subtype: brightness_move_up
+  id: brightness_move_up
+- platform: device
+  device_id: !input remote_device
+  domain: mqtt
+  type: action
+  subtype: brightness_stop
+  id: brightness_stop
+- platform: device
+  device_id: !input remote_device
+  domain: mqtt
+  type: action
+  subtype: 'off'
+  id: 'off'
+- platform: device
+  device_id: !input remote_device
+  domain: mqtt
+  type: action
+  subtype: brightness_move_down
+  id: brightness_move_down
+- platform: device
+  device_id: !input remote_device
+  domain: mqtt
+  type: action
+  subtype: arrow_left_click
+  id: arrow_left_click
+- platform: device
+  device_id: !input remote_device
+  domain: mqtt
+  type: action
+  subtype: arrow_left_hold
+  id: arrow_left_hold
+- platform: device
+  device_id: !input remote_device
+  domain: mqtt
+  type: action
+  subtype: arrow_left_release
+  id: arrow_left_release
+- platform: device
+  device_id: !input remote_device
+  domain: mqtt
+  type: action
+  subtype: arrow_right_click
+  id: arrow_right_click
+- platform: device
+  device_id: !input remote_device
+  domain: mqtt
+  type: action
+  subtype: arrow_right_hold
+  id: arrow_right_hold
+- platform: device
+  device_id: !input remote_device
+  domain: mqtt
+  type: action
+  subtype: arrow_right_release
+  id: arrow_right_release
+conditions: []
+actions:
+- choose:
+  - conditions:
+    - condition: trigger
+      id: 'on'
+    sequence: !input action_on
+  - conditions:
+    - condition: trigger
+      id: brightness_move_up
+    sequence: !input action_brightness_move_up
+  - conditions:
+    - condition: trigger
+      id: brightness_stop
+    sequence: !input action_brightness_stop
+  - conditions:
+    - condition: trigger
+      id: 'off'
+    sequence: !input action_off
+  - conditions:
+    - condition: trigger
+      id: brightness_move_down
+    sequence: !input action_brightness_move_down
+  - conditions:
+    - condition: trigger
+      id: arrow_left_click
+    sequence: !input action_arrow_left_click
+  - conditions:
+    - condition: trigger
+      id: arrow_left_hold
+    sequence: !input action_arrow_left_hold
+  - conditions:
+    - condition: trigger
+      id: arrow_left_release
+    sequence: !input action_arrow_left_release
+  - conditions:
+    - condition: trigger
+      id: arrow_right_click
+    sequence: !input action_arrow_right_click
+  - conditions:
+    - condition: trigger
+      id: arrow_right_hold
+    sequence: !input action_arrow_right_hold
+  - conditions:
+    - condition: trigger
+      id: arrow_right_release
+    sequence: !input action_arrow_right_release

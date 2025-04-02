@@ -105,7 +105,7 @@
     },
     "update_entity": {
       "name": "Update entity",
-      "description": "Forces one or more entities to update its data.",
+      "description": "Forces one or more entities to update their data.",
       "fields": {
         "entity_id": {
           "required": true,
@@ -120,8 +120,8 @@
       }
     },
     "reload_core_config": {
-      "name": "Reload core configuration",
-      "description": "Reloads the core configuration from the YAML-configuration.",
+      "name": "Reload Core configuration",
+      "description": "Reloads the Core configuration from the YAML-configuration.",
       "fields": {}
     },
     "set_location": {
@@ -201,7 +201,7 @@
     },
     "reload_all": {
       "name": "Reload all",
-      "description": "Reload all YAML configuration that can be reloaded without restarting Home Assistant.",
+      "description": "Reloads all YAML configuration that can be reloaded without restarting Home Assistant.",
       "fields": {}
     }
   },
@@ -286,6 +286,135 @@
     "reload": {
       "name": "Reload",
       "description": "Reloads persons from the YAML-configuration.",
+      "fields": {}
+    }
+  },
+  "frontend": {
+    "set_theme": {
+      "name": "Set the default theme",
+      "description": "Sets the default theme Home Assistant uses. Can be overridden by a user.",
+      "fields": {
+        "name": {
+          "required": true,
+          "example": "default",
+          "selector": {
+            "theme": {
+              "include_default": true
+            }
+          },
+          "name": "Theme",
+          "description": "Name of a theme."
+        },
+        "mode": {
+          "default": "light",
+          "selector": {
+            "select": {
+              "options": [
+                "dark",
+                "light"
+              ],
+              "translation_key": "mode"
+            }
+          },
+          "name": "Mode",
+          "description": "Theme mode."
+        }
+      }
+    },
+    "reload_themes": {
+      "name": "Reload themes",
+      "description": "Reloads themes from the YAML-configuration.",
+      "fields": {}
+    }
+  },
+  "recorder": {
+    "purge": {
+      "name": "Purge",
+      "description": "Starts purge task - to clean up old data from your database.",
+      "fields": {
+        "keep_days": {
+          "selector": {
+            "number": {
+              "min": 0,
+              "max": 365,
+              "unit_of_measurement": "days"
+            }
+          },
+          "name": "Days to keep",
+          "description": "Number of days to keep the data in the database. Starting today, counting backward. A value of \u00607\u0060 means that everything older than a week will be purged."
+        },
+        "repack": {
+          "default": false,
+          "selector": {
+            "boolean": null
+          },
+          "name": "Repack",
+          "description": "Attempt to save disk space by rewriting the entire database file."
+        },
+        "apply_filter": {
+          "default": false,
+          "selector": {
+            "boolean": null
+          },
+          "name": "Apply filter",
+          "description": "Apply \u0060entity_id\u0060 and \u0060event_type\u0060 filters in addition to time-based purge."
+        }
+      }
+    },
+    "purge_entities": {
+      "name": "Purge entities",
+      "description": "Starts a purge task to remove the data related to specific entities from your database.",
+      "fields": {
+        "entity_id": {
+          "required": false,
+          "selector": {
+            "entity": {
+              "multiple": true
+            }
+          },
+          "name": "Entities to remove",
+          "description": "List of entities for which the data is to be removed from the Recorder database."
+        },
+        "domains": {
+          "example": "sun",
+          "required": false,
+          "selector": {
+            "object": null
+          },
+          "name": "Domains to remove",
+          "description": "List of domains for which the data needs to be removed from the Recorder database."
+        },
+        "entity_globs": {
+          "example": "domain*.object_id*",
+          "required": false,
+          "selector": {
+            "object": null
+          },
+          "name": "Entity globs to remove",
+          "description": "List of glob patterns used to select the entities for which the data is to be removed from the Recorder database."
+        },
+        "keep_days": {
+          "default": 0,
+          "selector": {
+            "number": {
+              "min": 0,
+              "max": 365,
+              "unit_of_measurement": "days"
+            }
+          },
+          "name": "Days to keep",
+          "description": "Number of days to keep the data for rows matching the filter. Starting today, counting backward. A value of \u00607\u0060 means that everything older than a week will be purged. The default of 0 days will remove all matching rows immediately."
+        }
+      }
+    },
+    "enable": {
+      "name": "Enable",
+      "description": "Starts the recording of events and state changes.",
+      "fields": {}
+    },
+    "disable": {
+      "name": "Disable",
+      "description": "Stops the recording of events and state changes.",
       "fields": {}
     }
   },
@@ -417,7 +546,7 @@
             "boolean": null
           },
           "name": "Home Assistant exclude database",
-          "description": "Exclude the Home Assistant database file from backup"
+          "description": "Exclude the Home Assistant database file from the backup."
         }
       }
     },
@@ -438,7 +567,7 @@
             "boolean": null
           },
           "name": "Home Assistant exclude database",
-          "description": "Exclude the Home Assistant database file from backup"
+          "description": "Exclude the Home Assistant database file from the backup."
         },
         "addons": {
           "example": [
@@ -639,142 +768,6 @@
       }
     }
   },
-  "backup": {
-    "create_automatic": {
-      "name": "Create automatic backup",
-      "description": "Creates a new backup with automatic backup settings.",
-      "fields": {}
-    }
-  },
-  "frontend": {
-    "set_theme": {
-      "name": "Set the default theme",
-      "description": "Sets the default theme Home Assistant uses. Can be overridden by a user.",
-      "fields": {
-        "name": {
-          "required": true,
-          "example": "default",
-          "selector": {
-            "theme": {
-              "include_default": true
-            }
-          },
-          "name": "Theme",
-          "description": "Name of a theme."
-        },
-        "mode": {
-          "default": "light",
-          "selector": {
-            "select": {
-              "options": [
-                "dark",
-                "light"
-              ],
-              "translation_key": "mode"
-            }
-          },
-          "name": "Mode",
-          "description": "Theme mode."
-        }
-      }
-    },
-    "reload_themes": {
-      "name": "Reload themes",
-      "description": "Reloads themes from the YAML-configuration.",
-      "fields": {}
-    }
-  },
-  "recorder": {
-    "purge": {
-      "name": "Purge",
-      "description": "Starts purge task - to clean up old data from your database.",
-      "fields": {
-        "keep_days": {
-          "selector": {
-            "number": {
-              "min": 0,
-              "max": 365,
-              "unit_of_measurement": "days"
-            }
-          },
-          "name": "Days to keep",
-          "description": "Number of days to keep the data in the database. Starting today, counting backward. A value of \u00607\u0060 means that everything older than a week will be purged."
-        },
-        "repack": {
-          "default": false,
-          "selector": {
-            "boolean": null
-          },
-          "name": "Repack",
-          "description": "Attempt to save disk space by rewriting the entire database file."
-        },
-        "apply_filter": {
-          "default": false,
-          "selector": {
-            "boolean": null
-          },
-          "name": "Apply filter",
-          "description": "Apply \u0060entity_id\u0060 and \u0060event_type\u0060 filters in addition to time-based purge."
-        }
-      }
-    },
-    "purge_entities": {
-      "name": "Purge entities",
-      "description": "Starts a purge task to remove the data related to specific entities from your database.",
-      "fields": {
-        "entity_id": {
-          "required": false,
-          "selector": {
-            "entity": {
-              "multiple": true
-            }
-          },
-          "name": "Entities to remove",
-          "description": "List of entities for which the data is to be removed from the recorder database."
-        },
-        "domains": {
-          "example": "sun",
-          "required": false,
-          "selector": {
-            "object": null
-          },
-          "name": "Domains to remove",
-          "description": "List of domains for which the data needs to be removed from the recorder database."
-        },
-        "entity_globs": {
-          "example": "domain*.object_id*",
-          "required": false,
-          "selector": {
-            "object": null
-          },
-          "name": "Entity globs to remove",
-          "description": "List of glob patterns used to select the entities for which the data is to be removed from the recorder database."
-        },
-        "keep_days": {
-          "default": 0,
-          "selector": {
-            "number": {
-              "min": 0,
-              "max": 365,
-              "unit_of_measurement": "days"
-            }
-          },
-          "name": "Days to keep",
-          "description": "Number of days to keep the data for rows matching the filter. Starting today, counting backward. A value of \u00607\u0060 means that everything older than a week will be purged. The default of 0 days will remove all matching rows immediately."
-        }
-      }
-    },
-    "enable": {
-      "name": "Enable",
-      "description": "Starts the recording of events and state changes.",
-      "fields": {}
-    },
-    "disable": {
-      "name": "Disable",
-      "description": "Stops the recording of events and state changes.",
-      "fields": {}
-    }
-  },
   "cloud": {
     "remote_connect": {
       "name": "Enable remote access",
@@ -790,7 +783,7 @@
   "ffmpeg": {
     "start": {
       "name": "Start",
-      "description": "Sends a start command to a ffmpeg based sensor.",
+      "description": "Sends a start command to an FFmpeg-based sensor.",
       "fields": {
         "entity_id": {
           "selector": {
@@ -806,7 +799,7 @@
     },
     "stop": {
       "name": "Stop",
-      "description": "Sends a stop command to a ffmpeg based sensor.",
+      "description": "Sends a stop command to an FFmpeg-based sensor.",
       "fields": {
         "entity_id": {
           "selector": {
@@ -822,7 +815,7 @@
     },
     "restart": {
       "name": "Restart",
-      "description": "Sends a restart command to a ffmpeg based sensor.",
+      "description": "Sends a restart command to an FFmpeg-based sensor.",
       "fields": {
         "entity_id": {
           "selector": {
@@ -943,136 +936,6 @@
       }
     }
   },
-  "calendar": {
-    "create_event": {
-      "name": "Create event",
-      "description": "Adds a new calendar event.",
-      "fields": {
-        "summary": {
-          "required": true,
-          "example": "Department Party",
-          "selector": {
-            "text": null
-          },
-          "name": "Summary",
-          "description": "Defines the short summary or subject for the event."
-        },
-        "description": {
-          "example": "Meeting to provide technical review for \u0027Phoenix\u0027 design.",
-          "selector": {
-            "text": null
-          },
-          "name": "Description",
-          "description": "A more complete description of the event than the one provided by the summary."
-        },
-        "start_date_time": {
-          "example": "2022-03-22 20:00:00",
-          "selector": {
-            "datetime": null
-          },
-          "name": "Start time",
-          "description": "The date and time the event should start."
-        },
-        "end_date_time": {
-          "example": "2022-03-22 22:00:00",
-          "selector": {
-            "datetime": null
-          },
-          "name": "End time",
-          "description": "The date and time the event should end."
-        },
-        "start_date": {
-          "example": "2022-03-22",
-          "selector": {
-            "date": null
-          },
-          "name": "Start date",
-          "description": "The date the all-day event should start."
-        },
-        "end_date": {
-          "example": "2022-03-23",
-          "selector": {
-            "date": null
-          },
-          "name": "End date",
-          "description": "The date the all-day event should end (exclusive)."
-        },
-        "in": {
-          "example": "{\u0022days\u0022: 2} or {\u0022weeks\u0022: 2}",
-          "name": "In",
-          "description": "Days or weeks that you want to create the event in."
-        },
-        "location": {
-          "example": "Conference Room - F123, Bldg. 002",
-          "selector": {
-            "text": null
-          },
-          "name": "Location",
-          "description": "The location of the event."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "calendar"
-            ],
-            "supported_features": [
-              1
-            ]
-          }
-        ]
-      }
-    },
-    "get_events": {
-      "name": "Get events",
-      "description": "Get events on a calendar within a time range.",
-      "fields": {
-        "start_date_time": {
-          "example": "2022-03-22 20:00:00",
-          "selector": {
-            "datetime": null
-          },
-          "name": "Start time",
-          "description": "Returns active events after this time (exclusive). When not set, defaults to now."
-        },
-        "end_date_time": {
-          "example": "2022-03-22 22:00:00",
-          "selector": {
-            "datetime": null
-          },
-          "name": "End time",
-          "description": "Returns active events before this time (exclusive). Cannot be used with Duration."
-        },
-        "duration": {
-          "selector": {
-            "duration": null
-          },
-          "name": "Duration",
-          "description": "Returns active events from Start time for the specified duration."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "calendar"
-            ]
-          }
-        ]
-      },
-      "response": {
-        "optional": false
-      }
-    }
-  },
-  "waste_collection_schedule": {
-    "fetch_data": {
-      "name": "Fetch data from all sources.",
-      "description": "Fetch data from all sources.",
-      "fields": {}
-    }
-  },
   "button": {
     "press": {
       "name": "Press",
@@ -1086,6 +949,72 @@
             ]
           }
         ]
+      }
+    }
+  },
+  "conversation": {
+    "process": {
+      "name": "Process",
+      "description": "Launches a conversation from a transcribed text.",
+      "fields": {
+        "text": {
+          "example": "Turn all lights on",
+          "required": true,
+          "selector": {
+            "text": null
+          },
+          "name": "Text",
+          "description": "Transcribed text input."
+        },
+        "language": {
+          "example": "NL",
+          "selector": {
+            "text": null
+          },
+          "name": "Language",
+          "description": "Language of text. Defaults to server language."
+        },
+        "agent_id": {
+          "example": "homeassistant",
+          "selector": {
+            "conversation_agent": null
+          },
+          "name": "Agent",
+          "description": "Conversation agent to process your request. The conversation agent is the brains of your assistant. It processes the incoming text commands."
+        },
+        "conversation_id": {
+          "example": "my_conversation_1",
+          "selector": {
+            "text": null
+          },
+          "name": "Conversation ID",
+          "description": "ID of the conversation, to be able to continue a previous conversation"
+        }
+      },
+      "response": {
+        "optional": true
+      }
+    },
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads the intent configuration.",
+      "fields": {
+        "language": {
+          "example": "NL",
+          "selector": {
+            "text": null
+          },
+          "name": "Language",
+          "description": "Language to clear cached intents for. Defaults to server language."
+        },
+        "agent_id": {
+          "example": "homeassistant",
+          "selector": {
+            "conversation_agent": null
+          },
+          "name": "Agent",
+          "description": "Conversation agent to reload."
+        }
       }
     }
   },
@@ -1194,113 +1123,6 @@
             ]
           }
         ]
-      }
-    }
-  },
-  "conversation": {
-    "process": {
-      "name": "Process",
-      "description": "Launches a conversation from a transcribed text.",
-      "fields": {
-        "text": {
-          "example": "Turn all lights on",
-          "required": true,
-          "selector": {
-            "text": null
-          },
-          "name": "Text",
-          "description": "Transcribed text input."
-        },
-        "language": {
-          "example": "NL",
-          "selector": {
-            "text": null
-          },
-          "name": "Language",
-          "description": "Language of text. Defaults to server language."
-        },
-        "agent_id": {
-          "example": "homeassistant",
-          "selector": {
-            "conversation_agent": null
-          },
-          "name": "Agent",
-          "description": "Conversation agent to process your request. The conversation agent is the brains of your assistant. It processes the incoming text commands."
-        },
-        "conversation_id": {
-          "example": "my_conversation_1",
-          "selector": {
-            "text": null
-          },
-          "name": "Conversation ID",
-          "description": "ID of the conversation, to be able to continue a previous conversation"
-        }
-      },
-      "response": {
-        "optional": true
-      }
-    },
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads the intent configuration.",
-      "fields": {
-        "language": {
-          "example": "NL",
-          "selector": {
-            "text": null
-          },
-          "name": "Language",
-          "description": "Language to clear cached intents for. Defaults to server language."
-        },
-        "agent_id": {
-          "example": "homeassistant",
-          "selector": {
-            "conversation_agent": null
-          },
-          "name": "Agent",
-          "description": "Conversation agent to reload."
-        }
-      }
-    }
-  },
-  "logbook": {
-    "log": {
-      "name": "Log",
-      "description": "Creates a custom entry in the logbook.",
-      "fields": {
-        "name": {
-          "required": true,
-          "example": "Kitchen",
-          "selector": {
-            "text": null
-          },
-          "name": "Name",
-          "description": "Custom name for an entity, can be referenced using an \u0060entity_id\u0060."
-        },
-        "message": {
-          "required": true,
-          "example": "is being used",
-          "selector": {
-            "text": null
-          },
-          "name": "Message",
-          "description": "Message of the logbook entry."
-        },
-        "entity_id": {
-          "selector": {
-            "entity": null
-          },
-          "name": "Entity ID",
-          "description": "Entity to reference in the logbook entry."
-        },
-        "domain": {
-          "example": "light",
-          "selector": {
-            "text": null
-          },
-          "name": "Domain",
-          "description": "Determines which icon is used in the logbook entry. The icon illustrates the integration domain related to this logbook entry."
-        }
       }
     }
   },
@@ -2366,11 +2188,253 @@
       }
     }
   },
+  "backup": {
+    "create_automatic": {
+      "name": "Create automatic backup",
+      "description": "Creates a new backup with automatic backup settings.",
+      "fields": {}
+    }
+  },
+  "logbook": {
+    "log": {
+      "name": "Log",
+      "description": "Creates a custom entry in the logbook.",
+      "fields": {
+        "name": {
+          "required": true,
+          "example": "Kitchen",
+          "selector": {
+            "text": null
+          },
+          "name": "Name",
+          "description": "Custom name for an entity, can be referenced using the \u0027Entity ID\u0027 field."
+        },
+        "message": {
+          "required": true,
+          "example": "is being used",
+          "selector": {
+            "text": null
+          },
+          "name": "Message",
+          "description": "Message of the logbook entry."
+        },
+        "entity_id": {
+          "selector": {
+            "entity": null
+          },
+          "name": "Entity ID",
+          "description": "Entity to reference in the logbook entry."
+        },
+        "domain": {
+          "example": "light",
+          "selector": {
+            "text": null
+          },
+          "name": "Domain",
+          "description": "Determines which icon is used in the logbook entry. The icon illustrates the integration domain related to this logbook entry."
+        }
+      }
+    }
+  },
   "zone": {
     "reload": {
       "name": "Reload",
       "description": "Reloads zones from the YAML-configuration.",
       "fields": {}
+    }
+  },
+  "input_select": {
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads helpers from the YAML-configuration.",
+      "fields": {}
+    },
+    "select_first": {
+      "name": "First",
+      "description": "Selects the first option.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "input_select"
+            ]
+          }
+        ]
+      }
+    },
+    "select_last": {
+      "name": "Last",
+      "description": "Selects the last option.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "input_select"
+            ]
+          }
+        ]
+      }
+    },
+    "select_next": {
+      "name": "Next",
+      "description": "Selects the next option.",
+      "fields": {
+        "cycle": {
+          "default": true,
+          "selector": {
+            "boolean": null
+          },
+          "name": "Cycle",
+          "description": "If the option should cycle from the last to the first option on the list."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "input_select"
+            ]
+          }
+        ]
+      }
+    },
+    "select_option": {
+      "name": "Select",
+      "description": "Selects an option.",
+      "fields": {
+        "option": {
+          "required": true,
+          "example": "\u0022Item A\u0022",
+          "selector": {
+            "text": null
+          },
+          "name": "Option",
+          "description": "Option to be selected."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "input_select"
+            ]
+          }
+        ]
+      }
+    },
+    "select_previous": {
+      "name": "Previous",
+      "description": "Selects the previous option.",
+      "fields": {
+        "cycle": {
+          "default": true,
+          "selector": {
+            "boolean": null
+          },
+          "name": "Cycle",
+          "description": "If the option should cycle from the first to the last option on the list."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "input_select"
+            ]
+          }
+        ]
+      }
+    },
+    "set_options": {
+      "name": "Set options",
+      "description": "Sets the options.",
+      "fields": {
+        "options": {
+          "required": true,
+          "example": "[\u0022Item A\u0022, \u0022Item B\u0022, \u0022Item C\u0022]",
+          "selector": {
+            "text": {
+              "multiple": true
+            }
+          },
+          "name": "Options",
+          "description": "List of options."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "input_select"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "input_number": {
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads helpers from the YAML-configuration.",
+      "fields": {}
+    },
+    "set_value": {
+      "name": "Set",
+      "description": "Sets the value.",
+      "fields": {
+        "value": {
+          "required": true,
+          "selector": {
+            "number": {
+              "min": 0,
+              "max": 9223372036854775807,
+              "step": 0.001,
+              "mode": "box"
+            }
+          },
+          "name": "Value",
+          "description": "The target value."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "input_number"
+            ]
+          }
+        ]
+      }
+    },
+    "increment": {
+      "name": "Increment",
+      "description": "Increments the current value by 1 step.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "input_number"
+            ]
+          }
+        ]
+      }
+    },
+    "decrement": {
+      "name": "Decrement",
+      "description": "Decrements the current value by 1 step.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "input_number"
+            ]
+          }
+        ]
+      }
     }
   },
   "timer": {
@@ -2470,69 +2534,6 @@
       }
     }
   },
-  "input_number": {
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads helpers from the YAML-configuration.",
-      "fields": {}
-    },
-    "set_value": {
-      "name": "Set",
-      "description": "Sets the value.",
-      "fields": {
-        "value": {
-          "required": true,
-          "selector": {
-            "number": {
-              "min": 0,
-              "max": 9223372036854775807,
-              "step": 0.001,
-              "mode": "box"
-            }
-          },
-          "name": "Value",
-          "description": "The target value."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "input_number"
-            ]
-          }
-        ]
-      }
-    },
-    "increment": {
-      "name": "Increment",
-      "description": "Increments the current value by 1 step.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "input_number"
-            ]
-          }
-        ]
-      }
-    },
-    "decrement": {
-      "name": "Decrement",
-      "description": "Decrements the current value by 1 step.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "input_number"
-            ]
-          }
-        ]
-      }
-    }
-  },
   "input_button": {
     "reload": {
       "name": "Reload",
@@ -2597,137 +2598,6 @@
           {
             "domain": [
               "input_boolean"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "input_select": {
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads helpers from the YAML-configuration.",
-      "fields": {}
-    },
-    "select_first": {
-      "name": "First",
-      "description": "Selects the first option.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "input_select"
-            ]
-          }
-        ]
-      }
-    },
-    "select_last": {
-      "name": "Last",
-      "description": "Selects the last option.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "input_select"
-            ]
-          }
-        ]
-      }
-    },
-    "select_next": {
-      "name": "Next",
-      "description": "Select the next option.",
-      "fields": {
-        "cycle": {
-          "default": true,
-          "selector": {
-            "boolean": null
-          },
-          "name": "Cycle",
-          "description": "If the option should cycle from the last to the first option on the list."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "input_select"
-            ]
-          }
-        ]
-      }
-    },
-    "select_option": {
-      "name": "Select",
-      "description": "Selects an option.",
-      "fields": {
-        "option": {
-          "required": true,
-          "example": "\u0022Item A\u0022",
-          "selector": {
-            "text": null
-          },
-          "name": "Option",
-          "description": "Option to be selected."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "input_select"
-            ]
-          }
-        ]
-      }
-    },
-    "select_previous": {
-      "name": "Previous",
-      "description": "Selects the previous option.",
-      "fields": {
-        "cycle": {
-          "default": true,
-          "selector": {
-            "boolean": null
-          },
-          "name": "Cycle",
-          "description": "If the option should cycle from the last to the first option on the list."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "input_select"
-            ]
-          }
-        ]
-      }
-    },
-    "set_options": {
-      "name": "Set options",
-      "description": "Sets the options.",
-      "fields": {
-        "options": {
-          "required": true,
-          "example": "[\u0022Item A\u0022, \u0022Item B\u0022, \u0022Item C\u0022]",
-          "selector": {
-            "text": {
-              "multiple": true
-            }
-          },
-          "name": "Options",
-          "description": "List of options."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "input_select"
             ]
           }
         ]
@@ -2830,7 +2700,7 @@
     },
     "alarm_arm_home": {
       "name": "Arm home",
-      "description": "Sets the alarm to: _armed, but someone is home_.",
+      "description": "Arms the alarm in the home mode.",
       "fields": {
         "code": {
           "example": "1234",
@@ -2856,7 +2726,7 @@
     },
     "alarm_arm_away": {
       "name": "Arm away",
-      "description": "Sets the alarm to: _armed, no one home_.",
+      "description": "Arms the alarm in the away mode.",
       "fields": {
         "code": {
           "example": "1234",
@@ -2882,7 +2752,7 @@
     },
     "alarm_arm_night": {
       "name": "Arm night",
-      "description": "Sets the alarm to: _armed for the night_.",
+      "description": "Arms the alarm in the night mode.",
       "fields": {
         "code": {
           "example": "1234",
@@ -2908,7 +2778,7 @@
     },
     "alarm_arm_vacation": {
       "name": "Arm vacation",
-      "description": "Sets the alarm to: _armed for vacation_.",
+      "description": "Arms the alarm in the vacation mode.",
       "fields": {
         "code": {
           "example": "1234",
@@ -2960,7 +2830,7 @@
     },
     "alarm_trigger": {
       "name": "Trigger",
-      "description": "Trigger the alarm manually.",
+      "description": "Triggers the alarm manually.",
       "fields": {
         "code": {
           "example": "1234",
@@ -2985,31 +2855,282 @@
       }
     }
   },
-  "input_text": {
+  "schedule": {
     "reload": {
       "name": "Reload",
-      "description": "Reloads helpers from the YAML-configuration.",
+      "description": "Reloads schedules from the YAML-configuration.",
       "fields": {}
     },
-    "set_value": {
-      "name": "Set",
-      "description": "Sets the value.",
+    "get_schedule": {
+      "name": "Get schedule",
+      "description": "Retrieves the configured time ranges of one or multiple schedules.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "schedule"
+            ]
+          }
+        ]
+      },
+      "response": {
+        "optional": false
+      }
+    }
+  },
+  "calendar": {
+    "create_event": {
+      "name": "Create event",
+      "description": "Adds a new calendar event.",
       "fields": {
-        "value": {
+        "summary": {
           "required": true,
-          "example": "This is an example text",
+          "example": "Department Party",
           "selector": {
             "text": null
           },
-          "name": "Value",
-          "description": "The target value."
+          "name": "Summary",
+          "description": "Defines the short summary or subject for the event."
+        },
+        "description": {
+          "example": "Meeting to provide technical review for \u0027Phoenix\u0027 design.",
+          "selector": {
+            "text": null
+          },
+          "name": "Description",
+          "description": "A more complete description of the event than the one provided by the summary."
+        },
+        "start_date_time": {
+          "example": "2022-03-22 20:00:00",
+          "selector": {
+            "datetime": null
+          },
+          "name": "Start time",
+          "description": "The date and time the event should start."
+        },
+        "end_date_time": {
+          "example": "2022-03-22 22:00:00",
+          "selector": {
+            "datetime": null
+          },
+          "name": "End time",
+          "description": "The date and time the event should end."
+        },
+        "start_date": {
+          "example": "2022-03-22",
+          "selector": {
+            "date": null
+          },
+          "name": "Start date",
+          "description": "The date the all-day event should start."
+        },
+        "end_date": {
+          "example": "2022-03-23",
+          "selector": {
+            "date": null
+          },
+          "name": "End date",
+          "description": "The date the all-day event should end (exclusive)."
+        },
+        "in": {
+          "example": "{\u0022days\u0022: 2} or {\u0022weeks\u0022: 2}",
+          "name": "In",
+          "description": "Days or weeks that you want to create the event in."
+        },
+        "location": {
+          "example": "Conference Room - F123, Bldg. 002",
+          "selector": {
+            "text": null
+          },
+          "name": "Location",
+          "description": "The location of the event."
         }
       },
       "target": {
         "entity": [
           {
             "domain": [
-              "input_text"
+              "calendar"
+            ],
+            "supported_features": [
+              1
+            ]
+          }
+        ]
+      }
+    },
+    "get_events": {
+      "name": "Get events",
+      "description": "Get events on a calendar within a time range.",
+      "fields": {
+        "start_date_time": {
+          "example": "2022-03-22 20:00:00",
+          "selector": {
+            "datetime": null
+          },
+          "name": "Start time",
+          "description": "Returns active events after this time (exclusive). When not set, defaults to now."
+        },
+        "end_date_time": {
+          "example": "2022-03-22 22:00:00",
+          "selector": {
+            "datetime": null
+          },
+          "name": "End time",
+          "description": "Returns active events before this time (exclusive). Cannot be used with Duration."
+        },
+        "duration": {
+          "selector": {
+            "duration": null
+          },
+          "name": "Duration",
+          "description": "Returns active events from Start time for the specified duration."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "calendar"
+            ]
+          }
+        ]
+      },
+      "response": {
+        "optional": false
+      }
+    }
+  },
+  "waste_collection_schedule": {
+    "fetch_data": {
+      "name": "Fetch data from all sources.",
+      "description": "Fetch data from all sources.",
+      "fields": {}
+    }
+  },
+  "input_datetime": {
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads helpers from the YAML-configuration.",
+      "fields": {}
+    },
+    "set_datetime": {
+      "name": "Set",
+      "description": "Sets the date and/or time.",
+      "fields": {
+        "date": {
+          "example": "\u00222019-04-20\u0022",
+          "selector": {
+            "text": null
+          },
+          "name": "Date",
+          "description": "The target date."
+        },
+        "time": {
+          "example": "\u002205:04:20\u0022",
+          "selector": {
+            "time": null
+          },
+          "name": "Time",
+          "description": "The target time."
+        },
+        "datetime": {
+          "example": "\u00222019-04-20 05:04:20\u0022",
+          "selector": {
+            "text": null
+          },
+          "name": "Date \u0026 time",
+          "description": "The target date \u0026 time."
+        },
+        "timestamp": {
+          "selector": {
+            "number": {
+              "min": 0,
+              "max": 9223372036854775807,
+              "mode": "box"
+            }
+          },
+          "name": "Timestamp",
+          "description": "The target date \u0026 time, expressed by a UNIX timestamp."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "input_datetime"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "counter": {
+    "increment": {
+      "name": "Increment",
+      "description": "Increments a counter by its step size.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "counter"
+            ]
+          }
+        ]
+      }
+    },
+    "decrement": {
+      "name": "Decrement",
+      "description": "Decrements a counter by its step size.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "counter"
+            ]
+          }
+        ]
+      }
+    },
+    "reset": {
+      "name": "Reset",
+      "description": "Resets a counter to its initial value.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "counter"
+            ]
+          }
+        ]
+      }
+    },
+    "set_value": {
+      "name": "Set",
+      "description": "Sets the counter to a specific value.",
+      "fields": {
+        "value": {
+          "required": true,
+          "selector": {
+            "number": {
+              "min": 0,
+              "max": 9223372036854775807,
+              "mode": "box"
+            }
+          },
+          "name": "Value",
+          "description": "The new counter value the entity should be set to."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "counter"
             ]
           }
         ]
@@ -3102,94 +3223,41 @@
       }
     }
   },
-  "shopping_list": {
-    "add_item": {
-      "name": "Add item",
-      "description": "Adds an item to the shopping list.",
-      "fields": {
-        "name": {
-          "required": true,
-          "example": "Beer",
-          "selector": {
-            "text": null
-          },
-          "name": "Name",
-          "description": "The name of the item to add."
-        }
-      }
-    },
-    "remove_item": {
-      "name": "Remove item",
-      "description": "Removes the first item with matching name from the shopping list.",
-      "fields": {
-        "name": {
-          "required": true,
-          "example": "Beer",
-          "selector": {
-            "text": null
-          },
-          "name": "Name",
-          "description": "The name of the item to remove."
-        }
-      }
-    },
-    "complete_item": {
-      "name": "Complete item",
-      "description": "Marks the first item with matching name as completed in the shopping list.",
-      "fields": {
-        "name": {
-          "required": true,
-          "example": "Beer",
-          "selector": {
-            "text": null
-          },
-          "name": "Name",
-          "description": "The name of the item to mark as completed (without removing)."
-        }
-      }
-    },
-    "incomplete_item": {
-      "name": "Incomplete item",
-      "description": "Marks the first item with matching name as incomplete in the shopping list.",
-      "fields": {
-        "name": {
-          "example": "Beer",
-          "required": true,
-          "selector": {
-            "text": null
-          },
-          "name": "Name",
-          "description": "The name of the item to mark as incomplete."
-        }
-      }
-    },
-    "complete_all": {
-      "name": "Complete all",
-      "description": "Marks all items as completed in the shopping list (without removing them from the list).",
+  "template": {
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads template entities from the YAML-configuration.",
+      "fields": {}
+    }
+  },
+  "input_text": {
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads helpers from the YAML-configuration.",
       "fields": {}
     },
-    "incomplete_all": {
-      "name": "Incomplete all",
-      "description": "Marks all items as incomplete in the shopping list.",
-      "fields": {}
-    },
-    "clear_completed_items": {
-      "name": "Clear completed items",
-      "description": "Removes completed items from the shopping list.",
-      "fields": {}
-    },
-    "sort": {
-      "name": "Sort all items",
-      "description": "Sorts all items by name in the shopping list.",
+    "set_value": {
+      "name": "Set",
+      "description": "Sets the value.",
       "fields": {
-        "reverse": {
-          "default": false,
+        "value": {
+          "required": true,
+          "example": "This is an example text",
           "selector": {
-            "boolean": null
+            "text": null
           },
-          "name": "Sort reverse",
-          "description": "Whether to sort in reverse (descending) order."
+          "name": "Value",
+          "description": "The target value."
         }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "input_text"
+            ]
+          }
+        ]
       }
     }
   },
@@ -3222,7 +3290,7 @@
             "boolean": null
           },
           "name": "Evaluate payload",
-          "description": "When \u0060payload\u0060 is a Python bytes literal, evaluate the bytes literal and publish the raw data."
+          "description": "If \u0027Payload\u0027 is a Python bytes literal, evaluate the bytes literal and publish the raw data."
         },
         "qos": {
           "advanced": true,
@@ -3279,614 +3347,6 @@
       "name": "Reload",
       "description": "Reloads MQTT entities from the YAML-configuration.",
       "fields": {}
-    }
-  },
-  "localtuya": {
-    "reload": {
-      "name": "Reload",
-      "description": "Reload localtuya and reconnect to all devices.",
-      "fields": {}
-    },
-    "set_dp": {
-      "name": "Set datapoint",
-      "description": "Change the value of a datapoint (DP)",
-      "fields": {
-        "device_id": {
-          "description": "Device ID of device to change datapoint value for",
-          "example": "11100118278aab4de001",
-          "name": "Device ID"
-        },
-        "dp": {
-          "description": "Datapoint index",
-          "example": 1,
-          "name": "DP"
-        },
-        "value": {
-          "description": "New value to set",
-          "example": false,
-          "name": "Value"
-        }
-      }
-    }
-  },
-  "habitica": {
-    "abort_quest": {
-      "name": "Abort an active quest",
-      "description": "Terminates your party\u0027s ongoing quest. All progress will be lost and the quest roll returned to the owner\u0027s inventory. Only quest leader or group leader can perform this action.",
-      "fields": {
-        "config_entry": {
-          "required": true,
-          "selector": {
-            "config_entry": {
-              "integration": "habitica"
-            }
-          },
-          "name": "Select character",
-          "description": "Choose the Habitica character for which to perform the action."
-        }
-      },
-      "response": {
-        "optional": false
-      }
-    },
-    "accept_quest": {
-      "name": "Accept a quest invitation",
-      "description": "Accepts a pending invitation to a quest.",
-      "fields": {
-        "config_entry": {
-          "required": true,
-          "selector": {
-            "config_entry": {
-              "integration": "habitica"
-            }
-          },
-          "name": "Select character",
-          "description": "Choose the Habitica character for which to perform the action."
-        }
-      },
-      "response": {
-        "optional": false
-      }
-    },
-    "cancel_quest": {
-      "name": "Cancel a pending quest",
-      "description": "Cancels a quest that has not yet startet. All accepted and pending invitations will be canceled and the quest roll returned to the owner\u0027s inventory. Only quest leader or group leader can perform this action.",
-      "fields": {
-        "config_entry": {
-          "required": true,
-          "selector": {
-            "config_entry": {
-              "integration": "habitica"
-            }
-          },
-          "name": "Select character",
-          "description": "Choose the Habitica character for which to perform the action."
-        }
-      },
-      "response": {
-        "optional": false
-      }
-    },
-    "leave_quest": {
-      "name": "Leave a quest",
-      "description": "Leaves the current quest you are participating in.",
-      "fields": {
-        "config_entry": {
-          "required": true,
-          "selector": {
-            "config_entry": {
-              "integration": "habitica"
-            }
-          },
-          "name": "Select character",
-          "description": "Choose the Habitica character for which to perform the action."
-        }
-      },
-      "response": {
-        "optional": false
-      }
-    },
-    "reject_quest": {
-      "name": "Reject a quest invitation",
-      "description": "Rejects a pending invitation to a quest.",
-      "fields": {
-        "config_entry": {
-          "required": true,
-          "selector": {
-            "config_entry": {
-              "integration": "habitica"
-            }
-          },
-          "name": "Select character",
-          "description": "Choose the Habitica character for which to perform the action."
-        }
-      },
-      "response": {
-        "optional": false
-      }
-    },
-    "start_quest": {
-      "name": "Force-start a pending quest",
-      "description": "Begins the quest immediately, bypassing any pending invitations that haven\u0027t been accepted or rejected. Only quest leader or group leader can perform this action.",
-      "fields": {
-        "config_entry": {
-          "required": true,
-          "selector": {
-            "config_entry": {
-              "integration": "habitica"
-            }
-          },
-          "name": "Select character",
-          "description": "Choose the Habitica character for which to perform the action."
-        }
-      },
-      "response": {
-        "optional": false
-      }
-    },
-    "api_call": {
-      "name": "API name",
-      "description": "Calls Habitica API.",
-      "fields": {
-        "name": {
-          "required": true,
-          "example": "xxxNotAValidNickxxx",
-          "selector": {
-            "text": null
-          },
-          "name": "Name",
-          "description": "Habitica\u0027s username to call for."
-        },
-        "path": {
-          "required": true,
-          "example": "[\u0022tasks\u0022, \u0022user\u0022, \u0022post\u0022]",
-          "selector": {
-            "object": null
-          },
-          "name": "Path",
-          "description": "Items from API URL in form of an array with method attached at the end. Consult https://habitica.com/apidoc/. Example uses https://habitica.com/apidoc/#api-Task-CreateUserTasks."
-        },
-        "args": {
-          "example": "{\u0022text\u0022: \u0022Use API from Home Assistant\u0022, \u0022type\u0022: \u0022todo\u0022}",
-          "selector": {
-            "object": null
-          },
-          "name": "Args",
-          "description": "Any additional JSON or URL parameter arguments. See apidoc mentioned for path. Example uses same API endpoint."
-        }
-      }
-    },
-    "cast_skill": {
-      "name": "Cast a skill",
-      "description": "Uses a skill or spell from your Habitica character on a specific task to affect its progress or status.",
-      "fields": {
-        "config_entry": {
-          "required": true,
-          "selector": {
-            "config_entry": {
-              "integration": "habitica"
-            }
-          },
-          "name": "Select character",
-          "description": "Choose the Habitica character to cast the skill."
-        },
-        "skill": {
-          "required": true,
-          "selector": {
-            "select": {
-              "options": [
-                "pickpocket",
-                "backstab",
-                "smash",
-                "fireball"
-              ],
-              "mode": "dropdown",
-              "translation_key": "skill_select"
-            }
-          },
-          "name": "Skill",
-          "description": "Select the skill or spell you want to cast on the task. Only skills corresponding to your character\u0027s class can be used."
-        },
-        "task": {
-          "required": true,
-          "selector": {
-            "text": null
-          },
-          "name": "Task name",
-          "description": "The name (or task ID) of the task you want to target with the skill or spell."
-        }
-      },
-      "response": {
-        "optional": false
-      }
-    },
-    "score_habit": {
-      "name": "Track a habit",
-      "description": "Increases the positive or negative streak of a habit to track its progress.",
-      "fields": {
-        "config_entry": {
-          "required": true,
-          "selector": {
-            "config_entry": {
-              "integration": "habitica"
-            }
-          },
-          "name": "Select character",
-          "description": "Select the Habitica character tracking your habit."
-        },
-        "task": {
-          "required": true,
-          "selector": {
-            "text": null
-          },
-          "name": "Habit name",
-          "description": "The name (or task ID) of the Habitica habit."
-        },
-        "direction": {
-          "required": true,
-          "selector": {
-            "select": {
-              "options": [
-                {
-                  "value": "up",
-                  "label": "\u2795"
-                },
-                {
-                  "value": "down",
-                  "label": "\u2796"
-                }
-              ]
-            }
-          },
-          "name": "Reward or loss",
-          "description": "Is it positive or negative progress you want to track for your habit."
-        }
-      },
-      "response": {
-        "optional": false
-      }
-    },
-    "score_reward": {
-      "name": "Buy a reward",
-      "description": "Buys one of your custom rewards with gold earned by fulfilling tasks.",
-      "fields": {
-        "config_entry": {
-          "required": true,
-          "selector": {
-            "config_entry": {
-              "integration": "habitica"
-            }
-          },
-          "name": "Select character",
-          "description": "Select the Habitica character buying the reward."
-        },
-        "task": {
-          "required": true,
-          "selector": {
-            "text": null
-          },
-          "name": "Reward name",
-          "description": "The name (or task ID) of the custom reward."
-        }
-      },
-      "response": {
-        "optional": false
-      }
-    },
-    "transformation": {
-      "name": "Use a transformation item",
-      "description": "Uses a transformation item from your Habitica character\u0027s inventory on a member of your party or yourself.",
-      "fields": {
-        "config_entry": {
-          "required": true,
-          "selector": {
-            "config_entry": {
-              "integration": "habitica"
-            }
-          },
-          "name": "Select character",
-          "description": "Choose the Habitica character to use the transformation item."
-        },
-        "item": {
-          "required": true,
-          "selector": {
-            "select": {
-              "options": [
-                "snowball",
-                "spooky_sparkles",
-                "seafoam",
-                "shiny_seed"
-              ],
-              "mode": "dropdown",
-              "translation_key": "transformation_item_select"
-            }
-          },
-          "name": "Transformation item",
-          "description": "Select the transformation item you want to use. Item must be in the characters inventory."
-        },
-        "target": {
-          "required": true,
-          "selector": {
-            "text": null
-          },
-          "name": "Target character",
-          "description": "The name of the character you want to use the transformation item on. You can also specify the players username or user ID."
-        }
-      },
-      "response": {
-        "optional": false
-      }
-    },
-    "get_tasks": {
-      "name": "Get tasks",
-      "description": "Retrieves tasks from your Habitica character.",
-      "fields": {
-        "config_entry": {
-          "required": true,
-          "selector": {
-            "config_entry": {
-              "integration": "habitica"
-            }
-          },
-          "name": "Select character",
-          "description": "Choose the Habitica character to retrieve tasks from."
-        },
-        "filter": {
-          "collapsed": true,
-          "fields": {
-            "type": {
-              "required": false,
-              "selector": {
-                "select": {
-                  "options": [
-                    "habit",
-                    "daily",
-                    "todo",
-                    "reward"
-                  ],
-                  "mode": "dropdown",
-                  "translation_key": "type",
-                  "multiple": true,
-                  "sort": true
-                }
-              }
-            },
-            "priority": {
-              "required": false,
-              "selector": {
-                "select": {
-                  "options": [
-                    "trivial",
-                    "easy",
-                    "medium",
-                    "hard"
-                  ],
-                  "mode": "dropdown",
-                  "translation_key": "priority",
-                  "multiple": true,
-                  "sort": false
-                }
-              }
-            },
-            "task": {
-              "required": false,
-              "selector": {
-                "text": {
-                  "multiple": true
-                }
-              }
-            },
-            "tag": {
-              "required": false,
-              "selector": {
-                "text": {
-                  "multiple": true
-                }
-              }
-            },
-            "keyword": {
-              "required": false,
-              "selector": {
-                "text": null
-              }
-            }
-          }
-        }
-      },
-      "response": {
-        "optional": false
-      }
-    }
-  },
-  "counter": {
-    "increment": {
-      "name": "Increment",
-      "description": "Increments a counter by its step size.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "counter"
-            ]
-          }
-        ]
-      }
-    },
-    "decrement": {
-      "name": "Decrement",
-      "description": "Decrements a counter by its step size.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "counter"
-            ]
-          }
-        ]
-      }
-    },
-    "reset": {
-      "name": "Reset",
-      "description": "Resets a counter to its initial value.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "counter"
-            ]
-          }
-        ]
-      }
-    },
-    "set_value": {
-      "name": "Set",
-      "description": "Sets the counter to a specific value.",
-      "fields": {
-        "value": {
-          "required": true,
-          "selector": {
-            "number": {
-              "min": 0,
-              "max": 9223372036854775807,
-              "mode": "box"
-            }
-          },
-          "name": "Value",
-          "description": "The new counter value the entity should be set to."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "counter"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "octopus_energy": {
-    "purge_invalid_external_statistic_ids": {
-      "name": "Purge invalid external statistics",
-      "description": "Removes external statistics for all meters that don\u0027t have an active tariff",
-      "fields": {}
-    },
-    "join_octoplus_saving_session_event": {
-      "name": "Join Octoplus saving session event",
-      "description": "Joins a given Octoplus saving session event.",
-      "fields": {
-        "event_code": {
-          "name": "Event code",
-          "description": "The code of the event that is to be joined.",
-          "selector": {
-            "text": null
-          }
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "integration": "octopus_energy",
-            "domain": [
-              "event"
-            ]
-          }
-        ]
-      }
-    },
-    "refresh_previous_consumption_data": {
-      "name": "Refresh previous consumption data",
-      "description": "Refreshes the previous consumption data for a given entity from a given date.",
-      "fields": {
-        "start_date": {
-          "name": "Date",
-          "description": "The date the data should be loaded from.",
-          "required": true,
-          "selector": {
-            "date": null
-          }
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "integration": "octopus_energy",
-            "domain": [
-              "sensor"
-            ]
-          }
-        ]
-      }
-    },
-    "spin_wheel_of_fortune": {
-      "name": "Spin wheel of fortune",
-      "description": "Spins the wheel of fortune for a given energy type",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "integration": "octopus_energy",
-            "domain": [
-              "sensor"
-            ]
-          }
-        ]
-      }
-    },
-    "redeem_octoplus_points_into_account_credit": {
-      "name": "Redeem octoplus points into account credit",
-      "description": "Redeems a given number of octoplus points into account credit",
-      "fields": {
-        "points_to_redeem": {
-          "name": "Points to redeem",
-          "description": "The number of points to redeem",
-          "selector": {
-            "number": {
-              "min": 8,
-              "step": 1,
-              "mode": "box"
-            }
-          }
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "integration": "octopus_energy",
-            "domain": [
-              "sensor"
-            ]
-          }
-        ]
-      }
-    },
-    "register_rate_weightings": {
-      "name": "Register rate weightings",
-      "description": "Registers external weightings against rates, for use with target rate sensors when calculating target periods.",
-      "fields": {
-        "weightings": {
-          "name": "Weightings",
-          "description": "The collection of time periods and associated weightings to apply.",
-          "example": "[\n  {\n    \u0022start\u0022: \u00222025-01-01T00:00:00Z\u0022,\n    \u0022end\u0022: \u00222025-01-01T00:30:00Z\u0022,\n    \u0022weighting\u0022: 0.1\n  }\n]",
-          "selector": {
-            "object": null
-          }
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "integration": "octopus_energy",
-            "domain": [
-              "sensor"
-            ]
-          }
-        ]
-      }
     }
   },
   "media_player": {
@@ -4286,7 +3746,7 @@
             "text": null
           },
           "name": "Content type",
-          "description": "The type of the content to play. Such as image, music, tv show, video, episode, channel, or playlist."
+          "description": "The type of the content to play, such as image, music, tv show, video, episode, channel, or playlist."
         },
         "enqueue": {
           "filter": {
@@ -4337,17 +3797,53 @@
         ]
       }
     },
+    "browse_media": {
+      "name": "Browse media",
+      "description": "Browses the available media.",
+      "fields": {
+        "media_content_type": {
+          "required": false,
+          "example": "music",
+          "selector": {
+            "text": null
+          },
+          "name": "Content type",
+          "description": "The type of the content to browse, such as image, music, tv show, video, episode, channel, or playlist."
+        },
+        "media_content_id": {
+          "required": false,
+          "example": "A:ALBUMARTIST/Beatles",
+          "selector": {
+            "text": null
+          },
+          "name": "Content ID",
+          "description": "The ID of the content to browse. Integration dependent."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "media_player"
+            ]
+          }
+        ]
+      },
+      "response": {
+        "optional": false
+      }
+    },
     "shuffle_set": {
-      "name": "Shuffle",
-      "description": "Playback mode that selects the media in randomized order.",
+      "name": "Set shuffle",
+      "description": "Enables or disables the shuffle mode.",
       "fields": {
         "shuffle": {
           "required": true,
           "selector": {
             "boolean": null
           },
-          "name": "Shuffle",
-          "description": "Whether or not shuffle mode is enabled."
+          "name": "Shuffle mode",
+          "description": "Whether the media should be played in randomized order or not."
         }
       },
       "target": {
@@ -4381,8 +3877,8 @@
       }
     },
     "repeat_set": {
-      "name": "Repeat",
-      "description": "Playback mode that plays the media in a loop.",
+      "name": "Set repeat",
+      "description": "Sets the repeat mode.",
       "fields": {
         "repeat": {
           "required": true,
@@ -4397,7 +3893,7 @@
             }
           },
           "name": "Repeat mode",
-          "description": "Repeat mode to set."
+          "description": "Whether the media (one or all) should be played in a loop or not."
         }
       },
       "target": {
@@ -5012,67 +4508,2362 @@
       }
     }
   },
-  "template": {
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads template entities from the YAML-configuration.",
-      "fields": {}
-    }
-  },
-  "input_datetime": {
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads helpers from the YAML-configuration.",
+  "octopus_energy": {
+    "purge_invalid_external_statistic_ids": {
+      "name": "Purge invalid external statistics",
+      "description": "Removes external statistics for all meters that don\u0027t have an active tariff",
       "fields": {}
     },
-    "set_datetime": {
-      "name": "Set",
-      "description": "Sets the date and/or time.",
+    "join_octoplus_saving_session_event": {
+      "name": "Join Octoplus saving session event",
+      "description": "Joins a given Octoplus saving session event.",
       "fields": {
-        "date": {
-          "example": "\u00222019-04-20\u0022",
+        "event_code": {
+          "name": "Event code",
+          "description": "The code of the event that is to be joined.",
           "selector": {
             "text": null
-          },
+          }
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "integration": "octopus_energy",
+            "domain": [
+              "event"
+            ]
+          }
+        ]
+      }
+    },
+    "refresh_previous_consumption_data": {
+      "name": "Refresh previous consumption data",
+      "description": "Refreshes the previous consumption data for a given entity from a given date.",
+      "fields": {
+        "start_date": {
           "name": "Date",
-          "description": "The target date."
-        },
-        "time": {
-          "example": "\u002205:04:20\u0022",
+          "description": "The date the data should be loaded from.",
+          "required": true,
           "selector": {
-            "time": null
-          },
-          "name": "Time",
-          "description": "The target time."
+            "date": null
+          }
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "integration": "octopus_energy",
+            "domain": [
+              "sensor"
+            ]
+          }
+        ]
+      }
+    },
+    "spin_wheel_of_fortune": {
+      "name": "Spin wheel of fortune",
+      "description": "Spins the wheel of fortune for a given energy type",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "integration": "octopus_energy",
+            "domain": [
+              "sensor"
+            ]
+          }
+        ]
+      }
+    },
+    "redeem_octoplus_points_into_account_credit": {
+      "name": "Redeem octoplus points into account credit",
+      "description": "Redeems a given number of octoplus points into account credit",
+      "fields": {
+        "points_to_redeem": {
+          "name": "Points to redeem",
+          "description": "The number of points to redeem",
+          "selector": {
+            "number": {
+              "min": 8,
+              "step": 1,
+              "mode": "box"
+            }
+          }
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "integration": "octopus_energy",
+            "domain": [
+              "sensor"
+            ]
+          }
+        ]
+      }
+    },
+    "register_rate_weightings": {
+      "name": "Register rate weightings",
+      "description": "Registers external weightings against rates, for use with target rate sensors when calculating target periods.",
+      "fields": {
+        "weightings": {
+          "name": "Weightings",
+          "description": "The collection of time periods and associated weightings to apply.",
+          "example": "[\n  {\n    \u0022start\u0022: \u00222025-01-01T00:00:00Z\u0022,\n    \u0022end\u0022: \u00222025-01-01T00:30:00Z\u0022,\n    \u0022weighting\u0022: 0.1\n  }\n]",
+          "selector": {
+            "object": null
+          }
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "integration": "octopus_energy",
+            "domain": [
+              "sensor"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "script": {
+    "feed_cats": {
+      "name": "Feed Cats",
+      "description": "",
+      "fields": {},
+      "response": {
+        "optional": true
+      }
+    },
+    "notify_alexa_everywhere": {
+      "name": "Notify Alexa Everywhere",
+      "description": "",
+      "fields": {},
+      "response": {
+        "optional": true
+      }
+    },
+    "notify_all": {
+      "name": "Notify All",
+      "description": "",
+      "fields": {},
+      "response": {
+        "optional": true
+      }
+    },
+    "room_controller_reset": {
+      "name": "Room Controller Reset",
+      "description": "",
+      "fields": {},
+      "response": {
+        "optional": true
+      }
+    },
+    "new_script": {
+      "name": "activate_alexa_actionable_notification",
+      "description": "Activates an actionable notification on a specific echo device",
+      "fields": {
+        "text": {
+          "description": "The text you would like alexa to speak.",
+          "example": "What would you like the thermostat set to?",
+          "required": false,
+          "advanced": false
         },
-        "datetime": {
-          "example": "\u00222019-04-20 05:04:20\u0022",
+        "event_id": {
+          "description": "Correlation ID for event responses",
+          "example": "ask_for_temperature",
+          "required": false,
+          "advanced": false
+        },
+        "alexa_device": {
+          "description": "Alexa device you want to trigger",
+          "example": "media_player.bedroom_echo",
+          "required": false,
+          "advanced": false
+        }
+      },
+      "response": {
+        "optional": true
+      }
+    },
+    "alarm_triggered": {
+      "name": "Alarm Triggered",
+      "description": "",
+      "fields": {},
+      "response": {
+        "optional": true
+      }
+    },
+    "yeelight_dimmer": {
+      "name": "Yeelight Dimmer Up",
+      "description": "",
+      "fields": {
+        "entitiy_id": {
+          "name": "entitiy_id",
+          "description": "The entity ID of your bulb",
+          "example": "light.your_light",
+          "required": true,
+          "advanced": false
+        },
+        "button_state": {
+          "name": "button_state",
+          "description": "The entity ID of the input_text helper for your button state",
+          "example": "input_text.your_button_state",
+          "required": true,
+          "advanced": false
+        }
+      },
+      "response": {
+        "optional": true
+      }
+    },
+    "yeelight_dimmer_down": {
+      "name": "Yeelight Dimmer Down",
+      "description": "",
+      "fields": {
+        "entitiy_id": {
+          "name": "entitiy_id",
+          "description": "The entity ID of your bulb",
+          "example": "light.your_light",
+          "required": true,
+          "advanced": false
+        },
+        "button_state": {
+          "name": "button_state",
+          "description": "The entity ID of the input_text helper for your button state",
+          "example": "input_text.your_button_state",
+          "required": true,
+          "advanced": false
+        }
+      },
+      "response": {
+        "optional": true
+      }
+    },
+    "camera_shed_snapshot_ai_notification": {
+      "name": "Camera - shed - Snapshot, AI \u0026 Notification",
+      "description": "",
+      "fields": {},
+      "response": {
+        "optional": true
+      }
+    },
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads all the available scripts.",
+      "fields": {}
+    },
+    "turn_on": {
+      "name": "Turn on",
+      "description": "Runs the sequence of actions defined in a script.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "script"
+            ]
+          }
+        ]
+      }
+    },
+    "turn_off": {
+      "name": "Turn off",
+      "description": "Stops a running script.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "script"
+            ]
+          }
+        ]
+      }
+    },
+    "toggle": {
+      "name": "Toggle",
+      "description": "Starts a script if it isn\u0027t running, stops it otherwise.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "script"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "shopping_list": {
+    "add_item": {
+      "name": "Add item",
+      "description": "Adds an item to the shopping list.",
+      "fields": {
+        "name": {
+          "required": true,
+          "example": "Beer",
           "selector": {
             "text": null
           },
-          "name": "Date \u0026 time",
-          "description": "The target date \u0026 time."
+          "name": "Name",
+          "description": "The name of the item to add."
+        }
+      }
+    },
+    "remove_item": {
+      "name": "Remove item",
+      "description": "Removes the first item with matching name from the shopping list.",
+      "fields": {
+        "name": {
+          "required": true,
+          "example": "Beer",
+          "selector": {
+            "text": null
+          },
+          "name": "Name",
+          "description": "The name of the item to remove."
+        }
+      }
+    },
+    "complete_item": {
+      "name": "Complete item",
+      "description": "Marks the first item with matching name as completed in the shopping list.",
+      "fields": {
+        "name": {
+          "required": true,
+          "example": "Beer",
+          "selector": {
+            "text": null
+          },
+          "name": "Name",
+          "description": "The name of the item to mark as completed (without removing)."
+        }
+      }
+    },
+    "incomplete_item": {
+      "name": "Incomplete item",
+      "description": "Marks the first item with matching name as incomplete in the shopping list.",
+      "fields": {
+        "name": {
+          "example": "Beer",
+          "required": true,
+          "selector": {
+            "text": null
+          },
+          "name": "Name",
+          "description": "The name of the item to mark as incomplete."
+        }
+      }
+    },
+    "complete_all": {
+      "name": "Complete all",
+      "description": "Marks all items as completed in the shopping list (without removing them from the list).",
+      "fields": {}
+    },
+    "incomplete_all": {
+      "name": "Incomplete all",
+      "description": "Marks all items as incomplete in the shopping list.",
+      "fields": {}
+    },
+    "clear_completed_items": {
+      "name": "Clear completed items",
+      "description": "Removes completed items from the shopping list.",
+      "fields": {}
+    },
+    "sort": {
+      "name": "Sort all items",
+      "description": "Sorts all items by name in the shopping list.",
+      "fields": {
+        "reverse": {
+          "default": false,
+          "selector": {
+            "boolean": null
+          },
+          "name": "Sort reverse",
+          "description": "Whether to sort in reverse (descending) order."
+        }
+      }
+    }
+  },
+  "localtuya": {
+    "reload": {
+      "name": "Reload",
+      "description": "Reload localtuya and reconnect to all devices.",
+      "fields": {}
+    },
+    "set_dp": {
+      "name": "Set datapoint",
+      "description": "Change the value of a datapoint (DP)",
+      "fields": {
+        "device_id": {
+          "description": "Device ID of device to change datapoint value for",
+          "example": "11100118278aab4de001",
+          "name": "Device ID"
         },
-        "timestamp": {
+        "dp": {
+          "description": "Datapoint index",
+          "example": 1,
+          "name": "DP"
+        },
+        "value": {
+          "description": "New value to set",
+          "example": false,
+          "name": "Value"
+        }
+      }
+    }
+  },
+  "habitica": {
+    "abort_quest": {
+      "name": "Abort an active quest",
+      "description": "Terminates your party\u0027s ongoing quest. All progress will be lost and the quest roll returned to the owner\u0027s inventory. Only quest leader or group leader can perform this action.",
+      "fields": {
+        "config_entry": {
+          "required": true,
+          "selector": {
+            "config_entry": {
+              "integration": "habitica"
+            }
+          },
+          "name": "Select character",
+          "description": "Choose the Habitica character for which to perform the action."
+        }
+      },
+      "response": {
+        "optional": false
+      }
+    },
+    "accept_quest": {
+      "name": "Accept a quest invitation",
+      "description": "Accepts a pending invitation to a quest.",
+      "fields": {
+        "config_entry": {
+          "required": true,
+          "selector": {
+            "config_entry": {
+              "integration": "habitica"
+            }
+          },
+          "name": "Select character",
+          "description": "Choose the Habitica character for which to perform the action."
+        }
+      },
+      "response": {
+        "optional": false
+      }
+    },
+    "cancel_quest": {
+      "name": "Cancel a pending quest",
+      "description": "Cancels a quest that has not yet started. All accepted and pending invitations will be canceled and the quest roll returned to the owner\u0027s inventory. Only quest leader or group leader can perform this action.",
+      "fields": {
+        "config_entry": {
+          "required": true,
+          "selector": {
+            "config_entry": {
+              "integration": "habitica"
+            }
+          },
+          "name": "Select character",
+          "description": "Choose the Habitica character for which to perform the action."
+        }
+      },
+      "response": {
+        "optional": false
+      }
+    },
+    "leave_quest": {
+      "name": "Leave a quest",
+      "description": "Leaves the current quest you are participating in.",
+      "fields": {
+        "config_entry": {
+          "required": true,
+          "selector": {
+            "config_entry": {
+              "integration": "habitica"
+            }
+          },
+          "name": "Select character",
+          "description": "Choose the Habitica character for which to perform the action."
+        }
+      },
+      "response": {
+        "optional": false
+      }
+    },
+    "reject_quest": {
+      "name": "Reject a quest invitation",
+      "description": "Rejects a pending invitation to a quest.",
+      "fields": {
+        "config_entry": {
+          "required": true,
+          "selector": {
+            "config_entry": {
+              "integration": "habitica"
+            }
+          },
+          "name": "Select character",
+          "description": "Choose the Habitica character for which to perform the action."
+        }
+      },
+      "response": {
+        "optional": false
+      }
+    },
+    "start_quest": {
+      "name": "Force-start a pending quest",
+      "description": "Begins the quest immediately, bypassing any pending invitations that haven\u0027t been accepted or rejected. Only quest leader or group leader can perform this action.",
+      "fields": {
+        "config_entry": {
+          "required": true,
+          "selector": {
+            "config_entry": {
+              "integration": "habitica"
+            }
+          },
+          "name": "Select character",
+          "description": "Choose the Habitica character for which to perform the action."
+        }
+      },
+      "response": {
+        "optional": false
+      }
+    },
+    "update_daily": {
+      "name": "Update a daily",
+      "description": "Updates a specific daily for a selected Habitica character",
+      "fields": {
+        "config_entry": {
+          "required": true,
+          "selector": {
+            "config_entry": {
+              "integration": "habitica"
+            }
+          },
+          "name": "Select character",
+          "description": "Select the Habitica account to update a task."
+        },
+        "task": {
+          "required": true,
+          "selector": {
+            "text": null
+          },
+          "name": "Task name",
+          "description": "The name (or task ID) of the daily you want to update."
+        },
+        "rename": {
+          "selector": {
+            "text": null
+          },
+          "name": "Rename",
+          "description": "The title for the Habitica task."
+        },
+        "notes": {
+          "required": false,
+          "selector": {
+            "text": {
+              "multiline": true
+            }
+          },
+          "name": "Notes",
+          "description": "The notes for the Habitica task."
+        },
+        "checklist_options": {
+          "collapsed": true,
+          "fields": {
+            "add_checklist_item": {
+              "required": false,
+              "selector": {
+                "text": {
+                  "multiple": true
+                }
+              }
+            },
+            "remove_checklist_item": {
+              "required": false,
+              "selector": {
+                "text": {
+                  "multiple": true
+                }
+              }
+            },
+            "score_checklist_item": {
+              "required": false,
+              "selector": {
+                "text": {
+                  "multiple": true
+                }
+              }
+            },
+            "unscore_checklist_item": {
+              "required": false,
+              "selector": {
+                "text": {
+                  "multiple": true
+                }
+              }
+            }
+          }
+        },
+        "priority": {
+          "required": false,
+          "selector": {
+            "select": {
+              "options": [
+                "trivial",
+                "easy",
+                "medium",
+                "hard"
+              ],
+              "mode": "dropdown",
+              "translation_key": "priority"
+            }
+          },
+          "name": "Difficulty",
+          "description": "The difficulty of the task."
+        },
+        "start_date": {
+          "required": false,
+          "selector": {
+            "date": null
+          },
+          "name": "Start date",
+          "description": "Defines when the daily task becomes active and specifies the exact weekday or day of the month it repeats on."
+        },
+        "frequency": {
+          "required": false,
+          "selector": {
+            "select": {
+              "options": [
+                "daily",
+                "weekly",
+                "monthly",
+                "yearly"
+              ],
+              "translation_key": "frequency",
+              "mode": "dropdown"
+            }
+          },
+          "name": "Repeat interval",
+          "description": "The repetition interval of a daily."
+        },
+        "every_x": {
+          "required": false,
           "selector": {
             "number": {
               "min": 0,
-              "max": 9223372036854775807,
+              "step": 1,
+              "unit_of_measurement": "\uD83D\uDD03",
               "mode": "box"
             }
           },
-          "name": "Timestamp",
-          "description": "The target date \u0026 time, expressed by a UNIX timestamp."
+          "name": "Repeat every X",
+          "description": "The number of intervals (days, weeks, months, or years) after which the daily repeats, based on the chosen repetition interval. A value of 0 makes the daily inactive (\u0027Grey Daily\u0027)."
+        },
+        "repeat_weekly_options": {
+          "collapsed": true,
+          "fields": {
+            "repeat": {
+              "required": false,
+              "selector": {
+                "select": {
+                  "options": [
+                    "m",
+                    "t",
+                    "w",
+                    "th",
+                    "f",
+                    "s",
+                    "su"
+                  ],
+                  "mode": "list",
+                  "translation_key": "repeat",
+                  "multiple": true
+                }
+              }
+            }
+          }
+        },
+        "repeat_monthly_options": {
+          "collapsed": true,
+          "fields": {
+            "repeat_monthly": {
+              "required": false,
+              "selector": {
+                "select": {
+                  "options": [
+                    "day_of_month",
+                    "day_of_week"
+                  ],
+                  "translation_key": "repeat_monthly",
+                  "mode": "list"
+                }
+              }
+            }
+          }
+        },
+        "reminder_options": {
+          "collapsed": true,
+          "fields": {
+            "reminder": {
+              "required": false,
+              "selector": {
+                "text": {
+                  "type": "time",
+                  "multiple": true
+                }
+              }
+            },
+            "remove_reminder": {
+              "required": false,
+              "selector": {
+                "text": {
+                  "type": "time",
+                  "multiple": true
+                }
+              }
+            },
+            "clear_reminder": {
+              "required": false,
+              "selector": {
+                "constant": {
+                  "value": true,
+                  "label": "\uD83D\uDDD1\uFE0F"
+                }
+              }
+            }
+          }
+        },
+        "tag_options": {
+          "collapsed": true,
+          "fields": {
+            "tag": {
+              "required": false,
+              "selector": {
+                "text": {
+                  "multiple": true
+                }
+              }
+            },
+            "remove_tag": {
+              "required": false,
+              "selector": {
+                "text": {
+                  "multiple": true
+                }
+              }
+            }
+          }
+        },
+        "developer_options": {
+          "collapsed": true,
+          "fields": {
+            "streak": {
+              "required": false,
+              "selector": {
+                "number": {
+                  "min": 0,
+                  "step": 1,
+                  "unit_of_measurement": "\u25B6\u25B6",
+                  "mode": "box"
+                }
+              }
+            },
+            "alias": {
+              "required": false,
+              "selector": {
+                "text": null
+              }
+            }
+          }
+        }
+      },
+      "response": {
+        "optional": false
+      }
+    },
+    "update_habit": {
+      "name": "Update a habit",
+      "description": "Updates a specific habit for the selected Habitica character",
+      "fields": {
+        "config_entry": {
+          "required": true,
+          "selector": {
+            "config_entry": {
+              "integration": "habitica"
+            }
+          },
+          "name": "Select character",
+          "description": "Select the Habitica account to update a habit."
+        },
+        "task": {
+          "required": true,
+          "selector": {
+            "text": null
+          },
+          "name": "Task name",
+          "description": "The name (or task ID) of the task you want to update."
+        },
+        "rename": {
+          "selector": {
+            "text": null
+          },
+          "name": "Rename",
+          "description": "The title for the Habitica task."
+        },
+        "notes": {
+          "required": false,
+          "selector": {
+            "text": {
+              "multiline": true
+            }
+          },
+          "name": "Notes",
+          "description": "The notes for the Habitica task."
+        },
+        "up_down": {
+          "required": false,
+          "selector": {
+            "select": {
+              "options": [
+                {
+                  "value": "up",
+                  "label": "\u2795"
+                },
+                {
+                  "value": "down",
+                  "label": "\u2796"
+                }
+              ],
+              "multiple": true,
+              "mode": "list"
+            }
+          },
+          "name": "Rewards or losses",
+          "description": "Whether the habit is good and rewarding (positive), bad and penalizing (negative), or both."
+        },
+        "priority": {
+          "required": false,
+          "selector": {
+            "select": {
+              "options": [
+                "trivial",
+                "easy",
+                "medium",
+                "hard"
+              ],
+              "mode": "dropdown",
+              "translation_key": "priority"
+            }
+          },
+          "name": "Difficulty",
+          "description": "The difficulty of the task."
+        },
+        "frequency": {
+          "required": false,
+          "selector": {
+            "select": {
+              "options": [
+                "daily",
+                "weekly",
+                "monthly"
+              ],
+              "translation_key": "frequency",
+              "mode": "dropdown"
+            }
+          },
+          "name": "Counter reset",
+          "description": "The frequency at which the habit\u0027s counter resets: daily at the start of a new day, weekly after Sunday night, or monthly at the beginning of a new month."
+        },
+        "tag_options": {
+          "collapsed": true,
+          "fields": {
+            "tag": {
+              "required": false,
+              "selector": {
+                "text": {
+                  "multiple": true
+                }
+              }
+            },
+            "remove_tag": {
+              "required": false,
+              "selector": {
+                "text": {
+                  "multiple": true
+                }
+              }
+            }
+          }
+        },
+        "developer_options": {
+          "collapsed": true,
+          "fields": {
+            "counter_up": {
+              "required": false,
+              "selector": {
+                "number": {
+                  "min": 0,
+                  "step": 1,
+                  "unit_of_measurement": "\u2795",
+                  "mode": "box"
+                }
+              }
+            },
+            "counter_down": {
+              "required": false,
+              "selector": {
+                "number": {
+                  "min": 0,
+                  "step": 1,
+                  "unit_of_measurement": "\u2796",
+                  "mode": "box"
+                }
+              }
+            },
+            "alias": {
+              "required": false,
+              "selector": {
+                "text": null
+              }
+            }
+          }
+        }
+      },
+      "response": {
+        "optional": false
+      }
+    },
+    "update_reward": {
+      "name": "Update a reward",
+      "description": "Updates a specific reward for the selected Habitica character",
+      "fields": {
+        "config_entry": {
+          "required": true,
+          "selector": {
+            "config_entry": {
+              "integration": "habitica"
+            }
+          },
+          "name": "Select character",
+          "description": "Select the Habitica account to update a reward."
+        },
+        "task": {
+          "required": true,
+          "selector": {
+            "text": null
+          },
+          "name": "Task name",
+          "description": "The name (or task ID) of the task you want to update."
+        },
+        "rename": {
+          "selector": {
+            "text": null
+          },
+          "name": "Rename",
+          "description": "The title for the Habitica task."
+        },
+        "notes": {
+          "required": false,
+          "selector": {
+            "text": {
+              "multiline": true
+            }
+          },
+          "name": "Notes",
+          "description": "The notes for the Habitica task."
+        },
+        "cost": {
+          "required": false,
+          "selector": {
+            "number": {
+              "min": 0,
+              "step": 0.01,
+              "unit_of_measurement": "\uD83E\uDE99",
+              "mode": "box"
+            }
+          },
+          "name": "Cost",
+          "description": "Update the cost of a reward."
+        },
+        "tag_options": {
+          "collapsed": true,
+          "fields": {
+            "tag": {
+              "required": false,
+              "selector": {
+                "text": {
+                  "multiple": true
+                }
+              }
+            },
+            "remove_tag": {
+              "required": false,
+              "selector": {
+                "text": {
+                  "multiple": true
+                }
+              }
+            }
+          }
+        },
+        "developer_options": {
+          "collapsed": true,
+          "fields": {
+            "alias": {
+              "required": false,
+              "selector": {
+                "text": null
+              }
+            }
+          }
+        }
+      },
+      "response": {
+        "optional": false
+      }
+    },
+    "update_todo": {
+      "name": "Update a to-do",
+      "description": "Updates a specific to-do for a selected Habitica character",
+      "fields": {
+        "config_entry": {
+          "required": true,
+          "selector": {
+            "config_entry": {
+              "integration": "habitica"
+            }
+          },
+          "name": "Select character",
+          "description": "Select the Habitica account to update a task."
+        },
+        "task": {
+          "required": true,
+          "selector": {
+            "text": null
+          },
+          "name": "Task name",
+          "description": "The name (or task ID) of the to-do you want to update."
+        },
+        "rename": {
+          "selector": {
+            "text": null
+          },
+          "name": "Rename",
+          "description": "The title for the Habitica task."
+        },
+        "notes": {
+          "required": false,
+          "selector": {
+            "text": {
+              "multiline": true
+            }
+          },
+          "name": "Notes",
+          "description": "The notes for the Habitica task."
+        },
+        "checklist_options": {
+          "collapsed": true,
+          "fields": {
+            "add_checklist_item": {
+              "required": false,
+              "selector": {
+                "text": {
+                  "multiple": true
+                }
+              }
+            },
+            "remove_checklist_item": {
+              "required": false,
+              "selector": {
+                "text": {
+                  "multiple": true
+                }
+              }
+            },
+            "score_checklist_item": {
+              "required": false,
+              "selector": {
+                "text": {
+                  "multiple": true
+                }
+              }
+            },
+            "unscore_checklist_item": {
+              "required": false,
+              "selector": {
+                "text": {
+                  "multiple": true
+                }
+              }
+            }
+          }
+        },
+        "priority": {
+          "required": false,
+          "selector": {
+            "select": {
+              "options": [
+                "trivial",
+                "easy",
+                "medium",
+                "hard"
+              ],
+              "mode": "dropdown",
+              "translation_key": "priority"
+            }
+          },
+          "name": "Difficulty",
+          "description": "The difficulty of the task."
+        },
+        "duedate_options": {
+          "collapsed": true,
+          "fields": {
+            "date": {
+              "required": false,
+              "selector": {
+                "date": null
+              }
+            },
+            "clear_date": {
+              "required": false,
+              "selector": {
+                "constant": {
+                  "value": true,
+                  "label": "\uD83D\uDDD1\uFE0F"
+                }
+              }
+            }
+          }
+        },
+        "reminder_options": {
+          "collapsed": true,
+          "fields": {
+            "reminder": {
+              "required": false,
+              "selector": {
+                "text": {
+                  "type": "datetime-local",
+                  "multiple": true
+                }
+              }
+            },
+            "remove_reminder": {
+              "required": false,
+              "selector": {
+                "text": {
+                  "type": "datetime-local",
+                  "multiple": true
+                }
+              }
+            },
+            "clear_reminder": {
+              "required": false,
+              "selector": {
+                "constant": {
+                  "value": true,
+                  "label": "\uD83D\uDDD1\uFE0F"
+                }
+              }
+            }
+          }
+        },
+        "tag_options": {
+          "collapsed": true,
+          "fields": {
+            "tag": {
+              "required": false,
+              "selector": {
+                "text": {
+                  "multiple": true
+                }
+              }
+            },
+            "remove_tag": {
+              "required": false,
+              "selector": {
+                "text": {
+                  "multiple": true
+                }
+              }
+            }
+          }
+        },
+        "developer_options": {
+          "collapsed": true,
+          "fields": {
+            "alias": {
+              "required": false,
+              "selector": {
+                "text": null
+              }
+            }
+          }
+        }
+      },
+      "response": {
+        "optional": false
+      }
+    },
+    "create_daily": {
+      "name": "Create a daily",
+      "description": "Adds a new daily.",
+      "fields": {
+        "config_entry": {
+          "required": true,
+          "selector": {
+            "config_entry": {
+              "integration": "habitica"
+            }
+          },
+          "name": "Select character",
+          "description": "Select the Habitica account to update a task."
+        },
+        "name": {
+          "required": true,
+          "selector": {
+            "text": null
+          },
+          "name": "Task name",
+          "description": "The title for the Habitica task."
+        },
+        "notes": {
+          "required": false,
+          "selector": {
+            "text": {
+              "multiline": true
+            }
+          },
+          "name": "Notes",
+          "description": "The notes for the Habitica task."
+        },
+        "add_checklist_item": {
+          "required": false,
+          "selector": {
+            "text": {
+              "multiple": true
+            }
+          },
+          "name": "Checklist",
+          "description": "The items to add to a task\u0027s checklist."
+        },
+        "priority": {
+          "required": false,
+          "selector": {
+            "select": {
+              "options": [
+                "trivial",
+                "easy",
+                "medium",
+                "hard"
+              ],
+              "mode": "dropdown",
+              "translation_key": "priority"
+            }
+          },
+          "name": "Difficulty",
+          "description": "The difficulty of the task."
+        },
+        "start_date": {
+          "required": false,
+          "selector": {
+            "date": null
+          },
+          "name": "Start date",
+          "description": "Defines when the daily task becomes active and specifies the exact weekday or day of the month it repeats on."
+        },
+        "frequency": {
+          "required": false,
+          "selector": {
+            "select": {
+              "options": [
+                "daily",
+                "weekly",
+                "monthly",
+                "yearly"
+              ],
+              "translation_key": "frequency",
+              "mode": "dropdown"
+            }
+          },
+          "name": "Repeat interval",
+          "description": "The repetition interval of a daily."
+        },
+        "every_x": {
+          "required": false,
+          "selector": {
+            "number": {
+              "min": 0,
+              "step": 1,
+              "unit_of_measurement": "\uD83D\uDD03",
+              "mode": "box"
+            }
+          },
+          "name": "Repeat every X",
+          "description": "The number of intervals (days, weeks, months, or years) after which the daily repeats, based on the chosen repetition interval. A value of 0 makes the daily inactive (\u0027Grey Daily\u0027)."
+        },
+        "repeat_weekly_options": {
+          "collapsed": true,
+          "fields": {
+            "repeat": {
+              "required": false,
+              "selector": {
+                "select": {
+                  "options": [
+                    "m",
+                    "t",
+                    "w",
+                    "th",
+                    "f",
+                    "s",
+                    "su"
+                  ],
+                  "mode": "list",
+                  "translation_key": "repeat",
+                  "multiple": true
+                }
+              }
+            }
+          }
+        },
+        "repeat_monthly_options": {
+          "collapsed": true,
+          "fields": {
+            "repeat_monthly": {
+              "required": false,
+              "selector": {
+                "select": {
+                  "options": [
+                    "day_of_month",
+                    "day_of_week"
+                  ],
+                  "translation_key": "repeat_monthly",
+                  "mode": "list"
+                }
+              }
+            }
+          }
+        },
+        "reminder": {
+          "required": false,
+          "selector": {
+            "text": {
+              "type": "time",
+              "multiple": true
+            }
+          },
+          "name": "Reminders",
+          "description": "Add reminders to a Habitica task."
+        },
+        "tag": {
+          "required": false,
+          "selector": {
+            "text": {
+              "multiple": true
+            }
+          },
+          "name": "Tags",
+          "description": "Add tags to the Habitica task. If a tag does not already exist, a new one will be created."
+        },
+        "developer_options": {
+          "collapsed": true,
+          "fields": {
+            "alias": {
+              "required": false,
+              "selector": {
+                "text": null
+              }
+            }
+          }
+        }
+      },
+      "response": {
+        "optional": false
+      }
+    },
+    "create_habit": {
+      "name": "Create habit",
+      "description": "Adds a new habit.",
+      "fields": {
+        "config_entry": {
+          "required": true,
+          "selector": {
+            "config_entry": {
+              "integration": "habitica"
+            }
+          },
+          "name": "Select character",
+          "description": "Select the Habitica account to create a habit."
+        },
+        "name": {
+          "required": true,
+          "selector": {
+            "text": null
+          },
+          "name": "Task name",
+          "description": "The title for the Habitica task."
+        },
+        "notes": {
+          "required": false,
+          "selector": {
+            "text": {
+              "multiline": true
+            }
+          },
+          "name": "Notes",
+          "description": "The notes for the Habitica task."
+        },
+        "up_down": {
+          "required": false,
+          "selector": {
+            "select": {
+              "options": [
+                {
+                  "value": "up",
+                  "label": "\u2795"
+                },
+                {
+                  "value": "down",
+                  "label": "\u2796"
+                }
+              ],
+              "multiple": true,
+              "mode": "list"
+            }
+          },
+          "name": "Rewards or losses",
+          "description": "Whether the habit is good and rewarding (positive), bad and penalizing (negative), or both."
+        },
+        "priority": {
+          "required": false,
+          "selector": {
+            "select": {
+              "options": [
+                "trivial",
+                "easy",
+                "medium",
+                "hard"
+              ],
+              "mode": "dropdown",
+              "translation_key": "priority"
+            }
+          },
+          "name": "Difficulty",
+          "description": "The difficulty of the task."
+        },
+        "frequency": {
+          "required": false,
+          "selector": {
+            "select": {
+              "options": [
+                "daily",
+                "weekly",
+                "monthly"
+              ],
+              "translation_key": "frequency",
+              "mode": "dropdown"
+            }
+          },
+          "name": "Counter reset",
+          "description": "The frequency at which the habit\u0027s counter resets: daily at the start of a new day, weekly after Sunday night, or monthly at the beginning of a new month."
+        },
+        "tag": {
+          "required": false,
+          "selector": {
+            "text": {
+              "multiple": true
+            }
+          },
+          "name": "Tags",
+          "description": "Add tags to the Habitica task. If a tag does not already exist, a new one will be created."
+        },
+        "developer_options": {
+          "collapsed": true,
+          "fields": {
+            "alias": {
+              "required": false,
+              "selector": {
+                "text": null
+              }
+            }
+          }
+        }
+      },
+      "response": {
+        "optional": false
+      }
+    },
+    "create_reward": {
+      "name": "Create reward",
+      "description": "Adds a new custom reward.",
+      "fields": {
+        "config_entry": {
+          "required": true,
+          "selector": {
+            "config_entry": {
+              "integration": "habitica"
+            }
+          },
+          "name": "Select character",
+          "description": "Select the Habitica account to create a reward."
+        },
+        "name": {
+          "required": true,
+          "selector": {
+            "text": null
+          },
+          "name": "Task name",
+          "description": "The title for the Habitica task."
+        },
+        "notes": {
+          "required": false,
+          "selector": {
+            "text": {
+              "multiline": true
+            }
+          },
+          "name": "Notes",
+          "description": "The notes for the Habitica task."
+        },
+        "cost": {
+          "required": true,
+          "selector": {
+            "number": {
+              "min": 0,
+              "step": 0.01,
+              "unit_of_measurement": "\uD83E\uDE99",
+              "mode": "box"
+            }
+          },
+          "name": "Cost",
+          "description": "The cost of the reward."
+        },
+        "tag": {
+          "required": false,
+          "selector": {
+            "text": {
+              "multiple": true
+            }
+          },
+          "name": "Tags",
+          "description": "Add tags to the Habitica task. If a tag does not already exist, a new one will be created."
+        },
+        "developer_options": {
+          "collapsed": true,
+          "fields": {
+            "alias": {
+              "required": false,
+              "selector": {
+                "text": null
+              }
+            }
+          }
+        }
+      },
+      "response": {
+        "optional": false
+      }
+    },
+    "create_todo": {
+      "name": "Create to-do",
+      "description": "Adds a new to-do.",
+      "fields": {
+        "config_entry": {
+          "required": true,
+          "selector": {
+            "config_entry": {
+              "integration": "habitica"
+            }
+          },
+          "name": "Select character",
+          "description": "Select the Habitica account to create a to-do."
+        },
+        "name": {
+          "required": true,
+          "selector": {
+            "text": null
+          },
+          "name": "Task name",
+          "description": "The title for the Habitica task."
+        },
+        "notes": {
+          "required": false,
+          "selector": {
+            "text": {
+              "multiline": true
+            }
+          },
+          "name": "Notes",
+          "description": "The notes for the Habitica task."
+        },
+        "add_checklist_item": {
+          "required": false,
+          "selector": {
+            "text": {
+              "multiple": true
+            }
+          },
+          "name": "Checklist",
+          "description": "The items to add to a task\u0027s checklist."
+        },
+        "priority": {
+          "required": false,
+          "selector": {
+            "select": {
+              "options": [
+                "trivial",
+                "easy",
+                "medium",
+                "hard"
+              ],
+              "mode": "dropdown",
+              "translation_key": "priority"
+            }
+          },
+          "name": "Difficulty",
+          "description": "The difficulty of the task."
+        },
+        "date": {
+          "required": false,
+          "selector": {
+            "date": null
+          },
+          "name": "Due date",
+          "description": "The to-do\u0027s due date."
+        },
+        "reminder": {
+          "required": false,
+          "selector": {
+            "text": {
+              "type": "datetime-local",
+              "multiple": true
+            }
+          },
+          "name": "Reminders",
+          "description": "Add reminders to a Habitica task."
+        },
+        "tag": {
+          "required": false,
+          "selector": {
+            "text": {
+              "multiple": true
+            }
+          },
+          "name": "Tags",
+          "description": "Add tags to the Habitica task. If a tag does not already exist, a new one will be created."
+        },
+        "developer_options": {
+          "collapsed": true,
+          "fields": {
+            "alias": {
+              "required": false,
+              "selector": {
+                "text": null
+              }
+            }
+          }
+        }
+      },
+      "response": {
+        "optional": false
+      }
+    },
+    "api_call": {
+      "name": "API name",
+      "description": "Calls Habitica API.",
+      "fields": {
+        "name": {
+          "required": true,
+          "example": "xxxNotAValidNickxxx",
+          "selector": {
+            "text": null
+          },
+          "name": "Name",
+          "description": "Habitica\u0027s username to call for."
+        },
+        "path": {
+          "required": true,
+          "example": "[\u0022tasks\u0022, \u0022user\u0022, \u0022post\u0022]",
+          "selector": {
+            "object": null
+          },
+          "name": "Path",
+          "description": "Items from API URL in form of an array with method attached at the end. Consult https://habitica.com/apidoc/. Example uses https://habitica.com/apidoc/#api-Task-CreateUserTasks."
+        },
+        "args": {
+          "example": "{\u0022text\u0022: \u0022Use API from Home Assistant\u0022, \u0022type\u0022: \u0022todo\u0022}",
+          "selector": {
+            "object": null
+          },
+          "name": "Args",
+          "description": "Any additional JSON or URL parameter arguments. See apidoc mentioned for path. Example uses same API endpoint."
+        }
+      }
+    },
+    "cast_skill": {
+      "name": "Cast a skill",
+      "description": "Uses a skill or spell from your Habitica character on a specific task to affect its progress or status.",
+      "fields": {
+        "config_entry": {
+          "required": true,
+          "selector": {
+            "config_entry": {
+              "integration": "habitica"
+            }
+          },
+          "name": "Select character",
+          "description": "Choose the Habitica character to cast the skill."
+        },
+        "skill": {
+          "required": true,
+          "selector": {
+            "select": {
+              "options": [
+                "pickpocket",
+                "backstab",
+                "smash",
+                "fireball"
+              ],
+              "mode": "dropdown",
+              "translation_key": "skill_select"
+            }
+          },
+          "name": "Skill",
+          "description": "Select the skill or spell you want to cast on the task. Only skills corresponding to your character\u0027s class can be used."
+        },
+        "task": {
+          "required": true,
+          "selector": {
+            "text": null
+          },
+          "name": "Task name",
+          "description": "The name (or task ID) of the task you want to target with the skill or spell."
+        }
+      },
+      "response": {
+        "optional": false
+      }
+    },
+    "score_habit": {
+      "name": "Track a habit",
+      "description": "Increases the positive or negative streak of a habit to track its progress.",
+      "fields": {
+        "config_entry": {
+          "required": true,
+          "selector": {
+            "config_entry": {
+              "integration": "habitica"
+            }
+          },
+          "name": "Select character",
+          "description": "Select the Habitica character tracking your habit."
+        },
+        "task": {
+          "required": true,
+          "selector": {
+            "text": null
+          },
+          "name": "Habit name",
+          "description": "The name (or task ID) of the Habitica habit."
+        },
+        "direction": {
+          "required": true,
+          "selector": {
+            "select": {
+              "options": [
+                {
+                  "value": "up",
+                  "label": "\u2795"
+                },
+                {
+                  "value": "down",
+                  "label": "\u2796"
+                }
+              ]
+            }
+          },
+          "name": "Reward or loss",
+          "description": "Is it positive or negative progress you want to track for your habit."
+        }
+      },
+      "response": {
+        "optional": false
+      }
+    },
+    "score_reward": {
+      "name": "Buy a reward",
+      "description": "Buys one of your custom rewards with gold earned by fulfilling tasks.",
+      "fields": {
+        "config_entry": {
+          "required": true,
+          "selector": {
+            "config_entry": {
+              "integration": "habitica"
+            }
+          },
+          "name": "Select character",
+          "description": "Select the Habitica character buying the reward."
+        },
+        "task": {
+          "required": true,
+          "selector": {
+            "text": null
+          },
+          "name": "Reward name",
+          "description": "The name (or task ID) of the custom reward."
+        }
+      },
+      "response": {
+        "optional": false
+      }
+    },
+    "transformation": {
+      "name": "Use a transformation item",
+      "description": "Uses a transformation item from your Habitica character\u0027s inventory on a member of your party or yourself.",
+      "fields": {
+        "config_entry": {
+          "required": true,
+          "selector": {
+            "config_entry": {
+              "integration": "habitica"
+            }
+          },
+          "name": "Select character",
+          "description": "Choose the Habitica character to use the transformation item."
+        },
+        "item": {
+          "required": true,
+          "selector": {
+            "select": {
+              "options": [
+                "snowball",
+                "spooky_sparkles",
+                "seafoam",
+                "shiny_seed"
+              ],
+              "mode": "dropdown",
+              "translation_key": "transformation_item_select"
+            }
+          },
+          "name": "Transformation item",
+          "description": "Select the transformation item you want to use. Item must be in the characters inventory."
+        },
+        "target": {
+          "required": true,
+          "selector": {
+            "text": null
+          },
+          "name": "Target character",
+          "description": "The name of the character you want to use the transformation item on. You can also specify the players username or user ID."
+        }
+      },
+      "response": {
+        "optional": false
+      }
+    },
+    "get_tasks": {
+      "name": "Get tasks",
+      "description": "Retrieves tasks from your Habitica character.",
+      "fields": {
+        "config_entry": {
+          "required": true,
+          "selector": {
+            "config_entry": {
+              "integration": "habitica"
+            }
+          },
+          "name": "Select character",
+          "description": "Choose the Habitica character to retrieve tasks from."
+        },
+        "filter": {
+          "collapsed": true,
+          "fields": {
+            "type": {
+              "required": false,
+              "selector": {
+                "select": {
+                  "options": [
+                    "habit",
+                    "daily",
+                    "todo",
+                    "reward"
+                  ],
+                  "mode": "dropdown",
+                  "translation_key": "type",
+                  "multiple": true,
+                  "sort": true
+                }
+              }
+            },
+            "priority": {
+              "required": false,
+              "selector": {
+                "select": {
+                  "options": [
+                    "trivial",
+                    "easy",
+                    "medium",
+                    "hard"
+                  ],
+                  "mode": "dropdown",
+                  "translation_key": "priority",
+                  "multiple": true,
+                  "sort": false
+                }
+              }
+            },
+            "task": {
+              "required": false,
+              "selector": {
+                "text": {
+                  "multiple": true
+                }
+              }
+            },
+            "tag": {
+              "required": false,
+              "selector": {
+                "text": {
+                  "multiple": true
+                }
+              }
+            },
+            "keyword": {
+              "required": false,
+              "selector": {
+                "text": null
+              }
+            }
+          }
+        }
+      },
+      "response": {
+        "optional": false
+      }
+    }
+  },
+  "music_assistant": {
+    "search": {
+      "name": "Search Music Assistant",
+      "description": "Performs a global search on the Music Assistant library and all providers.",
+      "fields": {
+        "config_entry_id": {
+          "required": true,
+          "selector": {
+            "config_entry": {
+              "integration": "music_assistant"
+            }
+          },
+          "name": "Music Assistant instance",
+          "description": "Select the Music Assistant instance to perform the search on."
+        },
+        "name": {
+          "required": true,
+          "example": "We Are The Champions",
+          "selector": {
+            "text": null
+          },
+          "name": "Search name",
+          "description": "The name/title to search for."
+        },
+        "media_type": {
+          "example": "playlist",
+          "selector": {
+            "select": {
+              "multiple": true,
+              "translation_key": "media_type",
+              "options": [
+                "artist",
+                "album",
+                "audiobook",
+                "playlist",
+                "podcast",
+                "track",
+                "radio"
+              ]
+            }
+          },
+          "name": "Media type(s)",
+          "description": "The type of the content to search. Such as artist, album, track, radio, or playlist. All types if omitted."
+        },
+        "artist": {
+          "example": "Queen",
+          "selector": {
+            "text": null
+          },
+          "name": "Artist name",
+          "description": "When specifying a track or album name in the name field, you can optionally restrict results by this artist name."
+        },
+        "album": {
+          "example": "News of the world",
+          "selector": {
+            "text": null
+          },
+          "name": "Album name",
+          "description": "When specifying a track name in the name field, you can optionally restrict results by this album name."
+        },
+        "limit": {
+          "advanced": true,
+          "example": 25,
+          "default": 5,
+          "selector": {
+            "number": {
+              "min": 1,
+              "max": 100,
+              "step": 1
+            }
+          },
+          "name": "Limit",
+          "description": "Maximum number of items to return (per media type)."
+        },
+        "library_only": {
+          "example": "true",
+          "default": false,
+          "selector": {
+            "boolean": null
+          },
+          "name": "Only library items",
+          "description": "Only include results that are in the library."
+        }
+      },
+      "response": {
+        "optional": false
+      }
+    },
+    "get_library": {
+      "name": "Get library items",
+      "description": "Retrieves items from a Music Assistant library.",
+      "fields": {
+        "config_entry_id": {
+          "required": true,
+          "selector": {
+            "config_entry": {
+              "integration": "music_assistant"
+            }
+          },
+          "name": "Music Assistant instance",
+          "description": "Select the Music Assistant instance to perform the search on."
+        },
+        "media_type": {
+          "required": true,
+          "example": "playlist",
+          "selector": {
+            "select": {
+              "translation_key": "media_type",
+              "options": [
+                "artist",
+                "album",
+                "audiobook",
+                "playlist",
+                "podcast",
+                "track",
+                "radio"
+              ]
+            }
+          },
+          "name": "Media type",
+          "description": "The media type for which to request details for."
+        },
+        "favorite": {
+          "example": "true",
+          "default": false,
+          "selector": {
+            "boolean": null
+          },
+          "name": "Favorites only",
+          "description": "Filter items so only favorites items are returned."
+        },
+        "search": {
+          "example": "We Are The Champions",
+          "selector": {
+            "text": null
+          },
+          "name": "Search",
+          "description": "Optional search string to search through this library."
+        },
+        "limit": {
+          "advanced": true,
+          "example": 25,
+          "default": 25,
+          "selector": {
+            "number": {
+              "min": 1,
+              "max": 500,
+              "step": 1
+            }
+          },
+          "name": "Limit",
+          "description": "Maximum number of items to return."
+        },
+        "offset": {
+          "advanced": true,
+          "example": 25,
+          "default": 0,
+          "selector": {
+            "number": {
+              "min": 1,
+              "max": 1000000,
+              "step": 1
+            }
+          },
+          "name": "Offset",
+          "description": "Offset to start the list from."
+        },
+        "order_by": {
+          "example": "random",
+          "selector": {
+            "select": {
+              "translation_key": "order_by",
+              "options": [
+                "name",
+                "name_desc",
+                "sort_name",
+                "sort_name_desc",
+                "timestamp_added",
+                "timestamp_added_desc",
+                "last_played",
+                "last_played_desc",
+                "play_count",
+                "play_count_desc",
+                "year",
+                "year_desc",
+                "position",
+                "position_desc",
+                "artist_name",
+                "artist_name_desc",
+                "random",
+                "random_play_count"
+              ]
+            }
+          },
+          "name": "Order by",
+          "description": "Sort the list by this field."
+        },
+        "album_type": {
+          "example": "single",
+          "selector": {
+            "select": {
+              "multiple": true,
+              "translation_key": "album_type",
+              "options": [
+                "album",
+                "single",
+                "compilation",
+                "ep",
+                "unknown"
+              ]
+            }
+          },
+          "name": "Album type filter (albums library only)",
+          "description": "Filter albums by type."
+        },
+        "album_artists_only": {
+          "example": "true",
+          "default": false,
+          "selector": {
+            "boolean": null
+          },
+          "name": "Enable album artists filter (only for artist library)",
+          "description": "Only return album artists when listing the artists library items."
+        }
+      },
+      "response": {
+        "optional": false
+      }
+    },
+    "play_media": {
+      "name": "Play media",
+      "description": "Plays media on a Music Assistant player with more fine-grained control options.",
+      "fields": {
+        "media_id": {
+          "required": true,
+          "example": "spotify://playlist/aabbccddeeff",
+          "selector": {
+            "object": null
+          },
+          "name": "Media ID(s)",
+          "description": "URI or name of the item you want to play. Specify a list if you want to play/enqueue multiple items."
+        },
+        "media_type": {
+          "example": "playlist",
+          "selector": {
+            "select": {
+              "translation_key": "media_type",
+              "options": [
+                "artist",
+                "album",
+                "audiobook",
+                "folder",
+                "playlist",
+                "podcast",
+                "track",
+                "radio"
+              ]
+            }
+          },
+          "name": "Media type",
+          "description": "The type of the content to play. Such as artist, album, track or playlist. Will be auto-determined if omitted."
+        },
+        "artist": {
+          "example": "Queen",
+          "selector": {
+            "text": null
+          },
+          "name": "Artist name",
+          "description": "When specifying a track or album by name in the Media ID field, you can optionally restrict results by this artist name."
+        },
+        "album": {
+          "example": "News of the world",
+          "selector": {
+            "text": null
+          },
+          "name": "Album name",
+          "description": "When specifying a track by name in the Media ID field, you can optionally restrict results by this album name."
+        },
+        "enqueue": {
+          "selector": {
+            "select": {
+              "options": [
+                "play",
+                "replace",
+                "next",
+                "replace_next",
+                "add"
+              ],
+              "translation_key": "enqueue"
+            }
+          },
+          "name": "Enqueue",
+          "description": "If the content should be played now or added to the queue."
+        },
+        "radio_mode": {
+          "advanced": true,
+          "selector": {
+            "boolean": null
+          },
+          "name": "Enable radio mode",
+          "description": "Enable radio mode to auto-generate a playlist based on the selection."
         }
       },
       "target": {
         "entity": [
           {
             "domain": [
-              "input_datetime"
+              "media_player"
+            ],
+            "integration": "music_assistant",
+            "supported_features": [
+              512
             ]
           }
         ]
+      }
+    },
+    "play_announcement": {
+      "name": "Play announcement",
+      "description": "Plays an announcement on a Music Assistant player with more fine-grained control options.",
+      "fields": {
+        "url": {
+          "required": true,
+          "example": "http://someremotesite.com/doorbell.mp3",
+          "selector": {
+            "text": null
+          },
+          "name": "URL",
+          "description": "URL to the notification sound."
+        },
+        "use_pre_announce": {
+          "example": "true",
+          "selector": {
+            "boolean": null
+          },
+          "name": "Use pre-announce",
+          "description": "Use pre-announcement sound for the announcement. Omit to use the player default."
+        },
+        "announce_volume": {
+          "example": 75,
+          "selector": {
+            "number": {
+              "min": 1,
+              "max": 100,
+              "step": 1
+            }
+          },
+          "name": "Announce volume",
+          "description": "Use a forced volume level for the announcement. Omit to use player default."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "media_player"
+            ],
+            "integration": "music_assistant",
+            "supported_features": [
+              512,
+              1048576
+            ]
+          }
+        ]
+      }
+    },
+    "transfer_queue": {
+      "name": "Transfer queue",
+      "description": "Transfers a player\u0027s queue to another player.",
+      "fields": {
+        "source_player": {
+          "selector": {
+            "entity": {
+              "domain": "media_player",
+              "integration": "music_assistant"
+            }
+          },
+          "name": "Source media player",
+          "description": "The source media player which has the queue you want to transfer. When omitted, the first playing player will be used."
+        },
+        "auto_play": {
+          "example": "true",
+          "selector": {
+            "boolean": null
+          },
+          "name": "Auto play",
+          "description": "Start playing the queue on the target player. Omit to use the default behavior."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "media_player"
+            ],
+            "integration": "music_assistant"
+          }
+        ]
+      }
+    },
+    "get_queue": {
+      "name": "Get playerQueue details (advanced)",
+      "description": "Retrieves the details of the currently active queue of a Music Assistant player.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "media_player"
+            ],
+            "integration": "music_assistant",
+            "supported_features": [
+              512
+            ]
+          }
+        ]
+      },
+      "response": {
+        "optional": false
       }
     }
   },
@@ -5953,6 +7744,7 @@
       "fields": {
         "value": {
           "example": 42,
+          "required": true,
           "selector": {
             "text": null
           },
@@ -6372,183 +8164,6 @@
       }
     }
   },
-  "schedule": {
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads schedules from the YAML-configuration.",
-      "fields": {}
-    }
-  },
-  "script": {
-    "feed_cats": {
-      "name": "Feed Cats",
-      "description": "",
-      "fields": {},
-      "response": {
-        "optional": true
-      }
-    },
-    "notify_alexa_everywhere": {
-      "name": "Notify Alexa Everywhere",
-      "description": "",
-      "fields": {},
-      "response": {
-        "optional": true
-      }
-    },
-    "notify_all": {
-      "name": "Notify All",
-      "description": "",
-      "fields": {},
-      "response": {
-        "optional": true
-      }
-    },
-    "room_controller_reset": {
-      "name": "Room Controller Reset",
-      "description": "",
-      "fields": {},
-      "response": {
-        "optional": true
-      }
-    },
-    "new_script": {
-      "name": "activate_alexa_actionable_notification",
-      "description": "Activates an actionable notification on a specific echo device",
-      "fields": {
-        "text": {
-          "description": "The text you would like alexa to speak.",
-          "example": "What would you like the thermostat set to?",
-          "required": false,
-          "advanced": false
-        },
-        "event_id": {
-          "description": "Correlation ID for event responses",
-          "example": "ask_for_temperature",
-          "required": false,
-          "advanced": false
-        },
-        "alexa_device": {
-          "description": "Alexa device you want to trigger",
-          "example": "media_player.bedroom_echo",
-          "required": false,
-          "advanced": false
-        }
-      },
-      "response": {
-        "optional": true
-      }
-    },
-    "alarm_triggered": {
-      "name": "Alarm Triggered",
-      "description": "",
-      "fields": {},
-      "response": {
-        "optional": true
-      }
-    },
-    "yeelight_dimmer": {
-      "name": "Yeelight Dimmer Up",
-      "description": "",
-      "fields": {
-        "entitiy_id": {
-          "name": "entitiy_id",
-          "description": "The entity ID of your bulb",
-          "example": "light.your_light",
-          "required": true,
-          "advanced": false
-        },
-        "button_state": {
-          "name": "button_state",
-          "description": "The entity ID of the input_text helper for your button state",
-          "example": "input_text.your_button_state",
-          "required": true,
-          "advanced": false
-        }
-      },
-      "response": {
-        "optional": true
-      }
-    },
-    "yeelight_dimmer_down": {
-      "name": "Yeelight Dimmer Down",
-      "description": "",
-      "fields": {
-        "entitiy_id": {
-          "name": "entitiy_id",
-          "description": "The entity ID of your bulb",
-          "example": "light.your_light",
-          "required": true,
-          "advanced": false
-        },
-        "button_state": {
-          "name": "button_state",
-          "description": "The entity ID of the input_text helper for your button state",
-          "example": "input_text.your_button_state",
-          "required": true,
-          "advanced": false
-        }
-      },
-      "response": {
-        "optional": true
-      }
-    },
-    "camera_shed_snapshot_ai_notification": {
-      "name": "Camera - shed - Snapshot, AI \u0026 Notification",
-      "description": "",
-      "fields": {},
-      "response": {
-        "optional": true
-      }
-    },
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads all the available scripts.",
-      "fields": {}
-    },
-    "turn_on": {
-      "name": "Turn on",
-      "description": "Runs the sequence of actions defined in a script.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "script"
-            ]
-          }
-        ]
-      }
-    },
-    "turn_off": {
-      "name": "Turn off",
-      "description": "Stops a running script.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "script"
-            ]
-          }
-        ]
-      }
-    },
-    "toggle": {
-      "name": "Toggle",
-      "description": "Starts a script if it isn\u0027t running, stops it otherwise.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "script"
-            ]
-          }
-        ]
-      }
-    }
-  },
   "google_generative_ai_conversation": {
     "generate_content": {
       "name": "Generate content",
@@ -6571,7 +8186,18 @@
             "object": null
           },
           "name": "Image filename",
-          "description": "Images",
+          "description": "Deprecated. Use filenames instead.",
+          "example": "/config/www/image.jpg"
+        },
+        "filenames": {
+          "required": false,
+          "selector": {
+            "text": {
+              "multiple": true
+            }
+          },
+          "name": "Attachment filenames",
+          "description": "Attachments to add to the prompt (images, PDFs, etc)",
           "example": "/config/www/image.jpg"
         }
       },
@@ -6580,418 +8206,275 @@
       }
     }
   },
-  "music_assistant": {
-    "search": {
-      "name": "Search Music Assistant",
-      "description": "Performs a global search on the Music Assistant library and all providers.",
+  "onedrive": {
+    "upload": {
+      "name": "Upload file",
+      "description": "Uploads files to OneDrive.",
       "fields": {
         "config_entry_id": {
           "required": true,
           "selector": {
             "config_entry": {
-              "integration": "music_assistant"
+              "integration": "onedrive"
             }
           },
-          "name": "Music Assistant instance",
-          "description": "Select the Music Assistant instance to perform the search on."
+          "name": "Config entry ID",
+          "description": "The config entry representing the OneDrive you want to upload to."
         },
-        "name": {
-          "required": true,
-          "example": "We Are The Champions",
-          "selector": {
-            "text": null
-          },
-          "name": "Search name",
-          "description": "The name/title to search for."
-        },
-        "media_type": {
-          "example": "playlist",
-          "selector": {
-            "select": {
-              "multiple": true,
-              "translation_key": "media_type",
-              "options": [
-                "artist",
-                "album",
-                "playlist",
-                "track",
-                "radio"
-              ]
-            }
-          },
-          "name": "Media type(s)",
-          "description": "The type of the content to search. Such as artist, album, track, radio, or playlist. All types if omitted."
-        },
-        "artist": {
-          "example": "Queen",
-          "selector": {
-            "text": null
-          },
-          "name": "Artist name",
-          "description": "When specifying a track or album name in the name field, you can optionally restrict results by this artist name."
-        },
-        "album": {
-          "example": "News of the world",
-          "selector": {
-            "text": null
-          },
-          "name": "Album name",
-          "description": "When specifying a track name in the name field, you can optionally restrict results by this album name."
-        },
-        "limit": {
-          "advanced": true,
-          "example": 25,
-          "default": 5,
-          "selector": {
-            "number": {
-              "min": 1,
-              "max": 100,
-              "step": 1
-            }
-          },
-          "name": "Limit",
-          "description": "Maximum number of items to return (per media type)."
-        },
-        "library_only": {
-          "example": "true",
-          "default": false,
-          "selector": {
-            "boolean": null
-          },
-          "name": "Only library items",
-          "description": "Only include results that are in the library."
-        }
-      },
-      "response": {
-        "optional": false
-      }
-    },
-    "get_library": {
-      "name": "Get Library items",
-      "description": "Get items from a Music Assistant library.",
-      "fields": {
-        "config_entry_id": {
-          "required": true,
-          "selector": {
-            "config_entry": {
-              "integration": "music_assistant"
-            }
-          },
-          "name": "Music Assistant instance",
-          "description": "Select the Music Assistant instance to perform the search on."
-        },
-        "media_type": {
-          "required": true,
-          "example": "playlist",
-          "selector": {
-            "select": {
-              "translation_key": "media_type",
-              "options": [
-                "artist",
-                "album",
-                "playlist",
-                "track",
-                "radio"
-              ]
-            }
-          },
-          "name": "Media type",
-          "description": "The media type for which to request details for."
-        },
-        "favorite": {
-          "example": "true",
-          "default": false,
-          "selector": {
-            "boolean": null
-          },
-          "name": "Favorites only",
-          "description": "Filter items so only favorites items are returned."
-        },
-        "search": {
-          "example": "We Are The Champions",
-          "selector": {
-            "text": null
-          },
-          "name": "Search",
-          "description": "Optional search string to search through this library."
-        },
-        "limit": {
-          "advanced": true,
-          "example": 25,
-          "default": 25,
-          "selector": {
-            "number": {
-              "min": 1,
-              "max": 500,
-              "step": 1
-            }
-          },
-          "name": "Limit",
-          "description": "Maximum number of items to return."
-        },
-        "offset": {
-          "advanced": true,
-          "example": 25,
-          "default": 0,
-          "selector": {
-            "number": {
-              "min": 1,
-              "max": 1000000,
-              "step": 1
-            }
-          },
-          "name": "Offset",
-          "description": "Offset to start the list from."
-        },
-        "order_by": {
-          "example": "random",
-          "selector": {
-            "select": {
-              "translation_key": "order_by",
-              "options": [
-                "name",
-                "name_desc",
-                "sort_name",
-                "sort_name_desc",
-                "timestamp_added",
-                "timestamp_added_desc",
-                "last_played",
-                "last_played_desc",
-                "play_count",
-                "play_count_desc",
-                "year",
-                "year_desc",
-                "position",
-                "position_desc",
-                "artist_name",
-                "artist_name_desc",
-                "random",
-                "random_play_count"
-              ]
-            }
-          },
-          "name": "Order By",
-          "description": "Sort the list by this field."
-        },
-        "album_type": {
-          "example": "single",
-          "selector": {
-            "select": {
-              "multiple": true,
-              "translation_key": "album_type",
-              "options": [
-                "album",
-                "single",
-                "compilation",
-                "ep",
-                "unknown"
-              ]
-            }
-          },
-          "name": "Album type filter (albums library only)",
-          "description": "Filter albums by type."
-        },
-        "album_artists_only": {
-          "example": "true",
-          "default": false,
-          "selector": {
-            "boolean": null
-          },
-          "name": "Enable album artists filter (only for artist library)",
-          "description": "Only return Album Artists when listing the Artists library items."
-        }
-      },
-      "response": {
-        "optional": false
-      }
-    },
-    "play_media": {
-      "name": "Play media",
-      "description": "Plays media on a Music Assistant player with more fine-grained control options.",
-      "fields": {
-        "media_id": {
-          "required": true,
-          "example": "spotify://playlist/aabbccddeeff",
+        "filename": {
+          "required": false,
           "selector": {
             "object": null
           },
-          "name": "Media ID(s)",
-          "description": "URI or name of the item you want to play. Specify a list if you want to play/enqueue multiple items."
+          "name": "Filename",
+          "description": "Path to the file to upload.",
+          "example": "/config/www/image.jpg"
         },
-        "media_type": {
-          "example": "playlist",
+        "destination_folder": {
+          "required": true,
+          "selector": {
+            "text": null
+          },
+          "name": "Destination folder",
+          "description": "Folder inside the Home Assistant app folder (Apps/Home Assistant) you want to upload the file to. Will be created if it does not exist.",
+          "example": "photos/snapshots"
+        }
+      },
+      "response": {
+        "optional": true
+      }
+    }
+  },
+  "todo": {
+    "add_item": {
+      "name": "Add item",
+      "description": "Adds a new to-do list item.",
+      "fields": {
+        "item": {
+          "required": true,
+          "example": "Submit income tax return",
+          "selector": {
+            "text": null
+          },
+          "name": "Item name",
+          "description": "The name that represents the to-do item."
+        },
+        "due_date": {
+          "filter": {
+            "supported_features": [
+              16
+            ]
+          },
+          "example": "2023-11-17",
+          "selector": {
+            "date": null
+          },
+          "name": "Due date",
+          "description": "The date the to-do item is expected to be completed."
+        },
+        "due_datetime": {
+          "filter": {
+            "supported_features": [
+              32
+            ]
+          },
+          "example": "2023-11-17 13:30:00",
+          "selector": {
+            "datetime": null
+          },
+          "name": "Due date and time",
+          "description": "The date and time the to-do item is expected to be completed."
+        },
+        "description": {
+          "filter": {
+            "supported_features": [
+              64
+            ]
+          },
+          "example": "A more complete description of the to-do item than that provided by the summary.",
+          "selector": {
+            "text": null
+          },
+          "name": "Description",
+          "description": "A more complete description of the to-do item than provided by the item name."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "todo"
+            ],
+            "supported_features": [
+              1
+            ]
+          }
+        ]
+      }
+    },
+    "update_item": {
+      "name": "Update item",
+      "description": "Updates an existing to-do list item based on its name.",
+      "fields": {
+        "item": {
+          "required": true,
+          "example": "Submit income tax return",
+          "selector": {
+            "text": null
+          },
+          "name": "Item name",
+          "description": "The current name of the to-do item."
+        },
+        "rename": {
+          "example": "Something else",
+          "selector": {
+            "text": null
+          },
+          "name": "Rename item",
+          "description": "The new name for the to-do item"
+        },
+        "status": {
+          "example": "needs_action",
           "selector": {
             "select": {
-              "translation_key": "media_type",
+              "translation_key": "status",
               "options": [
-                "artist",
-                "album",
-                "playlist",
-                "track",
-                "radio"
+                "needs_action",
+                "completed"
               ]
             }
           },
-          "name": "Media type",
-          "description": "The type of the content to play. Such as artist, album, track or playlist. Will be auto-determined if omitted."
+          "name": "Set status",
+          "description": "A status or confirmation of the to-do item."
         },
-        "artist": {
-          "example": "Queen",
+        "due_date": {
+          "filter": {
+            "supported_features": [
+              16
+            ]
+          },
+          "example": "2023-11-17",
+          "selector": {
+            "date": null
+          },
+          "name": "Due date",
+          "description": "The date the to-do item is expected to be completed."
+        },
+        "due_datetime": {
+          "filter": {
+            "supported_features": [
+              32
+            ]
+          },
+          "example": "2023-11-17 13:30:00",
+          "selector": {
+            "datetime": null
+          },
+          "name": "Due date and time",
+          "description": "The date and time the to-do item is expected to be completed."
+        },
+        "description": {
+          "filter": {
+            "supported_features": [
+              64
+            ]
+          },
+          "example": "A more complete description of the to-do item than that provided by the summary.",
           "selector": {
             "text": null
           },
-          "name": "Artist name",
-          "description": "When specifying a track or album by name in the Media ID field, you can optionally restrict results by this artist name."
-        },
-        "album": {
-          "example": "News of the world",
+          "name": "Description",
+          "description": "A more complete description of the to-do item than provided by the item name."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "todo"
+            ],
+            "supported_features": [
+              4
+            ]
+          }
+        ]
+      }
+    },
+    "remove_item": {
+      "name": "Remove item",
+      "description": "Removes an existing to-do list item by its name.",
+      "fields": {
+        "item": {
+          "required": true,
           "selector": {
             "text": null
           },
-          "name": "Album name",
-          "description": "When specifying a track by name in the Media ID field, you can optionally restrict results by this album name."
-        },
-        "enqueue": {
+          "name": "Item name",
+          "description": "The name for the to-do list item."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "todo"
+            ],
+            "supported_features": [
+              2
+            ]
+          }
+        ]
+      }
+    },
+    "get_items": {
+      "name": "Get items",
+      "description": "Gets items on a to-do list.",
+      "fields": {
+        "status": {
+          "example": "needs_action",
+          "default": "needs_action",
           "selector": {
             "select": {
+              "translation_key": "status",
               "options": [
-                "play",
-                "replace",
-                "next",
-                "replace_next",
-                "add"
+                "needs_action",
+                "completed"
               ],
-              "translation_key": "enqueue"
+              "multiple": true
             }
           },
-          "name": "Enqueue",
-          "description": "If the content should be played now or added to the queue."
-        },
-        "radio_mode": {
-          "advanced": true,
-          "selector": {
-            "boolean": null
-          },
-          "name": "Enable radio mode",
-          "description": "Enable radio mode to auto-generate a playlist based on the selection."
+          "name": "Status",
+          "description": "Only return to-do items with the specified statuses. Returns not completed actions by default."
         }
       },
       "target": {
         "entity": [
           {
             "domain": [
-              "media_player"
-            ],
-            "integration": "music_assistant",
-            "supported_features": [
-              512
+              "todo"
             ]
           }
         ]
-      }
-    },
-    "play_announcement": {
-      "name": "Play announcement",
-      "description": "Plays an announcement on a Music Assistant player with more fine-grained control options.",
-      "fields": {
-        "url": {
-          "required": true,
-          "example": "http://someremotesite.com/doorbell.mp3",
-          "selector": {
-            "text": null
-          },
-          "name": "URL",
-          "description": "URL to the notification sound."
-        },
-        "use_pre_announce": {
-          "example": "true",
-          "selector": {
-            "boolean": null
-          },
-          "name": "Use pre-announce",
-          "description": "Use pre-announcement sound for the announcement. Omit to use the player default."
-        },
-        "announce_volume": {
-          "example": 75,
-          "selector": {
-            "number": {
-              "min": 1,
-              "max": 100,
-              "step": 1
-            }
-          },
-          "name": "Announce volume",
-          "description": "Use a forced volume level for the announcement. Omit to use player default."
-        }
       },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "media_player"
-            ],
-            "integration": "music_assistant",
-            "supported_features": [
-              512,
-              1048576
-            ]
-          }
-        ]
+      "response": {
+        "optional": false
       }
     },
-    "transfer_queue": {
-      "name": "Transfer queue",
-      "description": "Transfers a player\u0027s queue to another player.",
-      "fields": {
-        "source_player": {
-          "selector": {
-            "entity": {
-              "domain": "media_player",
-              "integration": "music_assistant"
-            }
-          },
-          "name": "Source media player",
-          "description": "The source media player which has the queue you want to transfer. When omitted, the first playing player will be used."
-        },
-        "auto_play": {
-          "example": "true",
-          "selector": {
-            "boolean": null
-          },
-          "name": "Auto play",
-          "description": "Start playing the queue on the target player. Omit to use the default behavior."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "media_player"
-            ],
-            "integration": "music_assistant"
-          }
-        ]
-      }
-    },
-    "get_queue": {
-      "name": "Get playerQueue details (advanced)",
-      "description": "Retrieves the details of the currently active queue of a Music Assistant player.",
+    "remove_completed_items": {
+      "name": "Remove completed items",
+      "description": "Removes all to-do list items that have been completed.",
       "fields": {},
       "target": {
         "entity": [
           {
             "domain": [
-              "media_player"
+              "todo"
             ],
-            "integration": "music_assistant",
             "supported_features": [
-              512
+              2
             ]
           }
         ]
-      },
-      "response": {
-        "optional": false
       }
     }
   },
@@ -7085,13 +8568,13 @@
             "object": null
           },
           "name": "Data",
-          "description": "Some integrations provide extended functionality. For information on how to use _data_, refer to the integration documentation.."
+          "description": "Some integrations provide extended functionality via this field. For more information, refer to the integration documentation."
         }
       }
     },
-    "phones": {
-      "name": "Send a notification with phones",
-      "description": "Sends a notification message using the phones service.",
+    "alexa_media": {
+      "name": "Send a notification with alexa_media",
+      "description": "Sends a notification message using the alexa_media service.",
       "fields": {
         "message": {
           "required": true,
@@ -7120,9 +8603,9 @@
         }
       }
     },
-    "alexa_media": {
-      "name": "Send a notification with alexa_media",
-      "description": "Sends a notification message using the alexa_media service.",
+    "phones": {
+      "name": "Send a notification with phones",
+      "description": "Sends a notification message using the phones service.",
       "fields": {
         "message": {
           "required": true,
@@ -7371,6 +8854,37 @@
     "alexa_media_kitchen_echo_show": {
       "name": "Send a notification via alexa_media_kitchen_echo_show",
       "description": "Sends a notification message using the alexa_media_kitchen_echo_show integration.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "The garage door has been open for 10 minutes.",
+          "selector": {
+            "text": null
+          }
+        },
+        "title": {
+          "example": "Your Garage Door Friend",
+          "selector": {
+            "text": null
+          }
+        },
+        "target": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        },
+        "data": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        }
+      }
+    },
+    "alexa_media_last_called": {
+      "name": "Send a notification via alexa_media_last_called",
+      "description": "Sends a notification message using the alexa_media_last_called integration.",
       "fields": {
         "message": {
           "required": true,
@@ -7988,37 +9502,6 @@
         }
       }
     },
-    "alexa_media_lounge_echo_plus": {
-      "name": "Send a notification via alexa_media_lounge_echo_plus",
-      "description": "Sends a notification message using the alexa_media_lounge_echo_plus integration.",
-      "fields": {
-        "message": {
-          "required": true,
-          "example": "The garage door has been open for 10 minutes.",
-          "selector": {
-            "text": null
-          }
-        },
-        "title": {
-          "example": "Your Garage Door Friend",
-          "selector": {
-            "text": null
-          }
-        },
-        "target": {
-          "example": "platform specific",
-          "selector": {
-            "object": null
-          }
-        },
-        "data": {
-          "example": "platform specific",
-          "selector": {
-            "object": null
-          }
-        }
-      }
-    },
     "alexa_media_dressing_room_echo_spot": {
       "name": "Send a notification via alexa_media_dressing_room_echo_spot",
       "description": "Sends a notification message using the alexa_media_dressing_room_echo_spot integration.",
@@ -8112,9 +9595,9 @@
         }
       }
     },
-    "alexa_media_home_cinema": {
-      "name": "Send a notification via alexa_media_home_cinema",
-      "description": "Sends a notification message using the alexa_media_home_cinema integration.",
+    "alexa_media_lounge_echo_plus": {
+      "name": "Send a notification via alexa_media_lounge_echo_plus",
+      "description": "Sends a notification message using the alexa_media_lounge_echo_plus integration.",
       "fields": {
         "message": {
           "required": true,
@@ -8146,37 +9629,6 @@
     "alexa_media_this_device_2": {
       "name": "Send a notification via alexa_media_this_device_2",
       "description": "Sends a notification message using the alexa_media_this_device_2 integration.",
-      "fields": {
-        "message": {
-          "required": true,
-          "example": "The garage door has been open for 10 minutes.",
-          "selector": {
-            "text": null
-          }
-        },
-        "title": {
-          "example": "Your Garage Door Friend",
-          "selector": {
-            "text": null
-          }
-        },
-        "target": {
-          "example": "platform specific",
-          "selector": {
-            "object": null
-          }
-        },
-        "data": {
-          "example": "platform specific",
-          "selector": {
-            "object": null
-          }
-        }
-      }
-    },
-    "alexa_media_last_called": {
-      "name": "Send a notification via alexa_media_last_called",
-      "description": "Sends a notification message using the alexa_media_last_called integration.",
       "fields": {
         "message": {
           "required": true,
@@ -8338,6 +9790,46 @@
       }
     }
   },
+  "weather": {
+    "get_forecasts": {
+      "name": "Get forecasts",
+      "description": "Retrieves the forecast from selected weather services.",
+      "fields": {
+        "type": {
+          "required": true,
+          "selector": {
+            "select": {
+              "options": [
+                "daily",
+                "hourly",
+                "twice_daily"
+              ],
+              "translation_key": "forecast_type"
+            }
+          },
+          "name": "Forecast type",
+          "description": "The scope of the weather forecast."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "weather"
+            ],
+            "supported_features": [
+              1,
+              2,
+              4
+            ]
+          }
+        ]
+      },
+      "response": {
+        "optional": false
+      }
+    }
+  },
   "humidifier": {
     "turn_on": {
       "name": "Turn on",
@@ -8392,7 +9884,7 @@
             "text": null
           },
           "name": "Mode",
-          "description": "Operation mode. For example, _normal_, _eco_, or _away_. For a list of possible values, refer to the integration documentation."
+          "description": "Operation mode. For example, \u0022normal\u0022, \u0022eco\u0022, or \u0022away\u0022. For a list of possible values, refer to the integration documentation."
         }
       },
       "target": {
@@ -8436,236 +9928,114 @@
       }
     }
   },
-  "todo": {
-    "add_item": {
-      "name": "Add item",
-      "description": "Adds a new to-do list item.",
+  "time": {
+    "set_value": {
+      "name": "Set Time",
+      "description": "Sets the time.",
       "fields": {
-        "item": {
+        "time": {
           "required": true,
-          "example": "Submit income tax return",
+          "example": "22:15",
           "selector": {
-            "text": null
+            "time": null
           },
-          "name": "Item name",
-          "description": "The name that represents the to-do item."
-        },
-        "due_date": {
-          "filter": {
-            "supported_features": [
-              16
-            ]
-          },
-          "example": "2023-11-17",
-          "selector": {
-            "date": null
-          },
-          "name": "Due date",
-          "description": "The date the to-do item is expected to be completed."
-        },
-        "due_datetime": {
-          "filter": {
-            "supported_features": [
-              32
-            ]
-          },
-          "example": "2023-11-17 13:30:00",
-          "selector": {
-            "datetime": null
-          },
-          "name": "Due date and time",
-          "description": "The date and time the to-do item is expected to be completed."
-        },
-        "description": {
-          "filter": {
-            "supported_features": [
-              64
-            ]
-          },
-          "example": "A more complete description of the to-do item than that provided by the summary.",
-          "selector": {
-            "text": null
-          },
-          "name": "Description",
-          "description": "A more complete description of the to-do item than provided by the item name."
+          "name": "Time",
+          "description": "The time to set."
         }
       },
       "target": {
         "entity": [
           {
             "domain": [
-              "todo"
-            ],
-            "supported_features": [
-              1
+              "time"
             ]
           }
         ]
       }
-    },
-    "update_item": {
-      "name": "Update item",
-      "description": "Updates an existing to-do list item based on its name.",
+    }
+  },
+  "adguard": {
+    "add_url": {
+      "name": "Add URL",
+      "description": "Adds a new filter subscription to AdGuard Home.",
       "fields": {
-        "item": {
+        "name": {
           "required": true,
-          "example": "Submit income tax return",
+          "example": "Example",
           "selector": {
             "text": null
           },
-          "name": "Item name",
-          "description": "The current name of the to-do item."
+          "name": "Name",
+          "description": "The name of the filter subscription."
         },
-        "rename": {
-          "example": "Something else",
-          "selector": {
-            "text": null
-          },
-          "name": "Rename item",
-          "description": "The new name for the to-do item"
-        },
-        "status": {
-          "example": "needs_action",
-          "selector": {
-            "select": {
-              "translation_key": "status",
-              "options": [
-                "needs_action",
-                "completed"
-              ]
-            }
-          },
-          "name": "Set status",
-          "description": "A status or confirmation of the to-do item."
-        },
-        "due_date": {
-          "filter": {
-            "supported_features": [
-              16
-            ]
-          },
-          "example": "2023-11-17",
-          "selector": {
-            "date": null
-          },
-          "name": "Due date",
-          "description": "The date the to-do item is expected to be completed."
-        },
-        "due_datetime": {
-          "filter": {
-            "supported_features": [
-              32
-            ]
-          },
-          "example": "2023-11-17 13:30:00",
-          "selector": {
-            "datetime": null
-          },
-          "name": "Due date and time",
-          "description": "The date and time the to-do item is expected to be completed."
-        },
-        "description": {
-          "filter": {
-            "supported_features": [
-              64
-            ]
-          },
-          "example": "A more complete description of the to-do item than that provided by the summary.",
-          "selector": {
-            "text": null
-          },
-          "name": "Description",
-          "description": "A more complete description of the to-do item than provided by the item name."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "todo"
-            ],
-            "supported_features": [
-              4
-            ]
-          }
-        ]
-      }
-    },
-    "remove_item": {
-      "name": "Remove item",
-      "description": "Removes an existing to-do list item by its name.",
-      "fields": {
-        "item": {
+        "url": {
           "required": true,
+          "example": "https://www.example.com/filter/1.txt",
           "selector": {
             "text": null
           },
-          "name": "Item name",
-          "description": "The name for the to-do list item."
+          "name": "URL",
+          "description": "The filter URL to subscribe to, containing the filter rules."
         }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "todo"
-            ],
-            "supported_features": [
-              2
-            ]
-          }
-        ]
       }
     },
-    "get_items": {
-      "name": "Get items",
-      "description": "Gets items on a to-do list.",
+    "remove_url": {
+      "name": "Remove URL",
+      "description": "Removes a filter subscription from AdGuard Home.",
       "fields": {
-        "status": {
-          "example": "needs_action",
-          "default": "needs_action",
+        "url": {
+          "required": true,
+          "example": "https://www.example.com/filter/1.txt",
           "selector": {
-            "select": {
-              "translation_key": "status",
-              "options": [
-                "needs_action",
-                "completed"
-              ],
-              "multiple": true
-            }
+            "text": null
           },
-          "name": "Status",
-          "description": "Only return to-do items with the specified statuses. Returns not completed actions by default."
+          "name": "URL",
+          "description": "The filter subscription URL to remove."
         }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "todo"
-            ]
-          }
-        ]
-      },
-      "response": {
-        "optional": false
       }
     },
-    "remove_completed_items": {
-      "name": "Remove completed items",
-      "description": "Removes all to-do list items that have been completed.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "todo"
-            ],
-            "supported_features": [
-              2
-            ]
-          }
-        ]
+    "enable_url": {
+      "name": "Enable URL",
+      "description": "Enables a filter subscription in AdGuard Home.",
+      "fields": {
+        "url": {
+          "required": true,
+          "example": "https://www.example.com/filter/1.txt",
+          "selector": {
+            "text": null
+          },
+          "name": "URL",
+          "description": "The filter subscription URL to enable."
+        }
+      }
+    },
+    "disable_url": {
+      "name": "Disable URL",
+      "description": "Disables a filter subscription in AdGuard Home.",
+      "fields": {
+        "url": {
+          "required": true,
+          "example": "https://www.example.com/filter/1.txt",
+          "selector": {
+            "text": null
+          },
+          "name": "URL",
+          "description": "The filter subscription URL to disable."
+        }
+      }
+    },
+    "refresh": {
+      "name": "Refresh",
+      "description": "Refreshes all filter subscriptions in AdGuard Home.",
+      "fields": {
+        "force": {
+          "default": false,
+          "selector": {
+            "boolean": null
+          },
+          "name": "Force",
+          "description": "Force update (bypasses AdGuard Home throttling), omit for a regular refresh."
+        }
       }
     }
   },
@@ -8891,39 +10261,6 @@
       }
     }
   },
-  "vesync": {
-    "update_devices": {
-      "name": "Update devices",
-      "description": "Adds new VeSync devices to Home Assistant.",
-      "fields": {}
-    }
-  },
-  "time": {
-    "set_value": {
-      "name": "Set Time",
-      "description": "Sets the time.",
-      "fields": {
-        "time": {
-          "required": true,
-          "example": "22:15",
-          "selector": {
-            "time": null
-          },
-          "name": "Time",
-          "description": "The time to set."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "time"
-            ]
-          }
-        ]
-      }
-    }
-  },
   "image": {
     "snapshot": {
       "name": "Take snapshot",
@@ -8947,169 +10284,6 @@
             ]
           }
         ]
-      }
-    }
-  },
-  "weather": {
-    "get_forecasts": {
-      "name": "Get forecasts",
-      "description": "Get weather forecasts.",
-      "fields": {
-        "type": {
-          "required": true,
-          "selector": {
-            "select": {
-              "options": [
-                "daily",
-                "hourly",
-                "twice_daily"
-              ],
-              "translation_key": "forecast_type"
-            }
-          },
-          "name": "Forecast type",
-          "description": "Forecast type: daily, hourly or twice daily."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "weather"
-            ],
-            "supported_features": [
-              1,
-              2,
-              4
-            ]
-          }
-        ]
-      },
-      "response": {
-        "optional": false
-      }
-    }
-  },
-  "icloud": {
-    "play_sound": {
-      "name": "Play sound",
-      "description": "Plays the Lost device sound on an Apple device.",
-      "fields": {
-        "account": {
-          "required": true,
-          "example": "steve@apple.com",
-          "selector": {
-            "text": null
-          },
-          "name": "Account",
-          "description": "Your iCloud account username (email) or account name."
-        },
-        "device_name": {
-          "required": true,
-          "example": "stevesiphone",
-          "selector": {
-            "text": null
-          },
-          "name": "Device name",
-          "description": "The name of the Apple device to play the sound."
-        }
-      }
-    },
-    "display_message": {
-      "name": "Display message",
-      "description": "Displays a message on an Apple device.",
-      "fields": {
-        "account": {
-          "required": true,
-          "example": "steve@apple.com",
-          "selector": {
-            "text": null
-          },
-          "name": "Account",
-          "description": "Your iCloud account username (email) or account name."
-        },
-        "device_name": {
-          "required": true,
-          "example": "stevesiphone",
-          "selector": {
-            "text": null
-          },
-          "name": "Device name",
-          "description": "The name of the Apple device to display the message."
-        },
-        "message": {
-          "required": true,
-          "example": "Hey Steve !",
-          "selector": {
-            "text": null
-          },
-          "name": "Message",
-          "description": "The content of your message."
-        },
-        "sound": {
-          "selector": {
-            "boolean": null
-          },
-          "name": "Sound",
-          "description": "To make a sound when displaying the message."
-        }
-      }
-    },
-    "lost_device": {
-      "name": "Lost device",
-      "description": "Puts an Apple device in lost state.",
-      "fields": {
-        "account": {
-          "required": true,
-          "example": "steve@apple.com",
-          "selector": {
-            "text": null
-          },
-          "name": "Account",
-          "description": "Your iCloud account username (email) or account name."
-        },
-        "device_name": {
-          "required": true,
-          "example": "stevesiphone",
-          "selector": {
-            "text": null
-          },
-          "name": "Device name",
-          "description": "The name of the Apple device to set lost."
-        },
-        "number": {
-          "required": true,
-          "example": "\u002B33450020100",
-          "selector": {
-            "text": null
-          },
-          "name": "Number",
-          "description": "The phone number to call in lost mode (must contain country code)."
-        },
-        "message": {
-          "required": true,
-          "example": "Call me",
-          "selector": {
-            "text": null
-          },
-          "name": "Message",
-          "description": "The message to display in lost mode."
-        }
-      }
-    },
-    "update": {
-      "name": "Update",
-      "description": "Updates iCloud devices.",
-      "fields": {
-        "account": {
-          "required": true,
-          "example": "steve@apple.com",
-          "selector": {
-            "text": null
-          },
-          "name": "Account",
-          "description": "Your iCloud account username (email) or account name."
-        }
       }
     }
   },
@@ -9268,89 +10442,11 @@
       }
     }
   },
-  "adguard": {
-    "add_url": {
-      "name": "Add URL",
-      "description": "Adds a new filter subscription to AdGuard Home.",
-      "fields": {
-        "name": {
-          "required": true,
-          "example": "Example",
-          "selector": {
-            "text": null
-          },
-          "name": "Name",
-          "description": "The name of the filter subscription."
-        },
-        "url": {
-          "required": true,
-          "example": "https://www.example.com/filter/1.txt",
-          "selector": {
-            "text": null
-          },
-          "name": "URL",
-          "description": "The filter URL to subscribe to, containing the filter rules."
-        }
-      }
-    },
-    "remove_url": {
-      "name": "Remove URL",
-      "description": "Removes a filter subscription from AdGuard Home.",
-      "fields": {
-        "url": {
-          "required": true,
-          "example": "https://www.example.com/filter/1.txt",
-          "selector": {
-            "text": null
-          },
-          "name": "URL",
-          "description": "The filter subscription URL to remove."
-        }
-      }
-    },
-    "enable_url": {
-      "name": "Enable URL",
-      "description": "Enables a filter subscription in AdGuard Home.",
-      "fields": {
-        "url": {
-          "required": true,
-          "example": "https://www.example.com/filter/1.txt",
-          "selector": {
-            "text": null
-          },
-          "name": "URL",
-          "description": "The filter subscription URL to enable."
-        }
-      }
-    },
-    "disable_url": {
-      "name": "Disable URL",
-      "description": "Disables a filter subscription in AdGuard Home.",
-      "fields": {
-        "url": {
-          "required": true,
-          "example": "https://www.example.com/filter/1.txt",
-          "selector": {
-            "text": null
-          },
-          "name": "URL",
-          "description": "The filter subscription URL to disable."
-        }
-      }
-    },
-    "refresh": {
-      "name": "Refresh",
-      "description": "Refreshes all filter subscriptions in AdGuard Home.",
-      "fields": {
-        "force": {
-          "default": false,
-          "selector": {
-            "boolean": null
-          },
-          "name": "Force",
-          "description": "Force update (bypasses AdGuard Home throttling), omit for a regular refresh."
-        }
-      }
+  "vesync": {
+    "update_devices": {
+      "name": "Update devices",
+      "description": "Adds new VeSync devices to Home Assistant.",
+      "fields": {}
     }
   },
   "spotcast": {
@@ -9895,7 +10991,7 @@
     },
     "set_music_mode": {
       "name": "Set music mode",
-      "description": "Enables or disables music_mode.",
+      "description": "Enables or disables music mode.",
       "fields": {
         "music_mode": {
           "required": true,
@@ -9903,7 +10999,7 @@
             "boolean": null
           },
           "name": "Music mode",
-          "description": "Use true or false to enable / disable music_mode."
+          "description": "Whether to enable or disable music mode."
         }
       },
       "target": {
@@ -10405,7 +11501,7 @@
       }
     },
     "start_application": {
-      "name": "Start Application",
+      "name": "Start application",
       "description": "Starts an application on the device running Fully Kiosk Browser.",
       "fields": {
         "application": {
@@ -10427,7 +11523,7 @@
       }
     },
     "set_config": {
-      "name": "Set Configuration",
+      "name": "Set configuration",
       "description": "Sets a configuration parameter on Fully Kiosk Browser.",
       "fields": {
         "key": {

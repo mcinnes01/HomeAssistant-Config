@@ -10,8 +10,11 @@ blueprint:
       description: The sensor which triggers the snapshot creation
       selector:
         entity:
-          domain: binary_sensor
-          device_class: motion
+          domain:
+          - binary_sensor
+          device_class:
+          - motion
+          multiple: false
     event_object:
       name: Event detection type
       description: Type of object to detect from a motion event
@@ -22,18 +25,25 @@ blueprint:
           - None Identified
           - person
           - car
+          sort: false
+          multiple: false
+          custom_value: false
     override_sensor:
       name: Override sensor
       description: Binary sensor to override detection
       selector:
         entity:
-          domain: binary_sensor
+          domain:
+          - binary_sensor
+          multiple: false
     camera:
       name: Camera
       description: The camera which creates the snapshot
       selector:
         entity:
-          domain: camera
+          domain:
+          - camera
+          multiple: false
     notify_device:
       name: Device to notify
       description: Device needs to run the official Home Assistant app to receive
@@ -41,6 +51,7 @@ blueprint:
       selector:
         device:
           integration: mobile_app
+          multiple: false
     is_ios:
       name: Is it an iOS device?
       description: Toggle if your selected device runs iOS, default is Android
@@ -69,28 +80,28 @@ blueprint:
   source_url: https://gist.github.com/mcinnes01/921cbb14efc9c5c7a933beb903603f8c
 trigger:
   platform: state
-  entity_id: !input 'motion_sensor'
+  entity_id: !input motion_sensor
   from: 'off'
   to: 'on'
 condition:
 - condition: and
   conditions:
   - condition: state
-    entity_id: !input 'override_sensor'
+    entity_id: !input override_sensor
     state: false
   - condition: state
-    entity_id: !input 'motion_sensor'
+    entity_id: !input motion_sensor
     attribute: event_object
-    state: !input 'event_object'
+    state: !input event_object
 variables:
-  motion_sensor: !input 'motion_sensor'
+  motion_sensor: !input motion_sensor
   motion_sensor_name: '{{ states[motion_sensor].name }}'
-  camera: !input 'camera'
-  notify_device: !input 'notify_device'
-  is_ios: !input 'is_ios'
-  notification_title: !input 'notification_title'
-  notification_message: !input 'notification_message'
-  delay: !input 'delay'
+  camera: !input camera
+  notify_device: !input notify_device
+  is_ios: !input is_ios
+  notification_title: !input notification_title
+  notification_message: !input notification_message
+  delay: !input delay
   snapshot_create_file_path: /config/www/tmp/snapshot_{{ states[camera].object_id
     }}.jpg
   snapshot_access_file_path: '{{ snapshot_create_file_path | replace(''/config/www'',''/local'')
@@ -98,10 +109,10 @@ variables:
 action:
 - delay: '{{ delay }}'
 - service: camera.snapshot
-  entity_id: !input 'camera'
+  entity_id: !input camera
   data:
     filename: '{{ snapshot_create_file_path }}'
-- device_id: !input 'notify_device'
+- device_id: !input notify_device
   domain: mobile_app
   type: notify
   title: '{{ notification_title }}'

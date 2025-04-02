@@ -9,7 +9,9 @@ blueprint:
       selector:
         entity:
           integration: mqtt
-          domain: sensor
+          domain:
+          - sensor
+          multiple: false
     single_press:
       name: Single Press
       description: Action to run on single press
@@ -33,7 +35,7 @@ mode: restart
 max_exceeded: silent
 trigger:
 - platform: state
-  entity_id: !input 'switch'
+  entity_id: !input switch
   attribute: action
 action:
 - variables:
@@ -41,10 +43,10 @@ action:
 - choose:
   - conditions:
     - '{{ command == ''single'' }}'
-    sequence: !input 'single_press'
+    sequence: !input single_press
   - conditions:
     - '{{ command == ''double'' }}'
-    sequence: !input 'double_press'
+    sequence: !input double_press
   - conditions:
     - '{{ command == ''long'' }}'
-    sequence: !input 'long_press'
+    sequence: !input long_press

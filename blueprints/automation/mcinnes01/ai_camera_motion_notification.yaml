@@ -101,8 +101,8 @@ action:
   - service: google_generative_ai_conversation.generate_content
     data:
       prompt: '{{ ai_prompt }}'
-      image_filename: "{% set snap_count = 3 %} {% set ns = namespace(images=[]) %}
-        {% for i in range(1, snap_count + 1) %}\n  {% set image = \"./www/snapshots/\"
+      filenames: "{% set snap_count = 3 %} {% set ns = namespace(images=[]) %} {%
+        for i in range(1, snap_count + 1) %}\n  {% set image = \"./www/snapshots/\"
         ~ camera_path ~ \"_snapshot\" ~ i ~ \".jpg\" %}\n  {% set ns.images = ns.images
         + [image] %}\n{% endfor %} {{ ns.images }}\n"
     response_variable: generated_content

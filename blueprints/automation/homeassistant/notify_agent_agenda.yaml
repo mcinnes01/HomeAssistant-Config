@@ -17,6 +17,7 @@ blueprint:
         sent.
       selector:
         text:
+          multiple: false
           multiline: false
       default: notify.notify
     calendar_entity:
@@ -68,6 +69,7 @@ blueprint:
         text:
           multiline: true
           type: text
+          multiple: false
       default: "Please generate text for a notification that will be sent to the users\nsmartphone
         with helpful information.\n\nYou are a helpful personal agent that generates
         text for the user:\n- Your answers are helpful, friendly, warm, insightful.\n-
