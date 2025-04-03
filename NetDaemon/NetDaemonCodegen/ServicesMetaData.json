@@ -1,57 +1,4 @@
 {
-  "persistent_notification": {
-    "create": {
-      "name": "Create",
-      "description": "Shows a notification on the notifications panel.",
-      "fields": {
-        "message": {
-          "required": true,
-          "example": "Please check your configuration.yaml.",
-          "selector": {
-            "text": null
-          },
-          "name": "Message",
-          "description": "Message body of the notification."
-        },
-        "title": {
-          "example": "Test notification",
-          "selector": {
-            "text": null
-          },
-          "name": "Title",
-          "description": "Optional title of the notification."
-        },
-        "notification_id": {
-          "example": 1234,
-          "selector": {
-            "text": null
-          },
-          "name": "Notification ID",
-          "description": "ID of the notification. This new notification will overwrite an existing notification with the same ID."
-        }
-      }
-    },
-    "dismiss": {
-      "name": "Dismiss",
-      "description": "Deletes a notification from the notifications panel.",
-      "fields": {
-        "notification_id": {
-          "required": true,
-          "example": 1234,
-          "selector": {
-            "text": null
-          },
-          "name": "Notification ID",
-          "description": "ID of the notification to be deleted."
-        }
-      }
-    },
-    "dismiss_all": {
-      "name": "Dismiss all",
-      "description": "Deletes all notifications from the notifications panel.",
-      "fields": {}
-    }
-  },
   "homeassistant": {
     "save_persistent_states": {
       "name": "Save persistent states",
@@ -202,6 +149,59 @@
     "reload_all": {
       "name": "Reload all",
       "description": "Reloads all YAML configuration that can be reloaded without restarting Home Assistant.",
+      "fields": {}
+    }
+  },
+  "persistent_notification": {
+    "create": {
+      "name": "Create",
+      "description": "Shows a notification on the notifications panel.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "Please check your configuration.yaml.",
+          "selector": {
+            "text": null
+          },
+          "name": "Message",
+          "description": "Message body of the notification."
+        },
+        "title": {
+          "example": "Test notification",
+          "selector": {
+            "text": null
+          },
+          "name": "Title",
+          "description": "Optional title of the notification."
+        },
+        "notification_id": {
+          "example": 1234,
+          "selector": {
+            "text": null
+          },
+          "name": "Notification ID",
+          "description": "ID of the notification. This new notification will overwrite an existing notification with the same ID."
+        }
+      }
+    },
+    "dismiss": {
+      "name": "Dismiss",
+      "description": "Deletes a notification from the notifications panel.",
+      "fields": {
+        "notification_id": {
+          "required": true,
+          "example": 1234,
+          "selector": {
+            "text": null
+          },
+          "name": "Notification ID",
+          "description": "ID of the notification to be deleted."
+        }
+      }
+    },
+    "dismiss_all": {
+      "name": "Dismiss all",
+      "description": "Deletes all notifications from the notifications panel.",
       "fields": {}
     }
   },
@@ -1123,6 +1123,54 @@
             ]
           }
         ]
+      }
+    }
+  },
+  "backup": {
+    "create_automatic": {
+      "name": "Create automatic backup",
+      "description": "Creates a new backup with automatic backup settings.",
+      "fields": {}
+    }
+  },
+  "logbook": {
+    "log": {
+      "name": "Log",
+      "description": "Creates a custom entry in the logbook.",
+      "fields": {
+        "name": {
+          "required": true,
+          "example": "Kitchen",
+          "selector": {
+            "text": null
+          },
+          "name": "Name",
+          "description": "Custom name for an entity, can be referenced using the \u0027Entity ID\u0027 field."
+        },
+        "message": {
+          "required": true,
+          "example": "is being used",
+          "selector": {
+            "text": null
+          },
+          "name": "Message",
+          "description": "Message of the logbook entry."
+        },
+        "entity_id": {
+          "selector": {
+            "entity": null
+          },
+          "name": "Entity ID",
+          "description": "Entity to reference in the logbook entry."
+        },
+        "domain": {
+          "example": "light",
+          "selector": {
+            "text": null
+          },
+          "name": "Domain",
+          "description": "Determines which icon is used in the logbook entry. The icon illustrates the integration domain related to this logbook entry."
+        }
       }
     }
   },
@@ -2188,59 +2236,108 @@
       }
     }
   },
-  "backup": {
-    "create_automatic": {
-      "name": "Create automatic backup",
-      "description": "Creates a new backup with automatic backup settings.",
-      "fields": {}
-    }
-  },
-  "logbook": {
-    "log": {
-      "name": "Log",
-      "description": "Creates a custom entry in the logbook.",
-      "fields": {
-        "name": {
-          "required": true,
-          "example": "Kitchen",
-          "selector": {
-            "text": null
-          },
-          "name": "Name",
-          "description": "Custom name for an entity, can be referenced using the \u0027Entity ID\u0027 field."
-        },
-        "message": {
-          "required": true,
-          "example": "is being used",
-          "selector": {
-            "text": null
-          },
-          "name": "Message",
-          "description": "Message of the logbook entry."
-        },
-        "entity_id": {
-          "selector": {
-            "entity": null
-          },
-          "name": "Entity ID",
-          "description": "Entity to reference in the logbook entry."
-        },
-        "domain": {
-          "example": "light",
-          "selector": {
-            "text": null
-          },
-          "name": "Domain",
-          "description": "Determines which icon is used in the logbook entry. The icon illustrates the integration domain related to this logbook entry."
-        }
-      }
-    }
-  },
   "zone": {
     "reload": {
       "name": "Reload",
       "description": "Reloads zones from the YAML-configuration.",
       "fields": {}
+    }
+  },
+  "timer": {
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads timers from the YAML-configuration.",
+      "fields": {}
+    },
+    "start": {
+      "name": "Start",
+      "description": "Starts a timer or restarts it with a provided duration.",
+      "fields": {
+        "duration": {
+          "example": "00:01:00 or 60",
+          "selector": {
+            "text": null
+          },
+          "name": "Duration",
+          "description": "Custom duration to restart the timer with."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "timer"
+            ]
+          }
+        ]
+      }
+    },
+    "pause": {
+      "name": "Pause",
+      "description": "Pauses a running timer, retaining the remaining duration for later continuation.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "timer"
+            ]
+          }
+        ]
+      }
+    },
+    "cancel": {
+      "name": "Cancel",
+      "description": "Resets a timer\u0027s duration to the last known initial value without firing the timer finished event.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "timer"
+            ]
+          }
+        ]
+      }
+    },
+    "finish": {
+      "name": "Finish",
+      "description": "Finishes a running timer earlier than scheduled.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "timer"
+            ]
+          }
+        ]
+      }
+    },
+    "change": {
+      "name": "Change",
+      "description": "Changes a timer by adding or subtracting a given duration.",
+      "fields": {
+        "duration": {
+          "default": 0,
+          "required": true,
+          "example": "00:01:00, 60 or -60",
+          "selector": {
+            "text": null
+          },
+          "name": "Duration",
+          "description": "Duration to add to or subtract from the running timer."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "timer"
+            ]
+          }
+        ]
+      }
     }
   },
   "input_select": {
@@ -2431,103 +2528,6 @@
           {
             "domain": [
               "input_number"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "timer": {
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads timers from the YAML-configuration.",
-      "fields": {}
-    },
-    "start": {
-      "name": "Start",
-      "description": "Starts a timer or restarts it with a provided duration.",
-      "fields": {
-        "duration": {
-          "example": "00:01:00 or 60",
-          "selector": {
-            "text": null
-          },
-          "name": "Duration",
-          "description": "Custom duration to restart the timer with."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "timer"
-            ]
-          }
-        ]
-      }
-    },
-    "pause": {
-      "name": "Pause",
-      "description": "Pauses a running timer, retaining the remaining duration for later continuation.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "timer"
-            ]
-          }
-        ]
-      }
-    },
-    "cancel": {
-      "name": "Cancel",
-      "description": "Resets a timer\u0027s duration to the last known initial value without firing the timer finished event.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "timer"
-            ]
-          }
-        ]
-      }
-    },
-    "finish": {
-      "name": "Finish",
-      "description": "Finishes a running timer earlier than scheduled.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "timer"
-            ]
-          }
-        ]
-      }
-    },
-    "change": {
-      "name": "Change",
-      "description": "Changes a timer by adding or subtracting a given duration.",
-      "fields": {
-        "duration": {
-          "default": 0,
-          "required": true,
-          "example": "00:01:00, 60 or -60",
-          "selector": {
-            "text": null
-          },
-          "name": "Duration",
-          "description": "Duration to add to or subtract from the running timer."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "timer"
             ]
           }
         ]
@@ -2855,6 +2855,97 @@
       }
     }
   },
+  "shopping_list": {
+    "add_item": {
+      "name": "Add item",
+      "description": "Adds an item to the shopping list.",
+      "fields": {
+        "name": {
+          "required": true,
+          "example": "Beer",
+          "selector": {
+            "text": null
+          },
+          "name": "Name",
+          "description": "The name of the item to add."
+        }
+      }
+    },
+    "remove_item": {
+      "name": "Remove item",
+      "description": "Removes the first item with matching name from the shopping list.",
+      "fields": {
+        "name": {
+          "required": true,
+          "example": "Beer",
+          "selector": {
+            "text": null
+          },
+          "name": "Name",
+          "description": "The name of the item to remove."
+        }
+      }
+    },
+    "complete_item": {
+      "name": "Complete item",
+      "description": "Marks the first item with matching name as completed in the shopping list.",
+      "fields": {
+        "name": {
+          "required": true,
+          "example": "Beer",
+          "selector": {
+            "text": null
+          },
+          "name": "Name",
+          "description": "The name of the item to mark as completed (without removing)."
+        }
+      }
+    },
+    "incomplete_item": {
+      "name": "Incomplete item",
+      "description": "Marks the first item with matching name as incomplete in the shopping list.",
+      "fields": {
+        "name": {
+          "example": "Beer",
+          "required": true,
+          "selector": {
+            "text": null
+          },
+          "name": "Name",
+          "description": "The name of the item to mark as incomplete."
+        }
+      }
+    },
+    "complete_all": {
+      "name": "Complete all",
+      "description": "Marks all items as completed in the shopping list (without removing them from the list).",
+      "fields": {}
+    },
+    "incomplete_all": {
+      "name": "Incomplete all",
+      "description": "Marks all items as incomplete in the shopping list.",
+      "fields": {}
+    },
+    "clear_completed_items": {
+      "name": "Clear completed items",
+      "description": "Removes completed items from the shopping list.",
+      "fields": {}
+    },
+    "sort": {
+      "name": "Sort all items",
+      "description": "Sorts all items by name in the shopping list.",
+      "fields": {
+        "reverse": {
+          "default": false,
+          "selector": {
+            "boolean": null
+          },
+          "name": "Sort reverse",
+          "description": "Whether to sort in reverse (descending) order."
+        }
+      }
+    }
+  },
   "schedule": {
     "reload": {
       "name": "Reload",
@@ -3009,344 +3100,124 @@
       "fields": {}
     }
   },
-  "input_datetime": {
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads helpers from the YAML-configuration.",
+  "octopus_energy": {
+    "purge_invalid_external_statistic_ids": {
+      "name": "Purge invalid external statistics",
+      "description": "Removes external statistics for all meters that don\u0027t have an active tariff",
       "fields": {}
     },
-    "set_datetime": {
-      "name": "Set",
-      "description": "Sets the date and/or time.",
+    "join_octoplus_saving_session_event": {
+      "name": "Join Octoplus saving session event",
+      "description": "Joins a given Octoplus saving session event.",
       "fields": {
-        "date": {
-          "example": "\u00222019-04-20\u0022",
+        "event_code": {
+          "name": "Event code",
+          "description": "The code of the event that is to be joined.",
           "selector": {
             "text": null
-          },
+          }
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "integration": "octopus_energy",
+            "domain": [
+              "event"
+            ]
+          }
+        ]
+      }
+    },
+    "refresh_previous_consumption_data": {
+      "name": "Refresh previous consumption data",
+      "description": "Refreshes the previous consumption data for a given entity from a given date.",
+      "fields": {
+        "start_date": {
           "name": "Date",
-          "description": "The target date."
-        },
-        "time": {
-          "example": "\u002205:04:20\u0022",
+          "description": "The date the data should be loaded from.",
+          "required": true,
           "selector": {
-            "time": null
-          },
-          "name": "Time",
-          "description": "The target time."
-        },
-        "datetime": {
-          "example": "\u00222019-04-20 05:04:20\u0022",
-          "selector": {
-            "text": null
-          },
-          "name": "Date \u0026 time",
-          "description": "The target date \u0026 time."
-        },
-        "timestamp": {
+            "date": null
+          }
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "integration": "octopus_energy",
+            "domain": [
+              "sensor"
+            ]
+          }
+        ]
+      }
+    },
+    "spin_wheel_of_fortune": {
+      "name": "Spin wheel of fortune",
+      "description": "Spins the wheel of fortune for a given energy type",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "integration": "octopus_energy",
+            "domain": [
+              "sensor"
+            ]
+          }
+        ]
+      }
+    },
+    "redeem_octoplus_points_into_account_credit": {
+      "name": "Redeem octoplus points into account credit",
+      "description": "Redeems a given number of octoplus points into account credit",
+      "fields": {
+        "points_to_redeem": {
+          "name": "Points to redeem",
+          "description": "The number of points to redeem",
           "selector": {
             "number": {
-              "min": 0,
-              "max": 9223372036854775807,
+              "min": 8,
+              "step": 1,
               "mode": "box"
             }
-          },
-          "name": "Timestamp",
-          "description": "The target date \u0026 time, expressed by a UNIX timestamp."
+          }
         }
       },
       "target": {
         "entity": [
           {
+            "integration": "octopus_energy",
             "domain": [
-              "input_datetime"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "counter": {
-    "increment": {
-      "name": "Increment",
-      "description": "Increments a counter by its step size.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "counter"
+              "sensor"
             ]
           }
         ]
       }
     },
-    "decrement": {
-      "name": "Decrement",
-      "description": "Decrements a counter by its step size.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "counter"
-            ]
-          }
-        ]
-      }
-    },
-    "reset": {
-      "name": "Reset",
-      "description": "Resets a counter to its initial value.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "counter"
-            ]
-          }
-        ]
-      }
-    },
-    "set_value": {
-      "name": "Set",
-      "description": "Sets the counter to a specific value.",
+    "register_rate_weightings": {
+      "name": "Register rate weightings",
+      "description": "Registers external weightings against rates, for use with target rate sensors when calculating target periods.",
       "fields": {
-        "value": {
-          "required": true,
+        "weightings": {
+          "name": "Weightings",
+          "description": "The collection of time periods and associated weightings to apply.",
+          "example": "[\n  {\n    \u0022start\u0022: \u00222025-01-01T00:00:00Z\u0022,\n    \u0022end\u0022: \u00222025-01-01T00:30:00Z\u0022,\n    \u0022weighting\u0022: 0.1\n  }\n]",
           "selector": {
-            "number": {
-              "min": 0,
-              "max": 9223372036854775807,
-              "mode": "box"
-            }
-          },
-          "name": "Value",
-          "description": "The new counter value the entity should be set to."
+            "object": null
+          }
         }
       },
       "target": {
         "entity": [
           {
+            "integration": "octopus_energy",
             "domain": [
-              "counter"
+              "sensor"
             ]
           }
         ]
       }
-    }
-  },
-  "netdaemon": {
-    "register_service": {
-      "name": "",
-      "description": "Register a new service for netdaemon, used by the daemon and not to be used by users",
-      "fields": {
-        "service": {
-          "description": "The name of the service to register"
-        },
-        "class": {
-          "description": "The class that implements the service call"
-        },
-        "method": {
-          "description": "The method to call"
-        }
-      }
-    },
-    "reload_apps": {
-      "name": "",
-      "description": "",
-      "fields": {}
-    },
-    "entity_create": {
-      "name": "",
-      "description": "Create an entity",
-      "fields": {
-        "entity_id": {
-          "description": "The entity ID of the entity",
-          "example": "sensor.awesome"
-        },
-        "state": {
-          "description": "The state of the entity",
-          "example": "Lorem ipsum"
-        },
-        "icon": {
-          "description": "The icon for the entity",
-          "example": "mdi:rocket-launch-outline"
-        },
-        "unit": {
-          "description": "The unit of measurement for the entity"
-        },
-        "options": {
-          "description": "List of options for a select entity"
-        },
-        "attributes": {
-          "description": "The attributes of the entity"
-        }
-      }
-    },
-    "entity_update": {
-      "name": "",
-      "description": "Update an entity",
-      "fields": {
-        "entity_id": {
-          "description": "The entity ID of the entity",
-          "example": "sensor.awesome"
-        },
-        "state": {
-          "description": "The state of the entity",
-          "example": "Lorem ipsum"
-        },
-        "icon": {
-          "description": "The icon for the entity",
-          "example": "mdi:rocket-launch-outline"
-        },
-        "unit": {
-          "description": "The unit of measurement for the entity"
-        },
-        "options": {
-          "description": "List of options for a select entity"
-        },
-        "attributes": {
-          "description": "The attributes of the entity"
-        }
-      }
-    },
-    "entity_remove": {
-      "name": "",
-      "description": "Remove an entity",
-      "fields": {
-        "entity_id": {
-          "description": "The entity ID of the entity",
-          "example": "sensor.awesome"
-        }
-      }
-    }
-  },
-  "template": {
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads template entities from the YAML-configuration.",
-      "fields": {}
-    }
-  },
-  "input_text": {
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads helpers from the YAML-configuration.",
-      "fields": {}
-    },
-    "set_value": {
-      "name": "Set",
-      "description": "Sets the value.",
-      "fields": {
-        "value": {
-          "required": true,
-          "example": "This is an example text",
-          "selector": {
-            "text": null
-          },
-          "name": "Value",
-          "description": "The target value."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "input_text"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "mqtt": {
-    "publish": {
-      "name": "Publish",
-      "description": "Publishes a message to an MQTT topic.",
-      "fields": {
-        "topic": {
-          "required": true,
-          "example": "/homeassistant/hello",
-          "selector": {
-            "text": null
-          },
-          "name": "Topic",
-          "description": "Topic to publish to."
-        },
-        "payload": {
-          "example": "The temperature is {{ states(\u0027sensor.temperature\u0027) }}",
-          "selector": {
-            "template": null
-          },
-          "name": "Payload",
-          "description": "The payload to publish. Publishes an empty message if not provided."
-        },
-        "evaluate_payload": {
-          "advanced": true,
-          "default": false,
-          "selector": {
-            "boolean": null
-          },
-          "name": "Evaluate payload",
-          "description": "If \u0027Payload\u0027 is a Python bytes literal, evaluate the bytes literal and publish the raw data."
-        },
-        "qos": {
-          "advanced": true,
-          "default": 0,
-          "selector": {
-            "select": {
-              "options": [
-                "0",
-                "1",
-                "2"
-              ]
-            }
-          },
-          "name": "QoS",
-          "description": "Quality of Service to use. 0: At most once. 1: At least once. 2: Exactly once."
-        },
-        "retain": {
-          "default": false,
-          "selector": {
-            "boolean": null
-          },
-          "name": "Retain",
-          "description": "If the message should have the retain flag set. If set, the broker stores the most recent message on a topic."
-        }
-      }
-    },
-    "dump": {
-      "name": "Export",
-      "description": "Writes all messages on a specific topic into the \u0060mqtt_dump.txt\u0060 file in your configuration folder.",
-      "fields": {
-        "topic": {
-          "example": "OpenZWave/#",
-          "selector": {
-            "text": null
-          },
-          "name": "Topic",
-          "description": "Topic to listen to."
-        },
-        "duration": {
-          "default": 5,
-          "selector": {
-            "number": {
-              "min": 1,
-              "max": 300,
-              "unit_of_measurement": "seconds"
-            }
-          },
-          "name": "Duration",
-          "description": "How long we should listen for messages in seconds."
-        }
-      }
-    },
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads MQTT entities from the YAML-configuration.",
-      "fields": {}
     }
   },
   "media_player": {
@@ -4077,6 +3948,163 @@
       }
     }
   },
+  "counter": {
+    "increment": {
+      "name": "Increment",
+      "description": "Increments a counter by its step size.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "counter"
+            ]
+          }
+        ]
+      }
+    },
+    "decrement": {
+      "name": "Decrement",
+      "description": "Decrements a counter by its step size.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "counter"
+            ]
+          }
+        ]
+      }
+    },
+    "reset": {
+      "name": "Reset",
+      "description": "Resets a counter to its initial value.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "counter"
+            ]
+          }
+        ]
+      }
+    },
+    "set_value": {
+      "name": "Set",
+      "description": "Sets the counter to a specific value.",
+      "fields": {
+        "value": {
+          "required": true,
+          "selector": {
+            "number": {
+              "min": 0,
+              "max": 9223372036854775807,
+              "mode": "box"
+            }
+          },
+          "name": "Value",
+          "description": "The new counter value the entity should be set to."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "counter"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "netdaemon": {
+    "register_service": {
+      "name": "",
+      "description": "Register a new service for netdaemon, used by the daemon and not to be used by users",
+      "fields": {
+        "service": {
+          "description": "The name of the service to register"
+        },
+        "class": {
+          "description": "The class that implements the service call"
+        },
+        "method": {
+          "description": "The method to call"
+        }
+      }
+    },
+    "reload_apps": {
+      "name": "",
+      "description": "",
+      "fields": {}
+    },
+    "entity_create": {
+      "name": "",
+      "description": "Create an entity",
+      "fields": {
+        "entity_id": {
+          "description": "The entity ID of the entity",
+          "example": "sensor.awesome"
+        },
+        "state": {
+          "description": "The state of the entity",
+          "example": "Lorem ipsum"
+        },
+        "icon": {
+          "description": "The icon for the entity",
+          "example": "mdi:rocket-launch-outline"
+        },
+        "unit": {
+          "description": "The unit of measurement for the entity"
+        },
+        "options": {
+          "description": "List of options for a select entity"
+        },
+        "attributes": {
+          "description": "The attributes of the entity"
+        }
+      }
+    },
+    "entity_update": {
+      "name": "",
+      "description": "Update an entity",
+      "fields": {
+        "entity_id": {
+          "description": "The entity ID of the entity",
+          "example": "sensor.awesome"
+        },
+        "state": {
+          "description": "The state of the entity",
+          "example": "Lorem ipsum"
+        },
+        "icon": {
+          "description": "The icon for the entity",
+          "example": "mdi:rocket-launch-outline"
+        },
+        "unit": {
+          "description": "The unit of measurement for the entity"
+        },
+        "options": {
+          "description": "List of options for a select entity"
+        },
+        "attributes": {
+          "description": "The attributes of the entity"
+        }
+      }
+    },
+    "entity_remove": {
+      "name": "",
+      "description": "Remove an entity",
+      "fields": {
+        "entity_id": {
+          "description": "The entity ID of the entity",
+          "example": "sensor.awesome"
+        }
+      }
+    }
+  },
   "browser_mod": {
     "sequence": {
       "name": "sequence",
@@ -4508,413 +4536,92 @@
       }
     }
   },
-  "octopus_energy": {
-    "purge_invalid_external_statistic_ids": {
-      "name": "Purge invalid external statistics",
-      "description": "Removes external statistics for all meters that don\u0027t have an active tariff",
-      "fields": {}
-    },
-    "join_octoplus_saving_session_event": {
-      "name": "Join Octoplus saving session event",
-      "description": "Joins a given Octoplus saving session event.",
+  "mqtt": {
+    "publish": {
+      "name": "Publish",
+      "description": "Publishes a message to an MQTT topic.",
       "fields": {
-        "event_code": {
-          "name": "Event code",
-          "description": "The code of the event that is to be joined.",
-          "selector": {
-            "text": null
-          }
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "integration": "octopus_energy",
-            "domain": [
-              "event"
-            ]
-          }
-        ]
-      }
-    },
-    "refresh_previous_consumption_data": {
-      "name": "Refresh previous consumption data",
-      "description": "Refreshes the previous consumption data for a given entity from a given date.",
-      "fields": {
-        "start_date": {
-          "name": "Date",
-          "description": "The date the data should be loaded from.",
+        "topic": {
           "required": true,
-          "selector": {
-            "date": null
-          }
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "integration": "octopus_energy",
-            "domain": [
-              "sensor"
-            ]
-          }
-        ]
-      }
-    },
-    "spin_wheel_of_fortune": {
-      "name": "Spin wheel of fortune",
-      "description": "Spins the wheel of fortune for a given energy type",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "integration": "octopus_energy",
-            "domain": [
-              "sensor"
-            ]
-          }
-        ]
-      }
-    },
-    "redeem_octoplus_points_into_account_credit": {
-      "name": "Redeem octoplus points into account credit",
-      "description": "Redeems a given number of octoplus points into account credit",
-      "fields": {
-        "points_to_redeem": {
-          "name": "Points to redeem",
-          "description": "The number of points to redeem",
-          "selector": {
-            "number": {
-              "min": 8,
-              "step": 1,
-              "mode": "box"
-            }
-          }
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "integration": "octopus_energy",
-            "domain": [
-              "sensor"
-            ]
-          }
-        ]
-      }
-    },
-    "register_rate_weightings": {
-      "name": "Register rate weightings",
-      "description": "Registers external weightings against rates, for use with target rate sensors when calculating target periods.",
-      "fields": {
-        "weightings": {
-          "name": "Weightings",
-          "description": "The collection of time periods and associated weightings to apply.",
-          "example": "[\n  {\n    \u0022start\u0022: \u00222025-01-01T00:00:00Z\u0022,\n    \u0022end\u0022: \u00222025-01-01T00:30:00Z\u0022,\n    \u0022weighting\u0022: 0.1\n  }\n]",
-          "selector": {
-            "object": null
-          }
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "integration": "octopus_energy",
-            "domain": [
-              "sensor"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "script": {
-    "feed_cats": {
-      "name": "Feed Cats",
-      "description": "",
-      "fields": {},
-      "response": {
-        "optional": true
-      }
-    },
-    "notify_alexa_everywhere": {
-      "name": "Notify Alexa Everywhere",
-      "description": "",
-      "fields": {},
-      "response": {
-        "optional": true
-      }
-    },
-    "notify_all": {
-      "name": "Notify All",
-      "description": "",
-      "fields": {},
-      "response": {
-        "optional": true
-      }
-    },
-    "room_controller_reset": {
-      "name": "Room Controller Reset",
-      "description": "",
-      "fields": {},
-      "response": {
-        "optional": true
-      }
-    },
-    "new_script": {
-      "name": "activate_alexa_actionable_notification",
-      "description": "Activates an actionable notification on a specific echo device",
-      "fields": {
-        "text": {
-          "description": "The text you would like alexa to speak.",
-          "example": "What would you like the thermostat set to?",
-          "required": false,
-          "advanced": false
-        },
-        "event_id": {
-          "description": "Correlation ID for event responses",
-          "example": "ask_for_temperature",
-          "required": false,
-          "advanced": false
-        },
-        "alexa_device": {
-          "description": "Alexa device you want to trigger",
-          "example": "media_player.bedroom_echo",
-          "required": false,
-          "advanced": false
-        }
-      },
-      "response": {
-        "optional": true
-      }
-    },
-    "alarm_triggered": {
-      "name": "Alarm Triggered",
-      "description": "",
-      "fields": {},
-      "response": {
-        "optional": true
-      }
-    },
-    "yeelight_dimmer": {
-      "name": "Yeelight Dimmer Up",
-      "description": "",
-      "fields": {
-        "entitiy_id": {
-          "name": "entitiy_id",
-          "description": "The entity ID of your bulb",
-          "example": "light.your_light",
-          "required": true,
-          "advanced": false
-        },
-        "button_state": {
-          "name": "button_state",
-          "description": "The entity ID of the input_text helper for your button state",
-          "example": "input_text.your_button_state",
-          "required": true,
-          "advanced": false
-        }
-      },
-      "response": {
-        "optional": true
-      }
-    },
-    "yeelight_dimmer_down": {
-      "name": "Yeelight Dimmer Down",
-      "description": "",
-      "fields": {
-        "entitiy_id": {
-          "name": "entitiy_id",
-          "description": "The entity ID of your bulb",
-          "example": "light.your_light",
-          "required": true,
-          "advanced": false
-        },
-        "button_state": {
-          "name": "button_state",
-          "description": "The entity ID of the input_text helper for your button state",
-          "example": "input_text.your_button_state",
-          "required": true,
-          "advanced": false
-        }
-      },
-      "response": {
-        "optional": true
-      }
-    },
-    "camera_shed_snapshot_ai_notification": {
-      "name": "Camera - shed - Snapshot, AI \u0026 Notification",
-      "description": "",
-      "fields": {},
-      "response": {
-        "optional": true
-      }
-    },
-    "reload": {
-      "name": "Reload",
-      "description": "Reloads all the available scripts.",
-      "fields": {}
-    },
-    "turn_on": {
-      "name": "Turn on",
-      "description": "Runs the sequence of actions defined in a script.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "script"
-            ]
-          }
-        ]
-      }
-    },
-    "turn_off": {
-      "name": "Turn off",
-      "description": "Stops a running script.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "script"
-            ]
-          }
-        ]
-      }
-    },
-    "toggle": {
-      "name": "Toggle",
-      "description": "Starts a script if it isn\u0027t running, stops it otherwise.",
-      "fields": {},
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "script"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "shopping_list": {
-    "add_item": {
-      "name": "Add item",
-      "description": "Adds an item to the shopping list.",
-      "fields": {
-        "name": {
-          "required": true,
-          "example": "Beer",
+          "example": "/homeassistant/hello",
           "selector": {
             "text": null
           },
-          "name": "Name",
-          "description": "The name of the item to add."
-        }
-      }
-    },
-    "remove_item": {
-      "name": "Remove item",
-      "description": "Removes the first item with matching name from the shopping list.",
-      "fields": {
-        "name": {
-          "required": true,
-          "example": "Beer",
+          "name": "Topic",
+          "description": "Topic to publish to."
+        },
+        "payload": {
+          "example": "The temperature is {{ states(\u0027sensor.temperature\u0027) }}",
           "selector": {
-            "text": null
+            "template": null
           },
-          "name": "Name",
-          "description": "The name of the item to remove."
-        }
-      }
-    },
-    "complete_item": {
-      "name": "Complete item",
-      "description": "Marks the first item with matching name as completed in the shopping list.",
-      "fields": {
-        "name": {
-          "required": true,
-          "example": "Beer",
-          "selector": {
-            "text": null
-          },
-          "name": "Name",
-          "description": "The name of the item to mark as completed (without removing)."
-        }
-      }
-    },
-    "incomplete_item": {
-      "name": "Incomplete item",
-      "description": "Marks the first item with matching name as incomplete in the shopping list.",
-      "fields": {
-        "name": {
-          "example": "Beer",
-          "required": true,
-          "selector": {
-            "text": null
-          },
-          "name": "Name",
-          "description": "The name of the item to mark as incomplete."
-        }
-      }
-    },
-    "complete_all": {
-      "name": "Complete all",
-      "description": "Marks all items as completed in the shopping list (without removing them from the list).",
-      "fields": {}
-    },
-    "incomplete_all": {
-      "name": "Incomplete all",
-      "description": "Marks all items as incomplete in the shopping list.",
-      "fields": {}
-    },
-    "clear_completed_items": {
-      "name": "Clear completed items",
-      "description": "Removes completed items from the shopping list.",
-      "fields": {}
-    },
-    "sort": {
-      "name": "Sort all items",
-      "description": "Sorts all items by name in the shopping list.",
-      "fields": {
-        "reverse": {
+          "name": "Payload",
+          "description": "The payload to publish. Publishes an empty message if not provided."
+        },
+        "evaluate_payload": {
+          "advanced": true,
           "default": false,
           "selector": {
             "boolean": null
           },
-          "name": "Sort reverse",
-          "description": "Whether to sort in reverse (descending) order."
+          "name": "Evaluate payload",
+          "description": "If \u0027Payload\u0027 is a Python bytes literal, evaluate the bytes literal and publish the raw data."
+        },
+        "qos": {
+          "advanced": true,
+          "default": 0,
+          "selector": {
+            "select": {
+              "options": [
+                "0",
+                "1",
+                "2"
+              ]
+            }
+          },
+          "name": "QoS",
+          "description": "Quality of Service to use. 0: At most once. 1: At least once. 2: Exactly once."
+        },
+        "retain": {
+          "default": false,
+          "selector": {
+            "boolean": null
+          },
+          "name": "Retain",
+          "description": "If the message should have the retain flag set. If set, the broker stores the most recent message on a topic."
         }
       }
-    }
-  },
-  "localtuya": {
+    },
+    "dump": {
+      "name": "Export",
+      "description": "Writes all messages on a specific topic into the \u0060mqtt_dump.txt\u0060 file in your configuration folder.",
+      "fields": {
+        "topic": {
+          "example": "OpenZWave/#",
+          "selector": {
+            "text": null
+          },
+          "name": "Topic",
+          "description": "Topic to listen to."
+        },
+        "duration": {
+          "default": 5,
+          "selector": {
+            "number": {
+              "min": 1,
+              "max": 300,
+              "unit_of_measurement": "seconds"
+            }
+          },
+          "name": "Duration",
+          "description": "How long we should listen for messages in seconds."
+        }
+      }
+    },
     "reload": {
       "name": "Reload",
-      "description": "Reload localtuya and reconnect to all devices.",
+      "description": "Reloads MQTT entities from the YAML-configuration.",
       "fields": {}
-    },
-    "set_dp": {
-      "name": "Set datapoint",
-      "description": "Change the value of a datapoint (DP)",
-      "fields": {
-        "device_id": {
-          "description": "Device ID of device to change datapoint value for",
-          "example": "11100118278aab4de001",
-          "name": "Device ID"
-        },
-        "dp": {
-          "description": "Datapoint index",
-          "example": 1,
-          "name": "DP"
-        },
-        "value": {
-          "description": "New value to set",
-          "example": false,
-          "name": "Value"
-        }
-      }
     }
   },
   "habitica": {
@@ -6442,6 +6149,334 @@
       },
       "response": {
         "optional": false
+      }
+    }
+  },
+  "input_text": {
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads helpers from the YAML-configuration.",
+      "fields": {}
+    },
+    "set_value": {
+      "name": "Set",
+      "description": "Sets the value.",
+      "fields": {
+        "value": {
+          "required": true,
+          "example": "This is an example text",
+          "selector": {
+            "text": null
+          },
+          "name": "Value",
+          "description": "The target value."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "input_text"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "input_datetime": {
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads helpers from the YAML-configuration.",
+      "fields": {}
+    },
+    "set_datetime": {
+      "name": "Set",
+      "description": "Sets the date and/or time.",
+      "fields": {
+        "date": {
+          "example": "\u00222019-04-20\u0022",
+          "selector": {
+            "text": null
+          },
+          "name": "Date",
+          "description": "The target date."
+        },
+        "time": {
+          "example": "\u002205:04:20\u0022",
+          "selector": {
+            "time": null
+          },
+          "name": "Time",
+          "description": "The target time."
+        },
+        "datetime": {
+          "example": "\u00222019-04-20 05:04:20\u0022",
+          "selector": {
+            "text": null
+          },
+          "name": "Date \u0026 time",
+          "description": "The target date \u0026 time."
+        },
+        "timestamp": {
+          "selector": {
+            "number": {
+              "min": 0,
+              "max": 9223372036854775807,
+              "mode": "box"
+            }
+          },
+          "name": "Timestamp",
+          "description": "The target date \u0026 time, expressed by a UNIX timestamp."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "input_datetime"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "localtuya": {
+    "reload": {
+      "name": "Reload",
+      "description": "Reload localtuya and reconnect to all devices.",
+      "fields": {}
+    },
+    "set_dp": {
+      "name": "Set datapoint",
+      "description": "Change the value of a datapoint (DP)",
+      "fields": {
+        "device_id": {
+          "description": "Device ID of device to change datapoint value for",
+          "example": "11100118278aab4de001",
+          "name": "Device ID"
+        },
+        "dp": {
+          "description": "Datapoint index",
+          "example": 1,
+          "name": "DP"
+        },
+        "value": {
+          "description": "New value to set",
+          "example": false,
+          "name": "Value"
+        }
+      }
+    }
+  },
+  "google_generative_ai_conversation": {
+    "generate_content": {
+      "name": "Generate content",
+      "description": "Generate content from a prompt consisting of text and optionally images",
+      "fields": {
+        "prompt": {
+          "required": true,
+          "selector": {
+            "text": {
+              "multiline": true
+            }
+          },
+          "name": "Prompt",
+          "description": "The prompt",
+          "example": "Describe what you see in these images"
+        },
+        "image_filename": {
+          "required": false,
+          "selector": {
+            "object": null
+          },
+          "name": "Image filename",
+          "description": "Deprecated. Use filenames instead.",
+          "example": "/config/www/image.jpg"
+        },
+        "filenames": {
+          "required": false,
+          "selector": {
+            "text": {
+              "multiple": true
+            }
+          },
+          "name": "Attachment filenames",
+          "description": "Attachments to add to the prompt (images, PDFs, etc)",
+          "example": "/config/www/image.jpg"
+        }
+      },
+      "response": {
+        "optional": false
+      }
+    }
+  },
+  "script": {
+    "feed_cats": {
+      "name": "Feed Cats",
+      "description": "",
+      "fields": {},
+      "response": {
+        "optional": true
+      }
+    },
+    "notify_alexa_everywhere": {
+      "name": "Notify Alexa Everywhere",
+      "description": "",
+      "fields": {},
+      "response": {
+        "optional": true
+      }
+    },
+    "notify_all": {
+      "name": "Notify All",
+      "description": "",
+      "fields": {},
+      "response": {
+        "optional": true
+      }
+    },
+    "room_controller_reset": {
+      "name": "Room Controller Reset",
+      "description": "",
+      "fields": {},
+      "response": {
+        "optional": true
+      }
+    },
+    "new_script": {
+      "name": "activate_alexa_actionable_notification",
+      "description": "Activates an actionable notification on a specific echo device",
+      "fields": {
+        "text": {
+          "description": "The text you would like alexa to speak.",
+          "example": "What would you like the thermostat set to?",
+          "required": false,
+          "advanced": false
+        },
+        "event_id": {
+          "description": "Correlation ID for event responses",
+          "example": "ask_for_temperature",
+          "required": false,
+          "advanced": false
+        },
+        "alexa_device": {
+          "description": "Alexa device you want to trigger",
+          "example": "media_player.bedroom_echo",
+          "required": false,
+          "advanced": false
+        }
+      },
+      "response": {
+        "optional": true
+      }
+    },
+    "alarm_triggered": {
+      "name": "Alarm Triggered",
+      "description": "",
+      "fields": {},
+      "response": {
+        "optional": true
+      }
+    },
+    "yeelight_dimmer": {
+      "name": "Yeelight Dimmer Up",
+      "description": "",
+      "fields": {
+        "entitiy_id": {
+          "name": "entitiy_id",
+          "description": "The entity ID of your bulb",
+          "example": "light.your_light",
+          "required": true,
+          "advanced": false
+        },
+        "button_state": {
+          "name": "button_state",
+          "description": "The entity ID of the input_text helper for your button state",
+          "example": "input_text.your_button_state",
+          "required": true,
+          "advanced": false
+        }
+      },
+      "response": {
+        "optional": true
+      }
+    },
+    "yeelight_dimmer_down": {
+      "name": "Yeelight Dimmer Down",
+      "description": "",
+      "fields": {
+        "entitiy_id": {
+          "name": "entitiy_id",
+          "description": "The entity ID of your bulb",
+          "example": "light.your_light",
+          "required": true,
+          "advanced": false
+        },
+        "button_state": {
+          "name": "button_state",
+          "description": "The entity ID of the input_text helper for your button state",
+          "example": "input_text.your_button_state",
+          "required": true,
+          "advanced": false
+        }
+      },
+      "response": {
+        "optional": true
+      }
+    },
+    "camera_shed_snapshot_ai_notification": {
+      "name": "Camera - shed - Snapshot, AI \u0026 Notification",
+      "description": "",
+      "fields": {},
+      "response": {
+        "optional": true
+      }
+    },
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads all the available scripts.",
+      "fields": {}
+    },
+    "turn_on": {
+      "name": "Turn on",
+      "description": "Runs the sequence of actions defined in a script.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "script"
+            ]
+          }
+        ]
+      }
+    },
+    "turn_off": {
+      "name": "Turn off",
+      "description": "Stops a running script.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "script"
+            ]
+          }
+        ]
+      }
+    },
+    "toggle": {
+      "name": "Toggle",
+      "description": "Starts a script if it isn\u0027t running, stops it otherwise.",
+      "fields": {},
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "script"
+            ]
+          }
+        ]
       }
     }
   },
@@ -8164,46 +8199,11 @@
       }
     }
   },
-  "google_generative_ai_conversation": {
-    "generate_content": {
-      "name": "Generate content",
-      "description": "Generate content from a prompt consisting of text and optionally images",
-      "fields": {
-        "prompt": {
-          "required": true,
-          "selector": {
-            "text": {
-              "multiline": true
-            }
-          },
-          "name": "Prompt",
-          "description": "The prompt",
-          "example": "Describe what you see in these images"
-        },
-        "image_filename": {
-          "required": false,
-          "selector": {
-            "object": null
-          },
-          "name": "Image filename",
-          "description": "Deprecated. Use filenames instead.",
-          "example": "/config/www/image.jpg"
-        },
-        "filenames": {
-          "required": false,
-          "selector": {
-            "text": {
-              "multiple": true
-            }
-          },
-          "name": "Attachment filenames",
-          "description": "Attachments to add to the prompt (images, PDFs, etc)",
-          "example": "/config/www/image.jpg"
-        }
-      },
-      "response": {
-        "optional": false
-      }
+  "template": {
+    "reload": {
+      "name": "Reload",
+      "description": "Reloads template entities from the YAML-configuration.",
+      "fields": {}
     }
   },
   "onedrive": {
@@ -8478,29 +8478,43 @@
       }
     }
   },
-  "text": {
-    "set_value": {
-      "name": "Set value",
-      "description": "Sets the value.",
+  "weather": {
+    "get_forecasts": {
+      "name": "Get forecasts",
+      "description": "Retrieves the forecast from selected weather services.",
       "fields": {
-        "value": {
+        "type": {
           "required": true,
-          "example": "Hello world!",
           "selector": {
-            "text": null
+            "select": {
+              "options": [
+                "daily",
+                "hourly",
+                "twice_daily"
+              ],
+              "translation_key": "forecast_type"
+            }
           },
-          "name": "Value",
-          "description": "Enter your text."
+          "name": "Forecast type",
+          "description": "The scope of the weather forecast."
         }
       },
       "target": {
         "entity": [
           {
             "domain": [
-              "text"
+              "weather"
+            ],
+            "supported_features": [
+              1,
+              2,
+              4
             ]
           }
         ]
+      },
+      "response": {
+        "optional": false
       }
     }
   },
@@ -8854,37 +8868,6 @@
     "alexa_media_kitchen_echo_show": {
       "name": "Send a notification via alexa_media_kitchen_echo_show",
       "description": "Sends a notification message using the alexa_media_kitchen_echo_show integration.",
-      "fields": {
-        "message": {
-          "required": true,
-          "example": "The garage door has been open for 10 minutes.",
-          "selector": {
-            "text": null
-          }
-        },
-        "title": {
-          "example": "Your Garage Door Friend",
-          "selector": {
-            "text": null
-          }
-        },
-        "target": {
-          "example": "platform specific",
-          "selector": {
-            "object": null
-          }
-        },
-        "data": {
-          "example": "platform specific",
-          "selector": {
-            "object": null
-          }
-        }
-      }
-    },
-    "alexa_media_last_called": {
-      "name": "Send a notification via alexa_media_last_called",
-      "description": "Sends a notification message using the alexa_media_last_called integration.",
       "fields": {
         "message": {
           "required": true,
@@ -9656,6 +9639,37 @@
           }
         }
       }
+    },
+    "alexa_media_last_called": {
+      "name": "Send a notification via alexa_media_last_called",
+      "description": "Sends a notification message using the alexa_media_last_called integration.",
+      "fields": {
+        "message": {
+          "required": true,
+          "example": "The garage door has been open for 10 minutes.",
+          "selector": {
+            "text": null
+          }
+        },
+        "title": {
+          "example": "Your Garage Door Friend",
+          "selector": {
+            "text": null
+          }
+        },
+        "target": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        },
+        "data": {
+          "example": "platform specific",
+          "selector": {
+            "object": null
+          }
+        }
+      }
     }
   },
   "unifiprotect": {
@@ -9790,43 +9804,55 @@
       }
     }
   },
-  "weather": {
-    "get_forecasts": {
-      "name": "Get forecasts",
-      "description": "Retrieves the forecast from selected weather services.",
+  "text": {
+    "set_value": {
+      "name": "Set value",
+      "description": "Sets the value.",
       "fields": {
-        "type": {
+        "value": {
           "required": true,
+          "example": "Hello world!",
           "selector": {
-            "select": {
-              "options": [
-                "daily",
-                "hourly",
-                "twice_daily"
-              ],
-              "translation_key": "forecast_type"
-            }
+            "text": null
           },
-          "name": "Forecast type",
-          "description": "The scope of the weather forecast."
+          "name": "Value",
+          "description": "Enter your text."
         }
       },
       "target": {
         "entity": [
           {
             "domain": [
-              "weather"
-            ],
-            "supported_features": [
-              1,
-              2,
-              4
+              "text"
             ]
           }
         ]
+      }
+    }
+  },
+  "time": {
+    "set_value": {
+      "name": "Set Time",
+      "description": "Sets the time.",
+      "fields": {
+        "time": {
+          "required": true,
+          "example": "22:15",
+          "selector": {
+            "time": null
+          },
+          "name": "Time",
+          "description": "The time to set."
+        }
       },
-      "response": {
-        "optional": false
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "time"
+            ]
+          }
+        ]
       }
     }
   },
@@ -9928,32 +9954,6 @@
       }
     }
   },
-  "time": {
-    "set_value": {
-      "name": "Set Time",
-      "description": "Sets the time.",
-      "fields": {
-        "time": {
-          "required": true,
-          "example": "22:15",
-          "selector": {
-            "time": null
-          },
-          "name": "Time",
-          "description": "The time to set."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "time"
-            ]
-          }
-        ]
-      }
-    }
-  },
   "adguard": {
     "add_url": {
       "name": "Add URL",
@@ -10036,6 +10036,39 @@
           "name": "Force",
           "description": "Force update (bypasses AdGuard Home throttling), omit for a regular refresh."
         }
+      }
+    }
+  },
+  "vesync": {
+    "update_devices": {
+      "name": "Update devices",
+      "description": "Adds new VeSync devices to Home Assistant.",
+      "fields": {}
+    }
+  },
+  "image": {
+    "snapshot": {
+      "name": "Take snapshot",
+      "description": "Takes a snapshot from an image.",
+      "fields": {
+        "filename": {
+          "required": true,
+          "example": "/tmp/image_snapshot.jpg",
+          "selector": {
+            "text": null
+          },
+          "name": "Filename",
+          "description": "Template of a filename. Variable available is \u0060entity_id\u0060."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "domain": [
+              "image"
+            ]
+          }
+        ]
       }
     }
   },
@@ -10259,194 +10292,6 @@
           }
         ]
       }
-    }
-  },
-  "image": {
-    "snapshot": {
-      "name": "Take snapshot",
-      "description": "Takes a snapshot from an image.",
-      "fields": {
-        "filename": {
-          "required": true,
-          "example": "/tmp/image_snapshot.jpg",
-          "selector": {
-            "text": null
-          },
-          "name": "Filename",
-          "description": "Template of a filename. Variable available is \u0060entity_id\u0060."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "domain": [
-              "image"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "google": {
-    "add_event": {
-      "name": "Add event",
-      "description": "Adds a new calendar event.",
-      "fields": {
-        "calendar_id": {
-          "required": true,
-          "example": "Your email",
-          "selector": {
-            "text": null
-          },
-          "name": "Calendar ID",
-          "description": "The id of the calendar you want."
-        },
-        "summary": {
-          "required": true,
-          "example": "Bowling",
-          "selector": {
-            "text": null
-          },
-          "name": "Summary",
-          "description": "Acts as the title of the event."
-        },
-        "description": {
-          "example": "Birthday bowling",
-          "selector": {
-            "text": null
-          },
-          "name": "Description",
-          "description": "The description of the event. Optional."
-        },
-        "start_date_time": {
-          "example": "2019-03-22 20:00:00",
-          "selector": {
-            "text": null
-          },
-          "name": "Start time",
-          "description": "The date and time the event should start."
-        },
-        "end_date_time": {
-          "example": "2019-03-22 22:00:00",
-          "selector": {
-            "text": null
-          },
-          "name": "End time",
-          "description": "The date and time the event should end."
-        },
-        "start_date": {
-          "example": "2019-03-10",
-          "selector": {
-            "text": null
-          },
-          "name": "Start date",
-          "description": "The date the whole day event should start."
-        },
-        "end_date": {
-          "example": "2019-03-11",
-          "selector": {
-            "text": null
-          },
-          "name": "End date",
-          "description": "The date the whole day event should end."
-        },
-        "in": {
-          "example": "\u0022days\u0022: 2 or \u0022weeks\u0022: 2",
-          "selector": {
-            "object": null
-          },
-          "name": "In",
-          "description": "Days or weeks that you want to create the event in."
-        }
-      }
-    },
-    "create_event": {
-      "name": "Create event",
-      "description": "Adds a new calendar event.",
-      "fields": {
-        "summary": {
-          "required": true,
-          "example": "Bowling",
-          "selector": {
-            "text": null
-          },
-          "name": "Summary",
-          "description": "Acts as the title of the event."
-        },
-        "description": {
-          "example": "Birthday bowling",
-          "selector": {
-            "text": null
-          },
-          "name": "Description",
-          "description": "The description of the event. Optional."
-        },
-        "start_date_time": {
-          "example": "2022-03-22 20:00:00",
-          "selector": {
-            "text": null
-          },
-          "name": "Start time",
-          "description": "The date and time the event should start."
-        },
-        "end_date_time": {
-          "example": "2022-03-22 22:00:00",
-          "selector": {
-            "text": null
-          },
-          "name": "End time",
-          "description": "The date and time the event should end."
-        },
-        "start_date": {
-          "example": "2022-03-10",
-          "selector": {
-            "text": null
-          },
-          "name": "Start date",
-          "description": "The date the whole day event should start."
-        },
-        "end_date": {
-          "example": "2022-03-11",
-          "selector": {
-            "text": null
-          },
-          "name": "End date",
-          "description": "The date the whole day event should end."
-        },
-        "in": {
-          "example": "\u0022days\u0022: 2 or \u0022weeks\u0022: 2",
-          "selector": {
-            "object": null
-          },
-          "name": "In",
-          "description": "Days or weeks that you want to create the event in."
-        },
-        "location": {
-          "example": "Conference Room - F123, Bldg. 002",
-          "selector": {
-            "text": null
-          },
-          "name": "Location",
-          "description": "The location of the event. Optional."
-        }
-      },
-      "target": {
-        "entity": [
-          {
-            "integration": "google",
-            "domain": [
-              "calendar"
-            ]
-          }
-        ]
-      }
-    }
-  },
-  "vesync": {
-    "update_devices": {
-      "name": "Update devices",
-      "description": "Adds new VeSync devices to Home Assistant.",
-      "fields": {}
     }
   },
   "spotcast": {
@@ -10704,6 +10549,161 @@
             "boolean": null
           }
         }
+      }
+    }
+  },
+  "google": {
+    "add_event": {
+      "name": "Add event",
+      "description": "Adds a new calendar event.",
+      "fields": {
+        "calendar_id": {
+          "required": true,
+          "example": "Your email",
+          "selector": {
+            "text": null
+          },
+          "name": "Calendar ID",
+          "description": "The id of the calendar you want."
+        },
+        "summary": {
+          "required": true,
+          "example": "Bowling",
+          "selector": {
+            "text": null
+          },
+          "name": "Summary",
+          "description": "Acts as the title of the event."
+        },
+        "description": {
+          "example": "Birthday bowling",
+          "selector": {
+            "text": null
+          },
+          "name": "Description",
+          "description": "The description of the event. Optional."
+        },
+        "start_date_time": {
+          "example": "2019-03-22 20:00:00",
+          "selector": {
+            "text": null
+          },
+          "name": "Start time",
+          "description": "The date and time the event should start."
+        },
+        "end_date_time": {
+          "example": "2019-03-22 22:00:00",
+          "selector": {
+            "text": null
+          },
+          "name": "End time",
+          "description": "The date and time the event should end."
+        },
+        "start_date": {
+          "example": "2019-03-10",
+          "selector": {
+            "text": null
+          },
+          "name": "Start date",
+          "description": "The date the whole day event should start."
+        },
+        "end_date": {
+          "example": "2019-03-11",
+          "selector": {
+            "text": null
+          },
+          "name": "End date",
+          "description": "The date the whole day event should end."
+        },
+        "in": {
+          "example": "\u0022days\u0022: 2 or \u0022weeks\u0022: 2",
+          "selector": {
+            "object": null
+          },
+          "name": "In",
+          "description": "Days or weeks that you want to create the event in."
+        }
+      }
+    },
+    "create_event": {
+      "name": "Create event",
+      "description": "Adds a new calendar event.",
+      "fields": {
+        "summary": {
+          "required": true,
+          "example": "Bowling",
+          "selector": {
+            "text": null
+          },
+          "name": "Summary",
+          "description": "Acts as the title of the event."
+        },
+        "description": {
+          "example": "Birthday bowling",
+          "selector": {
+            "text": null
+          },
+          "name": "Description",
+          "description": "The description of the event. Optional."
+        },
+        "start_date_time": {
+          "example": "2022-03-22 20:00:00",
+          "selector": {
+            "text": null
+          },
+          "name": "Start time",
+          "description": "The date and time the event should start."
+        },
+        "end_date_time": {
+          "example": "2022-03-22 22:00:00",
+          "selector": {
+            "text": null
+          },
+          "name": "End time",
+          "description": "The date and time the event should end."
+        },
+        "start_date": {
+          "example": "2022-03-10",
+          "selector": {
+            "text": null
+          },
+          "name": "Start date",
+          "description": "The date the whole day event should start."
+        },
+        "end_date": {
+          "example": "2022-03-11",
+          "selector": {
+            "text": null
+          },
+          "name": "End date",
+          "description": "The date the whole day event should end."
+        },
+        "in": {
+          "example": "\u0022days\u0022: 2 or \u0022weeks\u0022: 2",
+          "selector": {
+            "object": null
+          },
+          "name": "In",
+          "description": "Days or weeks that you want to create the event in."
+        },
+        "location": {
+          "example": "Conference Room - F123, Bldg. 002",
+          "selector": {
+            "text": null
+          },
+          "name": "Location",
+          "description": "The location of the event. Optional."
+        }
+      },
+      "target": {
+        "entity": [
+          {
+            "integration": "google",
+            "domain": [
+              "calendar"
+            ]
+          }
+        ]
       }
     }
   },
@@ -11477,83 +11477,6 @@
       }
     }
   },
-  "fully_kiosk": {
-    "load_url": {
-      "name": "Load URL",
-      "description": "Loads a URL on Fully Kiosk Browser.",
-      "fields": {
-        "url": {
-          "example": "https://home-assistant.io",
-          "required": true,
-          "selector": {
-            "text": null
-          },
-          "name": "URL",
-          "description": "URL to load."
-        }
-      },
-      "target": {
-        "device": [
-          {
-            "integration": "fully_kiosk"
-          }
-        ]
-      }
-    },
-    "start_application": {
-      "name": "Start application",
-      "description": "Starts an application on the device running Fully Kiosk Browser.",
-      "fields": {
-        "application": {
-          "example": "de.ozerov.fully",
-          "required": true,
-          "selector": {
-            "text": null
-          },
-          "name": "Application",
-          "description": "Package name of the application to start."
-        }
-      },
-      "target": {
-        "device": [
-          {
-            "integration": "fully_kiosk"
-          }
-        ]
-      }
-    },
-    "set_config": {
-      "name": "Set configuration",
-      "description": "Sets a configuration parameter on Fully Kiosk Browser.",
-      "fields": {
-        "key": {
-          "example": "motionSensitivity",
-          "required": true,
-          "selector": {
-            "text": null
-          },
-          "name": "Key",
-          "description": "Configuration parameter to set."
-        },
-        "value": {
-          "example": "90",
-          "required": true,
-          "selector": {
-            "text": null
-          },
-          "name": "Value",
-          "description": "Value for the configuration parameter."
-        }
-      },
-      "target": {
-        "device": [
-          {
-            "integration": "fully_kiosk"
-          }
-        ]
-      }
-    }
-  },
   "alarmo": {
     "arm": {
       "name": "",
@@ -11658,6 +11581,83 @@
             "text": null
           }
         }
+      }
+    }
+  },
+  "fully_kiosk": {
+    "load_url": {
+      "name": "Load URL",
+      "description": "Loads a URL on Fully Kiosk Browser.",
+      "fields": {
+        "url": {
+          "example": "https://home-assistant.io",
+          "required": true,
+          "selector": {
+            "text": null
+          },
+          "name": "URL",
+          "description": "URL to load."
+        }
+      },
+      "target": {
+        "device": [
+          {
+            "integration": "fully_kiosk"
+          }
+        ]
+      }
+    },
+    "start_application": {
+      "name": "Start application",
+      "description": "Starts an application on the device running Fully Kiosk Browser.",
+      "fields": {
+        "application": {
+          "example": "de.ozerov.fully",
+          "required": true,
+          "selector": {
+            "text": null
+          },
+          "name": "Application",
+          "description": "Package name of the application to start."
+        }
+      },
+      "target": {
+        "device": [
+          {
+            "integration": "fully_kiosk"
+          }
+        ]
+      }
+    },
+    "set_config": {
+      "name": "Set configuration",
+      "description": "Sets a configuration parameter on Fully Kiosk Browser.",
+      "fields": {
+        "key": {
+          "example": "motionSensitivity",
+          "required": true,
+          "selector": {
+            "text": null
+          },
+          "name": "Key",
+          "description": "Configuration parameter to set."
+        },
+        "value": {
+          "example": "90",
+          "required": true,
+          "selector": {
+            "text": null
+          },
+          "name": "Value",
+          "description": "Value for the configuration parameter."
+        }
+      },
+      "target": {
+        "device": [
+          {
+            "integration": "fully_kiosk"
+          }
+        ]
       }
     }
   },

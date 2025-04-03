@@ -62,12 +62,27 @@ public class RoomControl
         if (_context.Entity(_roomModeSelect).State == null)
         {
             _logger.LogDebug("{room} Creating Room Mode Select", _roomModeSelect);
+            var options = new List<string>();
+            if (IsBedroom)
+                options = EnumExtensions.ToList<RoomModeOptions>();
+            else if (room.Equals("lounge"))
+                options = EnumExtensions.ToList<LoungeModeOptions>();
+            else if (room.Equals("snug"))
+                options = EnumExtensions.ToList<SnugModeOptions>();
+            else
+                options = EnumExtensions.ToList<RoomModeOptions>();
+
             await _entityManager.CreateAsync(_roomModeSelect, new EntityCreationOptions
             {
                 Name = $"{Name} Mode",
                 UniqueId = _roomModeSelect,
                 DeviceClass = "input_select",
                 Persist = true
+            },
+            new
+            {
+                options,
+                current_option = "test2"
             }).ConfigureAwait(false);
             RoomMode = new InputSelectEntity(_context, _roomModeSelect);
         }
@@ -77,19 +92,6 @@ public class RoomControl
             _logger.LogError("{room} Room Mode Select not created", Name);
             return;
         }
-
-        // Load options based on room
-        if (IsBedroom)
-            RoomMode.SetOptions(EnumExtensions.ToOptions<RoomModeOptions>());
-        else if (room.Equals("lounge"))
-            RoomMode.SetOptions(EnumExtensions.ToOptions<LoungeModeOptions>());
-        else if (room.Equals("snug"))
-            RoomMode.SetOptions(EnumExtensions.ToOptions<SnugModeOptions>());
-        else
-            RoomMode.SetOptions(EnumExtensions.ToOptions<RoomModeOptions>());
-
-        // Set the default value to "Normal"
-        RoomMode.SelectOption(RoomModeOptions.Normal);
 
         if (_roomModeSelect != "input_select.testroom_mode")
         {
