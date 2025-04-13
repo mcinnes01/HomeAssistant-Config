@@ -13,10 +13,11 @@ NetDaemon.apps.LightApp.LightingConfig:
       Lights:
         - Light: light.hallway_lamp
           TriggerWithoutPresence: true
-          Conditions:
+          TriggerConditions:
             - Entity: sun.sun
               Operator: Equals
               State: below_horizon
+          Conditions:
             - Entity: input_select.bedroom_mode
               Operator: NotEquals
               State: 'Sleeping'
@@ -56,10 +57,11 @@ NetDaemon.apps.LightApp.LightingConfig:
           Primary: false
           Timeout: 240
           TriggerWithoutPresence: true
-          Conditions:
+          TriggerConditions:
             - Entity: sun.sun
               Operator: Equals
               State: below_horizon
+          Conditions:
             - Entity: input_select.light_control_mode
               Operator: NotEquals
               State: 'Sleeping'

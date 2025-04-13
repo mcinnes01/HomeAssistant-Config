@@ -4,6 +4,11 @@
       "domain": "light",
       "entities": [
         {
+          "id": "light.856685d9_09ac8a2b_screen",
+          "friendlyName": "Screen",
+          "cSharpName": "_856685d909ac8a2bScreen"
+        },
+        {
           "id": "light.9797c93a_4a5b4648_screen",
           "friendlyName": "Screen",
           "cSharpName": "_9797c93a4a5b4648Screen"
@@ -144,11 +149,6 @@
           "cSharpName": "DressingRoomLight"
         },
         {
-          "id": "light.e386c008_b2b2ac2e_screen",
-          "friendlyName": "Screen",
-          "cSharpName": "E386c008B2b2ac2eScreen"
-        },
-        {
           "id": "light.electric_cabinet_light",
           "friendlyName": "Electric Cabinet Light",
           "cSharpName": "ElectricCabinetLight"
@@ -202,6 +202,11 @@
           "id": "light.inside_no_room_control_not_basement",
           "friendlyName": "Inside No Room Control Not Basement",
           "cSharpName": "InsideNoRoomControlNotBasement"
+        },
+        {
+          "id": "light.kitchen_board_screen",
+          "friendlyName": "Screen",
+          "cSharpName": "KitchenBoardScreen"
         },
         {
           "id": "light.kitchen_light",
@@ -561,6 +566,11 @@
       "domain": "media_player",
       "entities": [
         {
+          "id": "media_player.856685d9_09ac8a2b",
+          "friendlyName": null,
+          "cSharpName": "_856685d909ac8a2b"
+        },
+        {
           "id": "media_player.9797c93a_4a5b4648",
           "friendlyName": null,
           "cSharpName": "_9797c93a4a5b4648"
@@ -686,11 +696,6 @@
           "cSharpName": "DressingRoomEchoSpot"
         },
         {
-          "id": "media_player.e386c008_b2b2ac2e",
-          "friendlyName": null,
-          "cSharpName": "E386c008B2b2ac2e"
-        },
-        {
           "id": "media_player.garden",
           "friendlyName": "Garden",
           "cSharpName": "Garden"
@@ -744,6 +749,11 @@
           "id": "media_player.kichen_wallboard_4",
           "friendlyName": "Kichen-Wallboard",
           "cSharpName": "KichenWallboard4"
+        },
+        {
+          "id": "media_player.kitchen_board",
+          "friendlyName": null,
+          "cSharpName": "KitchenBoard"
         },
         {
           "id": "media_player.kitchen_camera_speaker",
@@ -864,6 +874,11 @@
           "id": "media_player.studio_echo_dot_2",
           "friendlyName": null,
           "cSharpName": "StudioEchoDot2"
+        },
+        {
+          "id": "media_player.this_device",
+          "friendlyName": null,
+          "cSharpName": "ThisDevice"
         },
         {
           "id": "media_player.this_device_2",
@@ -1126,6 +1141,11 @@
           "jsonName": "browserID",
           "cSharpName": "BrowserID",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "history_records",
+          "cSharpName": "HistoryRecords",
+          "clrType": "System.Collections.Generic.IReadOnlyList\u00601[System.Object]"
         }
       ]
     },
@@ -1705,6 +1725,21 @@
           "id": "binary_sensor.0x8c6fb9fffe38646c_update_available",
           "friendlyName": null,
           "cSharpName": "_0x8c6fb9fffe38646cUpdateAvailable"
+        },
+        {
+          "id": "binary_sensor.856685d9_09ac8a2b",
+          "friendlyName": null,
+          "cSharpName": "_856685d909ac8a2b"
+        },
+        {
+          "id": "binary_sensor.856685d9_09ac8a2b_browser_dark_mode",
+          "friendlyName": "Browser dark mode",
+          "cSharpName": "_856685d909ac8a2bBrowserDarkMode"
+        },
+        {
+          "id": "binary_sensor.856685d9_09ac8a2b_browser_fullykiosk",
+          "friendlyName": "Browser FullyKiosk",
+          "cSharpName": "_856685d909ac8a2bBrowserFullykiosk"
         },
         {
           "id": "binary_sensor.9797c93a_4a5b4648",
@@ -2397,26 +2432,6 @@
           "cSharpName": "DressingRoomMotion"
         },
         {
-          "id": "binary_sensor.e386c008_b2b2ac2e",
-          "friendlyName": null,
-          "cSharpName": "E386c008B2b2ac2e"
-        },
-        {
-          "id": "binary_sensor.e386c008_b2b2ac2e_browser_charging",
-          "friendlyName": "Browser charging",
-          "cSharpName": "E386c008B2b2ac2eBrowserCharging"
-        },
-        {
-          "id": "binary_sensor.e386c008_b2b2ac2e_browser_dark_mode",
-          "friendlyName": "Browser dark mode",
-          "cSharpName": "E386c008B2b2ac2eBrowserDarkMode"
-        },
-        {
-          "id": "binary_sensor.e386c008_b2b2ac2e_browser_fullykiosk",
-          "friendlyName": "Browser FullyKiosk",
-          "cSharpName": "E386c008B2b2ac2eBrowserFullykiosk"
-        },
-        {
           "id": "binary_sensor.electric_cabinet_door_battery_low",
           "friendlyName": "Electric Cabinet Door Battery",
           "cSharpName": "ElectricCabinetDoorBatteryLow"
@@ -2755,6 +2770,26 @@
           "id": "binary_sensor.issunset",
           "friendlyName": "IsSunSet",
           "cSharpName": "Issunset"
+        },
+        {
+          "id": "binary_sensor.kitchen_board",
+          "friendlyName": null,
+          "cSharpName": "KitchenBoard"
+        },
+        {
+          "id": "binary_sensor.kitchen_board_browser_charging",
+          "friendlyName": "Browser charging",
+          "cSharpName": "KitchenBoardBrowserCharging"
+        },
+        {
+          "id": "binary_sensor.kitchen_board_browser_dark_mode",
+          "friendlyName": "Browser dark mode",
+          "cSharpName": "KitchenBoardBrowserDarkMode"
+        },
+        {
+          "id": "binary_sensor.kitchen_board_browser_fullykiosk",
+          "friendlyName": "Browser FullyKiosk",
+          "cSharpName": "KitchenBoardBrowserFullykiosk"
         },
         {
           "id": "binary_sensor.kitchen_camera_animal_detected",
@@ -5929,89 +5964,14 @@
           "cSharpName": "N02rf"
         },
         {
-          "id": "device_tracker.name_between_3anc",
-          "friendlyName": "name:between-3anc",
-          "cSharpName": "NameBetween3anc"
-        },
-        {
-          "id": "device_tracker.name_byd_ble3",
-          "friendlyName": "name:byd-ble3",
-          "cSharpName": "NameBydBle3"
-        },
-        {
-          "id": "device_tracker.name_ccc3",
-          "friendlyName": "name:ccc3",
-          "cSharpName": "NameCcc3"
-        },
-        {
-          "id": "device_tracker.name_dell_mouse",
-          "friendlyName": "name:dell-mouse",
-          "cSharpName": "NameDellMouse"
-        },
-        {
-          "id": "device_tracker.name_ear_2",
-          "friendlyName": "name:ear-2",
-          "cSharpName": "NameEar2"
-        },
-        {
-          "id": "device_tracker.name_freelite",
-          "friendlyName": "name:freelite",
-          "cSharpName": "NameFreelite"
-        },
-        {
-          "id": "device_tracker.name_ibr420_9ea6",
-          "friendlyName": "name:ibr420-9ea6",
-          "cSharpName": "NameIbr4209ea6"
-        },
-        {
           "id": "device_tracker.name_ibr420_e965",
           "friendlyName": null,
           "cSharpName": "NameIbr420E965"
         },
         {
-          "id": "device_tracker.name_le_m51",
-          "friendlyName": "name:le-m51",
-          "cSharpName": "NameLeM51"
-        },
-        {
-          "id": "device_tracker.name_le_wf_c500",
-          "friendlyName": "name:le_wf-c500",
-          "cSharpName": "NameLeWfC500"
-        },
-        {
-          "id": "device_tracker.name_le_wh_1000xm4",
-          "friendlyName": "name:le_wh-1000xm4",
-          "cSharpName": "NameLeWh1000xm4"
-        },
-        {
-          "id": "device_tracker.name_le_wh_1000xm5",
-          "friendlyName": "name:le_wh-1000xm5",
-          "cSharpName": "NameLeWh1000xm5"
-        },
-        {
-          "id": "device_tracker.name_lumosltis",
-          "friendlyName": "name:lumosltis",
-          "cSharpName": "NameLumosltis"
-        },
-        {
-          "id": "device_tracker.name_mi",
-          "friendlyName": "name:mi",
-          "cSharpName": "NameMi"
-        },
-        {
           "id": "device_tracker.name_polar_h10_df25a82d",
           "friendlyName": null,
           "cSharpName": "NamePolarH10Df25a82d"
-        },
-        {
-          "id": "device_tracker.name_se5000_0238562048",
-          "friendlyName": "name:se5000-0238562048",
-          "cSharpName": "NameSe50000238562048"
-        },
-        {
-          "id": "device_tracker.name_se5000_1179133952",
-          "friendlyName": "name:se5000-1179133952",
-          "cSharpName": "NameSe50001179133952"
         },
         {
           "id": "device_tracker.name_se5000_2935564032",
@@ -6022,11 +5982,6 @@
           "id": "device_tracker.name_xp_pp_04e35a",
           "friendlyName": "name:xp-pp-04e35a",
           "cSharpName": "NameXpPp04e35a"
-        },
-        {
-          "id": "device_tracker.name_yt",
-          "friendlyName": "name:yt",
-          "cSharpName": "NameYt"
         },
         {
           "id": "device_tracker.niu_6261_niu_6261",
@@ -6824,7 +6779,7 @@
       "entities": [
         {
           "id": "fan.air_purifier",
-          "friendlyName": "Air Purifier",
+          "friendlyName": null,
           "cSharpName": "AirPurifier"
         },
         {
@@ -6888,6 +6843,11 @@
           "jsonName": "mode",
           "cSharpName": "Mode",
           "clrType": "System.String"
+        },
+        {
+          "jsonName": "restored",
+          "cSharpName": "Restored",
+          "clrType": "System.Boolean"
         }
       ]
     },
@@ -8301,6 +8261,26 @@
           "cSharpName": "_0x8c6fb9fffe38646cUpdateState"
         },
         {
+          "id": "sensor.856685d9_09ac8a2b_browser_path",
+          "friendlyName": "Browser path",
+          "cSharpName": "_856685d909ac8a2bBrowserPath"
+        },
+        {
+          "id": "sensor.856685d9_09ac8a2b_browser_user",
+          "friendlyName": "Browser user",
+          "cSharpName": "_856685d909ac8a2bBrowserUser"
+        },
+        {
+          "id": "sensor.856685d9_09ac8a2b_browser_useragent",
+          "friendlyName": "Browser userAgent",
+          "cSharpName": "_856685d909ac8a2bBrowserUseragent"
+        },
+        {
+          "id": "sensor.856685d9_09ac8a2b_browser_visibility",
+          "friendlyName": "Browser visibility",
+          "cSharpName": "_856685d909ac8a2bBrowserVisibility"
+        },
+        {
           "id": "sensor.9797c93a_4a5b4648_browser_path",
           "friendlyName": "Browser path",
           "cSharpName": "_9797c93a4a5b4648BrowserPath"
@@ -8696,26 +8676,6 @@
           "cSharpName": "DressingRoomEchoSpotNextTimer"
         },
         {
-          "id": "sensor.e386c008_b2b2ac2e_browser_path",
-          "friendlyName": "Browser path",
-          "cSharpName": "E386c008B2b2ac2eBrowserPath"
-        },
-        {
-          "id": "sensor.e386c008_b2b2ac2e_browser_user",
-          "friendlyName": "Browser user",
-          "cSharpName": "E386c008B2b2ac2eBrowserUser"
-        },
-        {
-          "id": "sensor.e386c008_b2b2ac2e_browser_useragent",
-          "friendlyName": "Browser userAgent",
-          "cSharpName": "E386c008B2b2ac2eBrowserUseragent"
-        },
-        {
-          "id": "sensor.e386c008_b2b2ac2e_browser_visibility",
-          "friendlyName": "Browser visibility",
-          "cSharpName": "E386c008B2b2ac2eBrowserVisibility"
-        },
-        {
           "id": "sensor.epson_xp_950_series",
           "friendlyName": null,
           "cSharpName": "EpsonXp950Series"
@@ -8944,6 +8904,26 @@
           "id": "sensor.kitchen_air_quality_voc_index",
           "friendlyName": "Kitchen Air Quality VOC index",
           "cSharpName": "KitchenAirQualityVocIndex"
+        },
+        {
+          "id": "sensor.kitchen_board_browser_path",
+          "friendlyName": "Browser path",
+          "cSharpName": "KitchenBoardBrowserPath"
+        },
+        {
+          "id": "sensor.kitchen_board_browser_user",
+          "friendlyName": "Browser user",
+          "cSharpName": "KitchenBoardBrowserUser"
+        },
+        {
+          "id": "sensor.kitchen_board_browser_useragent",
+          "friendlyName": "Browser userAgent",
+          "cSharpName": "KitchenBoardBrowserUseragent"
+        },
+        {
+          "id": "sensor.kitchen_board_browser_visibility",
+          "friendlyName": "Browser visibility",
+          "cSharpName": "KitchenBoardBrowserVisibility"
         },
         {
           "id": "sensor.kitchen_camera_infrared_mode",
@@ -10441,6 +10421,11 @@
           "jsonName": "total_logins",
           "cSharpName": "TotalLogins",
           "clrType": "System.Double"
+        },
+        {
+          "jsonName": "1ca92e23-f087-4df7-b9a2-fd4b716a4bf6_2339_0",
+          "cSharpName": "_1ca92e23f0874df7b9a2fd4b716a4bf623390",
+          "clrType": "System.Double"
         }
       ]
     },
@@ -10489,6 +10474,16 @@
           "cSharpName": "_74278bdaB64445208f0c720eaf059935095650951EstimatedDistance"
         },
         {
+          "id": "sensor.856685d9_09ac8a2b_browser_height",
+          "friendlyName": "Browser height",
+          "cSharpName": "_856685d909ac8a2bBrowserHeight"
+        },
+        {
+          "id": "sensor.856685d9_09ac8a2b_browser_width",
+          "friendlyName": "Browser width",
+          "cSharpName": "_856685d909ac8a2bBrowserWidth"
+        },
+        {
           "id": "sensor.9797c93a_4a5b4648_browser_height",
           "friendlyName": "Browser height",
           "cSharpName": "_9797c93a4a5b4648BrowserHeight"
@@ -10510,37 +10505,37 @@
         },
         {
           "id": "sensor.adguard_average_processing_speed",
-          "friendlyName": "AdGuard Home Average processing speed",
+          "friendlyName": "Average processing speed",
           "cSharpName": "AdguardAverageProcessingSpeed"
         },
         {
           "id": "sensor.adguard_dns_queries",
-          "friendlyName": "AdGuard Home DNS queries",
+          "friendlyName": "DNS queries",
           "cSharpName": "AdguardDnsQueries"
         },
         {
           "id": "sensor.adguard_dns_queries_blocked",
-          "friendlyName": "AdGuard Home DNS queries blocked",
+          "friendlyName": "DNS queries blocked",
           "cSharpName": "AdguardDnsQueriesBlocked"
         },
         {
           "id": "sensor.adguard_dns_queries_blocked_ratio",
-          "friendlyName": "AdGuard Home DNS queries blocked ratio",
+          "friendlyName": "DNS queries blocked ratio",
           "cSharpName": "AdguardDnsQueriesBlockedRatio"
         },
         {
           "id": "sensor.adguard_parental_control_blocked",
-          "friendlyName": "AdGuard Home Parental control blocked",
+          "friendlyName": "Parental control blocked",
           "cSharpName": "AdguardParentalControlBlocked"
         },
         {
           "id": "sensor.adguard_rules_count",
-          "friendlyName": "AdGuard Home Rules count",
+          "friendlyName": "Rules count",
           "cSharpName": "AdguardRulesCount"
         },
         {
           "id": "sensor.adguard_safe_browsing_blocked",
-          "friendlyName": "AdGuard Home Safe browsing blocked",
+          "friendlyName": "Safe browsing blocked",
           "cSharpName": "AdguardSafeBrowsingBlocked"
         },
         {
@@ -12034,21 +12029,6 @@
           "cSharpName": "E2c56db5Dffb48d2B060D0f5a71096e000EstimatedDistance"
         },
         {
-          "id": "sensor.e386c008_b2b2ac2e_browser_battery",
-          "friendlyName": "Browser battery",
-          "cSharpName": "E386c008B2b2ac2eBrowserBattery"
-        },
-        {
-          "id": "sensor.e386c008_b2b2ac2e_browser_height",
-          "friendlyName": "Browser height",
-          "cSharpName": "E386c008B2b2ac2eBrowserHeight"
-        },
-        {
-          "id": "sensor.e386c008_b2b2ac2e_browser_width",
-          "friendlyName": "Browser width",
-          "cSharpName": "E386c008B2b2ac2eBrowserWidth"
-        },
-        {
           "id": "sensor.electric_cabinet_door_battery",
           "friendlyName": "Electric Cabinet Door Battery",
           "cSharpName": "ElectricCabinetDoorBattery"
@@ -13079,6 +13059,21 @@
           "cSharpName": "KitchenAirQualityTemperature"
         },
         {
+          "id": "sensor.kitchen_board_browser_battery",
+          "friendlyName": "Browser battery",
+          "cSharpName": "KitchenBoardBrowserBattery"
+        },
+        {
+          "id": "sensor.kitchen_board_browser_height",
+          "friendlyName": "Browser height",
+          "cSharpName": "KitchenBoardBrowserHeight"
+        },
+        {
+          "id": "sensor.kitchen_board_browser_width",
+          "friendlyName": "Browser width",
+          "cSharpName": "KitchenBoardBrowserWidth"
+        },
+        {
           "id": "sensor.kitchen_camera_disk_write_rate",
           "friendlyName": "Kitchen Camera Disk write rate",
           "cSharpName": "KitchenCameraDiskWriteRate"
@@ -13182,21 +13177,6 @@
           "id": "sensor.lounge_switch_battery",
           "friendlyName": "Lounge Switch Battery",
           "cSharpName": "LoungeSwitchBattery"
-        },
-        {
-          "id": "sensor.lounge_tv_energy_meter",
-          "friendlyName": "Lounge TV Energy Meter",
-          "cSharpName": "LoungeTvEnergyMeter"
-        },
-        {
-          "id": "sensor.lounge_tv_power_meter",
-          "friendlyName": "Lounge TV Power Meter",
-          "cSharpName": "LoungeTvPowerMeter"
-        },
-        {
-          "id": "sensor.lounge_tv_volume",
-          "friendlyName": "Volume",
-          "cSharpName": "LoungeTvVolume"
         },
         {
           "id": "sensor.mark_battery",
@@ -13660,7 +13640,7 @@
         },
         {
           "id": "sensor.searches_safe_search_enforced",
-          "friendlyName": "AdGuard Home Safe searches enforced",
+          "friendlyName": "Safe searches enforced",
           "cSharpName": "SearchesSafeSearchEnforced"
         },
         {
@@ -25899,6 +25879,221 @@
           "jsonName": "com.morrisons.matchandmore.app_154_post_time",
           "cSharpName": "Com_morrisons_matchandmore_app154PostTime",
           "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.appInfo_com.amazon.dee.app_1743751491",
+          "cSharpName": "Android_appInfoCom_amazon_dee_app1743751491",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.appInfo_com.microsoft.office.outlook_-1227615406",
+          "cSharpName": "Android_appInfoCom_microsoft_office_outlook1227615406",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.bigText_com.amazon.dee.app_1743751491",
+          "cSharpName": "Android_bigTextCom_amazon_dee_app1743751491",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.infoText_com.amazon.dee.app_1743751491",
+          "cSharpName": "Android_infoTextCom_amazon_dee_app1743751491",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.infoText_com.microsoft.office.outlook_-1227615406",
+          "cSharpName": "Android_infoTextCom_microsoft_office_outlook1227615406",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon_com.amazon.dee.app_1743751491",
+          "cSharpName": "Android_largeIconCom_amazon_dee_app1743751491",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon_com.microsoft.office.outlook_-1227615406",
+          "cSharpName": "Android_largeIconCom_microsoft_office_outlook1227615406",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.progressIndeterminate_com.amazon.dee.app_1743751491",
+          "cSharpName": "Android_progressIndeterminateCom_amazon_dee_app1743751491",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.progressIndeterminate_com.microsoft.office.outlook_-1227615406",
+          "cSharpName": "Android_progressIndeterminateCom_microsoft_office_outlook1227615406",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.progressMax_com.amazon.dee.app_1743751491",
+          "cSharpName": "Android_progressMaxCom_amazon_dee_app1743751491",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progressMax_com.microsoft.office.outlook_-1227615406",
+          "cSharpName": "Android_progressMaxCom_microsoft_office_outlook1227615406",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progress_com.amazon.dee.app_1743751491",
+          "cSharpName": "Android_progressCom_amazon_dee_app1743751491",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progress_com.microsoft.office.outlook_-1227615406",
+          "cSharpName": "Android_progressCom_microsoft_office_outlook1227615406",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.reduced.images_com.amazon.dee.app_1743751491",
+          "cSharpName": "Android_reduced_imagesCom_amazon_dee_app1743751491",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.reduced.images_com.microsoft.office.outlook_-1227615406",
+          "cSharpName": "Android_reduced_imagesCom_microsoft_office_outlook1227615406",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.remoteInputHistory_com.amazon.dee.app_1743751491",
+          "cSharpName": "Android_remoteInputHistoryCom_amazon_dee_app1743751491",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.remoteInputHistory_com.microsoft.office.outlook_-1227615406",
+          "cSharpName": "Android_remoteInputHistoryCom_microsoft_office_outlook1227615406",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.showChronometer_com.amazon.dee.app_1743751491",
+          "cSharpName": "Android_showChronometerCom_amazon_dee_app1743751491",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showChronometer_com.microsoft.office.outlook_-1227615406",
+          "cSharpName": "Android_showChronometerCom_microsoft_office_outlook1227615406",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_com.amazon.dee.app_1743751491",
+          "cSharpName": "Android_showWhenCom_amazon_dee_app1743751491",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_com.microsoft.office.outlook_-1227615406",
+          "cSharpName": "Android_showWhenCom_microsoft_office_outlook1227615406",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.subText_com.amazon.dee.app_1743751491",
+          "cSharpName": "Android_subTextCom_amazon_dee_app1743751491",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.subText_com.microsoft.office.outlook_-1227615406",
+          "cSharpName": "Android_subTextCom_microsoft_office_outlook1227615406",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.template_com.amazon.dee.app_1743751491",
+          "cSharpName": "Android_templateCom_amazon_dee_app1743751491",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_com.amazon.dee.app_1743751491",
+          "cSharpName": "Android_textCom_amazon_dee_app1743751491",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_com.microsoft.office.outlook_-1227615406",
+          "cSharpName": "Android_textCom_microsoft_office_outlook1227615406",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title.big_com.amazon.dee.app_1743751491",
+          "cSharpName": "Android_title_bigCom_amazon_dee_app1743751491",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_com.amazon.dee.app_1743751491",
+          "cSharpName": "Android_titleCom_amazon_dee_app1743751491",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_com.microsoft.office.outlook_-1227615406",
+          "cSharpName": "Android_titleCom_microsoft_office_outlook1227615406",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "androidx.core.app.extra.COMPAT_TEMPLATE_com.amazon.dee.app_1743751491",
+          "cSharpName": "Androidx_core_app_extra_COMPATTEMPLATECom_amazon_dee_app1743751491",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.amazon.dee.app_1743751491_category",
+          "cSharpName": "Com_amazon_dee_app1743751491Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.amazon.dee.app_1743751491_channel_id",
+          "cSharpName": "Com_amazon_dee_app1743751491ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.amazon.dee.app_1743751491_group_id",
+          "cSharpName": "Com_amazon_dee_app1743751491GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.amazon.dee.app_1743751491_is_clearable",
+          "cSharpName": "Com_amazon_dee_app1743751491IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.amazon.dee.app_1743751491_is_ongoing",
+          "cSharpName": "Com_amazon_dee_app1743751491IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.amazon.dee.app_1743751491_post_time",
+          "cSharpName": "Com_amazon_dee_app1743751491PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "com.microsoft.office.outlook_-1227615406_category",
+          "cSharpName": "Com_microsoft_office_outlook1227615406Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.microsoft.office.outlook_-1227615406_channel_id",
+          "cSharpName": "Com_microsoft_office_outlook1227615406ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.microsoft.office.outlook_-1227615406_group_id",
+          "cSharpName": "Com_microsoft_office_outlook1227615406GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.microsoft.office.outlook_-1227615406_is_clearable",
+          "cSharpName": "Com_microsoft_office_outlook1227615406IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.microsoft.office.outlook_-1227615406_is_ongoing",
+          "cSharpName": "Com_microsoft_office_outlook1227615406IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.microsoft.office.outlook_-1227615406_post_time",
+          "cSharpName": "Com_microsoft_office_outlook1227615406PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "notificationId_com.amazon.dee.app_1743751491",
+          "cSharpName": "NotificationIdCom_amazon_dee_app1743751491",
+          "clrType": "System.Double"
         }
       ]
     },
@@ -25986,32 +26181,32 @@
       "entities": [
         {
           "id": "switch.adguard_filtering",
-          "friendlyName": "AdGuard Home Filtering",
+          "friendlyName": "Filtering",
           "cSharpName": "AdguardFiltering"
         },
         {
           "id": "switch.adguard_parental_control",
-          "friendlyName": "AdGuard Home Parental control",
+          "friendlyName": "Parental control",
           "cSharpName": "AdguardParentalControl"
         },
         {
           "id": "switch.adguard_protection",
-          "friendlyName": "AdGuard Home Protection",
+          "friendlyName": "Protection",
           "cSharpName": "AdguardProtection"
         },
         {
           "id": "switch.adguard_query_log",
-          "friendlyName": "AdGuard Home Query log",
+          "friendlyName": "Query log",
           "cSharpName": "AdguardQueryLog"
         },
         {
           "id": "switch.adguard_safe_browsing",
-          "friendlyName": "AdGuard Home Safe browsing",
+          "friendlyName": "Safe browsing",
           "cSharpName": "AdguardSafeBrowsing"
         },
         {
           "id": "switch.adguard_safe_search",
-          "friendlyName": "AdGuard Home Safe search",
+          "friendlyName": "Safe search",
           "cSharpName": "AdguardSafeSearch"
         },
         {
@@ -27128,6 +27323,16 @@
           "id": "switch.sump_alarm_restart",
           "friendlyName": "Sump Alarm Sump Alarm Restart",
           "cSharpName": "SumpAlarmRestart"
+        },
+        {
+          "id": "switch.switch_one",
+          "friendlyName": "Switch One",
+          "cSharpName": "SwitchOne"
+        },
+        {
+          "id": "switch.test",
+          "friendlyName": "Test switch",
+          "cSharpName": "Test"
         },
         {
           "id": "switch.this_device_do_not_disturb_switch_2",

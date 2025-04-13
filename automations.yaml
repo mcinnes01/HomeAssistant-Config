@@ -2364,41 +2364,19 @@
     - binary_sensor.kitchen_motion
     - binary_sensor.kitchen_camera_motion
     - binary_sensor.kitchen_camera_person_detected
+    - binary_sensor.kitchen_occupancy
     to: 'off'
     for:
       hours: 0
-      minutes: 10
+      minutes: 1
       seconds: 0
-  conditions:
-  - condition: and
-    conditions:
-    - condition: state
-      entity_id: binary_sensor.kitchen_motion
-      state: 'off'
-      for:
-        hours: 0
-        minutes: 10
-        seconds: 0
-    - condition: state
-      entity_id: binary_sensor.kitchen_camera_person_detected
-      state: 'off'
-      for:
-        hours: 0
-        minutes: 11
-        seconds: 0
-    - condition: state
-      entity_id: binary_sensor.kitchen_camera_detections_motion
-      state: 'off'
-      for:
-        hours: 0
-        minutes: 10
-        seconds: 0
+  conditions: []
   actions:
   - action: light.turn_off
     metadata: {}
     data: {}
     target:
-      entity_id: light.kitchen_wallboard_screen
+      entity_id: light.kitchen_board_screen
   mode: single
 - id: '1730307076644'
   alias: Kitchen Wallboard On
@@ -2409,6 +2387,7 @@
     - binary_sensor.kitchen_motion
     - binary_sensor.kitchen_camera_motion
     - binary_sensor.kitchen_camera_person_detected
+    - binary_sensor.kitchen_occupancy
     to: 'on'
     for:
       hours: 0
@@ -2420,7 +2399,7 @@
     metadata: {}
     data: {}
     target:
-      entity_id: light.kitchen_wallboard_screen
+      entity_id: light.kitchen_board_screen
   mode: single
 - id: '1737788443298'
   alias: Cat in tray

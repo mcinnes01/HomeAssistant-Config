@@ -62,15 +62,11 @@ public class RoomControl
         if (_context.Entity(_roomModeSelect).State == null)
         {
             _logger.LogDebug("{room} Creating Room Mode Select", _roomModeSelect);
-            var options = new List<string>();
-            if (IsBedroom)
-                options = EnumExtensions.ToList<RoomModeOptions>();
-            else if (room.Equals("lounge"))
+            var options = EnumExtensions.ToList<RoomModeOptions>();
+            if (room.Equals("lounge"))
                 options = EnumExtensions.ToList<LoungeModeOptions>();
             else if (room.Equals("snug"))
                 options = EnumExtensions.ToList<SnugModeOptions>();
-            else
-                options = EnumExtensions.ToList<RoomModeOptions>();
 
             await _entityManager.CreateAsync(_roomModeSelect, new EntityCreationOptions
             {
@@ -82,7 +78,7 @@ public class RoomControl
             new
             {
                 options,
-                current_option = "test2"
+                current_option = "Normal"
             }).ConfigureAwait(false);
             RoomMode = new InputSelectEntity(_context, _roomModeSelect);
         }
