@@ -269,7 +269,7 @@ public class LightControl
                 {
                     _logger.LogInformation("Illuminance Sensor {sensor} {state} is above threshold {threshold}, turning off {light}",
                                             e.New.EntityId, e.New.State, _room.IlluminanceLowThreshold, Light.EntityId);
-                    TurnOffEntities("Too Bright");
+                    TurnOffEntities("Too Bright", true);
                 }
                 else if (Light.IsOff() && e.New?.State < _room.IlluminanceLowThreshold 
                      && (TriggerWithoutPresence || TriggerSensors.Union(PresenceSensors).Any(s => s.IsOn())))
@@ -398,31 +398,36 @@ public class LightControl
             _logger.LogTrace("Can't Turn Off {light} with {trigger}, because room mode is {state}", Light.EntityId, trigger, _room.RoomMode?.State);
             return;
         }
-        if (_room.KeepAliveModes.Contains(_room.RoomMode?.State))
+
+        // Skip checks if force is true
+        if (!force)
         {
-            _logger.LogTrace("Can't Turn Off {light} with {trigger}, because room mode is {state}", Light.EntityId, trigger, _room.RoomMode?.State);
-            return;
-        }
-        if(Conditions.Any() && Conditions.All(c => c.ConditionPassed()))
-        {
-            _logger.LogTrace("Can't Turn Off {light} with {trigger}, because condition(s) {Conditions} are keeping it on", Light.EntityId, trigger, Conditions.AsString());
-            return;
-        }
-        if (!force && KeepAliveEntities.Any(b => b.State != null && Extensions.EntityExtensions.OnStates.Contains(b.State)))
-        {
-            _logger.LogTrace("Can't Turn Off {light} with {trigger}, because keep alive entity is on", Light.EntityId,
-                KeepAliveEntities.Where(b => b.State != null && Extensions.EntityExtensions.OnStates.Contains(b.State)).Select(b => b.EntityId));
-            return;
-        }
-        if(TriggerConditions.Any() && TriggerConditions.All(c => c.ConditionPassed()))
-        {
-            _logger.LogTrace("Can't Turn Off {light} with {trigger}, because trigger condition(s) {Conditions} are keeping it on", Light.EntityId, trigger, TriggerConditions.AsString());
-            return;
-        }
-        if (PresenceSensors.Any(s => s.IsOn()))
-        {
-            _logger.LogTrace("{light} is on but there is presence detected, not turning off", Light.EntityId);
-            return;
+            if (_room.KeepAliveModes.Contains(_room.RoomMode?.State))
+            {
+                _logger.LogTrace("Can't Turn Off {light} with {trigger}, because room mode is {state}", Light.EntityId, trigger, _room.RoomMode?.State);
+                return;
+            }
+            if(Conditions.Any() && Conditions.All(c => c.ConditionPassed()))
+            {
+                _logger.LogTrace("Can't Turn Off {light} with {trigger}, because condition(s) {Conditions} are keeping it on", Light.EntityId, trigger, Conditions.AsString());
+                return;
+            }
+            if (KeepAliveEntities.Any(b => b.State != null && Extensions.EntityExtensions.OnStates.Contains(b.State)))
+            {
+                _logger.LogTrace("Can't Turn Off {light} with {trigger}, because keep alive entity is on", Light.EntityId,
+                    KeepAliveEntities.Where(b => b.State != null && Extensions.EntityExtensions.OnStates.Contains(b.State)).Select(b => b.EntityId));
+                return;
+            }
+            if(TriggerConditions.Any() && TriggerConditions.All(c => c.ConditionPassed()))
+            {
+                _logger.LogTrace("Can't Turn Off {light} with {trigger}, because trigger condition(s) {Conditions} are keeping it on", Light.EntityId, trigger, TriggerConditions.AsString());
+                return;
+            }
+            if (PresenceSensors.Any(s => s.IsOn()))
+            {
+                _logger.LogTrace("{light} is on but there is presence detected, not turning off", Light.EntityId);
+                return;
+            }
         }
 
         TurnOffTime = DateTime.Now.AddSeconds(Timeout);
@@ -497,6 +502,13 @@ public class LightControl
             LogInLogbook(Light, logMessage);
             UpdateAttributes(logMessage);
             WaitAllTasks();
+        }
+        else
+        {            
+            var triggerMsg = $"triggered by {trigger ?? "UNKNOWN"}";
+            var logMessage = $"{Light.EntityId} We didn't turn on as ths light wasn't Primary or TriggerWithoutPrescene at {TurnOnTime:G} at {triggerMsg}";
+            _logger.LogInformation(logMessage);
+            LogInLogbook(Light, logMessage);
         }
     }
 

@@ -27,14 +27,14 @@
         <None Remove="README.md" />
     </ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="NetDaemon.AppModel" Version="25.14.0" />
-		<PackageReference Include="NetDaemon.Extensions.Mqtt" Version="25.14.0" />
-		<PackageReference Include="NetDaemon.Runtime" Version="25.14.0" />
-		<PackageReference Include="NetDaemon.HassModel" Version="25.14.0" />
-		<PackageReference Include="NetDaemon.Client" Version="25.14.0" />
-		<PackageReference Include="NetDaemon.Extensions.Scheduling" Version="25.14.0" />
-		<PackageReference Include="NetDaemon.Extensions.Logging" Version="25.14.0" />
-		<PackageReference Include="NetDaemon.Extensions.Tts" Version="25.14.0" />
+		<PackageReference Include="NetDaemon.AppModel" Version="25.14.1" />
+		<PackageReference Include="NetDaemon.Extensions.Mqtt" Version="25.14.1" />
+		<PackageReference Include="NetDaemon.Runtime" Version="25.14.1" />
+		<PackageReference Include="NetDaemon.HassModel" Version="25.14.1" />
+		<PackageReference Include="NetDaemon.Client" Version="25.14.1" />
+		<PackageReference Include="NetDaemon.Extensions.Scheduling" Version="25.14.1" />
+		<PackageReference Include="NetDaemon.Extensions.Logging" Version="25.14.1" />
+		<PackageReference Include="NetDaemon.Extensions.Tts" Version="25.14.1" />
 		<PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.4" />
 		<PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
 		<PackageReference Include="stateless" Version="5.17.0" />

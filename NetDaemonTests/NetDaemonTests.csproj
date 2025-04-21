@@ -17,7 +17,7 @@
     <PackageReference Include="coverlet.collector" Version="6.0.4" />
     <PackageReference Include="Moq" Version="4.20.72" />
     <PackageReference Include="Microsoft.Reactive.Testing" Version="6.0.1" />
-    <PackageReference Include="NetDaemon.Extensions.Logging" Version="25.14.0" />
+    <PackageReference Include="NetDaemon.Extensions.Logging" Version="25.14.1" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.4" />
     <PackageReference Include="xunit" Version="2.9.3" />
   </ItemGroup>

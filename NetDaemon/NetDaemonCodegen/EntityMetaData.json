@@ -124,11 +124,6 @@
           "cSharpName": "DiningRoomLight"
         },
         {
-          "id": "light.display_cabinet_light",
-          "friendlyName": "Display Cabinet Light",
-          "cSharpName": "DisplayCabinetLight"
-        },
-        {
           "id": "light.downstairs_lights",
           "friendlyName": "Downstairs Lights",
           "cSharpName": "DownstairsLights"
@@ -4384,11 +4379,6 @@
           "cSharpName": "DiningRoomSwitchIdentify"
         },
         {
-          "id": "button.display_cabinet_light_identify",
-          "friendlyName": "Display Cabinet Light Identify",
-          "cSharpName": "DisplayCabinetLightIdentify"
-        },
-        {
           "id": "button.drawing_room_fp2_identify",
           "friendlyName": "Drawing Room FP2 Identify",
           "cSharpName": "DrawingRoomFp2Identify"
@@ -4499,6 +4489,11 @@
           "cSharpName": "HallwayTabletSendToBackground"
         },
         {
+          "id": "button.kettle_identify",
+          "friendlyName": "Kettle Identify",
+          "cSharpName": "KettleIdentify"
+        },
+        {
           "id": "button.kitchen_air_quality_identify",
           "friendlyName": "Kitchen Air Quality Identify",
           "cSharpName": "KitchenAirQualityIdentify"
@@ -4535,7 +4530,7 @@
         },
         {
           "id": "button.mark_dismiss_alert",
-          "friendlyName": "Dismiss alert",
+          "friendlyName": "Mark Dismiss alert",
           "cSharpName": "MarkDismissAlert"
         },
         {
@@ -4919,7 +4914,7 @@
         },
         {
           "id": "camera.mark_cleaning_map",
-          "friendlyName": "Cleaning map",
+          "friendlyName": "Mark Cleaning map",
           "cSharpName": "MarkCleaningMap"
         },
         {
@@ -6779,7 +6774,7 @@
       "entities": [
         {
           "id": "fan.air_purifier",
-          "friendlyName": null,
+          "friendlyName": "Air Purifier",
           "cSharpName": "AirPurifier"
         },
         {
@@ -8104,14 +8099,14 @@
           "cSharpName": "CoffeeMachinePowerOnBehavior2"
         },
         {
-          "id": "select.display_cabinet_light_power_on_behavior",
-          "friendlyName": "Display Cabinet Light Power-on behavior",
-          "cSharpName": "DisplayCabinetLightPowerOnBehavior"
-        },
-        {
           "id": "select.guest_room_lamp_power_on_behavior",
           "friendlyName": "Guest Room Lamp Power-on behavior",
           "cSharpName": "GuestRoomLampPowerOnBehavior"
+        },
+        {
+          "id": "select.kettle_power_on_behavior",
+          "friendlyName": "Kettle Power-on behavior",
+          "cSharpName": "KettlePowerOnBehavior"
         },
         {
           "id": "select.snug_led_strip_audio_effect",
@@ -9037,12 +9032,12 @@
         },
         {
           "id": "sensor.mfc_j5910dw_status",
-          "friendlyName": "MFC-J5910DW Status",
+          "friendlyName": "Status",
           "cSharpName": "MfcJ5910dwStatus"
         },
         {
           "id": "sensor.mfc_j5910dw_uptime",
-          "friendlyName": "MFC-J5910DW Last restart",
+          "friendlyName": "Last restart",
           "cSharpName": "MfcJ5910dwUptime"
         },
         {
@@ -13180,32 +13175,32 @@
         },
         {
           "id": "sensor.mark_battery",
-          "friendlyName": "Battery",
+          "friendlyName": "Mark Battery",
           "cSharpName": "MarkBattery"
         },
         {
           "id": "sensor.mfc_j5910dw_black_ink_remaining",
-          "friendlyName": "MFC-J5910DW Black ink remaining",
+          "friendlyName": "Black ink remaining",
           "cSharpName": "MfcJ5910dwBlackInkRemaining"
         },
         {
           "id": "sensor.mfc_j5910dw_cyan_ink_remaining",
-          "friendlyName": "MFC-J5910DW Cyan ink remaining",
+          "friendlyName": "Cyan ink remaining",
           "cSharpName": "MfcJ5910dwCyanInkRemaining"
         },
         {
           "id": "sensor.mfc_j5910dw_magenta_ink_remaining",
-          "friendlyName": "MFC-J5910DW Magenta ink remaining",
+          "friendlyName": "Magenta ink remaining",
           "cSharpName": "MfcJ5910dwMagentaInkRemaining"
         },
         {
           "id": "sensor.mfc_j5910dw_page_counter",
-          "friendlyName": "MFC-J5910DW Page counter",
+          "friendlyName": "Page counter",
           "cSharpName": "MfcJ5910dwPageCounter"
         },
         {
           "id": "sensor.mfc_j5910dw_yellow_ink_remaining",
-          "friendlyName": "MFC-J5910DW Yellow ink remaining",
+          "friendlyName": "Yellow ink remaining",
           "cSharpName": "MfcJ5910dwYellowInkRemaining"
         },
         {
@@ -26094,6 +26089,261 @@
           "jsonName": "notificationId_com.amazon.dee.app_1743751491",
           "cSharpName": "NotificationIdCom_amazon_dee_app1743751491",
           "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.appInfo_com.google.android.apps.weather_2147483647",
+          "cSharpName": "Android_appInfoCom_google_android_apps_weather2147483647",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.appInfo_com.google.android.apps.weather_251455376",
+          "cSharpName": "Android_appInfoCom_google_android_apps_weather251455376",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.bigText_com.google.android.apps.weather_251455376",
+          "cSharpName": "Android_bigTextCom_google_android_apps_weather251455376",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.infoText_com.google.android.apps.weather_251455376",
+          "cSharpName": "Android_infoTextCom_google_android_apps_weather251455376",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon_com.google.android.apps.weather_251455376",
+          "cSharpName": "Android_largeIconCom_google_android_apps_weather251455376",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.progressIndeterminate_com.google.android.apps.weather_251455376",
+          "cSharpName": "Android_progressIndeterminateCom_google_android_apps_weather251455376",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.progressMax_com.google.android.apps.weather_251455376",
+          "cSharpName": "Android_progressMaxCom_google_android_apps_weather251455376",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progress_com.google.android.apps.weather_251455376",
+          "cSharpName": "Android_progressCom_google_android_apps_weather251455376",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.reduced.images_com.google.android.apps.weather_2147483647",
+          "cSharpName": "Android_reduced_imagesCom_google_android_apps_weather2147483647",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.reduced.images_com.google.android.apps.weather_251455376",
+          "cSharpName": "Android_reduced_imagesCom_google_android_apps_weather251455376",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.remoteInputHistory_com.google.android.apps.weather_251455376",
+          "cSharpName": "Android_remoteInputHistoryCom_google_android_apps_weather251455376",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.showChronometer_com.google.android.apps.weather_251455376",
+          "cSharpName": "Android_showChronometerCom_google_android_apps_weather251455376",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_com.google.android.apps.weather_2147483647",
+          "cSharpName": "Android_showWhenCom_google_android_apps_weather2147483647",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_com.google.android.apps.weather_251455376",
+          "cSharpName": "Android_showWhenCom_google_android_apps_weather251455376",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.subText_com.google.android.apps.weather_251455376",
+          "cSharpName": "Android_subTextCom_google_android_apps_weather251455376",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.support.v4.app.extra.COMPAT_TEMPLATE_com.google.android.apps.weather_251455376",
+          "cSharpName": "Android_support_v4_app_extra_COMPATTEMPLATECom_google_android_apps_weather251455376",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.template_com.google.android.apps.weather_251455376",
+          "cSharpName": "Android_templateCom_google_android_apps_weather251455376",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_com.google.android.apps.weather_251455376",
+          "cSharpName": "Android_textCom_google_android_apps_weather251455376",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title.big_com.google.android.apps.weather_251455376",
+          "cSharpName": "Android_title_bigCom_google_android_apps_weather251455376",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_com.google.android.apps.weather_251455376",
+          "cSharpName": "Android_titleCom_google_android_apps_weather251455376",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.google.android.apps.weather_2147483647_category",
+          "cSharpName": "Com_google_android_apps_weather2147483647Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.google.android.apps.weather_2147483647_channel_id",
+          "cSharpName": "Com_google_android_apps_weather2147483647ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.google.android.apps.weather_2147483647_group_id",
+          "cSharpName": "Com_google_android_apps_weather2147483647GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.google.android.apps.weather_2147483647_is_clearable",
+          "cSharpName": "Com_google_android_apps_weather2147483647IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.google.android.apps.weather_2147483647_is_ongoing",
+          "cSharpName": "Com_google_android_apps_weather2147483647IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.google.android.apps.weather_2147483647_post_time",
+          "cSharpName": "Com_google_android_apps_weather2147483647PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "com.google.android.apps.weather_251455376_category",
+          "cSharpName": "Com_google_android_apps_weather251455376Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.google.android.apps.weather_251455376_channel_id",
+          "cSharpName": "Com_google_android_apps_weather251455376ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.google.android.apps.weather_251455376_group_id",
+          "cSharpName": "Com_google_android_apps_weather251455376GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.google.android.apps.weather_251455376_is_clearable",
+          "cSharpName": "Com_google_android_apps_weather251455376IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.google.android.apps.weather_251455376_is_ongoing",
+          "cSharpName": "Com_google_android_apps_weather251455376IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.google.android.apps.weather_251455376_post_time",
+          "cSharpName": "Com_google_android_apps_weather251455376PostTime",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.appInfo_com.fitbit.FitbitMobile_2131430923",
+          "cSharpName": "Android_appInfoCom_fitbit_FitbitMobile2131430923",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.infoText_com.fitbit.FitbitMobile_2131430923",
+          "cSharpName": "Android_infoTextCom_fitbit_FitbitMobile2131430923",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.largeIcon_com.fitbit.FitbitMobile_2131430923",
+          "cSharpName": "Android_largeIconCom_fitbit_FitbitMobile2131430923",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.progressIndeterminate_com.fitbit.FitbitMobile_2131430923",
+          "cSharpName": "Android_progressIndeterminateCom_fitbit_FitbitMobile2131430923",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.progressMax_com.fitbit.FitbitMobile_2131430923",
+          "cSharpName": "Android_progressMaxCom_fitbit_FitbitMobile2131430923",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.progress_com.fitbit.FitbitMobile_2131430923",
+          "cSharpName": "Android_progressCom_fitbit_FitbitMobile2131430923",
+          "clrType": "System.Double"
+        },
+        {
+          "jsonName": "android.reduced.images_com.fitbit.FitbitMobile_2131430923",
+          "cSharpName": "Android_reduced_imagesCom_fitbit_FitbitMobile2131430923",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.remoteInputHistory_com.fitbit.FitbitMobile_2131430923",
+          "cSharpName": "Android_remoteInputHistoryCom_fitbit_FitbitMobile2131430923",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.showChronometer_com.fitbit.FitbitMobile_2131430923",
+          "cSharpName": "Android_showChronometerCom_fitbit_FitbitMobile2131430923",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.showWhen_com.fitbit.FitbitMobile_2131430923",
+          "cSharpName": "Android_showWhenCom_fitbit_FitbitMobile2131430923",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "android.subText_com.fitbit.FitbitMobile_2131430923",
+          "cSharpName": "Android_subTextCom_fitbit_FitbitMobile2131430923",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.text_com.fitbit.FitbitMobile_2131430923",
+          "cSharpName": "Android_textCom_fitbit_FitbitMobile2131430923",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "android.title_com.fitbit.FitbitMobile_2131430923",
+          "cSharpName": "Android_titleCom_fitbit_FitbitMobile2131430923",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.fitbit.FitbitMobile_2131430923_category",
+          "cSharpName": "Com_fitbit_FitbitMobile2131430923Category",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.fitbit.FitbitMobile_2131430923_channel_id",
+          "cSharpName": "Com_fitbit_FitbitMobile2131430923ChannelId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.fitbit.FitbitMobile_2131430923_group_id",
+          "cSharpName": "Com_fitbit_FitbitMobile2131430923GroupId",
+          "clrType": "System.String"
+        },
+        {
+          "jsonName": "com.fitbit.FitbitMobile_2131430923_is_clearable",
+          "cSharpName": "Com_fitbit_FitbitMobile2131430923IsClearable",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.fitbit.FitbitMobile_2131430923_is_ongoing",
+          "cSharpName": "Com_fitbit_FitbitMobile2131430923IsOngoing",
+          "clrType": "System.Boolean"
+        },
+        {
+          "jsonName": "com.fitbit.FitbitMobile_2131430923_post_time",
+          "cSharpName": "Com_fitbit_FitbitMobile2131430923PostTime",
+          "clrType": "System.Double"
         }
       ]
     },
@@ -26425,11 +26675,6 @@
           "cSharpName": "DiningRoomEchoInputShuffleSwitch"
         },
         {
-          "id": "switch.display_cabinet_light",
-          "friendlyName": "Display Cabinet Light",
-          "cSharpName": "DisplayCabinetLight"
-        },
-        {
           "id": "switch.doorbell_chime",
           "friendlyName": "Doorbell Doorbell Chime",
           "cSharpName": "DoorbellChime"
@@ -26740,6 +26985,11 @@
           "cSharpName": "HomeassistantActive"
         },
         {
+          "id": "switch.kettle",
+          "friendlyName": "Kettle",
+          "cSharpName": "Kettle"
+        },
+        {
           "id": "switch.kitchen_echo_show_do_not_disturb_switch",
           "friendlyName": "Kitchen Echo Show do not disturb switch",
           "cSharpName": "KitchenEchoShowDoNotDisturbSwitch"
@@ -27036,7 +27286,7 @@
         },
         {
           "id": "switch.mark_schedule",
-          "friendlyName": "Schedule",
+          "friendlyName": "Mark Schedule",
           "cSharpName": "MarkSchedule"
         },
         {
@@ -28015,11 +28265,6 @@
           "cSharpName": "DiningRoomSwitch"
         },
         {
-          "id": "update.display_cabinet_light",
-          "friendlyName": "Display Cabinet Light",
-          "cSharpName": "DisplayCabinetLight"
-        },
-        {
           "id": "update.doorbell_firmware",
           "friendlyName": "Doorbell Firmware",
           "cSharpName": "DoorbellFirmware"
@@ -28118,6 +28363,11 @@
           "id": "update.influxdb_update",
           "friendlyName": "InfluxDB Update",
           "cSharpName": "InfluxdbUpdate"
+        },
+        {
+          "id": "update.kettle",
+          "friendlyName": "Kettle",
+          "cSharpName": "Kettle"
         },
         {
           "id": "update.kitchen_air_quality",
@@ -28828,7 +29078,7 @@
       "entities": [
         {
           "id": "vacuum.mark",
-          "friendlyName": null,
+          "friendlyName": "Mark",
           "cSharpName": "Mark"
         }
       ],
