@@ -1,4 +1,6 @@
-﻿namespace NetDaemon.Extensions;
+﻿using Humanizer;
+
+namespace NetDaemon.Extensions;
 
 public static class EntityExtensions
 {
@@ -52,6 +54,11 @@ public static class EntityExtensions
 
     public static string? Name(this Entity? entity)
         => entity?.EntityId.Split('.')[1];
+
+    public static string? TitleName(this EntityState? entityState)
+        => entityState?.Name()?.Titleize();
+    public static string? TitleName(this Entity? entity)
+        => entity?.Name()?.Titleize();
 
     public static string? Domain(this EntityState? entityState)
         => entityState?.EntityId.Split('.')[0];

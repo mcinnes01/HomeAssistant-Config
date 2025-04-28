@@ -76,13 +76,13 @@ Manager
         _haContext     = haContext;
         _entityManager = entityManager;
         _entityName    = Name.ToLower().Replace("_", " ");
-        _roomModeSelect = RoomMode?.EntityId ?? $"input_select.{Name.ToLower()}_mode";
+        _roomModeSelect = RoomMode?.EntityId ?? $"select.{Name.ToLower()}_mode";
         _enabledSwitch = $"switch.light_manager_{Name.ToLower()}";
         _guardTimeout  = guardTimeout;
         _services      = new Services(haContext);
         _locationMode  = locationMode;
         _lightControlMode = lightControlMode;
-        _logger.LogInformation("Setup {room}", _entityName);
+        _logger.LogInformation("Setup {room}", TitleName);
         await SetupRoomModeSelect();
         await SetupEnabledSwitch();
         SubscribePresenceOnEvent();
@@ -129,14 +129,14 @@ Manager
 
     private void ResetOverride()
     {
-        _logger.LogDebug("{room} Reset Override", _entityName);
+        _logger.LogDebug("{room} Reset Override", TitleName);
         _overrideSchedule.Dispose();
         _overrideActive = true;
         _overrideSchedule = _scheduler.Schedule(DynamicTimeout, _ =>
         {
-            _logger.LogDebug("{room} Override Timeout", _entityName);
+            _logger.LogDebug("{room} Override Timeout", TitleName);
             _overrideActive = false;
-            TurnOffEntities($"Override ({_entityName})");
+            TurnOffEntities($"Override ({TitleName})");
             WaitAllTasks();
         });
         UpdateAttributes(true);
@@ -144,12 +144,12 @@ Manager
 
     private async Task SetupEnabledSwitch()
     {
-        _logger.LogDebug("{room} Setup Enabled Switch", _entityName);
+        _logger.LogDebug("{room} Setup Enabled Switch", TitleName);
 
         if (_haContext.Entity(_enabledSwitch).State == null 
         || string.Equals(_haContext.Entity(_enabledSwitch).State, "unavailable", StringComparison.InvariantCultureIgnoreCase))
         {
-            await _entityManager.CreateAsync(_enabledSwitch, new EntityCreationOptions(Name: $"Light Manager {_entityName}", DeviceClass: "switch", Persist: true));
+            await _entityManager.CreateAsync(_enabledSwitch, new EntityCreationOptions(Name: $"Light Manager {TitleName}", DeviceClass: "switch", Persist: true));
         }
 
         ManagerEnabled = new SwitchEntity(_haContext, _enabledSwitch);
@@ -159,9 +159,9 @@ Manager
         {
             (await _entityManager.PrepareCommandSubscriptionAsync(_enabledSwitch) ).SubscribeAsync(async s =>
                 {
-                    _logger.LogDebug("{room} Changing Enabled Switch", _entityName);
+                    _logger.LogDebug("{room} Changing Enabled Switch", TitleName);
                     await _entityManager.SetStateAsync(_enabledSwitch, s);
-                    _logger.LogDebug("{room} Enabled Switch Set to {state}", _entityName, s);
+                    _logger.LogDebug("{room} Enabled Switch Set to {state}", TitleName, s);
                 }
             );
         }
@@ -172,13 +172,13 @@ Manager
         if (RoomMode != null)
             return;
 
-        _logger.LogDebug("{room} Setup Room Mode Select", _entityName);
+        _logger.LogDebug("{room} Setup Room Mode Select", TitleName);
 
         if (_haContext.Entity(_roomModeSelect).State == null 
             || string.Equals(_haContext.Entity(_roomModeSelect).State, "unavailable", StringComparison.InvariantCultureIgnoreCase))
         {
             // Create the input_select entity
-            await _entityManager.CreateAsync(_roomModeSelect, new EntityCreationOptions(Name: $"{_entityName} Mode", DeviceClass: "input_select", Persist: true));
+            await _entityManager.CreateAsync(_roomModeSelect, new EntityCreationOptions(Name: $"{TitleName} Mode", DeviceClass: "input_select", Persist: true));
 
             RoomMode = new InputSelectEntity(_haContext, _roomModeSelect);
 
@@ -196,7 +196,7 @@ Manager
             RoomMode = new InputSelectEntity(_haContext, _roomModeSelect);
         }
 
-        if (_roomModeSelect != "input_select.testroom_mode")
+        if (_roomModeSelect != "select.testroom_mode")
         {
             // This creates a subscription just to output the state of the entity
             (await _entityManager.PrepareCommandSubscriptionAsync(RoomMode.EntityId) ).SubscribeAsync(async s =>

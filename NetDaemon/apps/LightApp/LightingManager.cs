@@ -1,3 +1,4 @@
+using Humanizer;
 using NetDaemon.Extensions.MqttEntityManager;
 
 namespace NetDaemon.apps.LightApp;
@@ -27,11 +28,11 @@ public class LightingManager : IAsyncInitializable
         _logger.LogInformation("Starting lighter configuration for {count} rooms", _config.Rooms.Count);
         _config.Rooms.ForEach(async room =>
         {
-            _logger.LogInformation("Configuring room {Room}", room.Name);
+            _logger.LogInformation("Configuring room {Room}", room.TitleName);
             await room.Register(_entityManager, _scheduler, _haContext, _logger);
             foreach(var light in room.Lights)
             {
-                _logger.LogInformation("Configuring light {light} for {Room}", light.Light.Name(), room.Name);
+                _logger.LogInformation("Configuring light {light} for {Room}", light.Light.Name(), room.TitleName);
                 await light.Register(room, _entityManager, _scheduler, _haContext, _logger);
             }
         });

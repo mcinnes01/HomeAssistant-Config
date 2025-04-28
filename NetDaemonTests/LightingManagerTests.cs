@@ -51,7 +51,7 @@ public class LightingManagerTests : IClassFixture<LightingManagerTestHarness>
                                 },
                                 new Condition
                                 {
-                                    Entity = new Entity(_harness.HaContext, "input_select.bedroom_mode"),
+                                    Entity = new Entity(_harness.HaContext, "select.bedroom_mode"),
                                     Operator = Operator.NotEquals,
                                     State = "Sleeping"
                                 }
@@ -74,7 +74,7 @@ public class LightingManagerTests : IClassFixture<LightingManagerTestHarness>
         // Set initial states
         _harness.StateManager
             .Change(new Entity(_harness.HaContext, "sun.sun"), "below_horizon")
-            .Change(new Entity(_harness.HaContext, "input_select.bedroom_mode"), "Normal")
+            .Change(new Entity(_harness.HaContext, "select.bedroom_mode"), "Normal")
             .Change(_harness.EntityBuilder.CreateLightEntity("light.hallway_lamp"), "off")
             .Change(_harness.EntityBuilder.CreateBinarySensorEntity("binary_sensor.doorbell_button"), "off")
             .Change(_harness.EntityBuilder.CreateBinarySensorEntity("binary_sensor.hallway_motion"), "off");
@@ -142,8 +142,8 @@ public class LightingManagerTests : IClassFixture<LightingManagerTestHarness>
             .Change(_harness.EntityBuilder.CreateLightEntity("light.kitchen_light"), "off")
             .Change(_harness.EntityBuilder.CreateBinarySensorEntity("binary_sensor.kitchen_motion"), "off")
             .Change(_harness.EntityBuilder.CreateBinarySensorEntity("binary_sensor.kitchen_occupancy"), "off")
-            .Change(new Entity(_harness.HaContext, "input_select.location_mode"), "Home")
-            .Change(new Entity(_harness.HaContext, "input_select.kitchen_mode"), "Normal");
+            .Change(new Entity(_harness.HaContext, "select.location_mode"), "Home")
+            .Change(new Entity(_harness.HaContext, "select.kitchen_mode"), "Normal");
 
         await _harness.InitializeAsync();
 
@@ -221,8 +221,8 @@ public class LightingManagerTests : IClassFixture<LightingManagerTestHarness>
             .Change(new Entity(_harness.HaContext, "switch.test_block"), "off")
             .Change(new Entity(_harness.HaContext, "switch.test_keepalive"), "off")
             .Change(new Entity(_harness.HaContext, "sun.sun"), "below_horizon")
-            .Change(new Entity(_harness.HaContext, "input_select.location_mode"), "Home")
-            .Change(new Entity(_harness.HaContext, "input_select.test_mode"), "Normal");
+            .Change(new Entity(_harness.HaContext, "select.location_mode"), "Home")
+            .Change(new Entity(_harness.HaContext, "select.test_mode"), "Normal");
 
         await _harness.InitializeAsync();
 

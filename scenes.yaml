@@ -1,7 +1,7 @@
 - id: '1593602471772'
   name: Watch TV
   entities:
-    input_select.lounge_mode:
+    select.lounge_mode:
       options:
       - Normal
       - Reading
@@ -161,7 +161,7 @@
 - id: '1593602714878'
   name: Watch Movie
   entities:
-    input_select.snug_mode:
+    select.snug_mode:
       options:
       - Normal
       - Movie
@@ -377,7 +377,7 @@
       icon: mdi:bed
       friendly_name: In Bed
       state: 'on'
-    input_select.lounge_mode:
+    select.lounge_mode:
       options:
       - Normal
       - Reading
@@ -388,7 +388,7 @@
       icon: mdi:sofa
       friendly_name: Lounge Mode
       state: Normal
-    input_select.snug_mode:
+    select.snug_mode:
       options:
       - Normal
       - Movie
@@ -397,7 +397,7 @@
       icon: mdi:projector
       friendly_name: Snug Mode
       state: Normal
-    input_select.bedroom_mode:
+    select.bedroom_mode:
       options:
       - Normal
       - Relaxing
@@ -423,11 +423,11 @@
   metadata:
     input_boolean.in_bed:
       entity_only: true
-    input_select.lounge_mode:
+    select.lounge_mode:
       entity_only: true
-    input_select.snug_mode:
+    select.snug_mode:
       entity_only: true
-    input_select.bedroom_mode:
+    select.bedroom_mode:
       entity_only: true
     input_select.light_control_mode:
       entity_only: true
@@ -492,7 +492,7 @@
       - 0.548
       - 0.386
       state: 'on'
-    input_select.bedroom_mode:
+    select.bedroom_mode:
       options:
       - Normal
       - Relaxing
@@ -505,7 +505,7 @@
       state: Relaxing
   icon: mdi:bed
   metadata:
-    input_select.bedroom_mode:
+    select.bedroom_mode:
       entity_only: true
     light.bedroom_lamp:
       entity_only: false
@@ -569,7 +569,7 @@
       friendly_name: Bedside Lamp
       supported_features: 44
       state: 'off'
-    input_select.bedroom_mode:
+    select.bedroom_mode:
       options:
       - Normal
       - Relaxing
@@ -586,7 +586,7 @@
       entity_only: true
     light.bedroom_light:
       entity_only: true
-    input_select.bedroom_mode:
+    select.bedroom_mode:
       entity_only: true
 - id: '1605288983801'
   name: Lounge Normal
@@ -652,7 +652,7 @@
       friendly_name: Lounge Lamp
       supported_features: 44
       state: 'off'
-    input_select.lounge_mode:
+    select.lounge_mode:
       options:
       - Normal
       - Reading
@@ -780,7 +780,7 @@
       supported_features: 0
       color_mode: onoff
       state: 'on'
-    input_select.snug_mode:
+    select.snug_mode:
       options:
       - Normal
       - Movie
@@ -807,7 +807,7 @@
       friendly_name: Bathroom Light
       supported_features: 0
       state: 'on'
-    input_select.bathroom_mode:
+    select.bathroom_mode:
       options:
       - Bright
       - Normal
@@ -825,7 +825,7 @@
   metadata:
     light.bathroom_light:
       entity_only: true
-    input_select.bathroom_mode:
+    select.bathroom_mode:
       entity_only: true
 - id: '1605716301658'
   name: Bathroom Normal
@@ -850,7 +850,7 @@
       friendly_name: Bathroom Fan
       supported_features: 0
       state: 'off'
-    input_select.bathroom_mode:
+    select.bathroom_mode:
       options:
       - Bright
       - Normal
@@ -866,7 +866,7 @@
       entity_only: true
     fan.bathroom_fan:
       entity_only: true
-    input_select.bathroom_mode:
+    select.bathroom_mode:
       entity_only: true
 - id: '1645051325679'
   name: Cleaning
@@ -1001,7 +1001,7 @@
 - id: '1687294177262'
   name: Sleeping
   entities:
-    input_select.bedroom_mode:
+    select.bedroom_mode:
       options:
       - Normal
       - Relaxing
@@ -1013,12 +1013,12 @@
       state: Sleeping
   icon: mdi:weather-night
   metadata:
-    input_select.bedroom_mode:
+    select.bedroom_mode:
       entity_only: true
 - id: '1687294268704'
   name: Waking
   entities:
-    input_select.bedroom_mode:
+    select.bedroom_mode:
       options:
       - Normal
       - Relaxing
@@ -1030,12 +1030,12 @@
       state: Relaxing
   icon: mdi:weather-sunset-up
   metadata:
-    input_select.bedroom_mode:
+    select.bedroom_mode:
       entity_only: true
 - id: '1687294354909'
   name: Awake
   entities:
-    input_select.bedroom_mode:
+    select.bedroom_mode:
       options:
       - Normal
       - Relaxing
@@ -1047,7 +1047,7 @@
       state: Normal
   icon: mdi:sun-clock-outline
   metadata:
-    input_select.bedroom_mode:
+    select.bedroom_mode:
       entity_only: true
 - id: '1726987057429'
   name: Feed the cats

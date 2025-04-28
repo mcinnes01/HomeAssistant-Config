@@ -18,7 +18,7 @@ NetDaemon.apps.LightApp.LightingConfig:
               Operator: Equals
               State: below_horizon
           Conditions:
-            - Entity: input_select.bedroom_mode
+            - Entity: select.bedroom_mode
               Operator: NotEquals
               State: 'Sleeping'
           Primary: false

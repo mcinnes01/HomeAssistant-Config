@@ -454,7 +454,7 @@
   alias: Lounge Scene Watch Television
   description: ''
   triggers:
-  - entity_id: input_select.lounge_mode
+  - entity_id: select.lounge_mode
     to: Television
     trigger: state
   conditions: []
@@ -547,7 +547,7 @@
   description: ''
   trigger:
   - platform: state
-    entity_id: input_select.snug_mode
+    entity_id: select.snug_mode
     to: Normal
   condition: []
   action:
@@ -559,7 +559,7 @@
   description: ''
   trigger:
   - platform: state
-    entity_id: input_select.snug_mode
+    entity_id: select.snug_mode
     to: Movie
   condition: []
   action:
@@ -610,11 +610,11 @@
     to: 'off'
   condition: []
   action:
-  - service: input_select.select_option
+  - service: select.select_option
     data:
       option: Normal
     target:
-      entity_id: input_select.snug_mode
+      entity_id: select.snug_mode
   mode: single
 - id: '1631300046090'
   alias: Bedroom Lights Off Reset Mode
@@ -625,11 +625,11 @@
     to: 'off'
   condition: []
   action:
-  - service: input_select.select_option
+  - service: select.select_option
     data:
       option: Normal
     target:
-      entity_id: input_select.bedroom_mode
+      entity_id: select.bedroom_mode
   mode: single
 - id: '1638630199969'
   alias: Low battery level detection & notification for all battery sensors
@@ -784,7 +784,7 @@
   description: ''
   triggers:
   - entity_id:
-    - input_select.bedroom_mode
+    - select.bedroom_mode
     to: Sleeping
     trigger: state
   conditions: []
@@ -802,7 +802,7 @@
   trigger:
   - platform: state
     entity_id:
-    - input_select.bedroom_mode
+    - select.bedroom_mode
     from: Sleeping
   condition: []
   action:
@@ -1055,7 +1055,7 @@
   trigger:
   - platform: state
     entity_id:
-    - input_select.bedroom_mode
+    - select.bedroom_mode
     to: Sleeping
     enabled: false
   action:
@@ -2537,3 +2537,53 @@
         data: {}
         target:
           label_id: garden_access_lights
+- id: '1745708816159'
+  alias: Turn Off Kettle When Away or Sleeping
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - input_select.location_mode
+  - trigger: state
+    entity_id:
+    - input_select.light_control_mode
+  conditions:
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: input_select.location_mode
+      state: Away
+    - condition: state
+      entity_id: input_select.light_control_mode
+      state: Sleeping
+  actions:
+  - type: turn_off
+    device_id: 4c4e6e371a75d2589075610cdb791a4f
+    entity_id: 748f4fc779f3d858838dad5c7afa7e51
+    domain: switch
+  mode: single
+- id: '1745708850607'
+  alias: Turn On Kettle When Not Away And Not Sleeping
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - input_select.light_control_mode
+  - trigger: state
+    entity_id:
+    - input_select.location_mode
+  conditions:
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: input_select.location_mode
+      state: Away
+    - condition: state
+      entity_id: input_select.light_control_mode
+      state: Sleeping
+  actions:
+  - type: turn_on
+    device_id: 4c4e6e371a75d2589075610cdb791a4f
+    entity_id: 748f4fc779f3d858838dad5c7afa7e51
+    domain: switch
+  mode: single

@@ -1,11 +1,13 @@
 namespace NetDaemon.apps.LightApp;
 
+using Humanizer;
 using NetDaemon.Extensions.MqttEntityManager;
 #pragma warning disable CS8618 
 
 public class RoomControl
 {
     public required string Name { get; set; }
+    public string TitleName => Name.ReplaceLineEndings().Titleize();
     public bool IsBedroom { get; set; } = false;
     public bool IsEntrance { get; set; } = false;
     public required IEnumerable<LightControl> Lights { get; set; }
@@ -18,7 +20,7 @@ public class RoomControl
     public double? IlluminanceHighThreshold { get; set; } = 100.0;
     public bool IsBright => !IgnoreIlluminance && IlluminanceSensor?.State > IlluminanceHighThreshold;
     public bool RecreateRoomMode { get; set; } = true;
-    public InputSelectEntity? RoomMode { get; set; }
+    public SelectEntity? RoomMode { get; set; }
     public string[] BlockModes { get; set; } = ["Sleeping", "Manual"];
     public string[] KeepAliveModes { get; set; } = ["Relaxing", "Bright"];
     private string _roomModeSelect;
@@ -50,18 +52,18 @@ public class RoomControl
         }
 
         var room = Name.ToLower().ReplaceLineEndings("").Replace(" ", "_");
-        _roomModeSelect = RoomMode?.EntityId ?? $"input_select.{room}_mode";
-        _logger.LogDebug("{room} Setup Room Mode Select", Name);
+        _roomModeSelect = RoomMode?.EntityId ?? $"select.{room}_mode";
+        _logger.LogDebug("Setup Room Mode Select {select}", TitleName);
 
         if (_context.Entity(_roomModeSelect) != null && RecreateRoomMode)
         {
-            _logger.LogDebug("{room} Remove Room Mode Select", _roomModeSelect);
+            _logger.LogDebug("Remove Room Mode Select {select}", _roomModeSelect);
             await _entityManager.RemoveAsync(_roomModeSelect);
         }
         
         if (_context.Entity(_roomModeSelect).State == null)
         {
-            _logger.LogDebug("{room} Creating Room Mode Select", _roomModeSelect);
+            _logger.LogDebug("Creating Room Mode Select {select}", _roomModeSelect);
             var options = EnumExtensions.ToList<RoomModeOptions>();
             if (room.Equals("lounge"))
                 options = EnumExtensions.ToList<LoungeModeOptions>();
@@ -70,9 +72,9 @@ public class RoomControl
 
             await _entityManager.CreateAsync(_roomModeSelect, new EntityCreationOptions
             {
-                Name = $"{Name} Mode",
+                Name = $"{TitleName} Mode",
                 UniqueId = _roomModeSelect,
-                DeviceClass = "input_select",
+                DeviceClass = "select",
                 Persist = true
             },
             new
@@ -80,24 +82,30 @@ public class RoomControl
                 options,
                 current_option = "Normal"
             }).ConfigureAwait(false);
-            RoomMode = new InputSelectEntity(_context, _roomModeSelect);
+            RoomMode = new SelectEntity(_context, _roomModeSelect);
         }
 
         if (RoomMode == null)
         {
-            _logger.LogError("{room} Room Mode Select not created", Name);
+            _logger.LogError("Room Mode Select not created {select}", TitleName);
             return;
         }
 
-        if (_roomModeSelect != "input_select.testroom_mode")
+        if (RoomMode.State == null)
         {
-            _logger.LogTrace("{room} Setup Room Mode Select Subscriptions", Name);
+            _logger.LogDebug("Setting Room Mode Select State {select}", TitleName);
+            await _entityManager.SetStateAsync(_roomModeSelect, "Normal");
+        }
+
+        if (_roomModeSelect != "select.testroom_mode")
+        {
+            _logger.LogTrace("Setup Room Mode Select Subscriptions {select}", TitleName);
             // This creates a subscription just to output the state of the entity
             (await _entityManager.PrepareCommandSubscriptionAsync(RoomMode.EntityId)).SubscribeAsync(async s =>
                 {
-                    _logger.LogDebug("{room} Changing Room Mode", RoomMode.EntityId);
+                    _logger.LogDebug("Changing Room Mode {select}", TitleName);
                     await _entityManager.SetStateAsync(RoomMode.EntityId, s);
-                    _logger.LogDebug("{room} Changed Room Mode {state}", RoomMode.EntityId, s);
+                    _logger.LogDebug("{select} Changed Room Mode {state}", TitleName, s);
                 }
             );
         }
