@@ -2,6 +2,13 @@ namespace NetDaemon.Extensions;
 
 public static class SelectExtensions
 {
+    // Helper extension to check presence within a time window
+    private static bool PresenceDetectedWithin(this SelectEntity entity, TimeSpan timeSpan)
+    {
+        return entity.EntityState?.LastChanged != null && 
+            (DateTime.UtcNow - entity.EntityState.LastChanged.Value) <= timeSpan;
+    }
+
     public static void SelectOption<T>(this SelectEntity target, T @option)
         where T : Enum
     {
@@ -71,18 +78,20 @@ public static class SelectExtensions
         Option = "" //Enum.GetNames(typeof(T)).Join(","),
     };
 
-    public static bool Movie(this SelectEntity locationMode)
-    => locationMode.IsOption(SnugModeOptions.Movie);
-    public static void Normal(this SelectEntity locationMode)
-    => locationMode.SelectOption(RoomModeOptions.Normal);
-    public static bool Relaxing(this SelectEntity locationMode)
-    => locationMode.IsOption(RoomModeOptions.Relaxing);
-    public static bool Showering(this SelectEntity locationMode)
-    => locationMode.IsOption(BathroomModeOptions.Showering);
-    public static bool Sleeping(this SelectEntity locationMode)
-    => locationMode.IsOption(RoomModeOptions.Sleeping);
-    public static void Television(this SelectEntity locationMode)
-    => locationMode.SelectOption(LoungeModeOptions.Television);
+    public static bool Bright(this SelectEntity entity)
+    => entity.IsOption(RoomModeOptions.Bright);
+    public static bool Movie(this SelectEntity entity)
+    => entity.IsOption(SnugModeOptions.Movie);
+    public static void Normal(this SelectEntity entity)
+    => entity.SelectOption(RoomModeOptions.Normal);
+    public static bool Relaxing(this SelectEntity entity)
+    => entity.IsOption(RoomModeOptions.Relaxing);
+    public static bool Showering(this SelectEntity entity)
+    => entity.IsOption(BathroomModeOptions.Showering);
+    public static bool Sleeping(this SelectEntity entity)
+    => entity.IsOption(RoomModeOptions.Sleeping);
+    public static void Television(this SelectEntity entity)
+    => entity.SelectOption(LoungeModeOptions.Television);
     public static bool IsManual(this EntityState<SelectAttributes>? state)
     => state?.IsOption(RoomModeOptions.Manual) ?? false;
     public static bool IsManual(this SelectEntity? entity)
@@ -115,10 +124,12 @@ public static class SelectExtensions
     => state?.IsOption(LoungeModeOptions.Television) ?? false;
     public static bool IsTelevision(this SelectEntity? entity)
     => entity?.EntityState?.IsTelevision() ?? false;
-    public static bool Bright(this SelectEntity locationMode)
-    => locationMode.IsOption(RoomModeOptions.Bright);
     public static bool IsBright(this EntityState<SelectAttributes>? state)
     => state?.IsOption(RoomModeOptions.Bright) ?? false;
     public static bool IsBright(this SelectEntity? entity)
     => entity?.EntityState?.IsBright() ?? false;
+    public static bool IsPartying(this EntityState<SelectAttributes>? state)
+    => state?.IsOption(RoomModeOptions.Partying) ?? false;
+    public static bool IsPartying(this SelectEntity? entity)
+    => entity?.EntityState?.IsPartying() ?? false;
 }

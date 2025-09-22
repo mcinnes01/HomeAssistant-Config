@@ -542,18 +542,6 @@
   action:
   - entity_id: light.porch_light
     service: light.turn_off
-- alias: Snug Scene Normal
-  id: '1624997862387'
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: select.snug_mode
-    to: Normal
-  condition: []
-  action:
-  - service: script.room_controller_reset
-    data:
-      room: Snug
 - alias: Snug Scene Watch Movie
   id: '1624997862389'
   description: ''
@@ -1093,24 +1081,24 @@
 - id: '1709056643855'
   alias: Turn on extractor fan
   description: ''
-  trigger:
+  triggers:
   - type: pm25
-    platform: device
     device_id: 7c997ccb1bc8fd71717b511229494490
     entity_id: b91255e7f0c832496c13e82d8816c48a
     domain: sensor
     above: 40
+    trigger: device
   - type: humidity
-    platform: device
     device_id: 7c997ccb1bc8fd71717b511229494490
     entity_id: cca0856fa881c95a112155145f3c1856
     domain: sensor
     above: 80
-  condition: []
-  action:
+    trigger: device
+  conditions: []
+  actions:
   - type: turn_on
-    device_id: 53fee161c82e36216a2588d4db48d14e
-    entity_id: 298e9c49e7a82bf1806662b428b52632
+    device_id: cb90a60011bb5ec166806490eb94a21f
+    entity_id: e086f201493a15d062196485524f20a7
     domain: fan
   mode: single
 - id: '1709056785566'
@@ -1152,8 +1140,8 @@
     below: 40
   actions:
   - type: turn_off
-    device_id: 53fee161c82e36216a2588d4db48d14e
-    entity_id: 298e9c49e7a82bf1806662b428b52632
+    device_id: cb90a60011bb5ec166806490eb94a21f
+    entity_id: e086f201493a15d062196485524f20a7
     domain: fan
   mode: single
 - id: '1709132585047'
@@ -1687,11 +1675,11 @@
 - id: '1714152051507'
   alias: Hallway Lamp On At Sunset
   description: ''
-  trigger:
-  - platform: sun
-    event: sunset
+  triggers:
+  - event: sunset
     offset: '-1'
-  condition:
+    trigger: sun
+  conditions:
   - condition: or
     conditions:
     - condition: state
@@ -1706,11 +1694,12 @@
     - condition: state
       entity_id: input_select.location_mode
       state: HouseSitter
-  action:
-  - type: turn_on
-    device_id: 3f19fc07f1a211ea95ad67c149799e5f
-    entity_id: 69604199395a225aac9e6fe69de4d16b
-    domain: light
+  actions:
+  - action: light.turn_on
+    metadata: {}
+    data: {}
+    target:
+      device_id: 301830af41a5beb67a93376044592e84
   mode: single
 - id: '1714831180233'
   alias: Bedside Remote Actions
@@ -1778,43 +1767,51 @@
 - id: '1716398696678'
   alias: Keep Hallway Light On
   description: ''
-  trigger:
-  - platform: device
-    type: turned_off
-    device_id: 53fee161c82e36216a2588d4db48d14e
-    entity_id: 238b38c8ff5e0feae04bd525730beb6a
+  triggers:
+  - type: turned_off
+    device_id: 474629ba952dc50d713162aa0742b9ba
+    entity_id: 72d2de4ce127eefdd0c021d1e56ffc3f
     domain: switch
-  condition: []
-  action:
+    trigger: device
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+  conditions: []
+  actions:
   - delay:
       hours: 0
       minutes: 1
       seconds: 0
       milliseconds: 0
   - type: turn_on
-    device_id: 53fee161c82e36216a2588d4db48d14e
-    entity_id: 238b38c8ff5e0feae04bd525730beb6a
+    device_id: 474629ba952dc50d713162aa0742b9ba
+    entity_id: 72d2de4ce127eefdd0c021d1e56ffc3f
     domain: switch
   mode: single
 - id: '1716399388502'
   alias: Keep Cabinet Light On
   description: ''
-  trigger:
-  - platform: device
-    type: turned_off
-    device_id: 64d07acdf42b5cdc381518c91beffdc9
-    entity_id: 96092ec45fbc60be3b1c297a9fde0e75
+  triggers:
+  - type: turned_off
+    device_id: 9527a6b283d0375f846c34142ab5c0b1
+    entity_id: 82588c54d8d8981b12b8b55a3162caf9
     domain: light
-  condition: []
-  action:
+    trigger: device
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+  conditions: []
+  actions:
   - delay:
       hours: 0
       minutes: 1
       seconds: 0
       milliseconds: 0
   - type: turn_on
-    device_id: 64d07acdf42b5cdc381518c91beffdc9
-    entity_id: 96092ec45fbc60be3b1c297a9fde0e75
+    device_id: 9527a6b283d0375f846c34142ab5c0b1
+    entity_id: 82588c54d8d8981b12b8b55a3162caf9
     domain: light
   mode: single
 - id: '1717959862918'
@@ -1937,56 +1934,37 @@
     input:
       remote_name: Studio Bedside Switch
       on_press_action:
-      - service: light.turn_off
-        data:
-          transition: 3
-        target:
-          entity_id: light.studio_light
-      - service: switch.turn_on
+      - action: light.toggle
         metadata: {}
         data: {}
         target:
-          entity_id: switch.studio_lamp
-      off_press_action:
-      - service: light.turn_off
-        data: {}
-        target:
           entity_id: light.studio_light
-      - service: switch.turn_off
+      off_press_action:
+      - action: switch.toggle
         metadata: {}
         data: {}
         target:
           entity_id: switch.studio_lamp
       on_hold_action:
-      - service: media_player.volume_up
-        metadata: {}
+      - metadata: {}
         data: {}
         target:
           entity_id: media_player.studio_echo_dot
+        action: media_player.volume_up
       off_hold_action:
-      - service: media_player.volume_down
-        data: {}
+      - data: {}
         target:
           entity_id: media_player.studio_echo_dot
+        action: media_player.volume_down
       on_double_press: true
       off_double_press: true
-      on_double_press_action:
-      - service: light.turn_on
-        metadata: {}
-        data: {}
-        target:
-          entity_id: light.studio_light
-      - service: switch.turn_off
-        target:
-          entity_id:
-          - switch.studio_lamp
-        data: {}
+      on_double_press_action: []
       off_double_press_action:
-      - service: switch.toggle
-        metadata: {}
+      - metadata: {}
         data: {}
         target:
           entity_id: switch.hifi_socket
+        action: switch.toggle
       helper_hold_delay: 750
       helper_max_loops: 10
 - id: '1717961638399'
@@ -2586,4 +2564,74 @@
     device_id: 4c4e6e371a75d2589075610cdb791a4f
     entity_id: 748f4fc779f3d858838dad5c7afa7e51
     domain: switch
+  mode: single
+- id: '1746745538776'
+  alias: Set all modes to sleeping
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - select.bedroom_mode
+    to: Sleeping
+  conditions: []
+  actions:
+  - action: select.select_option
+    metadata: {}
+    data:
+      option: Sleeping
+    target:
+      entity_id:
+      - select.shed_mode
+      - select.basement_hall_mode
+      - select.bathroom_mode
+      - select.dining_room_mode
+      - select.drawing_room_mode
+      - select.dressing_room_mode
+      - select.utility_room_mode
+      - select.toilet_mode
+      - select.studio_mode
+      - select.snug_mode
+      - select.lounge_mode
+      - select.garden_mode
+      - select.porch_mode
+      - select.hallway_mode
+      - select.electric_cabinet_mode
+      - select.kitchen_mode
+      - select.landing_mode
+      - select.guest_room_mode
+  mode: single
+- id: '1746745594310'
+  alias: Set all modes to Normal
+  description: ''
+  triggers:
+  - trigger: state
+    entity_id:
+    - select.bedroom_mode
+    to: Normal
+  conditions: []
+  actions:
+  - action: select.select_option
+    metadata: {}
+    data:
+      option: Normal
+    target:
+      entity_id:
+      - select.shed_mode
+      - select.basement_hall_mode
+      - select.bathroom_mode
+      - select.dining_room_mode
+      - select.drawing_room_mode
+      - select.dressing_room_mode
+      - select.utility_room_mode
+      - select.toilet_mode
+      - select.studio_mode
+      - select.snug_mode
+      - select.lounge_mode
+      - select.garden_mode
+      - select.porch_mode
+      - select.hallway_mode
+      - select.electric_cabinet_mode
+      - select.kitchen_mode
+      - select.landing_mode
+      - select.guest_room_mode
   mode: single

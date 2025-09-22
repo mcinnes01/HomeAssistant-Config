@@ -2,40 +2,35 @@ namespace NetDaemon.Extensions;
 
 public static class LocationModeExtensions
 {
-    public static bool IsVaccant(this InputSelectEntity locationMode)
-    => locationMode.IsOption(LocationModeOptions.Away);
-    public static bool IsGuest(this InputSelectEntity locationMode)
-    => locationMode.IsOption(LocationModeOptions.Guest);
-    public static bool IsHome(this InputSelectEntity locationMode)
-    => locationMode.IsOption(LocationModeOptions.Home);
-    public static bool IsHouseSitter(this InputSelectEntity locationMode)
-    => locationMode.IsOption(LocationModeOptions.HouseSitter);
-    public static bool IsLeaving(this InputSelectEntity locationMode)
-    => locationMode.IsOption(LocationModeOptions.Leaving);
-    public static bool IsOneAway(this InputSelectEntity locationMode)
-    => locationMode.IsOption(LocationModeOptions.OneAway);
-    public static bool IsReturning(this InputSelectEntity locationMode)
-    => locationMode.IsOption(LocationModeOptions.Returning);
-    public static bool IsOneOrBothHome(this InputSelectEntity locationMode)
+    public static bool Home(this EntityState<InputSelectAttributes>? state)
+    => state.IsOption(LocationModeOptions.Home);
+    public static bool Home(this InputSelectEntity? entity)
+    => entity?.EntityState.Home() ?? false;
+    public static bool Away(this EntityState<InputSelectAttributes>? state)
+    => state.IsOption(LocationModeOptions.Away);
+    public static bool Away(this InputSelectEntity? entity)
+    => entity?.EntityState.Away() ?? false;
+    public static bool OneAway(this EntityState<InputSelectAttributes>? state)
+    => state.IsOption(LocationModeOptions.OneAway);
+    public static bool OneAway(this InputSelectEntity? entity)
+    => entity?.EntityState.OneAway() ?? false;
+    public static bool HouseSitter(this EntityState<InputSelectAttributes>? state)
+    => state.IsOption(LocationModeOptions.HouseSitter);
+    public static bool HouseSitter(this InputSelectEntity? entity)
+    => entity?.EntityState.HouseSitter() ?? false;
+    public static bool Guest(this EntityState<InputSelectAttributes>? state)
+    => state.IsOption(LocationModeOptions.Guest);
+    public static bool Guest(this InputSelectEntity? entity)
+    => entity?.EntityState.Guest() ?? false;
+    public static bool OneOrBothHome(this InputSelectEntity locationMode)
     => locationMode.IsOption(LocationModeOptions.Home)
     || locationMode.IsOption(LocationModeOptions.OneAway);
-    public static bool IsOccupied(this InputSelectEntity locationMode)
+    public static bool Occupied(this InputSelectEntity locationMode)
     => locationMode.IsOption(LocationModeOptions.Home)
     || locationMode.IsOption(LocationModeOptions.OneAway)
     || locationMode.IsOption(LocationModeOptions.HouseSitter)
     || locationMode.IsOption(LocationModeOptions.Guest);
-    public static void Away(this InputSelectEntity locationMode)
-    => locationMode.SelectOption(LocationModeOptions.Away);
-    public static void Guest(this InputSelectEntity locationMode)
-    => locationMode.SelectOption(LocationModeOptions.Guest);
-    public static void Home(this InputSelectEntity locationMode)
-    => locationMode.SelectOption(LocationModeOptions.Home);
-    public static void HouseSitter(this InputSelectEntity locationMode)
-    => locationMode.SelectOption(LocationModeOptions.HouseSitter);
-    public static void Leaving(this InputSelectEntity locationMode)
-    => locationMode.SelectOption(LocationModeOptions.Leaving);
-    public static void OneAway(this InputSelectEntity locationMode)
-    => locationMode.SelectOption(LocationModeOptions.OneAway);
-    public static void Returning(this InputSelectEntity locationMode)
-    => locationMode.SelectOption(LocationModeOptions.Returning);
+    public static bool PeopleStaying(this InputSelectEntity locationMode)
+    => locationMode.IsOption(LocationModeOptions.HouseSitter)
+    || locationMode.IsOption(LocationModeOptions.Guest);
 }

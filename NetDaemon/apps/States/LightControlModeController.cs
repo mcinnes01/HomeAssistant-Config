@@ -5,7 +5,7 @@ public class LightControlModeController
 {
     ILogger<LightControlModeController> _logger;
     IEntities _entities;
-    InputSelectEntity? BedroomMode;
+    SelectEntity? BedroomMode;
     InputSelectEntity? TimeOfDay;
     InputSelectEntity? LightControlMode;
     InputSelectEntity? LocationMode;
@@ -25,7 +25,7 @@ public class LightControlModeController
         LocationMode = _entities.InputSelect.LocationMode;
         TimeOfDay = _entities.InputSelect.TimeOfDay;
         Brightness = _entities.InputSelect.Brightness;
-        BedroomMode = _entities.InputSelect.BedroomMode;
+        BedroomMode = _entities.Select.BedroomMode;
         IsEnabled = _entities.InputBoolean.LightControlModeEnabled;
 
         // Manual change or scene or schedule

@@ -1,0 +1,43 @@
+esphome:
+  name: bedroom-bluetooth
+  friendly_name: Bedroom Bluetooth
+  min_version: 2025.5.0
+  name_add_mac_suffix: false
+
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "9IX3J92u0AW4rAiHb/+jgr5VoeMi5xdHSFqkYmqdnmM="
+
+ota:
+  - platform: esphome
+    password: "415e3991cabeb9ac68cf345d1a61a972"
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Bedroom-Bluetooth"
+    password: "1uC2PN2QAP3K"
+
+captive_portal:
+    
+esp32_ble_tracker:
+  scan_parameters:
+    interval: 1100ms
+    window: 1100ms
+    active: true
+
+bluetooth_proxy:
+  active: true
+  connection_slots: 3

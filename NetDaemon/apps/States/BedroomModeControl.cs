@@ -5,7 +5,7 @@ public class BedroomModeController
 {
     ILogger<BedroomModeController> _logger;
     IEntities _entities;
-    InputSelectEntity? BedroomMode;
+    SelectEntity? BedroomMode;
     InputSelectEntity? LocationMode;
     InputSelectEntity? TimeOfDay;
     InputBooleanEntity? InBed;
@@ -20,7 +20,7 @@ public class BedroomModeController
         _logger = logger;
         _entities = new Entities(context);
 
-        BedroomMode = _entities.InputSelect.BedroomMode;
+        BedroomMode = _entities.Select.BedroomMode;
         LocationMode = _entities.InputSelect.LocationMode;
         TimeOfDay = _entities.InputSelect.TimeOfDay;
         InBed = _entities.InputBoolean.InBed;

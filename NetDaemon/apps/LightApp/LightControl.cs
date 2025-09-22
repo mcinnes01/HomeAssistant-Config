@@ -27,7 +27,7 @@ public class LightControl
     private IMqttEntityManager _entityManager;
     private IScheduler _scheduler;
     private IHaContext _context;
-    private Services _services;
+    private IServices _services;
     private Entities _entities;
     private ILogger<LightingManager> _logger;
     private InputSelectEntity _locationMode;
@@ -47,7 +47,7 @@ public class LightControl
         _entityManager = entityManager;
         _scheduler = scheduler;
         _context = haContext;
-        _services = new Services(haContext);
+        _services = new HomeAssistantGenerated.Services(haContext);
         _entities = new Entities(haContext);
         _logger = logger;
         _locationMode = _entities.InputSelect.LocationMode;
@@ -83,7 +83,7 @@ public class LightControl
         if (_context.Entity(_enabledSwitch).State == null)
         {
             await _entityManager.CreateAsync(_enabledSwitch, new EntityCreationOptions(
-                Name: $"Light Manager {Light.Name().Replace("_", " ")}",
+                Name: $"Light Manager {Light.Name()!.Replace("_", " ")}",
                 UniqueId: _enabledSwitch,
                 DeviceClass: "switch",
                 Persist: true)).ConfigureAwait(false);
@@ -128,13 +128,13 @@ public class LightControl
             }
             #pragma warning restore CS8604 // Possible null reference argument.
 
-            // Turn off the light if the location is leaving and it's an entrance and the light is on
-            if (e.New.IsOption(LocationModeOptions.Leaving) && !_room.IsEntrance && Light.IsOn())
-            {
-                _logger.LogInformation("Location is {location}, turning off {light} as its not an entrance lights", e.New.State, Light.EntityId);
-                TurnOffEntities("Location");
-                return;
-            }
+            // // Turn off the light if the location is leaving and it's not an entrance and the light is on
+            // if (e.New.IsOption(LocationModeOptions.Leaving) && !_room.IsEntrance && Light.IsOn())
+            // {
+            //     _logger.LogInformation("Location is {location}, turning off {light} as its not an entrance lights", e.New.State, Light.EntityId);
+            //     TurnOffEntities("Location");
+            //     return;
+            // }
         });
     }
 
@@ -147,7 +147,7 @@ public class LightControl
         {
             if (e.New.IsSleeping())
             {
-                _logger.LogInformation("Room Mode is {mode}, turning off {light}", e.New.State, Light.EntityId);
+                _logger.LogInformation("Room Mode is {mode}, turning off {light}", e.New?.State, Light.EntityId);
                 TurnOffEntities("Sleeping");
                 return;
             }
@@ -155,28 +155,28 @@ public class LightControl
             {
                 if (IsMoodLight)
                 {
-                    _logger.LogInformation("Room Mode is {mode} and is a mood light, turning on {light}", e.New.State, Light.EntityId);
+                    _logger.LogInformation("Room Mode is {mode} and is a mood light, turning on {light}", e.New?.State, Light.EntityId);
                     TurnOnEntities("Relaxing");
                     return;
                 }
                 if (_room.HasMultipleLights)
                 {
-                    _logger.LogInformation("Room Mode is {mode}, turning off primary {light}", e.New.State, Light.EntityId);
+                    _logger.LogInformation("Room Mode is {mode}, turning off primary {light}", e.New?.State, Light.EntityId);
                     TurnOffEntities("Relaxing");
                     return;
                 }
-                _logger.LogInformation("Room Mode is {mode}, but there is only one light so leaving it as is {light}", e.New.State, Light.EntityId);
+                _logger.LogInformation("Room Mode is {mode}, but there is only one light so leaving it as is {light}", e.New?.State, Light.EntityId);
                 return;
             }
             if (e.New.IsBright())
             {
                 if (Primary)
                 {
-                    _logger.LogInformation("Room Mode is {mode}, turning on {light}", e.New.State, Light.EntityId);
+                    _logger.LogInformation("Room Mode is {mode}, turning on {light}", e.New?.State, Light.EntityId);
                     TurnOnEntities("Bright");
                     return;
                 }
-                _logger.LogInformation("Room Mode is {mode}, turning off mood light {light}", e.New.State, Light.EntityId);
+                _logger.LogInformation("Room Mode is {mode}, turning off mood light {light}", e.New?.State, Light.EntityId);
                 TurnOffEntities("Bright");
                 return;
             }

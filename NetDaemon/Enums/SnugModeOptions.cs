@@ -6,6 +6,7 @@ public enum SnugModeOptions
     Manual,
     Movie,
     Normal,
+    Partying,
     Relaxing,
     Sleeping
 }

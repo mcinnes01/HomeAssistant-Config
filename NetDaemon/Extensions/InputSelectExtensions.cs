@@ -82,10 +82,10 @@ public static class InputSelectExtensions
     => entity?.EntityState?.IsManual() ?? false;
     public static bool IsMotion(this EntityState<InputSelectAttributes>? state)
     => state?.IsOption(LightControlModeOptions.Motion) ?? false;
-    public static bool Cleaning(this InputSelectEntity locationMode)
-    => locationMode.IsOption(LightControlModeOptions.Cleaning);
-    public static void Manual(this InputSelectEntity locationMode)
-    => locationMode.SelectOption(LightControlModeOptions.Manual);
-    public static bool Motion(this InputSelectEntity locationMode)
-    => locationMode.IsOption(LightControlModeOptions.Motion);
+    public static bool Cleaning(this InputSelectEntity entity)
+    => entity.IsOption(LightControlModeOptions.Cleaning);
+    public static void Manual(this InputSelectEntity entity)
+    => entity.SelectOption(LightControlModeOptions.Manual);
+    public static bool Motion(this InputSelectEntity enetity)
+    => enetity.IsOption(LightControlModeOptions.Motion);
 }

@@ -6,7 +6,5 @@ public enum LocationModeOptions
     Guest,
     Home,
     HouseSitter,
-    Leaving,
-    OneAway,
-    Returning
+    OneAway
 }

@@ -1,171 +1,171 @@
 # Floors
-upstairs:
-  name: Upstairs
-  entities:
-    - group.landing
-    - group.bathroom
-    - group.studio
-    - group.bedroom
-    - group.guest_room
-    - group.dressing_room
+# upstairs:
+#   name: Upstairs
+#   entities:
+#     - group.landing
+#     - group.bathroom
+#     - group.studio
+#     - group.bedroom
+#     - group.guest_room
+#     - group.dressing_room
 
-downstairs:
-  name: Downstairs
-  entities:
-    - group.porch
-    - group.hallway
-    - group.lounge
-    - group.drawing_room
-    - group.kitchen
-    - group.patio
+# downstairs:
+#   name: Downstairs
+#   entities:
+#     - group.porch
+#     - group.hallway
+#     - group.lounge
+#     - group.drawing_room
+#     - group.kitchen
+#     - group.patio
 
-basement:
-  name: Basement
-  entities:
-    - group.basement_hall
-    - group.electric_cabinet
-    - group.snug
-    - group.dining_room
-    - group.toilet
-    - group.utility_room
+# basement:
+#   name: Basement
+#   entities:
+#     - group.basement_hall
+#     - group.electric_cabinet
+#     - group.snug
+#     - group.dining_room
+#     - group.toilet
+#     - group.utility_room
 
-outside:
-  name: Outside
-  entities:
-    - group.porch
-    - group.patio
+# outside:
+#   name: Outside
+#   entities:
+#     - group.porch
+#     - group.patio
 
 # Rooms
-landing:
-  name: Landing
-  entities:
-    - group.media_landing_tablet
-    - light.landing_light
-    - binary_sensor.landing_motion
+# landing:
+#   name: Landing
+#   entities:
+#     - group.media_landing_tablet
+#     - light.landing_light
+#     - binary_sensor.landing_motion
 
-bathroom:
-  name: Bathroom
-  entities:
-    - group.bathroom_lights
-    - fan.bathroom_fan
-    - binary_sensor.bathroom_motion
+# bathroom:
+#   name: Bathroom
+#   entities:
+#     - group.bathroom_lights
+#     - fan.bathroom_fan
+#     - binary_sensor.bathroom_motion
 
-studio:
-  name: Studio
-  entities:
-    - light.studio_light
-    - binary_sensor.studio_motion
+# studio:
+#   name: Studio
+#   entities:
+#     - light.studio_light
+#     - binary_sensor.studio_motion
 
-bedroom:
-  name: Bedroom
-  entities:
-    - group.bedroom_lights
-    - group.media_bedroom_echo_show
-    - group.climate_upstairs
-    - binary_sensor.bedroom_motion
+# bedroom:
+#   name: Bedroom
+#   entities:
+#     - group.bedroom_lights
+#     - group.media_bedroom_echo_show
+#     - group.climate_upstairs
+#     - binary_sensor.bedroom_motion
 
-guest_bedroom:
-  name: Guest Room
-  entities:
-    - light.guest_room_light
-    - binary_sensor.guest_room_motion
+# guest_bedroom:
+#   name: Guest Room
+#   entities:
+#     - light.guest_room_light
+#     - binary_sensor.guest_room_motion
 
-dressing_room:
-  name: Dressing room
-  entities:
-    - group.media_dressing_room_echo_dot
-    - light.dressing_room_light
-    - binary_sensor.dressing_room_motion
+# dressing_room:
+#   name: Dressing room
+#   entities:
+#     - group.media_dressing_room_echo_dot
+#     - light.dressing_room_light
+#     - binary_sensor.dressing_room_motion
 
-hallway:
-  name: Hallway
-  entities:
-    - group.media_hallway_tablet
-    - group.hallway_lights
-    - binary_sensor.hallway_motion
+# hallway:
+#   name: Hallway
+#   entities:
+#     - group.media_hallway_tablet
+#     - group.hallway_lights
+#     - binary_sensor.hallway_motion
 
-porch:
-  name: Porch
-  entities:
-    - light.porch_light
-    - group.esp_doorbell
+# porch:
+#   name: Porch
+#   entities:
+#     - light.porch_light
+#     - group.esp_doorbell
 
-lounge:
-  name: Lounge
-  entities:
-    - group.lounge_lights
-    - group.climate_downstairs
-    - group.media_lounge_echo_plus
-    - binary_sensor.lounge_motion
-    - binary_sensor.main_sofa_presence
-    - binary_sensor.window_sofa_presence
-    - binary_sensor.guest_sofa_presence
-    - binary_sensor.lounge_occupancy
-    - sensor.lounge_illuminance
+# lounge:
+#   name: Lounge
+#   entities:
+#     - group.lounge_lights
+#     - group.climate_downstairs
+#     - group.media_lounge_echo_plus
+#     - binary_sensor.lounge_motion
+#     - binary_sensor.main_sofa_presence
+#     - binary_sensor.window_sofa_presence
+#     - binary_sensor.guest_sofa_presence
+#     - binary_sensor.lounge_occupancy
+#     - sensor.lounge_illuminance
 
-drawing_room:
-  name: Drawing Room
-  entities:
-    - group.drawing_room_lights
-    - binary_sensor.drawing_room_motion
-    - group.media_drawing_room_echo_dot
+# drawing_room:
+#   name: Drawing Room
+#   entities:
+#     - group.drawing_room_lights
+#     - binary_sensor.drawing_room_motion
+#     - group.media_drawing_room_echo_dot
 
-kitchen:
-  name: Kitchen
-  entities:
-    - group.kitchen_lights
-    - group.kitchen_motion_sensors
-    - fan.extractor_fan
-    - group.media_kitchen_echo_show
+# kitchen:
+#   name: Kitchen
+#   entities:
+#     - group.kitchen_lights
+#     - group.kitchen_motion_sensors
+#     - fan.extractor_fan
+#     - group.media_kitchen_echo_show
 
-patio:
-  name: Patio
-  entities:
-    - group.patio_lights
-    - binary_sensor.patio_motion
+# patio:
+#   name: Patio
+#   entities:
+#     - group.patio_lights
+#     - binary_sensor.patio_motion
 
-basement_hall:
-  name: Basement Hall
-  entities:
-    - group.basement_hall_lights
-    - group.basement_hall_motion_sensors
-    - script.feed_cats
+# basement_hall:
+#   name: Basement Hall
+#   entities:
+#     - group.basement_hall_lights
+#     - group.basement_hall_motion_sensors
+#     - script.feed_cats
 
-electric_cabinet:
-  name: Electric cabinet
-  entities:
-    - light.basement_hall_light
+# electric_cabinet:
+#   name: Electric cabinet
+#   entities:
+#     - light.basement_hall_light
 
-snug:
-  name: Snug
-  entities:
-    - group.snug_lights
-    - binary_sensor.snug_motion
-    - media_player.snug_radio
-    - group.media_snug_echo_input
-    - binary_sensor.snug_occupancy
-    - sensor.snug_illuminance
+# snug:
+#   name: Snug
+#   entities:
+#     - group.snug_lights
+#     - binary_sensor.snug_motion
+#     - media_player.snug_radio
+#     - group.media_snug_echo_input
+#     - binary_sensor.snug_occupancy
+#     - sensor.snug_illuminance
 
-dining_room:
-  name: Dining Room
-  entities:
-    - light.dining_room_light
-    - binary_sensor.dining_room_motion
-    - media_player.utility_radio #needs renaming
-    - group.media_dining_room_echo_input
+# dining_room:
+#   name: Dining Room
+#   entities:
+#     - light.dining_room_light
+#     - binary_sensor.dining_room_motion
+#     - media_player.utility_radio #needs renaming
+#     - group.media_dining_room_echo_input
 
-utility_room:
-  name: Utility Room
-  entities:
-    - light.utility_room_light
-    - binary_sensor.utility_room_motion
-    - group.media_utility_room_echo_dot
+# utility_room:
+#   name: Utility Room
+#   entities:
+#     - light.utility_room_light
+#     - binary_sensor.utility_room_motion
+#     - group.media_utility_room_echo_dot
 
-toilet:
-  name: Toilet
-  entities:
-    - light.toilet_light
-    - binary_sensor.toilet_motion
+# toilet:
+#   name: Toilet
+#   entities:
+#     - light.toilet_light
+#     - binary_sensor.toilet_motion
 
 # Media Players
 media_bedroom_echo_show:

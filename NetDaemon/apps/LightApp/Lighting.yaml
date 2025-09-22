@@ -405,7 +405,7 @@ NetDaemon.apps.LightApp.LightingConfig:
       IsBedroom: true
       IlluminanceSensor: sensor.snug_illuminance
       IlluminanceLowThreshold: 7
-      IlluminanceHighThreshold: 17
+      IlluminanceHighThreshold: 40
       BlockModes:
         - Sleeping
         - Bright
@@ -416,6 +416,8 @@ NetDaemon.apps.LightApp.LightingConfig:
       Lights:
         - Light: light.snug_light
           Timeout: 240
+          TriggerSensors:
+            - binary_sensor.snug_motion
           PresenceSensors:
             - binary_sensor.snug_motion
             - binary_sensor.snug_occupancy
@@ -426,6 +428,8 @@ NetDaemon.apps.LightApp.LightingConfig:
         - Light: light.snug_lamp
           Timeout: 240
           Primary: false
+          TriggerSensors:
+            - binary_sensor.snug_motion
           PresenceSensors:
             - binary_sensor.snug_motion
             - binary_sensor.snug_occupancy
@@ -436,6 +440,8 @@ NetDaemon.apps.LightApp.LightingConfig:
         - Light: light.snug_led_strip
           Timeout: 240
           Primary: false
+          TriggerSensors:
+            - binary_sensor.snug_motion
           PresenceSensors:
             - binary_sensor.snug_motion
             - binary_sensor.snug_occupancy

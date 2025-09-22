@@ -491,7 +491,7 @@ public partial class BinarySensorEntities
     ///<summary>Andy In bed</summary>
     public BinarySensorEntity AndyInBed => new(_haContext, "binary_sensor.andy_in_bed");
     ///<summary>At Home</summary>
-    public BinarySensorEntity AtHome => new(_haContext, "binary_sensor.at_home");
+    public BinarySensorEntity IsHome => new(_haContext, "binary_sensor.at_home");
     ///<summary>Averge Bathroom Humidity</summary>
     public BinarySensorEntity AvergeBathroomHumidity => new(_haContext, "binary_sensor.averge_bathroom_humidity");
     ///<summary>Backdoor Light Input</summary>
