@@ -2536,8 +2536,8 @@
       state: Sleeping
   actions:
   - type: turn_off
-    device_id: 4c4e6e371a75d2589075610cdb791a4f
-    entity_id: 748f4fc779f3d858838dad5c7afa7e51
+    device_id: ca648d70df78f341facdc58d3b02a414
+    entity_id: 1a8cfd4f09afbe3e1bd3508afddf1690
     domain: switch
   mode: single
 - id: '1745708850607'
@@ -2561,8 +2561,8 @@
       state: Sleeping
   actions:
   - type: turn_on
-    device_id: 4c4e6e371a75d2589075610cdb791a4f
-    entity_id: 748f4fc779f3d858838dad5c7afa7e51
+    device_id: ca648d70df78f341facdc58d3b02a414
+    entity_id: 1a8cfd4f09afbe3e1bd3508afddf1690
     domain: switch
   mode: single
 - id: '1746745538776'
